@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Mfi-lg-VA9" customClass="informationModificationHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="r-address" translatesAutoresizingMaskIntoConstraints="NO" id="rOi-DL-jQW" userLabel="left">
+                    <rect key="frame" x="25" y="7.5" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="gh8-Jf-46V">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="25" id="lTN-OK-ueE">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0T-nF-NFu">
+                    <rect key="frame" x="60" y="0.0" width="300" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="p5g-9Y-oOR">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="tintColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="新增地址"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="addNewAddressAction:" destination="Mfi-lg-VA9" eventType="touchUpInside" id="t6Q-Ug-Cvx"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="r-greater" translatesAutoresizingMaskIntoConstraints="NO" id="wuk-uf-Lms" userLabel="right">
+                    <rect key="frame" x="360" y="15" width="5" height="10"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="lzh-ai-7ce">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="width" constant="5" id="u3b-cS-98u">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="rOi-DL-jQW" firstAttribute="leading" secondItem="GRM-ac-WXk" secondAttribute="leading" constant="25" id="1XH-9x-CDz"/>
+                <constraint firstItem="z0T-nF-NFu" firstAttribute="top" secondItem="GRM-ac-WXk" secondAttribute="top" id="PWP-WJ-gnY"/>
+                <constraint firstItem="z0T-nF-NFu" firstAttribute="leading" secondItem="rOi-DL-jQW" secondAttribute="trailing" constant="10" id="Ptx-vD-eDL"/>
+                <constraint firstItem="wuk-uf-Lms" firstAttribute="trailing" secondItem="GRM-ac-WXk" secondAttribute="trailing" constant="-10" id="RtU-mT-t4s"/>
+                <constraint firstItem="wuk-uf-Lms" firstAttribute="leading" secondItem="z0T-nF-NFu" secondAttribute="trailing" id="i00-GX-uII"/>
+                <constraint firstItem="wuk-uf-Lms" firstAttribute="centerY" secondItem="Mfi-lg-VA9" secondAttribute="centerY" id="rVs-cL-q2j"/>
+                <constraint firstItem="rOi-DL-jQW" firstAttribute="centerY" secondItem="Mfi-lg-VA9" secondAttribute="centerY" id="xSP-NW-SnJ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="GRM-ac-WXk"/>
+            <point key="canvasLocation" x="112.8" y="145.72713643178412"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="r-address" width="44" height="44"/>
+        <image name="r-greater" width="11" height="21"/>
+    </resources>
+</document>

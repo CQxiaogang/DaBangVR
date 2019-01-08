@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="M05-58-SNt">
+            <rect key="frame" x="0.0" y="0.0" width="110" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大邦VR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdf-NT-Co0">
+                    <rect key="frame" x="0.0" y="110" width="110" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="zSY-or-rge">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="13"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="热门视频" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bn-8S-zFu">
+                    <rect key="frame" x="0.0" y="125" width="50" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="SU6-ic-4CZ">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4358" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWN-Z6-XvQ">
+                    <rect key="frame" x="79" y="125" width="31" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="31" id="ODw-Np-u3f">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="h_love" translatesAutoresizingMaskIntoConstraints="NO" id="820-VD-Pki">
+                    <rect key="frame" x="66" y="125" width="12" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="12" id="Hxr-X5-dOU">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="12" id="txG-vT-2Tm">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="myB-sn-fel">
+                    <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                    <color key="backgroundColor" red="0.94855254889999996" green="0.3309721947" blue="0.3453642428" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="110" id="KTQ-Ba-klJ">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="110" id="bzK-84-QFr">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="6bn-8S-zFu" firstAttribute="top" secondItem="bdf-NT-Co0" secondAttribute="bottom" id="12a-10-qAo"/>
+                <constraint firstItem="sWN-Z6-XvQ" firstAttribute="height" secondItem="6bn-8S-zFu" secondAttribute="height" id="6Kh-Jf-FR6"/>
+                <constraint firstItem="bdf-NT-Co0" firstAttribute="leading" secondItem="b3X-Gs-jk5" secondAttribute="leading" id="9Lj-jD-stl"/>
+                <constraint firstItem="bdf-NT-Co0" firstAttribute="top" secondItem="myB-sn-fel" secondAttribute="bottom" id="CbO-fC-O12"/>
+                <constraint firstItem="sWN-Z6-XvQ" firstAttribute="trailing" secondItem="b3X-Gs-jk5" secondAttribute="trailing" id="D0u-dm-Qg3"/>
+                <constraint firstItem="myB-sn-fel" firstAttribute="leading" secondItem="b3X-Gs-jk5" secondAttribute="leading" id="G4L-fe-RIo"/>
+                <constraint firstItem="myB-sn-fel" firstAttribute="trailing" secondItem="b3X-Gs-jk5" secondAttribute="trailing" id="I7M-bm-zyr"/>
+                <constraint firstItem="820-VD-Pki" firstAttribute="centerY" secondItem="6bn-8S-zFu" secondAttribute="centerY" id="KqN-MJ-azY"/>
+                <constraint firstItem="sWN-Z6-XvQ" firstAttribute="centerY" secondItem="6bn-8S-zFu" secondAttribute="centerY" id="UJh-lj-zK8"/>
+                <constraint firstItem="myB-sn-fel" firstAttribute="top" secondItem="b3X-Gs-jk5" secondAttribute="top" id="ebP-mk-017"/>
+                <constraint firstItem="820-VD-Pki" firstAttribute="leading" secondItem="6bn-8S-zFu" secondAttribute="trailing" constant="16" id="kSH-18-Kna"/>
+                <constraint firstItem="bdf-NT-Co0" firstAttribute="width" secondItem="myB-sn-fel" secondAttribute="width" id="kT0-Md-X9v"/>
+                <constraint firstItem="820-VD-Pki" firstAttribute="height" secondItem="6bn-8S-zFu" secondAttribute="height" id="vAe-cw-18w"/>
+                <constraint firstItem="6bn-8S-zFu" firstAttribute="leading" secondItem="b3X-Gs-jk5" secondAttribute="leading" id="vg7-b0-vbj"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="b3X-Gs-jk5"/>
+            <point key="canvasLocation" x="-104" y="-58.47076461769116"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="h_love" width="15" height="14"/>
+    </resources>
+</document>

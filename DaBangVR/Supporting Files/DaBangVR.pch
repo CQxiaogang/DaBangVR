@@ -1,0 +1,40 @@
+
+//  DaBangVR.pch
+//  DaBangVR
+//
+//  Created by mac on 2018/11/28.
+//  Copyright © 2018 DaBangVR. All rights reserved.
+//
+
+#ifndef DaBangVR_pch
+#define DaBangVR_pch
+// 定义这个常量，就可以不用在开发过程中使用"mas_"前缀。
+#define MAS_SHORTHAND
+// 定义这个常量，就可以让Masonry帮我们自动把基础数据类型的数据，自动装箱为对象类型。
+#define MAS_SHORTHAND_GLOBALS
+
+// 基础类
+#import "UserManager.h"
+#import "DBFontOfSize.h"
+#import "BSFitdpiUtil.h"
+#import "NetWorkHelper.h"
+#import "UIColor+category.h"
+#import "RootViewController.h"
+#import "AppDelegate+AppService.h"
+#import "RootNavigationController.h"
+#import "UIViewController+AlertViewAndActionSheet.h"
+
+// 第三方
+#import <YYKit.h>
+#import "Masonry.h"
+#import "UIView+MJExtension.h"
+#import <SVProgressHUD.h>
+
+// 全局宏
+#import "URLMacros.h"
+#import "ThirdMacros.h"
+#import "UtilsMacros.h"
+#import "CommonMacros.h"
+#import "FontAndColorMacros.h"
+
+#endif /* DaBangVR_pch */
