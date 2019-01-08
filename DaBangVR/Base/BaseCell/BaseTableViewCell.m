@@ -1,23 +1,25 @@
 //
-//  DBDetailFooterCell.m
+//  BaseTableViewCell.m
 //  DaBangVR
 //
-//  Created by mac on 2019/1/7.
+//  Created by mac on 2019/1/8.
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "DBDetailFooterCell.h"
+#import "BaseTableViewCell.h"
 
-@implementation DBDetailFooterCell
+@implementation BaseTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.textLabel.font = [UIFont fontWithName:@"Thonburi" size:14];
-    self.textLabel.textColor = KFontColor;
+    // cell 点击不变灰
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+
+    
 }
 
 @end

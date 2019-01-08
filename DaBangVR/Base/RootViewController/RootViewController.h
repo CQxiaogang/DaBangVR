@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RootViewController : UIViewController
 
+@property (nonatomic, strong) UITableView *tableView;
+
+- (void)setupUI;
+
 @end
 
 NS_ASSUME_NONNULL_END

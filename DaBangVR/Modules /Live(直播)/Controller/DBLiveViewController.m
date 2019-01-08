@@ -32,7 +32,6 @@ static NSString *cellID = @"cellID";
      BOOL isFrist;
 }
 
-@property (nonatomic, strong) UITableView *tableView;
 //定义collectionView,瀑布流显示
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -55,23 +54,17 @@ static NSString *cellID = @"cellID";
 
 #pragma mark 懒加载
 - (UITableView *)tableView{
-    if (_tableView == nil) {
+    if (self.tableView == nil) {
         
         CGFloat tableV_Y = 0;
         CGFloat tableV_W = self.view.mj_w;
         CGFloat tableV_H = self.view.mj_h - 49 - 44 - 20;
         
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, tableV_Y, tableV_W, tableV_H)];
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, tableV_Y, tableV_W, tableV_H)];
         
-        _tableView.delegate = self;
-        
-        _tableView.dataSource = self;
-        //去掉滚动条
-        _tableView.showsVerticalScrollIndicator = NO;
-        
-        [_tableView registerNib:[UINib nibWithNibName:@"DBLiveTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
+        [self.tableView registerNib:[UINib nibWithNibName:@"DBLiveTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
     }
-    return _tableView;
+    return self.tableView;
 }
 
 -(UICollectionView *)collectionView{

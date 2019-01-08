@@ -35,14 +35,14 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货人:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oL4-ve-IDi">
-                        <rect key="frame" x="25" y="11.5" width="47" height="17"/>
+                        <rect key="frame" x="25" y="11.5" width="65" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="6lO-eb-qlh">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstAttribute="width" constant="47" id="yPC-Ru-M91">
+                            <constraint firstAttribute="width" constant="65" id="yPC-Ru-M91">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -58,7 +58,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="李先生" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gkh-xG-Rjt">
-                        <rect key="frame" x="77" y="9.5" width="249" height="21"/>
+                        <rect key="frame" x="95" y="9.5" width="249" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="249" id="Bkq-Km-caV">
                                 <userDefinedRuntimeAttributes>

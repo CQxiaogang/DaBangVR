@@ -21,7 +21,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self setUpUI];
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }

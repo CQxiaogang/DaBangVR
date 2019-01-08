@@ -1,8 +1,8 @@
 //
-//  informationModificationCell.h
+//  BaseTableViewCell.h
 //  DaBangVR
 //
-//  Created by mac on 2019/1/7.
+//  Created by mac on 2019/1/8.
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface informationModificationCell : BaseTableViewCell
+@interface BaseTableViewCell : UITableViewCell
 
 @end
 

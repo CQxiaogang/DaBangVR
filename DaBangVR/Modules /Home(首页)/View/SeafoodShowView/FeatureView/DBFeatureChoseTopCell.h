@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DBFeatureChoseTopCell : UITableViewCell
+@interface DBFeatureChoseTopCell : BaseTableViewCell
 
 /** 取消点击回调 */
 @property (nonatomic, copy) dispatch_block_t crossButtonClickBlock;

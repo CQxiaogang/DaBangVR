@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SeafoodShowTableViewCell : UITableViewCell
+@interface SeafoodShowTableViewCell : BaseTableViewCell
 @property (weak, nonatomic) IBOutlet YYAnimatedImageView *headImgView;
 
 @property (strong, nonatomic) SeafoodShowModel *model;

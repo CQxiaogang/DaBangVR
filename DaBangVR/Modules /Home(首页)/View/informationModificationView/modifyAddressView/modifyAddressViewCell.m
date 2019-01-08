@@ -12,15 +12,16 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.contentText.font = [UIFont systemFontOfSize:Adapt(14)];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
 
-- (void)setInfoModel:(modifyAddressModel *)infoModel{
-    self.titleLabel.text = infoModel.title;
-//    self.contentText.text = infoModel.content;
+- (void)setModel:(modifyAddressModel *)model{
+//    self.titleLabel.text = (NSString *)model;
+    //    self.contentText.text = infoModel.content;
 }
 
 @end

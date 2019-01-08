@@ -19,6 +19,7 @@
 #import "BSFitdpiUtil.h"
 #import "NetWorkHelper.h"
 #import "UIColor+category.h"
+#import "BaseTableViewCell.h"
 #import "RootViewController.h"
 #import "AppDelegate+AppService.h"
 #import "RootNavigationController.h"

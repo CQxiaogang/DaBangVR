@@ -7,16 +7,17 @@
 //
 
 #import "MineTableViewCell.h"
+// controllers
 #import "LoginViewController.h"
 #import "MainTabBarController.h"
 #import "SettingViewController.h"
+#import "informationModificationViewController.h"
 #import "UIAlertController+TapGesAlertController.h"
 
 static NSString *cellID = @"cellID";
 
-@interface SettingViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface SettingViewController ()
 
-@property (nonatomic, strong)UITableView        *tableView;
 @property (nonatomic, strong)NSArray            *arrayImage;
 @property (nonatomic, strong)NSArray            *arrayTitle;
 @property (nonatomic, strong)NSMutableArray     *arrayContent;
@@ -27,18 +28,6 @@ static NSString *cellID = @"cellID";
 
 @implementation SettingViewController
 #pragma mark —— 懒加载
--(UITableView *)tableView{
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
-        [_tableView registerNib:[UINib nibWithNibName:@"MineTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
-        //去掉滚动条
-        _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.dataSource = self;
-        _tableView.delegate = self;
-    }
-    return _tableView;
-}
-
 -(NSArray *)arrayImage{
     if (!_arrayImage) {
         _arrayImage = @[@"S_Nickname",@"S_Gender",@"S_Permanent_residence",@"S_Cell_phone",@"S_Password",@"S_address",@"S_Eliminate",@"S_To_update",@"S_Praise",];
@@ -64,10 +53,8 @@ static NSString *cellID = @"cellID";
     if (!_LogOutBtn) {
         _LogOutBtn = [[UIButton alloc] init];
         _LogOutBtn.backgroundColor = [UIColor lightGreen];
-        
         [_LogOutBtn setTitle:@"退出登陆" forState:UIControlStateNormal];
         _LogOutBtn.titleLabel.adaptiveFontSize = 17;
-        
         [_LogOutBtn addTarget:self action:@selector(LogOutAction) forControlEvents:UIControlEventTouchDown];
     }
     return _LogOutBtn;
@@ -77,10 +64,15 @@ static NSString *cellID = @"cellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"设置";
-    // 设置ui
+}
+// 父类 UI 设置
+-(void)setupUI{
+    [super setupUI];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"MineTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.LogOutBtn];
-
+    // 添加约束
     __weak typeof(self) weakSelf = self;
     [self.LogOutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.equalTo(CGSizeMake(335, 40));
@@ -129,8 +121,6 @@ static NSString *cellID = @"cellID";
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     _cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    // cell点击的时候不变颜色
-    _cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (_cell == nil) {
         _cell = [[MineTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
@@ -248,6 +238,7 @@ static NSString *cellID = @"cellID";
                 break;
             case 3:
                 // 我的地址
+                [self myAddress];
                 break;
             default:
                 break;
@@ -332,11 +323,14 @@ static NSString *cellID = @"cellID";
         }];
     });
 }
-
 - (void)modifyTheGender:(NSString *)sex{
     [self.arrayContent replaceObjectAtIndex:1 withObject:sex];
     [self.tableView reloadData];
 }
-
+// 我的地址
+- (void)myAddress{
+    informationModificationViewController *VC = [[informationModificationViewController alloc] init];
+    [self.navigationController pushViewController:VC animated:NO];
+}
 
 @end

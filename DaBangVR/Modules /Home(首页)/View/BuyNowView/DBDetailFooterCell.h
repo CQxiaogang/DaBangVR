@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DBDetailFooterCell : UITableViewCell
+@interface DBDetailFooterCell : BaseTableViewCell
 @property (nonatomic, strong) NSArray *infoArray;
 @end
 

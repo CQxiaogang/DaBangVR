@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MineTableViewCell : UITableViewCell
+@interface MineTableViewCell : BaseTableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageV;  // 标题图片
 @property (weak, nonatomic) IBOutlet UILabel     *titleLabel;   // 标题
 @property (weak, nonatomic) IBOutlet UILabel     *contentLabel; // 内容

@@ -11,11 +11,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface modifyAddressViewCell : UITableViewCell
+@interface modifyAddressViewCell : BaseTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *contentText;
 
-@property (nonatomic, strong) modifyAddressModel *infoModel;
+@property (nonatomic, strong) modifyAddressModel *model;
 
 @end
 

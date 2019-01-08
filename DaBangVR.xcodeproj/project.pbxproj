@@ -55,6 +55,7 @@
 		049D47A2219FEC690058178D /* DBShortVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A1219FEC690058178D /* DBShortVideoViewController.m */; };
 		049D47A5219FEC790058178D /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A4219FEC790058178D /* MineViewController.m */; };
 		04E0473221D36A42002DDB98 /* allCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E0473121D36A42002DDB98 /* allCommentsViewController.m */; };
+		04F084F021E48F9600BFE102 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F084EF21E48F9600BFE102 /* BaseTableViewCell.m */; };
 		04F3270A21D07F18009267F4 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3270921D07F18009267F4 /* SettingTableViewCell.m */; };
 		04F3271321D09779009267F4 /* SeafoodShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3271121D09779009267F4 /* SeafoodShowTableViewCell.m */; };
 		04F3271421D09779009267F4 /* SeafoodShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F3271221D09779009267F4 /* SeafoodShowTableViewCell.xib */; };
@@ -233,6 +234,8 @@
 		049D47A4219FEC790058178D /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		04E0473021D36A42002DDB98 /* allCommentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = allCommentsViewController.h; sourceTree = "<group>"; };
 		04E0473121D36A42002DDB98 /* allCommentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = allCommentsViewController.m; sourceTree = "<group>"; };
+		04F084EE21E48F9600BFE102 /* BaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
+		04F084EF21E48F9600BFE102 /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		04F3270821D07F18009267F4 /* SettingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
 		04F3270921D07F18009267F4 /* SettingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewCell.m; sourceTree = "<group>"; };
 		04F3271021D09779009267F4 /* SeafoodShowTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeafoodShowTableViewCell.h; sourceTree = "<group>"; };
@@ -734,6 +737,15 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		04F084ED21E48F6800BFE102 /* BaseCell */ = {
+			isa = PBXGroup;
+			children = (
+				04F084EE21E48F9600BFE102 /* BaseTableViewCell.h */,
+				04F084EF21E48F9600BFE102 /* BaseTableViewCell.m */,
+			);
+			path = BaseCell;
+			sourceTree = "<group>";
+		};
 		04F3270E21D095BD009267F4 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -911,6 +923,7 @@
 		04F5C8E421CA2569008DD043 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				04F084ED21E48F6800BFE102 /* BaseCell */,
 				04F3CF0721CB4B62007C40A1 /* NavigationController */,
 				0459D89021E04AB0009BFFB4 /* RootViewController */,
 				049D4791219FB6F40058178D /* TabbarController */,
@@ -1431,6 +1444,7 @@
 				04F7453B21B0DADE0095EF75 /* DBMoreFunctionModel.m in Sources */,
 				04FC2C4121C0E3AD00329B53 /* JFButton.m in Sources */,
 				04F5C8ED21CA4D1D008DD043 /* BSFitdpiUtil.m in Sources */,
+				04F084F021E48F9600BFE102 /* BaseTableViewCell.m in Sources */,
 				0459D89321E04ADB009BFFB4 /* RootViewController.m in Sources */,
 				04F4464F21D71F6C00524971 /* PPNumberButton.m in Sources */,
 				04F8664E21A7D50000A4D7F6 /* MineHeaderView.m in Sources */,
@@ -1614,6 +1628,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSET_PACK_MANIFEST_URL_PREFIX = "";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6Y22Y687X2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DaBangVR/tools",
@@ -1640,7 +1655,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DaBangVR.DaBangVR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				VALID_ARCHS = "arm64e armv7 armv7s arm64";
 			};
@@ -1653,6 +1668,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSET_PACK_MANIFEST_URL_PREFIX = "";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6Y22Y687X2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DaBangVR/tools",
@@ -1679,7 +1695,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DaBangVR.DaBangVR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				VALID_ARCHS = "arm64e armv7 armv7s arm64";
 			};
