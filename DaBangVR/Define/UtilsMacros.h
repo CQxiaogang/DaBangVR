@@ -77,10 +77,11 @@
 #define KGray2Color [UIColor lightGrayColor]
 #define KBlueColor [UIColor blueColor]
 #define KRedColor [UIColor redColor]
+#define KOrangeColor [UIColor orangeColor]
 //随机色生成
 #define KRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 /**
- *  border颜色
+ *  border颜色O
  */
 #define KBorderColor [UIColor colorWithRed:(225)/255.0 green:(225)/255.0 blue:(225)/255.0 alpha:1.0]
 // 主题颜色

@@ -5,13 +5,16 @@
 //  Created by mac on 2018/11/17.
 //  Copyright © 2018 DaBangVR. All rights reserved.
 //
+// views
 #import "PageTitleView.h"
 #import "MineHeaderView.h"
 #import "PageContentView.h"
 #import "MineTableViewCell.h"
+// controllers
 #import "MineViewController.h"
 #import "MainTabBarController.h"
 #import "SettingViewController.h"
+#import "MyOrderViewController.h"
 
 static NSString *cellID = @"cellID";
 
@@ -29,11 +32,10 @@ pageContentViewDelegate
 @property (nonatomic, strong) NSArray *imageArray;
 
 @property (nonatomic, strong) MineHeaderView *headerView;
-
+// 分页显示
 @property (nonatomic, strong) PageTitleView *pageTitleView;
-
 @property (nonatomic, strong) PageContentView *pageContenView;
-//储存显示的所有视图
+// 储存显示的所有视图
 @property (nonatomic, strong) NSMutableArray *childV_Array;
 @end
 
@@ -74,7 +76,7 @@ pageContentViewDelegate
         CGFloat view_W = self.view.mj_w - 20;
         CGFloat view_H = 40;
         _pageTitleView = [[PageTitleView alloc] initWithFrame:CGRectMake(0, 0, view_W, view_H) Titles:array];
-        _pageTitleView.backgroundColor = [UIColor lightGreen];
+//        _pageTitleView.backgroundColor = [UIColor lightGreen];
         _pageTitleView.delagate = self;
     }
     return _pageTitleView;
@@ -129,7 +131,7 @@ pageContentViewDelegate
 }
 #pragma mark —— UI设置
 -(void)setup_UI{
-    self.view.backgroundColor = [UIColor whiteColor];
+    
     [self.view addSubview:self.headerView];
     [self.view addSubview:self.pageTitleView];
     kWeakSelf(self)
@@ -211,7 +213,6 @@ pageContentViewDelegate
 }
 //////////////////////////////注/////////////////////////////////
 
-#pragma mark
 #pragma mark —— pageTitleView deletage
 - (void)pageTitleView:(UIView *)titleView selectedIndex:(int)index{
     [self.pageContenView setCurrentIndex:index];
@@ -234,5 +235,15 @@ pageContentViewDelegate
     SettingViewController *mySetupVC = [[SettingViewController alloc] init];
     mySetupVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:mySetupVC animated:NO];
+}
+// 积分商城
+-(void)integralMallAction{
+    DLog(@"哎呦喂");
+}
+// 我的订单
+-(void)myOrderAction{
+    MyOrderViewController *VC = [[MyOrderViewController alloc] init];
+    VC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:VC animated:NO];
 }
 @end

@@ -16,7 +16,6 @@ static NSString *CellID = @"CellID";
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     self = [super initWithFrame:frame style:style];
     if (self) {
-        self.showsVerticalScrollIndicator = NO;
         [self registerNib:[UINib nibWithNibName:@"SeafoodShowTableViewCell" bundle:nil] forCellReuseIdentifier:CellID];
         self.delegate = self;
         self.dataSource = self;

@@ -32,15 +32,10 @@ static NSString * const CellID = @"Cell";
     if (!_collectionView) {
         
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) collectionViewLayout:self.layout];
-        
         _collectionView.dataSource = self;
-        
         _collectionView.delegate = self;
-        
         _collectionView.bounces = NO;
-        
         _collectionView.pagingEnabled = YES;
-        
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CellID];
     }
     return _collectionView;

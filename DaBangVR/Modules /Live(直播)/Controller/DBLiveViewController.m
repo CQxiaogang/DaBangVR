@@ -53,19 +53,6 @@ static NSString *cellID = @"cellID";
 @implementation DBLiveViewController
 
 #pragma mark 懒加载
-- (UITableView *)tableView{
-    if (self.tableView == nil) {
-        
-        CGFloat tableV_Y = 0;
-        CGFloat tableV_W = self.view.mj_w;
-        CGFloat tableV_H = self.view.mj_h - 49 - 44 - 20;
-        
-        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, tableV_Y, tableV_W, tableV_H)];
-        
-        [self.tableView registerNib:[UINib nibWithNibName:@"DBLiveTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
-    }
-    return self.tableView;
-}
 
 -(UICollectionView *)collectionView{
     if (!_collectionView) {
@@ -155,13 +142,26 @@ static NSString *cellID = @"cellID";
 #pragma mark 系统回调方法
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    
+}
+
+- (void)setupUI{
+    [super setupUI];
+    
+    CGFloat tableV_Y = 0;
+    CGFloat tableV_W = self.view.mj_w;
+    CGFloat tableV_H = self.view.mj_h - 49 - 44 - 20;
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, tableV_Y, tableV_W, tableV_H)];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"DBLiveTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
+    
     if (!isFrist) {
         //设置UI
         [self setUp_UI];
-        
         isFrist = NO;
     }
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

@@ -191,6 +191,10 @@
                             <integer key="value" value="25"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="integralMallAction:" destination="2eI-F6-ibQ" eventType="touchUpInside" id="zHY-q5-Vzg"/>
+                        <action selector="taskCenterAction:" destination="2eI-F6-ibQ" eventType="touchUpInside" id="Le3-FB-gEt"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vk1-YL-bkn" userLabel="积分商城">
                     <rect key="frame" x="127" y="153" width="50" height="50"/>
@@ -200,10 +204,16 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lz0-Kt-Bjr" userLabel="我的订单">
                     <rect key="frame" x="197" y="153" width="50" height="50"/>
                     <state key="normal" image="p_order"/>
+                    <connections>
+                        <action selector="myOrderAction:" destination="2eI-F6-ibQ" eventType="touchUpInside" id="gS0-AQ-ftm"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7D-at-Vhb" userLabel="购物车">
                     <rect key="frame" x="267" y="153" width="50" height="50"/>
                     <state key="normal" image="p_Cart"/>
+                    <connections>
+                        <action selector="shoppingCartAction:" destination="2eI-F6-ibQ" eventType="touchUpInside" id="Qyp-qk-cTO"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务中心" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVK-R9-tT4">
                     <rect key="frame" x="57" y="205" width="50" height="15"/>
@@ -389,7 +399,7 @@
                 <outlet property="tags" destination="MFX-W7-cNX" id="HJN-GX-Vm0"/>
                 <outlet property="title" destination="7bO-6S-Kk9" id="4ZR-Yv-Hg5"/>
             </connections>
-            <point key="canvasLocation" x="162.40000000000001" y="-121.4392803598201"/>
+            <point key="canvasLocation" x="55" y="-125"/>
         </view>
     </objects>
     <resources>

@@ -11,9 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol headerViewDelegate <NSObject>
-
+// 昵称
 - (void)nickNameViewClick;
+// 设置
 - (void)setupButtonClick;
+// 积分商城
+- (void)integralMallAction;
+// 我的订单
+- (void)myOrderAction;
 
 @end
 

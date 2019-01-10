@@ -30,7 +30,7 @@
 -(UIView *)contentView{
     if (!_contentView) {
         _contentView = [[UIView alloc] init];
-//        _contentView.backgroundColor = [UIColor redColor];
+//        _contentView.backgroundColor = KRedColor;
     }
     return _contentView;
 }
@@ -46,8 +46,12 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        if (titleArr.count ==0) {
+            return self;
+        }
         self.titlesArr = titleArr;
         currentIndex = 0;
+//        self.backgroundColor = KRedColor;
         // 1.设置ui界面
         [self setup_titleLabels];
         [self setup_bottonLine];
@@ -70,8 +74,15 @@
         _titleLabel.textAlignment =  NSTextAlignmentCenter;
         _titleLabel.textColor = [UIColor blackColor];
 //        _titleLabel.backgroundColor = [UIColor redColor];
+        
         // 设置字体大小
-        _titleLabel.adaptiveFontSize = 15;
+        _titleLabel.adaptiveFontSize = 14;
+        // 根据内容显示label的大小
+        [_titleLabel sizeToFit];
+        // 改变label的位置
+//        _titleLabel.mj_x = _titleLabel.mj_w*i;
+//        _titleLabel.mj_y = self.mj_h/4;
+//        _titleLabel.backgroundColor = KGrayColor;
         // 添加手势
         _titleLabel.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapLabel:)];
@@ -79,11 +90,11 @@
         [self.titleLabels addObject:_titleLabel];
         [self.contentView addSubview:_titleLabel];
     }
-    
-    [self.titleLabels mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:5 leadSpacing:10 tailSpacing:10];
-    __weak typeof(self) weakSelf = self;
+    CGFloat spacing = self.contentView.mj_w/self.titlesArr.count;
+    [self.titleLabels mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:spacing leadSpacing:10 tailSpacing:10];
+    kWeakSelf(self);
     [self.titleLabels mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.mj_h/4);
+        make.top.equalTo(weakself.mj_h/4);
     }];
 }
 

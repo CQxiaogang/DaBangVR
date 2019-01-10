@@ -8,7 +8,7 @@
 
 #import "RootViewController.h"
 
-@interface RootViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface RootViewController ()
 
 @end
 
@@ -17,27 +17,28 @@
 static NSString *const CellID = @"CellID";
 
 #pragma mark —— 懒加载
--(UITableView *)tableView{
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellID];
-        _tableView.showsVerticalScrollIndicator = NO;
-    }
-    return _tableView;
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = KWhiteColor;
-    
     [self setupUI];
+    self.view.backgroundColor = KWhiteColor;
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
 -(void)setupUI{
-    [self.view addSubview:self.tableView];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellID];
+    tableView.showsVerticalScrollIndicator = NO;
+    self.tableView = tableView;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

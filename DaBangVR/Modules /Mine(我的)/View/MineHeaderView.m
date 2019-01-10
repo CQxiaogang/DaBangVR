@@ -60,11 +60,30 @@
         [self.delegate nickNameViewClick];
     }
 }
-#pragma mark —— 设置Button点击
+#pragma mark —— 设置 button
+
 - (IBAction)setupButtonClick:(id)sender {
     if (self.delegate && [self.delegate respondsToSelector:@selector(setupButtonClick)]) {
         [self.delegate setupButtonClick];
     }
+}
+#pragma mark —— 任务中心
+- (IBAction)taskCenterAction:(id)sender {
+}
+#pragma mark —— 积分商城
+- (IBAction)integralMallAction:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(integralMallAction)]) {
+        [self.delegate integralMallAction];
+    }
+}
+#pragma mark —— 我的订单
+- (IBAction)myOrderAction:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(myOrderAction)]) {
+        [self.delegate myOrderAction];
+    }
+}
+#pragma mark —— 购物车
+- (IBAction)shoppingCartAction:(id)sender {
 }
 
 

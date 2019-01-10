@@ -14,9 +14,11 @@
     
     // 让背景不透明
     [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    // 背景颜色
+    self.navigationBar.backgroundColor = [UIColor lightGreen];
     // 设置左边 button 颜色
     self.navigationBar.tintColor = [UIColor whiteColor];
-    
+    // 左边只显示“<”
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-100, 0) forBarMetrics:UIBarMetricsDefault];
     // 设置中间 label 颜色和字体大小
     [self.navigationBar setTitleTextAttributes:

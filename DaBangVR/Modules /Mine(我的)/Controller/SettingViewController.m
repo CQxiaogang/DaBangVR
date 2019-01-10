@@ -65,11 +65,13 @@ static NSString *cellID = @"cellID";
     [super viewDidLoad];
     self.title = @"设置";
 }
-// 父类 UI 设置
+// 父类 UI
 -(void)setupUI{
+    
     [super setupUI];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"MineTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
+    
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.LogOutBtn];
     // 添加约束
@@ -84,13 +86,6 @@ static NSString *cellID = @"cellID";
         make.left.right.equalTo(0);
         make.bottom.equalTo(weakSelf.LogOutBtn.mas_top).offset(0);
     }];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    // 隐藏navigationBar
-    [self.navigationController setNavigationBarHidden:NO];
-    self.navigationController.navigationBar.backgroundColor = [UIColor lightGreen];
 }
 
 #pragma mark -tableView-delegate,dataSource
