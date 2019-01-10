@@ -19,8 +19,9 @@
 #import "DBMoreFunctionBtnView.h"
 #import "HomePageViewController.h"
 #import "DBSeafoodShowViewController.h"
-
 #import "MineViewController.h"
+// Views
+#import "ChannelMenuListView.h"//频道菜单列表
 
 static NSString *cellID = @"cellID";
 #define KCURRENTCITYINFODEFAULTS [NSUserDefaults standardUserDefaults]
@@ -37,7 +38,7 @@ JFCityViewControllerDelegate
 {
     CGFloat _margin;
     CGFloat _totalH_moreLive;             // 推荐直播总高度
-    CGFloat _totalH_moreFunction;         // 更多功能总高度
+    CGFloat _totalH_channelMenuList;         // 更多功能总高度
     CGFloat _totalH_newShang;             // 新上总高度
     CGFloat _totalH_miaoS;                // 秒杀总高度
     CGFloat _totalH_prefecture;           // 新品/热卖专区总高度
@@ -61,6 +62,8 @@ JFCityViewControllerDelegate
 @property (nonatomic, strong) JFLocation            *locationManager;
 /** 城市数据管理器*/
 @property (nonatomic, strong) JFAreaDataManager     *manager;
+// 频道菜单 View
+@property (nonatomic, strong) ChannelMenuListView *channelMenuListView;
 @end
 
 @implementation HomePageViewController
@@ -130,7 +133,15 @@ JFCityViewControllerDelegate
     }
     return _manager;
 }
+// 频道列表
+-(ChannelMenuListView *)channelMenuListView{
+    if (!_channelMenuListView) {
+        _channelMenuListView = [[ChannelMenuListView alloc] initWithFrame:CGRectMake(0, 0, self.view.mj_w, Adapt(130))];
+    }
+    return _channelMenuListView;
+}
 
+#pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 全局变量,定义边距
@@ -197,8 +208,8 @@ JFCityViewControllerDelegate
                 [self setUp_liveRecommendView:cell];
                 break;
             case 1:
-                // 更多功能界面
-                [self setUp_moreFunctionView:cell];
+                // 频道菜单
+                [self setupChannelMenuListView:cell];
                 break;
             case 2:
                 // 新上
@@ -258,7 +269,7 @@ JFCityViewControllerDelegate
                 break;
             case 1:
                 // 更多功能界面
-                return _totalH_moreFunction;
+                return _totalH_channelMenuList;
                 break;
             case 2:
                 // 新上
@@ -330,48 +341,14 @@ JFCityViewControllerDelegate
     _totalH_moreLive = liveView.mj_h + 35;
 }
 
-#pragma mark —— 更多功能界面
-- (void)setUp_moreFunctionView:(UITableViewCell *)cell{
-    //设置其他功能按钮界面
-    /**
-     * 两个for循环，布局两排按钮
-     * i 决定排数
-     * j 决定个数
-     */
-    DBMoreFunctionModel *model = [[DBMoreFunctionModel alloc] init];
-    NSArray *array = model.array;
-    NSArray *imageArr = @[@"h_video",@"h_seafood",@"h_Assemble",@"h_Spike",@"h_Bigbang",@"h_Global",@"h_New",@"h_store",@"h_Search_moreF",@"h_Community"];
+#pragma mark —— 频道菜单列表
+- (void)setupChannelMenuListView:(UITableViewCell *)cell{
+   
+    [cell addSubview:self.channelMenuListView];
     
-    for (int i=0; i<2; i++) {
-        for (int j = 0; j<=4; j++) {
-            _moreFunctionView = (DBMoreFunctionBtnView *)[self loadNibNamed:@"DBMoreFunctionBtnView"];
-            CGFloat moreF_W = Adapt(_moreFunctionView.mj_w);
-            CGFloat moreF_H = Adapt(_moreFunctionView.mj_h);
-            CGFloat margin  = (self.view.mj_w - (moreF_W*5))/6;
-            CGFloat moreF_X = j*(moreF_W+margin)+ margin;
-            CGFloat moreF_Y = i*moreF_H;
-            _moreFunctionView.frame = CGRectMake(moreF_X, moreF_Y, moreF_W, moreF_H);
-            // 设置圆角
-            _moreFunctionView.moreFunctionButton.layer.cornerRadius = moreF_W / 2;
-            // 用户交互
-            _moreFunctionView.moreFunctionButton.userInteractionEnabled = YES;
-            // 初始化手势
-            [_moreFunctionView.moreFunctionButton addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
-            _moreFunctionView.moreFunctionButton.tag = i*5 + j;
-            if (i==0) {
-                _moreFunctionView.moreFunctionLabel.text = array[j];
-                [_moreFunctionView.moreFunctionButton setBackgroundImage:[UIImage imageNamed:imageArr[j]] forState:UIControlStateNormal];
-            }else{
-                _moreFunctionView.moreFunctionLabel.text = array[j + 5];
-                [_moreFunctionView.moreFunctionButton setBackgroundImage:[UIImage imageNamed:imageArr[j + 5]] forState:UIControlStateNormal];
-            }
-            [cell addSubview:_moreFunctionView];
-            DLog(@"tag is %ld",_moreFunctionView.moreFunctionButton.tag);
-        }
-    }
-    _totalH_moreFunction = _moreFunctionView.mj_h * 2;
+    _totalH_channelMenuList = self.channelMenuListView.mj_h;
 }
-#pragma mark —— 更多功能点击事件
+#pragma mark —— 频道点击事件
 - (void)click:(UIButton *)sender{
     switch (sender.tag) {
         case 0:

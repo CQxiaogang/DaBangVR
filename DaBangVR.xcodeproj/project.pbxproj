@@ -59,6 +59,9 @@
 		04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EFA01921E70470007C2FCA /* EvaluationSuccessView.xib */; };
 		04EFA02621E7226D007C2FCA /* OrderDeliveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA02521E7226D007C2FCA /* OrderDeliveryViewController.m */; };
 		04EFA02C21E73391007C2FCA /* EvaluationOfSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA02B21E73391007C2FCA /* EvaluationOfSuccessViewController.m */; };
+		04EFA02F21E742E5007C2FCA /* ChannelMenuListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA02E21E742E5007C2FCA /* ChannelMenuListView.m */; };
+		04EFA03221E7436B007C2FCA /* ChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA03121E7436B007C2FCA /* ChannelView.m */; };
+		04EFA03621E74398007C2FCA /* ChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EFA03521E74398007C2FCA /* ChannelView.xib */; };
 		04F084F021E48F9600BFE102 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F084EF21E48F9600BFE102 /* BaseTableViewCell.m */; };
 		04F084F321E496DA00BFE102 /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F084F221E496DA00BFE102 /* MyOrderViewController.m */; };
 		04F3270A21D07F18009267F4 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3270921D07F18009267F4 /* SettingTableViewCell.m */; };
@@ -253,6 +256,11 @@
 		04EFA02521E7226D007C2FCA /* OrderDeliveryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDeliveryViewController.m; sourceTree = "<group>"; };
 		04EFA02A21E73391007C2FCA /* EvaluationOfSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluationOfSuccessViewController.h; sourceTree = "<group>"; };
 		04EFA02B21E73391007C2FCA /* EvaluationOfSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluationOfSuccessViewController.m; sourceTree = "<group>"; };
+		04EFA02D21E742E5007C2FCA /* ChannelMenuListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelMenuListView.h; sourceTree = "<group>"; };
+		04EFA02E21E742E5007C2FCA /* ChannelMenuListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelMenuListView.m; sourceTree = "<group>"; };
+		04EFA03021E7436B007C2FCA /* ChannelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelView.h; sourceTree = "<group>"; };
+		04EFA03121E7436B007C2FCA /* ChannelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelView.m; sourceTree = "<group>"; };
+		04EFA03521E74398007C2FCA /* ChannelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelView.xib; sourceTree = "<group>"; };
 		04F084EE21E48F9600BFE102 /* BaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		04F084EF21E48F9600BFE102 /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		04F084F121E496DA00BFE102 /* MyOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
@@ -882,6 +890,11 @@
 				0402F63521A3BBE4003634AE /* DBMoreFunctionBtnView.h */,
 				0402F63621A3BBE4003634AE /* DBMoreFunctionBtnView.m */,
 				0402F63821A3BBEF003634AE /* DBMoreFunctionBtnView.xib */,
+				04EFA03021E7436B007C2FCA /* ChannelView.h */,
+				04EFA03121E7436B007C2FCA /* ChannelView.m */,
+				04EFA03521E74398007C2FCA /* ChannelView.xib */,
+				04EFA02D21E742E5007C2FCA /* ChannelMenuListView.h */,
+				04EFA02E21E742E5007C2FCA /* ChannelMenuListView.m */,
 				042FCEC421A3E22E002AD0DB /* DBTimeLimitSecondsKill.h */,
 				042FCEC521A3E22E002AD0DB /* DBTimeLimitSecondsKill.m */,
 				042FCEC721A3E24F002AD0DB /* DBTimeLimitSecondsKill.xib */,
@@ -1397,6 +1410,7 @@
 				04F47E2521E5D0EE001B5F74 /* AllOrdersCell.xib in Resources */,
 				04FC2C4221C0E3AD00329B53 /* shop_area.sqlite in Resources */,
 				04FA5D6121AE3F480061AF27 /* LoginViewController.xib in Resources */,
+				04EFA03621E74398007C2FCA /* ChannelView.xib in Resources */,
 				04F4466F21D720CE00524971 /* ShopItem.plist in Resources */,
 				04F8665021A7D50D00A4D7F6 /* MineHeaderView.xib in Resources */,
 				04F7360B21B679CE001CEBC0 /* MineTableViewCell.xib in Resources */,
@@ -1521,10 +1535,12 @@
 				04F8ED3E21E30E9A00004178 /* informationModificationHeaderView.m in Sources */,
 				04F5C8EA21CA4307008DD043 /* UIViewController+AlertViewAndActionSheet.m in Sources */,
 				04F8ED3621E2F0AA00004178 /* DBDetailFooterCell.m in Sources */,
+				04EFA03221E7436B007C2FCA /* ChannelView.m in Sources */,
 				04F4468021D74F7B00524971 /* DBFeatureTitleItem.m in Sources */,
 				04FC2C4021C0E3AD00329B53 /* JFCityCollectionFlowLayout.m in Sources */,
 				0463026321BBC8C40003C542 /* DBTopView.m in Sources */,
 				04FC2C3E21C0E3AD00329B53 /* JFCityViewController.m in Sources */,
+				04EFA02F21E742E5007C2FCA /* ChannelMenuListView.m in Sources */,
 				04F866B021A7FF4D00A4D7F6 /* ADPageControlView.m in Sources */,
 				04F50D1921D215E3004EBFE1 /* GoodsDetailsViewController.m in Sources */,
 				04F4467821D74F5300524971 /* DBFeatureItemCell.m in Sources */,
