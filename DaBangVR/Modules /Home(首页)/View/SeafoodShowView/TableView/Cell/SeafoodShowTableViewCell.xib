@@ -38,7 +38,7 @@
                             </constraint>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="直播中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjI-dw-HDe">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="直播中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjI-dw-HDe">
                         <rect key="frame" x="125" y="18" width="35" height="16"/>
                         <color key="backgroundColor" red="0.094376392660000002" green="0.8590441942" blue="0.86259275670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -53,12 +53,12 @@
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
-                                <real key="value" value="11"/>
+                                <real key="value" value="10"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>

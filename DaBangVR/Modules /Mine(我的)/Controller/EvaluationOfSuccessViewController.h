@@ -1,5 +1,5 @@
 //
-//  EvaluationSuccessViewController.h
+//  EvaluationOfSuccessViewController.h
 //  DaBangVR
 //
 //  Created by mac on 2019/1/10.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EvaluationSuccessViewController : RootViewController
+@interface EvaluationOfSuccessViewController : RootViewController
 
 @end
 

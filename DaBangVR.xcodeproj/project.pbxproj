@@ -55,10 +55,10 @@
 		049D47A2219FEC690058178D /* DBShortVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A1219FEC690058178D /* DBShortVideoViewController.m */; };
 		049D47A5219FEC790058178D /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A4219FEC790058178D /* MineViewController.m */; };
 		04E0473221D36A42002DDB98 /* allCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E0473121D36A42002DDB98 /* allCommentsViewController.m */; };
-		04EFA01421E702E1007C2FCA /* EvaluationSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA01321E702E1007C2FCA /* EvaluationSuccessViewController.m */; };
 		04EFA01821E7045C007C2FCA /* EvaluationSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA01721E7045C007C2FCA /* EvaluationSuccessView.m */; };
 		04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EFA01921E70470007C2FCA /* EvaluationSuccessView.xib */; };
 		04EFA02621E7226D007C2FCA /* OrderDeliveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA02521E7226D007C2FCA /* OrderDeliveryViewController.m */; };
+		04EFA02C21E73391007C2FCA /* EvaluationOfSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA02B21E73391007C2FCA /* EvaluationOfSuccessViewController.m */; };
 		04F084F021E48F9600BFE102 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F084EF21E48F9600BFE102 /* BaseTableViewCell.m */; };
 		04F084F321E496DA00BFE102 /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F084F221E496DA00BFE102 /* MyOrderViewController.m */; };
 		04F3270A21D07F18009267F4 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3270921D07F18009267F4 /* SettingTableViewCell.m */; };
@@ -246,13 +246,13 @@
 		049D47A4219FEC790058178D /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		04E0473021D36A42002DDB98 /* allCommentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = allCommentsViewController.h; sourceTree = "<group>"; };
 		04E0473121D36A42002DDB98 /* allCommentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = allCommentsViewController.m; sourceTree = "<group>"; };
-		04EFA01221E702E1007C2FCA /* EvaluationSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluationSuccessViewController.h; sourceTree = "<group>"; };
-		04EFA01321E702E1007C2FCA /* EvaluationSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluationSuccessViewController.m; sourceTree = "<group>"; };
 		04EFA01621E7045C007C2FCA /* EvaluationSuccessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluationSuccessView.h; sourceTree = "<group>"; };
 		04EFA01721E7045C007C2FCA /* EvaluationSuccessView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluationSuccessView.m; sourceTree = "<group>"; };
 		04EFA01921E70470007C2FCA /* EvaluationSuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaluationSuccessView.xib; sourceTree = "<group>"; };
 		04EFA02421E7226D007C2FCA /* OrderDeliveryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDeliveryViewController.h; sourceTree = "<group>"; };
 		04EFA02521E7226D007C2FCA /* OrderDeliveryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDeliveryViewController.m; sourceTree = "<group>"; };
+		04EFA02A21E73391007C2FCA /* EvaluationOfSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluationOfSuccessViewController.h; sourceTree = "<group>"; };
+		04EFA02B21E73391007C2FCA /* EvaluationOfSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluationOfSuccessViewController.m; sourceTree = "<group>"; };
 		04F084EE21E48F9600BFE102 /* BaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		04F084EF21E48F9600BFE102 /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		04F084F121E496DA00BFE102 /* MyOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
@@ -1093,8 +1093,8 @@
 				04EFA02521E7226D007C2FCA /* OrderDeliveryViewController.m */,
 				04F47E2921E5F5D4001B5F74 /* EvaluationViewController.h */,
 				04F47E2A21E5F5D4001B5F74 /* EvaluationViewController.m */,
-				04EFA01221E702E1007C2FCA /* EvaluationSuccessViewController.h */,
-				04EFA01321E702E1007C2FCA /* EvaluationSuccessViewController.m */,
+				04EFA02A21E73391007C2FCA /* EvaluationOfSuccessViewController.h */,
+				04EFA02B21E73391007C2FCA /* EvaluationOfSuccessViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1516,6 +1516,7 @@
 				049D479C219FEC1E0058178D /* HomePageViewController.m in Sources */,
 				04F8ED5021E349E000004178 /* modifyAddressViewCell.m in Sources */,
 				04F50D1F21D2191F004EBFE1 /* NetWorkHelper.m in Sources */,
+				04EFA02C21E73391007C2FCA /* EvaluationOfSuccessViewController.m in Sources */,
 				04F4468221D74F7B00524971 /* DBFeatureItem.m in Sources */,
 				04F8ED3E21E30E9A00004178 /* informationModificationHeaderView.m in Sources */,
 				04F5C8EA21CA4307008DD043 /* UIViewController+AlertViewAndActionSheet.m in Sources */,
@@ -1533,7 +1534,6 @@
 				04F494C521C77D1B009A4518 /* UIAlertController+TapGesAlertController.m in Sources */,
 				04F4469421D74FBF00524971 /* GoodsInfoView.m in Sources */,
 				04F4468F21D74F9000524971 /* UIButton+Bootstrap.m in Sources */,
-				04EFA01421E702E1007C2FCA /* EvaluationSuccessViewController.m in Sources */,
 				04FC07F321B50855008FF83B /* SettingViewController.m in Sources */,
 				04F50D1421D1CF7C004EBFE1 /* SeafoodShowModel.m in Sources */,
 				04FC2C3C21C0E3AD00329B53 /* JFCityHeaderView.m in Sources */,

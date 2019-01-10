@@ -33,12 +33,12 @@
                             <constraint firstAttribute="width" constant="200" id="nJS-GR-e5K"/>
                             <constraint firstAttribute="height" constant="50" id="zQx-lE-fim"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
-                                <real key="value" value="13"/>
+                                <real key="value" value="11"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>

@@ -7,7 +7,7 @@
 //
 // Controllers
 #import "EvaluationViewController.h"
-#import "EvaluationSuccessViewController.h"
+#import "EvaluationOfSuccessViewController.h"
 // Views
 #import "EvaluationCell.h"
 
@@ -93,7 +93,7 @@ static NSString *CellID = @"CellID";
 #pragma mark —— button 点击事件
 // 提交 button 的点击事件
 - (void)submitButtonOfAction{
-    EvaluationSuccessViewController *vc = [[EvaluationSuccessViewController alloc] init];
+    EvaluationOfSuccessViewController *vc = [[EvaluationOfSuccessViewController alloc] init];
     [self.navigationController pushViewController:vc animated:NO];
 }
 
