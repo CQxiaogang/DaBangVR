@@ -89,7 +89,6 @@
 		04F47E2521E5D0EE001B5F74 /* AllOrdersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F47E2321E5D0EE001B5F74 /* AllOrdersCell.xib */; };
 		04F47E2821E5DD42001B5F74 /* AllOrderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F47E2721E5DD42001B5F74 /* AllOrderTableView.m */; };
 		04F47E2B21E5F5D4001B5F74 /* EvaluationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F47E2A21E5F5D4001B5F74 /* EvaluationViewController.m */; };
-		04F47E2E21E5F7FF001B5F74 /* OrderDeliveryViewController.temp_caseinsensitive_rename.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F47E2D21E5F7FF001B5F74 /* OrderDeliveryViewController.temp_caseinsensitive_rename.m */; };
 		04F47E3921E5FAF6001B5F74 /* EvaluationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F47E3721E5FAF6001B5F74 /* EvaluationCell.m */; };
 		04F47E3A21E5FAF6001B5F74 /* EvaluationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F47E3821E5FAF6001B5F74 /* EvaluationCell.xib */; };
 		04F494C521C77D1B009A4518 /* UIAlertController+TapGesAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F494C421C77D1B009A4518 /* UIAlertController+TapGesAlertController.m */; };
@@ -306,8 +305,6 @@
 		04F47E2721E5DD42001B5F74 /* AllOrderTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllOrderTableView.m; sourceTree = "<group>"; };
 		04F47E2921E5F5D4001B5F74 /* EvaluationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluationViewController.h; sourceTree = "<group>"; };
 		04F47E2A21E5F5D4001B5F74 /* EvaluationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluationViewController.m; sourceTree = "<group>"; };
-		04F47E2C21E5F7FF001B5F74 /* OrderDeliveryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDeliveryViewController.h; sourceTree = "<group>"; };
-		04F47E2D21E5F7FF001B5F74 /* OrderDeliveryViewController.temp_caseinsensitive_rename.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDeliveryViewController.temp_caseinsensitive_rename.m; sourceTree = "<group>"; };
 		04F47E3621E5FAF6001B5F74 /* EvaluationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluationCell.h; sourceTree = "<group>"; };
 		04F47E3721E5FAF6001B5F74 /* EvaluationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluationCell.m; sourceTree = "<group>"; };
 		04F47E3821E5FAF6001B5F74 /* EvaluationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaluationCell.xib; sourceTree = "<group>"; };
@@ -1089,8 +1086,6 @@
 				04FC07F221B50855008FF83B /* SettingViewController.m */,
 				04F084F121E496DA00BFE102 /* MyOrderViewController.h */,
 				04F084F221E496DA00BFE102 /* MyOrderViewController.m */,
-				04F47E2C21E5F7FF001B5F74 /* OrderDeliveryViewController.h */,
-				04F47E2D21E5F7FF001B5F74 /* OrderDeliveryViewController.temp_caseinsensitive_rename.m */,
 				04F47E2921E5F5D4001B5F74 /* EvaluationViewController.h */,
 				04F47E2A21E5F5D4001B5F74 /* EvaluationViewController.m */,
 				04EFA01221E702E1007C2FCA /* EvaluationSuccessViewController.h */,
@@ -1491,7 +1486,6 @@
 				0402F63721A3BBE4003634AE /* DBMoreFunctionBtnView.m in Sources */,
 				042FCEC621A3E22E002AD0DB /* DBTimeLimitSecondsKill.m in Sources */,
 				04F4468C21D74F9000524971 /* DBCollectionHeaderLayout.m in Sources */,
-				04F47E2E21E5F7FF001B5F74 /* OrderDeliveryViewController.temp_caseinsensitive_rename.m in Sources */,
 				0459D89621E04FEA009BFFB4 /* BuyNowViewController.m in Sources */,
 				04F8664321A78E0200A4D7F6 /* WaterfallColectionLayout.m in Sources */,
 				04FC2C3F21C0E3AD00329B53 /* JFCityTableViewCell.m in Sources */,
