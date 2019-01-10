@@ -9,7 +9,7 @@
 // controllers
 #import "MyOrderViewController.h"
 #import "EvaluationViewController.h"
-//#import "OrderDeliveryViewController.h"
+#import "OrderDeliveryViewController.h"
 // views
 #import "PageView.h"
 #import "AllOrderTableView.h"
@@ -79,8 +79,8 @@
 }
 // cell 的点击事件
 - (void)didSelectRowAtIndexPath{
-//    OrderDeliveryViewController *vc = [[OrderDeliveryViewController alloc] init];
-//    [self.navigationController pushViewController:vc animated:NO];
+    OrderDeliveryViewController *vc = [[OrderDeliveryViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
 }
 
 @end

@@ -58,6 +58,7 @@
 		04EFA01421E702E1007C2FCA /* EvaluationSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA01321E702E1007C2FCA /* EvaluationSuccessViewController.m */; };
 		04EFA01821E7045C007C2FCA /* EvaluationSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA01721E7045C007C2FCA /* EvaluationSuccessView.m */; };
 		04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EFA01921E70470007C2FCA /* EvaluationSuccessView.xib */; };
+		04EFA02621E7226D007C2FCA /* OrderDeliveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA02521E7226D007C2FCA /* OrderDeliveryViewController.m */; };
 		04F084F021E48F9600BFE102 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F084EF21E48F9600BFE102 /* BaseTableViewCell.m */; };
 		04F084F321E496DA00BFE102 /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F084F221E496DA00BFE102 /* MyOrderViewController.m */; };
 		04F3270A21D07F18009267F4 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3270921D07F18009267F4 /* SettingTableViewCell.m */; };
@@ -250,6 +251,8 @@
 		04EFA01621E7045C007C2FCA /* EvaluationSuccessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluationSuccessView.h; sourceTree = "<group>"; };
 		04EFA01721E7045C007C2FCA /* EvaluationSuccessView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluationSuccessView.m; sourceTree = "<group>"; };
 		04EFA01921E70470007C2FCA /* EvaluationSuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaluationSuccessView.xib; sourceTree = "<group>"; };
+		04EFA02421E7226D007C2FCA /* OrderDeliveryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDeliveryViewController.h; sourceTree = "<group>"; };
+		04EFA02521E7226D007C2FCA /* OrderDeliveryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDeliveryViewController.m; sourceTree = "<group>"; };
 		04F084EE21E48F9600BFE102 /* BaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		04F084EF21E48F9600BFE102 /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		04F084F121E496DA00BFE102 /* MyOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
@@ -1086,6 +1089,8 @@
 				04FC07F221B50855008FF83B /* SettingViewController.m */,
 				04F084F121E496DA00BFE102 /* MyOrderViewController.h */,
 				04F084F221E496DA00BFE102 /* MyOrderViewController.m */,
+				04EFA02421E7226D007C2FCA /* OrderDeliveryViewController.h */,
+				04EFA02521E7226D007C2FCA /* OrderDeliveryViewController.m */,
 				04F47E2921E5F5D4001B5F74 /* EvaluationViewController.h */,
 				04F47E2A21E5F5D4001B5F74 /* EvaluationViewController.m */,
 				04EFA01221E702E1007C2FCA /* EvaluationSuccessViewController.h */,
@@ -1483,6 +1488,7 @@
 				04F3CF0621CB2FF1007C40A1 /* UserInfo.m in Sources */,
 				04F8ED4B21E3453800004178 /* modifyAddressViewController.m in Sources */,
 				04F5D68221C8E4830030A97D /* DBSeafoodShowViewController.m in Sources */,
+				04EFA02621E7226D007C2FCA /* OrderDeliveryViewController.m in Sources */,
 				0402F63721A3BBE4003634AE /* DBMoreFunctionBtnView.m in Sources */,
 				042FCEC621A3E22E002AD0DB /* DBTimeLimitSecondsKill.m in Sources */,
 				04F4468C21D74F9000524971 /* DBCollectionHeaderLayout.m in Sources */,
