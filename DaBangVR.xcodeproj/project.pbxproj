@@ -984,7 +984,6 @@
 		04F5C8D721CA1EE3008DD043 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				049D478B219FB3C00058178D /* Home(首页) */,
 				049D4788219FAB880058178D /* AppDelegate.h */,
 				049D4789219FAB880058178D /* AppDelegate.m */,
 				04F5C8D821CA1F57008DD043 /* AppDelegate+AppService.h */,
@@ -1073,6 +1072,7 @@
 		04F5C8E721CA2672008DD043 /* Modules  */ = {
 			isa = PBXGroup;
 			children = (
+				049D478B219FB3C00058178D /* Home(首页) */,
 				049D478C219FB3E80058178D /* Live(直播) */,
 				049D478D219FB42C0058178D /* Entertainment(娱乐) */,
 				049D478E219FB4620058178D /* ShortVideo(短视频) */,
@@ -1781,7 +1781,7 @@
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/mac/Desktop/DaBangVR/DaBangVR/Supporting Files/DaBangVR.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/DaBangVR/Supporting Files/DaBangVR.pch";
 				INFOPLIST_FILE = "/Users/mac/Desktop/DaBangVR/DaBangVR/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1821,7 +1821,7 @@
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/mac/Desktop/DaBangVR/DaBangVR/Supporting Files/DaBangVR.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/DaBangVR/Supporting Files/DaBangVR.pch";
 				INFOPLIST_FILE = "/Users/mac/Desktop/DaBangVR/DaBangVR/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
