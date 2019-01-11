@@ -64,6 +64,7 @@
 		04F084F321E496DA00BFE102 /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F084F221E496DA00BFE102 /* MyOrderViewController.m */; };
 		04F2702521E830870019FB9F /* ChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2702421E830870019FB9F /* ChannelModel.m */; };
 		04F2702C21E8407B0019FB9F /* ChannelViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2702B21E8407B0019FB9F /* ChannelViewModel.m */; };
+		04F2702F21E883FC0019FB9F /* ModifyAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2702E21E883FC0019FB9F /* ModifyAddressModel.m */; };
 		04F3270A21D07F18009267F4 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3270921D07F18009267F4 /* SettingTableViewCell.m */; };
 		04F3271321D09779009267F4 /* SeafoodShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3271121D09779009267F4 /* SeafoodShowTableViewCell.m */; };
 		04F3271421D09779009267F4 /* SeafoodShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F3271221D09779009267F4 /* SeafoodShowTableViewCell.xib */; };
@@ -121,7 +122,6 @@
 		04F8ED4B21E3453800004178 /* modifyAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED4A21E3453800004178 /* modifyAddressViewController.m */; };
 		04F8ED5021E349E000004178 /* modifyAddressViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED4E21E349E000004178 /* modifyAddressViewCell.m */; };
 		04F8ED5121E349E000004178 /* modifyAddressViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8ED4F21E349E000004178 /* modifyAddressViewCell.xib */; };
-		04F8ED5521E3508B00004178 /* modifyAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED5421E3508B00004178 /* modifyAddressModel.m */; };
 		04FA5D6021AE3F480061AF27 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA5D5E21AE3F480061AF27 /* LoginViewController.m */; };
 		04FA5D6121AE3F480061AF27 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FA5D5F21AE3F480061AF27 /* LoginViewController.xib */; };
 		04FA5D6521AE476F0061AF27 /* MobilePhoneNoLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA5D6321AE476F0061AF27 /* MobilePhoneNoLoginViewController.m */; };
@@ -265,6 +265,8 @@
 		04F2702421E830870019FB9F /* ChannelModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelModel.m; sourceTree = "<group>"; };
 		04F2702A21E8407B0019FB9F /* ChannelViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelViewModel.h; sourceTree = "<group>"; };
 		04F2702B21E8407B0019FB9F /* ChannelViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelViewModel.m; sourceTree = "<group>"; };
+		04F2702D21E883FC0019FB9F /* ModifyAddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyAddressModel.h; sourceTree = "<group>"; };
+		04F2702E21E883FC0019FB9F /* ModifyAddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyAddressModel.m; sourceTree = "<group>"; };
 		04F3270821D07F18009267F4 /* SettingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
 		04F3270921D07F18009267F4 /* SettingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewCell.m; sourceTree = "<group>"; };
 		04F3271021D09779009267F4 /* SeafoodShowTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeafoodShowTableViewCell.h; sourceTree = "<group>"; };
@@ -369,8 +371,6 @@
 		04F8ED4D21E349E000004178 /* modifyAddressViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = modifyAddressViewCell.h; sourceTree = "<group>"; };
 		04F8ED4E21E349E000004178 /* modifyAddressViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = modifyAddressViewCell.m; sourceTree = "<group>"; };
 		04F8ED4F21E349E000004178 /* modifyAddressViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = modifyAddressViewCell.xib; sourceTree = "<group>"; };
-		04F8ED5321E3508B00004178 /* modifyAddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = modifyAddressModel.h; sourceTree = "<group>"; };
-		04F8ED5421E3508B00004178 /* modifyAddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = modifyAddressModel.m; sourceTree = "<group>"; };
 		04FA5D5C21AE3C980061AF27 /* DaBangVR.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaBangVR.pch; sourceTree = "<group>"; };
 		04FA5D5D21AE3F480061AF27 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		04FA5D5E21AE3F480061AF27 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -984,6 +984,7 @@
 		04F5C8D721CA1EE3008DD043 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				049D478B219FB3C00058178D /* Home(首页) */,
 				049D4788219FAB880058178D /* AppDelegate.h */,
 				049D4789219FAB880058178D /* AppDelegate.m */,
 				04F5C8D821CA1F57008DD043 /* AppDelegate+AppService.h */,
@@ -1072,7 +1073,6 @@
 		04F5C8E721CA2672008DD043 /* Modules  */ = {
 			isa = PBXGroup;
 			children = (
-				049D478B219FB3C00058178D /* Home(首页) */,
 				049D478C219FB3E80058178D /* Live(直播) */,
 				049D478D219FB42C0058178D /* Entertainment(娱乐) */,
 				049D478E219FB4620058178D /* ShortVideo(短视频) */,
@@ -1163,8 +1163,8 @@
 		04F8ED5221E34F6500004178 /* ModifyAddressModel */ = {
 			isa = PBXGroup;
 			children = (
-				04F8ED5321E3508B00004178 /* modifyAddressModel.h */,
-				04F8ED5421E3508B00004178 /* modifyAddressModel.m */,
+				04F2702D21E883FC0019FB9F /* ModifyAddressModel.h */,
+				04F2702E21E883FC0019FB9F /* ModifyAddressModel.m */,
 			);
 			path = ModifyAddressModel;
 			sourceTree = "<group>";
@@ -1559,6 +1559,7 @@
 				04FC2C3B21C0E3AD00329B53 /* JFAreaDataManager.m in Sources */,
 				04F47E2821E5DD42001B5F74 /* AllOrderTableView.m in Sources */,
 				042FCED021A406FB002AD0DB /* DBHotVideoView.m in Sources */,
+				04F2702F21E883FC0019FB9F /* ModifyAddressModel.m in Sources */,
 				04F494C521C77D1B009A4518 /* UIAlertController+TapGesAlertController.m in Sources */,
 				04F4469421D74FBF00524971 /* GoodsInfoView.m in Sources */,
 				04F4468F21D74F9000524971 /* UIButton+Bootstrap.m in Sources */,
@@ -1573,7 +1574,6 @@
 				04FDA16921AD3E3600E7804B /* PageTitleView.m in Sources */,
 				04F3CF0321CB2FBB007C40A1 /* UserManager.m in Sources */,
 				04F8ED3A21E304C800004178 /* informationModificationViewController.m in Sources */,
-				04F8ED5521E3508B00004178 /* modifyAddressModel.m in Sources */,
 				04F5C8DA21CA1F57008DD043 /* AppDelegate+AppService.m in Sources */,
 				0459D90A21E08FCD009BFFB4 /* DBDetailHeaderView.m in Sources */,
 				049D4766219FA91F0058178D /* main.m in Sources */,

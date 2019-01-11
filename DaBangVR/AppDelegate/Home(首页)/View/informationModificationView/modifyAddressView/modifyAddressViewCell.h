@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "modifyAddressModel.h"
+#import "ModifyAddressModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *contentText;
 
-@property (nonatomic, strong) modifyAddressModel *model;
+@property (nonatomic, strong) ModifyAddressModel *model;
 
 @end
 

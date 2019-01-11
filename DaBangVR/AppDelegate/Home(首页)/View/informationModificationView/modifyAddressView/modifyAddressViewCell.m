@@ -19,7 +19,7 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void)setModel:(modifyAddressModel *)model{
+- (void)setModel:(ModifyAddressModel *)model{
 //    self.titleLabel.text = (NSString *)model;
     //    self.contentText.text = infoModel.content;
 }

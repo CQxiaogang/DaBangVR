@@ -1,8 +1,8 @@
 //
-//  modifyAddressModel.h
+//  ModifyAddressModel.h
 //  DaBangVR
 //
-//  Created by mac on 2019/1/7.
+//  Created by mac on 2019/1/11.
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface modifyAddressModel : NSObject
+@interface ModifyAddressModel : NSObject
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *content;
