@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0402F63721A3BBE4003634AE /* DBMoreFunctionBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402F63621A3BBE4003634AE /* DBMoreFunctionBtnView.m */; };
-		0402F63921A3BBEF003634AE /* DBMoreFunctionBtnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0402F63821A3BBEF003634AE /* DBMoreFunctionBtnView.xib */; };
 		0403676C21A4E9CE00974435 /* DBLiveRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403676B21A4E9CE00974435 /* DBLiveRecommendView.m */; };
 		0403676E21A4E9DA00974435 /* DBLiveRecommendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403676D21A4E9DA00974435 /* DBLiveRecommendView.xib */; };
 		0403677221A5129800974435 /* DBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403677021A5129800974435 /* DBTableViewCell.m */; };
@@ -64,6 +62,8 @@
 		04EFA03621E74398007C2FCA /* ChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EFA03521E74398007C2FCA /* ChannelView.xib */; };
 		04F084F021E48F9600BFE102 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F084EF21E48F9600BFE102 /* BaseTableViewCell.m */; };
 		04F084F321E496DA00BFE102 /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F084F221E496DA00BFE102 /* MyOrderViewController.m */; };
+		04F2702521E830870019FB9F /* ChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2702421E830870019FB9F /* ChannelModel.m */; };
+		04F2702C21E8407B0019FB9F /* ChannelViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2702B21E8407B0019FB9F /* ChannelViewModel.m */; };
 		04F3270A21D07F18009267F4 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3270921D07F18009267F4 /* SettingTableViewCell.m */; };
 		04F3271321D09779009267F4 /* SeafoodShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3271121D09779009267F4 /* SeafoodShowTableViewCell.m */; };
 		04F3271421D09779009267F4 /* SeafoodShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F3271221D09779009267F4 /* SeafoodShowTableViewCell.xib */; };
@@ -105,7 +105,6 @@
 		04F5D68221C8E4830030A97D /* DBSeafoodShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5D68121C8E4830030A97D /* DBSeafoodShowViewController.m */; };
 		04F7360A21B679CE001CEBC0 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7360821B679CE001CEBC0 /* MineTableViewCell.m */; };
 		04F7360B21B679CE001CEBC0 /* MineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F7360921B679CE001CEBC0 /* MineTableViewCell.xib */; };
-		04F7453B21B0DADE0095EF75 /* DBMoreFunctionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7453A21B0DADE0095EF75 /* DBMoreFunctionModel.m */; };
 		04F8664321A78E0200A4D7F6 /* WaterfallColectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8664121A78E0200A4D7F6 /* WaterfallColectionLayout.m */; };
 		04F8664E21A7D50000A4D7F6 /* MineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8664D21A7D50000A4D7F6 /* MineHeaderView.m */; };
 		04F8665021A7D50D00A4D7F6 /* MineHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8664F21A7D50D00A4D7F6 /* MineHeaderView.xib */; };
@@ -169,9 +168,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0402F63521A3BBE4003634AE /* DBMoreFunctionBtnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBMoreFunctionBtnView.h; sourceTree = "<group>"; };
-		0402F63621A3BBE4003634AE /* DBMoreFunctionBtnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBMoreFunctionBtnView.m; sourceTree = "<group>"; };
-		0402F63821A3BBEF003634AE /* DBMoreFunctionBtnView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBMoreFunctionBtnView.xib; sourceTree = "<group>"; };
 		0403676A21A4E9CE00974435 /* DBLiveRecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBLiveRecommendView.h; sourceTree = "<group>"; };
 		0403676B21A4E9CE00974435 /* DBLiveRecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBLiveRecommendView.m; sourceTree = "<group>"; };
 		0403676D21A4E9DA00974435 /* DBLiveRecommendView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBLiveRecommendView.xib; sourceTree = "<group>"; };
@@ -265,6 +261,10 @@
 		04F084EF21E48F9600BFE102 /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		04F084F121E496DA00BFE102 /* MyOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
 		04F084F221E496DA00BFE102 /* MyOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyOrderViewController.m; sourceTree = "<group>"; };
+		04F2702321E830870019FB9F /* ChannelModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelModel.h; sourceTree = "<group>"; };
+		04F2702421E830870019FB9F /* ChannelModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelModel.m; sourceTree = "<group>"; };
+		04F2702A21E8407B0019FB9F /* ChannelViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelViewModel.h; sourceTree = "<group>"; };
+		04F2702B21E8407B0019FB9F /* ChannelViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelViewModel.m; sourceTree = "<group>"; };
 		04F3270821D07F18009267F4 /* SettingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
 		04F3270921D07F18009267F4 /* SettingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewCell.m; sourceTree = "<group>"; };
 		04F3271021D09779009267F4 /* SeafoodShowTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeafoodShowTableViewCell.h; sourceTree = "<group>"; };
@@ -343,8 +343,6 @@
 		04F7360721B679CE001CEBC0 /* MineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTableViewCell.h; sourceTree = "<group>"; };
 		04F7360821B679CE001CEBC0 /* MineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTableViewCell.m; sourceTree = "<group>"; };
 		04F7360921B679CE001CEBC0 /* MineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineTableViewCell.xib; sourceTree = "<group>"; };
-		04F7453921B0DADE0095EF75 /* DBMoreFunctionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBMoreFunctionModel.h; sourceTree = "<group>"; };
-		04F7453A21B0DADE0095EF75 /* DBMoreFunctionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBMoreFunctionModel.m; sourceTree = "<group>"; };
 		04F8664121A78E0200A4D7F6 /* WaterfallColectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterfallColectionLayout.m; sourceTree = "<group>"; };
 		04F8664221A78E0200A4D7F6 /* WaterfallColectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterfallColectionLayout.h; sourceTree = "<group>"; };
 		04F8664C21A7D50000A4D7F6 /* MineHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineHeaderView.h; sourceTree = "<group>"; };
@@ -486,10 +484,9 @@
 		0402F63321A3B83E003634AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				04F8ED5221E34F6500004178 /* modifyAddressModel */,
+				04F8ED5221E34F6500004178 /* ModifyAddressModel */,
 				04F4465021D71F8D00524971 /* FeatureModel */,
-				04F7453921B0DADE0095EF75 /* DBMoreFunctionModel.h */,
-				04F7453A21B0DADE0095EF75 /* DBMoreFunctionModel.m */,
+				04F2702221E830190019FB9F /* ChannelModel */,
 				04F50D1221D1CF7C004EBFE1 /* SeafoodShowModel.h */,
 				04F50D1321D1CF7C004EBFE1 /* SeafoodShowModel.m */,
 			);
@@ -718,6 +715,7 @@
 			children = (
 				0402F63321A3B83E003634AE /* Model */,
 				0402F63421A3B845003634AE /* View */,
+				04F2702621E839C80019FB9F /* ViewModel */,
 				0402F63221A3B832003634AE /* Controller */,
 			);
 			path = "Home(首页)";
@@ -795,6 +793,24 @@
 				04F084EF21E48F9600BFE102 /* BaseTableViewCell.m */,
 			);
 			path = BaseCell;
+			sourceTree = "<group>";
+		};
+		04F2702221E830190019FB9F /* ChannelModel */ = {
+			isa = PBXGroup;
+			children = (
+				04F2702321E830870019FB9F /* ChannelModel.h */,
+				04F2702421E830870019FB9F /* ChannelModel.m */,
+			);
+			path = ChannelModel;
+			sourceTree = "<group>";
+		};
+		04F2702621E839C80019FB9F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				04F2702A21E8407B0019FB9F /* ChannelViewModel.h */,
+				04F2702B21E8407B0019FB9F /* ChannelViewModel.m */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		04F3270E21D095BD009267F4 /* TableView */ = {
@@ -887,9 +903,6 @@
 				0403676A21A4E9CE00974435 /* DBLiveRecommendView.h */,
 				0403676B21A4E9CE00974435 /* DBLiveRecommendView.m */,
 				0403676D21A4E9DA00974435 /* DBLiveRecommendView.xib */,
-				0402F63521A3BBE4003634AE /* DBMoreFunctionBtnView.h */,
-				0402F63621A3BBE4003634AE /* DBMoreFunctionBtnView.m */,
-				0402F63821A3BBEF003634AE /* DBMoreFunctionBtnView.xib */,
 				04EFA03021E7436B007C2FCA /* ChannelView.h */,
 				04EFA03121E7436B007C2FCA /* ChannelView.m */,
 				04EFA03521E74398007C2FCA /* ChannelView.xib */,
@@ -1147,13 +1160,13 @@
 			path = modifyAddressView;
 			sourceTree = "<group>";
 		};
-		04F8ED5221E34F6500004178 /* modifyAddressModel */ = {
+		04F8ED5221E34F6500004178 /* ModifyAddressModel */ = {
 			isa = PBXGroup;
 			children = (
 				04F8ED5321E3508B00004178 /* modifyAddressModel.h */,
 				04F8ED5421E3508B00004178 /* modifyAddressModel.m */,
 			);
-			path = modifyAddressModel;
+			path = ModifyAddressModel;
 			sourceTree = "<group>";
 		};
 		04FA5D5821AE3B0D0061AF27 /* Login(登录) */ = {
@@ -1394,7 +1407,6 @@
 				04F4469321D74FBF00524971 /* GoodsInfoView.xib in Resources */,
 				04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */,
 				04F8ED4521E32AC000004178 /* informationModificationCell.xib in Resources */,
-				0402F63921A3BBEF003634AE /* DBMoreFunctionBtnView.xib in Resources */,
 				0463026521BBC8DB0003C542 /* DBTopView.xib in Resources */,
 				0459D90F21E08FFD009BFFB4 /* DBDetailHeaderView.xib in Resources */,
 				049D4763219FA91F0058178D /* LaunchScreen.storyboard in Resources */,
@@ -1503,7 +1515,6 @@
 				04F8ED4B21E3453800004178 /* modifyAddressViewController.m in Sources */,
 				04F5D68221C8E4830030A97D /* DBSeafoodShowViewController.m in Sources */,
 				04EFA02621E7226D007C2FCA /* OrderDeliveryViewController.m in Sources */,
-				0402F63721A3BBE4003634AE /* DBMoreFunctionBtnView.m in Sources */,
 				042FCEC621A3E22E002AD0DB /* DBTimeLimitSecondsKill.m in Sources */,
 				04F4468C21D74F9000524971 /* DBCollectionHeaderLayout.m in Sources */,
 				0459D89621E04FEA009BFFB4 /* BuyNowViewController.m in Sources */,
@@ -1519,6 +1530,7 @@
 				0463025E21BBAC8D0003C542 /* DBFontOfSize.m in Sources */,
 				04FA5D6021AE3F480061AF27 /* LoginViewController.m in Sources */,
 				04F866AF21A7FF4D00A4D7F6 /* ADCarouselView.m in Sources */,
+				04F2702521E830870019FB9F /* ChannelModel.m in Sources */,
 				0403676C21A4E9CE00974435 /* DBLiveRecommendView.m in Sources */,
 				04FB2F7321BB7BE8007E63AA /* UIView+FontSize.m in Sources */,
 				04F7360A21B679CE001CEBC0 /* MineTableViewCell.m in Sources */,
@@ -1555,6 +1567,7 @@
 				04FC2C3C21C0E3AD00329B53 /* JFCityHeaderView.m in Sources */,
 				0463026021BBAC8D0003C542 /* DBLayoutConstraint.m in Sources */,
 				049D47A5219FEC790058178D /* MineViewController.m in Sources */,
+				04F2702C21E8407B0019FB9F /* ChannelViewModel.m in Sources */,
 				04F4467921D74F5300524971 /* DBFeatureHeaderView.m in Sources */,
 				049D4799219FE9480058178D /* MainTabBarController.m in Sources */,
 				04FDA16921AD3E3600E7804B /* PageTitleView.m in Sources */,
@@ -1567,7 +1580,6 @@
 				04F4468121D74F7B00524971 /* DBFeatureList.m in Sources */,
 				04FDA16621AD3D6300E7804B /* PageContentView.m in Sources */,
 				04FC2C3D21C0E3AD00329B53 /* JFSearchView.m in Sources */,
-				04F7453B21B0DADE0095EF75 /* DBMoreFunctionModel.m in Sources */,
 				04FC2C4121C0E3AD00329B53 /* JFButton.m in Sources */,
 				04F084F321E496DA00BFE102 /* MyOrderViewController.m in Sources */,
 				04F5C8ED21CA4D1D008DD043 /* BSFitdpiUtil.m in Sources */,

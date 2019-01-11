@@ -14,14 +14,14 @@
 #import "DBPrefectureView.h"
 #import "JFAreaDataManager.h"
 #import "DBLiveRecommendView.h"
-#import "DBMoreFunctionModel.h"
 #import "JFCityViewController.h"
-#import "DBMoreFunctionBtnView.h"
 #import "HomePageViewController.h"
 #import "DBSeafoodShowViewController.h"
 #import "MineViewController.h"
 // Views
 #import "ChannelMenuListView.h"//频道菜单列表
+// ViewModels
+#import "ChannelViewModel.h"
 
 static NSString *cellID = @"cellID";
 #define KCURRENTCITYINFODEFAULTS [NSUserDefaults standardUserDefaults]
@@ -32,7 +32,8 @@ UITableViewDelegate,
 UITableViewDataSource,
 JFLocationDelegate,
 ADCarouselViewDelegate,
-JFCityViewControllerDelegate
+JFCityViewControllerDelegate,
+ChannelMenuListViewDelegate
 >
 
 {
@@ -56,8 +57,6 @@ JFCityViewControllerDelegate
 @property (nonatomic, strong) DBPrefectureView      *prefectureView;
 
 @property (nonatomic, strong) UICollectionView      *collectionView;
-
-@property (nonatomic, strong) DBMoreFunctionBtnView *moreFunctionView;
 /** 城市定位管理器*/
 @property (nonatomic, strong) JFLocation            *locationManager;
 /** 城市数据管理器*/
@@ -137,6 +136,7 @@ JFCityViewControllerDelegate
 -(ChannelMenuListView *)channelMenuListView{
     if (!_channelMenuListView) {
         _channelMenuListView = [[ChannelMenuListView alloc] initWithFrame:CGRectMake(0, 0, self.view.mj_w, Adapt(130))];
+        _channelMenuListView.delegate = self;
     }
     return _channelMenuListView;
 }
@@ -343,14 +343,17 @@ JFCityViewControllerDelegate
 
 #pragma mark —— 频道菜单列表
 - (void)setupChannelMenuListView:(UITableViewCell *)cell{
-   
+    
+    ChannelViewModel *viewModel = [[ChannelViewModel alloc] init];
+    self.channelMenuListView.viewModel  = viewModel;
     [cell addSubview:self.channelMenuListView];
     
     _totalH_channelMenuList = self.channelMenuListView.mj_h;
 }
 #pragma mark —— 频道点击事件
-- (void)click:(UIButton *)sender{
-    switch (sender.tag) {
+#pragma mark —— 频道菜单列表 代理
+-(void)channelBtnOfClick:(UIButton *)btn{
+    switch (btn.tag) {
         case 0:
             // 视屏
             [self videoShow];
@@ -363,6 +366,7 @@ JFCityViewControllerDelegate
             break;
     }
 }
+   
 // 海鲜展示
 - (void)seafoodShow{
     DBSeafoodShowViewController *seafoodShowVC = [[DBSeafoodShowViewController alloc] init];
@@ -607,4 +611,6 @@ JFCityViewControllerDelegate
 - (void)locateFailure:(NSString *)message {
     NSLog(@"%@",message);
 }
+
+
 @end

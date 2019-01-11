@@ -10,6 +10,7 @@
 
 @implementation ChannelView
 
+// 频道按钮点击事件
 - (IBAction)chananelBtnAction:(id)sender {
     
 }

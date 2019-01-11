@@ -40,6 +40,9 @@
             CGFloat y = i * high;
             _channelView.frame = CGRectMake(x, y, wide, high);
             _channelView.channelBtn.tag = i*5 + j;
+            // 添加点击事件
+            [_channelView.channelBtn addTarget:self action:@selector(channelBtnOfClick:) forControlEvents:UIControlEventTouchUpInside];
+            // 图片和文字的设置
             if (i==0) {
                 _channelView.channelTitle.text = titleArr[j];
                 [_channelView.channelBtn setBackgroundImage:[UIImage imageNamed:imageArr[j]] forState:UIControlStateNormal];
@@ -51,4 +54,15 @@
         }
     }
 }
+
+- (void)channelBtnOfClick:(id)sender{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(channelBtnOfClick:)]) {
+        [self.delegate channelBtnOfClick:sender];
+    }
+}
+
+- (void)setViewModel:(ChannelViewModel *)viewModel{
+    
+}
+
 @end

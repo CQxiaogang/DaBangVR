@@ -31,7 +31,7 @@
 #if DevelopSever
 
 /**开发服务器*/
-#define URL_main @"http://192.168.100.107:8080/api/user"
+#define URL_main @"http://192.168.1.103:8080"
 
 #elif TestSever
 
@@ -65,5 +65,8 @@
 // 注释
 #define URL_user_info_change @"/api/user/info/change"
 
+#pragma mark —— 商品相关
+// 频道菜单类别
+#define URL_channel_menu_info @"http://192.168.1.103:8080/api/index/getChannelMenuList"
 
 #endif /* URLMacros_h */
