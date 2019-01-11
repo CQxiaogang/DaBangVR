@@ -63,7 +63,6 @@
 		04F084F021E48F9600BFE102 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F084EF21E48F9600BFE102 /* BaseTableViewCell.m */; };
 		04F084F321E496DA00BFE102 /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F084F221E496DA00BFE102 /* MyOrderViewController.m */; };
 		04F2702521E830870019FB9F /* ChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2702421E830870019FB9F /* ChannelModel.m */; };
-		04F2702C21E8407B0019FB9F /* ChannelViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2702B21E8407B0019FB9F /* ChannelViewModel.m */; };
 		04F2702F21E883FC0019FB9F /* ModifyAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2702E21E883FC0019FB9F /* ModifyAddressModel.m */; };
 		04F3270A21D07F18009267F4 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3270921D07F18009267F4 /* SettingTableViewCell.m */; };
 		04F3271321D09779009267F4 /* SeafoodShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3271121D09779009267F4 /* SeafoodShowTableViewCell.m */; };
@@ -263,8 +262,6 @@
 		04F084F221E496DA00BFE102 /* MyOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyOrderViewController.m; sourceTree = "<group>"; };
 		04F2702321E830870019FB9F /* ChannelModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelModel.h; sourceTree = "<group>"; };
 		04F2702421E830870019FB9F /* ChannelModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelModel.m; sourceTree = "<group>"; };
-		04F2702A21E8407B0019FB9F /* ChannelViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelViewModel.h; sourceTree = "<group>"; };
-		04F2702B21E8407B0019FB9F /* ChannelViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelViewModel.m; sourceTree = "<group>"; };
 		04F2702D21E883FC0019FB9F /* ModifyAddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyAddressModel.h; sourceTree = "<group>"; };
 		04F2702E21E883FC0019FB9F /* ModifyAddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyAddressModel.m; sourceTree = "<group>"; };
 		04F3270821D07F18009267F4 /* SettingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
@@ -715,7 +712,6 @@
 			children = (
 				0402F63321A3B83E003634AE /* Model */,
 				0402F63421A3B845003634AE /* View */,
-				04F2702621E839C80019FB9F /* ViewModel */,
 				0402F63221A3B832003634AE /* Controller */,
 			);
 			path = "Home(首页)";
@@ -802,15 +798,6 @@
 				04F2702421E830870019FB9F /* ChannelModel.m */,
 			);
 			path = ChannelModel;
-			sourceTree = "<group>";
-		};
-		04F2702621E839C80019FB9F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				04F2702A21E8407B0019FB9F /* ChannelViewModel.h */,
-				04F2702B21E8407B0019FB9F /* ChannelViewModel.m */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		04F3270E21D095BD009267F4 /* TableView */ = {
@@ -1568,7 +1555,6 @@
 				04FC2C3C21C0E3AD00329B53 /* JFCityHeaderView.m in Sources */,
 				0463026021BBAC8D0003C542 /* DBLayoutConstraint.m in Sources */,
 				049D47A5219FEC790058178D /* MineViewController.m in Sources */,
-				04F2702C21E8407B0019FB9F /* ChannelViewModel.m in Sources */,
 				04F4467921D74F5300524971 /* DBFeatureHeaderView.m in Sources */,
 				049D4799219FE9480058178D /* MainTabBarController.m in Sources */,
 				04FDA16921AD3E3600E7804B /* PageTitleView.m in Sources */,

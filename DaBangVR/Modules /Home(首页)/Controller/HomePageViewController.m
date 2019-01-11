@@ -20,8 +20,8 @@
 #import "MineViewController.h"
 // Views
 #import "ChannelMenuListView.h"//频道菜单列表
-// ViewModels
-#import "ChannelViewModel.h"
+// Models
+#import "ChannelModel.h"
 
 static NSString *cellID = @"cellID";
 #define KCURRENTCITYINFODEFAULTS [NSUserDefaults standardUserDefaults]
@@ -344,13 +344,19 @@ ChannelMenuListViewDelegate
 #pragma mark —— 频道菜单列表
 - (void)setupChannelMenuListView:(UITableViewCell *)cell{
     
-    ChannelViewModel *viewModel = [[ChannelViewModel alloc] init];
-    self.channelMenuListView.viewModel  = viewModel;
-    [cell addSubview:self.channelMenuListView];
+    ChannelModel *model = [[ChannelModel alloc] init];
+    model.success = ^(NSArray * _Nonnull array) {
+        self.channelMenuListView.chanelArray = array;
+        
+        [cell addSubview:self.channelMenuListView];
+        
+        [self.tableView reloadData];
+    };
+    
     
     _totalH_channelMenuList = self.channelMenuListView.mj_h;
 }
-#pragma mark —— 频道点击事件
+
 #pragma mark —— 频道菜单列表 代理
 -(void)channelBtnOfClick:(UIButton *)btn{
     switch (btn.tag) {

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ChannelViewModel.h"
+
+#import "ChannelModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @protocol ChannelMenuListViewDelegate <NSObject>
@@ -20,7 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id <ChannelMenuListViewDelegate> delegate;
 
-@property (nonatomic, strong) ChannelViewModel *viewModel;
+@property (nonatomic, strong) ChannelModel *model;
+
+@property (nonatomic, strong) NSArray *chanelArray;
 
 @end
 

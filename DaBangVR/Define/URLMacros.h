@@ -67,6 +67,6 @@
 
 #pragma mark —— 商品相关
 // 频道菜单类别
-#define URL_channel_menu_info @"http://192.168.1.103:8080/api/index/getChannelMenuList"
+#define URL_channel_menu_info @"http://192.168.1.110:8080/api/index/getChannelMenuList"
 
 #endif /* URLMacros_h */

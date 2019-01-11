@@ -13,21 +13,29 @@
 
 @property (nonatomic, strong) ChannelView *channelView;
 
+@property (nonatomic, strong) NSMutableArray *imageStrArray;
+
 @end
 
 @implementation ChannelMenuListView
 #pragma mark —— 懒加载
-
+-(NSMutableArray *)imageStrArray{
+    if (!_imageStrArray) {
+        _imageStrArray = [NSMutableArray new];
+    }
+    return _imageStrArray;
+}
 #pragma mark —— 系统方法
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        [self setupUI];
+
     }
     return self;
 }
 - (void)setupUI{
-    NSArray *imageArr = @[@"h_video",@"h_seafood",@"h_Assemble",@"h_Spike",@"h_Bigbang",@"h_Global",@"h_New",@"h_store",@"h_Search_moreF",@"h_Community"];
+    NSArray *imageArr = (NSArray *)self.imageStrArray;
+    
     NSArray *titleArr = @[@"视屏",@"海鲜",@"拼图",@"限时秒杀",@"大邦",@"全球购",@"新品首发",@"门店",@"分类搜索",@"社区",];
     
     for (int i=0; i<2; i++) {
@@ -45,10 +53,18 @@
             // 图片和文字的设置
             if (i==0) {
                 _channelView.channelTitle.text = titleArr[j];
-                [_channelView.channelBtn setBackgroundImage:[UIImage imageNamed:imageArr[j]] forState:UIControlStateNormal];
+                if (imageArr.count != 0) {
+                    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageArr[j]]];
+                    [_channelView.channelBtn setBackgroundImage:[UIImage imageWithData:data] forState:UIControlStateNormal];
+                }
+                
+                
             }else{
                 _channelView.channelTitle.text = titleArr[j + 5];
-                [_channelView.channelBtn setBackgroundImage:[UIImage imageNamed:imageArr[j + 5]] forState:UIControlStateNormal];
+                if (imageArr.count != 0) {
+                    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageArr[j + 5]]];
+                    [_channelView.channelBtn setBackgroundImage:[UIImage imageWithData:data] forState:UIControlStateNormal];
+                }
             }
             [self addSubview:_channelView];
         }
@@ -61,8 +77,13 @@
     }
 }
 
-- (void)setViewModel:(ChannelViewModel *)viewModel{
+- (void)setChanelArray:(NSArray *)chanelArray{
+    for (ChannelModel *model in chanelArray) {
+        NSString *string = model.iconUrl;
+        [self.imageStrArray addObject:string];
+    }
     
+    [self setupUI];
 }
 
 @end

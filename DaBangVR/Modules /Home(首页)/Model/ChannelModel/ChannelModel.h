@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void (^success)(NSArray *array);
 @interface ChannelModel : NSObject
 // 频道ID
 //@property(nonatomic, assign) NSInteger cID;
@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 频道标题
 @property(nonatomic, copy) NSString *title;
 
+@property (nonatomic, strong) success success;
 
 @end
 
