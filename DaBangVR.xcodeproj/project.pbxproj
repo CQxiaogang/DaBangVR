@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0403676C21A4E9CE00974435 /* DBLiveRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403676B21A4E9CE00974435 /* DBLiveRecommendView.m */; };
-		0403676E21A4E9DA00974435 /* DBLiveRecommendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403676D21A4E9DA00974435 /* DBLiveRecommendView.xib */; };
+		0403676C21A4E9CE00974435 /* AnchorViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403676B21A4E9CE00974435 /* AnchorViewCell.m */; };
+		0403676E21A4E9DA00974435 /* AnchorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403676D21A4E9DA00974435 /* AnchorViewCell.xib */; };
 		0403677221A5129800974435 /* DBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403677021A5129800974435 /* DBTableViewCell.m */; };
 		0403677321A5129800974435 /* DBtableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403677121A5129800974435 /* DBtableViewCell.xib */; };
 		0410357F21CCD2F2002CB32C /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0410357021CCD2F2002CB32C /* UMSocialSDKResources.bundle */; };
@@ -103,6 +103,8 @@
 		04F5C8EA21CA4307008DD043 /* UIViewController+AlertViewAndActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5C8E921CA4307008DD043 /* UIViewController+AlertViewAndActionSheet.m */; };
 		04F5C8ED21CA4D1D008DD043 /* BSFitdpiUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5C8EC21CA4D1D008DD043 /* BSFitdpiUtil.m */; };
 		04F5D68221C8E4830030A97D /* DBSeafoodShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5D68121C8E4830030A97D /* DBSeafoodShowViewController.m */; };
+		04F70C6521E97D17004BD4C6 /* SeafoodShowTitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F70C6421E97D17004BD4C6 /* SeafoodShowTitleModel.m */; };
+		04F70C6921E98D35004BD4C6 /* AnchorRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F70C6821E98D35004BD4C6 /* AnchorRecommendView.m */; };
 		04F7360A21B679CE001CEBC0 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7360821B679CE001CEBC0 /* MineTableViewCell.m */; };
 		04F7360B21B679CE001CEBC0 /* MineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F7360921B679CE001CEBC0 /* MineTableViewCell.xib */; };
 		04F8664321A78E0200A4D7F6 /* WaterfallColectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8664121A78E0200A4D7F6 /* WaterfallColectionLayout.m */; };
@@ -167,9 +169,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0403676A21A4E9CE00974435 /* DBLiveRecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBLiveRecommendView.h; sourceTree = "<group>"; };
-		0403676B21A4E9CE00974435 /* DBLiveRecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBLiveRecommendView.m; sourceTree = "<group>"; };
-		0403676D21A4E9DA00974435 /* DBLiveRecommendView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBLiveRecommendView.xib; sourceTree = "<group>"; };
+		0403676A21A4E9CE00974435 /* AnchorViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnchorViewCell.h; sourceTree = "<group>"; };
+		0403676B21A4E9CE00974435 /* AnchorViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnchorViewCell.m; sourceTree = "<group>"; };
+		0403676D21A4E9DA00974435 /* AnchorViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnchorViewCell.xib; sourceTree = "<group>"; };
 		0403676F21A5129800974435 /* DBTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBTableViewCell.h; sourceTree = "<group>"; };
 		0403677021A5129800974435 /* DBTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBTableViewCell.m; sourceTree = "<group>"; };
 		0403677121A5129800974435 /* DBtableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBtableViewCell.xib; sourceTree = "<group>"; };
@@ -339,6 +341,10 @@
 		04F5C8EC21CA4D1D008DD043 /* BSFitdpiUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSFitdpiUtil.m; sourceTree = "<group>"; };
 		04F5D68021C8E4830030A97D /* DBSeafoodShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSeafoodShowViewController.h; sourceTree = "<group>"; };
 		04F5D68121C8E4830030A97D /* DBSeafoodShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSeafoodShowViewController.m; sourceTree = "<group>"; };
+		04F70C6321E97D17004BD4C6 /* SeafoodShowTitleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeafoodShowTitleModel.h; sourceTree = "<group>"; };
+		04F70C6421E97D17004BD4C6 /* SeafoodShowTitleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeafoodShowTitleModel.m; sourceTree = "<group>"; };
+		04F70C6721E98D35004BD4C6 /* AnchorRecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnchorRecommendView.h; sourceTree = "<group>"; };
+		04F70C6821E98D35004BD4C6 /* AnchorRecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnchorRecommendView.m; sourceTree = "<group>"; };
 		04F7360721B679CE001CEBC0 /* MineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTableViewCell.h; sourceTree = "<group>"; };
 		04F7360821B679CE001CEBC0 /* MineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTableViewCell.m; sourceTree = "<group>"; };
 		04F7360921B679CE001CEBC0 /* MineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineTableViewCell.xib; sourceTree = "<group>"; };
@@ -484,8 +490,7 @@
 				04F8ED5221E34F6500004178 /* ModifyAddressModel */,
 				04F4465021D71F8D00524971 /* FeatureModel */,
 				04F2702221E830190019FB9F /* ChannelModel */,
-				04F50D1221D1CF7C004EBFE1 /* SeafoodShowModel.h */,
-				04F50D1321D1CF7C004EBFE1 /* SeafoodShowModel.m */,
+				04F70C6221E97C96004BD4C6 /* SeafoodShowModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -493,10 +498,11 @@
 		0402F63421A3B845003634AE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				04F4469721D7688F00524971 /* SeafoodShowView */,
+				04F70C6621E98C38004BD4C6 /* AnchorRecommendView(主播推荐) */,
+				04F70C6A21E99A62004BD4C6 /* ChannelMenuListView(频道菜单) */,
 				04F4469621D7683800524971 /* HomeView */,
-				0459D90721E08F20009BFFB4 /* BuyNowView */,
-				04F8ED3B21E30DD000004178 /* informationModificationView */,
+				0459D90721E08F20009BFFB4 /* BuyNowView(立即购买) */,
+				04F8ED3B21E30DD000004178 /* informationModificationView(信息修改) */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -575,7 +581,7 @@
 			path = RootViewController;
 			sourceTree = "<group>";
 		};
-		0459D90721E08F20009BFFB4 /* BuyNowView */ = {
+		0459D90721E08F20009BFFB4 /* BuyNowView(立即购买) */ = {
 			isa = PBXGroup;
 			children = (
 				0459D90821E08FCD009BFFB4 /* DBDetailHeaderView.h */,
@@ -590,7 +596,7 @@
 				04F8ED3421E2F0AA00004178 /* DBDetailFooterCell.m */,
 				04F8ED3521E2F0AA00004178 /* DBDetailFooterCell.xib */,
 			);
-			path = BuyNowView;
+			path = "BuyNowView(立即购买)";
 			sourceTree = "<group>";
 		};
 		0463025721BBAC700003C542 /* Adaptive */ = {
@@ -887,14 +893,6 @@
 				0463026121BBC8C40003C542 /* DBTopView.h */,
 				0463026221BBC8C40003C542 /* DBTopView.m */,
 				0463026421BBC8DB0003C542 /* DBTopView.xib */,
-				0403676A21A4E9CE00974435 /* DBLiveRecommendView.h */,
-				0403676B21A4E9CE00974435 /* DBLiveRecommendView.m */,
-				0403676D21A4E9DA00974435 /* DBLiveRecommendView.xib */,
-				04EFA03021E7436B007C2FCA /* ChannelView.h */,
-				04EFA03121E7436B007C2FCA /* ChannelView.m */,
-				04EFA03521E74398007C2FCA /* ChannelView.xib */,
-				04EFA02D21E742E5007C2FCA /* ChannelMenuListView.h */,
-				04EFA02E21E742E5007C2FCA /* ChannelMenuListView.m */,
 				042FCEC421A3E22E002AD0DB /* DBTimeLimitSecondsKill.h */,
 				042FCEC521A3E22E002AD0DB /* DBTimeLimitSecondsKill.m */,
 				042FCEC721A3E24F002AD0DB /* DBTimeLimitSecondsKill.xib */,
@@ -912,13 +910,13 @@
 			path = HomeView;
 			sourceTree = "<group>";
 		};
-		04F4469721D7688F00524971 /* SeafoodShowView */ = {
+		04F4469721D7688F00524971 /* SeafoodShowView(海鲜展示) */ = {
 			isa = PBXGroup;
 			children = (
 				04F4465A21D71F9D00524971 /* FeatureView */,
 				04F3270E21D095BD009267F4 /* TableView */,
 			);
-			path = SeafoodShowView;
+			path = "SeafoodShowView(海鲜展示)";
 			sourceTree = "<group>";
 		};
 		04F47E2021E5D084001B5F74 /* MyOrderView */ = {
@@ -1069,6 +1067,42 @@
 			path = "Modules ";
 			sourceTree = "<group>";
 		};
+		04F70C6221E97C96004BD4C6 /* SeafoodShowModel */ = {
+			isa = PBXGroup;
+			children = (
+				04F50D1221D1CF7C004EBFE1 /* SeafoodShowModel.h */,
+				04F50D1321D1CF7C004EBFE1 /* SeafoodShowModel.m */,
+				04F70C6321E97D17004BD4C6 /* SeafoodShowTitleModel.h */,
+				04F70C6421E97D17004BD4C6 /* SeafoodShowTitleModel.m */,
+			);
+			path = SeafoodShowModel;
+			sourceTree = "<group>";
+		};
+		04F70C6621E98C38004BD4C6 /* AnchorRecommendView(主播推荐) */ = {
+			isa = PBXGroup;
+			children = (
+				04F70C6721E98D35004BD4C6 /* AnchorRecommendView.h */,
+				04F70C6821E98D35004BD4C6 /* AnchorRecommendView.m */,
+				0403676A21A4E9CE00974435 /* AnchorViewCell.h */,
+				0403676B21A4E9CE00974435 /* AnchorViewCell.m */,
+				0403676D21A4E9DA00974435 /* AnchorViewCell.xib */,
+			);
+			path = "AnchorRecommendView(主播推荐)";
+			sourceTree = "<group>";
+		};
+		04F70C6A21E99A62004BD4C6 /* ChannelMenuListView(频道菜单) */ = {
+			isa = PBXGroup;
+			children = (
+				04F4469721D7688F00524971 /* SeafoodShowView(海鲜展示) */,
+				04EFA03021E7436B007C2FCA /* ChannelView.h */,
+				04EFA03121E7436B007C2FCA /* ChannelView.m */,
+				04EFA03521E74398007C2FCA /* ChannelView.xib */,
+				04EFA02D21E742E5007C2FCA /* ChannelMenuListView.h */,
+				04EFA02E21E742E5007C2FCA /* ChannelMenuListView.m */,
+			);
+			path = "ChannelMenuListView(频道菜单)";
+			sourceTree = "<group>";
+		};
 		04F8664621A7AFBF00A4D7F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1123,7 +1157,7 @@
 			path = ADcarouselView;
 			sourceTree = "<group>";
 		};
-		04F8ED3B21E30DD000004178 /* informationModificationView */ = {
+		04F8ED3B21E30DD000004178 /* informationModificationView(信息修改) */ = {
 			isa = PBXGroup;
 			children = (
 				04F8ED3C21E30E9A00004178 /* informationModificationHeaderView.h */,
@@ -1134,7 +1168,7 @@
 				04F8ED4321E32AC000004178 /* informationModificationCell.xib */,
 				04F8ED4C21E3498D00004178 /* modifyAddressView */,
 			);
-			path = informationModificationView;
+			path = "informationModificationView(信息修改)";
 			sourceTree = "<group>";
 		};
 		04F8ED4C21E3498D00004178 /* modifyAddressView */ = {
@@ -1405,7 +1439,7 @@
 				042FCEC821A3E24F002AD0DB /* DBTimeLimitSecondsKill.xib in Resources */,
 				042FCED221A4070C002AD0DB /* DBHotVideoView.xib in Resources */,
 				049D475E219FA91E0058178D /* Main.storyboard in Resources */,
-				0403676E21A4E9DA00974435 /* DBLiveRecommendView.xib in Resources */,
+				0403676E21A4E9DA00974435 /* AnchorViewCell.xib in Resources */,
 				04F47E2521E5D0EE001B5F74 /* AllOrdersCell.xib in Resources */,
 				04FC2C4221C0E3AD00329B53 /* shop_area.sqlite in Resources */,
 				04FA5D6121AE3F480061AF27 /* LoginViewController.xib in Resources */,
@@ -1510,6 +1544,7 @@
 				04EFA01821E7045C007C2FCA /* EvaluationSuccessView.m in Sources */,
 				04F3271321D09779009267F4 /* SeafoodShowTableViewCell.m in Sources */,
 				04F47E2421E5D0EE001B5F74 /* AllOrdersCell.m in Sources */,
+				04F70C6921E98D35004BD4C6 /* AnchorRecommendView.m in Sources */,
 				0459D91321E0A78F009BFFB4 /* DBDetailContentCell.m in Sources */,
 				049D479F219FEC540058178D /* DBLiveViewController.m in Sources */,
 				049703E621A69860002359B5 /* DBLiveTableViewCell.m in Sources */,
@@ -1518,7 +1553,7 @@
 				04FA5D6021AE3F480061AF27 /* LoginViewController.m in Sources */,
 				04F866AF21A7FF4D00A4D7F6 /* ADCarouselView.m in Sources */,
 				04F2702521E830870019FB9F /* ChannelModel.m in Sources */,
-				0403676C21A4E9CE00974435 /* DBLiveRecommendView.m in Sources */,
+				0403676C21A4E9CE00974435 /* AnchorViewCell.m in Sources */,
 				04FB2F7321BB7BE8007E63AA /* UIView+FontSize.m in Sources */,
 				04F7360A21B679CE001CEBC0 /* MineTableViewCell.m in Sources */,
 				042FCECB21A3F1AB002AD0DB /* DBPrefectureView.m in Sources */,
@@ -1529,6 +1564,7 @@
 				049D479C219FEC1E0058178D /* HomePageViewController.m in Sources */,
 				04F8ED5021E349E000004178 /* modifyAddressViewCell.m in Sources */,
 				04F50D1F21D2191F004EBFE1 /* NetWorkHelper.m in Sources */,
+				04F70C6521E97D17004BD4C6 /* SeafoodShowTitleModel.m in Sources */,
 				04EFA02C21E73391007C2FCA /* EvaluationOfSuccessViewController.m in Sources */,
 				04F4468221D74F7B00524971 /* DBFeatureItem.m in Sources */,
 				04F8ED3E21E30E9A00004178 /* informationModificationHeaderView.m in Sources */,

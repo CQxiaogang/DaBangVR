@@ -28,23 +28,27 @@
 {
     self = [super init];
     if (self) {
-        [NetWorkHelper POST:URL_channel_menu_info parameters:nil success:^(id  _Nonnull responseObject) {
-            NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            NSDictionary *dataDic= dictionary[@"data"];
-            NSArray *channelArray = dataDic[@"channelMenuList"];
-            for (NSDictionary *dic in channelArray) {
-                self.model = [ChannelModel modelWithDictionary:dic];
-                [self.arrayModel addObject:self.model];
-            }
-            if (self.success != nil) {
-               self.success(self.arrayModel);
-            }
-            
-        } failure:^(NSError * _Nonnull error) {
-            DLog(@"error %@",error);
-        }];
+        [self getData];
     }
     return self;
+}
+
+- (void)getData{
+    [NetWorkHelper POST:URL_channel_menu_info parameters:nil success:^(id  _Nonnull responseObject) {
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSDictionary *dataDic= dictionary[@"data"];
+        NSArray *channelArray = dataDic[@"channelMenuList"];
+        for (NSDictionary *dic in channelArray) {
+            self.model = [ChannelModel modelWithDictionary:dic];
+            [self.arrayModel addObject:self.model];
+        }
+        if (self.success != nil) {
+            self.success(self.arrayModel);
+        }
+        
+    } failure:^(NSError * _Nonnull error) {
+        DLog(@"error %@",error);
+    }];
 }
 
 @end

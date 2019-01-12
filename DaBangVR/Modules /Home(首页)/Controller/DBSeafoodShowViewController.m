@@ -9,6 +9,8 @@
 #import "SeafoodShowTableView.h"
 #import "GoodsDetailsViewController.h"
 #import "DBSeafoodShowViewController.h"
+// Models
+#import "SeafoodShowTitleModel.h"
 
 @interface DBSeafoodShowViewController ()
 <
@@ -16,6 +18,8 @@ PageTitleViewDelegate,
 pageContentViewDelegate,
 SeafoodShowTableViewDelegate
 >
+
+@property (nonatomic, strong) SeafoodShowTitleModel *seafoodShowTitleModel;
 
 @end
 
@@ -57,18 +61,13 @@ SeafoodShowTableViewDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.pageTitleView];
-    [self.view addSubview:self.pageContentView];
-    kWeakSelf(self);
-    [self.pageContentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakself.pageTitleView.mas_bottom).offset(0);
-        make.left.right.bottom.equalTo(@(0));
-    }];
-}
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    //显示navigationBar
-    [self.navigationController setNavigationBarHidden:NO];
-    self.navigationController.navigationBar.backgroundColor = [UIColor lightGreen];
+//    [self.view addSubview:self.pageContentView];
+//    kWeakSelf(self);
+//    [self.pageContentView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(weakself.pageTitleView.mas_bottom).offset(0);
+//        make.left.right.bottom.equalTo(@(0));
+//    }];
+    self.seafoodShowTitleModel = [[SeafoodShowTitleModel alloc] init];
 }
 
 #pragma mark —— pageTitleView delegate

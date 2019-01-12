@@ -10,8 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DBLiveRecommendView : UIView
-@property (weak, nonatomic) IBOutlet UIImageView *headImageView;
+@interface AnchorViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *anchorImageView;
 
 @end
 

@@ -64,13 +64,13 @@ SINGLETON_FOR_CLASS(UserManager)
 
 #pragma mark —— 登录服务器
 - (void)loginToServer:(NSDictionary *)params completion:(loginBlock)completion{
-    [NetWorkHelper POST:NSStringFormat(@"%@%@",URL_main,URL_user_login) parameters:params success:^(id responseObject) {
-        [self LoginSuccess:responseObject completion:completion];
-    } failure:^(NSError *error) {
-        if (completion) {
-            completion(NO,error.localizedDescription);
-        }
-    }];
+//    [NetWorkHelper POST:NSStringFormat(@"%@%@",URL_main,URL_user_login) parameters:params success:^(id responseObject) {
+//        [self LoginSuccess:responseObject completion:completion];
+//    } failure:^(NSError *error) {
+//        if (completion) {
+//            completion(NO,error.localizedDescription);
+//        }
+//    }];
 }
 
 #pragma mark —— 登录成功数据处理

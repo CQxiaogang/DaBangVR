@@ -13,13 +13,14 @@
 #import "PageContentView.h"
 #import "DBPrefectureView.h"
 #import "JFAreaDataManager.h"
-#import "DBLiveRecommendView.h"
+#import "AnchorViewCell.h"
 #import "JFCityViewController.h"
 #import "HomePageViewController.h"
 #import "DBSeafoodShowViewController.h"
 #import "MineViewController.h"
 // Views
-#import "ChannelMenuListView.h"//频道菜单列表
+#import "AnchorRecommendView.h" //主播推荐
+#import "ChannelMenuListView.h" //频道菜单列表
 // Models
 #import "ChannelModel.h"
 
@@ -38,8 +39,8 @@ ChannelMenuListViewDelegate
 
 {
     CGFloat _margin;
-    CGFloat _totalH_moreLive;             // 推荐直播总高度
-    CGFloat _totalH_channelMenuList;         // 更多功能总高度
+    CGFloat _totalH_anchorRecommendView;             // 推荐直播总高度
+    CGFloat _totalH_channelMenuList;      // 更多功能总高度
     CGFloat _totalH_newShang;             // 新上总高度
     CGFloat _totalH_miaoS;                // 秒杀总高度
     CGFloat _totalH_prefecture;           // 新品/热卖专区总高度
@@ -61,8 +62,10 @@ ChannelMenuListViewDelegate
 @property (nonatomic, strong) JFLocation            *locationManager;
 /** 城市数据管理器*/
 @property (nonatomic, strong) JFAreaDataManager     *manager;
-// 频道菜单 View
+// 频道菜单 view
 @property (nonatomic, strong) ChannelMenuListView *channelMenuListView;
+// 主播推荐 view
+@property (nonatomic, strong) AnchorRecommendView *anchorRecommendView;
 @end
 
 @implementation HomePageViewController
@@ -133,14 +136,20 @@ ChannelMenuListViewDelegate
     return _manager;
 }
 // 频道列表
--(ChannelMenuListView *)channelMenuListView{
+- (ChannelMenuListView *)channelMenuListView{
     if (!_channelMenuListView) {
         _channelMenuListView = [[ChannelMenuListView alloc] initWithFrame:CGRectMake(0, 0, self.view.mj_w, Adapt(130))];
         _channelMenuListView.delegate = self;
     }
     return _channelMenuListView;
 }
-
+// 主播推荐 view
+- (AnchorRecommendView *)anchorRecommendView{
+    if (!_anchorRecommendView) {
+        _anchorRecommendView = [[AnchorRecommendView alloc] initWithFrame:CGRectMake(0, 0, self.view.mj_w, Adapt(140))];
+    }
+    return _anchorRecommendView;
+}
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -204,8 +213,8 @@ ChannelMenuListViewDelegate
 //        cell.backgroundColor = DBRandomColor;
         switch (indexPath.section) {
             case 0:
-                // 直播推荐视图
-                [self setUp_liveRecommendView:cell];
+                // 主播推荐
+                [self setupAnchorRecommendView:cell];
                 break;
             case 1:
                 // 频道菜单
@@ -265,7 +274,7 @@ ChannelMenuListViewDelegate
         switch (indexPath.section) {
             case 0:
                 // 直播推荐视图
-                return _totalH_moreLive;
+                return _totalH_anchorRecommendView+20;
                 break;
             case 1:
                 // 更多功能界面
@@ -308,37 +317,12 @@ ChannelMenuListViewDelegate
     }
 }
 
-#pragma mark —— 推荐直播
-- (void) setUp_liveRecommendView:(UITableViewCell *)cell{
+#pragma mark —— 推荐主播
+- (void) setupAnchorRecommendView:(UITableViewCell *)cell{
     
-    DBLiveRecommendView *liveView;
-    CGFloat margin = Adapt(_margin);
-    for (int i = 0; i<5; i++) {
-        //加载xib
-        liveView = (DBLiveRecommendView *)[self loadNibNamed:@"DBLiveRecommendView"];
-        liveView.frame = CGRectMake(Adapt(i*(liveView.mj_w+margin)+ margin), 0, Adapt(liveView.mj_w), Adapt(liveView.mj_h));
-        liveView.headImageView.layer.cornerRadius =  Adapt(liveView.headImageView.mj_w/2);
-        [cell addSubview:liveView];
-    }
+    [cell addSubview:self.anchorRecommendView];
     
-    //设置更多热门直播按钮
-    UIButton *moreLiveBtn = [[UIButton alloc] init];
-    [moreLiveBtn setTitle:@"更多热门直播" forState:UIControlStateNormal];
-    [moreLiveBtn setTitleColor:[UIColor lightGreen] forState:UIControlStateNormal];
-    moreLiveBtn.titleLabel.adaptiveFontSize = 12;
-    //设置按钮样式
-    moreLiveBtn.layer.cornerRadius = 10;
-    moreLiveBtn.layer.borderColor = [[UIColor lightGreen] CGColor];
-    moreLiveBtn.layer.borderWidth = 1.0f;
-    moreLiveBtn.translatesAutoresizingMaskIntoConstraints = NO;
-    [cell addSubview:moreLiveBtn];
-    
-    [moreLiveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(cell);
-        make.top.equalTo(liveView.mas_bottom).with.offset(10);
-        make.size.mas_equalTo(CGSizeMake(100, 25));
-    }];
-    _totalH_moreLive = liveView.mj_h + 35;
+    _totalH_anchorRecommendView = self.anchorRecommendView.mj_h;
 }
 
 #pragma mark —— 频道菜单列表
@@ -352,8 +336,7 @@ ChannelMenuListViewDelegate
         
         [self.tableView reloadData];
     };
-    
-    
+
     _totalH_channelMenuList = self.channelMenuListView.mj_h;
 }
 

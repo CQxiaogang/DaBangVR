@@ -31,7 +31,7 @@
 #if DevelopSever
 
 /**开发服务器*/
-#define URL_main @"http://192.168.1.103:8080"
+#define URL_main @"http://www.vrzbgw.com"
 
 #elif TestSever
 
@@ -65,8 +65,13 @@
 // 注释
 #define URL_user_info_change @"/api/user/info/change"
 
+#pragma mark —— 首页相关
+// 首页-频道类别
+
+#define URL_channel_menu_info NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getChannelMenuList")
+
 #pragma mark —— 商品相关
-// 频道菜单类别
-#define URL_channel_menu_info @"http://192.168.1.110:8080/api/index/getChannelMenuList"
+//海鲜标题
+#define URL_seafood_title NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsCategoryList?parentId=1036096")
 
 #endif /* URLMacros_h */
