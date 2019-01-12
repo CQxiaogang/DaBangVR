@@ -18,7 +18,6 @@
 #import "DBFontOfSize.h"
 #import "BSFitdpiUtil.h"
 #import "NetWorkHelper.h"
-#import "HttpRequest.h"
 #import "UIColor+category.h"
 #import "BaseTableViewCell.h"
 #import "RootViewController.h"

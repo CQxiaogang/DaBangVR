@@ -7,14 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SeafoodShowModel.h"
+#import "SeafoodShowListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SeafoodShowTableViewCell : BaseTableViewCell
+// 商品图片
 @property (weak, nonatomic) IBOutlet YYAnimatedImageView *headImgView;
-
-@property (strong, nonatomic) SeafoodShowModel *model;
+// 商品详情
+@property (weak, nonatomic) IBOutlet UILabel *describeLabel;
+// 价格
+@property (weak, nonatomic) IBOutlet UILabel *sellingPriceLabel;
+//
+@property (strong, nonatomic) SeafoodShowListModel *model;
 
 @end
 

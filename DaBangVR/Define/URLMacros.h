@@ -71,7 +71,9 @@
 #define URL_channel_menu_info NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getChannelMenuList")
 
 #pragma mark —— 商品相关
-//海鲜标题
-#define URL_seafood_title NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsCategoryList?parentId=1036096")
+// 海鲜标题
+#define URL_goods_title NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsCategoryList?parentId=1036096")
+// 商品列表
+#define URL_goods_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getGoodsList?")
 
 #endif /* URLMacros_h */

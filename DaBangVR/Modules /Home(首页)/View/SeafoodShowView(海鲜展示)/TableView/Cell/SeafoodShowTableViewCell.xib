@@ -157,7 +157,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="describeLabel" destination="lim-cp-sRb" id="Dy5-8Y-ch7"/>
                 <outlet property="headImgView" destination="XXC-gi-MBU" id="Z1r-U0-nZG"/>
+                <outlet property="sellingPriceLabel" destination="SzM-qB-6Xf" id="7q2-1f-u9e"/>
             </connections>
             <point key="canvasLocation" x="137.59999999999999" y="-19.340329835082461"/>
         </tableViewCell>

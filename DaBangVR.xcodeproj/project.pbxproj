@@ -53,6 +53,7 @@
 		049D47A2219FEC690058178D /* DBShortVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A1219FEC690058178D /* DBShortVideoViewController.m */; };
 		049D47A5219FEC790058178D /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A4219FEC790058178D /* MineViewController.m */; };
 		04A3DA3021E9EF6400F689C7 /* SeafoodShowListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3DA2F21E9EF6400F689C7 /* SeafoodShowListModel.m */; };
+		04D9C46921EA0706005F23FF /* NetWorkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D9C46821EA0706005F23FF /* NetWorkHelper.m */; };
 		04E0473221D36A42002DDB98 /* allCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E0473121D36A42002DDB98 /* allCommentsViewController.m */; };
 		04EFA01821E7045C007C2FCA /* EvaluationSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA01721E7045C007C2FCA /* EvaluationSuccessView.m */; };
 		04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EFA01921E70470007C2FCA /* EvaluationSuccessView.xib */; };
@@ -99,15 +100,12 @@
 		04F494C521C77D1B009A4518 /* UIAlertController+TapGesAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F494C421C77D1B009A4518 /* UIAlertController+TapGesAlertController.m */; };
 		04F50D1421D1CF7C004EBFE1 /* SeafoodShowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F50D1321D1CF7C004EBFE1 /* SeafoodShowModel.m */; };
 		04F50D1921D215E3004EBFE1 /* GoodsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F50D1821D215E3004EBFE1 /* GoodsDetailsViewController.m */; };
-		04F50D1F21D2191F004EBFE1 /* NetWorkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F50D1E21D2191F004EBFE1 /* NetWorkHelper.m */; };
 		04F5C8DA21CA1F57008DD043 /* AppDelegate+AppService.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5C8D921CA1F57008DD043 /* AppDelegate+AppService.m */; };
 		04F5C8EA21CA4307008DD043 /* UIViewController+AlertViewAndActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5C8E921CA4307008DD043 /* UIViewController+AlertViewAndActionSheet.m */; };
 		04F5C8ED21CA4D1D008DD043 /* BSFitdpiUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5C8EC21CA4D1D008DD043 /* BSFitdpiUtil.m */; };
 		04F5D68221C8E4830030A97D /* DBSeafoodShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5D68121C8E4830030A97D /* DBSeafoodShowViewController.m */; };
 		04F70C6521E97D17004BD4C6 /* SeafoodShowTitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F70C6421E97D17004BD4C6 /* SeafoodShowTitleModel.m */; };
 		04F70C6921E98D35004BD4C6 /* AnchorRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F70C6821E98D35004BD4C6 /* AnchorRecommendView.m */; };
-		04F70C6F21E99E27004BD4C6 /* UploadParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F70C6B21E99E27004BD4C6 /* UploadParam.m */; };
-		04F70C7021E99E27004BD4C6 /* HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F70C6C21E99E27004BD4C6 /* HttpRequest.m */; };
 		04F7360A21B679CE001CEBC0 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7360821B679CE001CEBC0 /* MineTableViewCell.m */; };
 		04F7360B21B679CE001CEBC0 /* MineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F7360921B679CE001CEBC0 /* MineTableViewCell.xib */; };
 		04F8664321A78E0200A4D7F6 /* WaterfallColectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8664121A78E0200A4D7F6 /* WaterfallColectionLayout.m */; };
@@ -249,6 +247,8 @@
 		049D47A4219FEC790058178D /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		04A3DA2E21E9EF6400F689C7 /* SeafoodShowListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeafoodShowListModel.h; sourceTree = "<group>"; };
 		04A3DA2F21E9EF6400F689C7 /* SeafoodShowListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeafoodShowListModel.m; sourceTree = "<group>"; };
+		04D9C46721EA0706005F23FF /* NetWorkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkHelper.h; sourceTree = "<group>"; };
+		04D9C46821EA0706005F23FF /* NetWorkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkHelper.m; sourceTree = "<group>"; };
 		04E0473021D36A42002DDB98 /* allCommentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = allCommentsViewController.h; sourceTree = "<group>"; };
 		04E0473121D36A42002DDB98 /* allCommentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = allCommentsViewController.m; sourceTree = "<group>"; };
 		04EFA01621E7045C007C2FCA /* EvaluationSuccessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluationSuccessView.h; sourceTree = "<group>"; };
@@ -331,8 +331,6 @@
 		04F50D1321D1CF7C004EBFE1 /* SeafoodShowModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeafoodShowModel.m; sourceTree = "<group>"; };
 		04F50D1721D215E3004EBFE1 /* GoodsDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsDetailsViewController.h; sourceTree = "<group>"; };
 		04F50D1821D215E3004EBFE1 /* GoodsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailsViewController.m; sourceTree = "<group>"; };
-		04F50D1D21D2191F004EBFE1 /* NetWorkHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkHelper.h; sourceTree = "<group>"; };
-		04F50D1E21D2191F004EBFE1 /* NetWorkHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkHelper.m; sourceTree = "<group>"; };
 		04F5C8D821CA1F57008DD043 /* AppDelegate+AppService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+AppService.h"; sourceTree = "<group>"; };
 		04F5C8D921CA1F57008DD043 /* AppDelegate+AppService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+AppService.m"; sourceTree = "<group>"; };
 		04F5C8DC21CA2002008DD043 /* UtilsMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsMacros.h; sourceTree = "<group>"; };
@@ -350,10 +348,6 @@
 		04F70C6421E97D17004BD4C6 /* SeafoodShowTitleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeafoodShowTitleModel.m; sourceTree = "<group>"; };
 		04F70C6721E98D35004BD4C6 /* AnchorRecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnchorRecommendView.h; sourceTree = "<group>"; };
 		04F70C6821E98D35004BD4C6 /* AnchorRecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnchorRecommendView.m; sourceTree = "<group>"; };
-		04F70C6B21E99E27004BD4C6 /* UploadParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadParam.m; sourceTree = "<group>"; };
-		04F70C6C21E99E27004BD4C6 /* HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequest.m; sourceTree = "<group>"; };
-		04F70C6D21E99E27004BD4C6 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
-		04F70C6E21E99E27004BD4C6 /* UploadParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadParam.h; sourceTree = "<group>"; };
 		04F7360721B679CE001CEBC0 /* MineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTableViewCell.h; sourceTree = "<group>"; };
 		04F7360821B679CE001CEBC0 /* MineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTableViewCell.m; sourceTree = "<group>"; };
 		04F7360921B679CE001CEBC0 /* MineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineTableViewCell.xib; sourceTree = "<group>"; };
@@ -788,6 +782,15 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		04D9C46621EA06F6005F23FF /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				04D9C46721EA0706005F23FF /* NetWorkHelper.h */,
+				04D9C46821EA0706005F23FF /* NetWorkHelper.m */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
 		04EFA01521E703DB007C2FCA /* EvaluationSuccessView */ = {
 			isa = PBXGroup;
 			children = (
@@ -843,20 +846,6 @@
 				04F3CF0921CB4C0D007C40A1 /* RootNavigationController.m */,
 			);
 			path = NavigationController;
-			sourceTree = "<group>";
-		};
-		04F3CF4721CBA3BC007C40A1 /* NetWork */ = {
-			isa = PBXGroup;
-			children = (
-				04F50D1D21D2191F004EBFE1 /* NetWorkHelper.h */,
-				04F50D1E21D2191F004EBFE1 /* NetWorkHelper.m */,
-				04F70C6D21E99E27004BD4C6 /* HttpRequest.h */,
-				04F70C6C21E99E27004BD4C6 /* HttpRequest.m */,
-				04F70C6E21E99E27004BD4C6 /* UploadParam.h */,
-				04F70C6B21E99E27004BD4C6 /* UploadParam.m */,
-			);
-			name = NetWork;
-			path = "../../../../Downloads/UniversalProject-master/UniversalApp/Utils/NetWork";
 			sourceTree = "<group>";
 		};
 		04F4464C21D71F6C00524971 /* PPNumberButton */ = {
@@ -1049,7 +1038,7 @@
 		04F5C8E521CA25D4008DD043 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				04F3CF4721CBA3BC007C40A1 /* NetWork */,
+				04D9C46621EA06F6005F23FF /* NetWork */,
 				048E692921A26A9E00DB911A /* Category */,
 				0463025721BBAC700003C542 /* Adaptive */,
 				04FB2F7721BBA095007E63AA /* PageView */,
@@ -1569,7 +1558,6 @@
 				04FA5D6021AE3F480061AF27 /* LoginViewController.m in Sources */,
 				04F866AF21A7FF4D00A4D7F6 /* ADCarouselView.m in Sources */,
 				04F2702521E830870019FB9F /* ChannelModel.m in Sources */,
-				04F70C7021E99E27004BD4C6 /* HttpRequest.m in Sources */,
 				0403676C21A4E9CE00974435 /* AnchorViewCell.m in Sources */,
 				04FB2F7321BB7BE8007E63AA /* UIView+FontSize.m in Sources */,
 				04F7360A21B679CE001CEBC0 /* MineTableViewCell.m in Sources */,
@@ -1580,7 +1568,6 @@
 				048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */,
 				049D479C219FEC1E0058178D /* HomePageViewController.m in Sources */,
 				04F8ED5021E349E000004178 /* modifyAddressViewCell.m in Sources */,
-				04F50D1F21D2191F004EBFE1 /* NetWorkHelper.m in Sources */,
 				04F70C6521E97D17004BD4C6 /* SeafoodShowTitleModel.m in Sources */,
 				04EFA02C21E73391007C2FCA /* EvaluationOfSuccessViewController.m in Sources */,
 				04F4468221D74F7B00524971 /* DBFeatureItem.m in Sources */,
@@ -1595,7 +1582,6 @@
 				04EFA02F21E742E5007C2FCA /* ChannelMenuListView.m in Sources */,
 				04F866B021A7FF4D00A4D7F6 /* ADPageControlView.m in Sources */,
 				04F50D1921D215E3004EBFE1 /* GoodsDetailsViewController.m in Sources */,
-				04F70C6F21E99E27004BD4C6 /* UploadParam.m in Sources */,
 				04F4467821D74F5300524971 /* DBFeatureItemCell.m in Sources */,
 				04FC2C3B21C0E3AD00329B53 /* JFAreaDataManager.m in Sources */,
 				04F47E2821E5DD42001B5F74 /* AllOrderTableView.m in Sources */,
@@ -1626,6 +1612,7 @@
 				04F084F021E48F9600BFE102 /* BaseTableViewCell.m in Sources */,
 				0459D89321E04ADB009BFFB4 /* RootViewController.m in Sources */,
 				04F4464F21D71F6C00524971 /* PPNumberButton.m in Sources */,
+				04D9C46921EA0706005F23FF /* NetWorkHelper.m in Sources */,
 				04F8664E21A7D50000A4D7F6 /* MineHeaderView.m in Sources */,
 				04F47E1F21E5AA01001B5F74 /* PageView.m in Sources */,
 				04F47E2B21E5F5D4001B5F74 /* EvaluationViewController.m in Sources */,

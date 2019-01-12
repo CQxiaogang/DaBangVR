@@ -58,7 +58,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [NetWorkHelper POST:URL_seafood_title parameters:nil success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URL_goods_title parameters:nil success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *dataDic= dic[@"data"];
         NSArray *goodsList = dataDic[@"goodsCategoryList"];
@@ -67,7 +67,18 @@
             
             [self.data addObject:model.name];
         }
-        [self.view addSubview:self.pageView];
+//        [self.view addSubview:self.pageView];
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+    
+    [NetWorkHelper POST:URL_goods_list parameters:@{@"categoryId":@"1036099"} success:^(id  _Nonnull responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSDictionary *dataDic= dic[@"data"];
+        NSArray *goodsList = dataDic[@"goodsList"];
+        for (NSDictionary *dic in goodsList) {
+            
+        }
     } failure:^(NSError * _Nonnull error) {
         
     }];
