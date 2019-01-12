@@ -7,16 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ChannelModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface ChannelView : UIView
+@interface ChannelViewCell : UICollectionViewCell
 // 频道图片
 @property (weak, nonatomic) IBOutlet UIButton *channelBtn;
 // 频道标题
 @property (weak, nonatomic) IBOutlet UILabel *channelTitle;
 
+@property (nonatomic, strong) ChannelModel *model;
 
 @end
 

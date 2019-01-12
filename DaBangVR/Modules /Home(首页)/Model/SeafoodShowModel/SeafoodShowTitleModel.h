@@ -13,9 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SeafoodShowTitleModel : NSObject
 
 // 海鲜标题 ID
-@property (nonatomic, assign) NSInteger titleID;
+@property (nonatomic, assign) NSInteger id;
 // 海鲜标题
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *name;
 
 @end
 

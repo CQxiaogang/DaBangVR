@@ -66,10 +66,10 @@ ChannelMenuListViewDelegate
 @property (nonatomic, strong) ChannelMenuListView *channelMenuListView;
 // 主播推荐 view
 @property (nonatomic, strong) AnchorRecommendView *anchorRecommendView;
+@property (nonatomic, strong) __block NSMutableArray *arrayModel;
 @end
 
 @implementation HomePageViewController
-
 #pragma mark —— 懒加载属性
 /*
  访问的时候用get方法来访问，用self.的方式。而不能成员变量(_xxx)访问，成员变量访问的是它的指针
@@ -150,6 +150,13 @@ ChannelMenuListViewDelegate
     }
     return _anchorRecommendView;
 }
+
+- (NSMutableArray *)arrayModel{
+    if (!_arrayModel) {
+        _arrayModel = [NSMutableArray new];
+    }
+    return _arrayModel;
+}
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -222,7 +229,7 @@ ChannelMenuListViewDelegate
                 break;
             case 2:
                 // 新上
-                [self setUp_new:cell];
+                [self setupNew:cell];
                 break;
             case 3:
                 // 限时秒杀
@@ -327,22 +334,28 @@ ChannelMenuListViewDelegate
 
 #pragma mark —— 频道菜单列表
 - (void)setupChannelMenuListView:(UITableViewCell *)cell{
-    
-    ChannelModel *model = [[ChannelModel alloc] init];
-    model.success = ^(NSArray * _Nonnull array) {
-        self.channelMenuListView.chanelArray = array;
-        
-        [cell addSubview:self.channelMenuListView];
-        
-        [self.tableView reloadData];
-    };
+    if (self.arrayModel.count == 0) {
+        [NetWorkHelper POST:URL_channel_menu_info parameters:nil success:^(id  _Nonnull responseObject) {
+            NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+            NSDictionary *dataDic= dictionary[@"data"];
+            NSArray *channelArray = dataDic[@"channelMenuList"];
+            for (NSDictionary *dic in channelArray) {
+                ChannelModel *model = [ChannelModel channelModelWithDic:dic];
+                [self.arrayModel addObject:model];
+            }
+            self.channelMenuListView.data = self.arrayModel;
+        } failure:^(NSError * _Nonnull error) {
+            DLog(@"error %@",error);
+        }];
+    }
+    [cell addSubview:self.channelMenuListView];
 
     _totalH_channelMenuList = self.channelMenuListView.mj_h;
 }
 
 #pragma mark —— 频道菜单列表 代理
--(void)channelBtnOfClick:(UIButton *)btn{
-    switch (btn.tag) {
+-(void)channelBtnOfClick:(NSInteger)row{
+    switch (row) {
         case 0:
             // 视屏
             [self videoShow];
@@ -368,7 +381,7 @@ ChannelMenuListViewDelegate
     
 }
 #pragma mark —— 新上
-- (void)setUp_new:(UITableViewCell *)cell{
+- (void)setupNew:(UITableViewCell *)cell{
     
     UIView *newShang_headerV = [[[NSBundle mainBundle] loadNibNamed:@"DBNewProductView" owner:nil options:nil] firstObject];
     

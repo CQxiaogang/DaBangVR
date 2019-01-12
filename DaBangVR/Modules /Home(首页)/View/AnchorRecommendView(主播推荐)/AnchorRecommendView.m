@@ -23,6 +23,7 @@ static NSString *CellID = @"CellID";
         // 布局
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        layout.itemSize = CGSizeMake(80, 105);
         // 每个cell的距离
         layout.minimumLineSpacing = 10;
         // 第一个cell和最后一个cell,与父控件之间的间距
@@ -85,11 +86,6 @@ static NSString *CellID = @"CellID";
         cell = [[AnchorViewCell alloc] init];
     }
     return cell;
-}
-// 每个cell大小
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-
-    return CGSizeMake(80, 105);
 }
 
 @end

@@ -11,8 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 typedef void (^success)(NSArray *array);
 @interface ChannelModel : NSObject
-// 频道ID
-//@property(nonatomic, assign) NSInteger cID;
+
 // 频道头像
 @property(nonatomic, copy) NSString *iconUrl;
 // 频道标题
@@ -20,6 +19,9 @@ typedef void (^success)(NSArray *array);
 
 @property (nonatomic, strong) success success;
 
++ (instancetype)channelModelWithDic:(NSDictionary *)dic;
+// 解决 setValuesForKeysWithDictionary 崩溃问题
+-(void)setValue:(id __nullable)value forUndefinedKey:(NSString *)key;
 @end
 
 NS_ASSUME_NONNULL_END

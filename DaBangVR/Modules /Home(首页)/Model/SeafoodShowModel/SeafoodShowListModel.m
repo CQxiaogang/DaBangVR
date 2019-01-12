@@ -1,14 +1,13 @@
 //
-//  SeafoodShowTitleModel.m
+//  SeafoodShowListModel.m
 //  DaBangVR
 //
 //  Created by mac on 2019/1/12.
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "SeafoodShowTitleModel.h"
+#import "SeafoodShowListModel.h"
 
-@implementation SeafoodShowTitleModel
-
+@implementation SeafoodShowListModel
 
 @end

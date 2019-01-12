@@ -8,47 +8,15 @@
 
 #import "ChannelModel.h"
 
-@interface ChannelModel ()
-
-@property (nonatomic, strong) ChannelModel *model;
-
-@property (nonatomic, strong) NSMutableArray *arrayModel;
-
-@end
 @implementation ChannelModel
 
-- (NSMutableArray *)arrayModel{
-    if (!_arrayModel) {
-        _arrayModel = [NSMutableArray new];
-    }
-    return _arrayModel;
+
++ (instancetype)channelModelWithDic:(NSDictionary *)dic{
+    ChannelModel *model = [[self alloc] init];
+    [model setValuesForKeysWithDictionary:dic];
+    return model;
 }
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        [self getData];
-    }
-    return self;
-}
-
-- (void)getData{
-    [NetWorkHelper POST:URL_channel_menu_info parameters:nil success:^(id  _Nonnull responseObject) {
-        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSDictionary *dataDic= dictionary[@"data"];
-        NSArray *channelArray = dataDic[@"channelMenuList"];
-        for (NSDictionary *dic in channelArray) {
-            self.model = [ChannelModel modelWithDictionary:dic];
-            [self.arrayModel addObject:self.model];
-        }
-        if (self.success != nil) {
-            self.success(self.arrayModel);
-        }
-        
-    } failure:^(NSError * _Nonnull error) {
-        DLog(@"error %@",error);
-    }];
-}
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key{}
 
 @end

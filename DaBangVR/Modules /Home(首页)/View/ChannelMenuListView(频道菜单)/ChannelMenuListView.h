@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 
 #import "ChannelModel.h"
+#import "ChannelViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @protocol ChannelMenuListViewDelegate <NSObject>
 
-- (void)channelBtnOfClick:(UIButton *)btn;
+- (void)channelBtnOfClick:(NSInteger)row;
 
 @end
 
@@ -21,9 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id <ChannelMenuListViewDelegate> delegate;
 
-@property (nonatomic, strong) ChannelModel *model;
-
-@property (nonatomic, strong) NSArray *chanelArray;
+@property (nonatomic, strong) NSArray *data;
 
 @end
 
