@@ -92,6 +92,13 @@
 
 //微信登陆
 - (IBAction)wechatLogin:(id)sender {
+    [userManager login:kUserLoginTypeWeChat completion:^(BOOL success, NSString * _Nonnull des) {
+        if (success) {
+            DLog(@"成功");
+        }else{
+            DLog(@"失败");
+        }
+    }];
 }
 
 //微博登陆

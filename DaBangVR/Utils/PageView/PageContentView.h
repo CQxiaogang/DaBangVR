@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)pageContentView:(UIView *)contentView progress:(CGFloat)p sourceIndex:(int)s targetIndex:(int)t;
 
+- (void)itemDidSelectedWithIndex:(NSInteger)index;
+
 @end
 
 @interface PageContentView : UIView<UICollectionViewDataSource, UICollectionViewDelegate>

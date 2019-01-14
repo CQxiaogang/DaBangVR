@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import <UMSocialCore/UMSocialCore.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 
 @interface AppDelegate ()
@@ -34,9 +34,5 @@
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
-{
-    return [TencentOAuth HandleOpenURL:url];
-}
 
 @end

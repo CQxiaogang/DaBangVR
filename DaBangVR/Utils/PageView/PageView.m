@@ -47,11 +47,21 @@
 #pragma mark —— pageTitleView deletage
 - (void)pageTitleView:(UIView *)titleView selectedIndex:(int)index{
     [self.pageContentView setCurrentIndex:index];
+    
+    if ([self.delegate respondsToSelector:@selector(itemDidSelectedWithIndex:)]) {
+        [self.delegate itemDidSelectedWithIndex:index];
+    }
 }
 
 #pragma mark —— pageCotentViw deletage
 - (void)pageContentView:(UIView *)contentView progress:(CGFloat)p sourceIndex:(int)s targetIndex:(int)t{
     [self.pageTitleView setTitleWithProgress:p sourceIndex:s targetIndex:t];
+}
+
+-(void)itemDidSelectedWithIndex:(NSInteger)index{
+    if ([self.delegate respondsToSelector:@selector(itemDidSelectedWithIndex:)]) {
+        [self.delegate itemDidSelectedWithIndex:index];
+    }
 }
 
 @end

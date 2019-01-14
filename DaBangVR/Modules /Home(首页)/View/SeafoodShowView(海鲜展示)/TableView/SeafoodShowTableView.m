@@ -8,10 +8,24 @@
 
 #import "SeafoodShowTableView.h"
 #import "SeafoodShowTableViewCell.h"
+// Models
+#import "SeafoodShowListModel.h"
 
 static NSString *CellID = @"CellID";
 
+@interface SeafoodShowTableView ()
+
+@property(nonatomic ,strong) NSMutableArray *data;
+
+@end
 @implementation SeafoodShowTableView
+
+- (NSMutableArray *)data{
+    if (!_data) {
+        _data = [NSMutableArray new];
+    }
+    return _data;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     self = [super initWithFrame:frame style:style];
@@ -45,8 +59,24 @@ static NSString *CellID = @"CellID";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
-    [self.sfDelegate selectCellShowGoods];
+    [self.aDelegate selectCellShowGoods];
 }
 
+- (void)setIndex:(NSInteger)index{
+    // 把 data 清空在重新加载数据
+    [self.data removeAllObjects];
+    // 网络请求
+    [NetWorkHelper POST:URL_goods_list parameters:@{@"categoryId":_IDs[index]} success:^(id  _Nonnull responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSDictionary *dataDic= dic[@"data"];
+        NSArray *goodsList = dataDic[@"goodsList"];
+        for (NSDictionary *dic in goodsList) {
+            SeafoodShowListModel *model = [SeafoodShowListModel modelWithDictionary:dic];
+            [self.data addObject:model];
+        }
+        [self reloadData];
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+}
 @end

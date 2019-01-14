@@ -24,7 +24,7 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhanweifu" translatesAutoresizingMaskIntoConstraints="NO" id="XXC-gi-MBU" customClass="YYAnimatedImageView">
                         <rect key="frame" x="48" y="21" width="100" height="100"/>
-                        <color key="backgroundColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="j4i-6f-Lb6">
                                 <userDefinedRuntimeAttributes>

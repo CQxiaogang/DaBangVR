@@ -428,11 +428,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04FC706E21AF8A4400E413AC /* SystemConfiguration.framework in Frameworks */,
 				04F3CF3221CB91EB007C40A1 /* libsqlite3.tbd in Frameworks */,
 				04F3CF3021CB91DB007C40A1 /* ImageIO.framework in Frameworks */,
 				04F3CF0C21CB9008007C40A1 /* CoreTelephony.framework in Frameworks */,
 				0410358621CCD2F2002CB32C /* libUMSocialLog.a in Frameworks */,
-				04FC706E21AF8A4400E413AC /* SystemConfiguration.framework in Frameworks */,
 				04F3CF2E21CB91A1007C40A1 /* CoreGraphics.framework in Frameworks */,
 				04FA5E1B21AE95710061AF27 /* libz.tbd in Frameworks */,
 				04FC707F21AF9BE000E413AC /* TencentOpenAPI.framework in Frameworks */,

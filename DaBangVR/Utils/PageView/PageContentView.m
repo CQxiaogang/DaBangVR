@@ -27,6 +27,7 @@ static NSString * const CellID = @"Cell";
 @end
 @implementation PageContentView
 
+static int _index;
 
 -(UICollectionView *)collectionView{
     if (!_collectionView) {
@@ -137,6 +138,11 @@ static NSString * const CellID = @"Cell";
     // 3.讲progress，targetIndex，sourceIndex传递给titleView
     
     [self.delegate pageContentView:self progress:progress sourceIndex:sourceIndex targetIndex:targetIndex];
+    _index = targetIndex;
+}
+// 已经停止滚动
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [self.delegate itemDidSelectedWithIndex:_index];
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{

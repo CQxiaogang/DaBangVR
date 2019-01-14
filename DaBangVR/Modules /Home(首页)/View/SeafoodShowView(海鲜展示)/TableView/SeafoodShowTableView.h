@@ -10,17 +10,19 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol SeafoodShowTableViewDelegate <NSObject>
-
+// 选择的cell
 - (void)selectCellShowGoods;
 
 @end
 
 @interface SeafoodShowTableView : UITableView<UITableViewDataSource,UITableViewDelegate>
 
-// 数据源
-@property (nonatomic, strong) NSMutableArray *data;
+// 数据源，存储网络参数
+@property (nonatomic, strong) NSArray *IDs;
+// 当前选择的index
+@property (nonatomic, assign) NSInteger index;
 
-@property (nonatomic, weak) id<SeafoodShowTableViewDelegate> sfDelegate;
+@property (nonatomic, weak) id<SeafoodShowTableViewDelegate> aDelegate;
 
 @end
 

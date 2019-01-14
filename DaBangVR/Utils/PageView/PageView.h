@@ -9,7 +9,13 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@protocol PageViewDelegate <NSObject>
 
+@optional
+// 当前选择的index
+- (void)itemDidSelectedWithIndex:(NSInteger)index;
+
+@end
 @interface PageView : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame Titles:(NSArray *)titles ContentViews:(NSMutableArray *)views;
@@ -17,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray *titleArray;
 
 @property (nonatomic, strong) NSMutableArray *contentViewArray;
+
+@property (nonatomic, strong) id <PageViewDelegate> delegate;
 
 @end
 

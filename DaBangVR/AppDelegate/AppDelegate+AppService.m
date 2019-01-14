@@ -50,7 +50,9 @@
 #pragma mark —— 配置第三方
 -(void)configUSharePlatforms{
     // QQ
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:kAppKey_Tencent appSecret:nil redirectURL:nil];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:kAppKey_QQ appSecret:kSecret_QQ redirectURL:nil];
+    //微信
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:kAppKey_Wechat appSecret:kSecret_Wechat redirectURL:nil];
 }
 
 #pragma mark —— 登录状态处理
