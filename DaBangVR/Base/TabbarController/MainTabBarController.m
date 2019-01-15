@@ -9,7 +9,7 @@
 #import "MineViewController.h"
 #import "DBLiveViewController.h"
 #import "MainTabBarController.h"
-#import "HomePageViewController.h"
+#import "HomeViewController.h"
 #import "DBShortVideoViewController.h"
 
 #define kSWidth [UIScreen mainScreen].bounds.size.width
@@ -47,7 +47,7 @@
 
 #pragma mark - 自定义方法初始化所有的子控制器
 - (void)setupAllChildViewControllers{
-    HomePageViewController *homeVC = [HomePageViewController new];
+    HomeViewController *homeVC = [HomeViewController new];
     [self addChildViewController:homeVC title:@"首页" imageName:@"h_homepage" selectedImageName:@"h_homepage_select"];
     
     DBLiveViewController *liveVC = [DBLiveViewController new];

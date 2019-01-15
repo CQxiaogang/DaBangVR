@@ -324,7 +324,7 @@ static NSString *cellID = @"cellID";
 }
 // 我的地址
 - (void)myAddress{
-    informationModificationViewController *VC = [[informationModificationViewController alloc] init];
+    InformationModificationViewController *VC = [[InformationModificationViewController alloc] init];
     [self.navigationController pushViewController:VC animated:NO];
 }
 

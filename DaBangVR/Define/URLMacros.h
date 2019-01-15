@@ -75,5 +75,7 @@
 #define URL_goods_title NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsCategoryList?parentId=1036096")
 // 商品列表
 #define URL_goods_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getGoodsList?")
+// 商品详情
+#define URL_goods_details NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getGoodsDetails?")
 
 #endif /* URLMacros_h */
