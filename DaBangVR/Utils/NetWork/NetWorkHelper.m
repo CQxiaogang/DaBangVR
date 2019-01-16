@@ -24,9 +24,12 @@
         /**
          从AFNetworking返回的Error中取出服务端返回的错误信息
          */
-        //        if ([error.domain isEqualToString:AFURLResponseSerializationErrorDomain]) {
-        //            id response = [NSJSONSerialization JSONObjectWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:0 error:nil];
-        //        }
+        if ([error.domain isEqualToString:AFURLResponseSerializationErrorDomain]) {
+                    id response = [NSJSONSerialization JSONObjectWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:0 error:nil];
+            [SVProgressHUD showInfoWithStatus:response[@"msg"]];
+            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+            [SVProgressHUD dismissWithDelay:1.0];
+        }
         DLog(@"TIM_POST请求失败:%@", error.description);
         failure(error);
     }];

@@ -9,7 +9,6 @@
 #import "DBTopView.h"
 #import "JFLocation.h"
 #import "PageTitleView.h"
-#import "ADCarouselView.h"// 无限轮播，第三方工具
 #import "PageContentView.h"
 #import "DBPrefectureView.h"
 #import "JFAreaDataManager.h"
@@ -18,11 +17,17 @@
 #import "HomeViewController.h"
 #import "MineViewController.h"
 #import "GoodsShowViewController.h"
+// Controllers
+#import "SpellGroupViewController.h"  //拼团
+#import "SecondsKillViewController.h" //秒杀
 // Views
 #import "AnchorRecommendView.h" //主播推荐
 #import "ChannelMenuListView.h" //频道菜单列表
+#import "HomeBannerView.h"      //轮播新上
 // Models
 #import "ChannelModel.h"
+#import "GoodsRotationListModel.h"
+// 第三方
 
 static NSString *cellID = @"cellID";
 #define KCURRENTCITYINFODEFAULTS [NSUserDefaults standardUserDefaults]
@@ -32,14 +37,13 @@ static NSString *cellID = @"cellID";
 UITableViewDelegate,
 UITableViewDataSource,
 JFLocationDelegate,
-ADCarouselViewDelegate,
 JFCityViewControllerDelegate,
 ChannelMenuListViewDelegate
 >
 
 {
     CGFloat _margin;
-    CGFloat _totalH_anchorRecommendView;             // 推荐直播总高度
+    CGFloat _totalH_anchorRecommendView;  // 推荐直播总高度
     CGFloat _totalH_channelMenuList;      // 更多功能总高度
     CGFloat _totalH_newShang;             // 新上总高度
     CGFloat _totalH_miaoS;                // 秒杀总高度
@@ -66,7 +70,8 @@ ChannelMenuListViewDelegate
 @property (nonatomic, strong) ChannelMenuListView *channelMenuListView;
 // 主播推荐 view
 @property (nonatomic, strong) AnchorRecommendView *anchorRecommendView;
-@property (nonatomic, strong) __block NSMutableArray *arrayModel;
+@property (nonatomic, strong) NSMutableArray *arrayModel;
+
 @end
 
 @implementation HomeViewController
@@ -289,7 +294,7 @@ ChannelMenuListViewDelegate
                 break;
             case 2:
                 // 新上
-                return _totalH_newShang;
+                return Adapt(200);
                 break;
             case 3:
                 // 限时秒杀
@@ -335,7 +340,7 @@ ChannelMenuListViewDelegate
 #pragma mark —— 频道菜单列表
 - (void)setupChannelMenuListView:(UITableViewCell *)cell{
     if (self.arrayModel.count == 0) {
-        [NetWorkHelper POST:URL_channel_menu_info parameters:nil success:^(id  _Nonnull responseObject) {
+        [NetWorkHelper POST:URL_channel_menu_list parameters:nil success:^(id  _Nonnull responseObject) {
             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             NSDictionary *dataDic= dictionary[@"data"];
             NSArray *channelArray = dataDic[@"channelMenuList"];
@@ -356,56 +361,66 @@ ChannelMenuListViewDelegate
 #pragma mark —— 频道菜单列表 代理
 -(void)channelBtnOfClick:(NSInteger)row{
     switch (row) {
-        case 0:
-            // 视屏
+        case 0: // 视屏
             [self videoShow];
             break;
-        case 1:
-            // 海鲜
+        case 1: // 海鲜
             [self seafoodShow];
+            break;
+        case 2: // 拼团
+            [self spellGroup];
+            break;
+        case 3: // 限时秒杀
+            [self limitedTimeSecondsKill];
+            break;
+        case 4: // 大邦
             break;
         default:
             break;
     }
 }
-   
-// 海鲜展示
+
+- (void)videoShow{
+    
+}
+
 - (void)seafoodShow{
     GoodsShowViewController *goodsShowView = [[GoodsShowViewController alloc] init];
     goodsShowView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:goodsShowView animated:NO];
 }
-
-// 视频
-- (void)videoShow{
-    
+- (void)spellGroup{
+    SpellGroupViewController *vc = [[SpellGroupViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:NO];
+}
+- (void)limitedTimeSecondsKill{
+    SecondsKillViewController *vc = [[SecondsKillViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:NO];
 }
 #pragma mark —— 新上
 - (void)setupNew:(UITableViewCell *)cell{
+    NSMutableArray *data = [NSMutableArray array];
+    dispatch_group_t downloadGroup = dispatch_group_create();
+    dispatch_group_enter(downloadGroup);
+    [NetWorkHelper POST:URl_goods_rotation_list parameters:nil success:^(id  _Nonnull responseObject) {
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSDictionary *dataDic= dictionary[@"data"];
+        NSArray *goodsArray = dataDic[@"goodsRotationList"];
+        for (NSDictionary *dic in goodsArray) {
+            GoodsRotationListModel *model = [GoodsRotationListModel modelWithDictionary:dic];
+            [data addObject:model];
+        }
+        dispatch_group_leave(downloadGroup);
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
     
-    UIView *newShang_headerV = [[[NSBundle mainBundle] loadNibNamed:@"DBNewProductView" owner:nil options:nil] firstObject];
-    
-    [cell addSubview:newShang_headerV];
-    
-    CGFloat newShangV_Y = newShang_headerV.mj_h;
-    
-    ADCarouselView *newShang_V = [ADCarouselView carouselViewWithFrame:CGRectMake(0, newShangV_Y, [UIScreen mainScreen].bounds.size.width, 200)];
-    
-    newShang_V.loop = YES;
-    
-    newShang_V.delegate = self;
-    
-    newShang_V.automaticallyScrollDuration = 2;
-    
-    newShang_V.imgs = @[@"ad11",@"http://d.hiphotos.baidu.com/zhidao/pic/item/3b87e950352ac65c1b6a0042f9f2b21193138a97.jpg",@"ad3",@"ad4",@"ad5"];
-    
-    newShang_V.placeholderImage = [UIImage imageNamed:@"zhanweifu"];
-    
-    newShang_V.titles = @[@"地方",@"订单的",@"ddddd",@"费德勒方面",@"反对舒服的说"];
-    
-    _totalH_newShang = newShang_headerV.mj_h + newShang_V.mj_h;
-    
-    [cell addSubview:newShang_V];
+    dispatch_group_notify(downloadGroup, dispatch_get_main_queue(), ^{
+        HomeBannerView *bannerView = [[HomeBannerView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, 200)andGoodsArray:data];
+        [cell addSubview:bannerView];
+    });
 }
 
 #pragma mark —— 限时秒杀

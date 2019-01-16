@@ -182,28 +182,28 @@ static NSString *cellID = @"cellID";
     UIView *view = [[UIView alloc] init];
     view.backgroundColor = [UIColor lightGreen];
     
-    [self.view addSubview:view];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(22);
-        make.centerX.equalTo(weakSelf.view);
-        make.height.equalTo(44);
-        make.width.equalTo(weakSelf.view.mj_w);
-    }];
-    
-    [self.view addSubview:self.titleView];
-    [self.titleView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(22);
-        make.centerX.equalTo(weakSelf.view);
-        make.height.equalTo(44);
-        make.width.equalTo(weakSelf.view).multipliedBy(0.4);
-    }];
-    
-    [self.view addSubview:self.pageContentView];
-    [self.pageContentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.titleView.mas_bottom).offset(0);
-        make.left.right.bottom.equalTo(0);
-    }];
-    self.pageContentView.backgroundColor = [UIColor blueColor];
+//    [self.view addSubview:view];
+//    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(22);
+//        make.centerX.equalTo(weakSelf.view);
+//        make.height.equalTo(44);
+//        make.width.equalTo(weakSelf.view.mj_w);
+//    }];
+//    
+//    [self.view addSubview:self.titleView];
+//    [self.titleView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(22);
+//        make.centerX.equalTo(weakSelf.view);
+//        make.height.equalTo(44);
+//        make.width.equalTo(weakSelf.view).multipliedBy(0.4);
+//    }];
+//    
+//    [self.view addSubview:self.pageContentView];
+//    [self.pageContentView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(weakSelf.titleView.mas_bottom).offset(0);
+//        make.left.right.bottom.equalTo(0);
+//    }];
+//    self.pageContentView.backgroundColor = [UIColor blueColor];
     
 }
 

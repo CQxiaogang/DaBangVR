@@ -9,7 +9,7 @@
 #import "LoadDataListBaseViewController.h"
 #import "JXCategoryListContainerView.h"
 
-@interface LoadDataListContainerListViewController : LoadDataListBaseViewController <JXCategoryListContentViewDelegate>
+@interface GoodsShowTableViewController : LoadDataListBaseViewController <JXCategoryListContentViewDelegate>
 
 @end
 

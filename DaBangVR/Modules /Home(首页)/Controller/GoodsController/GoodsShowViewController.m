@@ -5,16 +5,17 @@
 //  Created by mac on 2019/1/15.
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
-
+// Controllers
 #import "GoodsShowViewController.h"
-// 第三方
+#import "GoodsDetailsViewController.h"
+// Vendors
 #import "JXCategoryView.h"
 #import "JXCategoryListContainerView.h"
-#import "LoadDataListContainerListViewController.h"
+#import "GoodsShowTableViewController.h"
 // Models
 #import "SeafoodShowTitleModel.h"
 
-@interface GoodsShowViewController ()<JXCategoryViewDelegate, JXCategoryListContainerViewDelegate>
+@interface GoodsShowViewController ()<JXCategoryViewDelegate, JXCategoryListContainerViewDelegate,LoadDataListBaseViewControllerDelegate>
 
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
 @property (nonatomic, strong) JXCategoryListContainerView *listContainerView;
@@ -56,7 +57,7 @@
             SeafoodShowTitleModel *model = [SeafoodShowTitleModel modelWithDictionary:dic];
             [self.titles addObject:model];
         }
-        //得到数据在设置ui
+        // 得到数据在设置 UI
         [self setupChildUI];
     } failure:^(NSError * _Nonnull error) {
         
@@ -89,12 +90,10 @@
     self.listContainerView.frame = CGRectMake(0, categoryViewHeight+kTopHeight, width, height);
     self.listContainerView.defaultSelectedIndex = 0;
     [self.view addSubview:self.listContainerView];
-    self.listContainerView.backgroundColor = KRandomColor;
     self.categoryView.contentScrollView = self.listContainerView.scrollView;
 }
 
 #pragma mark —— JXCategoryViewDelegate
-
 - (void)categoryView:(JXCategoryBaseView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index {
     [self.listContainerView didClickSelectedItemAtIndex:index];
 }
@@ -106,7 +105,8 @@
 #pragma mark —— JXCategoryListContainerViewDelegate
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    LoadDataListContainerListViewController *listVC = [[LoadDataListContainerListViewController alloc] init];
+    GoodsShowTableViewController *listVC = [[GoodsShowTableViewController alloc] init];
+    listVC.delegate = self;
     listVC.ID = _IDs[index];
     return listVC;
 }
@@ -115,6 +115,15 @@
     return self.titles.count;
 }
 
+#pragma mark —— LoadDataListBaseViewController 协议
+// cell 的点击
+- (void)didSelectGoodsShowDetails:(NSString *)index{
+    
+    GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
+    vc.index = index;
+    [self.navigationController pushViewController:vc animated:NO];
+    
+}
 
 
 

@@ -44,38 +44,27 @@
 #define URL_main @""
 #endif
 
-
-
-#pragma mark - ——————— 详细接口地址 ————————
-
-//测试接口
-//NSString *const URL_Test = @"api/recharge/price/list";
-#define URL_Test @"/api/cast/home/start"
-
-
-#pragma mark - ——————— 用户相关 ————————
-// 自动登录
-#define URL_user_auto_login @"/get_user_info?"
-// 登录
-#define URL_user_login @"/login?"
-// 用户详情
-#define URL_user_info_detail @"/api/user/info/detail"
-// 修改头像
-#define URL_user_info_change_photo @"/api/user/info/changephoto"
-// 注释
-#define URL_user_info_change @"/api/user/info/change"
-
 #pragma mark —— 首页相关
-// 首页-频道类别
-
-#define URL_channel_menu_info NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getChannelMenuList")
+// 渠道列表
+#define URL_channel_menu_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getChannelMenuList?mallSpeciesId=1")
+// 商品类型列表
+#define URL_goods_title NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsCategoryList?parentId=1036096")
+//轮播图列表
+#define URl_goods_rotation_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsRotationList?mallSpeciesId=1")
 
 #pragma mark —— 商品相关
-// 海鲜标题
-#define URL_goods_title NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsCategoryList?parentId=1036096")
 // 商品列表
 #define URL_goods_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getGoodsList?")
 // 商品详情
 #define URL_goods_details NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getGoodsDetails?")
+// 添加商品评论
+#define URL_comment_save @""
+// 商品评论列表
+#define URl_comment_list_two NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getCommentListTwo?")
+// 商品评论列表，最近三条
+#define URl_comment_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getCommentList?")
+
+#pragma mark —— 登陆授权接口
+#pragma mark —— 个人中心
 
 #endif /* URLMacros_h */

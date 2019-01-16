@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GoodsDetailsViewController : RootViewController
 
-@property (nonatomic, copy) NSArray *data;
+@property (nonatomic, copy) NSString *index;
 
 @end
 

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GoodsDetailsModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -43,6 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) id<goodsInfoViewDeletage>delegate;
 /* 通知 */
 @property (weak, nonatomic) id dcObj;
+
+@property (nonatomic ,strong) GoodsDetailsModel *model;
 
 - (void)setUpGoodsFeature:(NSArray *)array;
 @end

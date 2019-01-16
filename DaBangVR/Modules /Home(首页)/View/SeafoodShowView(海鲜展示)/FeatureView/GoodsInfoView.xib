@@ -350,12 +350,5 @@
             </connections>
             <point key="canvasLocation" x="-113" y="-379"/>
         </view>
-        <view contentMode="scaleToFill" id="WyC-6x-Te6">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <viewLayoutGuide key="safeArea" id="1rY-5k-nf5"/>
-            <point key="canvasLocation" x="422" y="-614"/>
-        </view>
     </objects>
 </document>
