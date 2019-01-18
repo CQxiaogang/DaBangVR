@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SpellGroupTableViewController : LoadDataListBaseViewController<JXCategoryListContentViewDelegate>
 
+@property (nonatomic, copy) NSString *currentView;
+
 @end
 
 NS_ASSUME_NONNULL_END

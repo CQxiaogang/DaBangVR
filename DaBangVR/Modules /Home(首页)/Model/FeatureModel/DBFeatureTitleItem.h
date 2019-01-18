@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DBFeatureTitleItem : NSObject
 /** 标题名 */
-@property (nonatomic, copy) NSString *attrname;
+//@property (nonatomic, copy) NSString *attrname;
 
 @end
 

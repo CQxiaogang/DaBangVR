@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DBFeatureItem : NSObject
 
 /* 名字 */
-@property (nonatomic, strong) DBFeatureTitleItem *attr;
+@property (nonatomic, strong) NSString *name;
 /* 数组 */
-@property (strong , nonatomic)NSArray<DBFeatureList *> *list;
+@property (nonatomic, strong) NSArray<DBFeatureList *> *goodsSpecList;
 
 @end
 

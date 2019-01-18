@@ -31,8 +31,16 @@ static NSInteger lastNum;
 /** 属性值2 */
 @property (nonatomic, copy) NSString *goods_attr_value_2;
 @property (nonatomic, strong) NSArray *goodAttrsArr;
+// 商品属性数组，接受外部传进来的数据
+@property (nonatomic, copy) NSArray  *goodsAttributesArray;
 /* 商品图片 */
-@property (strong , nonatomic)NSString *goodImageView;
+@property (nonatomic, copy) NSString *goodsImgStr;
+// 商品信息列表
+@property (nonatomic, copy) NSArray  *productInfoVoList;
+// 商品价格
+@property (nonatomic, copy) NSString *sellingPrice;
+// 库存
+@property (nonatomic, copy) NSString *remainingInventory;
 
 @property (nonatomic, copy) void (^sureBtnsClick)(NSString *num, NSString *attr_id, NSString *goods_attr_value_1, NSString *goods_attr_value_2);
 /**

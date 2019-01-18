@@ -69,7 +69,6 @@ static NSArray *globalArray;
 
 #pragma mark —— UI设置
 - (void)setupNavagation{
-    
     UIButton *shoppingCarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [shoppingCarBtn.widthAnchor constraintEqualToConstant:25].active = YES;
     [shoppingCarBtn.heightAnchor constraintEqualToConstant:25].active = YES;
@@ -85,20 +84,31 @@ static NSArray *globalArray;
     self.navigationItem.rightBarButtonItems = @[shareItem,shoppingCarItem];
 }
 #pragma mark —— GoodsDetailsView 代理
+// 所以评论
 -(void)allCommentsAction{
     AllCommentsViewController *commentsVC = [AllCommentsViewController new];
     [self.navigationController pushViewController:commentsVC animated:NO];
 }
+// 选择商品
 - (void)chooseBabyAction{
+    // 弹出商品规格选择 view
     GoodAttributesView *attributesView = [[GoodAttributesView alloc] initWithFrame:(CGRect){0, 0, KScreenW, KScreenH}];
+    attributesView.goodsAttributesArray = self.model.goodsSpecVoList;
+    attributesView.goodsImgStr = self.model.listUrl;
+    attributesView.productInfoVoList = self.model.productInfoVoList;
+    attributesView.remainingInventory = self.model.remainingInventory;
+    attributesView.sellingPrice = self.model.sellingPrice;
     [attributesView showInView:self.navigationController.view];
     
+    /*
     kWeakSelf(self);
         attributesView.goodsAttributesBlock = ^(NSArray *array) {
-//            [weakself.goodsInfoView setUpGoodsFeature:array];
+            [weakself.goodsInfoView setUpGoodsFeature:array];
             globalArray = array;
         };
+     */
 }
+// 立即购买 button
 - (void)buyBtnAction{
    [self.navigationController pushViewController:[[BuyNowViewController alloc] init] animated:NO];
 }

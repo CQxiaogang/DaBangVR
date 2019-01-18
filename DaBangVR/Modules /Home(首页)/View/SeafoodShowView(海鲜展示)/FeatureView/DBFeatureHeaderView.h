@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DBFeatureItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@class DBFeatureTitleItem;
+@class DBFeatureItem;
 @interface DBFeatureHeaderView : UICollectionReusableView
 /** 标题数据 */
-@property (nonatomic, strong) DBFeatureTitleItem *headTitle;
+@property (nonatomic, strong) NSString *headTitle;
 
 @end
 

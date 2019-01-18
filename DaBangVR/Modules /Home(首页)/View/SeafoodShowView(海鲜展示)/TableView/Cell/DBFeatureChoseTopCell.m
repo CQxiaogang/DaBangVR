@@ -36,13 +36,19 @@
     [self addSubview:_goodImageView];
     
     _goodPriceLabel = [UILabel new];
-    _goodPriceLabel.font = [UIFont systemFontOfSize:17];
+    _goodPriceLabel.adaptiveFontSize = 17;
     _goodPriceLabel.textColor = [UIColor redColor];
     [self addSubview:_goodPriceLabel];
     
+    _inventoryLabel = [UILabel new];
+    _inventoryLabel.adaptiveFontSize = 10;
+    _inventoryLabel.textColor = KGrayColor;
+    [self addSubview:_inventoryLabel];
+    
     _chooseAttLabel = [UILabel new];
     _chooseAttLabel.numberOfLines = 2;
-    _chooseAttLabel.font = [UIFont systemFontOfSize:14];
+    _chooseAttLabel.adaptiveFontSize = 12;
+    _chooseAttLabel.textColor = KGrayColor;
     [self addSubview:_chooseAttLabel];
 }
 
@@ -67,10 +73,16 @@
         [make.top.mas_equalTo(weakself.goodImageView)setOffset:10];
     }];
     
-    [_chooseAttLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_inventoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakself.goodPriceLabel);
         make.right.mas_equalTo(weakself.crossButton.mas_left);
         [make.top.mas_equalTo(weakself.goodPriceLabel.mas_bottom)setOffset:5];
+    }];
+    
+    [_chooseAttLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakself.goodPriceLabel);
+        make.right.mas_equalTo(weakself.crossButton.mas_left);
+        [make.top.mas_equalTo(weakself.inventoryLabel.mas_bottom)setOffset:15];
     }];
     
 }

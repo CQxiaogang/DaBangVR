@@ -11,9 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DBFeatureList : NSObject
+/** 属性 ID */
+@property (nonatomic, copy) NSString *id;
+/** 属性 */
+@property (nonatomic, copy) NSString *value;
 
 /** 类型名 */
-@property (nonatomic, copy) NSString *infoname;
+//@property (nonatomic, copy) NSString *infoname;
 /** 额外价格 */
 @property (nonatomic, copy) NSString *plusprice;
 /** 是否点击 */

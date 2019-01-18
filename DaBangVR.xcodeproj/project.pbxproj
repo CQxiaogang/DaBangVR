@@ -25,6 +25,9 @@
 		042FCECD21A3F1B7002AD0DB /* DBPrefectureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FCECC21A3F1B7002AD0DB /* DBPrefectureView.xib */; };
 		042FCED021A406FB002AD0DB /* DBHotVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FCECF21A406FB002AD0DB /* DBHotVideoView.m */; };
 		042FCED221A4070C002AD0DB /* DBHotVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FCED121A4070C002AD0DB /* DBHotVideoView.xib */; };
+		044F3BA921F0201B00F3AD5E /* MySpellGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F3BA721F0201B00F3AD5E /* MySpellGroupCell.m */; };
+		044F3BAA21F0201B00F3AD5E /* MySpellGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044F3BA821F0201B00F3AD5E /* MySpellGroupCell.xib */; };
+		044F3BAD21F0803900F3AD5E /* ProductInfoVoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F3BAC21F0803900F3AD5E /* ProductInfoVoListModel.m */; };
 		0459D89321E04ADB009BFFB4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459D89221E04ADB009BFFB4 /* RootViewController.m */; };
 		0459D89621E04FEA009BFFB4 /* BuyNowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459D89521E04FEA009BFFB4 /* BuyNowViewController.m */; };
 		0459D90A21E08FCD009BFFB4 /* DBDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459D90921E08FCD009BFFB4 /* DBDetailHeaderView.m */; };
@@ -239,6 +242,11 @@
 		042FCECE21A406FB002AD0DB /* DBHotVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBHotVideoView.h; sourceTree = "<group>"; };
 		042FCECF21A406FB002AD0DB /* DBHotVideoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBHotVideoView.m; sourceTree = "<group>"; };
 		042FCED121A4070C002AD0DB /* DBHotVideoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBHotVideoView.xib; sourceTree = "<group>"; };
+		044F3BA621F0201B00F3AD5E /* MySpellGroupCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySpellGroupCell.h; sourceTree = "<group>"; };
+		044F3BA721F0201B00F3AD5E /* MySpellGroupCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySpellGroupCell.m; sourceTree = "<group>"; };
+		044F3BA821F0201B00F3AD5E /* MySpellGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySpellGroupCell.xib; sourceTree = "<group>"; };
+		044F3BAB21F0803900F3AD5E /* ProductInfoVoListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductInfoVoListModel.h; sourceTree = "<group>"; };
+		044F3BAC21F0803900F3AD5E /* ProductInfoVoListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductInfoVoListModel.m; sourceTree = "<group>"; };
 		0459D89121E04ADB009BFFB4 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		0459D89221E04ADB009BFFB4 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		0459D89421E04FEA009BFFB4 /* BuyNowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuyNowViewController.h; sourceTree = "<group>"; };
@@ -992,6 +1000,9 @@
 				04F2FD2521EF35DE000B58E2 /* SpellGroupCell.h */,
 				04F2FD2621EF35DE000B58E2 /* SpellGroupCell.m */,
 				04F2FD2721EF35DE000B58E2 /* SpellGroupCell.xib */,
+				044F3BA621F0201B00F3AD5E /* MySpellGroupCell.h */,
+				044F3BA721F0201B00F3AD5E /* MySpellGroupCell.m */,
+				044F3BA821F0201B00F3AD5E /* MySpellGroupCell.xib */,
 			);
 			path = SpellGroupView;
 			sourceTree = "<group>";
@@ -1010,6 +1021,8 @@
 				04F3271021D09779009267F4 /* GoodsShowTableViewCell.h */,
 				04F3271121D09779009267F4 /* GoodsShowTableViewCell.m */,
 				04F3271221D09779009267F4 /* GoodsShowTableViewCell.xib */,
+				04F4469B21D7772700524971 /* DBFeatureChoseTopCell.h */,
+				04F4469C21D7772700524971 /* DBFeatureChoseTopCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1228,6 +1241,8 @@
 				04F4467D21D74F7A00524971 /* DBFeatureList.m */,
 				04F4467A21D74F7A00524971 /* DBFeatureTitleItem.h */,
 				04F4467B21D74F7A00524971 /* DBFeatureTitleItem.m */,
+				044F3BAB21F0803900F3AD5E /* ProductInfoVoListModel.h */,
+				044F3BAC21F0803900F3AD5E /* ProductInfoVoListModel.m */,
 			);
 			path = FeatureModel;
 			sourceTree = "<group>";
@@ -1242,8 +1257,6 @@
 				04F2FD1221EEEAE0000B58E2 /* GoodsDetailsView.m */,
 				04F4468321D74F8E00524971 /* GoodAttributesView.h */,
 				04F4468921D74F9000524971 /* GoodAttributesView.m */,
-				04F4469B21D7772700524971 /* DBFeatureChoseTopCell.h */,
-				04F4469C21D7772700524971 /* DBFeatureChoseTopCell.m */,
 				04F4468421D74F8F00524971 /* DBCollectionHeaderLayout.h */,
 				04F4468521D74F8F00524971 /* DBCollectionHeaderLayout.m */,
 				04F4467421D74F5300524971 /* DBFeatureHeaderView.h */,
@@ -1826,6 +1839,7 @@
 				0410358221CCD2F2002CB32C /* UMSocialSDKPromptResources.bundle in Resources */,
 				04F866B321A806F600A4D7F6 /* DBNewProductView.xib in Resources */,
 				0410357F21CCD2F2002CB32C /* UMSocialSDKResources.bundle in Resources */,
+				044F3BAA21F0201B00F3AD5E /* MySpellGroupCell.xib in Resources */,
 				04F8ED3721E2F0AA00004178 /* DBDetailFooterCell.xib in Resources */,
 				04F47E3A21E5FAF6001B5F74 /* EvaluationCell.xib in Resources */,
 			);
@@ -1948,6 +1962,7 @@
 				04F2FD0C21EECDA1000B58E2 /* GoodsDetailsModel.m in Sources */,
 				042FCECB21A3F1AB002AD0DB /* DBPrefectureView.m in Sources */,
 				0403677221A5129800974435 /* DBTableViewCell.m in Sources */,
+				044F3BAD21F0803900F3AD5E /* ProductInfoVoListModel.m in Sources */,
 				0459D91721E0B437009BFFB4 /* DBDetailFooterView.m in Sources */,
 				04E0473221D36A42002DDB98 /* AllCommentsViewController.m in Sources */,
 				048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */,
@@ -1965,6 +1980,7 @@
 				04EFA03221E7436B007C2FCA /* ChannelViewCell.m in Sources */,
 				04F4468021D74F7B00524971 /* DBFeatureTitleItem.m in Sources */,
 				04FC2C4021C0E3AD00329B53 /* JFCityCollectionFlowLayout.m in Sources */,
+				044F3BA921F0201B00F3AD5E /* MySpellGroupCell.m in Sources */,
 				04F2FD1B21EF11D6000B58E2 /* GoodsRotationListModel.m in Sources */,
 				0463026321BBC8C40003C542 /* DBTopView.m in Sources */,
 				04F3B31621EDDAF900DFBA84 /* JXCategoryNumberView.m in Sources */,

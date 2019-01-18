@@ -48,7 +48,7 @@
 
 - (void)setContent:(DBFeatureList *)content{
     _content = content;
-    _attLabel.text = content.infoname;
+    _attLabel.text = content.value;
     
     if (content.isSelect) {
         _attLabel.textColor = [UIColor redColor];

@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong , nonatomic)UIImageView *goodImageView;
 /* 选择属性 */
 @property (strong , nonatomic)UILabel *chooseAttLabel;
+/* 库存量 */
+@property (strong , nonatomic)UILabel *inventoryLabel;
 
 @end
 

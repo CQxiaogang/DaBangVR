@@ -17,6 +17,7 @@
 #import "GoodsInfoView.h"
 // Models
 #import "DBFeatureItem.h"
+#import "ProductInfoVoListModel.h"
 // Vendors
 #import "MJExtension.h"
 #import "Masonry.h"
@@ -39,6 +40,7 @@
     UILabel *_secondAttributeLbl;
     NSString *_goods_attr_value_1;
     NSString *_goods_attr_value_2;
+    BOOL isFirst;
 }
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UIView *iconBackView;
@@ -60,8 +62,10 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 /* tableView */
 @property (strong , nonatomic)UITableView *tableView;
-/* 数据 */
+/* 商品规格展示的数据 */
 @property (strong , nonatomic)NSMutableArray <DBFeatureItem *> *featureAttr;
+/* 商品规格数据 */
+@property (strong , nonatomic)NSMutableArray <ProductInfoVoListModel *> *goodsSpecArr;
 /* 选择属性 */
 @property (strong , nonatomic)NSMutableArray *seleArray;
 /* 商品选择结果Cell */
@@ -229,14 +233,16 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
         _numberButton = [PPNumberButton numberButtonWithFrame:CGRectZero];
         _numberButton.shakeAnimation = YES;
         _numberButton.minValue = 1;
-        _numberButton.inputFieldFont = 17;
+        _numberButton.inputFieldFont = 16;
         _numberButton.increaseTitle = @"＋";
         _numberButton.decreaseTitle = @"－";
         lastNum = (lastNum == 0) ? 1:lastNum;
         _numberButton.currentNumber = lastNum;
         _numberButton.delegate = self;
+        kWeakSelf(self);
         _numberButton.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
             lastNum = num;
+            [weakself.tableView reloadData];
         };
     }
     return _numberButton;
@@ -296,16 +302,6 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
         make.bottom.mas_equalTo(weakself.numLabel.mas_top).offset(0);
     }];
     
-//    [self.iconBackView addSubview:self.iconImgView];
-//
-//    [self.contentView addSubview:self.iconBackView];
-//
-//    [self.contentView addSubview:self.XBtn];
-    
-//    [self.contentView addSubview:self.goodsNameLbl];
-//
-//    [self.contentView addSubview:self.goodsPriceLbl];
-    
     [self.numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(weakself.sureBtn.mas_top).offset(0);
         make.left.mas_equalTo(weakself.contentView).offset(0);
@@ -325,13 +321,13 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
 - (void)setUpBase{
     
     // collectionView 里面的数据
-    _featureAttr = [DBFeatureItem mj_objectArrayWithFilename:@"ShopItem.plist"];
+//    _featureAttr = [DBFeatureItem mj_objectArrayWithFilename:@"ShopItem.plist"];
     if (lastSeleArray.count == 0) return;
     for (NSString *str in lastSeleArray) {//反向遍历（赋值）
         for (NSInteger i = 0; i < _featureAttr.count; i++) {
-            for (NSInteger j = 0; j < _featureAttr[i].list.count; j++) {
-                if ([_featureAttr[i].list[j].infoname isEqualToString:str]) {
-                    _featureAttr[i].list[j].isSelect = YES;
+            for (NSInteger j = 0; j < _featureAttr[i].goodsSpecList.count; j++) {
+                if ([_featureAttr[i].goodsSpecList[j].value isEqualToString:str]) {
+                    _featureAttr[i].goodsSpecList[j].isSelect = YES;
                     [self.collectionView reloadData];
                 }
             }
@@ -344,13 +340,13 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _featureAttr[section].list.count;
+    return _featureAttr[section].goodsSpecList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     DBFeatureItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:DBFeatureItemCellID forIndexPath:indexPath];
-    cell.content = _featureAttr[indexPath.section].list[indexPath.row];
+    cell.content = _featureAttr[indexPath.section].goodsSpecList[indexPath.row];
     return cell;
 }
 
@@ -358,7 +354,7 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
     
     if ([kind  isEqualToString:UICollectionElementKindSectionHeader]) {
         DBFeatureHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:DBFeatureHeaderViewID forIndexPath:indexPath];
-        headerView.headTitle = _featureAttr[indexPath.section].attr;
+        headerView.headTitle = _featureAttr[indexPath.section].name;
         return headerView;
     }else {
         
@@ -370,27 +366,32 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
 #pragma mark - <UICollectionViewDelegate>
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //限制每组内的Item只能选中一个(加入质数选择)
-    if (_featureAttr[indexPath.section].list[indexPath.row].isSelect == NO) {
-        for (NSInteger j = 0; j < _featureAttr[indexPath.section].list.count; j++) {
-            _featureAttr[indexPath.section].list[j].isSelect = NO;
+    if (_featureAttr[indexPath.section].goodsSpecList[indexPath.row].isSelect == NO) {
+        for (NSInteger j = 0; j < _featureAttr[indexPath.section].goodsSpecList.count; j++) {
+            _featureAttr[indexPath.section].goodsSpecList[j].isSelect = NO;
         }
     }
-    _featureAttr[indexPath.section].list[indexPath.row].isSelect = !_featureAttr[indexPath.section].list[indexPath.row].isSelect;
+    _featureAttr[indexPath.section].goodsSpecList[indexPath.row].isSelect = !_featureAttr[indexPath.section].goodsSpecList[indexPath.row].isSelect;
     
     //section，item 循环讲选中的所有Item加入数组中 ，数组mutableCopy初始化
     _seleArray = [@[] mutableCopy];
     for (NSInteger i = 0; i < _featureAttr.count; i++) {
-        for (NSInteger j = 0; j < _featureAttr[i].list.count; j++) {
-            if (_featureAttr[i].list[j].isSelect == YES) {
-                [_seleArray addObject:_featureAttr[i].list[j].infoname];
-//                [_seleArray addObject:[NSString stringWithFormat: @"%ld个宝贝", (long)lastNum]];
+        for (NSInteger j = 0; j < _featureAttr[i].goodsSpecList.count; j++) {
+            if (_featureAttr[i].goodsSpecList[j].isSelect == YES) {
+                
+                [_seleArray addObject:_featureAttr[i].goodsSpecList[j].id];
+
             }else{
-                [_seleArray removeObject:_featureAttr[i].list[j].infoname];
+                
+                [_seleArray removeObject:_featureAttr[i].goodsSpecList[j].id];
                 lastSeleArray = nil;
             }
         }
     }
-    
+    // 数组中的元素呼唤位置
+    if (_seleArray.count == 2) {
+        [_seleArray exchangeObjectAtIndex:0 withObjectAtIndex:1];
+    }
     //刷新tableView和collectionView
     [self.collectionView reloadData];
     [self.tableView reloadData];
@@ -400,8 +401,8 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
 #pragma mark - 自定义layout必须实现的方法
 - (NSString *)collectionViewItemSizeWithIndexPath:(NSIndexPath *)indexPath {
     DBFeatureItem *item = _featureAttr[indexPath.section];
-    DBFeatureList *list = item.list[indexPath.row];
-    return list.infoname;
+    DBFeatureList *list = item.goodsSpecList[indexPath.row];
+    return list.value;
 }
 
 #pragma mark —— UITableViewDataSource
@@ -413,17 +414,29 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DBFeatureChoseTopCell *cell = [tableView dequeueReusableCellWithIdentifier:DBFeatureChoseTopCellID forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     _cell = cell;
     if (_seleArray.count != _featureAttr.count && lastSeleArray.count != _featureAttr.count) {
-        cell.chooseAttLabel.textColor = [UIColor redColor];
-        cell.chooseAttLabel.text = @"有货";
+        cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",_remainingInventory];
+        NSInteger price = [_sellingPrice integerValue];
+        cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %ld",price*lastNum];
+        cell.chooseAttLabel.text = @"请选择 颜色 尺码";
     }else {
         cell.chooseAttLabel.textColor = [UIColor darkGrayColor];
-        NSString *attString = (_seleArray.count == _featureAttr.count) ? [_seleArray componentsJoinedByString:@"，"] : [lastSeleArray componentsJoinedByString:@"，"];
-        cell.chooseAttLabel.text = [NSString stringWithFormat:@"已选属性：%@",attString];
+        //
+        NSString *attString = (_seleArray.count == _featureAttr.count) ? [_seleArray componentsJoinedByString:@"_"] : [lastSeleArray componentsJoinedByString:@"_"];
+        //
+        for (ProductInfoVoListModel *model in _goodsSpecArr) {
+            if ([attString isEqualToString:model.goodsSpecIds]) {
+                cell.chooseAttLabel.text = [NSString stringWithFormat:@"已选属性：%@",model.name];
+                cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",model.number];
+                NSInteger price = [model.retailPrice integerValue];
+                cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %ld",price*lastNum];
+            }
+        }
     }
-    cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %@",@"12"];
-    [cell.goodImageView setImage:[UIImage imageNamed:@"theDefaultAvatar"]];
+    
+    [cell.goodImageView setImageWithURL:[NSURL URLWithString:_goodsImgStr] placeholder:[UIImage imageNamed:@""]];
     kWeakSelf(self)
     cell.crossButtonClickBlock = ^{
         [weakself removeView];
@@ -460,7 +473,23 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
     _good_price = good_price;
     self.goodsPriceLbl.text = [NSString stringWithFormat:@"%@元", good_price];
 }
-
+- (void)setGoodsAttributesArray:(NSArray *)goodsAttributesArray{
+    _goodsAttributesArray = goodsAttributesArray;
+     _featureAttr = [DBFeatureItem mj_objectArrayWithKeyValuesArray:goodsAttributesArray];
+}
+- (void)setGoodsImgStr:(NSString *)goodsImgStr{
+    _goodsImgStr = goodsImgStr;
+}
+-(void)setProductInfoVoList:(NSArray *)productInfoVoList{
+    _productInfoVoList = productInfoVoList;
+    _goodsSpecArr = [ProductInfoVoListModel mj_objectArrayWithKeyValuesArray:productInfoVoList];
+}
+- (void)setSellingPrice:(NSString *)sellingPrice{
+    _sellingPrice = sellingPrice;
+}
+- (void)setRemainingInventory:(NSString *)remainingInventory{
+    _remainingInventory = remainingInventory;
+}
 - (void)showInView:(UIView *)view {
     [view addSubview:self];
     __weak typeof(self) _weakSelf = self;

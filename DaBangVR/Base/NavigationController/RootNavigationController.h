@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RootNavigationController : UINavigationController
 
+@property (nonatomic, copy) NSString *titleString;
+
 @end
 
 NS_ASSUME_NONNULL_END

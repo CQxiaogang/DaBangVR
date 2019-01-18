@@ -118,8 +118,15 @@
 // 下载数据
 -(void)downloadDataWithCompletionHandle:(void(^)(NSArray *imgsArray))completion
 {
-    //....下载数据...假设下载完得到的数据是array
-    NSArray *array = @[_model.listUrl];
+    /**下载数据...假设下载完得到的数据是array*/
+    NSArray *imgArray = _model.imgList;
+    NSMutableArray *data = [NSMutableArray new];
+    for (NSDictionary *dic in imgArray) {
+        NSString *imgString = dic[@"chartUrl"];
+        [data addObject:imgString];
+    }
+    
+    NSArray *array = data.count ? (NSArray *)data : @[@"http://test.fuxingsc.com/2.gif"];
     
     //完成后调用完成的回调代码块
     if(completion)

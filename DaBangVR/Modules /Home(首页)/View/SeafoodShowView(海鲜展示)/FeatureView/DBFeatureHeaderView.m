@@ -57,9 +57,9 @@
 }
 
 #pragma mark - Setter Getter Methods
-- (void)setHeadTitle:(DBFeatureTitleItem *)headTitle{
+- (void)setHeadTitle:(NSString *)headTitle{
     _headTitle = headTitle;
-    _headerLabel.text = headTitle.attrname;
+    _headerLabel.text = headTitle;
 }
 
 @end
