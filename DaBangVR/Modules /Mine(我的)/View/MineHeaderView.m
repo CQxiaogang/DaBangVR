@@ -84,6 +84,9 @@
 }
 #pragma mark —— 购物车
 - (IBAction)shoppingCartAction:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(shoppingCarAction)]) {
+        [self.delegate shoppingCarAction];
+    }
 }
 
 

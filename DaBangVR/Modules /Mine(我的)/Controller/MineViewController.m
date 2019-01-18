@@ -15,6 +15,7 @@
 #import "MainTabBarController.h"
 #import "SettingViewController.h"
 #import "MyOrderViewController.h"
+#import "ShoppingCarViewController.h"
 
 static NSString *cellID = @"cellID";
 
@@ -245,5 +246,11 @@ pageContentViewDelegate
     MyOrderViewController *VC = [[MyOrderViewController alloc] init];
     VC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:VC animated:NO];
+}
+// 购物车
+-(void)shoppingCarAction{
+    ShoppingCarViewController *vc = [[ShoppingCarViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:NO];
 }
 @end

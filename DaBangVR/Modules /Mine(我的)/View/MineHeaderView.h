@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)integralMallAction;
 // 我的订单
 - (void)myOrderAction;
+// 购物车
+- (void)shoppingCarAction;
 
 @end
 
