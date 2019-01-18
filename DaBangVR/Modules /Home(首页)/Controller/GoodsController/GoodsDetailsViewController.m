@@ -41,7 +41,7 @@ static NSArray *globalArray;
     // 得到数据
     [self getData];
 }
-
+#pragma mark —— 数据
 - (void) getData{
     [NetWorkHelper POST:URL_goods_details parameters:@{@"goodsId":_index} success:^(id  _Nonnull responseObject) {
         
@@ -86,11 +86,17 @@ static NSArray *globalArray;
 #pragma mark —— GoodsDetailsView 代理
 // 所以评论
 -(void)allCommentsAction{
-    AllCommentsViewController *commentsVC = [AllCommentsViewController new];
-    [self.navigationController pushViewController:commentsVC animated:NO];
+    AllCommentsViewController *vc = [AllCommentsViewController new];
+    [vc getData:self.model.id];
+    [self.navigationController pushViewController:vc animated:NO];
 }
 // 选择商品
 - (void)chooseBabyAction{
+    
+    [self creatAttributesView];
+}
+
+- (void)creatAttributesView{
     // 弹出商品规格选择 view
     GoodAttributesView *attributesView = [[GoodAttributesView alloc] initWithFrame:(CGRect){0, 0, KScreenW, KScreenH}];
     attributesView.goodsAttributesArray = self.model.goodsSpecVoList;
@@ -99,18 +105,30 @@ static NSArray *globalArray;
     attributesView.remainingInventory = self.model.remainingInventory;
     attributesView.sellingPrice = self.model.sellingPrice;
     [attributesView showInView:self.navigationController.view];
-    
-    /*
-    kWeakSelf(self);
-        attributesView.goodsAttributesBlock = ^(NSArray *array) {
-            [weakself.goodsInfoView setUpGoodsFeature:array];
-            globalArray = array;
-        };
-     */
+    // 数据回掉
+    //    kWeakSelf(self);
+    attributesView.goodsAttributesBlock = ^(NSArray *array) {
+        NSDictionary *dic = @{
+                              @"productId":array[0],
+                              @"goodsId":array[1],
+                              @"number":array[2]
+                              };
+        [NetWorkHelper POST:@"http://192.168.1.110:8080/api/buygoods/confirmGoods?" parameters:dic success:^(id  _Nonnull responseObject) {
+            
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+            NSDictionary *dataDic= dic[@"data"];
+            
+        } failure:^(NSError * _Nonnull error) {
+            DLog(@"error is %@",error);
+        }];
+        
+    };
 }
+
 // 立即购买 button
 - (void)buyBtnAction{
-   [self.navigationController pushViewController:[[BuyNowViewController alloc] init] animated:NO];
+//    [self creatAttributesView];
+    [self.navigationController pushViewController:[[BuyNowViewController alloc] init] animated:NO];
 }
 
 @end

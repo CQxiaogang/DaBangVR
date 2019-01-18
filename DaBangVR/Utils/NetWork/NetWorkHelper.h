@@ -23,6 +23,8 @@ typedef void(^RequestFailed)(NSError *error);
      success:(RequestSuccess)success
      failure:(RequestFailed)failure;
 
++ (void)POSTW:(NSString *)URL parameters:(id __nullable)parameters success:(RequestSuccess)success failure:(RequestFailed)failure;
+
 @end
 
 NS_ASSUME_NONNULL_END

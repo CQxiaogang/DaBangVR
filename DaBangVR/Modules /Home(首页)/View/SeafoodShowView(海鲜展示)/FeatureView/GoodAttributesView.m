@@ -70,6 +70,7 @@
 @property (strong , nonatomic)NSMutableArray *seleArray;
 /* 商品选择结果Cell */
 @property (weak , nonatomic)DBFeatureChoseTopCell *cell;
+@property (strong, nonatomic) NSMutableArray *goodsDetailsArr;
 @end
 @implementation GoodAttributesView
 
@@ -432,6 +433,10 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
                 cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",model.number];
                 NSInteger price = [model.retailPrice integerValue];
                 cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %ld",price*lastNum];
+                _goodsDetailsArr = [NSMutableArray new];
+                [_goodsDetailsArr addObject:model.id];
+                [_goodsDetailsArr addObject:model.goodsId];
+                [_goodsDetailsArr addObject:[NSString stringWithFormat:@"%ld",lastNum]];
             }
         }
     }
@@ -525,7 +530,7 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
     // 回掉
     if (_seleArray.count != 0) {
         if (self.goodsAttributesBlock != nil) {
-            self.goodsAttributesBlock(_seleArray);
+            self.goodsAttributesBlock(_goodsDetailsArr);
         }
     }
     // 记录选择的商品数据

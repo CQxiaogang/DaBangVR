@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GoodsDetailsModel : NSObject
+// 商品 ID
+@property (nonatomic, copy) NSString *id;
 // 类别 ID
 @property (nonatomic, copy) NSString *categoryId;
 // 名字

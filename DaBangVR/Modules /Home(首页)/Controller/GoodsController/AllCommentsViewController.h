@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AllCommentsViewController : RootViewController
 
+- (void)getData:(NSString *)goodsId;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -171,6 +171,11 @@
 		04F8ED4B21E3453800004178 /* ModifyAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED4A21E3453800004178 /* ModifyAddressViewController.m */; };
 		04F8ED5021E349E000004178 /* modifyAddressViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED4E21E349E000004178 /* modifyAddressViewCell.m */; };
 		04F8ED5121E349E000004178 /* modifyAddressViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8ED4F21E349E000004178 /* modifyAddressViewCell.xib */; };
+		04F8FBFA21F17E0200913150 /* AllCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8FBF821F17E0200913150 /* AllCommentsCell.m */; };
+		04F8FBFB21F17E0200913150 /* AllCommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8FBF921F17E0200913150 /* AllCommentsCell.xib */; };
+		04F8FBFE21F1ADE900913150 /* AllCommentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8FBFD21F1ADE900913150 /* AllCommentsModel.m */; };
+		04F8FC0221F1D3F700913150 /* SecondsKillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8FC0121F1D3F700913150 /* SecondsKillCell.m */; };
+		04F8FC0421F1D40400913150 /* SecondsKillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8FC0321F1D40400913150 /* SecondsKillCell.xib */; };
 		04FA5D6021AE3F480061AF27 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA5D5E21AE3F480061AF27 /* LoginViewController.m */; };
 		04FA5D6121AE3F480061AF27 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FA5D5F21AE3F480061AF27 /* LoginViewController.xib */; };
 		04FA5D6521AE476F0061AF27 /* MobilePhoneNoLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA5D6321AE476F0061AF27 /* MobilePhoneNoLoginViewController.m */; };
@@ -519,6 +524,14 @@
 		04F8ED4D21E349E000004178 /* modifyAddressViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = modifyAddressViewCell.h; sourceTree = "<group>"; };
 		04F8ED4E21E349E000004178 /* modifyAddressViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = modifyAddressViewCell.m; sourceTree = "<group>"; };
 		04F8ED4F21E349E000004178 /* modifyAddressViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = modifyAddressViewCell.xib; sourceTree = "<group>"; };
+		04F8FBF721F17E0200913150 /* AllCommentsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllCommentsCell.h; sourceTree = "<group>"; };
+		04F8FBF821F17E0200913150 /* AllCommentsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllCommentsCell.m; sourceTree = "<group>"; };
+		04F8FBF921F17E0200913150 /* AllCommentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllCommentsCell.xib; sourceTree = "<group>"; };
+		04F8FBFC21F1ADE900913150 /* AllCommentsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllCommentsModel.h; sourceTree = "<group>"; };
+		04F8FBFD21F1ADE900913150 /* AllCommentsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllCommentsModel.m; sourceTree = "<group>"; };
+		04F8FC0021F1D3F700913150 /* SecondsKillCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondsKillCell.h; sourceTree = "<group>"; };
+		04F8FC0121F1D3F700913150 /* SecondsKillCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondsKillCell.m; sourceTree = "<group>"; };
+		04F8FC0321F1D40400913150 /* SecondsKillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondsKillCell.xib; sourceTree = "<group>"; };
 		04FA5D5C21AE3C980061AF27 /* DaBangVR.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaBangVR.pch; sourceTree = "<group>"; };
 		04FA5D5D21AE3F480061AF27 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		04FA5D5E21AE3F480061AF27 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -637,6 +650,8 @@
 		0402F63421A3B845003634AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04F8FBFF21F1D3C700913150 /* SecondsKillView */,
+				04F8FBF621F17D8600913150 /* AllCommentsView */,
 				04F2FD2421EF3593000B58E2 /* SpellGroupView */,
 				04F70C6621E98C38004BD4C6 /* AnchorRecommendView(主播推荐) */,
 				04F70C6A21E99A62004BD4C6 /* ChannelMenuListView(频道菜单) */,
@@ -1460,6 +1475,8 @@
 				04A3DA2F21E9EF6400F689C7 /* SeafoodShowListModel.m */,
 				04F2FD0A21EECDA1000B58E2 /* GoodsDetailsModel.h */,
 				04F2FD0B21EECDA1000B58E2 /* GoodsDetailsModel.m */,
+				04F8FBFC21F1ADE900913150 /* AllCommentsModel.h */,
+				04F8FBFD21F1ADE900913150 /* AllCommentsModel.m */,
 			);
 			path = GoodsModel;
 			sourceTree = "<group>";
@@ -1573,6 +1590,26 @@
 				04F2702E21E883FC0019FB9F /* ModifyAddressModel.m */,
 			);
 			path = ModifyAddressModel;
+			sourceTree = "<group>";
+		};
+		04F8FBF621F17D8600913150 /* AllCommentsView */ = {
+			isa = PBXGroup;
+			children = (
+				04F8FBF721F17E0200913150 /* AllCommentsCell.h */,
+				04F8FBF821F17E0200913150 /* AllCommentsCell.m */,
+				04F8FBF921F17E0200913150 /* AllCommentsCell.xib */,
+			);
+			path = AllCommentsView;
+			sourceTree = "<group>";
+		};
+		04F8FBFF21F1D3C700913150 /* SecondsKillView */ = {
+			isa = PBXGroup;
+			children = (
+				04F8FC0021F1D3F700913150 /* SecondsKillCell.h */,
+				04F8FC0121F1D3F700913150 /* SecondsKillCell.m */,
+				04F8FC0321F1D40400913150 /* SecondsKillCell.xib */,
+			);
+			path = SecondsKillView;
 			sourceTree = "<group>";
 		};
 		04FA5D5821AE3B0D0061AF27 /* Login(登录) */ = {
@@ -1818,6 +1855,7 @@
 				049D4763219FA91F0058178D /* LaunchScreen.storyboard in Resources */,
 				04FA5D6621AE476F0061AF27 /* MobilePhoneNoLoginViewController.xib in Resources */,
 				049D4760219FA91F0058178D /* Assets.xcassets in Resources */,
+				04F8FC0421F1D40400913150 /* SecondsKillCell.xib in Resources */,
 				0403677321A5129800974435 /* DBtableViewCell.xib in Resources */,
 				049703E721A69860002359B5 /* DBLiveTableViewCell.xib in Resources */,
 				04F8ED4021E3272A00004178 /* informationModificationHeaderView.xib in Resources */,
@@ -1836,6 +1874,7 @@
 				04F3271421D09779009267F4 /* GoodsShowTableViewCell.xib in Resources */,
 				0459D91421E0A78F009BFFB4 /* DBDetailContentCell.xib in Resources */,
 				04F8ED5121E349E000004178 /* modifyAddressViewCell.xib in Resources */,
+				04F8FBFB21F17E0200913150 /* AllCommentsCell.xib in Resources */,
 				0410358221CCD2F2002CB32C /* UMSocialSDKPromptResources.bundle in Resources */,
 				04F866B321A806F600A4D7F6 /* DBNewProductView.xib in Resources */,
 				0410357F21CCD2F2002CB32C /* UMSocialSDKResources.bundle in Resources */,
@@ -1926,6 +1965,7 @@
 				04F8ED4B21E3453800004178 /* ModifyAddressViewController.m in Sources */,
 				04EFA02621E7226D007C2FCA /* OrderDeliveryViewController.m in Sources */,
 				04F3B30921EDDAF900DFBA84 /* JXCategoryIndicatorView.m in Sources */,
+				04F8FBFE21F1ADE900913150 /* AllCommentsModel.m in Sources */,
 				042FCEC621A3E22E002AD0DB /* DBTimeLimitSecondsKill.m in Sources */,
 				04F3B30F21EDDAF900DFBA84 /* JXCategoryTitleImageCellModel.m in Sources */,
 				04F2FD2821EF35DE000B58E2 /* SpellGroupCell.m in Sources */,
@@ -1948,6 +1988,7 @@
 				04F3B30821EDDAF900DFBA84 /* JXCategoryIndicatorCell.m in Sources */,
 				0459D91321E0A78F009BFFB4 /* DBDetailContentCell.m in Sources */,
 				049D479F219FEC540058178D /* DBLiveViewController.m in Sources */,
+				04F8FBFA21F17E0200913150 /* AllCommentsCell.m in Sources */,
 				049703E621A69860002359B5 /* DBLiveTableViewCell.m in Sources */,
 				0463025E21BBAC8D0003C542 /* DBFontOfSize.m in Sources */,
 				04F2FD2321EF259A000B58E2 /* SecondsKillViewController.m in Sources */,
@@ -1976,6 +2017,7 @@
 				04F8ED3E21E30E9A00004178 /* informationModificationHeaderView.m in Sources */,
 				04F3B31921EDDAF900DFBA84 /* JXCategoryListContainerView.m in Sources */,
 				04F5C8EA21CA4307008DD043 /* UIViewController+AlertViewAndActionSheet.m in Sources */,
+				04F8FC0221F1D3F700913150 /* SecondsKillCell.m in Sources */,
 				04F8ED3621E2F0AA00004178 /* DBDetailFooterCell.m in Sources */,
 				04EFA03221E7436B007C2FCA /* ChannelViewCell.m in Sources */,
 				04F4468021D74F7B00524971 /* DBFeatureTitleItem.m in Sources */,

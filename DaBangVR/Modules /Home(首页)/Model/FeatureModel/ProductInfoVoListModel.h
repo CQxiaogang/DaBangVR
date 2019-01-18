@@ -11,6 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ProductInfoVoListModel : NSObject
+// 产品 ID
+@property (nonatomic, copy) NSString *id;
+// 商品 ID
+@property (nonatomic, copy) NSString *goodsId;
 // 商品规格名字
 @property (nonatomic, copy) NSString *name;
 // 此规格商品数量
