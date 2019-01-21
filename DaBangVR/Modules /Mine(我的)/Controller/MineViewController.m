@@ -6,9 +6,7 @@
 //  Copyright © 2018 DaBangVR. All rights reserved.
 //
 // views
-#import "PageTitleView.h"
 #import "MineHeaderView.h"
-#import "PageContentView.h"
 #import "MineTableViewCell.h"
 // controllers
 #import "MineViewController.h"
@@ -16,14 +14,14 @@
 #import "SettingViewController.h"
 #import "MyOrderViewController.h"
 #import "ShoppingCarViewController.h"
+// 第三方
+#import "JXCategoryView.h"
+#import "JXCategoryListContainerView.h"
 
-static NSString *cellID = @"cellID";
 
 @interface MineViewController ()
 <
-headerViewDelegate,
-PageTitleViewDelegate,
-pageContentViewDelegate
+headerViewDelegate
 >
 // 我的
 @property (nonatomic, strong) UITableView *myTableView;
@@ -33,15 +31,14 @@ pageContentViewDelegate
 @property (nonatomic, strong) NSArray *imageArray;
 
 @property (nonatomic, strong) MineHeaderView *headerView;
-// 分页显示
-@property (nonatomic, strong) PageTitleView *pageTitleView;
-@property (nonatomic, strong) PageContentView *pageContenView;
 // 储存显示的所有视图
 @property (nonatomic, strong) NSMutableArray *childV_Array;
+@property (nonatomic, strong) JXCategoryTitleView  *categoryView;
 @end
 
 @implementation MineViewController
 
+static NSString *cellID = @"cellID";
 #pragma mark —— 懒加载
 - (UITableView *)myTableView{
     if (!_myTableView) {
@@ -52,7 +49,7 @@ pageContentViewDelegate
 - (UITableView *) setup_tableView:(UITableView *)tableView{
     CGFloat tableV_Y = 0;
     CGFloat tableV_W = self.view.mj_w;
-    CGFloat tableV_H = self.pageContenView.mj_h;
+    CGFloat tableV_H = 100;
     tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, tableV_Y, tableV_W, tableV_H) style:UITableViewStyleGrouped];
     [tableView registerNib:[UINib nibWithNibName:@"MineTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
     tableView.delegate = self;
@@ -71,35 +68,12 @@ pageContentViewDelegate
     return _headerView;
 }
 
-- (PageTitleView *)pageTitleView{
-    if (!_pageTitleView) {
-        NSArray *array = @[@"我的",@"喜欢",@"动态",@"作品"];
-        CGFloat view_W = self.view.mj_w - 20;
-        CGFloat view_H = 40;
-        _pageTitleView = [[PageTitleView alloc] initWithFrame:CGRectMake(0, 0, view_W, view_H) Titles:array];
-//        _pageTitleView.backgroundColor = [UIColor lightGreen];
-        _pageTitleView.delagate = self;
-    }
-    return _pageTitleView;
-}
-
-- (PageContentView *)pageContenView{
-    if (!_pageContenView) {
-        /* 49 位底部tabBarController的高度 */
-        CGFloat collectV_W = self.view.mj_w;
-        CGFloat collectV_H = self.view.mj_h - 49 - self.pageTitleView.mj_h - self.headerView.mj_h;
-        _pageContenView = [[PageContentView alloc] initWithFrame:CGRectMake(0, 0, collectV_W, collectV_H) childSv:self.childV_Array];
-        _pageContenView.delegate = self;
-    }
-    return _pageContenView;
-}
-
 - (NSMutableArray *)childV_Array{
     if (!_childV_Array) {
         _childV_Array = [[NSMutableArray alloc] init];
         [_childV_Array addObject:self.myTableView];
         for (int i=0; i<3; i++) {
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.pageContenView.mj_w, self.pageContenView.mj_h)];
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
             view.backgroundColor = [UIColor randomColor];
             [_childV_Array addObject:view];
         }
@@ -134,18 +108,18 @@ pageContentViewDelegate
 -(void)setup_UI{
     
     [self.view addSubview:self.headerView];
-    [self.view addSubview:self.pageTitleView];
-    kWeakSelf(self)
-    [self.pageTitleView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakself.headerView.mas_bottom).offset(10);
-        make.centerX.equalTo(weakself.view);
+    self.categoryView = [[JXCategoryTitleView alloc] init];
+    self.categoryView.titles = @[@"我的",@"喜欢",@"动态",@"作品"];
+    self.categoryView.defaultSelectedIndex = 0;
+    self.categoryView.delegate = self;
+    JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
+    self.categoryView.indicators = @[lineView];
+    [self.view addSubview:self.categoryView];
+    kWeakSelf(self);
+    [self.categoryView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakself.headerView.mas_bottom).offset(0);
+        make.left.right.equalTo(0);
         make.height.equalTo(40);
-        make.width.equalTo(weakself.view).multipliedBy(0.95);
-    }];
-    [self.view addSubview:self.pageContenView];
-    [self.pageContenView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakself.pageTitleView.mas_bottom).offset(10);
-        make.left.right.bottom.equalTo(0);
     }];
 }
 
@@ -214,16 +188,6 @@ pageContentViewDelegate
 }
 //////////////////////////////注/////////////////////////////////
 
-#pragma mark —— pageTitleView deletage
-- (void)pageTitleView:(UIView *)titleView selectedIndex:(int)index{
-    [self.pageContenView setCurrentIndex:index];
-}
-
-#pragma mark —— pageCotentViw deletage
-- (void)pageContentView:(UIView *)contentView progress:(CGFloat)p sourceIndex:(int)s targetIndex:(int)t{
-    [self.pageTitleView setTitleWithProgress:p sourceIndex:s targetIndex:t];
-}
-
 #pragma mark —— 头部视图控件 delegate
 // 昵称点击事件
 -(void)nickNameViewClick{
@@ -231,7 +195,6 @@ pageContentViewDelegate
         KPostNotification(KNotificationLoginStateChange, @NO);
     }
 }
-
 // 设置点击事件
 -(void)setupButtonClick{
     
