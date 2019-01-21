@@ -49,8 +49,8 @@
 #pragma mark —— 值设置
 - (void)setupContent{
     
-    _nickName.text = curUser.uName?:@"点击登录";
-    _headImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:curUser.uIcon]]]?:[UIImage imageNamed:@"theDefaultAvatar"];
+    _nickName.text = curUser.nickName?:@"点击登录";
+    _headImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:curUser.headUrl]]]?:[UIImage imageNamed:@"theDefaultAvatar"];
 }
 
 #pragma mark —— 昵称点击

@@ -51,11 +51,11 @@ SINGLETON_FOR_CLASS(UserManager)
                 UMSocialUserInfoResponse *resp = result;
                 
                 //网络请求
-                NSDictionary *params = @{@"uAccount": resp.openid,
-                                      @"icon"    : resp.iconurl,
-                                      @"uName"   : resp.name,
-                                      @"type"    : @"QQ"
-                                      };
+                NSDictionary *params = @{@"openId"   : resp.openid,
+                                         @"icon"     : resp.iconurl,
+                                         @"nickName" : resp.name,
+                                         @"loginType": @"QQ"
+                                         };
                 [self loginToServer:params completion:completion];
             }
         }];
@@ -64,20 +64,19 @@ SINGLETON_FOR_CLASS(UserManager)
 
 #pragma mark —— 登录服务器
 - (void)loginToServer:(NSDictionary *)params completion:(loginBlock)completion{
-//    [NetWorkHelper POST:NSStringFormat(@"%@%@",URL_main,URL_user_login) parameters:params success:^(id responseObject) {
-//        [self LoginSuccess:responseObject completion:completion];
-//    } failure:^(NSError *error) {
-//        if (completion) {
-//            completion(NO,error.localizedDescription);
-//        }
-//    }];
+    [NetWorkHelper POST:URl_login parameters:params success:^(id  _Nonnull responseObject) {
+        [self LoginSuccess:responseObject completion:completion];
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
 }
 
 #pragma mark —— 登录成功数据处理
 -(void)LoginSuccess:(id )responseObject completion:(loginBlock)completion{
         
     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-    self.curUserInfo = [UserInfo modelWithDictionary:dictionary];
+    NSDictionary *userDic = dictionary[@"user"];
+    self.curUserInfo = [UserInfo modelWithDictionary:userDic];
     [self saveUserInfo];
     self.isLogined = YES;
     if (completion) {

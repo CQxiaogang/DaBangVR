@@ -65,6 +65,9 @@
 #define URl_comment_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getCommentList?")
 
 #pragma mark —— 登陆授权接口
+// 登录
+#define URl_login @"http://192.168.1.103:8080/api/auth/login?"
+
 #pragma mark —— 个人中心
 
 #endif /* URLMacros_h */

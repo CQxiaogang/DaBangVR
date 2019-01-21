@@ -227,7 +227,9 @@ pageContentViewDelegate
 #pragma mark —— 头部视图控件 delegate
 // 昵称点击事件
 -(void)nickNameViewClick{
-    KPostNotification(KNotificationLoginStateChange, @NO);
+    if (!isLogin) {
+        KPostNotification(KNotificationLoginStateChange, @NO);
+    }
 }
 
 // 设置点击事件

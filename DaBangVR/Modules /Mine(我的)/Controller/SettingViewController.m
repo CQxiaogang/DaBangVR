@@ -127,7 +127,7 @@ static NSString *cellID = @"cellID";
         userImageV.layer.cornerRadius = Adapt(userImageV.mj_h/2);
         // 将多余的部分切掉
         userImageV.layer.masksToBounds = YES;
-        userImageV.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:curUser.uIcon]]]?:[UIImage imageNamed:@"theDefaultAvatar"];
+        userImageV.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:curUser.headUrl]]]?:[UIImage imageNamed:@"theDefaultAvatar"];
         [_cell addSubview:userImageV];
         [userImageV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.equalTo(CGSizeMake(80, 80));
@@ -137,7 +137,7 @@ static NSString *cellID = @"cellID";
         }];
         UILabel *userName = [[UILabel alloc] init];
         userName.adaptiveFontSize = 16;
-        userName.text = curUser.uName?:@"未登录";
+        userName.text = curUser.nickName?:@"未登录";
         [_cell addSubview:userName];
         [userName mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(20);

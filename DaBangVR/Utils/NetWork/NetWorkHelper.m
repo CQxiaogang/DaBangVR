@@ -35,4 +35,21 @@
     }];
 }
 
++ (void)GET:(NSString *)URL parameters:(id __nullable)parameters success:(RequestSuccess)success failure:(RequestFailed)failure{
+    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+    [manger GET:URL parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+        if ([error.domain isEqualToString:AFURLResponseSerializationErrorDomain]) {
+            id response = [NSJSONSerialization JSONObjectWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:0 error:nil];
+            [SVProgressHUD showInfoWithStatus:response[@"msg"]];
+            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+            [SVProgressHUD dismissWithDelay:1.0];
+        }
+        DLog(@"error is %@",error);
+    }];
+}
+
 @end
