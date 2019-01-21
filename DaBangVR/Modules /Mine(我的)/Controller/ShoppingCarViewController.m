@@ -9,6 +9,7 @@
 #import "ShoppingCarViewController.h"
 // Cells
 #import "DBDetailContentCell.h"
+#import "ShoppingCarBottonView.h"
 
 @interface ShoppingCarViewController ()
 
@@ -24,7 +25,7 @@ static NSString *CellID = @"CellID";
 
 - (void)setupUI{
     [super setupUI];
-    [self.tableView registerNib:[UINib nibWithNibName:@"DBDetailContentCell" bundle:nil] forCellReuseIdentifier:CellID];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ShoppingCarCell" bundle:nil] forCellReuseIdentifier:CellID];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(kTopHeight);
@@ -33,8 +34,7 @@ static NSString *CellID = @"CellID";
     }];
     
     // 设置底部 view
-    UIView *bottemView = [[UIView alloc] init];
-    bottemView.backgroundColor = KGrayColor;
+    ShoppingCarBottonView *bottemView = [[[NSBundle mainBundle] loadNibNamed:@"ShoppingCarBottonView" owner:nil options:nil] firstObject] ;
     [self.view addSubview:bottemView];
     [bottemView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(0);

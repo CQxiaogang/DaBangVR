@@ -10,6 +10,11 @@
 
 @implementation DBTopView
 
+- (IBAction)shoppingCarAction:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(shoppingCarClickAction)]) {
+        [self.delegate shoppingCarClickAction];
+    }
+}
 
 
 @end

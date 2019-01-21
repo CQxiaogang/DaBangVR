@@ -91,6 +91,9 @@
                         </constraint>
                     </constraints>
                     <state key="normal" image="h_Cart"/>
+                    <connections>
+                        <action selector="shoppingCarAction:" destination="Gb9-0R-2HT" eventType="touchUpInside" id="o7B-W6-Msy"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.094376392662525177" green="0.85904419422149658" blue="0.86259275674819946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

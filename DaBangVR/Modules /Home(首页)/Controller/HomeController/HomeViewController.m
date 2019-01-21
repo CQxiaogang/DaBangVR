@@ -20,6 +20,7 @@
 // Controllers
 #import "SpellGroupViewController.h"  //拼团
 #import "SecondsKillViewController.h" //秒杀
+#import "ShoppingCarViewController.h" //购物车
 // Views
 #import "AnchorRecommendView.h" //主播推荐
 #import "ChannelMenuListView.h" //频道菜单列表
@@ -38,7 +39,8 @@ UITableViewDelegate,
 UITableViewDataSource,
 JFLocationDelegate,
 JFCityViewControllerDelegate,
-ChannelMenuListViewDelegate
+ChannelMenuListViewDelegate,
+TopViewDelegate
 >
 
 {
@@ -83,6 +85,7 @@ ChannelMenuListViewDelegate
     if (!_topView) {
         _topView = [[[NSBundle mainBundle]loadNibNamed:@"DBTopView" owner:nil options:nil] firstObject];
         [_topView setMj_y:20];
+        _topView.delegate = self;
         [_topView.location addTarget:self action:@selector(searchTouchAction) forControlEvents:UIControlEventTouchUpInside];
         _topView.searchBox.layer.cornerRadius = Adapt(15);
     }
@@ -628,6 +631,11 @@ ChannelMenuListViewDelegate
 - (void)locateFailure:(NSString *)message {
     NSLog(@"%@",message);
 }
-
+#pragma mark —— 顶部 View 的点击事件
+- (void)shoppingCarClickAction{
+    ShoppingCarViewController *vc = [[ShoppingCarViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:NO];
+}
 
 @end
