@@ -68,51 +68,10 @@
     [self addSubview:_goodsInfoView];
     [_goodsInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakself.bannerView.mas_bottom).offset(0);
-        make.left.equalTo(@(20));
+        make.left.equalTo(@(0));
         make.right.equalTo(@(0));
+        make.height.equalTo(184);
     }];
-    
-    UIView *bottomView = [[UIView alloc] init];
-    [self addSubview:bottomView];
-    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(0);
-        make.bottom.equalTo(0);
-        make.size.equalTo(CGSizeMake(KScreenW, kTabBarHeight));
-    }];
-    
-    UIButton *buyBtn = [[UIButton alloc] init];
-    buyBtn.backgroundColor = KRedColor;
-    [buyBtn setTitle:@"立即购买" forState:UIControlStateNormal];
-    buyBtn.titleLabel.adaptiveFontSize = 14;
-    [buyBtn addTarget:self action:@selector(buyBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    [bottomView addSubview:buyBtn];
-    [buyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.top.bottom.equalTo(@(0));
-        make.size.equalTo(CGSizeMake(100, kTabBarHeight));
-    }];
-    
-    NSArray *imgArr =@[@"c-collection",@"c-service",@"c-cart"];
-    NSArray *nameArr = @[@"收藏",@"客服",@"加购"];
-    NSMutableArray *otherBtnArr = [NSMutableArray new];
-    UIButton *otherBtn;
-    for (int i=0; i<3; i++) {
-        otherBtn = [[UIButton alloc] init];
-        [otherBtn setImage:[UIImage imageNamed:imgArr[i]] forState:UIControlStateNormal];
-        [otherBtn setTitle:nameArr[i] forState:UIControlStateNormal];
-        otherBtn.titleLabel.adaptiveFontSize = 12;
-        [otherBtn setTitleColor:KGrayColor forState:UIControlStateNormal];
-        [bottomView addSubview:otherBtn];
-        [otherBtnArr addObject:otherBtn];
-    }
-    [otherBtnArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:0 tailSpacing:140];
-    [otherBtnArr mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.equalTo(@(0));
-    }];
-    for (UIButton *button in otherBtnArr) {
-        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        [button setTitleEdgeInsets:UIEdgeInsetsMake(button.imageView.mj_h ,-button.imageView.mj_w, -5,0)];
-        [button setImageEdgeInsets:UIEdgeInsetsMake(-12, 0,0, -button.titleLabel.mj_w)];
-    }
 }
 
 // 下载数据

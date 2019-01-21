@@ -144,6 +144,12 @@
 		04F45F0221F559AA009F5907 /* ShoppingCarBottonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F45F0121F559AA009F5907 /* ShoppingCarBottonView.xib */; };
 		04F45F0621F567E7009F5907 /* ShoppingCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45F0421F567E7009F5907 /* ShoppingCarCell.m */; };
 		04F45F0721F567E7009F5907 /* ShoppingCarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F45F0521F567E7009F5907 /* ShoppingCarCell.xib */; };
+		04F45F0B21F57EED009F5907 /* NewCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45F0921F57EED009F5907 /* NewCommentCell.m */; };
+		04F45F0C21F57EED009F5907 /* NewCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F45F0A21F57EED009F5907 /* NewCommentCell.xib */; };
+		04F45F1221F5AD70009F5907 /* MySecondKillTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45F1121F5AD70009F5907 /* MySecondKillTableView.m */; };
+		04F45F1521F5B2E9009F5907 /* SecondsKillTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45F1421F5B2E9009F5907 /* SecondsKillTableView.m */; };
+		04F45F1B21F5B7DE009F5907 /* RightSecondsKillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45F1921F5B7DE009F5907 /* RightSecondsKillCell.m */; };
+		04F45F1C21F5B7DE009F5907 /* RightSecondsKillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F45F1A21F5B7DE009F5907 /* RightSecondsKillCell.xib */; };
 		04F47E1F21E5AA01001B5F74 /* PageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F47E1E21E5AA01001B5F74 /* PageView.m */; };
 		04F47E2421E5D0EE001B5F74 /* AllOrdersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F47E2221E5D0EE001B5F74 /* AllOrdersCell.m */; };
 		04F47E2521E5D0EE001B5F74 /* AllOrdersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F47E2321E5D0EE001B5F74 /* AllOrdersCell.xib */; };
@@ -477,6 +483,16 @@
 		04F45F0321F567E7009F5907 /* ShoppingCarCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoppingCarCell.h; sourceTree = "<group>"; };
 		04F45F0421F567E7009F5907 /* ShoppingCarCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoppingCarCell.m; sourceTree = "<group>"; };
 		04F45F0521F567E7009F5907 /* ShoppingCarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingCarCell.xib; sourceTree = "<group>"; };
+		04F45F0821F57EED009F5907 /* NewCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewCommentCell.h; sourceTree = "<group>"; };
+		04F45F0921F57EED009F5907 /* NewCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewCommentCell.m; sourceTree = "<group>"; };
+		04F45F0A21F57EED009F5907 /* NewCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCommentCell.xib; sourceTree = "<group>"; };
+		04F45F1021F5AD70009F5907 /* MySecondKillTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySecondKillTableView.h; sourceTree = "<group>"; };
+		04F45F1121F5AD70009F5907 /* MySecondKillTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySecondKillTableView.m; sourceTree = "<group>"; };
+		04F45F1321F5B2E9009F5907 /* SecondsKillTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondsKillTableView.h; sourceTree = "<group>"; };
+		04F45F1421F5B2E9009F5907 /* SecondsKillTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondsKillTableView.m; sourceTree = "<group>"; };
+		04F45F1821F5B7DE009F5907 /* RightSecondsKillCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RightSecondsKillCell.h; sourceTree = "<group>"; };
+		04F45F1921F5B7DE009F5907 /* RightSecondsKillCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RightSecondsKillCell.m; sourceTree = "<group>"; };
+		04F45F1A21F5B7DE009F5907 /* RightSecondsKillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightSecondsKillCell.xib; sourceTree = "<group>"; };
 		04F47E1D21E5AA01001B5F74 /* PageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageView.h; sourceTree = "<group>"; };
 		04F47E1E21E5AA01001B5F74 /* PageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageView.m; sourceTree = "<group>"; };
 		04F47E2121E5D0EE001B5F74 /* AllOrdersCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllOrdersCell.h; sourceTree = "<group>"; };
@@ -1291,6 +1307,9 @@
 				04F4467621D74F5300524971 /* DBFeatureHeaderView.m */,
 				04F4467721D74F5300524971 /* DBFeatureItemCell.h */,
 				04F4467521D74F5300524971 /* DBFeatureItemCell.m */,
+				04F45F0821F57EED009F5907 /* NewCommentCell.h */,
+				04F45F0921F57EED009F5907 /* NewCommentCell.m */,
+				04F45F0A21F57EED009F5907 /* NewCommentCell.xib */,
 			);
 			path = FeatureView;
 			sourceTree = "<group>";
@@ -1340,6 +1359,30 @@
 				04F45F0521F567E7009F5907 /* ShoppingCarCell.xib */,
 			);
 			path = ShoppingCarView;
+			sourceTree = "<group>";
+		};
+		04F45F1621F5B79B009F5907 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				04F8FC0021F1D3F700913150 /* SecondsKillCell.h */,
+				04F8FC0121F1D3F700913150 /* SecondsKillCell.m */,
+				04F8FC0321F1D40400913150 /* SecondsKillCell.xib */,
+				04F45F1821F5B7DE009F5907 /* RightSecondsKillCell.h */,
+				04F45F1921F5B7DE009F5907 /* RightSecondsKillCell.m */,
+				04F45F1A21F5B7DE009F5907 /* RightSecondsKillCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		04F45F1721F5B7A7009F5907 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				04F45F1321F5B2E9009F5907 /* SecondsKillTableView.h */,
+				04F45F1421F5B2E9009F5907 /* SecondsKillTableView.m */,
+				04F45F1021F5AD70009F5907 /* MySecondKillTableView.h */,
+				04F45F1121F5AD70009F5907 /* MySecondKillTableView.m */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		04F47E2021E5D084001B5F74 /* MyOrderView */ = {
@@ -1634,9 +1677,8 @@
 		04F8FBFF21F1D3C700913150 /* SecondsKillView */ = {
 			isa = PBXGroup;
 			children = (
-				04F8FC0021F1D3F700913150 /* SecondsKillCell.h */,
-				04F8FC0121F1D3F700913150 /* SecondsKillCell.m */,
-				04F8FC0321F1D40400913150 /* SecondsKillCell.xib */,
+				04F45F1721F5B7A7009F5907 /* TableView */,
+				04F45F1621F5B79B009F5907 /* Cell */,
 			);
 			path = SecondsKillView;
 			sourceTree = "<group>";
@@ -1876,6 +1918,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				042FCECD21A3F1B7002AD0DB /* DBPrefectureView.xib in Resources */,
+				04F45F1C21F5B7DE009F5907 /* RightSecondsKillCell.xib in Resources */,
 				04F4469321D74FBF00524971 /* GoodsInfoView.xib in Resources */,
 				04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */,
 				04F8ED4521E32AC000004178 /* informationModificationCell.xib in Resources */,
@@ -1889,6 +1932,7 @@
 				0403677321A5129800974435 /* DBtableViewCell.xib in Resources */,
 				049703E721A69860002359B5 /* DBLiveTableViewCell.xib in Resources */,
 				04F8ED4021E3272A00004178 /* informationModificationHeaderView.xib in Resources */,
+				04F45F0C21F57EED009F5907 /* NewCommentCell.xib in Resources */,
 				042FCEC821A3E24F002AD0DB /* DBTimeLimitSecondsKill.xib in Resources */,
 				042FCED221A4070C002AD0DB /* DBHotVideoView.xib in Resources */,
 				049D475E219FA91E0058178D /* Main.storyboard in Resources */,
@@ -1990,6 +2034,7 @@
 				04F3CF0A21CB4C0D007C40A1 /* RootNavigationController.m in Sources */,
 				04F2FD2C21EF3EA9000B58E2 /* SpellGroupTableViewController.m in Sources */,
 				04F8ED4421E32AC000004178 /* informationModificationCell.m in Sources */,
+				04F45F1521F5B2E9009F5907 /* SecondsKillTableView.m in Sources */,
 				04F3B31421EDDAF900DFBA84 /* JXCategoryImageCell.m in Sources */,
 				04F4469D21D7772700524971 /* DBFeatureChoseTopCell.m in Sources */,
 				04F3CF0621CB2FF1007C40A1 /* UserInfo.m in Sources */,
@@ -2023,6 +2068,7 @@
 				049D479F219FEC540058178D /* DBLiveViewController.m in Sources */,
 				04F8FBFA21F17E0200913150 /* AllCommentsCell.m in Sources */,
 				049703E621A69860002359B5 /* DBLiveTableViewCell.m in Sources */,
+				04F45F1B21F5B7DE009F5907 /* RightSecondsKillCell.m in Sources */,
 				0463025E21BBAC8D0003C542 /* DBFontOfSize.m in Sources */,
 				04F2FD2321EF259A000B58E2 /* SecondsKillViewController.m in Sources */,
 				04FA5D6021AE3F480061AF27 /* LoginViewController.m in Sources */,
@@ -2057,6 +2103,7 @@
 				04F4468021D74F7B00524971 /* DBFeatureTitleItem.m in Sources */,
 				04FC2C4021C0E3AD00329B53 /* JFCityCollectionFlowLayout.m in Sources */,
 				044F3BA921F0201B00F3AD5E /* MySpellGroupCell.m in Sources */,
+				04F45F0B21F57EED009F5907 /* NewCommentCell.m in Sources */,
 				04F2FD1B21EF11D6000B58E2 /* GoodsRotationListModel.m in Sources */,
 				0463026321BBC8C40003C542 /* DBTopView.m in Sources */,
 				04F3B31621EDDAF900DFBA84 /* JXCategoryNumberView.m in Sources */,
@@ -2073,6 +2120,7 @@
 				04F47E2821E5DD42001B5F74 /* AllOrderTableView.m in Sources */,
 				04F3B30321EDDAF900DFBA84 /* JXCategoryIndicatorImageView.m in Sources */,
 				042FCED021A406FB002AD0DB /* DBHotVideoView.m in Sources */,
+				04F45F1221F5AD70009F5907 /* MySecondKillTableView.m in Sources */,
 				04F3B30E21EDDAF900DFBA84 /* JXCategoryTitleImageCell.m in Sources */,
 				04F2702F21E883FC0019FB9F /* ModifyAddressModel.m in Sources */,
 				04F494C521C77D1B009A4518 /* UIAlertController+TapGesAlertController.m in Sources */,

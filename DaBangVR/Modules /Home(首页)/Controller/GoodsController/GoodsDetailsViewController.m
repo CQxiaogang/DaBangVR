@@ -9,11 +9,14 @@
 #import "GoodsDetailsViewController.h"
 #import "AllCommentsViewController.h" //查看所以评论
 #import "BuyNowViewController.h"      //立即购买
+#import "ShoppingCarViewController.h" //购物车
 // ViewS
 #import "GoodsDetailsView.h"
 #import "GoodAttributesView.h"
+#import "NewCommentCell.h"
 // Models
 #import "GoodsDetailsModel.h"
+#import "AllCommentsModel.h"
 // Vendors
 #import "FGGAutoScrollView.h" //无限轮播
 
@@ -25,15 +28,27 @@ static NSArray *globalArray;
 @property (nonatomic, strong) GoodsDetailsModel *model;
 // 自动循环滚动视图
 @property (nonatomic, strong) FGGAutoScrollView *bannerView;
+// 数据源
+@property (nonatomic, strong) NSMutableArray *data;
+
+@property (nonatomic, strong)GoodsDetailsView *goodsView;
+
 @end
 
 @implementation GoodsDetailsViewController
+static NSString *CellID = @"CellID";
 #pragma mark —— 懒加载
 - (GoodsDetailsModel *)model{
     if (!_model) {
         _model = [GoodsDetailsModel new];
     }
     return _model;
+}
+-(NSMutableArray *)data{
+    if (!_data) {
+        _data = [NSMutableArray new];
+    }
+    return _data;
 }
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
@@ -43,6 +58,7 @@ static NSArray *globalArray;
 }
 #pragma mark —— 数据
 - (void) getData{
+    // 商品详情
     [NetWorkHelper POST:URL_goods_details parameters:@{@"goodsId":_index} success:^(id  _Nonnull responseObject) {
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -50,21 +66,92 @@ static NSArray *globalArray;
         NSDictionary *goodsDetailsDic = dataDic[@"goodsDetails"];
         self.model = [GoodsDetailsModel modelWithDictionary:goodsDetailsDic];
         
-        // Model 有了数据在加载UI
         [self setupChildUI];
         
     } failure:^(NSError * _Nonnull error) {
         
     }];
+    
+    // 三条评论
+    [NetWorkHelper POST:URl_comment_list parameters:@{@"goodsId":_index} success:^(id  _Nonnull responseObject) {
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSDictionary *dataDic = dic[@"data"];
+        NSArray *commentArr = dataDic[@"commentVoList"];
+        for (NSDictionary *dic in commentArr) {
+            AllCommentsModel *model = [AllCommentsModel modelWithDictionary:dic];
+            [self.data addObject:model];
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+}
+
+-(void)setupUI{
+    [super setupUI];
 }
 
 -(void)setupChildUI{
     // 设置Navagation
     [self setupNavagation];
+    // 设置头部 view
+    _goodsView = [[GoodsDetailsView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, Adapt(184+250)) andDataSourse:self.model];
+    _goodsView.delegate = self;
+    self.tableView.tableHeaderView = _goodsView;
     
-    GoodsDetailsView *goodsView = [[GoodsDetailsView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, KScreenH-kTopHeight) andDataSourse:self.model];
-    goodsView.delegate = self;
-    [self.view addSubview:goodsView];
+    // 设置tableView
+    [self.tableView registerNib:[UINib nibWithNibName:@"NewCommentCell" bundle:nil] forCellReuseIdentifier:CellID];
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(kTopHeight);
+        make.left.right.equalTo(0);
+        make.bottom.equalTo(-kTabBarHeight);
+    }];
+    
+    // 底部 view
+    UIView *bottomView = [[UIView alloc] init];
+    [self.view addSubview:bottomView];
+    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(0);
+        make.bottom.equalTo(0);
+        make.size.equalTo(CGSizeMake(KScreenW, kTabBarHeight));
+    }];
+
+    UIButton *buyBtn = [[UIButton alloc] init];
+    buyBtn.backgroundColor = KRedColor;
+    [buyBtn setTitle:@"立即购买" forState:UIControlStateNormal];
+    buyBtn.titleLabel.adaptiveFontSize = 14;
+    [buyBtn addTarget:self action:@selector(buyBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    [bottomView addSubview:buyBtn];
+    [buyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.top.bottom.equalTo(@(0));
+        make.size.equalTo(CGSizeMake(100, kTabBarHeight));
+    }];
+
+    NSArray *imgArr =@[@"c-collection",@"c-service",@"c-cart"];
+    NSArray *nameArr = @[@"收藏",@"客服",@"加购"];
+    NSMutableArray *otherBtnArr = [NSMutableArray new];
+    UIButton *otherBtn;
+    for (int i=0; i<3; i++) {
+        otherBtn = [[UIButton alloc] init];
+        [otherBtn setImage:[UIImage imageNamed:imgArr[i]] forState:UIControlStateNormal];
+        [otherBtn setTitle:nameArr[i] forState:UIControlStateNormal];
+        otherBtn.titleLabel.adaptiveFontSize = 12;
+        [otherBtn setTitleColor:KGrayColor forState:UIControlStateNormal];
+        [bottomView addSubview:otherBtn];
+        [otherBtnArr addObject:otherBtn];
+    }
+    [otherBtnArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:0 tailSpacing:140];
+    [otherBtnArr mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(@(0));
+        make.height.equalTo(kTabBarHeight);
+    }];
+    for (UIButton *button in otherBtnArr) {
+        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        [button setTitleEdgeInsets:UIEdgeInsetsMake(button.imageView.mj_h ,-button.imageView.mj_w, -5,0)];
+        [button setImageEdgeInsets:UIEdgeInsetsMake(-12, 0,0, -button.titleLabel.mj_w)];
+    }
 }
 
 #pragma mark —— UI设置
@@ -72,6 +159,7 @@ static NSArray *globalArray;
     UIButton *shoppingCarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [shoppingCarBtn.widthAnchor constraintEqualToConstant:25].active = YES;
     [shoppingCarBtn.heightAnchor constraintEqualToConstant:25].active = YES;
+    [shoppingCarBtn addTarget:self action:@selector(shoppingCarOfAction) forControlEvents:UIControlEventTouchUpInside];
     [shoppingCarBtn setImage:[UIImage imageNamed:@"h_Cart"] forState:UIControlStateNormal];
     UIBarButtonItem *shoppingCarItem = [[UIBarButtonItem alloc] initWithCustomView:shoppingCarBtn];
     
@@ -83,6 +171,7 @@ static NSArray *globalArray;
     
     self.navigationItem.rightBarButtonItems = @[shareItem,shoppingCarItem];
 }
+
 #pragma mark —— GoodsDetailsView 代理
 // 所以评论
 -(void)allCommentsAction{
@@ -90,7 +179,7 @@ static NSArray *globalArray;
     [vc getData:self.model.id];
     [self.navigationController pushViewController:vc animated:NO];
 }
-// 选择商品
+// 选择商品规格
 - (void)chooseBabyAction{
     
     [self creatAttributesView];
@@ -129,6 +218,32 @@ static NSArray *globalArray;
 - (void)buyBtnAction{
 //    [self creatAttributesView];
     [self.navigationController pushViewController:[[BuyNowViewController alloc] init] animated:NO];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.data.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NewCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
+    if (!cell) {
+        cell = [[NewCommentCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
+    }
+    cell.model = self.data[indexPath.row];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 39;
+}
+
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    return Adapt(184);
+//}
+
+#pragma mark —— 购物车
+- (void)shoppingCarOfAction{
+    ShoppingCarViewController *vc = [[ShoppingCarViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
 }
 
 @end

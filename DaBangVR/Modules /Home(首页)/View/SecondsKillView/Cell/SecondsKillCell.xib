@@ -100,6 +100,9 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="lC5-ab-qMq"/>
+            <connections>
+                <outlet property="BuyNowBtn" destination="0bt-oD-Anq" id="RtC-KO-qT7"/>
+            </connections>
             <point key="canvasLocation" x="253.59999999999999" y="148.87556221889056"/>
         </view>
     </objects>

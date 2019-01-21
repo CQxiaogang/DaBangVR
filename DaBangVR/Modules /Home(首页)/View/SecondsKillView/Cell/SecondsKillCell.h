@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SecondsKillCell : BaseTableViewCell
+// 立即购买
+@property (weak, nonatomic) IBOutlet UIButton *BuyNowBtn;
 
 @end
 
