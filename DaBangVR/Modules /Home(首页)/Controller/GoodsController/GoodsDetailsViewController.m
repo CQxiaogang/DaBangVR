@@ -202,7 +202,7 @@ static NSString *CellID = @"CellID";
                               @"goodsId":array[1],
                               @"number":array[2]
                               };
-        [NetWorkHelper POST:@"http://192.168.1.110:8080/api/buygoods/confirmGoods?" parameters:dic success:^(id  _Nonnull responseObject) {
+        [NetWorkHelper POST:URl_confirm_buy_goods parameters:dic success:^(id  _Nonnull responseObject) {
             
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             NSDictionary *dataDic= dic[@"data"];

@@ -12,6 +12,42 @@
 		0403676E21A4E9DA00974435 /* AnchorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403676D21A4E9DA00974435 /* AnchorViewCell.xib */; };
 		0403677221A5129800974435 /* DBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403677021A5129800974435 /* DBTableViewCell.m */; };
 		0403677321A5129800974435 /* DBtableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403677121A5129800974435 /* DBtableViewCell.xib */; };
+		0406C7BB21F6C5C1009C6A8E /* JXPagerListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C7AC21F6C5C1009C6A8E /* JXPagerListContainerView.m */; };
+		0406C7BC21F6C5C1009C6A8E /* JXPagerMainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C7AD21F6C5C1009C6A8E /* JXPagerMainTableView.m */; };
+		0406C7BD21F6C5C1009C6A8E /* JXPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C7AE21F6C5C1009C6A8E /* JXPagerView.m */; };
+		0406C7BE21F6C5C1009C6A8E /* JXPagerListRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C7B321F6C5C1009C6A8E /* JXPagerListRefreshView.m */; };
+		0406C7BF21F6C5C1009C6A8E /* PagingViewTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C7B621F6C5C1009C6A8E /* PagingViewTableHeaderView.m */; };
+		0406C7C021F6C5C1009C6A8E /* PagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C7B721F6C5C1009C6A8E /* PagingViewController.m */; };
+		0406C7C121F6C5C1009C6A8E /* TestListBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C7B921F6C5C1009C6A8E /* TestListBaseView.m */; };
+		0406C7C321F6C9CD009C6A8E /* PagingViewTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7C221F6C9CD009C6A8E /* PagingViewTableHeaderView.xib */; };
+		0406C7ED21F6F8BA009C6A8E /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C7C621F6F8BA009C6A8E /* UIViewExt.m */; };
+		0406C7EE21F6F8BA009C6A8E /* DWQCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C7C921F6F8BA009C6A8E /* DWQCartViewController.m */; };
+		0406C7EF21F6F8BA009C6A8E /* cart_addBtn_nomal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7CB21F6F8BA009C6A8E /* cart_addBtn_nomal@2x.png */; };
+		0406C7F021F6F8BA009C6A8E /* cart_default_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7CC21F6F8BA009C6A8E /* cart_default_bg.png */; };
+		0406C7F121F6F8BA009C6A8E /* cart_addBtn_nomal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7CD21F6F8BA009C6A8E /* cart_addBtn_nomal@3x.png */; };
+		0406C7F221F6F8BA009C6A8E /* cart_unSelect_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7CE21F6F8BA009C6A8E /* cart_unSelect_btn@2x.png */; };
+		0406C7F321F6F8BA009C6A8E /* cart_selected_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7CF21F6F8BA009C6A8E /* cart_selected_btn@2x.png */; };
+		0406C7F421F6F8BA009C6A8E /* cart_selected_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7D021F6F8BA009C6A8E /* cart_selected_btn@3x.png */; };
+		0406C7F521F6F8BA009C6A8E /* cart_unSelect_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7D121F6F8BA009C6A8E /* cart_unSelect_btn@3x.png */; };
+		0406C7F621F6F8BA009C6A8E /* cart_cutBtn_nomal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7D221F6F8BA009C6A8E /* cart_cutBtn_nomal@2x.png */; };
+		0406C7F721F6F8BA009C6A8E /* back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7D321F6F8BA009C6A8E /* back_button@2x.png */; };
+		0406C7F821F6F8BA009C6A8E /* cart_cutBtn_nomal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7D421F6F8BA009C6A8E /* cart_cutBtn_nomal@3x.png */; };
+		0406C7F921F6F8BA009C6A8E /* DWQShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C7D721F6F8BA009C6A8E /* DWQShopModel.m */; };
+		0406C7FA21F6F8BA009C6A8E /* DWQGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C7DA21F6F8BA009C6A8E /* DWQGoodsModel.m */; };
+		0406C7FB21F6F8BA009C6A8E /* DWQCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C7DE21F6F8BA009C6A8E /* DWQCartTableViewCell.m */; };
+		0406C7FC21F6F8BA009C6A8E /* DWQTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C7DF21F6F8BA009C6A8E /* DWQTableHeaderView.m */; };
+		0406C7FD21F6F8BA009C6A8E /* 香蕉.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7E121F6F8BA009C6A8E /* 香蕉.jpg */; };
+		0406C7FE21F6F8BA009C6A8E /* 橘子.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7E221F6F8BA009C6A8E /* 橘子.jpg */; };
+		0406C7FF21F6F8BA009C6A8E /* 牛鞭.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7E321F6F8BA009C6A8E /* 牛鞭.jpg */; };
+		0406C80021F6F8BA009C6A8E /* 放弃.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7E421F6F8BA009C6A8E /* 放弃.jpeg */; };
+		0406C80121F6F8BA009C6A8E /* ShopCarSources.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7E521F6F8BA009C6A8E /* ShopCarSources.plist */; };
+		0406C80221F6F8BA009C6A8E /* 榴莲.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7E621F6F8BA009C6A8E /* 榴莲.jpg */; };
+		0406C80321F6F8BA009C6A8E /* 短裤.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7E721F6F8BA009C6A8E /* 短裤.jpg */; };
+		0406C80421F6F8BA009C6A8E /* 女装.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7E821F6F8BA009C6A8E /* 女装.jpg */; };
+		0406C80521F6F8BA009C6A8E /* 猪头肉.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7E921F6F8BA009C6A8E /* 猪头肉.jpg */; };
+		0406C80621F6F8BA009C6A8E /* 西服.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7EA21F6F8BA009C6A8E /* 西服.jpg */; };
+		0406C80721F6F8BA009C6A8E /* swift.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7EB21F6F8BA009C6A8E /* swift.jpg */; };
+		0406C80821F6F8BA009C6A8E /* iOS10编程指南.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0406C7EC21F6F8BA009C6A8E /* iOS10编程指南.jpg */; };
 		0410357F21CCD2F2002CB32C /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0410357021CCD2F2002CB32C /* UMSocialSDKResources.bundle */; };
 		0410358021CCD2F2002CB32C /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357121CCD2F2002CB32C /* UShareUI.framework */; };
 		0410358121CCD2F2002CB32C /* UMSocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357321CCD2F2002CB32C /* UMSocialNetwork.framework */; };
@@ -241,6 +277,56 @@
 		0403676F21A5129800974435 /* DBTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBTableViewCell.h; sourceTree = "<group>"; };
 		0403677021A5129800974435 /* DBTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBTableViewCell.m; sourceTree = "<group>"; };
 		0403677121A5129800974435 /* DBtableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBtableViewCell.xib; sourceTree = "<group>"; };
+		0406C7AC21F6C5C1009C6A8E /* JXPagerListContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerListContainerView.m; sourceTree = "<group>"; };
+		0406C7AD21F6C5C1009C6A8E /* JXPagerMainTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerMainTableView.m; sourceTree = "<group>"; };
+		0406C7AE21F6C5C1009C6A8E /* JXPagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerView.m; sourceTree = "<group>"; };
+		0406C7AF21F6C5C1009C6A8E /* JXPagerListRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerListRefreshView.h; sourceTree = "<group>"; };
+		0406C7B021F6C5C1009C6A8E /* JXPagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerView.h; sourceTree = "<group>"; };
+		0406C7B121F6C5C1009C6A8E /* JXPagerListContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerListContainerView.h; sourceTree = "<group>"; };
+		0406C7B221F6C5C1009C6A8E /* JXPagerMainTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerMainTableView.h; sourceTree = "<group>"; };
+		0406C7B321F6C5C1009C6A8E /* JXPagerListRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerListRefreshView.m; sourceTree = "<group>"; };
+		0406C7B521F6C5C1009C6A8E /* TestListBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestListBaseView.h; sourceTree = "<group>"; };
+		0406C7B621F6C5C1009C6A8E /* PagingViewTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagingViewTableHeaderView.m; sourceTree = "<group>"; };
+		0406C7B721F6C5C1009C6A8E /* PagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagingViewController.m; sourceTree = "<group>"; };
+		0406C7B821F6C5C1009C6A8E /* PagingViewTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagingViewTableHeaderView.h; sourceTree = "<group>"; };
+		0406C7B921F6C5C1009C6A8E /* TestListBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestListBaseView.m; sourceTree = "<group>"; };
+		0406C7BA21F6C5C1009C6A8E /* PagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagingViewController.h; sourceTree = "<group>"; };
+		0406C7C221F6C9CD009C6A8E /* PagingViewTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagingViewTableHeaderView.xib; sourceTree = "<group>"; };
+		0406C7C621F6F8BA009C6A8E /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		0406C7C721F6F8BA009C6A8E /* DWQConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWQConfigFile.h; sourceTree = "<group>"; };
+		0406C7C821F6F8BA009C6A8E /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
+		0406C7C921F6F8BA009C6A8E /* DWQCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWQCartViewController.m; sourceTree = "<group>"; };
+		0406C7CB21F6F8BA009C6A8E /* cart_addBtn_nomal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart_addBtn_nomal@2x.png"; sourceTree = "<group>"; };
+		0406C7CC21F6F8BA009C6A8E /* cart_default_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart_default_bg.png; sourceTree = "<group>"; };
+		0406C7CD21F6F8BA009C6A8E /* cart_addBtn_nomal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart_addBtn_nomal@3x.png"; sourceTree = "<group>"; };
+		0406C7CE21F6F8BA009C6A8E /* cart_unSelect_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart_unSelect_btn@2x.png"; sourceTree = "<group>"; };
+		0406C7CF21F6F8BA009C6A8E /* cart_selected_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart_selected_btn@2x.png"; sourceTree = "<group>"; };
+		0406C7D021F6F8BA009C6A8E /* cart_selected_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart_selected_btn@3x.png"; sourceTree = "<group>"; };
+		0406C7D121F6F8BA009C6A8E /* cart_unSelect_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart_unSelect_btn@3x.png"; sourceTree = "<group>"; };
+		0406C7D221F6F8BA009C6A8E /* cart_cutBtn_nomal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart_cutBtn_nomal@2x.png"; sourceTree = "<group>"; };
+		0406C7D321F6F8BA009C6A8E /* back_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_button@2x.png"; sourceTree = "<group>"; };
+		0406C7D421F6F8BA009C6A8E /* cart_cutBtn_nomal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart_cutBtn_nomal@3x.png"; sourceTree = "<group>"; };
+		0406C7D521F6F8BA009C6A8E /* DWQCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWQCartViewController.h; sourceTree = "<group>"; };
+		0406C7D721F6F8BA009C6A8E /* DWQShopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWQShopModel.m; sourceTree = "<group>"; };
+		0406C7D821F6F8BA009C6A8E /* DWQGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWQGoodsModel.h; sourceTree = "<group>"; };
+		0406C7D921F6F8BA009C6A8E /* DWQShopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWQShopModel.h; sourceTree = "<group>"; };
+		0406C7DA21F6F8BA009C6A8E /* DWQGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWQGoodsModel.m; sourceTree = "<group>"; };
+		0406C7DC21F6F8BA009C6A8E /* DWQCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWQCartTableViewCell.h; sourceTree = "<group>"; };
+		0406C7DD21F6F8BA009C6A8E /* DWQTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWQTableHeaderView.h; sourceTree = "<group>"; };
+		0406C7DE21F6F8BA009C6A8E /* DWQCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWQCartTableViewCell.m; sourceTree = "<group>"; };
+		0406C7DF21F6F8BA009C6A8E /* DWQTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWQTableHeaderView.m; sourceTree = "<group>"; };
+		0406C7E121F6F8BA009C6A8E /* 香蕉.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "香蕉.jpg"; sourceTree = "<group>"; };
+		0406C7E221F6F8BA009C6A8E /* 橘子.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "橘子.jpg"; sourceTree = "<group>"; };
+		0406C7E321F6F8BA009C6A8E /* 牛鞭.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "牛鞭.jpg"; sourceTree = "<group>"; };
+		0406C7E421F6F8BA009C6A8E /* 放弃.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "放弃.jpeg"; sourceTree = "<group>"; };
+		0406C7E521F6F8BA009C6A8E /* ShopCarSources.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShopCarSources.plist; sourceTree = "<group>"; };
+		0406C7E621F6F8BA009C6A8E /* 榴莲.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "榴莲.jpg"; sourceTree = "<group>"; };
+		0406C7E721F6F8BA009C6A8E /* 短裤.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "短裤.jpg"; sourceTree = "<group>"; };
+		0406C7E821F6F8BA009C6A8E /* 女装.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "女装.jpg"; sourceTree = "<group>"; };
+		0406C7E921F6F8BA009C6A8E /* 猪头肉.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "猪头肉.jpg"; sourceTree = "<group>"; };
+		0406C7EA21F6F8BA009C6A8E /* 西服.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "西服.jpg"; sourceTree = "<group>"; };
+		0406C7EB21F6F8BA009C6A8E /* swift.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = swift.jpg; sourceTree = "<group>"; };
+		0406C7EC21F6F8BA009C6A8E /* iOS10编程指南.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "iOS10编程指南.jpg"; sourceTree = "<group>"; };
 		0410357021CCD2F2002CB32C /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
 		0410357121CCD2F2002CB32C /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UShareUI.framework; sourceTree = "<group>"; };
 		0410357321CCD2F2002CB32C /* UMSocialNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialNetwork.framework; sourceTree = "<group>"; };
@@ -692,6 +778,125 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0406C7AA21F6C5C1009C6A8E /* PagingView */ = {
+			isa = PBXGroup;
+			children = (
+				0406C7AB21F6C5C1009C6A8E /* JXPagerView */,
+				0406C7B421F6C5C1009C6A8E /* Example */,
+			);
+			path = PagingView;
+			sourceTree = "<group>";
+		};
+		0406C7AB21F6C5C1009C6A8E /* JXPagerView */ = {
+			isa = PBXGroup;
+			children = (
+				0406C7B021F6C5C1009C6A8E /* JXPagerView.h */,
+				0406C7AE21F6C5C1009C6A8E /* JXPagerView.m */,
+				0406C7B221F6C5C1009C6A8E /* JXPagerMainTableView.h */,
+				0406C7AD21F6C5C1009C6A8E /* JXPagerMainTableView.m */,
+				0406C7AF21F6C5C1009C6A8E /* JXPagerListRefreshView.h */,
+				0406C7B321F6C5C1009C6A8E /* JXPagerListRefreshView.m */,
+				0406C7B121F6C5C1009C6A8E /* JXPagerListContainerView.h */,
+				0406C7AC21F6C5C1009C6A8E /* JXPagerListContainerView.m */,
+			);
+			path = JXPagerView;
+			sourceTree = "<group>";
+		};
+		0406C7B421F6C5C1009C6A8E /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				0406C7B821F6C5C1009C6A8E /* PagingViewTableHeaderView.h */,
+				0406C7B621F6C5C1009C6A8E /* PagingViewTableHeaderView.m */,
+				0406C7C221F6C9CD009C6A8E /* PagingViewTableHeaderView.xib */,
+				0406C7B521F6C5C1009C6A8E /* TestListBaseView.h */,
+				0406C7B921F6C5C1009C6A8E /* TestListBaseView.m */,
+				0406C7BA21F6C5C1009C6A8E /* PagingViewController.h */,
+				0406C7B721F6C5C1009C6A8E /* PagingViewController.m */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		0406C7C421F6F8BA009C6A8E /* DWQShoppingCart */ = {
+			isa = PBXGroup;
+			children = (
+				0406C7D521F6F8BA009C6A8E /* DWQCartViewController.h */,
+				0406C7C921F6F8BA009C6A8E /* DWQCartViewController.m */,
+				0406C7C521F6F8BA009C6A8E /* ConfigFile */,
+				0406C7CA21F6F8BA009C6A8E /* icons */,
+				0406C7D621F6F8BA009C6A8E /* LZCartModel */,
+				0406C7DB21F6F8BA009C6A8E /* LZCartTableViewCell */,
+			);
+			path = DWQShoppingCart;
+			sourceTree = "<group>";
+		};
+		0406C7C521F6F8BA009C6A8E /* ConfigFile */ = {
+			isa = PBXGroup;
+			children = (
+				0406C7C621F6F8BA009C6A8E /* UIViewExt.m */,
+				0406C7C721F6F8BA009C6A8E /* DWQConfigFile.h */,
+				0406C7C821F6F8BA009C6A8E /* UIViewExt.h */,
+			);
+			path = ConfigFile;
+			sourceTree = "<group>";
+		};
+		0406C7CA21F6F8BA009C6A8E /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				0406C7CB21F6F8BA009C6A8E /* cart_addBtn_nomal@2x.png */,
+				0406C7CC21F6F8BA009C6A8E /* cart_default_bg.png */,
+				0406C7CD21F6F8BA009C6A8E /* cart_addBtn_nomal@3x.png */,
+				0406C7CE21F6F8BA009C6A8E /* cart_unSelect_btn@2x.png */,
+				0406C7CF21F6F8BA009C6A8E /* cart_selected_btn@2x.png */,
+				0406C7D021F6F8BA009C6A8E /* cart_selected_btn@3x.png */,
+				0406C7D121F6F8BA009C6A8E /* cart_unSelect_btn@3x.png */,
+				0406C7D221F6F8BA009C6A8E /* cart_cutBtn_nomal@2x.png */,
+				0406C7D321F6F8BA009C6A8E /* back_button@2x.png */,
+				0406C7D421F6F8BA009C6A8E /* cart_cutBtn_nomal@3x.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+		0406C7D621F6F8BA009C6A8E /* LZCartModel */ = {
+			isa = PBXGroup;
+			children = (
+				0406C7D721F6F8BA009C6A8E /* DWQShopModel.m */,
+				0406C7D821F6F8BA009C6A8E /* DWQGoodsModel.h */,
+				0406C7D921F6F8BA009C6A8E /* DWQShopModel.h */,
+				0406C7DA21F6F8BA009C6A8E /* DWQGoodsModel.m */,
+			);
+			path = LZCartModel;
+			sourceTree = "<group>";
+		};
+		0406C7DB21F6F8BA009C6A8E /* LZCartTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0406C7DC21F6F8BA009C6A8E /* DWQCartTableViewCell.h */,
+				0406C7DD21F6F8BA009C6A8E /* DWQTableHeaderView.h */,
+				0406C7DE21F6F8BA009C6A8E /* DWQCartTableViewCell.m */,
+				0406C7DF21F6F8BA009C6A8E /* DWQTableHeaderView.m */,
+			);
+			path = LZCartTableViewCell;
+			sourceTree = "<group>";
+		};
+		0406C7E021F6F8BA009C6A8E /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				0406C7E121F6F8BA009C6A8E /* 香蕉.jpg */,
+				0406C7E221F6F8BA009C6A8E /* 橘子.jpg */,
+				0406C7E321F6F8BA009C6A8E /* 牛鞭.jpg */,
+				0406C7E421F6F8BA009C6A8E /* 放弃.jpeg */,
+				0406C7E521F6F8BA009C6A8E /* ShopCarSources.plist */,
+				0406C7E621F6F8BA009C6A8E /* 榴莲.jpg */,
+				0406C7E721F6F8BA009C6A8E /* 短裤.jpg */,
+				0406C7E821F6F8BA009C6A8E /* 女装.jpg */,
+				0406C7E921F6F8BA009C6A8E /* 猪头肉.jpg */,
+				0406C7EA21F6F8BA009C6A8E /* 西服.jpg */,
+				0406C7EB21F6F8BA009C6A8E /* swift.jpg */,
+				0406C7EC21F6F8BA009C6A8E /* iOS10编程指南.jpg */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
 		0410356E21CCD2F2002CB32C /* UMSocial */ = {
 			isa = PBXGroup;
 			children = (
@@ -940,6 +1145,7 @@
 				04F8664721A7AFD200A4D7F6 /* Model */,
 				04F8664621A7AFBF00A4D7F6 /* View */,
 				04F8664821A7AFDC00A4D7F6 /* Controller */,
+				0406C7AA21F6C5C1009C6A8E /* PagingView */,
 			);
 			path = "Mine(我的)";
 			sourceTree = "<group>";
@@ -1616,6 +1822,8 @@
 				04EFA02B21E73391007C2FCA /* EvaluationOfSuccessViewController.m */,
 				0402088F21F1F6E70038C371 /* ShoppingCarViewController.h */,
 				0402089021F1F6E70038C371 /* ShoppingCarViewController.m */,
+				0406C7E021F6F8BA009C6A8E /* DataSources */,
+				0406C7C421F6F8BA009C6A8E /* DWQShoppingCart */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1917,13 +2125,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0406C80521F6F8BA009C6A8E /* 猪头肉.jpg in Resources */,
+				0406C7F021F6F8BA009C6A8E /* cart_default_bg.png in Resources */,
+				0406C7F821F6F8BA009C6A8E /* cart_cutBtn_nomal@3x.png in Resources */,
 				042FCECD21A3F1B7002AD0DB /* DBPrefectureView.xib in Resources */,
+				0406C7EF21F6F8BA009C6A8E /* cart_addBtn_nomal@2x.png in Resources */,
+				0406C80821F6F8BA009C6A8E /* iOS10编程指南.jpg in Resources */,
+				0406C80621F6F8BA009C6A8E /* 西服.jpg in Resources */,
 				04F45F1C21F5B7DE009F5907 /* RightSecondsKillCell.xib in Resources */,
 				04F4469321D74FBF00524971 /* GoodsInfoView.xib in Resources */,
+				0406C7C321F6C9CD009C6A8E /* PagingViewTableHeaderView.xib in Resources */,
 				04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */,
 				04F8ED4521E32AC000004178 /* informationModificationCell.xib in Resources */,
+				0406C7F221F6F8BA009C6A8E /* cart_unSelect_btn@2x.png in Resources */,
 				0463026521BBC8DB0003C542 /* DBTopView.xib in Resources */,
+				0406C7F121F6F8BA009C6A8E /* cart_addBtn_nomal@3x.png in Resources */,
 				04F45F0221F559AA009F5907 /* ShoppingCarBottonView.xib in Resources */,
+				0406C7FE21F6F8BA009C6A8E /* 橘子.jpg in Resources */,
+				0406C7FF21F6F8BA009C6A8E /* 牛鞭.jpg in Resources */,
+				0406C80421F6F8BA009C6A8E /* 女装.jpg in Resources */,
 				0459D90F21E08FFD009BFFB4 /* DBDetailHeaderView.xib in Resources */,
 				049D4763219FA91F0058178D /* LaunchScreen.storyboard in Resources */,
 				04FA5D6621AE476F0061AF27 /* MobilePhoneNoLoginViewController.xib in Resources */,
@@ -1932,27 +2152,38 @@
 				0403677321A5129800974435 /* DBtableViewCell.xib in Resources */,
 				049703E721A69860002359B5 /* DBLiveTableViewCell.xib in Resources */,
 				04F8ED4021E3272A00004178 /* informationModificationHeaderView.xib in Resources */,
+				0406C7F621F6F8BA009C6A8E /* cart_cutBtn_nomal@2x.png in Resources */,
+				0406C80021F6F8BA009C6A8E /* 放弃.jpeg in Resources */,
 				04F45F0C21F57EED009F5907 /* NewCommentCell.xib in Resources */,
 				042FCEC821A3E24F002AD0DB /* DBTimeLimitSecondsKill.xib in Resources */,
+				0406C80721F6F8BA009C6A8E /* swift.jpg in Resources */,
+				0406C7F321F6F8BA009C6A8E /* cart_selected_btn@2x.png in Resources */,
 				042FCED221A4070C002AD0DB /* DBHotVideoView.xib in Resources */,
+				0406C80321F6F8BA009C6A8E /* 短裤.jpg in Resources */,
 				049D475E219FA91E0058178D /* Main.storyboard in Resources */,
 				0403676E21A4E9DA00974435 /* AnchorViewCell.xib in Resources */,
 				04F2FD2921EF35DE000B58E2 /* SpellGroupCell.xib in Resources */,
+				0406C7F421F6F8BA009C6A8E /* cart_selected_btn@3x.png in Resources */,
+				0406C7FD21F6F8BA009C6A8E /* 香蕉.jpg in Resources */,
 				04F47E2521E5D0EE001B5F74 /* AllOrdersCell.xib in Resources */,
+				0406C80221F6F8BA009C6A8E /* 榴莲.jpg in Resources */,
 				04FC2C4221C0E3AD00329B53 /* shop_area.sqlite in Resources */,
 				04FA5D6121AE3F480061AF27 /* LoginViewController.xib in Resources */,
+				0406C80121F6F8BA009C6A8E /* ShopCarSources.plist in Resources */,
 				04EFA03621E74398007C2FCA /* ChannelViewCell.xib in Resources */,
 				04F4466F21D720CE00524971 /* ShopItem.plist in Resources */,
 				04F8665021A7D50D00A4D7F6 /* MineHeaderView.xib in Resources */,
 				04F7360B21B679CE001CEBC0 /* MineTableViewCell.xib in Resources */,
 				04F3271421D09779009267F4 /* GoodsShowTableViewCell.xib in Resources */,
 				0459D91421E0A78F009BFFB4 /* DBDetailContentCell.xib in Resources */,
+				0406C7F721F6F8BA009C6A8E /* back_button@2x.png in Resources */,
 				04F8ED5121E349E000004178 /* modifyAddressViewCell.xib in Resources */,
 				04F8FBFB21F17E0200913150 /* AllCommentsCell.xib in Resources */,
 				0410358221CCD2F2002CB32C /* UMSocialSDKPromptResources.bundle in Resources */,
 				04F866B321A806F600A4D7F6 /* DBNewProductView.xib in Resources */,
 				0410357F21CCD2F2002CB32C /* UMSocialSDKResources.bundle in Resources */,
 				044F3BAA21F0201B00F3AD5E /* MySpellGroupCell.xib in Resources */,
+				0406C7F521F6F8BA009C6A8E /* cart_unSelect_btn@3x.png in Resources */,
 				04F8ED3721E2F0AA00004178 /* DBDetailFooterCell.xib in Resources */,
 				04F45F0721F567E7009F5907 /* ShoppingCarCell.xib in Resources */,
 				04F47E3A21E5FAF6001B5F74 /* EvaluationCell.xib in Resources */,
@@ -2029,8 +2260,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0406C7BB21F6C5C1009C6A8E /* JXPagerListContainerView.m in Sources */,
 				04F3270A21D07F18009267F4 /* SettingTableViewCell.m in Sources */,
 				04F3B31E21EDDAF900DFBA84 /* UIColor+JXAdd.m in Sources */,
+				0406C7C121F6C5C1009C6A8E /* TestListBaseView.m in Sources */,
 				04F3CF0A21CB4C0D007C40A1 /* RootNavigationController.m in Sources */,
 				04F2FD2C21EF3EA9000B58E2 /* SpellGroupTableViewController.m in Sources */,
 				04F8ED4421E32AC000004178 /* informationModificationCell.m in Sources */,
@@ -2066,6 +2299,7 @@
 				04F3B30821EDDAF900DFBA84 /* JXCategoryIndicatorCell.m in Sources */,
 				0459D91321E0A78F009BFFB4 /* DBDetailContentCell.m in Sources */,
 				049D479F219FEC540058178D /* DBLiveViewController.m in Sources */,
+				0406C7FC21F6F8BA009C6A8E /* DWQTableHeaderView.m in Sources */,
 				04F8FBFA21F17E0200913150 /* AllCommentsCell.m in Sources */,
 				049703E621A69860002359B5 /* DBLiveTableViewCell.m in Sources */,
 				04F45F1B21F5B7DE009F5907 /* RightSecondsKillCell.m in Sources */,
@@ -2077,6 +2311,7 @@
 				0403676C21A4E9CE00974435 /* AnchorViewCell.m in Sources */,
 				04FB2F7321BB7BE8007E63AA /* UIView+FontSize.m in Sources */,
 				04F3B31B21EDDAF900DFBA84 /* JXCategoryFactory.m in Sources */,
+				0406C7BC21F6C5C1009C6A8E /* JXPagerMainTableView.m in Sources */,
 				04F7360A21B679CE001CEBC0 /* MineTableViewCell.m in Sources */,
 				04F2FD1021EEE8B4000B58E2 /* FGGAutoScrollView.m in Sources */,
 				04F2FD0C21EECDA1000B58E2 /* GoodsDetailsModel.m in Sources */,
@@ -2091,12 +2326,14 @@
 				049D479C219FEC1E0058178D /* HomeViewController.m in Sources */,
 				04F8ED5021E349E000004178 /* modifyAddressViewCell.m in Sources */,
 				04F3B30B21EDDAF900DFBA84 /* JXCategoryDotView.m in Sources */,
+				0406C7BD21F6C5C1009C6A8E /* JXPagerView.m in Sources */,
 				04F70C6521E97D17004BD4C6 /* SeafoodShowTitleModel.m in Sources */,
 				04EFA02C21E73391007C2FCA /* EvaluationOfSuccessViewController.m in Sources */,
 				04F4468221D74F7B00524971 /* DBFeatureItem.m in Sources */,
 				04F8ED3E21E30E9A00004178 /* informationModificationHeaderView.m in Sources */,
 				04F3B31921EDDAF900DFBA84 /* JXCategoryListContainerView.m in Sources */,
 				04F5C8EA21CA4307008DD043 /* UIViewController+AlertViewAndActionSheet.m in Sources */,
+				0406C7ED21F6F8BA009C6A8E /* UIViewExt.m in Sources */,
 				04F8FC0221F1D3F700913150 /* SecondsKillCell.m in Sources */,
 				04F8ED3621E2F0AA00004178 /* DBDetailFooterCell.m in Sources */,
 				04EFA03221E7436B007C2FCA /* ChannelViewCell.m in Sources */,
@@ -2113,14 +2350,17 @@
 				04F3B32021EDDAF900DFBA84 /* JXCategoryBaseCell.m in Sources */,
 				04EFA02F21E742E5007C2FCA /* ChannelMenuListView.m in Sources */,
 				04F3B30021EDDAF900DFBA84 /* JXCategoryIndicatorLineView.m in Sources */,
+				0406C7C021F6C5C1009C6A8E /* PagingViewController.m in Sources */,
 				04F866B021A7FF4D00A4D7F6 /* ADPageControlView.m in Sources */,
 				04F50D1921D215E3004EBFE1 /* GoodsDetailsViewController.m in Sources */,
 				04F4467821D74F5300524971 /* DBFeatureItemCell.m in Sources */,
 				04FC2C3B21C0E3AD00329B53 /* JFAreaDataManager.m in Sources */,
+				0406C7BF21F6C5C1009C6A8E /* PagingViewTableHeaderView.m in Sources */,
 				04F47E2821E5DD42001B5F74 /* AllOrderTableView.m in Sources */,
 				04F3B30321EDDAF900DFBA84 /* JXCategoryIndicatorImageView.m in Sources */,
 				042FCED021A406FB002AD0DB /* DBHotVideoView.m in Sources */,
 				04F45F1221F5AD70009F5907 /* MySecondKillTableView.m in Sources */,
+				0406C7EE21F6F8BA009C6A8E /* DWQCartViewController.m in Sources */,
 				04F3B30E21EDDAF900DFBA84 /* JXCategoryTitleImageCell.m in Sources */,
 				04F2702F21E883FC0019FB9F /* ModifyAddressModel.m in Sources */,
 				04F494C521C77D1B009A4518 /* UIAlertController+TapGesAlertController.m in Sources */,
@@ -2134,6 +2374,7 @@
 				04F3B31221EDDAF900DFBA84 /* JXCategoryTitleView.m in Sources */,
 				049D47A5219FEC790058178D /* MineViewController.m in Sources */,
 				04F3B32121EDDAF900DFBA84 /* JXCategoryBaseCellModel.m in Sources */,
+				0406C7FB21F6F8BA009C6A8E /* DWQCartTableViewCell.m in Sources */,
 				04F4467921D74F5300524971 /* DBFeatureHeaderView.m in Sources */,
 				049D4799219FE9480058178D /* MainTabBarController.m in Sources */,
 				04F3B31321EDDAF900DFBA84 /* JXCategoryImageView.m in Sources */,
@@ -2150,6 +2391,7 @@
 				04F3B30621EDDAF900DFBA84 /* JXCategoryIndicatorBackgroundView.m in Sources */,
 				04F3B31821EDDAF900DFBA84 /* JXCategoryNumberCellModel.m in Sources */,
 				04FC2C3D21C0E3AD00329B53 /* JFSearchView.m in Sources */,
+				0406C7FA21F6F8BA009C6A8E /* DWQGoodsModel.m in Sources */,
 				04F2FD3021EF47BD000B58E2 /* LoadDataListBaseViewController.m in Sources */,
 				04FC2C4121C0E3AD00329B53 /* JFButton.m in Sources */,
 				04F084F321E496DA00BFE102 /* MyOrderViewController.m in Sources */,
@@ -2165,10 +2407,12 @@
 				04F8664E21A7D50000A4D7F6 /* MineHeaderView.m in Sources */,
 				04F3B31021EDDAF900DFBA84 /* JXCategoryTitleCellModel.m in Sources */,
 				04F3B30A21EDDAF900DFBA84 /* JXCategoryDotCell.m in Sources */,
+				0406C7BE21F6C5C1009C6A8E /* JXPagerListRefreshView.m in Sources */,
 				04F47E1F21E5AA01001B5F74 /* PageView.m in Sources */,
 				04F47E2B21E5F5D4001B5F74 /* EvaluationViewController.m in Sources */,
 				04FC2C3921C0E3AD00329B53 /* JFCityCollectionViewCell.m in Sources */,
 				04F4468E21D74F9000524971 /* GoodAttributesView.m in Sources */,
+				0406C7F921F6F8BA009C6A8E /* DWQShopModel.m in Sources */,
 				049D4796219FB7710058178D /* DBTabBar.m in Sources */,
 				049D47A2219FEC690058178D /* DBShortVideoViewController.m in Sources */,
 				049D478A219FAB880058178D /* AppDelegate.m in Sources */,

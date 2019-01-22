@@ -32,6 +32,7 @@
 
 /**开发服务器*/
 #define URL_main @"http://www.vrzbgw.com"
+#define URL_main_test @"http://192.168.1.110:8080"
 
 #elif TestSever
 
@@ -50,7 +51,7 @@
 // 商品类型列表
 #define URL_goods_title NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsCategoryList?parentId=1036096")
 //轮播图列表
-#define URl_goods_rotation_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsRotationList?mallSpeciesId=1")
+#define URl_goods_rotation_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsRotationList?parentId=1")
 
 #pragma mark —— 商品相关
 // 商品列表
@@ -66,8 +67,13 @@
 
 #pragma mark —— 登陆授权接口
 // 登录
-#define URl_login @"http://192.168.1.103:8080/api/auth/login?"
+#define URl_login NSStringFormat(@"%@%@",URL_main,@"/dabang/api/auth/login?")
+
 
 #pragma mark —— 个人中心
+
+#pragma mark —— 购买商品接口类
+#define URl_confirm_buy_goods  NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/confirmGoods2Buy?")
+
 
 #endif /* URLMacros_h */

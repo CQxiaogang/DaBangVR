@@ -21,6 +21,7 @@
 #import "SpellGroupViewController.h"  //拼团
 #import "SecondsKillViewController.h" //秒杀
 #import "ShoppingCarViewController.h" //购物车
+#import "DWQCartViewController.h"     //第三方购物车
 // Views
 #import "AnchorRecommendView.h" //主播推荐
 #import "ChannelMenuListView.h" //频道菜单列表
@@ -335,9 +336,9 @@ TopViewDelegate
 #pragma mark —— 推荐主播
 - (void) setupAnchorRecommendView:(UITableViewCell *)cell{
     
-    [cell addSubview:self.anchorRecommendView];
+//    [cell addSubview:self.anchorRecommendView];
     
-    _totalH_anchorRecommendView = self.anchorRecommendView.mj_h;
+//    _totalH_anchorRecommendView = self.anchorRecommendView.mj_h;
 }
 
 #pragma mark —— 频道菜单列表
@@ -633,7 +634,10 @@ TopViewDelegate
 }
 #pragma mark —— 顶部 View 的点击事件
 - (void)shoppingCarClickAction{
-    ShoppingCarViewController *vc = [[ShoppingCarViewController alloc] init];
+//    ShoppingCarViewController *vc = [[ShoppingCarViewController alloc] init];
+//    vc.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:vc animated:NO];
+    DWQCartViewController *vc = [[DWQCartViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:NO];
 }
