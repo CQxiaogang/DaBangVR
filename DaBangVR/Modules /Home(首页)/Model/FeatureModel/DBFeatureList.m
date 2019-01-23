@@ -10,4 +10,8 @@
 
 @implementation DBFeatureList
 
++(NSDictionary *)mj_replacedKeyFromPropertyName{
+    return @{@"ID":@"id"};
+}
+
 @end

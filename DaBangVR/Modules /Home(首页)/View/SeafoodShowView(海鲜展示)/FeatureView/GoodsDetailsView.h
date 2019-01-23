@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)allCommentsAction;
 - (void)chooseBabyAction;
-- (void)buyBtnAction;
 
 @end
 

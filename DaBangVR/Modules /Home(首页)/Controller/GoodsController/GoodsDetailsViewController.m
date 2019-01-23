@@ -32,6 +32,8 @@ static NSArray *globalArray;
 @property (nonatomic, strong) NSMutableArray *data;
 
 @property (nonatomic, strong)GoodsDetailsView *goodsView;
+// 回传数据,商品的属性
+@property (nonatomic, copy) NSArray *goodsAttributesArr;
 
 @end
 
@@ -122,7 +124,7 @@ static NSString *CellID = @"CellID";
     buyBtn.backgroundColor = KRedColor;
     [buyBtn setTitle:@"立即购买" forState:UIControlStateNormal];
     buyBtn.titleLabel.adaptiveFontSize = 14;
-    [buyBtn addTarget:self action:@selector(buyBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    [buyBtn addTarget:self action:@selector(buyNowBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [bottomView addSubview:buyBtn];
     [buyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.top.bottom.equalTo(@(0));
@@ -135,10 +137,12 @@ static NSString *CellID = @"CellID";
     UIButton *otherBtn;
     for (int i=0; i<3; i++) {
         otherBtn = [[UIButton alloc] init];
+        otherBtn.tag = i;
+        otherBtn.titleLabel.adaptiveFontSize = 12;
         [otherBtn setImage:[UIImage imageNamed:imgArr[i]] forState:UIControlStateNormal];
         [otherBtn setTitle:nameArr[i] forState:UIControlStateNormal];
-        otherBtn.titleLabel.adaptiveFontSize = 12;
         [otherBtn setTitleColor:KGrayColor forState:UIControlStateNormal];
+        [otherBtn addTarget:self action:@selector(otherBtnClickAction:) forControlEvents:UIControlEventTouchUpInside];
         [bottomView addSubview:otherBtn];
         [otherBtnArr addObject:otherBtn];
     }
@@ -182,42 +186,96 @@ static NSString *CellID = @"CellID";
 // 选择商品规格
 - (void)chooseBabyAction{
     
-    [self creatAttributesView];
+    [self creatAttributesView:nil];
 }
 
-- (void)creatAttributesView{
+- (void)creatAttributesView:(NSString *)identifier{
     // 弹出商品规格选择 view
     GoodAttributesView *attributesView = [[GoodAttributesView alloc] initWithFrame:(CGRect){0, 0, KScreenW, KScreenH}];
     attributesView.goodsAttributesArray = self.model.goodsSpecVoList;
-    attributesView.goodsImgStr = self.model.listUrl;
-    attributesView.productInfoVoList = self.model.productInfoVoList;
-    attributesView.remainingInventory = self.model.remainingInventory;
-    attributesView.sellingPrice = self.model.sellingPrice;
+    attributesView.goodsImgStr          = self.model.listUrl;
+    attributesView.productInfoVoList    = self.model.productInfoVoList;
+    attributesView.remainingInventory   = self.model.remainingInventory;
+    attributesView.sellingPrice         = self.model.sellingPrice;
     [attributesView showInView:self.navigationController.view];
-    // 数据回掉
-    //    kWeakSelf(self);
+    
+    // 确认 btn 数据回掉
+    kWeakSelf(self);
     attributesView.goodsAttributesBlock = ^(NSArray *array) {
-        NSDictionary *dic = @{
-                              @"productId":array[0],
-                              @"goodsId":array[1],
-                              @"number":array[2]
-                              };
-        [NetWorkHelper POST:URl_confirm_buy_goods parameters:dic success:^(id  _Nonnull responseObject) {
-            
-            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            NSDictionary *dataDic= dic[@"data"];
-            
-        } failure:^(NSError * _Nonnull error) {
-            DLog(@"error is %@",error);
-        }];
+        if (array.count == 0) {
+            return ;
+        }
+        weakself.goodsAttributesArr = array;
+        if ([identifier isEqualToString:@"立即购买"]) {
+            [self buyNow:array];
+        }else if ([identifier isEqualToString:@"购物车"]){
+            [self addToShoppingCar:array];
+        }
         
     };
 }
 
-// 立即购买 button
-- (void)buyBtnAction{
-//    [self creatAttributesView];
-    [self.navigationController pushViewController:[[BuyNowViewController alloc] init] animated:NO];
+- (void)addToShoppingCar:(NSArray *)array{
+    NSDictionary *dic = @{
+                          @"productId":array[0],
+                          @"goodsId"  :array[1],
+                          @"number"   :array[2],
+                          @"deptId"   : self.model.deptId
+                          };
+    
+    [NetWorkHelper POST:URl_addToCar parameters:dic success:^(id  _Nonnull responseObject) {
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        [SVProgressHUD showInfoWithStatus:dic[@"errmsg"]];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        [SVProgressHUD dismissWithDelay:1.0];
+    } failure:^(NSError * _Nonnull error) {
+        DLog(@"error is %@",error);
+    }];
+}
+
+- (void)buyNow:(NSArray *)array{
+    NSDictionary *dic = @{
+                          @"productId":array[0],
+                          @"goodsId":array[1],
+                          @"number":array[2]
+                          };
+    [NetWorkHelper POST:URl_confirmGoods2Buy parameters:dic success:^(id  _Nonnull responseObject) {
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        DLog(@"%@",dic[@"errmsg"]);
+        // 直接跳转确认订单界面
+        [self.navigationController pushViewController:[[BuyNowViewController alloc] init] animated:NO];
+    } failure:^(NSError * _Nonnull error) {
+        DLog(@"error is %@",error);
+    }];
+}
+
+// 立即购买 btn
+- (void)buyNowBtnAction{
+    if (_goodsAttributesArr.count == 0) {
+        [self creatAttributesView:@"立即购买"];
+    }else{
+        [self.navigationController pushViewController:[[BuyNowViewController alloc] init] animated:NO];
+    }
+}
+
+- (void)otherBtnClickAction:(UIButton *)sender{
+    if (sender.tag == 0) {
+        [self collectionBtnOfAction];
+    }else if (sender.tag == 1){
+        [self customerServiceBtnOfAction];
+    }else{
+        [self addToShoppingCarBtnOfAction];
+    }
+}
+// 收藏
+- (void)collectionBtnOfAction{};
+// 客服
+- (void)customerServiceBtnOfAction{};
+// 加购
+- (void)addToShoppingCarBtnOfAction{
+    [self creatAttributesView:@"购物车"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

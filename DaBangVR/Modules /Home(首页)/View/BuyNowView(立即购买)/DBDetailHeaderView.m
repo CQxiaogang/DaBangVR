@@ -7,6 +7,7 @@
 //
 
 #import "DBDetailHeaderView.h"
+#import "BuyNowOfUserAddressModel.h"
 
 @implementation DBDetailHeaderView
 
@@ -18,5 +19,16 @@
     
 }
 
+- (void)setModel:(BuyNowModel *)model{
+    _model = model;
+    _consigneeNameLab.text = model.receivingAddress.consigneeName;
+    _consigneePhoneLab.text = model.receivingAddress.consigneePhone;
+    _addressLab.text = [NSString stringWithFormat:@"%@%@%@%@%@",
+                        model.receivingAddress.receivingCountry,
+                        model.receivingAddress.province,
+                        model.receivingAddress.city,
+                        model.receivingAddress.area,
+                        model.receivingAddress.address];
+}
 
 @end

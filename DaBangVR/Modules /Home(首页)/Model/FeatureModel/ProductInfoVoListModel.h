@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ProductInfoVoListModel : NSObject
 // 产品 ID
-@property (nonatomic, copy) NSString *id;
+@property (nonatomic, copy) NSString *ID;
 // 商品 ID
 @property (nonatomic, copy) NSString *goodsId;
 // 商品规格名字

@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2ec-Lr-2JR">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2ec-Lr-2JR" customClass="YYAnimatedImageView">
                         <rect key="frame" x="15" y="7.5" width="85" height="85"/>
                         <color key="backgroundColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -50,15 +50,10 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥130.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCP-DW-PGi">
-                        <rect key="frame" x="110" y="67.5" width="50" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥1320.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCP-DW-PGi">
+                        <rect key="frame" x="110" y="62.5" width="54.5" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="CtR-Jk-iw2">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                            <constraint firstAttribute="width" constant="50" id="rSv-TU-yqO">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -74,19 +69,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="促销价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XH5-oT-0fn">
-                        <rect key="frame" x="160" y="69.5" width="31" height="12"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="12" id="cuN-5M-XV9">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                            <constraint firstAttribute="width" constant="31" id="n1Z-Uy-1NC">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                        </constraints>
+                        <rect key="frame" x="166.5" y="64.5" width="31" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -96,20 +79,53 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEH-eu-DDy">
+                        <rect key="frame" x="110" y="80.5" width="24" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhS-Ox-dwS">
+                        <rect key="frame" x="136" y="80.5" width="17.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="BJt-eG-dNc" firstAttribute="leading" secondItem="2ec-Lr-2JR" secondAttribute="trailing" constant="10" id="0G7-Sc-wmJ"/>
                     <constraint firstItem="2ec-Lr-2JR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="6DU-u3-X5F"/>
-                    <constraint firstItem="XH5-oT-0fn" firstAttribute="leading" secondItem="RCP-DW-PGi" secondAttribute="trailing" id="7Y3-Ky-fB3"/>
+                    <constraint firstItem="XEH-eu-DDy" firstAttribute="top" secondItem="RCP-DW-PGi" secondAttribute="bottom" constant="2" id="C9w-dw-Sc5"/>
+                    <constraint firstItem="XH5-oT-0fn" firstAttribute="centerY" secondItem="RCP-DW-PGi" secondAttribute="centerY" id="IM6-bY-QZW"/>
                     <constraint firstItem="2ec-Lr-2JR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Iyw-LT-xxs"/>
+                    <constraint firstItem="XEH-eu-DDy" firstAttribute="leading" secondItem="RCP-DW-PGi" secondAttribute="leading" id="KG7-vS-yBj"/>
+                    <constraint firstItem="jhS-Ox-dwS" firstAttribute="leading" secondItem="XEH-eu-DDy" secondAttribute="trailing" constant="2" id="Nno-s7-y5b"/>
                     <constraint firstItem="BJt-eG-dNc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7.5" id="Qje-k3-WV6"/>
-                    <constraint firstItem="RCP-DW-PGi" firstAttribute="top" secondItem="BJt-eG-dNc" secondAttribute="bottom" constant="10" id="Ujv-F1-xyS"/>
+                    <constraint firstItem="RCP-DW-PGi" firstAttribute="top" secondItem="BJt-eG-dNc" secondAttribute="bottom" constant="5" id="Ujv-F1-xyS"/>
+                    <constraint firstItem="jhS-Ox-dwS" firstAttribute="centerY" secondItem="XEH-eu-DDy" secondAttribute="centerY" id="ZCx-5j-8zj"/>
+                    <constraint firstItem="jhS-Ox-dwS" firstAttribute="height" secondItem="XEH-eu-DDy" secondAttribute="height" id="dqV-Oz-Dtb"/>
+                    <constraint firstItem="XH5-oT-0fn" firstAttribute="leading" secondItem="RCP-DW-PGi" secondAttribute="trailing" constant="2" id="ets-Xf-d9G"/>
                     <constraint firstAttribute="trailing" secondItem="BJt-eG-dNc" secondAttribute="trailing" constant="15" id="hA8-oO-frg"/>
                     <constraint firstItem="RCP-DW-PGi" firstAttribute="leading" secondItem="2ec-Lr-2JR" secondAttribute="trailing" constant="10" id="jrF-bR-M54"/>
-                    <constraint firstItem="XH5-oT-0fn" firstAttribute="centerY" secondItem="RCP-DW-PGi" secondAttribute="centerY" id="rc5-Fu-bbj"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="goodsDescribeLab" destination="BJt-eG-dNc" id="lRl-lu-x9j"/>
+                <outlet property="goodsImgView" destination="2ec-Lr-2JR" id="J7F-Ch-eH4"/>
+                <outlet property="marketPriceLab" destination="jhS-Ox-dwS" id="TCm-F7-yPg"/>
+                <outlet property="sellingPriceLab" destination="RCP-DW-PGi" id="TJY-9R-J1L"/>
+            </connections>
             <point key="canvasLocation" x="132" y="177.21139430284859"/>
         </tableViewCell>
     </objects>

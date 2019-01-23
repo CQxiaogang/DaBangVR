@@ -91,12 +91,6 @@
     if(completion)
         completion(array);
 }
-// button 事件
-- (void)buyBtnAction{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(buyBtnAction)]) {
-        [self.delegate buyBtnAction];
-    }
-}
 
 #pragma mark —— goodsInfoView delegate
 // 选择商品规格

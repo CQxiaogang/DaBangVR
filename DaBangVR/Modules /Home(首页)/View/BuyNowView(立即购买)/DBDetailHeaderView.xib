@@ -168,6 +168,11 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="A6Q-xr-YYQ"/>
+            <connections>
+                <outlet property="addressLab" destination="uMB-0l-YRM" id="js3-CZ-dNP"/>
+                <outlet property="consigneeNameLab" destination="26t-Kn-5GM" id="JBx-S4-Xay"/>
+                <outlet property="consigneePhoneLab" destination="avW-NP-BSb" id="mlu-Lt-cC0"/>
+            </connections>
             <point key="canvasLocation" x="160.80000000000001" y="-22.488755622188908"/>
         </view>
     </objects>

@@ -10,5 +10,4 @@
 
 @implementation SeafoodShowTitleModel
 
-
 @end

@@ -40,7 +40,12 @@ static NSString *CellID = @"CellID";
     if (!_rigthViewArray) {
         _rigthViewArray = [NSMutableArray new];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.mj_w-90, 0, 80, 40)];
-        label.text = @"快递免邮";
+        if ([_model.logisticsPrice isEqualToString:@"0"]) {
+            label.text = @"快递免邮";
+        }else{
+            label.text = [NSString stringWithFormat:@"快递费: %@ 元",_model.logisticsPrice];
+        }
+        
         label.textAlignment = NSTextAlignmentRight;
         label.textColor = KFontColor;
         label.font = [UIFont systemFontOfSize:14];
@@ -50,12 +55,14 @@ static NSString *CellID = @"CellID";
         [btn setImage:[UIImage imageNamed:@"a-hook"] forState:UIControlStateNormal];
         [_rigthViewArray addObject:btn];
         
-        UILabel *leaveAMessage = [[UILabel alloc] initWithFrame:CGRectMake(self.mj_w-210, 0, 200, 40)];
-        leaveAMessage.text = @"口味、偏好等要求";
-        leaveAMessage.textColor  = KFontColor;
-        leaveAMessage.textAlignment = NSTextAlignmentRight;
-        leaveAMessage.font = [UIFont systemFontOfSize:14];
-        [_rigthViewArray addObject:leaveAMessage];
+        UIButton *leaveMessageBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.mj_w-210, 0, 200, 40)];
+        [leaveMessageBtn setTitle:@"口味、偏好等要求" forState:UIControlStateNormal];
+        [leaveMessageBtn setTitleColor:KFontColor forState:UIControlStateNormal];
+        // btn 文字居右
+        leaveMessageBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        leaveMessageBtn.titleLabel.adaptiveFontSize = 14;
+        [leaveMessageBtn addTarget:self action:@selector(leaveMessageBtnAction) forControlEvents:UIControlEventTouchUpInside];
+        [_rigthViewArray addObject:leaveMessageBtn];
     }
     return _rigthViewArray;
 }
@@ -79,6 +86,16 @@ static NSString *CellID = @"CellID";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 40;
+}
+
+- (void)setModel:(BuyNowModel *)model{
+    _model = model;
+}
+
+- (void)leaveMessageBtnAction{
+    if (self.aDelegate && [self.aDelegate respondsToSelector:@selector(leaveMessageBtnClickAction)]) {
+        [self.aDelegate leaveMessageBtnClickAction];
+    }
 }
 
 @end

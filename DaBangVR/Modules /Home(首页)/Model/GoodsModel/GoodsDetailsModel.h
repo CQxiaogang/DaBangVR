@@ -30,15 +30,17 @@ NS_ASSUME_NONNULL_BEGIN
 // 图片数组
 @property (nonatomic, copy) NSArray  *imgList;
 // 是新上
-@property (nonatomic, assign) BOOL *isNew;
+@property (nonatomic, assign) BOOL   *isNew;
 // 是热销
-@property (nonatomic, assign) BOOL *isHot;
+@property (nonatomic, assign) BOOL   *isHot;
 // 商品规格数组
-@property (nonatomic, copy) NSArray *goodsSpecVoList;
+@property (nonatomic, copy) NSArray  *goodsSpecVoList;
 // 商品信息数组
 @property (nonatomic, copy) NSArray  *productInfoVoList;
 // 库存
 @property (nonatomic, copy) NSString *remainingInventory;
+// 店铺 ID
+@property (nonatomic, copy) NSString *deptId;
 @end
 
 NS_ASSUME_NONNULL_END

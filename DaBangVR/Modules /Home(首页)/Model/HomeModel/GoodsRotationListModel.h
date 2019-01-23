@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GoodsRotationListModel : NSObject
 
 // ID
-@property (nonatomic, copy) NSString *id;
+@property (nonatomic, copy) NSString *ID;
 // 轮播图片
 @property (nonatomic, copy) NSString *chartUrl;
 // 标题

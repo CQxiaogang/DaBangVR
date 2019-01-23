@@ -30,6 +30,7 @@
 #import "Masonry.h"
 #import "UIView+MJExtension.h"
 #import <SVProgressHUD.h>
+#import "MJExtension.h"
 
 // 全局宏
 #import "URLMacros.h"

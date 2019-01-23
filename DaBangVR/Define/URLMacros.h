@@ -45,7 +45,7 @@
 #define URL_main @""
 #endif
 
-#pragma mark —— 首页相关
+#pragma mark ——————   首页相关   ——————
 // 渠道列表
 #define URL_channel_menu_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getChannelMenuList?mallSpeciesId=1")
 // 商品类型列表
@@ -53,7 +53,7 @@
 //轮播图列表
 #define URl_goods_rotation_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsRotationList?parentId=1")
 
-#pragma mark —— 商品相关
+#pragma mark ——————   商品相关   ——————
 // 商品列表
 #define URL_goods_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getGoodsList?")
 // 商品详情
@@ -64,16 +64,30 @@
 #define URl_comment_list_two NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getCommentListTwo?")
 // 商品评论列表，最近三条
 #define URl_comment_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getCommentList?")
+// 购物车列表
+#define URl_getGoods2CartList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getGoods2CartList?page=1&limit=10")
 
-#pragma mark —— 登陆授权接口
+
+#pragma mark ——————  登陆授权接口  ——————
 // 登录
 #define URl_login NSStringFormat(@"%@%@",URL_main,@"/dabang/api/auth/login?")
 
 
-#pragma mark —— 个人中心
+#pragma mark ——————   个人中心    ——————
 
-#pragma mark —— 购买商品接口类
-#define URl_confirm_buy_goods  NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/confirmGoods2Buy?")
+#pragma mark —————— 购买商品接口类 ——————
+// 添加到购物车
+#define URl_addToCar NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/addToCart?")
+// 立即购买 - 确认订单
+#define URl_confirmGoods2Buy  NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/confirmGoods2Buy?")
+// 购物车 - 确认订单
+#define URl_confirmGoods2Cart NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/confirmGoods2Cart?")
+// 获取确认订单 - 统一入口
+#define URl_getConfirmGoods NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/getConfirmGoods")
+// 提交订单 - 统一入口
+#define URl_submitOrder NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/submitOrder?")
+// 修改购物车中商品的数量
+
 
 
 #endif /* URLMacros_h */

@@ -380,11 +380,11 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
         for (NSInteger j = 0; j < _featureAttr[i].goodsSpecList.count; j++) {
             if (_featureAttr[i].goodsSpecList[j].isSelect == YES) {
                 
-                [_seleArray addObject:_featureAttr[i].goodsSpecList[j].id];
+                [_seleArray addObject:_featureAttr[i].goodsSpecList[j].ID];
 
             }else{
                 
-                [_seleArray removeObject:_featureAttr[i].goodsSpecList[j].id];
+                [_seleArray removeObject:_featureAttr[i].goodsSpecList[j].ID];
                 lastSeleArray = nil;
             }
         }
@@ -434,7 +434,7 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
                 NSInteger price = [model.retailPrice integerValue];
                 cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %ld",price*lastNum];
                 _goodsDetailsArr = [NSMutableArray new];
-                [_goodsDetailsArr addObject:model.id];
+                [_goodsDetailsArr addObject:model.ID];
                 [_goodsDetailsArr addObject:model.goodsId];
                 [_goodsDetailsArr addObject:[NSString stringWithFormat:@"%ld",lastNum]];
             }

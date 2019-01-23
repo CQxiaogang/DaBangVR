@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AllCommentsModel : NSObject
 // ID
-@property (nonatomic, copy) NSString *id;
+@property (nonatomic, copy) NSString *ID;
 // 用户 ID
 @property (nonatomic, copy) NSString *userId;
 // 商品 ID

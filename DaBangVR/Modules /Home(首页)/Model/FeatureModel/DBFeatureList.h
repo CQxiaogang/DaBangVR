@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DBFeatureList : NSObject
 /** 属性 ID */
-@property (nonatomic, copy) NSString *id;
+@property (nonatomic, copy) NSString *ID;
 /** 属性 */
 @property (nonatomic, copy) NSString *value;
 
