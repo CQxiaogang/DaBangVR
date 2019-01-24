@@ -8,20 +8,30 @@
 
 #import "modifyAddressViewCell.h"
 
+@interface modifyAddressViewCell()<UITextFieldDelegate>
+
+@end
+
 @implementation modifyAddressViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.contentText.font = [UIFont systemFontOfSize:Adapt(14)];
+    
+    _contentText.delegate = self;
+    
+    _contentText.font = [UIFont systemFontOfSize:Adapt(14)];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+#pragma mark —— UITextField 协议
+// 结束编辑
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    
 }
-
-- (void)setModel:(ModifyAddressModel *)model{
-//    self.titleLabel.text = (NSString *)model;
-    //    self.contentText.text = infoModel.content;
+// 开始编辑
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(textFieldDidBeginEditing:)]) {
+        [self.delegate textFieldDidBeginEditing:textField];
+    }
 }
 
 @end

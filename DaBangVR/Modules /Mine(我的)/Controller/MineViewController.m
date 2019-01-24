@@ -13,7 +13,7 @@
 #import "MainTabBarController.h"
 #import "SettingViewController.h"
 #import "MyOrderViewController.h"
-#import "ShoppingCarViewController.h"
+#import "HBK_ShoppingCartViewController.h"
 // 第三方
 #import "JXCategoryView.h"
 #import "JXCategoryListContainerView.h"
@@ -214,7 +214,7 @@ static NSString *cellID = @"cellID";
 }
 // 购物车
 -(void)shoppingCarAction{
-    ShoppingCarViewController *vc = [[ShoppingCarViewController alloc] init];
+    HBK_ShoppingCartViewController *vc = [[HBK_ShoppingCartViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:NO];
 }

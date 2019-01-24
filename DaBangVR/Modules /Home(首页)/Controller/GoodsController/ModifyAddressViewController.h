@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AreaView.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ModifyAddressViewController : RootViewController
+@interface ModifyAddressViewController : RootViewController<AreaSelectDelegate>
 
 @end
 

@@ -35,6 +35,12 @@
 //根据ip6的屏幕来拉伸
 #define kRealValue(with) ((with)*(KScreenW/375.0f))
 
+//比例 以iPhone6 为基准
+#define kRatio KScreenW/375
+
+//按比例适配
+#define kFit(num)                 kRatio * (num)
+
 //强弱引用
 #define kWeakSelf(type)  __weak typeof(type) weak##type = type;
 #define kStrongSelf(type) __strong typeof(type) type = weak##type;

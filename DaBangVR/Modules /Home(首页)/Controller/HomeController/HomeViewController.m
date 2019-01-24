@@ -20,8 +20,7 @@
 // Controllers
 #import "SpellGroupViewController.h"  //拼团
 #import "SecondsKillViewController.h" //秒杀
-#import "ShoppingCarViewController.h" //购物车
-#import "DWQCartViewController.h"     //第三方购物车
+#import "HBK_ShoppingCartViewController.h" //购物车
 // Views
 #import "AnchorRecommendView.h" //主播推荐
 #import "ChannelMenuListView.h" //频道菜单列表
@@ -634,10 +633,7 @@ TopViewDelegate
 }
 #pragma mark —— 顶部 View 的点击事件
 - (void)shoppingCarClickAction{
-//    ShoppingCarViewController *vc = [[ShoppingCarViewController alloc] init];
-//    vc.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:vc animated:NO];
-    DWQCartViewController *vc = [[DWQCartViewController alloc] init];
+    HBK_ShoppingCartViewController *vc = [[HBK_ShoppingCartViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:NO];
 }

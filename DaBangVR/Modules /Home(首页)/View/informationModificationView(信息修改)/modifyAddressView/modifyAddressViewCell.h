@@ -7,15 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ModifyAddressModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@protocol ModifyAddressViewCellDelegate <NSObject>
+
+- (void)textFieldDidEndEditing:(UITextField *)textField;
+- (void)textFieldDidBeginEditing:(UITextField *)textField;
+
+@end
 
 @interface modifyAddressViewCell : BaseTableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *contentText;
 
-@property (nonatomic, strong) ModifyAddressModel *model;
+@property (weak, nonatomic) id <ModifyAddressViewCellDelegate> delegate;
 
 @end
 
