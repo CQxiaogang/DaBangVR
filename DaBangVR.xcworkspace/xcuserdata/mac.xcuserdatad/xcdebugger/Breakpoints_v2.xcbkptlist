@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DaBangVR/Modules /Mine(&#x6211;&#x7684;)/Controller/HBK_ShoppingCart/Controller/HBK_ShoppingCartViewController.m"
-            timestampString = "570021035.5994281"
+            timestampString = "570021383.759927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "364"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DaBangVR/Modules /Mine(&#x6211;&#x7684;)/Controller/HBK_ShoppingCart/View/HBK_ShopppingCartBottomView.m"
-            timestampString = "570021035.599497"
+            timestampString = "570021383.759998"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -41,13 +41,77 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/Controller/GoodsController/ModifyAddressViewController.m"
-            timestampString = "570021035.599551"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/Controller/GoodsController/AreaView.m"
+            timestampString = "570082689.646665"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
-            landmarkName = "-requestAllAreaName"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/Controller/GoodsController/AreaView.m"
+            timestampString = "570082689.646729"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/Controller/GoodsController/AreaView.m"
+            timestampString = "570082689.646772"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/Controller/GoodsController/AreaView.m"
+            timestampString = "570082689.6468101"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/Controller/GoodsController/InformationModificationViewController.m"
+            timestampString = "570089857.861074"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-data"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

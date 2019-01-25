@@ -8,7 +8,7 @@
 
 // Contrillers
 #import "BuyNowViewController.h"
-#import "InformationModificationViewController.h"
+#import "UserInfoChangeViewController.h"
 #import "LeaveMessageViewController.h"
 // Views
 #import "DBDetailHeaderView.h"
@@ -137,7 +137,7 @@ static NSString *leaveMessage;
 #pragma mark —— DBDetailHeaderView delegate
 // 地址修改
 - (void)informationModification{
-    InformationModificationViewController *informationModificationVC = [[InformationModificationViewController alloc] init];
+    UserInfoChangeViewController *informationModificationVC = [[UserInfoChangeViewController alloc] init];
     [self.navigationController pushViewController:informationModificationVC animated:NO];
 }
 

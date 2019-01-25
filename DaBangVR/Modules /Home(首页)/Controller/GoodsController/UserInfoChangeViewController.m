@@ -7,21 +7,25 @@
 //
 // controller
 #import "ModifyAddressViewController.h"
-#import "InformationModificationViewController.h"
+#import "UserInfoChangeViewController.h"
 // views
 #import "informationModificationHeaderView.h"
 #import "informationModificationCell.h"
+// Models
+#import "UserInfoChangeModel.h"
 
-@interface InformationModificationViewController ()
+@interface UserInfoChangeViewController ()
 <
  informationModificationHeaderDelegate
 >
 
 @property (nonatomic, strong) informationModificationHeaderView *headerView;
 
+@property (nonatomic, strong) NSMutableArray *userData;
+
 @end
 
-@implementation InformationModificationViewController
+@implementation UserInfoChangeViewController
 
 static NSString *const CellID = @"CellID";
 
@@ -34,10 +38,34 @@ static NSString *const CellID = @"CellID";
     }
     return _headerView;
 }
+
+- (NSMutableArray *)userData{
+    if (!_userData) {
+        _userData = [[NSMutableArray alloc] init];
+    }
+    return _userData;
+}
+
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"收货地址";
+    [self data];
+}
+
+- (void)data{
+    [NetWorkHelper POST:URl_addressList parameters:nil success:^(id  _Nonnull responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSDictionary *data = dic[@"data"];
+        NSArray *receivingAddressVoList = data[@"receivingAddressVoList"];
+        for (NSDictionary *dic in receivingAddressVoList) {
+            UserInfoChangeModel *model = [UserInfoChangeModel modelWithDictionary:dic];
+            [self.userData addObject:model];
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
 }
 
 - (void)setupUI{
@@ -57,7 +85,7 @@ static NSString *const CellID = @"CellID";
     return 5;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return self.userData.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     informationModificationCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
@@ -65,6 +93,7 @@ static NSString *const CellID = @"CellID";
     if (cell == nil) {
         cell = [[informationModificationCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
+    cell.model = self.userData[indexPath.row];
     return cell;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{

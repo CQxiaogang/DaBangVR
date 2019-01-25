@@ -25,7 +25,9 @@
 #pragma mark —— UITextField 协议
 // 结束编辑
 -(void)textFieldDidEndEditing:(UITextField *)textField{
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(textFieldDidEndEditing:)]) {
+        [self.delegate textFieldDidEndEditing:textField];
+    }
 }
 // 开始编辑
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
@@ -33,5 +35,6 @@
         [self.delegate textFieldDidBeginEditing:textField];
     }
 }
+
 
 @end

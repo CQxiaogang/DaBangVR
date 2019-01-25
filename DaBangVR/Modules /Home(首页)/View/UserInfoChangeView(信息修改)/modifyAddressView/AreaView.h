@@ -12,7 +12,7 @@
 
 - (void)selectIndex:(NSInteger)index selectID:(NSString *)areaID;
 
-- (void)getSelectAddressInfor:(NSString *)addressInfor;
+- (void)getSelectAddressInfor:(NSString *)addressInfor addressInfoArr:(NSArray *)array;
 @end
 @interface AreaView : UIView<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UIScrollView *areaScrollView;

@@ -76,16 +76,15 @@
 #pragma mark ——————   个人中心    ——————
 // 添加收货地址
 #define URl_addressAdd NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/addressAdd?")
+
+//查询收货地址
+#define URl_addressList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/addressList")
+
 // 删除收货地址
 #define URl_addressDelete NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/addressDelete")
-// 查询所有国家
-#define URl_countryList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/countryList")
-// 根据国家ID查询所有省份
-#define URl_proviceList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/proviceList?")
-// 根据省份ID查询所有城市
-#define URl_cityList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/cityList?")
-// 根据城市ID查询所有区/县
-#define URl_areaList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/areaList??")
+
+// 查询地址下级列表
+#define URl_getRegionChildrenList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/getRegionChildrenList?")
 
 #pragma mark —————— 购买商品接口类 ——————
 // 添加到购物车

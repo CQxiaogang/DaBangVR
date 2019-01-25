@@ -6,9 +6,9 @@
 //  Copyright © 2017年 Codeliu. All rights reserved.
 //
 
-#import "AddressModel.h"
+#import "ModifyAddressModel.h"
 
-@implementation AddressModel
+@implementation ModifyAddressModel
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
     

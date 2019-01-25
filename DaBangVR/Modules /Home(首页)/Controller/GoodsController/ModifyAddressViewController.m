@@ -10,23 +10,29 @@
 // views
 #import "modifyAddressViewCell.h"
 // Models
-#import "AddressModel.h"
-#import "AddressAreaModel.h"
+#import "ModifyAddressModel.h"
+#import "ModifyAddressAreaModel.h"
 
-@interface ModifyAddressViewController ()<ModifyAddressViewCellDelegate>
+@interface ModifyAddressViewController ()<ModifyAddressViewCellDelegate,UITextViewDelegate>
 {
     AreaView *areaView;
     NSInteger _areaIndex;
     NSString *_areaID;
+    NSString *_addressInfor;
 }
 
 @property (nonatomic, copy) NSArray *titleArr;
-
 @property (nonatomic, copy) NSArray *placeholderArr;
 
 @property (nonatomic, strong) NSMutableArray *area_dataArray1;
 @property (nonatomic, strong) NSMutableArray *area_dataArray2;
 @property (nonatomic, strong) NSMutableArray *area_dataArray3;
+
+@property (nonatomic, strong) modifyAddressViewCell *cell;
+@property (nonatomic, strong) UILabel *placeholderLabel;
+// 用户，地址信息
+@property (nonatomic, strong) NSMutableDictionary *user_AdressDic;
+@property (nonatomic, strong) NSMutableArray *areaIDs;
 
 @end
 
@@ -44,6 +50,7 @@ CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height
 
 static NSString *const CellID = @"CellID";
 
+#pragma mark —— 懒加载
 - (NSArray *)titleArr{
     if (!_titleArr) {
         _titleArr = @[@"收货人:",
@@ -62,7 +69,20 @@ static NSString *const CellID = @"CellID";
     return _placeholderArr;
 }
 
-#pragma mark —— 懒加载
+-(NSMutableDictionary *)user_AdressDic{
+    if (!_user_AdressDic) {
+        _user_AdressDic = [[NSMutableDictionary alloc] init];
+    }
+    return _user_AdressDic;
+}
+
+- (NSMutableArray *)areaIDs{
+    if (!_areaIDs) {
+        _areaIDs = [[NSMutableArray array] init];
+    }
+    return _areaIDs;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -110,6 +130,7 @@ static NSString *const CellID = @"CellID";
     
     UISwitch *rightSwitch = [[UISwitch alloc] init];
     rightSwitch.onTintColor = [UIColor lightGreen];
+    [rightSwitch addTarget:self action:@selector(valueChanged:) forControlEvents:(UIControlEventValueChanged)];
     [footerView addSubview:rightSwitch];
     [rightSwitch mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(-10);
@@ -119,6 +140,7 @@ static NSString *const CellID = @"CellID";
     
 }
 
+#pragma mark —— 保存地址信息
 - (void)setupBottomView{
     UIButton *sureBtn = [[UIButton alloc] init];
     [sureBtn setTitle:@"保存" forState:UIControlStateNormal];
@@ -132,8 +154,15 @@ static NSString *const CellID = @"CellID";
         make.height.equalTo(kTabBarHeight);
     }];
 }
+
 - (void)saveInfo{
-    DLog(@"保存");
+    if (self.user_AdressDic) {
+        [NetWorkHelper POST:URl_addressAdd parameters:self.user_AdressDic success:^(id  _Nonnull responseObject) {
+            
+        } failure:^(NSError * _Nonnull error) {
+            
+        }];
+    }
 }
 
 #pragma mark —— tableView delegate/dataSource;
@@ -143,21 +172,38 @@ static NSString *const CellID = @"CellID";
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    modifyAddressViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
-    cell.delegate = self;
-    if (cell == nil) {
-        cell = [[modifyAddressViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
+    _cell = [tableView dequeueReusableCellWithIdentifier:CellID];
+    _cell.delegate = self;
+    if (_cell == nil) {
+        _cell = [[modifyAddressViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
 
     if (indexPath.row == 3) {
-        [cell removeAllSubviews];
-        cell.backgroundColor = KRedColor;
+        [_cell removeAllSubviews];
+        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, _cell.mj_w, kFit(100))];
+        textView.delegate = self;
+        _placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(kFit(10), 0, textView.mj_w-kFit(10), kFit(30))];
+        _placeholderLabel.text = @"详细地址:如道路,门牌号,小区,楼栋号,单元室等";
+        _placeholderLabel.adaptiveFontSize = 14;
+        _placeholderLabel.textColor = KFontColor;
+        [textView addSubview:_placeholderLabel];
+        [_cell addSubview:textView];
     }else{
-        cell.titleLabel.text = self.titleArr[indexPath.row];
-        cell.contentText.placeholder = self.placeholderArr[indexPath.row];
-        cell.contentText.tag = indexPath.row;
+        _cell.titleLabel.text = self.titleArr[indexPath.row];
+        _cell.contentText.placeholder = self.placeholderArr[indexPath.row];
+        _cell.contentText.tag = indexPath.row;
     }
-    return cell;
+    
+    if (indexPath.row == 2) {
+        UIButton *btn = [[UIButton alloc] initWithFrame:_cell.contentText.frame];
+        [btn addTarget:self action:@selector(buttonClickAction) forControlEvents:UIControlEventTouchUpInside];
+        if (_addressInfor) {
+            _cell.contentText.text = _addressInfor;
+        }
+        
+        [_cell addSubview:btn];
+    }
+    return _cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -177,17 +223,17 @@ static NSString *const CellID = @"CellID";
 #pragma mark —— ModifyAddressViewCell 协议
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
-    if (textField.tag == 2) {
-        if (!areaView) {
-            [self requestAllAreaName];
-        }
-        else
-            [areaView showAreaView];
-    }
+    
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
-    
+    if (textField.tag == 0) {
+        // 收货人名称
+        [self.user_AdressDic setObject:textField.text forKey:@"consigneeName"];
+    }else if (textField.tag == 1){
+        // 收货人手机号
+        [self.user_AdressDic setObject:textField.text forKey:@"consigneePhone"];
+    }
 }
 
 #pragma mark - AreaSelectDelegate
@@ -205,11 +251,27 @@ static NSString *const CellID = @"CellID";
         default:
             break;
     }
+    // 区域 ID
+    [self.areaIDs addObject:areaID];
+    if (self.areaIDs.count == 3) {
+        [self.user_AdressDic setObject:@"1"            forKey:@"receivingCountryId"];
+        [self.user_AdressDic setObject:self.areaIDs[0] forKey:@"provinceId"]; // 675
+        [self.user_AdressDic setObject:self.areaIDs[1] forKey:@"cityId"];//1572
+        [self.user_AdressDic setObject:self.areaIDs[2] forKey:@"areaId"];
+        [self.areaIDs removeAllObjects];
+    }
+    
     [self requestAllAreaName];
 }
-- (void)getSelectAddressInfor:(NSString *)addressInfor
+- (void)getSelectAddressInfor:(NSString *)addressInfor addressInfoArr:(NSArray *)array
 {
+    [self.user_AdressDic setObject:@"中国" forKey:@"receivingCountry"];
+    [self.user_AdressDic setObject:array[0] forKey:@"province"];
+    [self.user_AdressDic setObject:array[1] forKey:@"city"];
+    [self.user_AdressDic setObject:array[2] forKey:@"area"];
     
+    _addressInfor = addressInfor;
+    [self.tableView reloadData];
 }
 
 #pragma mark - requestAllAreaName
@@ -224,18 +286,14 @@ static NSString *const CellID = @"CellID";
     kWeakSelf(self);
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_enter(group);
-    NSString *areaIndex = [NSString stringWithFormat:@"%ld",(long)_areaIndex];
-    areaIndex = areaIndex? areaIndex: @"0";
-    _areaID   = _areaID ? _areaID:@"1";
-    NSDictionary *parameters = @{
-                                 @"areaId":_areaID,
-                                 @"type"  :areaIndex
-                                 };
-    [NetWorkHelper POST:URl_proviceList parameters:parameters success:^(id  _Nonnull responseObject) {
+    
+    _areaID   = _areaID? _areaID : @"1";
+
+    [NetWorkHelper POST:URl_getRegionChildrenList parameters:@{@"parentId":_areaID} success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSArray *dataList = dic[@"dataList"];
-        for (NSDictionary *dic in dataList) {
-            AddressAreaModel *addressAreaModel = [AddressAreaModel modelWithDictionary:dic];
+        NSArray *regionList = dic[@"regionList"];
+        for (NSDictionary *dic in regionList) {
+            ModifyAddressAreaModel *addressAreaModel = [ModifyAddressAreaModel modelWithDictionary:dic];
             switch (self->_areaIndex) {
                 case 0:
                     [weakself.area_dataArray1 addObject:addressAreaModel];
@@ -251,7 +309,9 @@ static NSString *const CellID = @"CellID";
             }
         }
         dispatch_group_leave(group);
-    } failure:^(NSError * _Nonnull error) {}];
+    } failure:^(NSError * _Nonnull error) {
+        DLog(@"");
+    }];
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         switch (self->_areaIndex) {
@@ -271,31 +331,46 @@ static NSString *const CellID = @"CellID";
                 break;
         }
     });
-    
-   
-    
-//    NSString *path = [[NSBundle mainBundle]pathForResource:[NSString stringWithFormat:@"%ld",areaIndex + 1] ofType:@"plist"];
-//    NSMutableDictionary *plistDic=[NSMutableDictionary dictionaryWithContentsOfFile:path];
-//
-//    for (NSDictionary *sh_dic in plistDic[@"data"][@"sh_items"]) {
-//        AddressAreaModel *addressAreaModel = [[AddressAreaModel alloc]init];
-//        [addressAreaModel setValuesForKeysWithDictionary:sh_dic];
-//        switch (areaIndex) {
-//            case 0:
-//                [weakself.area_dataArray1 addObject:addressAreaModel];
-//                break;
-//            case 1:
-//                [weakself.area_dataArray2 addObject:addressAreaModel];
-//                break;
-//            case 2:
-//                [weakself.area_dataArray3 addObject:addressAreaModel];
-//                break;
-//            default:
-//                break;
-//        }
-//    }
-    
-    
+}
+
+- (void)buttonClickAction{
+    if (!areaView) {
+        [self requestAllAreaName];
+    }
+    else
+        [areaView showAreaView];
+}
+
+#pragma mark —— UITextView 协议
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(nonnull NSString *)text{
+    if (![text isEqualToString:@""])
+    {
+        _placeholderLabel.hidden = YES;
+    }
+    if ([text isEqualToString:@""] && range.location == 0 && range.length == 1)
+        
+    {
+        _placeholderLabel.hidden = NO;
+    }
+    return YES;
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    // 详细地址
+    [self.user_AdressDic setObject:textView.text forKey:@"address"];
+}
+
+
+#pragma mark —— UISwitch
+- (void)valueChanged:(UISwitch*)sender{
+    NSString *boolStr;
+    if (sender.on == YES) {
+        boolStr = @"1" ;
+    }else{
+        boolStr = @"0";
+    }
+    // 默认地址
+    [self.user_AdressDic setObject:boolStr forKey:@"isDefault"];
 }
 
 @end

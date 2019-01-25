@@ -7,7 +7,7 @@
 //
 
 #import "AreaView.h"
-#import "AddressAreaModel.h"
+#import "ModifyAddressAreaModel.h"
 @implementation AreaView
 {
     UIView *blackBaseView;
@@ -197,7 +197,7 @@ CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height
     switch (tableView.tag - 200) {
         case 0:
         {
-            AddressAreaModel *addressAreaModel = _provinceArray[indexPath.row];
+            ModifyAddressAreaModel *addressAreaModel = _provinceArray[indexPath.row];
             cell.textLabel.text = addressAreaModel.name;
             cell.textLabel.font = HTFont(28);
             cell.textLabel.textColor = RGBCOLOR(102, 102, 102);
@@ -205,7 +205,7 @@ CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height
             break;
         case 1:
         {
-            AddressAreaModel *addressAreaModel = _cityArray[indexPath.row];
+            ModifyAddressAreaModel *addressAreaModel = _cityArray[indexPath.row];
             cell.textLabel.text = addressAreaModel.name;
             cell.textLabel.font = HTFont(28);
             cell.textLabel.textColor = RGBCOLOR(102, 102, 102);
@@ -213,7 +213,7 @@ CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height
             break;
         case 2:
         {
-            AddressAreaModel *addressAreaModel = _regionsArray[indexPath.row];
+            ModifyAddressAreaModel *addressAreaModel = _regionsArray[indexPath.row];
             cell.textLabel.text = addressAreaModel.name;
             cell.textLabel.font = HTFont(28);
             cell.textLabel.textColor = RGBCOLOR(102, 102, 102);
@@ -246,7 +246,7 @@ CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height
     switch (tableView.tag - 200) {
         case 0:
         {
-            AddressAreaModel *addressAreaModel = _provinceArray[indexPath.row];
+            ModifyAddressAreaModel *addressAreaModel = _provinceArray[indexPath.row];
             btn1Height = [AreaView getLabelWidth:addressAreaModel.name font:30 height:30] + 20;
             [btn1 setTitle:addressAreaModel.name forState:UIControlStateNormal];
             [btn1 setTitleColor:RGBCOLOR(34, 34, 34) forState:UIControlStateNormal];
@@ -269,7 +269,7 @@ CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height
             break;
         case 1:
         {
-            AddressAreaModel *addressAreaModel = _cityArray[indexPath.row];
+            ModifyAddressAreaModel *addressAreaModel = _cityArray[indexPath.row];
             btn2Height = [AreaView getLabelWidth:addressAreaModel.name font:30 height:30] + 20;
             [btn2 setTitle:addressAreaModel.name forState:UIControlStateNormal];
             [btn2 setTitleColor:RGBCOLOR(34, 34, 34) forState:UIControlStateNormal];
@@ -290,7 +290,7 @@ CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height
             break;
         case 2:
         {
-            AddressAreaModel *addressAreaModel = _regionsArray[indexPath.row];
+            ModifyAddressAreaModel *addressAreaModel = _regionsArray[indexPath.row];
             btn3Height = [AreaView getLabelWidth:addressAreaModel.name font:30 height:30] + 20;
             [btn3 setTitle:addressAreaModel.name forState:UIControlStateNormal];
             [btn3 setTitleColor:RGBCOLOR(34, 34, 34) forState:UIControlStateNormal];
@@ -300,6 +300,9 @@ CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height
             }
             lineView3.frame = CGRectMakes(btn1Height + btn2Height + 10, 78, btn3Height - 20, 2);
             btn3.frame = CGRectMakes(btn1Height + btn2Height, 50, btn3Height, 30);
+            if ([self.address_delegate respondsToSelector:@selector(selectIndex:selectID:)]) {
+                [self.address_delegate selectIndex:3 selectID:addressAreaModel.id];
+            }
             [self hidenAreaView];
         }
             break;
@@ -347,8 +350,9 @@ CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height
         self->_areaWhiteBaseView.frame = CGRectMakes(0, 667, 375, 380);
     }completion:^(BOOL finished) {
         self.hidden = YES;
-        if ([self.address_delegate respondsToSelector:@selector(getSelectAddressInfor:)]) {
-            [self.address_delegate getSelectAddressInfor:[NSString stringWithFormat:@"%@%@%@",btn1.titleLabel.text,btn2.titleLabel.text,btn3.titleLabel.text]];
+        if ([self.address_delegate respondsToSelector:@selector(getSelectAddressInfor:addressInfoArr:)]) {
+            NSArray *array = @[btn1.titleLabel.text,btn2.titleLabel.text,btn3.titleLabel.text];
+            [self.address_delegate getSelectAddressInfor:[NSString stringWithFormat:@"%@%@%@",btn1.titleLabel.text,btn2.titleLabel.text,btn3.titleLabel.text] addressInfoArr:array];
         }
     }];
 }

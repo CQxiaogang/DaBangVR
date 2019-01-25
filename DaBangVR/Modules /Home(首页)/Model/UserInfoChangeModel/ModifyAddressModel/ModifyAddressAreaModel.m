@@ -6,9 +6,9 @@
 //  Copyright © 2017年 Codeliu. All rights reserved.
 //
 
-#import "AddressAreaModel.h"
+#import "ModifyAddressAreaModel.h"
 
-@implementation AddressAreaModel
+@implementation ModifyAddressAreaModel
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
     

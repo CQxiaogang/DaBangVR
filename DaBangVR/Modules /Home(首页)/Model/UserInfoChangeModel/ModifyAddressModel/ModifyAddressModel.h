@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AddressModel : NSObject
+@interface ModifyAddressModel : NSObject
 @property(nonatomic,strong)NSString *sh_address;
 @property(nonatomic,strong)NSString *sh_full_name;
 @property(nonatomic,strong)NSString *sh_area;

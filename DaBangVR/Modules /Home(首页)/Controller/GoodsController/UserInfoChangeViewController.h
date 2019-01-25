@@ -1,5 +1,5 @@
 //
-//  informationModificationCell.h
+//  informationModificationViewController.h
 //  DaBangVR
 //
 //  Created by mac on 2019/1/7.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface informationModificationCell : BaseTableViewCell
+@interface UserInfoChangeViewController : RootViewController
 
 @end
 
