@@ -16,7 +16,8 @@
 
 @interface UserInfoChangeViewController ()
 <
- informationModificationHeaderDelegate
+informationModificationHeaderDelegate,
+UserInfoChangeCellDelegate
 >
 
 @property (nonatomic, strong) informationModificationHeaderView *headerView;
@@ -89,7 +90,7 @@ static NSString *const CellID = @"CellID";
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     informationModificationCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
-    
+    cell.delegate = self;
     if (cell == nil) {
         cell = [[informationModificationCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
@@ -113,4 +114,10 @@ static NSString *const CellID = @"CellID";
     ModifyAddressViewController *modifiAddressVC = [[ModifyAddressViewController alloc] init];
     [self.navigationController pushViewController:modifiAddressVC animated:NO];
 }
+
+#pragma mark —— <##><##>UserInfoChangeCell 协议
+-(void)changeAdress{
+    DLog(@"------");
+}
+
 @end

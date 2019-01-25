@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol UserInfoChangeCellDelegate <NSObject>
 
 - (void)defaultAdressSelect;
+- (void)changeAdress;
 
 @end
 

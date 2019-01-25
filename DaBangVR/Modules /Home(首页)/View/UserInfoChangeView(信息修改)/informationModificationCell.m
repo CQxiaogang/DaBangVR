@@ -36,6 +36,9 @@
     
 }
 - (IBAction)changeAdressBtn:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(changeAdress)]) {
+        [self.delegate changeAdress];
+    }
 }
 - (IBAction)deleteAdressBtn:(id)sender {
 }
