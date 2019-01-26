@@ -7,36 +7,38 @@
 //
 
 // Contrillers
-#import "BuyNowViewController.h"
+#import "OrderSureViewController.h"
 #import "UserInfoChangeViewController.h"
 #import "LeaveMessageViewController.h"
 // Views
-#import "DBDetailHeaderView.h"
-#import "DBDetailContentCell.h"
+#import "OrderSureTopView.h"
+#import "OrderSureHeaderView.h"
+#import "OrderSureTableViewCell.h"
 #import "DBDetailFooterView.h"
 // Models
-#import "BuyNowModel.h"
+#import "OrderSureModel.h"
 
-@interface BuyNowViewController ()
+@interface OrderSureViewController ()
 <
  UITableViewDelegate,
  UITableViewDataSource,
- DBDetailHeaderViewDelegate,
+ OrderSureTopViewDelegate,
  DetailFooterViewDelegate
 >
 
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) DBDetailHeaderView *headerView;
-@property (nonatomic, strong) DBDetailFooterView *footerView;
+@property (nonatomic, strong) UITableView         *tableView;
+@property (nonatomic, strong) OrderSureTopView    *topView;
+@property (nonatomic, strong) OrderSureHeaderView *headerView;
+@property (nonatomic, strong) DBDetailFooterView  *footerView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
-//
-@property (nonatomic, strong) BuyNowModel *model;
+@property (nonatomic, strong) OrderSureModel *model;
 
 @end
 
-@implementation BuyNowViewController
+@implementation OrderSureViewController
 static NSString *const DBDetailViewCellID = @"DBDetailViewCell";
+static NSString *const HeaderViewCellID = @"HeaderViewCellID";
 static NSString *leaveMessage;
 #pragma mark —— 懒加载
 - (UITableView *)tableView{
@@ -44,7 +46,8 @@ static NSString *leaveMessage;
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        [_tableView registerNib:[UINib nibWithNibName:@"DBDetailContentCell" bundle:nil] forCellReuseIdentifier:DBDetailViewCellID];
+        [_tableView registerNib:[UINib nibWithNibName:@"OrderSureTableViewCell" bundle:nil] forCellReuseIdentifier:DBDetailViewCellID];
+//        [_tableView registerNib:[UINib nibWithNibName:@"OrderSureHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:HeaderViewCellID];
         
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
@@ -54,11 +57,18 @@ static NSString *leaveMessage;
     return _tableView;
 }
 
--(DBDetailHeaderView *)headerView{
+-(OrderSureTopView *)topView{
+    if (!_topView) {
+        _topView = [[[NSBundle mainBundle] loadNibNamed:@"OrderSureTopView" owner:nil options:nil]firstObject];
+        _topView.model = _model;
+        _topView.delegate = self;
+    }
+    return _topView;
+}
+
+-(OrderSureHeaderView *)headerView{
     if (!_headerView) {
-        _headerView = [[[NSBundle mainBundle] loadNibNamed:@"DBDetailHeaderView" owner:nil options:nil]firstObject];
-        _headerView.model = _model;
-        _headerView.delegate = self;
+        _headerView = [[[NSBundle mainBundle] loadNibNamed:@"OrderSureHeaderView" owner:nil options:nil] firstObject];
     }
     return _headerView;
 }
@@ -87,11 +97,18 @@ static NSString *leaveMessage;
 }
 
 - (void)creatUI{
+    kWeakSelf(self);
+    [self.view addSubview:self.topView];
+    [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(kTopHeight);
+        make.left.right.equalTo(@(0));
+        make.height.equalTo(kFit(100));
+    }];
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.tableFooterView = self.footerView;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(kTopHeight);
+        make.top.equalTo(weakself.topView.mas_bottom).offset(0);
         make.left.right.bottom.equalTo(@(0));
     }];
     
@@ -104,7 +121,7 @@ static NSString *leaveMessage;
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *data = dic[@"data"];
-        weakself.model = [BuyNowModel modelWithDictionary:data];
+        weakself.model = [OrderSureModel modelWithDictionary:data];
         // 得到数据,创建UI
         [self creatUI];
     } failure:^(NSError * _Nonnull error) {
@@ -121,10 +138,10 @@ static NSString *leaveMessage;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    DBDetailContentCell *cell = [tableView dequeueReusableCellWithIdentifier:DBDetailViewCellID];
+    OrderSureTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DBDetailViewCellID];
     
     if (cell == nil) {
-        cell = [[DBDetailContentCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:DBDetailViewCellID];
+        cell = [[OrderSureTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:DBDetailViewCellID];
     }
     cell.model = _model;
     return cell;
@@ -132,6 +149,17 @@ static NSString *leaveMessage;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 100;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    self.headerView.model = self.model;
+
+    return self.headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 30;
 }
 
 #pragma mark —— DBDetailHeaderView delegate
@@ -176,22 +204,22 @@ static NSString *leaveMessage;
     };
     [self.navigationController pushViewController:vc animated:NO];
 }
-// 提交订单
+#pragma mark —— 提交订单
 - (void)submitOrdersBtnAction{
-    NSDictionary *dic = @{
-                          @"submitType" : @"buy",
-                          @"addressId" : _model.receivingAddress.id,
-                          @"addressId" : leaveMessage
-                          };
-    [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        
-        [SVProgressHUD showInfoWithStatus:dic[@"errmsg"]];
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-        [SVProgressHUD dismissWithDelay:1.0];
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
+//    NSDictionary *dic = @{
+//                          @"submitType" : @"buy",
+//                          @"addressId" : _model.receivingAddress.id,
+//                          @"addressId" : leaveMessage
+//                          };
+//    [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
+//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+//
+//        [SVProgressHUD showInfoWithStatus:dic[@"errmsg"]];
+//        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+//        [SVProgressHUD dismissWithDelay:1.0];
+//    } failure:^(NSError * _Nonnull error) {
+//
+//    }];
 }
 
 @end

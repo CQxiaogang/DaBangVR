@@ -24,7 +24,8 @@
     NSMutableArray *tempArray = [NSMutableArray new];
     for (NSDictionary *dic in gcvList) {
         HBK_GoodsModel *model = [[HBK_GoodsModel alloc] init];
-        [model setValuesForKeysWithDictionary:dic];
+//        [model setValuesForKeysWithDictionary:dic];
+        [model modelSetWithDictionary:dic];
         [tempArray addObject:model];
     }
     self.goodsArray = [NSMutableArray arrayWithArray: tempArray];

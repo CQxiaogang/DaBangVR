@@ -94,10 +94,10 @@
 
 #pragma mark —— goodsInfoView delegate
 // 选择商品规格
--(void)chooseBabyAction{
+-(void)chooseAttributesOfClickAction:(UIButton *)sender{
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(chooseBabyAction)]) {
-        [self.delegate chooseBabyAction];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(chooseAttributesOfClickAction:)]) {
+        [self.delegate chooseAttributesOfClickAction:sender];
     }
 }
 

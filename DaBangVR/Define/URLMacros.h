@@ -49,13 +49,14 @@
 // 渠道列表
 #define URL_channel_menu_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getChannelMenuList?mallSpeciesId=1")
 // 商品类型列表
-#define URL_goods_title NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsCategoryList?parentId=1036096")
+#define URL_getGoodsCategoryList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsCategoryList?")
+
 //轮播图列表
 #define URl_goods_rotation_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsRotationList?parentId=1")
 
 #pragma mark ——————   商品相关   ——————
 // 商品列表
-#define URL_goods_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getGoodsList?")
+#define URL_getGoodsList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getGoodsList?")
 // 商品详情
 #define URL_goods_details NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getGoodsDetails?")
 // 添加商品评论
@@ -76,13 +77,12 @@
 #pragma mark ——————   个人中心    ——————
 // 添加收货地址
 #define URl_addressAdd NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/addressAdd?")
-
-//查询收货地址
+// 查询收货地址
 #define URl_addressList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/addressList")
-
+// 查询一条地址
+#define URl_addressListone NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/addressListone?")
 // 删除收货地址
 #define URl_addressDelete NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/addressDelete")
-
 // 查询地址下级列表
 #define URl_getRegionChildrenList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/getRegionChildrenList?")
 
@@ -99,7 +99,5 @@
 #define URl_submitOrder NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/submitOrder?")
 // 修改购物车中商品的数量
 #define URl_updateNumber2Cart NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/updateNumber2Cart?")
-
-
 
 #endif /* URLMacros_h */

@@ -10,8 +10,4 @@
 
 @implementation ProductInfoVoListModel
 
-+(NSDictionary *)mj_replacedKeyFromPropertyName{
-    return @{@"ID":@"id"};
-}
-
 @end

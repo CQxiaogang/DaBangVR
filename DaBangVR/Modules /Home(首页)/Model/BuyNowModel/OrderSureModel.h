@@ -7,18 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BuyNowOfGoodVoModel.h"
-#import "BuyNowOfUserAddressModel.h"
-#import "BuyNowOfProductInfoModel.h"
+#import "OrderSureDeptGoodsModel.h"
+#import "OrderSureUserAddressModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BuyNowModel : NSObject
+@interface OrderSureModel : NSObject
 
 /**
  邮费
  */
-@property(nonatomic, copy) NSString *logisticsPrice;
+@property(nonatomic, copy) NSString *orderLogisticsTotalPrice;
 
 /**
  数量
@@ -30,6 +29,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy) NSString *productId;
 
+/**
+ 商品总价
+ */
+@property(nonatomic, copy) NSString *orderGoodsTotalPrice;
+
+/**
+ 商品加邮费价格
+ */
+@property(nonatomic, copy) NSString *orderTotalPrice;
 /**
  货物 ID
  */
@@ -46,19 +54,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString *goodsTotalPrice;
 
 /**
- 产品信息
- */
-@property(nonatomic, strong) BuyNowOfProductInfoModel *productInfoVo;
-
-/**
  用户信息，地址信息
  */
-@property(nonatomic, strong) BuyNowOfUserAddressModel *receivingAddress;
+@property(nonatomic, strong) OrderSureUserAddressModel *receivingAddress;
 
 /**
- 货物信息
+ 店铺列表
  */
-@property(nonatomic, strong) BuyNowOfGoodVoModel *goodsVo;
+@property(nonatomic, strong) NSArray <OrderSureDeptGoodsModel *> *deptGoodsList;
+
 @end
 
 NS_ASSUME_NONNULL_END

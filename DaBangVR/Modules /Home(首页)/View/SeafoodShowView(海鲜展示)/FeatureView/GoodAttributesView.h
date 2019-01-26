@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GoodsDetailsModel.h"
 
 typedef void (^GoodsAttributesBlock)(NSArray *array);
 /* 上一次选择的属性 */
@@ -31,16 +32,11 @@ static NSInteger lastNum;
 /** 属性值2 */
 @property (nonatomic, copy) NSString *goods_attr_value_2;
 @property (nonatomic, strong) NSArray *goodAttrsArr;
-// 商品属性数组，接受外部传进来的数据
-@property (nonatomic, copy) NSArray  *goodsAttributesArray;
-/* 商品图片 */
-@property (nonatomic, copy) NSString *goodsImgStr;
-// 商品信息列表
-@property (nonatomic, copy) NSArray  *productInfoVoList;
-// 商品价格
-@property (nonatomic, copy) NSString *sellingPrice;
-// 库存
-@property (nonatomic, copy) NSString *remainingInventory;
+
+/**
+ 商品详情 model,用于当商品p没有规格的时候显示价格等数据。
+ */
+@property (nonatomic, strong) GoodsDetailsModel *model;
 
 @property (nonatomic, copy) void (^sureBtnsClick)(NSString *num, NSString *attr_id, NSString *goods_attr_value_1, NSString *goods_attr_value_2);
 /**

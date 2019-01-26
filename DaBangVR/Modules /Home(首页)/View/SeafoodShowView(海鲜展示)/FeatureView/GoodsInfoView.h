@@ -15,8 +15,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol goodsInfoViewDeletage <NSObject>
 
--(void)chooseBabyAction;
--(void)allCommentsAction;
+/**
+ 选择规格
+
+ @param sender 当前按钮
+ */
+- (void)chooseAttributesOfClickAction:(UIButton *)sender;
+
+/**
+ 所以评论
+ */
+- (void)allCommentsAction;
 
 @end
 

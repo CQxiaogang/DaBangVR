@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BuyNowModel.h"
+#import "OrderSureModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@protocol DBDetailHeaderViewDelegate <NSObject>
+@protocol OrderSureTopViewDelegate <NSObject>
 
 - (void)informationModification;
 
 @end
 
-@interface DBDetailHeaderView : UIView
+@interface OrderSureTopView : UIView
 // 收货人名字
 @property (weak, nonatomic) IBOutlet UILabel *consigneeNameLab;
 // 收货人手机号
@@ -24,9 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 地址
 @property (weak, nonatomic) IBOutlet UILabel *addressLab;
 
-@property (nonatomic, weak) id<DBDetailHeaderViewDelegate> delegate;
+@property (nonatomic, weak) id<OrderSureTopViewDelegate> delegate;
 
-@property (nonatomic, strong) BuyNowModel *model;
+@property (nonatomic, strong) OrderSureModel *model;
 
 @end
 

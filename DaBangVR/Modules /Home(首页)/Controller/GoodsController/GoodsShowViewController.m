@@ -25,20 +25,6 @@
 
 @implementation GoodsShowViewController
 
-- (void)getRandomTitles {
-    self.titles = [NSMutableArray new];
-    [NetWorkHelper POST:URL_goods_title parameters:nil success:^(id  _Nonnull responseObject) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSDictionary *dataDic= dic[@"data"];
-        NSArray *goodsList = dataDic[@"goodsCategoryList"];
-        for (NSDictionary *dic in goodsList) {
-            SeafoodShowTitleModel *model = [SeafoodShowTitleModel modelWithDictionary:dic];
-            [self.titles addObject:model];
-        }
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
-}
 - (NSMutableArray *)titles{
     if (!_titles) {
         _titles = [NSMutableArray new];
@@ -49,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [NetWorkHelper POST:URL_goods_title parameters:nil success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URL_getGoodsCategoryList parameters:@{@"parentId" : @"1036096"} success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *dataDic= dic[@"data"];
         NSArray *goodsList = dataDic[@"goodsCategoryList"];

@@ -41,6 +41,9 @@
     }
 }
 - (IBAction)deleteAdressBtn:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(deleteAdress)]) {
+        [self.delegate deleteAdress];
+    }
 }
 
 @end

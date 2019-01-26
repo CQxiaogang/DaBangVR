@@ -8,7 +8,7 @@
 // Controllers
 #import "GoodsDetailsViewController.h"
 #import "AllCommentsViewController.h" //查看所以评论
-#import "BuyNowViewController.h"      //立即购买
+#import "OrderSureViewController.h"      //立即购买
 #import "HBK_ShoppingCartViewController.h" //购物车
 // ViewS
 #import "GoodsDetailsView.h"
@@ -168,7 +168,7 @@ static NSString *CellID = @"CellID";
     UIBarButtonItem *shoppingCarItem = [[UIBarButtonItem alloc] initWithCustomView:shoppingCarBtn];
     
     UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [shareBtn.widthAnchor constraintEqualToConstant:25].active = YES;
+    [shareBtn.widthAnchor constraintEqualToConstant:25].active  = YES;
     [shareBtn.heightAnchor constraintEqualToConstant:25].active = YES;
     [shareBtn setImage:[UIImage imageNamed:@"c_share"] forState:UIControlStateNormal];
     UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithCustomView:shareBtn];
@@ -183,8 +183,8 @@ static NSString *CellID = @"CellID";
     [vc getData:self.model.id];
     [self.navigationController pushViewController:vc animated:NO];
 }
-// 选择商品规格
-- (void)chooseBabyAction{
+
+- (void)chooseAttributesOfClickAction:(UIButton *)sender{
     
     [self creatAttributesView:nil];
 }
@@ -192,36 +192,41 @@ static NSString *CellID = @"CellID";
 - (void)creatAttributesView:(NSString *)identifier{
     // 弹出商品规格选择 view
     GoodAttributesView *attributesView = [[GoodAttributesView alloc] initWithFrame:(CGRect){0, 0, KScreenW, KScreenH}];
-    attributesView.goodsAttributesArray = self.model.goodsSpecVoList;
-    attributesView.goodsImgStr          = self.model.listUrl;
-    attributesView.productInfoVoList    = self.model.productInfoVoList;
-    attributesView.remainingInventory   = self.model.remainingInventory;
-    attributesView.sellingPrice         = self.model.sellingPrice;
+    
+    attributesView.model = self.model;
+    
     [attributesView showInView:self.navigationController.view];
     
     // 确认 btn 数据回掉
     kWeakSelf(self);
     attributesView.goodsAttributesBlock = ^(NSArray *array) {
-        if (array.count == 0) {
-            return ;
-        }
         weakself.goodsAttributesArr = array;
-        if ([identifier isEqualToString:@"立即购买"]) {
+        if ([identifier isEqualToString:@"立即购买"] || identifier.length == 0) {
             [self buyNow:array];
         }else if ([identifier isEqualToString:@"购物车"]){
             [self addToShoppingCar:array];
         }
-        
     };
 }
 
 - (void)addToShoppingCar:(NSArray *)array{
-    NSDictionary *dic = @{
-                          @"productId":array[0],
-                          @"goodsId"  :array[1],
-                          @"number"   :array[2],
-                          @"deptId"   : self.model.deptId
-                          };
+    NSDictionary *dic;
+    if (array.count == 3) {
+        dic = @{
+                @"productId":array[0],
+                @"goodsId"  :array[1],
+                @"number"   :array[2],
+                @"deptId"   : self.model.deptId
+                };
+        
+    }else{
+        dic = @{
+                @"goodsId"  :array[0],
+                @"number"   :array[1],
+                @"deptId"   : self.model.deptId
+                };
+        
+    }
     
     [NetWorkHelper POST:URl_addToCar parameters:dic success:^(id  _Nonnull responseObject) {
         
@@ -235,17 +240,27 @@ static NSString *CellID = @"CellID";
 }
 
 - (void)buyNow:(NSArray *)array{
-    NSDictionary *dic = @{
-                          @"productId":array[0],
-                          @"goodsId":array[1],
-                          @"number":array[2]
-                          };
+    NSDictionary *dic;
+    if (array.count == 3) {
+        dic = @{
+              @"productId":array[0],
+              @"goodsId":array[1],
+              @"number":array[2]
+              };
+    }else{
+        dic = @{
+                @"goodsId":array[0],
+                @"number" :array[1]
+                };
+        
+    }
+    
     [NetWorkHelper POST:URl_confirmGoods2Buy parameters:dic success:^(id  _Nonnull responseObject) {
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         DLog(@"%@",dic[@"errmsg"]);
         // 直接跳转确认订单界面
-        [self.navigationController pushViewController:[[BuyNowViewController alloc] init] animated:NO];
+        [self.navigationController pushViewController:[[OrderSureViewController alloc] init] animated:NO];
     } failure:^(NSError * _Nonnull error) {
         DLog(@"error is %@",error);
     }];
@@ -256,7 +271,7 @@ static NSString *CellID = @"CellID";
     if (_goodsAttributesArr.count == 0) {
         [self creatAttributesView:@"立即购买"];
     }else{
-        [self.navigationController pushViewController:[[BuyNowViewController alloc] init] animated:NO];
+        [self.navigationController pushViewController:[[OrderSureViewController alloc] init] animated:NO];
     }
 }
 

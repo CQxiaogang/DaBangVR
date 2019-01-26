@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BuyNowModel.h"
+#import "OrderSureModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DBDetailContentCell : BaseTableViewCell
+@interface OrderSureTableViewCell : BaseTableViewCell
 // 商品图片
 @property (weak, nonatomic) IBOutlet YYAnimatedImageView *goodsImgView;
 // 商品详情
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 市场价格
 @property (weak, nonatomic) IBOutlet UILabel *marketPriceLab;
 
-@property (nonatomic, strong) BuyNowModel *model;
+@property (nonatomic, strong) OrderSureModel *model;
 
 @end
 

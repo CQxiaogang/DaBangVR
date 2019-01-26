@@ -248,6 +248,13 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
     }
     return _numberButton;
 }
+- (NSMutableArray *)goodsDetailsArr{
+    if (!_goodsDetailsArr) {
+        _goodsDetailsArr = [NSMutableArray new];
+    }
+    return _goodsDetailsArr;
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -415,33 +422,43 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DBFeatureChoseTopCell *cell = [tableView dequeueReusableCellWithIdentifier:DBFeatureChoseTopCellID forIndexPath:indexPath];
+    // cell不能点击
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     _cell = cell;
+    
     if (_seleArray.count != _featureAttr.count && lastSeleArray.count != _featureAttr.count) {
-        cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",_remainingInventory];
-        NSInteger price = [_sellingPrice integerValue];
-        cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %ld",price*lastNum];
+        [cell.goodImageView setImageWithURL:[NSURL URLWithString:_model.listUrl] placeholder:[UIImage imageNamed:@""]];
+        cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",_model.remainingInventory];
+        cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %ld",[_model.sellingPrice integerValue]*lastNum];
         cell.chooseAttLabel.text = @"请选择 颜色 尺码";
+        
     }else {
         cell.chooseAttLabel.textColor = [UIColor darkGrayColor];
-        //
+        
         NSString *attString = (_seleArray.count == _featureAttr.count) ? [_seleArray componentsJoinedByString:@"_"] : [lastSeleArray componentsJoinedByString:@"_"];
-        //
+        
         for (ProductInfoVoListModel *model in _goodsSpecArr) {
             if ([attString isEqualToString:model.goodsSpecIds]) {
                 cell.chooseAttLabel.text = [NSString stringWithFormat:@"已选属性：%@",model.name];
                 cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",model.number];
-                NSInteger price = [model.retailPrice integerValue];
-                cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %ld",price*lastNum];
-                _goodsDetailsArr = [NSMutableArray new];
-                [_goodsDetailsArr addObject:model.ID];
-                [_goodsDetailsArr addObject:model.goodsId];
-                [_goodsDetailsArr addObject:[NSString stringWithFormat:@"%ld",lastNum]];
+                cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %ld",[model.retailPrice integerValue]*lastNum];
+                [self.goodsDetailsArr addObject:model.id];
+                [self.goodsDetailsArr addObject:model.goodsId];
             }
         }
+        // 没有规格的时候
+        if (_featureAttr.count == 0) {
+            [cell.goodImageView setImageWithURL:[NSURL URLWithString:_model.listUrl] placeholder:[UIImage imageNamed:@""]];
+            cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",_model.remainingInventory];
+            NSInteger price = [_model.sellingPrice integerValue];
+            cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %ld",price*lastNum];
+            cell.chooseAttLabel.text = _model.title;
+            [self.goodsDetailsArr addObject:_model.id];
+        }
+        // 选择的数量
+        [self.goodsDetailsArr addObject:[NSString stringWithFormat:@"%ld",lastNum]];
     }
-    
-    [cell.goodImageView setImageWithURL:[NSURL URLWithString:_goodsImgStr] placeholder:[UIImage imageNamed:@""]];
     kWeakSelf(self)
     cell.crossButtonClickBlock = ^{
         [weakself removeView];
@@ -478,23 +495,16 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
     _good_price = good_price;
     self.goodsPriceLbl.text = [NSString stringWithFormat:@"%@元", good_price];
 }
-- (void)setGoodsAttributesArray:(NSArray *)goodsAttributesArray{
-    _goodsAttributesArray = goodsAttributesArray;
-     _featureAttr = [DBFeatureItem mj_objectArrayWithKeyValuesArray:goodsAttributesArray];
+
+- (void)setModel:(GoodsDetailsModel *)model{
+    _model = model;
+    
+    _featureAttr  = [DBFeatureItem mj_objectArrayWithKeyValuesArray:_model.goodsSpecVoList];
+    
+    _goodsSpecArr = [ProductInfoVoListModel mj_objectArrayWithKeyValuesArray:_model.productInfoVoList];
+    
 }
-- (void)setGoodsImgStr:(NSString *)goodsImgStr{
-    _goodsImgStr = goodsImgStr;
-}
--(void)setProductInfoVoList:(NSArray *)productInfoVoList{
-    _productInfoVoList = productInfoVoList;
-    _goodsSpecArr = [ProductInfoVoListModel mj_objectArrayWithKeyValuesArray:productInfoVoList];
-}
-- (void)setSellingPrice:(NSString *)sellingPrice{
-    _sellingPrice = sellingPrice;
-}
-- (void)setRemainingInventory:(NSString *)remainingInventory{
-    _remainingInventory = remainingInventory;
-}
+
 - (void)showInView:(UIView *)view {
     [view addSubview:self];
     __weak typeof(self) _weakSelf = self;
@@ -528,9 +538,9 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
     // 退出视图
     [self removeView];
     // 回掉
-    if (_seleArray.count != 0) {
+    if (self.goodsDetailsArr.count) {
         if (self.goodsAttributesBlock != nil) {
-            self.goodsAttributesBlock(_goodsDetailsArr);
+            self.goodsAttributesBlock(self.goodsDetailsArr);
         }
     }
     // 记录选择的商品数据

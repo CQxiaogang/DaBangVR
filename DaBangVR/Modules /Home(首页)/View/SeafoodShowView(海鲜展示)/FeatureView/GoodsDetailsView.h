@@ -13,8 +13,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol GoodsDetailsViewDelegate <NSObject>
 
+/**
+ 所以评论
+ */
 - (void)allCommentsAction;
-- (void)chooseBabyAction;
+
+/**
+ 选择商品规格
+
+ @param sender 当前按钮
+ */
+- (void)chooseAttributesOfClickAction:(UIButton *)sender;
 
 @end
 

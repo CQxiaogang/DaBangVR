@@ -40,11 +40,11 @@ static NSString *CellID = @"CellID";
     if (!_rigthViewArray) {
         _rigthViewArray = [NSMutableArray new];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.mj_w-90, 0, 80, 40)];
-        if ([_model.logisticsPrice isEqualToString:@"0"]) {
-            label.text = @"快递免邮";
-        }else{
-            label.text = [NSString stringWithFormat:@"快递费: %@ 元",_model.logisticsPrice];
-        }
+//        if ([_model.logisticsPrice isEqualToString:@"0"]) {
+//            label.text = @"快递免邮";
+//        }else{
+//            label.text = [NSString stringWithFormat:@"快递费: %@ 元",_model.logisticsPrice];
+//        }
         
         label.textAlignment = NSTextAlignmentRight;
         label.textColor = KFontColor;
@@ -88,7 +88,7 @@ static NSString *CellID = @"CellID";
     return 40;
 }
 
-- (void)setModel:(BuyNowModel *)model{
+- (void)setModel:(OrderSureModel *)model{
     _model = model;
 }
 

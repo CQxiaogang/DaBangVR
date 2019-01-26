@@ -112,12 +112,22 @@ static NSString *const CellID = @"CellID";
 #pragma mark —— 新增地址 Delegate
 -(void)addNewAddress{
     ModifyAddressViewController *modifiAddressVC = [[ModifyAddressViewController alloc] init];
+    
     [self.navigationController pushViewController:modifiAddressVC animated:NO];
 }
 
-#pragma mark —— <##><##>UserInfoChangeCell 协议
+#pragma mark —— UserInfoChangeCell 协议
 -(void)changeAdress{
-    DLog(@"------");
+    ModifyAddressViewController *vc = [[ModifyAddressViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
+}
+
+-(void)deleteAdress{
+    [self AlertWithTitle:@"确定删除" message:@"" andOthers:@[@"取消",@"确认"] animated:YES action:^(NSInteger index) {
+        if (index == 0) {
+            [NetWorkHelper POST:URl_addressDelete parameters:nil success:nil failure:nil];
+        }
+    }];
 }
 
 @end

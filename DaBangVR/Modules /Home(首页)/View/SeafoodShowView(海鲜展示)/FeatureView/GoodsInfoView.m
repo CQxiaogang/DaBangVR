@@ -12,8 +12,8 @@
 @implementation GoodsInfoView
 
 - (IBAction)chooseBabyAction:(id)sender {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(chooseBabyAction)]) {
-        [self.delegate chooseBabyAction];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(chooseAttributesOfClickAction:)]) {
+        [self.delegate chooseAttributesOfClickAction:sender];
     }
 }
 

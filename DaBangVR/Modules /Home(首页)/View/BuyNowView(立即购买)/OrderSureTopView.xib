@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="LLm-2F-dwM" customClass="DBDetailHeaderView">
+        <view contentMode="scaleToFill" id="LLm-2F-dwM" customClass="OrderSureTopView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -109,7 +109,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广西壮族自治区南宁市青秀区金州路人才大厦14楼大邦VR广告有限公司" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMB-0l-YRM">
-                    <rect key="frame" x="130" y="41" width="185" height="43"/>
+                    <rect key="frame" x="130" y="45" width="185" height="43"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="185" id="R2Z-Z1-xhg"/>
                     </constraints>
@@ -145,10 +145,18 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTP-GL-vfo">
+                    <rect key="frame" x="0.0" y="99.5" width="375" height="0.5"/>
+                    <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="SSn-BE-Zje"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fcT-FU-evl" firstAttribute="top" secondItem="A6Q-xr-YYQ" secondAttribute="top" constant="12" id="0A8-4R-IYa"/>
+                <constraint firstAttribute="trailing" secondItem="hTP-GL-vfo" secondAttribute="trailing" id="0Vh-Dn-7lh"/>
                 <constraint firstItem="avW-NP-BSb" firstAttribute="leading" secondItem="26t-Kn-5GM" secondAttribute="trailing" id="2EU-Nv-mbR"/>
                 <constraint firstItem="dtC-fp-Vcj" firstAttribute="top" secondItem="fcT-FU-evl" secondAttribute="bottom" constant="16" id="2Pg-GO-3Iz"/>
                 <constraint firstItem="dtC-fp-Vcj" firstAttribute="leading" secondItem="fcT-FU-evl" secondAttribute="leading" id="2u4-qE-NwG"/>
@@ -158,13 +166,15 @@
                 <constraint firstItem="dtC-fp-Vcj" firstAttribute="height" secondItem="fcT-FU-evl" secondAttribute="height" id="96L-5s-foe"/>
                 <constraint firstItem="gBN-J1-XuX" firstAttribute="centerY" secondItem="LLm-2F-dwM" secondAttribute="centerY" id="AVt-fT-qjw"/>
                 <constraint firstItem="A6Q-xr-YYQ" firstAttribute="trailing" secondItem="gBN-J1-XuX" secondAttribute="trailing" constant="20" id="EQc-X0-VuV"/>
+                <constraint firstItem="uMB-0l-YRM" firstAttribute="top" secondItem="dtC-fp-Vcj" secondAttribute="top" id="Eay-P6-p6z"/>
+                <constraint firstItem="hTP-GL-vfo" firstAttribute="leading" secondItem="LLm-2F-dwM" secondAttribute="leading" id="Qgg-ts-OvP"/>
                 <constraint firstItem="dtC-fp-Vcj" firstAttribute="width" secondItem="fcT-FU-evl" secondAttribute="width" id="b4m-eB-K5s"/>
                 <constraint firstItem="26t-Kn-5GM" firstAttribute="leading" secondItem="uMB-0l-YRM" secondAttribute="leading" id="geq-eL-f1g"/>
-                <constraint firstItem="uMB-0l-YRM" firstAttribute="top" secondItem="26t-Kn-5GM" secondAttribute="bottom" constant="12" id="kiN-w3-1gi"/>
                 <constraint firstItem="26t-Kn-5GM" firstAttribute="top" secondItem="A6Q-xr-YYQ" secondAttribute="top" constant="12" id="lVL-Gp-MT7"/>
                 <constraint firstItem="fcT-FU-evl" firstAttribute="leading" secondItem="A6Q-xr-YYQ" secondAttribute="leading" constant="60" id="rQB-fq-ANr"/>
                 <constraint firstItem="6eF-UF-2Ch" firstAttribute="leading" secondItem="A6Q-xr-YYQ" secondAttribute="leading" constant="20" id="t3a-OW-mTL"/>
                 <constraint firstItem="26t-Kn-5GM" firstAttribute="leading" secondItem="fcT-FU-evl" secondAttribute="trailing" constant="10" id="tjN-gt-I1l"/>
+                <constraint firstItem="A6Q-xr-YYQ" firstAttribute="bottom" secondItem="hTP-GL-vfo" secondAttribute="bottom" id="vpm-nC-Tol"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="A6Q-xr-YYQ"/>

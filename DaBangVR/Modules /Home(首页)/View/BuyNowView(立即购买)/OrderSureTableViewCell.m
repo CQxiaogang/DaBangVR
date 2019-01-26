@@ -6,16 +6,16 @@
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "DBDetailContentCell.h"
+#import "OrderSureTableViewCell.h"
 #import "PPNumberButton.h"
 //#import "BuyNowOfGoodVoModel.h"
 
-@interface DBDetailContentCell()<PPNumberButtonDelegate>
+@interface OrderSureTableViewCell()<PPNumberButtonDelegate>
 
 @property (nonatomic ,strong)PPNumberButton *numberBut;
 
 @end
-@implementation DBDetailContentCell
+@implementation OrderSureTableViewCell
 
 #pragma mark —— 懒加载
 -(PPNumberButton *)numberBut{
@@ -38,26 +38,17 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    [self addSubview:self.numberBut];
-    kWeakSelf(self);
-    [self.numberBut mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(-15);
-        make.bottom.equalTo(weakself.mas_bottom).offset(-5.5);
-        make.size.equalTo(CGSizeMake(60, 15));
-    }];
+//    [self addSubview:self.numberBut];
+//    kWeakSelf(self);
+//    [self.numberBut mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.equalTo(-15);
+//        make.bottom.equalTo(weakself.mas_bottom).offset(-5.5);
+//        make.size.equalTo(CGSizeMake(60, 15));
+//    }];
 }
 
-- (void)setModel:(BuyNowModel *)model{
+- (void)setModel:(OrderSureModel *)model{
     _model = model;
-    [_goodsImgView setImageWithURL:[NSURL URLWithString:model.goodsVo.listUrl] placeholder:[UIImage imageNamed:@""]];
-    _goodsDescribeLab.text = model.goodsVo.describe;
-    if (model.productId == nil) {
-        _marketPriceLab.text = model.goodsVo.marketPrice;
-        _sellingPriceLab.text = model.goodsVo.sellingPrice;
-    }else{
-        _marketPriceLab.text = model.productInfoVo.marketPrice;
-        _sellingPriceLab.text = model.productInfoVo.retailPrice;
-    }
 }
 
 @end

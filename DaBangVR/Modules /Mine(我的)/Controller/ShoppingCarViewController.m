@@ -8,7 +8,7 @@
 
 #import "ShoppingCarViewController.h"
 // Cells
-#import "DBDetailContentCell.h"
+#import "OrderSureTableViewCell.h"
 #import "ShoppingCarBottonView.h"
 
 @interface ShoppingCarViewController ()
@@ -56,9 +56,9 @@ static NSString *CellID = @"CellID";
     return 4;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    DBDetailContentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
+    OrderSureTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     if (!cell) {
-        cell = [[DBDetailContentCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
+        cell = [[OrderSureTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
     return cell;
 }

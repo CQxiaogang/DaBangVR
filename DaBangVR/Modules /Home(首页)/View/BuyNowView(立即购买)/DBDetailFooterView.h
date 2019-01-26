@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BuyNowModel.h"
+#import "OrderSureModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @protocol DetailFooterViewDelegate <NSObject>
@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 @interface DBDetailFooterView : UITableView<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, strong) BuyNowModel *model;
+@property (nonatomic, strong) OrderSureModel *model;
 @property (nonatomic, weak) id <DetailFooterViewDelegate> aDelegate;
 
 @end

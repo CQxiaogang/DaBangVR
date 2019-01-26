@@ -6,10 +6,10 @@
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "DBDetailHeaderView.h"
-#import "BuyNowOfUserAddressModel.h"
+#import "OrderSureTopView.h"
+#import "OrderSureUserAddressModel.h"
 
-@implementation DBDetailHeaderView
+@implementation OrderSureTopView
 
 - (IBAction)alterAction:(id)sender {
     
@@ -19,7 +19,7 @@
     
 }
 
-- (void)setModel:(BuyNowModel *)model{
+- (void)setModel:(OrderSureModel *)model{
     _model = model;
     _consigneeNameLab.text = model.receivingAddress.consigneeName;
     _consigneePhoneLab.text = model.receivingAddress.consigneePhone;

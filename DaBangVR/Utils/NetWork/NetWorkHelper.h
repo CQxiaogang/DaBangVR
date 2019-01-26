@@ -20,13 +20,13 @@ typedef void(^RequestFailed)(NSError *error);
 
 + (void)POST:(NSString *)URL
   parameters:(id __nullable)parameters
-     success:(RequestSuccess)success
-     failure:(RequestFailed)failure;
+     success:(RequestSuccess __nullable)success
+     failure:(RequestFailed __nullable)failure;
 
 + (void)GET:(NSString *)URL
  parameters:(id __nullable)parameters
-    success:(RequestSuccess)success
-    failure:(RequestFailed)failure;
+    success:(RequestSuccess __nullable)success
+    failure:(RequestFailed __nullable)failure;
 
 @end
 

@@ -13,8 +13,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol UserInfoChangeCellDelegate <NSObject>
 
+/**
+ 默认地址选择
+ */
 - (void)defaultAdressSelect;
+
+/**
+ 修改地址
+ */
 - (void)changeAdress;
+
+/**
+ 删除地址
+ */
+- (void)deleteAdress;
 
 @end
 

@@ -11,8 +11,7 @@
 
 @implementation NetWorkHelper
 
-+ (void)POST:(NSString *)URL parameters:(id __nullable)parameters success:(RequestSuccess)success failure:(RequestFailed)failure{
-    
++ (void)POST:(NSString *)URL parameters:(id __nullable)parameters success:(RequestSuccess __nullable)success failure:(RequestFailed __nullable)failure{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/javascript" ,@"text/plain", nil];
@@ -31,7 +30,9 @@
             [SVProgressHUD dismissWithDelay:1.0];
         }
         DLog(@"TIM_POST请求失败:%@", error.description);
-        failure(error);
+        if (failure) {
+            failure(error);
+        }
     }];
 }
 

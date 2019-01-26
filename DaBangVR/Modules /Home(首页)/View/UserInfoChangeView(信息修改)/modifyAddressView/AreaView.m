@@ -351,8 +351,13 @@ CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height
     }completion:^(BOOL finished) {
         self.hidden = YES;
         if ([self.address_delegate respondsToSelector:@selector(getSelectAddressInfor:addressInfoArr:)]) {
-            NSArray *array = @[btn1.titleLabel.text,btn2.titleLabel.text,btn3.titleLabel.text];
-            [self.address_delegate getSelectAddressInfor:[NSString stringWithFormat:@"%@%@%@",btn1.titleLabel.text,btn2.titleLabel.text,btn3.titleLabel.text] addressInfoArr:array];
+            
+            if (btn1.titleLabel.text != nil && btn2.titleLabel.text != nil && btn3.titleLabel.text != nil) {
+                
+                NSArray *array = @[btn1.titleLabel.text,btn2.titleLabel.text,btn3.titleLabel.text];
+                
+                [self.address_delegate getSelectAddressInfor:[NSString stringWithFormat:@"%@%@%@",btn1.titleLabel.text,btn2.titleLabel.text,btn3.titleLabel.text] addressInfoArr:array];
+            }
         }
     }];
 }

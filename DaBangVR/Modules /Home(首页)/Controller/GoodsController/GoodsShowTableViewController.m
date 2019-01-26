@@ -60,7 +60,12 @@
         
         [self.dataSource removeAllObjects];
         
-        [NetWorkHelper POST:URL_goods_list parameters:@{@"categoryId":weakself.ID} success:^(id  _Nonnull responseObject) {
+        NSDictionary *dic = @{
+                              @"categoryId":weakself.ID,
+                              @"page"      :@"1",
+                              @"limit"     :@"10"
+                              };
+        [NetWorkHelper POST:URL_getGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             NSDictionary *dataDic= dic[@"data"];
             NSArray *goodsList = dataDic[@"goodsList"];
