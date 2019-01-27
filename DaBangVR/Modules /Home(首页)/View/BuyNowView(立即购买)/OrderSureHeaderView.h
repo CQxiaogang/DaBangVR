@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OrderSureModel.h"
+#import "OrderSureDeptGoodsModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet YYAnimatedImageView *deptImgView;
 @property (weak, nonatomic) IBOutlet UILabel *deptName;
 
-@property (nonatomic, copy) OrderSureModel *model;
+@property (nonatomic, copy) OrderSureDeptGoodsModel *model;
 
 @end
 

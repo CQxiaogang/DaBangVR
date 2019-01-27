@@ -17,6 +17,7 @@
 #import "DBDetailFooterView.h"
 // Models
 #import "OrderSureModel.h"
+#import "OrderSureDeptGoodsModel.h"
 
 @interface OrderSureViewController ()
 <
@@ -32,7 +33,9 @@
 @property (nonatomic, strong) DBDetailFooterView  *footerView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) NSMutableArray <OrderSureDeptGoodsModel *> *deptModels;
 @property (nonatomic, strong) OrderSureModel *model;
+
 
 @end
 
@@ -89,6 +92,13 @@ static NSString *leaveMessage;
     return _dataSource;
 }
 
+-(NSMutableArray<OrderSureDeptGoodsModel *> *)deptModels{
+    if (!_deptModels) {
+        _deptModels = [[NSMutableArray alloc] init];
+    }
+    return _deptModels;
+}
+
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -122,6 +132,7 @@ static NSString *leaveMessage;
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *data = dic[@"data"];
         weakself.model = [OrderSureModel modelWithDictionary:data];
+        weakself.deptModels = [OrderSureDeptGoodsModel mj_objectArrayWithKeyValuesArray:weakself.model.deptGoodsList];
         // 得到数据,创建UI
         [self creatUI];
     } failure:^(NSError * _Nonnull error) {
@@ -153,7 +164,7 @@ static NSString *leaveMessage;
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    self.headerView.model = self.model;
+    self.headerView.model = self.deptModels[section];
 
     return self.headerView;
 }

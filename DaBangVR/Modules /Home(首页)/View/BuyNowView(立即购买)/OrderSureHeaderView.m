@@ -7,7 +7,6 @@
 //
 
 #import "OrderSureHeaderView.h"
-#import "OrderSureDeptGoodsModel.h"
 
 @interface OrderSureHeaderView ()
 
@@ -18,10 +17,8 @@
 @implementation OrderSureHeaderView
 
 
-- (void)setModel:(OrderSureModel *)model{
-    _list = [[NSMutableArray alloc] init];
-    _list = [OrderSureDeptGoodsModel mj_objectArrayWithKeyValuesArray:model.deptGoodsList];
-    _deptName.text = _list[0].deptName;
-    [_deptImgView setImageWithURL:[NSURL URLWithString:_list[0].deptLogo] placeholder:[UIImage imageNamed:@""]];
+- (void)setModel:(OrderSureDeptGoodsModel *)model{
+    _deptName.text = model.deptName;
+    [_deptImgView setImageWithURL:[NSURL URLWithString:model.deptLogo] placeholder:[UIImage imageNamed:@""]];
 }
 @end
