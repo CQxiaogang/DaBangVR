@@ -152,7 +152,7 @@ static NSString *leaveMessage;
 
 - (void)data{
     kWeakSelf(self);
-    [NetWorkHelper POST:URl_getConfirmGoods parameters:nil success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_getConfirmGoods parameters:@{@"token" :curUser.openId} success:^(id  _Nonnull responseObject) {
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *data = dic[@"data"];
@@ -214,20 +214,22 @@ static NSString *leaveMessage;
 }
 #pragma mark —— 提交订单
 - (void)submitOrdersBtnAction{
-//    NSDictionary *dic = @{
-//                          @"submitType" : @"buy",
-//                          @"addressId" : _model.receivingAddress.id,
-//                          @"addressId" : leaveMessage
-//                          };
-//    [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
-//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-//
-//        [SVProgressHUD showInfoWithStatus:dic[@"errmsg"]];
-//        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-//        [SVProgressHUD dismissWithDelay:1.0];
-//    } failure:^(NSError * _Nonnull error) {
-//
-//    }];
+    leaveMessage = leaveMessage? leaveMessage:@"";
+    NSDictionary *dic = @{
+                          @"submitType" : @"buy",
+                          @"addressId" : _model.receivingAddress.id,
+                          @"addressId" : leaveMessage,
+                          @"token" :curUser.openId
+                          };
+    [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+
+        [SVProgressHUD showInfoWithStatus:dic[@"errmsg"]];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        [SVProgressHUD dismissWithDelay:1.0];
+    } failure:^(NSError * _Nonnull error) {
+
+    }];
 }
 
 @end

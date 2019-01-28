@@ -55,7 +55,7 @@ static NSString *const CellID = @"CellID";
 }
 
 - (void)data{
-    [NetWorkHelper POST:URl_addressList parameters:nil success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_addressList parameters:@{@"token" :curUser.openId} success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *data = dic[@"data"];
         NSArray *receivingAddressVoList = data[@"receivingAddressVoList"];

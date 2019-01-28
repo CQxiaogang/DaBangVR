@@ -10,9 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SeafoodShowListModel : NSObject
+@interface GoodsShowListModel : NSObject
 // id
 @property (nonatomic, assign) NSInteger id;
+// 商品名字
+@property (nonatomic, copy) NSString *name;
 // 描述
 @property (nonatomic, copy)   NSString *describe;
 // 图片

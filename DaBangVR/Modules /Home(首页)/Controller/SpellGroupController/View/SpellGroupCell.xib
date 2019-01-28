@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="217.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IRY-f7-d2W">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IRY-f7-d2W" customClass="YYAnimatedImageView">
                         <rect key="frame" x="26" y="16" width="323" height="120"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="120" id="VpI-J2-zOT"/>
@@ -93,6 +93,9 @@
                                 <real key="value" value="12"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="spellList:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4c0-fD-nVK"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -113,6 +116,14 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="describeLab" destination="fv1-Pi-g26" id="I8c-Je-7O6"/>
+                <outlet property="goodsImgView" destination="IRY-f7-d2W" id="hvh-zd-qfa"/>
+                <outlet property="marketPriceLab" destination="3ku-XC-rtv" id="zJM-Lx-vNf"/>
+                <outlet property="sellingPriceLab" destination="Ol1-5A-D9G" id="rO5-iE-VlX"/>
+                <outlet property="spellListBtn" destination="QL3-rf-sOh" id="HOV-bs-pTX"/>
+                <outlet property="stateLab" destination="JRF-bb-N30" id="5FL-c3-adm"/>
+            </connections>
             <point key="canvasLocation" x="132" y="232.08395802098951"/>
         </tableViewCell>
     </objects>

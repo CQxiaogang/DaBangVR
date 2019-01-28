@@ -29,6 +29,7 @@
 		0410358421CCD2F2002CB32C /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357821CCD2F2002CB32C /* libSocialWeChat.a */; };
 		0410358521CCD2F2002CB32C /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357C21CCD2F2002CB32C /* libSocialQQ.a */; };
 		0410358621CCD2F2002CB32C /* libUMSocialLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357E21CCD2F2002CB32C /* libUMSocialLog.a */; };
+		042359EA21FEDF0200F4C345 /* SpellGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042359E921FEDF0200F4C345 /* SpellGroupModel.m */; };
 		042FCEC621A3E22E002AD0DB /* DBTimeLimitSecondsKill.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FCEC521A3E22E002AD0DB /* DBTimeLimitSecondsKill.m */; };
 		042FCEC821A3E24F002AD0DB /* DBTimeLimitSecondsKill.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FCEC721A3E24F002AD0DB /* DBTimeLimitSecondsKill.xib */; };
 		042FCECB21A3F1AB002AD0DB /* DBPrefectureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FCECA21A3F1AB002AD0DB /* DBPrefectureView.m */; };
@@ -73,7 +74,7 @@
 		049D479F219FEC540058178D /* DBLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D479E219FEC540058178D /* DBLiveViewController.m */; };
 		049D47A2219FEC690058178D /* DBShortVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A1219FEC690058178D /* DBShortVideoViewController.m */; };
 		049D47A5219FEC790058178D /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A4219FEC790058178D /* MineViewController.m */; };
-		04A3DA3021E9EF6400F689C7 /* SeafoodShowListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3DA2F21E9EF6400F689C7 /* SeafoodShowListModel.m */; };
+		04A3DA3021E9EF6400F689C7 /* GoodsShowListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */; };
 		04D9C46921EA0706005F23FF /* NetWorkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D9C46821EA0706005F23FF /* NetWorkHelper.m */; };
 		04E0473221D36A42002DDB98 /* AllCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E0473121D36A42002DDB98 /* AllCommentsViewController.m */; };
 		04EFA01821E7045C007C2FCA /* EvaluationSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA01721E7045C007C2FCA /* EvaluationSuccessView.m */; };
@@ -189,7 +190,7 @@
 		04F62FEE21F9B69A0094B26F /* ModifyAddressAreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F62FE521F9B6990094B26F /* ModifyAddressAreaModel.m */; };
 		04F62FEF21F9B69A0094B26F /* AreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F62FE621F9B6990094B26F /* AreaView.m */; };
 		04F62FF321F9B69A0094B26F /* ModifyAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F62FEC21F9B69A0094B26F /* ModifyAddressModel.m */; };
-		04F70C6521E97D17004BD4C6 /* SeafoodShowTitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F70C6421E97D17004BD4C6 /* SeafoodShowTitleModel.m */; };
+		04F70C6521E97D17004BD4C6 /* GoodsShowTitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F70C6421E97D17004BD4C6 /* GoodsShowTitleModel.m */; };
 		04F70C6921E98D35004BD4C6 /* AnchorRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F70C6821E98D35004BD4C6 /* AnchorRecommendView.m */; };
 		04F7360A21B679CE001CEBC0 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7360821B679CE001CEBC0 /* MineTableViewCell.m */; };
 		04F7360B21B679CE001CEBC0 /* MineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F7360921B679CE001CEBC0 /* MineTableViewCell.xib */; };
@@ -295,6 +296,8 @@
 		0410357B21CCD2F2002CB32C /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
 		0410357C21CCD2F2002CB32C /* libSocialQQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialQQ.a; sourceTree = "<group>"; };
 		0410357E21CCD2F2002CB32C /* libUMSocialLog.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocialLog.a; sourceTree = "<group>"; };
+		042359E821FEDF0200F4C345 /* SpellGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpellGroupModel.h; sourceTree = "<group>"; };
+		042359E921FEDF0200F4C345 /* SpellGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpellGroupModel.m; sourceTree = "<group>"; };
 		042FCEC421A3E22E002AD0DB /* DBTimeLimitSecondsKill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBTimeLimitSecondsKill.h; sourceTree = "<group>"; };
 		042FCEC521A3E22E002AD0DB /* DBTimeLimitSecondsKill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBTimeLimitSecondsKill.m; sourceTree = "<group>"; };
 		042FCEC721A3E24F002AD0DB /* DBTimeLimitSecondsKill.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBTimeLimitSecondsKill.xib; sourceTree = "<group>"; };
@@ -373,8 +376,8 @@
 		049D47A1219FEC690058178D /* DBShortVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBShortVideoViewController.m; sourceTree = "<group>"; };
 		049D47A3219FEC790058178D /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		049D47A4219FEC790058178D /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
-		04A3DA2E21E9EF6400F689C7 /* SeafoodShowListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeafoodShowListModel.h; sourceTree = "<group>"; };
-		04A3DA2F21E9EF6400F689C7 /* SeafoodShowListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeafoodShowListModel.m; sourceTree = "<group>"; };
+		04A3DA2E21E9EF6400F689C7 /* GoodsShowListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsShowListModel.h; sourceTree = "<group>"; };
+		04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsShowListModel.m; sourceTree = "<group>"; };
 		04D9C46721EA0706005F23FF /* NetWorkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkHelper.h; sourceTree = "<group>"; };
 		04D9C46821EA0706005F23FF /* NetWorkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkHelper.m; sourceTree = "<group>"; };
 		04E0473021D36A42002DDB98 /* AllCommentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllCommentsViewController.h; sourceTree = "<group>"; };
@@ -595,8 +598,8 @@
 		04F62FE821F9B6990094B26F /* ModifyAddressAreaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyAddressAreaModel.h; sourceTree = "<group>"; };
 		04F62FEC21F9B69A0094B26F /* ModifyAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyAddressModel.m; sourceTree = "<group>"; };
 		04F62FED21F9B69A0094B26F /* AreaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaView.h; sourceTree = "<group>"; };
-		04F70C6321E97D17004BD4C6 /* SeafoodShowTitleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeafoodShowTitleModel.h; sourceTree = "<group>"; };
-		04F70C6421E97D17004BD4C6 /* SeafoodShowTitleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeafoodShowTitleModel.m; sourceTree = "<group>"; };
+		04F70C6321E97D17004BD4C6 /* GoodsShowTitleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsShowTitleModel.h; sourceTree = "<group>"; };
+		04F70C6421E97D17004BD4C6 /* GoodsShowTitleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsShowTitleModel.m; sourceTree = "<group>"; };
 		04F70C6721E98D35004BD4C6 /* AnchorRecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnchorRecommendView.h; sourceTree = "<group>"; };
 		04F70C6821E98D35004BD4C6 /* AnchorRecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnchorRecommendView.m; sourceTree = "<group>"; };
 		04F7360721B679CE001CEBC0 /* MineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTableViewCell.h; sourceTree = "<group>"; };
@@ -757,7 +760,6 @@
 			children = (
 				04F8FBFF21F1D3C700913150 /* SecondsKillView */,
 				04F8FBF621F17D8600913150 /* AllCommentsView */,
-				04F2FD2421EF3593000B58E2 /* SpellGroupView */,
 				04F70C6621E98C38004BD4C6 /* AnchorRecommendView(主播推荐) */,
 				04F70C6A21E99A62004BD4C6 /* ChannelMenuListView(频道菜单) */,
 				04F4469721D7688F00524971 /* SeafoodShowView(海鲜展示) */,
@@ -879,6 +881,49 @@
 				0410357E21CCD2F2002CB32C /* libUMSocialLog.a */,
 			);
 			path = UMSocialSDKPlugin;
+			sourceTree = "<group>";
+		};
+		042359E721FEDEAC00F4C345 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				042359E821FEDF0200F4C345 /* SpellGroupModel.h */,
+				042359E921FEDF0200F4C345 /* SpellGroupModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		042359EB21FEEBFB00F4C345 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04F2FD1D21EF23D5000B58E2 /* SpellGroupViewController.h */,
+				04F2FD1E21EF23D5000B58E2 /* SpellGroupViewController.m */,
+				04F2FD2A21EF3EA9000B58E2 /* SpellGroupTableViewController.h */,
+				04F2FD2B21EF3EA9000B58E2 /* SpellGroupTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		042359EC21FF027A00F4C345 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04F2FD2121EF259A000B58E2 /* SecondsKillViewController.h */,
+				04F2FD2221EF259A000B58E2 /* SecondsKillViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		042359ED21FF05E400F4C345 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		042359EE21FF05ED00F4C345 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		043B467B21F8048600C75536 /* BuyNowModel */ = {
@@ -1164,10 +1209,9 @@
 		04F2FD1C21EF23A3000B58E2 /* SpellGroupController */ = {
 			isa = PBXGroup;
 			children = (
-				04F2FD1D21EF23D5000B58E2 /* SpellGroupViewController.h */,
-				04F2FD1E21EF23D5000B58E2 /* SpellGroupViewController.m */,
-				04F2FD2A21EF3EA9000B58E2 /* SpellGroupTableViewController.h */,
-				04F2FD2B21EF3EA9000B58E2 /* SpellGroupTableViewController.m */,
+				042359E721FEDEAC00F4C345 /* Model */,
+				04F2FD2421EF3593000B58E2 /* View */,
+				042359EB21FEEBFB00F4C345 /* Controller */,
 			);
 			path = SpellGroupController;
 			sourceTree = "<group>";
@@ -1175,13 +1219,14 @@
 		04F2FD2021EF2549000B58E2 /* SecondsKillController */ = {
 			isa = PBXGroup;
 			children = (
-				04F2FD2121EF259A000B58E2 /* SecondsKillViewController.h */,
-				04F2FD2221EF259A000B58E2 /* SecondsKillViewController.m */,
+				042359EE21FF05ED00F4C345 /* Model */,
+				042359ED21FF05E400F4C345 /* View */,
+				042359EC21FF027A00F4C345 /* Controller */,
 			);
 			path = SecondsKillController;
 			sourceTree = "<group>";
 		};
-		04F2FD2421EF3593000B58E2 /* SpellGroupView */ = {
+		04F2FD2421EF3593000B58E2 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				04F2FD2521EF35DE000B58E2 /* SpellGroupCell.h */,
@@ -1191,7 +1236,7 @@
 				044F3BA721F0201B00F3AD5E /* MySpellGroupCell.m */,
 				044F3BA821F0201B00F3AD5E /* MySpellGroupCell.xib */,
 			);
-			path = SpellGroupView;
+			path = View;
 			sourceTree = "<group>";
 		};
 		04F3270E21D095BD009267F4 /* TableView */ = {
@@ -1728,10 +1773,10 @@
 		04F70C6221E97C96004BD4C6 /* GoodsModel */ = {
 			isa = PBXGroup;
 			children = (
-				04F70C6321E97D17004BD4C6 /* SeafoodShowTitleModel.h */,
-				04F70C6421E97D17004BD4C6 /* SeafoodShowTitleModel.m */,
-				04A3DA2E21E9EF6400F689C7 /* SeafoodShowListModel.h */,
-				04A3DA2F21E9EF6400F689C7 /* SeafoodShowListModel.m */,
+				04F70C6321E97D17004BD4C6 /* GoodsShowTitleModel.h */,
+				04F70C6421E97D17004BD4C6 /* GoodsShowTitleModel.m */,
+				04A3DA2E21E9EF6400F689C7 /* GoodsShowListModel.h */,
+				04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */,
 				04F2FD0A21EECDA1000B58E2 /* GoodsDetailsModel.h */,
 				04F2FD0B21EECDA1000B58E2 /* GoodsDetailsModel.m */,
 				04F8FBFC21F1ADE900913150 /* AllCommentsModel.h */,
@@ -2255,7 +2300,7 @@
 				0459D89621E04FEA009BFFB4 /* OrderSureViewController.m in Sources */,
 				04F8664321A78E0200A4D7F6 /* WaterfallColectionLayout.m in Sources */,
 				04F3B30421EDDAF900DFBA84 /* JXCategoryIndicatorBallView.m in Sources */,
-				04A3DA3021E9EF6400F689C7 /* SeafoodShowListModel.m in Sources */,
+				04A3DA3021E9EF6400F689C7 /* GoodsShowListModel.m in Sources */,
 				04FC2C3F21C0E3AD00329B53 /* JFCityTableViewCell.m in Sources */,
 				04EFA01821E7045C007C2FCA /* EvaluationSuccessView.m in Sources */,
 				04F3271321D09779009267F4 /* GoodsShowTableViewCell.m in Sources */,
@@ -2303,7 +2348,7 @@
 				04F8ED5021E349E000004178 /* modifyAddressViewCell.m in Sources */,
 				04F3B30B21EDDAF900DFBA84 /* JXCategoryDotView.m in Sources */,
 				0406C7BD21F6C5C1009C6A8E /* JXPagerView.m in Sources */,
-				04F70C6521E97D17004BD4C6 /* SeafoodShowTitleModel.m in Sources */,
+				04F70C6521E97D17004BD4C6 /* GoodsShowTitleModel.m in Sources */,
 				04EFA02C21E73391007C2FCA /* EvaluationOfSuccessViewController.m in Sources */,
 				04F4468221D74F7B00524971 /* DBFeatureItem.m in Sources */,
 				04F8ED3E21E30E9A00004178 /* informationModificationHeaderView.m in Sources */,
@@ -2365,6 +2410,7 @@
 				049D4766219FA91F0058178D /* main.m in Sources */,
 				04F4468121D74F7B00524971 /* DBFeatureList.m in Sources */,
 				04FDA16621AD3D6300E7804B /* PageContentView.m in Sources */,
+				042359EA21FEDF0200F4C345 /* SpellGroupModel.m in Sources */,
 				04F3B31121EDDAF900DFBA84 /* JXCategoryTitleCell.m in Sources */,
 				04F3B30621EDDAF900DFBA84 /* JXCategoryIndicatorBackgroundView.m in Sources */,
 				04F3B31821EDDAF900DFBA84 /* JXCategoryNumberCellModel.m in Sources */,

@@ -314,6 +314,13 @@
             [self countPrice];
         }
     };
+    // 修改购物车数量
+    NSDictionary *dic = @{
+                          @"cartId":goodsModel.id,
+                          @"number":goodsModel.number,
+                           @"token" :curUser.openId
+                          };
+    [NetWorkHelper POST:URl_updateNumber2Cart parameters:dic success:nil failure:nil];
 }
 
 
@@ -357,7 +364,7 @@
 #pragma mark  -------------------- 此处模仿网络请求, 加载plist文件内容
 - (void)loadingDataForPlist {
     
-    [NetWorkHelper POST:URl_getGoods2CartList parameters:nil success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_getGoods2CartList parameters:@{ @"token" :curUser.openId} success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *dataDic = dic[@"data"];
         NSArray *goodsArr = dataDic[@"goods2CartList"];
@@ -392,7 +399,7 @@
 
 -(void)goPaymentOfClick{
     if (_goodsIDStr) {
-        [NetWorkHelper POST:URl_confirmGoods2Cart parameters:@{@"cartIds":_goodsIDStr} success:^(id  _Nonnull responseObject) {
+        [NetWorkHelper POST:URl_confirmGoods2Cart parameters:@{@"cartIds":_goodsIDStr, @"token" :curUser.openId} success:^(id  _Nonnull responseObject) {
             
             OrderSureViewController *vc = [[OrderSureViewController alloc] init];
             [self.navigationController pushViewController:vc animated:NO];

@@ -36,7 +36,7 @@ static NSString *CellID = @"CellID";
 
 - (void)getData:(NSString *)goodsId{
     
-    [NetWorkHelper POST:URl_comment_list_two parameters:@{@"goodsId":goodsId} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_comment_list_two parameters:@{@"goodsId":goodsId, @"token" :curUser.openId} success:^(id  _Nonnull responseObject) {
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *dataDic = dic[@"data"];

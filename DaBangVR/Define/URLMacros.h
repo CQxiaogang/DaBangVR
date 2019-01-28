@@ -31,7 +31,7 @@
 #if DevelopSever
 
 /**开发服务器*/
-#define URL_main @"http://www.vrzbgw.com"
+#define URL_main @"http://www.vrzbgw.com/dabang"
 #define URL_main_test @"http://192.168.1.110:8080"
 
 #elif TestSever
@@ -45,59 +45,66 @@
 #define URL_main @""
 #endif
 
+
+#define KJSONSerialization(responseObject) ([NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil])
+
 #pragma mark ——————   首页相关   ——————
 // 渠道列表
-#define URL_channel_menu_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getChannelMenuList?mallSpeciesId=1")
-// 商品类型列表
-#define URL_getGoodsCategoryList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsCategoryList?")
+//#define ktoken NSStringFormat(@"token=%@?",curUser.openId)
 
+#define URL_getChannelMenuList NSStringFormat(@"%@%@",URL_main,@"/api/index/getChannelMenuList?mallSpeciesId=1?")
+// 商品类型列表
+#define URL_getGoodsCategoryList NSStringFormat(@"%@%@",URL_main,@"/api/index/getGoodsCategoryList?")
 //轮播图列表
-#define URl_goods_rotation_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/index/getGoodsRotationList?parentId=1")
+#define URl_goods_rotation_list NSStringFormat(@"%@%@",URL_main,@"/api/index/getGoodsRotationList?parentId=1")
 
 #pragma mark ——————   商品相关   ——————
-// 商品列表
-#define URL_getGoodsList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getGoodsList?")
+// 普通商品列表
+#define URL_getGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGoodsList?")
+// 团购商品列表
+#define URL_getGroupGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGroupGoodsList?")
+// 新品首发列表
+#define URL_getNewGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/goods/getNewGoodsList?")
+
 // 商品详情
-#define URL_goods_details NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getGoodsDetails?")
+#define URL_getGoodsDetails NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGoodsDetails?")
 // 添加商品评论
 #define URL_comment_save @""
 // 商品评论列表
-#define URl_comment_list_two NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getCommentListTwo?")
+#define URl_comment_list_two NSStringFormat(@"%@%@",URL_main,@"/api/goods/getCommentListTwo?")
 // 商品评论列表，最近三条
-#define URl_comment_list NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getCommentList?")
+#define URl_comment_list NSStringFormat(@"%@%@",URL_main,@"/api/goods/getCommentList?")
 // 购物车列表
-#define URl_getGoods2CartList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/goods/getGoods2CartList?page=1&limit=10")
-
+#define URl_getGoods2CartList NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGoods2CartList?page=1&limit=10")
 
 #pragma mark ——————  登陆授权接口  ——————
 // 登录
-#define URl_login NSStringFormat(@"%@%@",URL_main,@"/dabang/api/auth/login?")
-
+#define URl_login NSStringFormat(@"%@%@",URL_main,@"/api/auth/login?")
 
 #pragma mark ——————   个人中心    ——————
 // 添加收货地址
-#define URl_addressAdd NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/addressAdd?")
+#define URl_addressAdd NSStringFormat(@"%@%@",URL_main,@"/api/my/addressAdd?")
 // 查询收货地址
-#define URl_addressList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/addressList")
+#define URl_addressList NSStringFormat(@"%@%@",URL_main,@"/api/my/addressList")
 // 查询一条地址
-#define URl_addressListone NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/addressListone?")
+#define URl_addressListone NSStringFormat(@"%@%@",URL_main,@"/api/my/addressListone?")
 // 删除收货地址
-#define URl_addressDelete NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/addressDelete")
+#define URl_addressDelete NSStringFormat(@"%@%@",URL_main,@"/api/my/addressDelete")
 // 查询地址下级列表
-#define URl_getRegionChildrenList NSStringFormat(@"%@%@",URL_main,@"/dabang/api/my/getRegionChildrenList?")
+#define URl_getRegionChildrenList NSStringFormat(@"%@%@",URL_main,@"/api/my/getRegionChildrenList?")
 
 #pragma mark —————— 购买商品接口类 ——————
 // 添加到购物车
-#define URl_addToCar NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/addToCart?")
+#define URl_addToCar NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/addToCart?")
 // 立即购买 - 确认订单
-#define URl_confirmGoods2Buy  NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/confirmGoods2Buy?")
+#define URl_confirmGoods2Buy  NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/confirmGoods2Buy?")
 // 购物车 - 确认订单
-#define URl_confirmGoods2Cart NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/confirmGoods2Cart?")
+#define URl_confirmGoods2Cart NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/confirmGoods2Cart?")
 // 获取确认订单 - 统一入口
-#define URl_getConfirmGoods NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/getConfirmGoods")
+#define URl_getConfirmGoods NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/getConfirmGoods")
 // 提交订单 - 统一入口
-#define URl_submitOrder NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/submitOrder?")
+#define URl_submitOrder NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/submitOrder?")
 // 修改购物车中商品的数量
-#define URl_updateNumber2Cart NSStringFormat(@"%@%@",URL_main,@"/dabang/api/buygoods/updateNumber2Cart?")
+#define URl_updateNumber2Cart NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/updateNumber2Cart?")
 
 #endif /* URLMacros_h */

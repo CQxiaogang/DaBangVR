@@ -61,16 +61,17 @@
         [self.dataSource removeAllObjects];
         
         NSDictionary *dic = @{
-                              @"categoryId":weakself.ID,
+                              @"categoryId":weakself.index,
                               @"page"      :@"1",
-                              @"limit"     :@"10"
+                              @"limit"     :@"10",
+                              @"token"     :curUser.openId
                               };
         [NetWorkHelper POST:URL_getGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             NSDictionary *dataDic= dic[@"data"];
             NSArray *goodsList = dataDic[@"goodsList"];
             for (NSDictionary *dic in goodsList) {
-                SeafoodShowListModel *model = [SeafoodShowListModel modelWithDictionary:dic];
+                GoodsShowListModel *model = [GoodsShowListModel modelWithDictionary:dic];
                 [self.dataSource addObject:model];
             }
             
@@ -96,7 +97,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SeafoodShowListModel *model = self.dataSource[indexPath.row];
+    GoodsShowListModel *model = self.dataSource[indexPath.row];
     NSString *ID = [NSString stringWithFormat:@"%ld",(long)model.id];
     if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectGoodsShowDetails:)]) {
         [self.delegate didSelectGoodsShowDetails:ID];

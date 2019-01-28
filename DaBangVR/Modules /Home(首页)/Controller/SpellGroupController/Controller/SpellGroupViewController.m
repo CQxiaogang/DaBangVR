@@ -8,22 +8,74 @@
 
 #import "SpellGroupViewController.h"
 #import "SpellGroupTableViewController.h"
+#import "GoodsDetailsViewController.h"
 // 第三方
 #import "JXCategoryView.h"
 #import "JXCategoryListContainerView.h"
+// Models
+#import "SpellGroupModel.h"
+#import "GoodsShowTitleModel.h"
 
-@interface SpellGroupViewController ()<JXCategoryViewDelegate, JXCategoryListContainerViewDelegate>
+@interface SpellGroupViewController ()<JXCategoryViewDelegate, JXCategoryListContainerViewDelegate, SpellGroupTableViewDelegate>
 @property (nonatomic, strong) JXCategoryTitleView         *categoryView;
 @property (nonatomic, strong) JXCategoryListContainerView *listContainerView;
+
+// 标题 ID
+@property (nonatomic, strong) NSMutableArray *goodsIDs;
+// 标题数据
+@property (nonatomic, strong) NSMutableArray *goodsNames;
+@property (nonatomic, strong) SpellGroupModel *model;
 @end
 
 @implementation SpellGroupViewController
 
+#pragma mark —— 懒加载
+- (NSMutableArray *)goodsIDs{
+    if (!_goodsIDs) {
+        _goodsIDs = [NSMutableArray new];
+    }
+    return _goodsIDs;
+}
+
+- (NSMutableArray *)goodsNames{
+    if (!_goodsNames) {
+        _goodsNames = [NSMutableArray new];
+    }
+    return _goodsNames;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"拼团";
-    [self creatUI];
+    
+    [self data];
 }
+
+- (void)data{
+    kWeakSelf(self);
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_enter(group);
+    NSDictionary *dic = @{@"parentId":@"1036100",
+                          @"token"     :curUser.openId
+                          };
+    [NetWorkHelper POST:URL_getGoodsCategoryList parameters:dic success:^(id  _Nonnull responseObject) {
+        NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
+        NSArray *list = dataDic[@"goodsCategoryList"];
+        for (NSDictionary *dic in list) {
+            GoodsShowTitleModel *model = [GoodsShowTitleModel modelWithDictionary:dic];
+            [weakself.goodsNames addObject:model.name];
+            [weakself.goodsIDs addObject:model.id];
+        }
+        dispatch_group_leave(group);
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        [self creatUI];
+    });
+}
+
 - (void)creatUI{
     
     [self creatLeftView];
@@ -38,7 +90,7 @@
     }
     CGFloat categoryVHeight = Adapt(40);
     self.categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, categoryVHeight)];
-    self.categoryView.titles = @[@"全部",@"大闸蟹",@"鲍鱼",@"帝王蟹",@"大龙虾"];
+    self.categoryView.titles = self.goodsNames;
     self.categoryView.defaultSelectedIndex = 0;
     self.categoryView.delegate = self;
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
@@ -155,16 +207,21 @@
 #pragma mark —— JXCategoryListContainerViewDelegate
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
     SpellGroupTableViewController *spellGroupVC = [[SpellGroupTableViewController alloc] init];
-    if (listContainerView.tag == 0) {
-        spellGroupVC.currentView = @"leftView";
-    }else if (listContainerView.tag == 1)
-    {
-        spellGroupVC.currentView = @"centerView";
-    }else if (listContainerView.tag == 2)
-    {
-        spellGroupVC.currentView = @"rightView";
+    spellGroupVC.aDelegate = self;
+    switch (listContainerView.tag) {
+        case 0:
+            spellGroupVC.currentView = @"leftView";
+            spellGroupVC.index = _goodsIDs[index];
+            break;
+        case 1:
+            spellGroupVC.currentView = @"centerView";
+            break;
+        case 2:
+            spellGroupVC.currentView = @"rightView";
+            break;
+        default:
+            break;
     }
-    
     return spellGroupVC;
 }
 
@@ -176,6 +233,13 @@
     }else{
         return 6;
     }
+}
+
+#pragma mark —— 拼团类别 协议
+-(void)didSelectGoodsShowDetails:(NSString *)index{
+    GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
+    vc.index = index;
+    [self.navigationController pushViewController:vc animated:NO];
 }
 
 @end

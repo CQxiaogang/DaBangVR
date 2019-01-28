@@ -101,7 +101,6 @@
 #define FONT(NAME, FONTSIZE)    [UIFont fontWithName:(NAME) size:(FONTSIZE)]
 #define AdaptiveFontSize(floatValue) [floatValue * KScreenW/375.0]
 
-
 //定义UIImage对象
 #define ImageWithFile(_pointer) [UIImage imageWithContentsOfFile:([[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@@%dx", _pointer, (int)[UIScreen mainScreen].nativeScale] ofType:@"png"])]
 #define IMAGE_NAMED(name) [UIImage imageNamed:name]

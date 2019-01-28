@@ -10,11 +10,18 @@
 #import "LoadDataListBaseViewController.h"
 #import "JXCategoryListContainerView.h"
 
+@protocol SpellGroupTableViewDelegate <NSObject>
+
+- (void)didSelectGoodsShowDetails:(NSString *)index;
+
+@end
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SpellGroupTableViewController : LoadDataListBaseViewController<JXCategoryListContentViewDelegate>
 
 @property (nonatomic, copy) NSString *currentView;
+
+@property (nonatomic, weak) id <SpellGroupTableViewDelegate> aDelegate;
 
 @end
 

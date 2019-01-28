@@ -13,7 +13,7 @@
 #import "JXCategoryListContainerView.h"
 #import "GoodsShowTableViewController.h"
 // Models
-#import "SeafoodShowTitleModel.h"
+#import "GoodsShowTitleModel.h"
 
 @interface GoodsShowViewController ()<JXCategoryViewDelegate, JXCategoryListContainerViewDelegate,LoadDataListBaseViewControllerDelegate>
 
@@ -35,12 +35,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [NetWorkHelper POST:URL_getGoodsCategoryList parameters:@{@"parentId" : @"1036096"} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URL_getGoodsCategoryList parameters:@{@"parentId":@"1036096",@"token":curUser.openId} success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *dataDic= dic[@"data"];
         NSArray *goodsList = dataDic[@"goodsCategoryList"];
         for (NSDictionary *dic in goodsList) {
-            SeafoodShowTitleModel *model = [SeafoodShowTitleModel modelWithDictionary:dic];
+            GoodsShowTitleModel *model = [GoodsShowTitleModel modelWithDictionary:dic];
             [self.titles addObject:model];
         }
         // 得到数据在设置 UI
@@ -54,7 +54,7 @@
     
     NSMutableArray *names = [NSMutableArray new];
     _IDs = [NSMutableArray new];
-    for (SeafoodShowTitleModel *model in self.titles) {
+    for (GoodsShowTitleModel *model in self.titles) {
         [names addObject:model.name];
         [_IDs addObject:model.id];
     }
@@ -93,7 +93,7 @@
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
     GoodsShowTableViewController *listVC = [[GoodsShowTableViewController alloc] init];
     listVC.delegate = self;
-    listVC.ID = _IDs[index];
+    listVC.index = _IDs[index];
     return listVC;
 }
 

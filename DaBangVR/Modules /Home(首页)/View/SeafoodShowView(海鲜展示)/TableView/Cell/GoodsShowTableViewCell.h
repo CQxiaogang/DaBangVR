@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SeafoodShowListModel.h"
+#import "GoodsShowListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 价格
 @property (weak, nonatomic) IBOutlet UILabel *sellingPriceLabel;
 //
-@property (strong, nonatomic) SeafoodShowListModel *model;
+@property (strong, nonatomic) GoodsShowListModel *model;
 
 @end
 

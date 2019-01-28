@@ -16,7 +16,7 @@
 
 @interface LoadDataListBaseViewController : UITableViewController
 
-@property (nonatomic, strong) NSString *ID;
+@property (nonatomic, strong) NSString *index;
 - (void)loadDataForFirst;
 
 @property (nonatomic, weak) id <LoadDataListBaseViewControllerDelegate> delegate;
