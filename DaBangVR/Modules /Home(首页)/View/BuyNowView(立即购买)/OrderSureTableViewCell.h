@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OrderSureModel.h"
+#import "OrderSureGoodsModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 市场价格
 @property (weak, nonatomic) IBOutlet UILabel *marketPriceLab;
 
-@property (nonatomic, strong) OrderSureModel *model;
+@property (nonatomic, strong) OrderSureGoodsModel *model;
 
 @end
 

@@ -12,7 +12,7 @@
 
 + (NSDictionary *)mj_objectClassInArray{
     return @{
-             @"deptGoodsList"    : [OrderSureDeptGoodsModel   class]
+             @"goodsList"    : [OrderSureGoodsModel   class]
              };
 }
 

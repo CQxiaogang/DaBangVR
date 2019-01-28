@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface OrderSureHeaderView : UIView
+@interface OrderSureHeaderView : UITableViewHeaderFooterView
 @property (weak, nonatomic) IBOutlet YYAnimatedImageView *deptImgView;
 @property (weak, nonatomic) IBOutlet UILabel *deptName;
 

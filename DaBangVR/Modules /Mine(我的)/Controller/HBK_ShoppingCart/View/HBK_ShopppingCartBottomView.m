@@ -10,13 +10,6 @@
 
 @implementation HBK_ShopppingCartBottomView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 - (IBAction)allClickBtn:(UIButton *)sender {
     sender.selected = !sender.selected;
     if (sender.selected) {
@@ -42,6 +35,12 @@
         [self.clickBtn setImage:[UIImage imageNamed:@"r-default_select"] forState:(UIControlStateNormal)];
     } else {
         [self.clickBtn setImage:[UIImage imageNamed:@"r-default"] forState:(UIControlStateNormal)];
+    }
+}
+// 去付款
+- (IBAction)goPaymentBtn:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(goPaymentOfClick)]) {
+        [self.delegate goPaymentOfClick];
     }
 }
 

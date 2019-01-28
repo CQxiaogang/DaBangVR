@@ -29,11 +29,11 @@
 
 @property (nonatomic, strong) UITableView         *tableView;
 @property (nonatomic, strong) OrderSureTopView    *topView;
-@property (nonatomic, strong) OrderSureHeaderView *headerView;
 @property (nonatomic, strong) DBDetailFooterView  *footerView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) NSMutableArray <OrderSureDeptGoodsModel *> *deptModels;
+@property (nonatomic, strong) NSMutableArray <OrderSureGoodsModel *>     *goodsModels;
 @property (nonatomic, strong) OrderSureModel *model;
 
 
@@ -50,7 +50,7 @@ static NSString *leaveMessage;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerNib:[UINib nibWithNibName:@"OrderSureTableViewCell" bundle:nil] forCellReuseIdentifier:DBDetailViewCellID];
-//        [_tableView registerNib:[UINib nibWithNibName:@"OrderSureHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:HeaderViewCellID];
+        [_tableView registerNib:[UINib nibWithNibName:@"OrderSureHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:HeaderViewCellID];
         
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
@@ -67,13 +67,6 @@ static NSString *leaveMessage;
         _topView.delegate = self;
     }
     return _topView;
-}
-
--(OrderSureHeaderView *)headerView{
-    if (!_headerView) {
-        _headerView = [[[NSBundle mainBundle] loadNibNamed:@"OrderSureHeaderView" owner:nil options:nil] firstObject];
-    }
-    return _headerView;
 }
 
 - (DBDetailFooterView *)footerView{
@@ -99,6 +92,13 @@ static NSString *leaveMessage;
     return _deptModels;
 }
 
+- (NSMutableArray<OrderSureGoodsModel *> *)goodsModels{
+    if (_goodsModels) {
+        _goodsModels = [[NSMutableArray alloc] init];
+    }
+    return _goodsModels;
+}
+
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -115,16 +115,41 @@ static NSString *leaveMessage;
         make.height.equalTo(kFit(100));
     }];
     [self.view addSubview:self.tableView];
-    self.tableView.tableHeaderView = self.headerView;
     self.tableView.tableFooterView = self.footerView;
+    
+    UIButton *submitOrdersBtn = [[UIButton alloc] init];
+    [submitOrdersBtn setTitle:@"提交订单" forState:UIControlStateNormal];
+    submitOrdersBtn.titleLabel.adaptiveFontSize = 16;
+    [submitOrdersBtn setTintColor:KWhiteColor];
+    submitOrdersBtn.backgroundColor = KRedColor;
+    [submitOrdersBtn addTarget:self action:@selector(submitOrdersBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:submitOrdersBtn];
+    
+    UILabel *thePrice = [[UILabel alloc] init];
+    thePrice.adaptiveFontSize = 14;
+    thePrice.textColor = KRedColor;
+    thePrice.text = [NSString stringWithFormat:@"￥%@ 元",_model.orderTotalPrice];
+    thePrice.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:thePrice];
+    
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakself.topView.mas_bottom).offset(0);
-        make.left.right.bottom.equalTo(@(0));
+        make.left.right.equalTo(@(0));
+        make.bottom.equalTo(submitOrdersBtn.mas_top).offset(0);
     }];
     
-    // 底部视图
-    [self setUpFooderView];
+    [submitOrdersBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.bottom.equalTo(-10);
+        make.size.equalTo(CGSizeMake(80, 40));
+    }];
+    
+    [thePrice mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(submitOrdersBtn.mas_left).offset(0);
+        make.bottom.equalTo(-10);
+        make.size.equalTo(CGSizeMake(80, 40));
+    }];
 }
+
 - (void)data{
     kWeakSelf(self);
     [NetWorkHelper POST:URl_getConfirmGoods parameters:nil success:^(id  _Nonnull responseObject) {
@@ -141,11 +166,11 @@ static NSString *leaveMessage;
 
 #pragma mark —— tableView 代理，数据源
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return _deptModels.count;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return _deptModels[section].goodsList.count;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
@@ -154,7 +179,7 @@ static NSString *leaveMessage;
     if (cell == nil) {
         cell = [[OrderSureTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:DBDetailViewCellID];
     }
-    cell.model = _model;
+    cell.model = _deptModels[indexPath.section].goodsList[indexPath.row];
     return cell;
 }
 
@@ -163,14 +188,13 @@ static NSString *leaveMessage;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
-    self.headerView.model = self.deptModels[section];
-
-    return self.headerView;
+    OrderSureHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:HeaderViewCellID];
+    headerView.model = self.deptModels[section];
+    return headerView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 30;
+    return kFit(30);
 }
 
 #pragma mark —— DBDetailHeaderView delegate
@@ -178,33 +202,6 @@ static NSString *leaveMessage;
 - (void)informationModification{
     UserInfoChangeViewController *informationModificationVC = [[UserInfoChangeViewController alloc] init];
     [self.navigationController pushViewController:informationModificationVC animated:NO];
-}
-
-// 底部视图
-- (void)setUpFooderView{
-    UIButton *submitOrdersBtn = [[UIButton alloc] init];
-    [submitOrdersBtn setTitle:@"提交订单" forState:UIControlStateNormal];
-    submitOrdersBtn.titleLabel.adaptiveFontSize = 16;
-    [submitOrdersBtn setTintColor:KWhiteColor];
-    submitOrdersBtn.backgroundColor = KRedColor;
-    [submitOrdersBtn addTarget:self action:@selector(submitOrdersBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:submitOrdersBtn];
-    [submitOrdersBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.bottom.equalTo(-10);
-        make.size.equalTo(CGSizeMake(80, 40));
-    }];
-    
-    UILabel *thePrice = [[UILabel alloc] init];
-    thePrice.adaptiveFontSize = 14;
-    thePrice.textColor = KRedColor;
-    thePrice.text = [NSString stringWithFormat:@"￥%@ 元",_model.goodsTotalPrice];
-    thePrice.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:thePrice];
-    [thePrice mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(submitOrdersBtn.mas_left).offset(0);
-        make.bottom.equalTo(-10);
-        make.size.equalTo(CGSizeMake(80, 40));
-    }];
 }
 
 #pragma mark —— 底部 View 协议

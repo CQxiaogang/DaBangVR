@@ -23,11 +23,12 @@
                         <constraint firstAttribute="width" constant="100" id="0pn-Ee-Gbt"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="结算">
+                    <state key="normal" title="去付款">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="accountBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="GpZ-CC-jah"/>
+                        <action selector="goPaymentBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="jHE-po-pWt"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总价:00.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jer-Pl-Vkq">
@@ -75,8 +76,9 @@
             <connections>
                 <outlet property="allPriceLabel" destination="Jer-Pl-Vkq" id="CtO-KH-wOr"/>
                 <outlet property="clickBtn" destination="Cyp-JN-0Kd" id="WNF-eB-kzE"/>
+                <outlet property="goPaymentBtn" destination="wPc-sh-iB3" id="Bbz-v8-BXr"/>
             </connections>
-            <point key="canvasLocation" x="25.5" y="362.5"/>
+            <point key="canvasLocation" x="15" y="359"/>
         </view>
     </objects>
     <resources>

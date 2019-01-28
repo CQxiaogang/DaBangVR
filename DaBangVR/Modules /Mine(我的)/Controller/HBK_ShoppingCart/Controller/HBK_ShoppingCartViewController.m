@@ -11,9 +11,13 @@
 #import "HBK_ShoppingCartCell.h"
 #import "HBK_ShoppingCartHeaderView.h"
 #import "HBK_ShopppingCartBottomView.h"
+#import "OrderSureViewController.h" // 订单确定
 #define kBottomHeight        kFit(50)
 
-@interface HBK_ShoppingCartViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface HBK_ShoppingCartViewController ()<UITableViewDelegate, UITableViewDataSource, ShopppingCartBottomViewDeldegate>
+{
+    NSString *_goodsIDStr;
+}
 
 
 @property (nonatomic, strong) UITableView *myTableView;
@@ -68,6 +72,7 @@
     [self.myTableView registerNib:[UINib nibWithNibName:@"HBK_ShoppingCartHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"HBK_ShoppingCartHeaderView"];
     
     self.bottomView = [[[NSBundle mainBundle] loadNibNamed:@"HBK_ShopppingCartBottomView" owner:nil options:nil] objectAtIndex:0];
+    self.bottomView.delegate = self;
 //    self.bottomView.frame = CGRectMake(0, kScreenHeight - tabBarHeight - kBottomHeight, kScreenWidth, kBottomHeight);
     //全选
     [self clickAllSelectBottomView:self.bottomView];
@@ -183,14 +188,16 @@
  */
 - (void)countPrice {
     double totlePrice = 0.0;
+    NSMutableArray *goodsIDs = [NSMutableArray new];
     for (HBK_GoodsModel *goodsModel in self.selectArray) {
         double price = [goodsModel.retailPrice doubleValue];
         totlePrice += price * [goodsModel.number integerValue];
+        [goodsIDs addObject:goodsModel.goodsId];
     }
+    NSString *goodsIDStr = [goodsIDs componentsJoinedByString:@","];
+    _goodsIDStr = goodsIDStr;
     self.bottomView.allPriceLabel.text = [NSString stringWithFormat:@"合计 ￥%.2f", totlePrice];
 }
-
-
 
 #pragma mark  ----------- Action 点击事件 --------------------
 /**
@@ -347,11 +354,6 @@
     });
 }
 
-
-
-
-
-
 #pragma mark  -------------------- 此处模仿网络请求, 加载plist文件内容
 - (void)loadingDataForPlist {
     
@@ -386,23 +388,17 @@
     }
 }
 
+#pragma mark —— 底部 view 协议
 
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)goPaymentOfClick{
+    if (_goodsIDStr) {
+        [NetWorkHelper POST:URl_confirmGoods2Cart parameters:@{@"cartIds":_goodsIDStr} success:^(id  _Nonnull responseObject) {
+            
+            OrderSureViewController *vc = [[OrderSureViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:NO];
+        } failure:^(NSError * _Nonnull error) {
+            
+        }];
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

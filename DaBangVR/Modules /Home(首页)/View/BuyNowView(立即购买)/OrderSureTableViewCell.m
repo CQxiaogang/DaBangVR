@@ -38,17 +38,21 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-//    [self addSubview:self.numberBut];
-//    kWeakSelf(self);
-//    [self.numberBut mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.right.equalTo(-15);
-//        make.bottom.equalTo(weakself.mas_bottom).offset(-5.5);
-//        make.size.equalTo(CGSizeMake(60, 15));
-//    }];
+    [self addSubview:self.numberBut];
+    kWeakSelf(self);
+    [self.numberBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(-15);
+        make.bottom.equalTo(weakself.mas_bottom).offset(-5.5);
+        make.size.equalTo(CGSizeMake(60, 15));
+    }];
 }
 
-- (void)setModel:(OrderSureModel *)model{
+- (void)setModel:(OrderSureGoodsModel *)model{
     _model = model;
+    [_goodsImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:[UIImage imageNamed:@""]];
+    _goodsDescribeLab.text = model.goodsName;
+    _sellingPriceLab.text = model.retailPrice;
+    _marketPriceLab.text = model.marketPrice;
 }
 
 @end
