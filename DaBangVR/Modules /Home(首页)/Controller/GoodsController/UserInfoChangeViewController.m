@@ -59,10 +59,11 @@ static NSString *const CellID = @"CellID";
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *data = dic[@"data"];
         NSArray *receivingAddressVoList = data[@"receivingAddressVoList"];
-        for (NSDictionary *dic in receivingAddressVoList) {
-            UserInfoChangeModel *model = [UserInfoChangeModel modelWithDictionary:dic];
-            [self.userData addObject:model];
-        }
+        self.userData = [UserInfoChangeModel mj_objectArrayWithKeyValuesArray:receivingAddressVoList];
+//        for (NSDictionary *dic in receivingAddressVoList) {
+//            UserInfoChangeModel *model = [UserInfoChangeModel modelWithDictionary:dic];
+//            [self.userData addObject:model];
+//        }
         [self.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {
         

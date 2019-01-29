@@ -31,16 +31,21 @@
 
     [self.tableView registerNib:[UINib nibWithNibName:@"GoodsShowTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
-    //实际开发，建议使用MJRefresh
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"loading..." attributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
-    [refreshControl addTarget:self action:@selector(headerRefresh) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refreshControl;
-    
-    [self.tableView reloadData];
-    
-    //因为列表延迟加载了，所以在初始化的时候加载数据即可
-    [self loadDataForFirst];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self headerRefresh];
+    }];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
+    [self.tableView.mj_header beginRefreshing];
+//    //实际开发，建议使用MJRefresh
+//    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+//    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"loading..." attributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
+//    [refreshControl addTarget:self action:@selector(headerRefresh) forControlEvents:UIControlEventValueChanged];
+//    self.refreshControl = refreshControl;
+//
+//    [self.tableView reloadData];
+//
+//    //因为列表延迟加载了，所以在初始化的时候加载数据即可
+//    [self loadDataForFirst];
 }
 
 - (void)loadDataForFirst {
@@ -54,34 +59,27 @@
 }
 
 - (void)headerRefresh {
-    [self.refreshControl beginRefreshing];
     kWeakSelf(self);
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [self.dataSource removeAllObjects];
-        
-        NSDictionary *dic = @{
-                              @"categoryId":weakself.index,
-                              @"page"      :@"1",
-                              @"limit"     :@"10",
-                              @"token"     :curUser.openId
-                              };
-        [NetWorkHelper POST:URL_getGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
-            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            NSDictionary *dataDic= dic[@"data"];
-            NSArray *goodsList = dataDic[@"goodsList"];
-            for (NSDictionary *dic in goodsList) {
-                GoodsShowListModel *model = [GoodsShowListModel modelWithDictionary:dic];
-                [self.dataSource addObject:model];
-            }
-            
-            [self.tableView reloadData];
-        } failure:^(NSError * _Nonnull error) {
-            DLog(@"error%@",error);
-        }];
-        
-        [self.refreshControl endRefreshing];
-    });
+    [self.dataSource removeAllObjects];
+    NSDictionary *dic = @{
+                          @"categoryId":weakself.index,
+                          @"page"      :@"1",
+                          @"limit"     :@"10",
+                          @"token"     :curUser.openId
+                          };
+    [NetWorkHelper POST:URL_getGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSDictionary *dataDic= dic[@"data"];
+        NSArray *goodsList = dataDic[@"goodsList"];
+        for (NSDictionary *dic in goodsList) {
+            GoodsShowListModel *model = [GoodsShowListModel modelWithDictionary:dic];
+            [self.dataSource addObject:model];
+        }
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+    } failure:^(NSError * _Nonnull error) {
+        DLog(@"error%@",error);
+    }];
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
