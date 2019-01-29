@@ -18,9 +18,10 @@
 #import "MineViewController.h"
 #import "GoodsShowViewController.h"
 // Controllers
-#import "SpellGroupViewController.h"  //拼团
-#import "SecondsKillViewController.h" //秒杀
-#import "HBK_ShoppingCartViewController.h" //购物车
+#import "SpellGroupViewController.h"        //拼团
+#import "SecondsKillViewController.h"       //秒杀
+#import "HBK_ShoppingCartViewController.h"  //购物车
+#import "NewProductLaunchViewController.h"       //新品首发
 // Views
 #import "AnchorRecommendView.h" //主播推荐
 #import "ChannelMenuListView.h" //频道菜单列表
@@ -378,6 +379,11 @@ TopViewDelegate
             break;
         case 4: // 大邦
             break;
+        case 5: // 全球购
+            break;
+        case 6: // 新品首发
+            [self pushViewController:[NewProductLaunchViewController alloc]];
+            break;
         default:
             break;
     }
@@ -402,6 +408,12 @@ TopViewDelegate
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:NO];
 }
+
+- (void)pushViewController:(UIViewController *)vc{
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:NO];
+}
+
 #pragma mark —— 新上
 - (void)setupNew:(UITableViewCell *)cell{
     NSMutableArray *data = [NSMutableArray array];

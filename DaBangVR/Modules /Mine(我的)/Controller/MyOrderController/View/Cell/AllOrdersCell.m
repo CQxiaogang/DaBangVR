@@ -33,4 +33,11 @@
     }
 }
 
+- (void)setModel:(MyOrderModel *)model{
+    _model = model;
+    _priceLab.text = model.retailPrice;
+    _goodsNameLab.text = model.goodsName;
+    _sizeLab.text = model.goodsNumber;
+}
+
 @end

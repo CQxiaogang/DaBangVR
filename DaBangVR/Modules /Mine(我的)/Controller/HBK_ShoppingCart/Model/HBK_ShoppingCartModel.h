@@ -53,12 +53,6 @@
 @property (nonatomic, copy) NSString *nickName;
 @property (nonatomic, copy) NSString *cartNumber;
 
-
-//@property (nonatomic, copy) NSString *count;
-//@property (nonatomic, copy) NSString *goodsType;
-//@property (nonatomic, copy) NSString *orginalPrice;
-
-
 @property (nonatomic, assign) BOOL isSelect;
 
 

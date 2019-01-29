@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyOrderModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,10 +18,18 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface AllOrdersCell : BaseTableViewCell
+@property (weak, nonatomic) IBOutlet YYAnimatedImageView *goodsImgView;
+@property (weak, nonatomic) IBOutlet UILabel *goodsNameLab;
+@property (weak, nonatomic) IBOutlet UILabel *stateLab;
+@property (weak, nonatomic) IBOutlet UILabel *sizeLab;
+@property (weak, nonatomic) IBOutlet UILabel *colorLab;
+@property (weak, nonatomic) IBOutlet UILabel *priceLab;
 // 右下角 button
 @property (weak, nonatomic) IBOutlet UIButton *lowerRightCornerBtn;
 
 @property (nonatomic, strong) id<allOrdersCellDelegate> delegate;
+
+@property (nonatomic, strong) MyOrderModel *model;
 
 @end
 

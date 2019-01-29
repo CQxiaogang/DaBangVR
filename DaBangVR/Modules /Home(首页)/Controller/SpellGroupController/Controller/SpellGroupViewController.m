@@ -239,6 +239,7 @@
 -(void)didSelectGoodsShowDetails:(NSString *)index{
     GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
     vc.index = index;
+    vc.identifier = @"拼团";
     [self.navigationController pushViewController:vc animated:NO];
 }
 

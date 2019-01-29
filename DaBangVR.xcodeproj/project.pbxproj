@@ -30,6 +30,12 @@
 		0410358521CCD2F2002CB32C /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357C21CCD2F2002CB32C /* libSocialQQ.a */; };
 		0410358621CCD2F2002CB32C /* libUMSocialLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357E21CCD2F2002CB32C /* libUMSocialLog.a */; };
 		042359EA21FEDF0200F4C345 /* SpellGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042359E921FEDF0200F4C345 /* SpellGroupModel.m */; };
+		0423DADF21FFF52700325869 /* NewProductLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423DADE21FFF52700325869 /* NewProductLaunchViewController.m */; };
+		0423DAE621FFF64F00325869 /* NewProductLaunchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423DAE421FFF64F00325869 /* NewProductLaunchCell.m */; };
+		0423DAE721FFF64F00325869 /* NewProductLaunchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0423DAE521FFF64F00325869 /* NewProductLaunchCell.xib */; };
+		0423DAEA22002EDC00325869 /* MyOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423DAE922002EDC00325869 /* MyOrderTableViewController.m */; };
+		0423DAF122003F8B00325869 /* MyOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423DAF022003F8B00325869 /* MyOrderModel.m */; };
+		0423DAF422003FC100325869 /* MyOrderDeptModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423DAF322003FC100325869 /* MyOrderDeptModel.m */; };
 		042FCEC621A3E22E002AD0DB /* DBTimeLimitSecondsKill.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FCEC521A3E22E002AD0DB /* DBTimeLimitSecondsKill.m */; };
 		042FCEC821A3E24F002AD0DB /* DBTimeLimitSecondsKill.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FCEC721A3E24F002AD0DB /* DBTimeLimitSecondsKill.xib */; };
 		042FCECB21A3F1AB002AD0DB /* DBPrefectureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FCECA21A3F1AB002AD0DB /* DBPrefectureView.m */; };
@@ -170,7 +176,6 @@
 		04F47E1F21E5AA01001B5F74 /* PageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F47E1E21E5AA01001B5F74 /* PageView.m */; };
 		04F47E2421E5D0EE001B5F74 /* AllOrdersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F47E2221E5D0EE001B5F74 /* AllOrdersCell.m */; };
 		04F47E2521E5D0EE001B5F74 /* AllOrdersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F47E2321E5D0EE001B5F74 /* AllOrdersCell.xib */; };
-		04F47E2821E5DD42001B5F74 /* AllOrderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F47E2721E5DD42001B5F74 /* AllOrderTableView.m */; };
 		04F47E2B21E5F5D4001B5F74 /* EvaluationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F47E2A21E5F5D4001B5F74 /* EvaluationViewController.m */; };
 		04F47E3921E5FAF6001B5F74 /* EvaluationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F47E3721E5FAF6001B5F74 /* EvaluationCell.m */; };
 		04F47E3A21E5FAF6001B5F74 /* EvaluationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F47E3821E5FAF6001B5F74 /* EvaluationCell.xib */; };
@@ -298,6 +303,17 @@
 		0410357E21CCD2F2002CB32C /* libUMSocialLog.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocialLog.a; sourceTree = "<group>"; };
 		042359E821FEDF0200F4C345 /* SpellGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpellGroupModel.h; sourceTree = "<group>"; };
 		042359E921FEDF0200F4C345 /* SpellGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpellGroupModel.m; sourceTree = "<group>"; };
+		0423DADD21FFF52700325869 /* NewProductLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewProductLaunchViewController.h; sourceTree = "<group>"; };
+		0423DADE21FFF52700325869 /* NewProductLaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewProductLaunchViewController.m; sourceTree = "<group>"; };
+		0423DAE321FFF64F00325869 /* NewProductLaunchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewProductLaunchCell.h; sourceTree = "<group>"; };
+		0423DAE421FFF64F00325869 /* NewProductLaunchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewProductLaunchCell.m; sourceTree = "<group>"; };
+		0423DAE521FFF64F00325869 /* NewProductLaunchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewProductLaunchCell.xib; sourceTree = "<group>"; };
+		0423DAE822002EDC00325869 /* MyOrderTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOrderTableViewController.h; sourceTree = "<group>"; };
+		0423DAE922002EDC00325869 /* MyOrderTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyOrderTableViewController.m; sourceTree = "<group>"; };
+		0423DAEF22003F8B00325869 /* MyOrderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOrderModel.h; sourceTree = "<group>"; };
+		0423DAF022003F8B00325869 /* MyOrderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyOrderModel.m; sourceTree = "<group>"; };
+		0423DAF222003FC100325869 /* MyOrderDeptModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOrderDeptModel.h; sourceTree = "<group>"; };
+		0423DAF322003FC100325869 /* MyOrderDeptModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyOrderDeptModel.m; sourceTree = "<group>"; };
 		042FCEC421A3E22E002AD0DB /* DBTimeLimitSecondsKill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBTimeLimitSecondsKill.h; sourceTree = "<group>"; };
 		042FCEC521A3E22E002AD0DB /* DBTimeLimitSecondsKill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBTimeLimitSecondsKill.m; sourceTree = "<group>"; };
 		042FCEC721A3E24F002AD0DB /* DBTimeLimitSecondsKill.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBTimeLimitSecondsKill.xib; sourceTree = "<group>"; };
@@ -557,8 +573,6 @@
 		04F47E2121E5D0EE001B5F74 /* AllOrdersCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllOrdersCell.h; sourceTree = "<group>"; };
 		04F47E2221E5D0EE001B5F74 /* AllOrdersCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllOrdersCell.m; sourceTree = "<group>"; };
 		04F47E2321E5D0EE001B5F74 /* AllOrdersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllOrdersCell.xib; sourceTree = "<group>"; };
-		04F47E2621E5DD42001B5F74 /* AllOrderTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllOrderTableView.h; sourceTree = "<group>"; };
-		04F47E2721E5DD42001B5F74 /* AllOrderTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllOrderTableView.m; sourceTree = "<group>"; };
 		04F47E2921E5F5D4001B5F74 /* EvaluationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluationViewController.h; sourceTree = "<group>"; };
 		04F47E2A21E5F5D4001B5F74 /* EvaluationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluationViewController.m; sourceTree = "<group>"; };
 		04F47E3621E5FAF6001B5F74 /* EvaluationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluationCell.h; sourceTree = "<group>"; };
@@ -737,6 +751,7 @@
 				04F3B33221EDF41D00DFBA84 /* GoodsController */,
 				04F2FD1C21EF23A3000B58E2 /* SpellGroupController */,
 				04F2FD2021EF2549000B58E2 /* SecondsKillController */,
+				0423DADC21FFF45100325869 /* NewProductLaunchController */,
 				04F3B33321EDF43900DFBA84 /* OtherController */,
 			);
 			path = Controller;
@@ -922,6 +937,82 @@
 		042359EE21FF05ED00F4C345 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0423DADC21FFF45100325869 /* NewProductLaunchController */ = {
+			isa = PBXGroup;
+			children = (
+				0423DAE121FFF59F00325869 /* Model */,
+				0423DAE221FFF5A600325869 /* View */,
+				0423DAE021FFF58F00325869 /* Controller */,
+			);
+			path = NewProductLaunchController;
+			sourceTree = "<group>";
+		};
+		0423DAE021FFF58F00325869 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0423DADD21FFF52700325869 /* NewProductLaunchViewController.h */,
+				0423DADE21FFF52700325869 /* NewProductLaunchViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0423DAE121FFF59F00325869 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0423DAE221FFF5A600325869 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0423DAE321FFF64F00325869 /* NewProductLaunchCell.h */,
+				0423DAE421FFF64F00325869 /* NewProductLaunchCell.m */,
+				0423DAE521FFF64F00325869 /* NewProductLaunchCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0423DAEB2200301C00325869 /* MyOrderController */ = {
+			isa = PBXGroup;
+			children = (
+				0423DAEE2200306A00325869 /* Model */,
+				0423DAED2200306300325869 /* View */,
+				0423DAEC2200304E00325869 /* Controller */,
+			);
+			path = MyOrderController;
+			sourceTree = "<group>";
+		};
+		0423DAEC2200304E00325869 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04F084F121E496DA00BFE102 /* MyOrderViewController.h */,
+				04F084F221E496DA00BFE102 /* MyOrderViewController.m */,
+				0423DAE822002EDC00325869 /* MyOrderTableViewController.h */,
+				0423DAE922002EDC00325869 /* MyOrderTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0423DAED2200306300325869 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04F47E3021E5FA4E001B5F74 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0423DAEE2200306A00325869 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0423DAEF22003F8B00325869 /* MyOrderModel.h */,
+				0423DAF022003F8B00325869 /* MyOrderModel.m */,
+				0423DAF222003FC100325869 /* MyOrderDeptModel.h */,
+				0423DAF322003FC100325869 /* MyOrderDeptModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1576,15 +1667,6 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
-		04F47E2021E5D084001B5F74 /* MyOrderView */ = {
-			isa = PBXGroup;
-			children = (
-				04F47E3021E5FA4E001B5F74 /* Cell */,
-				04F47E3121E5FA6C001B5F74 /* tableView */,
-			);
-			path = MyOrderView;
-			sourceTree = "<group>";
-		};
 		04F47E2F21E5FA19001B5F74 /* EvaluationView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1602,15 +1684,6 @@
 				04F47E2321E5D0EE001B5F74 /* AllOrdersCell.xib */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		04F47E3121E5FA6C001B5F74 /* tableView */ = {
-			isa = PBXGroup;
-			children = (
-				04F47E2621E5DD42001B5F74 /* AllOrderTableView.h */,
-				04F47E2721E5DD42001B5F74 /* AllOrderTableView.m */,
-			);
-			path = tableView;
 			sourceTree = "<group>";
 		};
 		04F47E3221E5FA86001B5F74 /* Cell */ = {
@@ -1820,7 +1893,6 @@
 				04F7360921B679CE001CEBC0 /* MineTableViewCell.xib */,
 				04F3270821D07F18009267F4 /* SettingTableViewCell.h */,
 				04F3270921D07F18009267F4 /* SettingTableViewCell.m */,
-				04F47E2021E5D084001B5F74 /* MyOrderView */,
 				04F47E2F21E5FA19001B5F74 /* EvaluationView */,
 				04F45EFD21F5593F009F5907 /* ShoppingCarView */,
 			);
@@ -1837,12 +1909,11 @@
 		04F8664821A7AFDC00A4D7F6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0423DAEB2200301C00325869 /* MyOrderController */,
 				049D47A3219FEC790058178D /* MineViewController.h */,
 				049D47A4219FEC790058178D /* MineViewController.m */,
 				04FC07F121B50855008FF83B /* SettingViewController.h */,
 				04FC07F221B50855008FF83B /* SettingViewController.m */,
-				04F084F121E496DA00BFE102 /* MyOrderViewController.h */,
-				04F084F221E496DA00BFE102 /* MyOrderViewController.m */,
 				04EFA02421E7226D007C2FCA /* OrderDeliveryViewController.h */,
 				04EFA02521E7226D007C2FCA /* OrderDeliveryViewController.m */,
 				04F47E2921E5F5D4001B5F74 /* EvaluationViewController.h */,
@@ -2170,6 +2241,7 @@
 				0459D90F21E08FFD009BFFB4 /* OrderSureTopView.xib in Resources */,
 				049D4763219FA91F0058178D /* LaunchScreen.storyboard in Resources */,
 				04F62FD621F951440094B26F /* HBK_ShopppingCartBottomView.xib in Resources */,
+				0423DAE721FFF64F00325869 /* NewProductLaunchCell.xib in Resources */,
 				04FA5D6621AE476F0061AF27 /* MobilePhoneNoLoginViewController.xib in Resources */,
 				049D4760219FA91F0058178D /* Assets.xcassets in Resources */,
 				04F8FC0421F1D40400913150 /* SecondsKillCell.xib in Resources */,
@@ -2279,6 +2351,7 @@
 				04F62FD521F951440094B26F /* HBK_ShoppingCartModel.m in Sources */,
 				04F3270A21D07F18009267F4 /* SettingTableViewCell.m in Sources */,
 				04F3B31E21EDDAF900DFBA84 /* UIColor+JXAdd.m in Sources */,
+				0423DAF122003F8B00325869 /* MyOrderModel.m in Sources */,
 				0406C7C121F6C5C1009C6A8E /* TestListBaseView.m in Sources */,
 				04F3CF0A21CB4C0D007C40A1 /* RootNavigationController.m in Sources */,
 				04F2FD2C21EF3EA9000B58E2 /* SpellGroupTableViewController.m in Sources */,
@@ -2307,6 +2380,7 @@
 				04F45F0621F567E7009F5907 /* ShoppingCarCell.m in Sources */,
 				04F3B30221EDDAF900DFBA84 /* JXCategoryIndicatorRainbowLineView.m in Sources */,
 				04F3B30C21EDDAF900DFBA84 /* JXCategoryDotCellModel.m in Sources */,
+				0423DAEA22002EDC00325869 /* MyOrderTableViewController.m in Sources */,
 				04F47E2421E5D0EE001B5F74 /* AllOrdersCell.m in Sources */,
 				04F45F0021F5599A009F5907 /* ShoppingCarBottonView.m in Sources */,
 				04F2FD1321EEEAE0000B58E2 /* GoodsDetailsView.m in Sources */,
@@ -2330,6 +2404,7 @@
 				04FB2F7321BB7BE8007E63AA /* UIView+FontSize.m in Sources */,
 				04F3B31B21EDDAF900DFBA84 /* JXCategoryFactory.m in Sources */,
 				0406C7BC21F6C5C1009C6A8E /* JXPagerMainTableView.m in Sources */,
+				0423DAE621FFF64F00325869 /* NewProductLaunchCell.m in Sources */,
 				04F7360A21B679CE001CEBC0 /* MineTableViewCell.m in Sources */,
 				04F2FD1021EEE8B4000B58E2 /* FGGAutoScrollView.m in Sources */,
 				04F2FD0C21EECDA1000B58E2 /* GoodsDetailsModel.m in Sources */,
@@ -2345,6 +2420,7 @@
 				04457AC321FC49EE003E5748 /* OrderSureGoodsModel.m in Sources */,
 				043B468E21F8682100C75536 /* LeaveMessageViewController.m in Sources */,
 				049D479C219FEC1E0058178D /* HomeViewController.m in Sources */,
+				0423DADF21FFF52700325869 /* NewProductLaunchViewController.m in Sources */,
 				04F8ED5021E349E000004178 /* modifyAddressViewCell.m in Sources */,
 				04F3B30B21EDDAF900DFBA84 /* JXCategoryDotView.m in Sources */,
 				0406C7BD21F6C5C1009C6A8E /* JXPagerView.m in Sources */,
@@ -2378,7 +2454,6 @@
 				04F4467821D74F5300524971 /* DBFeatureItemCell.m in Sources */,
 				04FC2C3B21C0E3AD00329B53 /* JFAreaDataManager.m in Sources */,
 				0406C7BF21F6C5C1009C6A8E /* PagingViewTableHeaderView.m in Sources */,
-				04F47E2821E5DD42001B5F74 /* AllOrderTableView.m in Sources */,
 				04F3B30321EDDAF900DFBA84 /* JXCategoryIndicatorImageView.m in Sources */,
 				04F62FEE21F9B69A0094B26F /* ModifyAddressAreaModel.m in Sources */,
 				042FCED021A406FB002AD0DB /* DBHotVideoView.m in Sources */,
@@ -2410,6 +2485,7 @@
 				049D4766219FA91F0058178D /* main.m in Sources */,
 				04F4468121D74F7B00524971 /* DBFeatureList.m in Sources */,
 				04FDA16621AD3D6300E7804B /* PageContentView.m in Sources */,
+				0423DAF422003FC100325869 /* MyOrderDeptModel.m in Sources */,
 				042359EA21FEDF0200F4C345 /* SpellGroupModel.m in Sources */,
 				04F3B31121EDDAF900DFBA84 /* JXCategoryTitleCell.m in Sources */,
 				04F3B30621EDDAF900DFBA84 /* JXCategoryIndicatorBackgroundView.m in Sources */,

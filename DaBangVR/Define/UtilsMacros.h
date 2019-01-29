@@ -76,14 +76,15 @@
 #define NSStringFormat(format,...) [NSString stringWithFormat:format,##__VA_ARGS__]
 
 //颜色
-#define KClearColor [UIColor clearColor]
-#define KWhiteColor [UIColor whiteColor]
-#define KBlackColor [UIColor blackColor]
-#define KGrayColor [UIColor grayColor]
-#define KGray2Color [UIColor lightGrayColor]
-#define KBlueColor [UIColor blueColor]
-#define KRedColor [UIColor redColor]
+#define KClearColor  [UIColor clearColor]
+#define KWhiteColor  [UIColor whiteColor]
+#define KBlackColor  [UIColor blackColor]
+#define KGrayColor   [UIColor grayColor]
+#define KGray2Color  [UIColor lightGrayColor]
+#define KBlueColor   [UIColor blueColor]
+#define KRedColor    [UIColor redColor]
 #define KOrangeColor [UIColor orangeColor]
+#define kYellowColor [UIColor yellowColor]
 //随机色生成
 #define KRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 /**

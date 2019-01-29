@@ -68,8 +68,8 @@ static NSString *CellID = @"CellID";
         NSDictionary *goodsDetailsDic = dataDic[@"goodsDetails"];
         self.model = [GoodsDetailsModel modelWithDictionary:goodsDetailsDic];
         
-        [self setupChildUI];
-        
+        [self.tableView reloadData];
+    
     } failure:^(NSError * _Nonnull error) {
         
     }];
@@ -92,9 +92,7 @@ static NSString *CellID = @"CellID";
 
 -(void)setupUI{
     [super setupUI];
-}
-
--(void)setupChildUI{
+    
     // 设置Navagation
     [self setupNavagation];
     // 设置头部 view
@@ -119,23 +117,37 @@ static NSString *CellID = @"CellID";
         make.bottom.equalTo(0);
         make.size.equalTo(CGSizeMake(KScreenW, kTabBarHeight));
     }];
-
-    UIButton *buyBtn = [[UIButton alloc] init];
-    buyBtn.backgroundColor = KRedColor;
-    [buyBtn setTitle:@"立即购买" forState:UIControlStateNormal];
-    buyBtn.titleLabel.adaptiveFontSize = 14;
-    [buyBtn addTarget:self action:@selector(buyNowBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    [bottomView addSubview:buyBtn];
-    [buyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.top.bottom.equalTo(@(0));
-        make.size.equalTo(CGSizeMake(100, kTabBarHeight));
+    
+    NSMutableArray *names  = [NSMutableArray arrayWithObjects:@"购物车", @"立即购买", nil];
+    NSMutableArray *colors = [NSMutableArray arrayWithObjects:KOrangeColor, KRedColor, nil];
+    
+    if ([self.identifier isEqualToString:@"拼团"]) {
+        [names replaceObjectAtIndex:0 withObject:@"拼  团"];
+    }
+    
+    NSMutableArray *buyOrCarBtnArr = [NSMutableArray new];
+    UIButton *buyOrCarBtn;
+    for (int i = 0; i<2; i++) {
+        buyOrCarBtn = [[UIButton alloc] init];
+        buyOrCarBtn.tag = i;
+        buyOrCarBtn.backgroundColor = colors[i];
+        buyOrCarBtn.titleLabel.adaptiveFontSize = 14;
+        [buyOrCarBtn setTitle:names[i] forState:UIControlStateNormal];
+        [buyOrCarBtn addTarget:self action:@selector(buyNowOfCarBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        [buyOrCarBtnArr addObject:buyOrCarBtn];
+        [bottomView addSubview:buyOrCarBtn];
+    }
+    [buyOrCarBtnArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:180 tailSpacing:0];
+    [buyOrCarBtnArr mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(@(0));
+        make.height.equalTo(kTabBarHeight);
     }];
-
-    NSArray *imgArr =@[@"c-collection",@"c-service",@"c-cart"];
-    NSArray *nameArr = @[@"收藏",@"客服",@"加购"];
+    
+    NSArray *imgArr =@[@"c-collection",@"c-service"];
+    NSArray *nameArr = @[@"收藏",@"客服"];
     NSMutableArray *otherBtnArr = [NSMutableArray new];
     UIButton *otherBtn;
-    for (int i=0; i<3; i++) {
+    for (int i=0; i<nameArr.count; i++) {
         otherBtn = [[UIButton alloc] init];
         otherBtn.tag = i;
         otherBtn.titleLabel.adaptiveFontSize = 12;
@@ -146,7 +158,7 @@ static NSString *CellID = @"CellID";
         [bottomView addSubview:otherBtn];
         [otherBtnArr addObject:otherBtn];
     }
-    [otherBtnArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:0 tailSpacing:140];
+    [otherBtnArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:0 tailSpacing:220];
     [otherBtnArr mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(@(0));
         make.height.equalTo(kTabBarHeight);
@@ -156,6 +168,7 @@ static NSString *CellID = @"CellID";
         [button setTitleEdgeInsets:UIEdgeInsetsMake(button.imageView.mj_h ,-button.imageView.mj_w, -5,0)];
         [button setImageEdgeInsets:UIEdgeInsetsMake(-12, 0,0, -button.titleLabel.mj_w)];
     }
+    
 }
 
 #pragma mark —— UI设置
@@ -221,10 +234,10 @@ static NSString *CellID = @"CellID";
         
     }else{
         dic = @{
-                @"goodsId"  :array[0],
-                @"number"   :array[1],
-                @"deptId"   : self.model.deptId,
-                 @"token"   :curUser.openId
+                @"goodsId":array[0],
+                @"number" :array[1],
+                @"deptId" : self.model.deptId,
+                @"token"  :curUser.openId
                 };
         
     }
@@ -268,13 +281,23 @@ static NSString *CellID = @"CellID";
     }];
 }
 
-// 立即购买 btn
-- (void)buyNowBtnAction{
-    if (_goodsAttributesArr.count == 0) {
-        [self creatAttributesView:@"立即购买"];
+// 立即购买和购物车 btn
+- (void)buyNowOfCarBtnAction:(UIButton *)sender{
+    if (sender.tag == 1) {
+        if (_goodsAttributesArr.count == 0) {
+            [self creatAttributesView:@"立即购买"];
+        }else{
+            [self.navigationController pushViewController:[[OrderSureViewController alloc] init] animated:NO];
+        }
     }else{
-        [self.navigationController pushViewController:[[OrderSureViewController alloc] init] animated:NO];
+        [self addToShoppingCarBtnOfAction];
     }
+    
+}
+
+// 加购
+- (void)addToShoppingCarBtnOfAction{
+    [self creatAttributesView:@"购物车"];
 }
 
 - (void)otherBtnClickAction:(UIButton *)sender{
@@ -282,18 +305,12 @@ static NSString *CellID = @"CellID";
         [self collectionBtnOfAction];
     }else if (sender.tag == 1){
         [self customerServiceBtnOfAction];
-    }else{
-        [self addToShoppingCarBtnOfAction];
     }
 }
 // 收藏
 - (void)collectionBtnOfAction{}
 // 客服
 - (void)customerServiceBtnOfAction{
-}
-// 加购
-- (void)addToShoppingCarBtnOfAction{
-    [self creatAttributesView:@"购物车"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

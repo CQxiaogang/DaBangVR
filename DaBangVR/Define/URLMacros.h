@@ -106,5 +106,6 @@
 #define URl_submitOrder NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/submitOrder?")
 // 修改购物车中商品的数量
 #define URl_updateNumber2Cart NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/updateNumber2Cart?")
-
+// 我的订单 - 列表统一入口
+#define URl_getOrderList NSStringFormat(@"%@%@",URL_main,@"/api/order/getOrderList?")
 #endif /* URLMacros_h */

@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setupUI;
 
+@property (nonatomic, copy) NSString *identifier;
+
 @end
 
 NS_ASSUME_NONNULL_END
