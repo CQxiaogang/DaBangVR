@@ -7,34 +7,30 @@
 //
 // controller
 #import "ModifyAddressViewController.h"
-#import "UserInfoChangeViewController.h"
+#import "UserGoodsAdressViewController.h"
 // views
-#import "informationModificationHeaderView.h"
-#import "informationModificationCell.h"
+#import "AddUserAdressView.h"
+#import "UserAdressCell.h"
 // Models
 #import "UserInfoChangeModel.h"
 
-@interface UserInfoChangeViewController ()
-<
-informationModificationHeaderDelegate,
-UserInfoChangeCellDelegate
->
+@interface UserGoodsAdressViewController ()<AddUserAdressViewDelegate, UserAdressCellDelegate>
 
-@property (nonatomic, strong) informationModificationHeaderView *headerView;
+@property (nonatomic, strong) AddUserAdressView *headerView;
 
 @property (nonatomic, strong) NSMutableArray *userData;
 
 @end
 
-@implementation UserInfoChangeViewController
+@implementation UserGoodsAdressViewController
 
 static NSString *const CellID = @"CellID";
 
 #pragma mark —— 懒加载
 
-- (informationModificationHeaderView *)headerView{
+- (AddUserAdressView *)headerView{
     if (!_headerView) {
-        _headerView = [[[NSBundle mainBundle] loadNibNamed:@"informationModificationHeaderView" owner:nil options:nil] firstObject];
+        _headerView = [[[NSBundle mainBundle] loadNibNamed:@"AddUserAdressView" owner:nil options:nil] firstObject];
         _headerView.delegate = self;
     }
     return _headerView;
@@ -60,10 +56,6 @@ static NSString *const CellID = @"CellID";
         NSDictionary *data = dic[@"data"];
         NSArray *receivingAddressVoList = data[@"receivingAddressVoList"];
         self.userData = [UserInfoChangeModel mj_objectArrayWithKeyValuesArray:receivingAddressVoList];
-//        for (NSDictionary *dic in receivingAddressVoList) {
-//            UserInfoChangeModel *model = [UserInfoChangeModel modelWithDictionary:dic];
-//            [self.userData addObject:model];
-//        }
         [self.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {
         
@@ -73,7 +65,7 @@ static NSString *const CellID = @"CellID";
 - (void)setupUI{
     [super setupUI];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"informationModificationCell" bundle:nil] forCellReuseIdentifier:CellID];
+    [self.tableView registerNib:[UINib nibWithNibName:@"UserAdressCell" bundle:nil] forCellReuseIdentifier:CellID];
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.headerView;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -90,10 +82,10 @@ static NSString *const CellID = @"CellID";
     return self.userData.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    informationModificationCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
+    UserAdressCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     cell.delegate = self;
     if (cell == nil) {
-        cell = [[informationModificationCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
+        cell = [[UserAdressCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
     cell.model = self.userData[indexPath.row];
     return cell;
@@ -107,13 +99,20 @@ static NSString *const CellID = @"CellID";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 170;
+    return kFit(170);
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSArray *data = self.userData[indexPath.row];
+    self.ClickAdressBlock(data);
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 
 #pragma mark —— 新增地址 Delegate
 -(void)addNewAddress{
     ModifyAddressViewController *modifiAddressVC = [[ModifyAddressViewController alloc] init];
-    
     [self.navigationController pushViewController:modifiAddressVC animated:NO];
 }
 

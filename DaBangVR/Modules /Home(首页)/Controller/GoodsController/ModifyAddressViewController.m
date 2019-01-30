@@ -289,7 +289,6 @@ static NSString *const CellID = @"CellID";
     dispatch_group_enter(group);
     
     _areaID   = _areaID? _areaID : @"1";
-
     [NetWorkHelper POST:URl_getRegionChildrenList parameters:@{@"parentId":_areaID, @"token":kToken} success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSArray *regionList = dic[@"regionList"];

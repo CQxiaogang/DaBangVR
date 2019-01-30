@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol UserInfoChangeCellDelegate <NSObject>
+@protocol UserAdressCellDelegate <NSObject>
 
 /**
  默认地址选择
@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface informationModificationCell : BaseTableViewCell
+@interface UserAdressCell : BaseTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *userPhoneNum;
 @property (weak, nonatomic) IBOutlet UILabel *adress;
@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UserInfoChangeModel *model;
 
-@property (nonatomic, weak) id <UserInfoChangeCellDelegate> delegate;
+@property (nonatomic, weak) id <UserAdressCellDelegate> delegate;
 
 @end
 

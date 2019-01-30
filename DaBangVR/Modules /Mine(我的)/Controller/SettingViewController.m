@@ -11,7 +11,7 @@
 #import "LoginViewController.h"
 #import "MainTabBarController.h"
 #import "SettingViewController.h"
-#import "UserInfoChangeViewController.h"
+#import "UserGoodsAdressViewController.h"
 #import "UIAlertController+TapGesAlertController.h"
 
 static NSString *cellID = @"cellID";
@@ -324,7 +324,7 @@ static NSString *cellID = @"cellID";
 }
 // 我的地址
 - (void)myAddress{
-    UserInfoChangeViewController *VC = [[UserInfoChangeViewController alloc] init];
+    UserGoodsAdressViewController *VC = [[UserGoodsAdressViewController alloc] init];
     [self.navigationController pushViewController:VC animated:NO];
 }
 

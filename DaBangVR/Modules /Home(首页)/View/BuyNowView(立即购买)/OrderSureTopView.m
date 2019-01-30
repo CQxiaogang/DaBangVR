@@ -7,7 +7,7 @@
 //
 
 #import "OrderSureTopView.h"
-#import "OrderSureUserAddressModel.h"
+#import "UserAddressModel.h"
 
 @implementation OrderSureTopView
 

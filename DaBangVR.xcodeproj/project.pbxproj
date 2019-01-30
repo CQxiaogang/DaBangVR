@@ -43,7 +43,7 @@
 		042FCED021A406FB002AD0DB /* DBHotVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FCECF21A406FB002AD0DB /* DBHotVideoView.m */; };
 		042FCED221A4070C002AD0DB /* DBHotVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FCED121A4070C002AD0DB /* DBHotVideoView.xib */; };
 		043B467E21F804BF00C75536 /* OrderSureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B467D21F804BF00C75536 /* OrderSureModel.m */; };
-		043B468421F80CB200C75536 /* OrderSureUserAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B468321F80CB200C75536 /* OrderSureUserAddressModel.m */; };
+		043B468421F80CB200C75536 /* UserAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B468321F80CB200C75536 /* UserAddressModel.m */; };
 		043B468E21F8682100C75536 /* LeaveMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B468C21F8682100C75536 /* LeaveMessageViewController.m */; };
 		043B468F21F8682100C75536 /* LeaveMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043B468D21F8682100C75536 /* LeaveMessageViewController.xib */; };
 		04457ABB21FC43B2003E5748 /* OrderSureHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04457ABA21FC43B2003E5748 /* OrderSureHeaderView.m */; };
@@ -207,11 +207,11 @@
 		04F866B321A806F600A4D7F6 /* DBNewProductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F866B221A806F600A4D7F6 /* DBNewProductView.xib */; };
 		04F8ED3621E2F0AA00004178 /* DBDetailFooterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED3421E2F0AA00004178 /* DBDetailFooterCell.m */; };
 		04F8ED3721E2F0AA00004178 /* DBDetailFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8ED3521E2F0AA00004178 /* DBDetailFooterCell.xib */; };
-		04F8ED3A21E304C800004178 /* UserInfoChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED3921E304C800004178 /* UserInfoChangeViewController.m */; };
-		04F8ED3E21E30E9A00004178 /* informationModificationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED3D21E30E9A00004178 /* informationModificationHeaderView.m */; };
-		04F8ED4021E3272A00004178 /* informationModificationHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8ED3F21E3272A00004178 /* informationModificationHeaderView.xib */; };
-		04F8ED4421E32AC000004178 /* informationModificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED4221E32AC000004178 /* informationModificationCell.m */; };
-		04F8ED4521E32AC000004178 /* informationModificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8ED4321E32AC000004178 /* informationModificationCell.xib */; };
+		04F8ED3A21E304C800004178 /* UserGoodsAdressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED3921E304C800004178 /* UserGoodsAdressViewController.m */; };
+		04F8ED3E21E30E9A00004178 /* AddUserAdressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED3D21E30E9A00004178 /* AddUserAdressView.m */; };
+		04F8ED4021E3272A00004178 /* AddUserAdressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8ED3F21E3272A00004178 /* AddUserAdressView.xib */; };
+		04F8ED4421E32AC000004178 /* UserAdressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED4221E32AC000004178 /* UserAdressCell.m */; };
+		04F8ED4521E32AC000004178 /* UserAdressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8ED4321E32AC000004178 /* UserAdressCell.xib */; };
 		04F8ED4B21E3453800004178 /* ModifyAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED4A21E3453800004178 /* ModifyAddressViewController.m */; };
 		04F8ED5021E349E000004178 /* modifyAddressViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED4E21E349E000004178 /* modifyAddressViewCell.m */; };
 		04F8ED5121E349E000004178 /* modifyAddressViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8ED4F21E349E000004178 /* modifyAddressViewCell.xib */; };
@@ -325,8 +325,8 @@
 		042FCED121A4070C002AD0DB /* DBHotVideoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBHotVideoView.xib; sourceTree = "<group>"; };
 		043B467C21F804BF00C75536 /* OrderSureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderSureModel.h; sourceTree = "<group>"; };
 		043B467D21F804BF00C75536 /* OrderSureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderSureModel.m; sourceTree = "<group>"; };
-		043B468221F80CB200C75536 /* OrderSureUserAddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderSureUserAddressModel.h; sourceTree = "<group>"; };
-		043B468321F80CB200C75536 /* OrderSureUserAddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderSureUserAddressModel.m; sourceTree = "<group>"; };
+		043B468221F80CB200C75536 /* UserAddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserAddressModel.h; sourceTree = "<group>"; };
+		043B468321F80CB200C75536 /* UserAddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAddressModel.m; sourceTree = "<group>"; };
 		043B468B21F8682100C75536 /* LeaveMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeaveMessageViewController.h; sourceTree = "<group>"; };
 		043B468C21F8682100C75536 /* LeaveMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeaveMessageViewController.m; sourceTree = "<group>"; };
 		043B468D21F8682100C75536 /* LeaveMessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaveMessageViewController.xib; sourceTree = "<group>"; };
@@ -632,14 +632,14 @@
 		04F8ED3321E2F0AA00004178 /* DBDetailFooterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBDetailFooterCell.h; sourceTree = "<group>"; };
 		04F8ED3421E2F0AA00004178 /* DBDetailFooterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBDetailFooterCell.m; sourceTree = "<group>"; };
 		04F8ED3521E2F0AA00004178 /* DBDetailFooterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBDetailFooterCell.xib; sourceTree = "<group>"; };
-		04F8ED3821E304C800004178 /* UserInfoChangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoChangeViewController.h; sourceTree = "<group>"; };
-		04F8ED3921E304C800004178 /* UserInfoChangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoChangeViewController.m; sourceTree = "<group>"; };
-		04F8ED3C21E30E9A00004178 /* informationModificationHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = informationModificationHeaderView.h; sourceTree = "<group>"; };
-		04F8ED3D21E30E9A00004178 /* informationModificationHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = informationModificationHeaderView.m; sourceTree = "<group>"; };
-		04F8ED3F21E3272A00004178 /* informationModificationHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = informationModificationHeaderView.xib; sourceTree = "<group>"; };
-		04F8ED4121E32AC000004178 /* informationModificationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = informationModificationCell.h; sourceTree = "<group>"; };
-		04F8ED4221E32AC000004178 /* informationModificationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = informationModificationCell.m; sourceTree = "<group>"; };
-		04F8ED4321E32AC000004178 /* informationModificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = informationModificationCell.xib; sourceTree = "<group>"; };
+		04F8ED3821E304C800004178 /* UserGoodsAdressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserGoodsAdressViewController.h; sourceTree = "<group>"; };
+		04F8ED3921E304C800004178 /* UserGoodsAdressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserGoodsAdressViewController.m; sourceTree = "<group>"; };
+		04F8ED3C21E30E9A00004178 /* AddUserAdressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddUserAdressView.h; sourceTree = "<group>"; };
+		04F8ED3D21E30E9A00004178 /* AddUserAdressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddUserAdressView.m; sourceTree = "<group>"; };
+		04F8ED3F21E3272A00004178 /* AddUserAdressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddUserAdressView.xib; sourceTree = "<group>"; };
+		04F8ED4121E32AC000004178 /* UserAdressCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserAdressCell.h; sourceTree = "<group>"; };
+		04F8ED4221E32AC000004178 /* UserAdressCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAdressCell.m; sourceTree = "<group>"; };
+		04F8ED4321E32AC000004178 /* UserAdressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserAdressCell.xib; sourceTree = "<group>"; };
 		04F8ED4921E3453800004178 /* ModifyAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyAddressViewController.h; sourceTree = "<group>"; };
 		04F8ED4A21E3453800004178 /* ModifyAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyAddressViewController.m; sourceTree = "<group>"; };
 		04F8ED4D21E349E000004178 /* modifyAddressViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = modifyAddressViewCell.h; sourceTree = "<group>"; };
@@ -1026,8 +1026,8 @@
 				04457ABF21FC48C3003E5748 /* OrderSureDeptGoodsModel.m */,
 				04457AC121FC49EE003E5748 /* OrderSureGoodsModel.h */,
 				04457AC221FC49EE003E5748 /* OrderSureGoodsModel.m */,
-				043B468221F80CB200C75536 /* OrderSureUserAddressModel.h */,
-				043B468321F80CB200C75536 /* OrderSureUserAddressModel.m */,
+				043B468221F80CB200C75536 /* UserAddressModel.h */,
+				043B468321F80CB200C75536 /* UserAddressModel.m */,
 			);
 			path = BuyNowModel;
 			sourceTree = "<group>";
@@ -1525,8 +1525,8 @@
 				043B468B21F8682100C75536 /* LeaveMessageViewController.h */,
 				043B468C21F8682100C75536 /* LeaveMessageViewController.m */,
 				043B468D21F8682100C75536 /* LeaveMessageViewController.xib */,
-				04F8ED3821E304C800004178 /* UserInfoChangeViewController.h */,
-				04F8ED3921E304C800004178 /* UserInfoChangeViewController.m */,
+				04F8ED3821E304C800004178 /* UserGoodsAdressViewController.h */,
+				04F8ED3921E304C800004178 /* UserGoodsAdressViewController.m */,
 				04F8ED4921E3453800004178 /* ModifyAddressViewController.h */,
 				04F8ED4A21E3453800004178 /* ModifyAddressViewController.m */,
 			);
@@ -1941,12 +1941,12 @@
 		04F8ED3B21E30DD000004178 /* UserInfoChangeView(信息修改) */ = {
 			isa = PBXGroup;
 			children = (
-				04F8ED3C21E30E9A00004178 /* informationModificationHeaderView.h */,
-				04F8ED3D21E30E9A00004178 /* informationModificationHeaderView.m */,
-				04F8ED3F21E3272A00004178 /* informationModificationHeaderView.xib */,
-				04F8ED4121E32AC000004178 /* informationModificationCell.h */,
-				04F8ED4221E32AC000004178 /* informationModificationCell.m */,
-				04F8ED4321E32AC000004178 /* informationModificationCell.xib */,
+				04F8ED3C21E30E9A00004178 /* AddUserAdressView.h */,
+				04F8ED3D21E30E9A00004178 /* AddUserAdressView.m */,
+				04F8ED3F21E3272A00004178 /* AddUserAdressView.xib */,
+				04F8ED4121E32AC000004178 /* UserAdressCell.h */,
+				04F8ED4221E32AC000004178 /* UserAdressCell.m */,
+				04F8ED4321E32AC000004178 /* UserAdressCell.xib */,
 				04F8ED4C21E3498D00004178 /* modifyAddressView */,
 			);
 			path = "UserInfoChangeView(信息修改)";
@@ -2233,7 +2233,7 @@
 				04F4469321D74FBF00524971 /* GoodsInfoView.xib in Resources */,
 				0406C7C321F6C9CD009C6A8E /* PagingViewTableHeaderView.xib in Resources */,
 				04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */,
-				04F8ED4521E32AC000004178 /* informationModificationCell.xib in Resources */,
+				04F8ED4521E32AC000004178 /* UserAdressCell.xib in Resources */,
 				0463026521BBC8DB0003C542 /* DBTopView.xib in Resources */,
 				04F45F0221F559AA009F5907 /* ShoppingCarBottonView.xib in Resources */,
 				043B468F21F8682100C75536 /* LeaveMessageViewController.xib in Resources */,
@@ -2247,7 +2247,7 @@
 				04F8FC0421F1D40400913150 /* SecondsKillCell.xib in Resources */,
 				0403677321A5129800974435 /* DBtableViewCell.xib in Resources */,
 				049703E721A69860002359B5 /* DBLiveTableViewCell.xib in Resources */,
-				04F8ED4021E3272A00004178 /* informationModificationHeaderView.xib in Resources */,
+				04F8ED4021E3272A00004178 /* AddUserAdressView.xib in Resources */,
 				04F45F0C21F57EED009F5907 /* NewCommentCell.xib in Resources */,
 				042FCEC821A3E24F002AD0DB /* DBTimeLimitSecondsKill.xib in Resources */,
 				042FCED221A4070C002AD0DB /* DBHotVideoView.xib in Resources */,
@@ -2355,7 +2355,7 @@
 				0406C7C121F6C5C1009C6A8E /* TestListBaseView.m in Sources */,
 				04F3CF0A21CB4C0D007C40A1 /* RootNavigationController.m in Sources */,
 				04F2FD2C21EF3EA9000B58E2 /* SpellGroupTableViewController.m in Sources */,
-				04F8ED4421E32AC000004178 /* informationModificationCell.m in Sources */,
+				04F8ED4421E32AC000004178 /* UserAdressCell.m in Sources */,
 				04F45F1521F5B2E9009F5907 /* SecondsKillTableView.m in Sources */,
 				04F3B31421EDDAF900DFBA84 /* JXCategoryImageCell.m in Sources */,
 				04F4469D21D7772700524971 /* DBFeatureChoseTopCell.m in Sources */,
@@ -2427,7 +2427,7 @@
 				04F70C6521E97D17004BD4C6 /* GoodsShowTitleModel.m in Sources */,
 				04EFA02C21E73391007C2FCA /* EvaluationOfSuccessViewController.m in Sources */,
 				04F4468221D74F7B00524971 /* DBFeatureItem.m in Sources */,
-				04F8ED3E21E30E9A00004178 /* informationModificationHeaderView.m in Sources */,
+				04F8ED3E21E30E9A00004178 /* AddUserAdressView.m in Sources */,
 				04F3B31921EDDAF900DFBA84 /* JXCategoryListContainerView.m in Sources */,
 				04F5C8EA21CA4307008DD043 /* UIViewController+AlertViewAndActionSheet.m in Sources */,
 				04F62FDA21F951440094B26F /* HBK_ShoppingCartHeaderView.m in Sources */,
@@ -2478,7 +2478,7 @@
 				04F3B31321EDDAF900DFBA84 /* JXCategoryImageView.m in Sources */,
 				04FDA16921AD3E3600E7804B /* PageTitleView.m in Sources */,
 				04F3CF0321CB2FBB007C40A1 /* UserManager.m in Sources */,
-				04F8ED3A21E304C800004178 /* UserInfoChangeViewController.m in Sources */,
+				04F8ED3A21E304C800004178 /* UserGoodsAdressViewController.m in Sources */,
 				04F3B31721EDDAF900DFBA84 /* JXCategoryNumberCell.m in Sources */,
 				04F5C8DA21CA1F57008DD043 /* AppDelegate+AppService.m in Sources */,
 				0459D90A21E08FCD009BFFB4 /* OrderSureTopView.m in Sources */,
@@ -2514,7 +2514,7 @@
 				04F4468E21D74F9000524971 /* GoodAttributesView.m in Sources */,
 				049D4796219FB7710058178D /* DBTabBar.m in Sources */,
 				049D47A2219FEC690058178D /* DBShortVideoViewController.m in Sources */,
-				043B468421F80CB200C75536 /* OrderSureUserAddressModel.m in Sources */,
+				043B468421F80CB200C75536 /* UserAddressModel.m in Sources */,
 				049D478A219FAB880058178D /* AppDelegate.m in Sources */,
 				04F47E3921E5FAF6001B5F74 /* EvaluationCell.m in Sources */,
 				04F3B31F21EDDAF900DFBA84 /* JXCategoryBaseView.m in Sources */,

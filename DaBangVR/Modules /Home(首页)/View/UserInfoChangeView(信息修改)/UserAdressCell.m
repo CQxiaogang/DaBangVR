@@ -6,18 +6,9 @@
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "informationModificationCell.h"
+#import "UserAdressCell.h"
 
-@implementation informationModificationCell
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
+@implementation UserAdressCell
 
 - (void)setModel:(UserInfoChangeModel *)model{
     _model = model;
@@ -27,11 +18,19 @@
                                                           model.city,
                                                           model.area,
                                                           model.address];
-}
-- (IBAction)defaultAddressBtn:(id)sender {
+    if ([model.isDefault isEqualToString:@"0"]) {
+        [_defaultAdress setImage:[UIImage imageNamed:@"r-default"] forState:(UIControlStateNormal)];
+    }else{
+        [_defaultAdress setImage:[UIImage imageNamed:@"r-default_select"] forState:(UIControlStateNormal)];
+    }
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(defaultAdressSelect)]) {
-        [self.delegate defaultAdressSelect];
+}
+- (IBAction)defaultAddressBtn:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        [sender setImage:[UIImage imageNamed:@"r-default_select"] forState:(UIControlStateNormal)];
+    } else {
+        [sender setImage:[UIImage imageNamed:@"r-default"] forState:(UIControlStateNormal)];
     }
     
 }

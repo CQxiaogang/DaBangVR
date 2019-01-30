@@ -10,7 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserInfoChangeViewController : RootViewController
+@interface UserGoodsAdressViewController : RootViewController
+
+@property (nonatomic, copy) void (^ClickAdressBlock)(NSArray *list);
 
 @end
 

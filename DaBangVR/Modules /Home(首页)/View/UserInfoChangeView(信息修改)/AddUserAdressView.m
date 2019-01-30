@@ -6,9 +6,9 @@
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "informationModificationHeaderView.h"
+#import "AddUserAdressView.h"
 
-@implementation informationModificationHeaderView
+@implementation AddUserAdressView
 
 - (IBAction)addNewAddressAction:(id)sender {
     
@@ -16,6 +16,5 @@
         [self.delegate addNewAddress];
     }
 }
-     
 
 @end

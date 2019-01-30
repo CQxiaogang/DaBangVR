@@ -8,7 +8,7 @@
 
 // Contrillers
 #import "OrderSureViewController.h"
-#import "UserInfoChangeViewController.h"
+#import "UserGoodsAdressViewController.h"
 #import "LeaveMessageViewController.h"
 // Views
 #import "OrderSureTopView.h"
@@ -156,7 +156,7 @@ static NSString *leaveMessage;
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *data = dic[@"data"];
-        weakself.model = [OrderSureModel modelWithDictionary:data];
+        weakself.model = [OrderSureModel mj_setKeyValues:data];
         weakself.deptModels = [OrderSureDeptGoodsModel mj_objectArrayWithKeyValuesArray:weakself.model.deptGoodsList];
         // 得到数据,创建UI
         [self creatUI];
@@ -200,8 +200,11 @@ static NSString *leaveMessage;
 #pragma mark —— DBDetailHeaderView delegate
 // 地址修改
 - (void)informationModification{
-    UserInfoChangeViewController *informationModificationVC = [[UserInfoChangeViewController alloc] init];
-    [self.navigationController pushViewController:informationModificationVC animated:NO];
+    UserGoodsAdressViewController *vc = [[UserGoodsAdressViewController alloc] init];
+    vc.ClickAdressBlock = ^(NSArray * _Nonnull list) {
+        self.topView.model = list;
+    };
+    [self.navigationController pushViewController:vc animated:NO];
 }
 
 #pragma mark —— 底部 View 协议

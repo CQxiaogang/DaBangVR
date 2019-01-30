@@ -6,9 +6,9 @@
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "OrderSureUserAddressModel.h"
+#import "UserAddressModel.h"
 
-@implementation OrderSureUserAddressModel
+@implementation UserAddressModel
 
 
 @end

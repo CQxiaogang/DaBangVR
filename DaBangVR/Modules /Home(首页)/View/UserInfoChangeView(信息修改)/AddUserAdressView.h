@@ -9,15 +9,15 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@protocol informationModificationHeaderDelegate <NSObject>
+@protocol AddUserAdressViewDelegate <NSObject>
 
 - (void) addNewAddress;
 
 @end
 
-@interface informationModificationHeaderView : UIView
+@interface AddUserAdressView : UIView
 
-@property (nonatomic, weak) id<informationModificationHeaderDelegate>delegate;
+@property (nonatomic, weak) id<AddUserAdressViewDelegate>delegate;
 
 @end
 
