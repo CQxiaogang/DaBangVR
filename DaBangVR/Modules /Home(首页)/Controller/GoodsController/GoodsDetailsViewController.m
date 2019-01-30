@@ -61,7 +61,7 @@ static NSString *CellID = @"CellID";
 #pragma mark —— 数据
 - (void) getData{
     // 商品详情
-    [NetWorkHelper POST:URL_getGoodsDetails parameters:@{@"goodsId":_index,  @"token" :curUser.openId} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URL_getGoodsDetails parameters:@{@"goodsId":_index,  @"token" :kToken} success:^(id  _Nonnull responseObject) {
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *dataDic= dic[@"data"];
@@ -75,7 +75,7 @@ static NSString *CellID = @"CellID";
     }];
     
     // 三条评论
-    [NetWorkHelper POST:URl_comment_list parameters:@{@"goodsId":_index, @"token" :curUser.openId} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_comment_list parameters:@{@"goodsId":_index, @"token" :kToken} success:^(id  _Nonnull responseObject) {
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *dataDic = dic[@"data"];
@@ -236,8 +236,8 @@ static NSString *CellID = @"CellID";
         dic = @{
                 @"goodsId":array[0],
                 @"number" :array[1],
-                @"deptId" : self.model.deptId,
-                @"token"  :curUser.openId
+                @"deptId" :self.model.deptId,
+                @"token"  :kToken
                 };
         
     }
@@ -265,7 +265,7 @@ static NSString *CellID = @"CellID";
         dic = @{
                 @"goodsId":array[0],
                 @"number" :array[1],
-                @"token"  :curUser.openId
+                @"token"  :kToken
                 };
         
     }

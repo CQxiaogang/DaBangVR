@@ -65,7 +65,7 @@
                           @"categoryId":weakself.index,
                           @"page"      :@"1",
                           @"limit"     :@"10",
-                          @"token"     :curUser.openId
+                          @"token"     :kToken
                           };
     [NetWorkHelper POST:URL_getGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];

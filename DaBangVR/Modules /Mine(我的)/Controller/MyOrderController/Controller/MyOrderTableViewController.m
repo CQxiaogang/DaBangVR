@@ -59,7 +59,7 @@ static NSString *HeaderCellID = @"HeaderCellID";
                           @"orderState":self.index,
                           @"page"      :@"1",
                           @"limit"     :@"10",
-                          @"token"     :curUser.openId
+                          @"token"     :kToken
                           };
     [NetWorkHelper POST:URl_getOrderList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];

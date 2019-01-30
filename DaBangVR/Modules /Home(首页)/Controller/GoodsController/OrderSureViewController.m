@@ -152,7 +152,7 @@ static NSString *leaveMessage;
 
 - (void)data{
     kWeakSelf(self);
-    [NetWorkHelper POST:URl_getConfirmGoods parameters:@{@"token" :curUser.openId} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_getConfirmGoods parameters:@{@"token" :kToken} success:^(id  _Nonnull responseObject) {
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *data = dic[@"data"];
@@ -219,7 +219,7 @@ static NSString *leaveMessage;
                           @"submitType" : @"buy",
                           @"addressId" : _model.receivingAddress.id,
                           @"addressId" : leaveMessage,
-                          @"token" :curUser.openId
+                          @"token" :kToken
                           };
     [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];

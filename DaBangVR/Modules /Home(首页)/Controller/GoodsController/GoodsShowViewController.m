@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [NetWorkHelper POST:URL_getGoodsCategoryList parameters:@{@"parentId":@"1036096",@"token":curUser.openId} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URL_getGoodsCategoryList parameters:@{@"parentId":@"1036096",@"token":kToken} success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *dataDic= dic[@"data"];
         NSArray *goodsList = dataDic[@"goodsCategoryList"];

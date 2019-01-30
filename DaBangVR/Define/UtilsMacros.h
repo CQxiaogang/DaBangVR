@@ -143,4 +143,7 @@ shared##className = [[self alloc] init]; \
 return shared##className; \
 }
 
+// token
+#define kToken curUser.openId? curUser.openId : @"0"
+
 #endif /* define_h */

@@ -54,17 +54,15 @@ static NSString *CellID = @"CellID";
 #pragma mark —— collection 代理/数据源
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return self.data.count;
 }
 
-- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    ChannelViewCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:CellID forIndexPath:indexPath];
-    if (!cell ) {
-        DLog(@"cell为空,创建cell");
-        cell = [[ChannelViewCell alloc] init];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ChannelViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellID forIndexPath:indexPath];;
+    if (self.data) {
+       cell.model = self.data[indexPath.row];
     }
-    cell.model = self.modelData[indexPath.row];
+    
     return cell;
 }
 
@@ -76,7 +74,7 @@ static NSString *CellID = @"CellID";
 }
 
 - (void)setData:(NSArray *)data{
-    self.modelData = data;
+    _data = data;
     [self.collectionView reloadData];
 }
 @end

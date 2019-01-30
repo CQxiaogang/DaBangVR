@@ -344,7 +344,11 @@ TopViewDelegate
 #pragma mark —— 频道菜单列表
 - (void)setupChannelMenuListView:(UITableViewCell *)cell{
     if (self.arrayModel.count == 0) {
-        [NetWorkHelper POST:URL_getChannelMenuList parameters:@{@"token":curUser.openId} success:^(id  _Nonnull responseObject) {
+        NSDictionary *dic = @{
+                              @"token"        :kToken,
+                              @"mallSpeciesId":@"1"
+                              };
+        [NetWorkHelper POST:URL_getChannelMenuList parameters:dic success:^(id  _Nonnull responseObject) {
             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             NSDictionary *dataDic= dictionary[@"data"];
             NSArray *channelArray = dataDic[@"channelMenuList"];
@@ -353,12 +357,13 @@ TopViewDelegate
                 [self.arrayModel addObject:model];
             }
             self.channelMenuListView.data = self.arrayModel;
+            
         } failure:^(NSError * _Nonnull error) {
             DLog(@"error %@",error);
         }];
     }
+    
     [cell addSubview:self.channelMenuListView];
-
     _totalH_channelMenuList = self.channelMenuListView.mj_h;
 }
 
@@ -419,7 +424,7 @@ TopViewDelegate
     NSMutableArray *data = [NSMutableArray array];
     dispatch_group_t downloadGroup = dispatch_group_create();
     dispatch_group_enter(downloadGroup);
-    [NetWorkHelper POST:URl_goods_rotation_list parameters:@{@"token":curUser.openId} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_goods_rotation_list parameters:@{@"token":kToken} success:^(id  _Nonnull responseObject) {
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *dataDic= dictionary[@"data"];
         NSArray *goodsArray = dataDic[@"goodsRotationList"];

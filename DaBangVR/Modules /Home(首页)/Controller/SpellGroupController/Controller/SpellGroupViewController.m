@@ -56,7 +56,7 @@
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_enter(group);
     NSDictionary *dic = @{@"parentId":@"1036100",
-                          @"token"     :curUser.openId
+                          @"token"     :kToken
                           };
     [NetWorkHelper POST:URL_getGoodsCategoryList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];

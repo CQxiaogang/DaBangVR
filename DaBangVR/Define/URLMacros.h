@@ -50,9 +50,8 @@
 
 #pragma mark ——————   首页相关   ——————
 // 渠道列表
-//#define ktoken NSStringFormat(@"token=%@?",curUser.openId)
 
-#define URL_getChannelMenuList NSStringFormat(@"%@%@",URL_main,@"/api/index/getChannelMenuList?mallSpeciesId=1?")
+#define URL_getChannelMenuList NSStringFormat(@"%@%@",URL_main,@"/api/index/getChannelMenuList?")
 // 商品类型列表
 #define URL_getGoodsCategoryList NSStringFormat(@"%@%@",URL_main,@"/api/index/getGoodsCategoryList?")
 //轮播图列表
