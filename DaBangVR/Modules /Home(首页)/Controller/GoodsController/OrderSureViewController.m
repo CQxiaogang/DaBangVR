@@ -17,7 +17,6 @@
 #import "DBDetailFooterView.h"
 // Models
 #import "OrderSureModel.h"
-#import "UserAddressModel.h"
 #import "OrderSureDeptGoodsModel.h"
 
 @interface OrderSureViewController ()
@@ -36,7 +35,6 @@
 @property (nonatomic, strong) NSMutableArray <OrderSureDeptGoodsModel *> *deptModels;
 @property (nonatomic, strong) NSMutableArray <OrderSureGoodsModel *>     *goodsModels;
 @property (nonatomic, strong) OrderSureModel *model;
-@property (nonatomic, strong) UserAddressModel *addressModel;
 
 
 @end
@@ -226,9 +224,7 @@ static NSString *leaveMessage;
                           @"token" :kToken
                           };
     [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-
-        [SVProgressHUD showInfoWithStatus:dic[@"errmsg"]];
+        [SVProgressHUD showInfoWithStatus:KJSONSerialization(responseObject)[@"errmsg"]];
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         [SVProgressHUD dismissWithDelay:1.0];
     } failure:^(NSError * _Nonnull error) {

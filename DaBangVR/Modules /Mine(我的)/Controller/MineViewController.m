@@ -17,6 +17,7 @@
 // 第三方
 #import "JXCategoryView.h"
 #import "JXCategoryListContainerView.h"
+#import "NaviBarHiddenViewController.h"
 
 
 @interface MineViewController ()
@@ -198,9 +199,9 @@ static NSString *cellID = @"cellID";
 // 设置点击事件
 -(void)setupButtonClick{
     
-    SettingViewController *mySetupVC = [[SettingViewController alloc] init];
-    mySetupVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:mySetupVC animated:NO];
+    NaviBarHiddenViewController *vc = [[NaviBarHiddenViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:NO];
 }
 // 积分商城
 -(void)integralMallAction{

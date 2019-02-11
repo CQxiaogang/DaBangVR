@@ -10,7 +10,7 @@
 
 @interface PagingViewTableHeaderView : UIView
 
-@property (weak, nonatomic) IBOutlet UIImageView *userImgView;
+@property (nonatomic, strong) UIImageView *imageView;
 - (void)scrollViewDidScroll:(CGFloat)contentOffsetY;
 
 @end

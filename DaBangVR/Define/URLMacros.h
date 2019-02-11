@@ -88,6 +88,8 @@
 #define URl_addressDelete NSStringFormat(@"%@%@",URL_main,@"/api/my/addressDelete")
 // 查询地址下级列表
 #define URl_getRegionChildrenList NSStringFormat(@"%@%@",URL_main,@"/api/my/getRegionChildrenList?")
+// 添加商品收藏
+#define URl_getGoodsCollectSave NSStringFormat(@"%@%@",URL_main,@"/api/my/getGoodsCollectSave?")
 
 #pragma mark —————— 购买商品接口类 ——————
 // 添加到购物车

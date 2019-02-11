@@ -12,6 +12,7 @@
 #import "HomeViewController.h"
 #import "DBShortVideoViewController.h"
 #import "PagingViewController.h"
+#import "NaviBarHiddenViewController.h"
 
 #define kSWidth [UIScreen mainScreen].bounds.size.width
 
@@ -57,10 +58,10 @@
     DBShortVideoViewController *shortVideoVC = [DBShortVideoViewController new];
     [self addChildViewController:shortVideoVC title:@"短视频" imageName:@"h_ShortVideo" selectedImageName:@"h_ShortVideo_select"];
 
-//    PagingViewController *myVC = [PagingViewController new];
-//    [self addChildViewController:myVC title:@"我的" imageName:@"h_Member" selectedImageName:@"h_Member_select"];
-    MineViewController *myVC = [MineViewController new];
+    NaviBarHiddenViewController *myVC = [NaviBarHiddenViewController new];
     [self addChildViewController:myVC title:@"我的" imageName:@"h_Member" selectedImageName:@"h_Member_select"];
+//    MineViewController *myVC = [MineViewController new];
+//    [self addChildViewController:myVC title:@"我的" imageName:@"h_Member" selectedImageName:@"h_Member_select"];
     
 }
 

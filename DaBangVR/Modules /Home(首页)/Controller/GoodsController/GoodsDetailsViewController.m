@@ -60,15 +60,15 @@ static NSString *CellID = @"CellID";
 }
 #pragma mark —— 数据
 - (void) getData{
+    kWeakSelf(self);
     // 商品详情
     [NetWorkHelper POST:URL_getGoodsDetails parameters:@{@"goodsId":_index,  @"token" :kToken} success:^(id  _Nonnull responseObject) {
         
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSDictionary *dataDic= dic[@"data"];
+        NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
         NSDictionary *goodsDetailsDic = dataDic[@"goodsDetails"];
-        self.model = [GoodsDetailsModel modelWithDictionary:goodsDetailsDic];
+        weakself.model = [GoodsDetailsModel modelWithDictionary:goodsDetailsDic];
         
-        [self.tableView reloadData];
+        [weakself.tableView reloadData];
     
     } failure:^(NSError * _Nonnull error) {
         
@@ -82,9 +82,9 @@ static NSString *CellID = @"CellID";
         NSArray *commentArr = dataDic[@"commentVoList"];
         for (NSDictionary *dic in commentArr) {
             AllCommentsModel *model = [AllCommentsModel modelWithDictionary:dic];
-            [self.data addObject:model];
+            [weakself.data addObject:model];
         }
-        [self.tableView reloadData];
+        [weakself.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {
         
     }];
@@ -229,7 +229,8 @@ static NSString *CellID = @"CellID";
                 @"productId":array[0],
                 @"goodsId"  :array[1],
                 @"number"   :array[2],
-                @"deptId"   : self.model.deptId
+                @"deptId"   :self.model.deptId,
+                @"token"    :kToken
                 };
         
     }else{
@@ -243,9 +244,8 @@ static NSString *CellID = @"CellID";
     }
     
     [NetWorkHelper POST:URl_addToCar parameters:dic success:^(id  _Nonnull responseObject) {
-        
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        [SVProgressHUD showInfoWithStatus:dic[@"errmsg"]];
+    
+        [SVProgressHUD showInfoWithStatus:KJSONSerialization(responseObject)[@"errmsg"]];
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         [SVProgressHUD dismissWithDelay:1.0];
     } failure:^(NSError * _Nonnull error) {
@@ -308,7 +308,21 @@ static NSString *CellID = @"CellID";
     }
 }
 // 收藏
-- (void)collectionBtnOfAction{}
+- (void)collectionBtnOfAction{
+    NSDictionary *dic = @{
+                          @"token"  : kToken,
+                          @"goodsId":_index
+                          };
+    [NetWorkHelper POST:URl_getGoodsCollectSave parameters:dic success:^(id  _Nonnull responseObject) {
+        
+        [SVProgressHUD showInfoWithStatus:KJSONSerialization(responseObject)[@"errmsg"]];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        [SVProgressHUD dismissWithDelay:1.0];
+        
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+}
 // 客服
 - (void)customerServiceBtnOfAction{
 }
