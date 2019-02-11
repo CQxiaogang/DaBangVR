@@ -12,7 +12,7 @@
 #import "AddUserAdressView.h"
 #import "UserAdressCell.h"
 // Models
-#import "UserInfoChangeModel.h"
+#import "UserAddressModel.h"
 
 @interface UserGoodsAdressViewController ()<AddUserAdressViewDelegate, UserAdressCellDelegate>
 
@@ -51,12 +51,13 @@ static NSString *const CellID = @"CellID";
 }
 
 - (void)data{
+    kWeakSelf(self)
     [NetWorkHelper POST:URl_addressList parameters:@{@"token" :kToken} success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *data = dic[@"data"];
         NSArray *receivingAddressVoList = data[@"receivingAddressVoList"];
-        self.userData = [UserInfoChangeModel mj_objectArrayWithKeyValuesArray:receivingAddressVoList];
-        [self.tableView reloadData];
+        weakself.userData = [UserAddressModel mj_objectArrayWithKeyValuesArray:receivingAddressVoList];
+        [weakself.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {
         
     }];
@@ -103,12 +104,10 @@ static NSString *const CellID = @"CellID";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSArray *data = self.userData[indexPath.row];
-    self.ClickAdressBlock(data);
+    UserAddressModel *model = self.userData[indexPath.row];
+    self.ClickAdressBlock(model);
     [self.navigationController popViewControllerAnimated:YES];
-    
 }
-
 
 #pragma mark —— 新增地址 Delegate
 -(void)addNewAddress{

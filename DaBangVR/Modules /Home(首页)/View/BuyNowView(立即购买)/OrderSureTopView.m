@@ -19,16 +19,16 @@
     
 }
 
-- (void)setModel:(OrderSureModel *)model{
+- (void)setModel:(UserAddressModel *)model{
     _model = model;
-    _consigneeNameLab.text = model.receivingAddress.consigneeName;
-    _consigneePhoneLab.text = model.receivingAddress.consigneePhone;
+    _consigneeNameLab.text = model.consigneeName;
+    _consigneePhoneLab.text = model.consigneePhone;
     _addressLab.text = [NSString stringWithFormat:@"%@%@%@%@%@",
-                        model.receivingAddress.receivingCountry,
-                        model.receivingAddress.province,
-                        model.receivingAddress.city,
-                        model.receivingAddress.area,
-                        model.receivingAddress.address];
+                        model.receivingCountry,
+                        model.province,
+                        model.city,
+                        model.area,
+                        model.address];
 }
 
 @end

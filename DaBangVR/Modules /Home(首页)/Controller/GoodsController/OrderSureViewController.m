@@ -17,6 +17,7 @@
 #import "DBDetailFooterView.h"
 // Models
 #import "OrderSureModel.h"
+#import "UserAddressModel.h"
 #import "OrderSureDeptGoodsModel.h"
 
 @interface OrderSureViewController ()
@@ -35,6 +36,7 @@
 @property (nonatomic, strong) NSMutableArray <OrderSureDeptGoodsModel *> *deptModels;
 @property (nonatomic, strong) NSMutableArray <OrderSureGoodsModel *>     *goodsModels;
 @property (nonatomic, strong) OrderSureModel *model;
+@property (nonatomic, strong) UserAddressModel *addressModel;
 
 
 @end
@@ -63,7 +65,7 @@ static NSString *leaveMessage;
 -(OrderSureTopView *)topView{
     if (!_topView) {
         _topView = [[[NSBundle mainBundle] loadNibNamed:@"OrderSureTopView" owner:nil options:nil]firstObject];
-        _topView.model = _model;
+        _topView.model = _model.receivingAddress;
         _topView.delegate = self;
     }
     return _topView;
@@ -153,10 +155,8 @@ static NSString *leaveMessage;
 - (void)data{
     kWeakSelf(self);
     [NetWorkHelper POST:URl_getConfirmGoods parameters:@{@"token" :kToken} success:^(id  _Nonnull responseObject) {
-        
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSDictionary *data = dic[@"data"];
-        weakself.model = [OrderSureModel mj_setKeyValues:data];
+        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
+        weakself.model = [OrderSureModel modelWithDictionary:data];
         weakself.deptModels = [OrderSureDeptGoodsModel mj_objectArrayWithKeyValuesArray:weakself.model.deptGoodsList];
         // 得到数据,创建UI
         [self creatUI];
@@ -201,8 +201,9 @@ static NSString *leaveMessage;
 // 地址修改
 - (void)informationModification{
     UserGoodsAdressViewController *vc = [[UserGoodsAdressViewController alloc] init];
-    vc.ClickAdressBlock = ^(NSArray * _Nonnull list) {
-        self.topView.model = list;
+    kWeakSelf(self);
+    vc.ClickAdressBlock = ^(id  _Nonnull data) {
+        weakself.topView.model = data;
     };
     [self.navigationController pushViewController:vc animated:NO];
 }

@@ -30,10 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString *goodsPrice;
 // 商品总价
 @property(nonatomic, copy) NSString *goodsTotalPrice;
-// 用户信息，地址信息
-@property(nonatomic, strong) UserAddressModel *receivingAddress;
 // 店铺列表
 @property(nonatomic, strong) NSArray <OrderSureDeptGoodsModel *> *deptGoodsList;
+// 用户信息，地址信息
+@property(nonatomic, strong) UserAddressModel *receivingAddress;
 
 @end
 

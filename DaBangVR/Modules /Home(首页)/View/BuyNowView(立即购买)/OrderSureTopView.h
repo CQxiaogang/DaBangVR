@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<OrderSureTopViewDelegate> delegate;
 
-@property (nonatomic, strong) OrderSureModel *model;
+@property (nonatomic, strong) UserAddressModel *model;
 
 @end
 

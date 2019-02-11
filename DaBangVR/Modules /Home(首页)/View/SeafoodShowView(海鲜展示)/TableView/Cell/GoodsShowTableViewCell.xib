@@ -62,7 +62,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新鲜大章鱼足" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lim-cp-sRb">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新鲜大章鱼足" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lim-cp-sRb">
                         <rect key="frame" x="179" y="24" width="241" height="52"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="241" id="R0D-EJ-Qs5">
@@ -147,6 +147,7 @@
                         </userDefinedRuntimeAttributes>
                     </constraint>
                     <constraint firstItem="XXC-gi-MBU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="28" id="STe-JX-Y8d"/>
+                    <constraint firstItem="lim-cp-sRb" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="WQU-wS-hVs"/>
                     <constraint firstItem="FgI-u2-FEI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gvJ-re-fQY"/>
                     <constraint firstItem="lim-cp-sRb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="13" id="iIG-wU-u36"/>
                     <constraint firstItem="IjI-dw-HDe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="105" id="kjD-si-uqh"/>

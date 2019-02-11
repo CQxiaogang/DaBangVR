@@ -12,7 +12,8 @@
 
 + (NSDictionary *)mj_objectClassInArray{
     return @{
-             @"receivingAddress" : [UserAddressModel class]
+             @"receivingAddress" : [UserAddressModel class],
+             @"deptGoodsList"    : [OrderSureDeptGoodsModel class]
              };
 }
 

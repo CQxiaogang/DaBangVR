@@ -45,9 +45,6 @@
 #define URL_main @""
 #endif
 
-
-#define KJSONSerialization(responseObject) ([NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil])
-
 #pragma mark ——————   首页相关   ——————
 // 渠道列表
 
@@ -99,7 +96,7 @@
 #define URl_confirmGoods2Buy  NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/confirmGoods2Buy?")
 // 购物车 - 确认订单
 #define URl_confirmGoods2Cart NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/confirmGoods2Cart?")
-// 获取确认订单 - 统一入口
+// 确认订单页面数据 - 统一入口
 #define URl_getConfirmGoods NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/getConfirmGoods")
 // 提交订单 - 统一入口
 #define URl_submitOrder NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/submitOrder?")
