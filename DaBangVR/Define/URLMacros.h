@@ -90,6 +90,9 @@
 #define URl_getRegionChildrenList NSStringFormat(@"%@%@",URL_main,@"/api/my/getRegionChildrenList?")
 // 添加商品收藏
 #define URl_getGoodsCollectSave NSStringFormat(@"%@%@",URL_main,@"/api/my/getGoodsCollectSave?")
+// 商品收藏列表
+#define URl_getGoodsCollectList NSStringFormat(@"%@%@",URL_main,@"/api/my/getGoodsCollectList")
+
 
 #pragma mark —————— 购买商品接口类 ——————
 // 添加到购物车

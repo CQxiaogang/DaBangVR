@@ -10,9 +10,10 @@
 #import "SettingViewController.h"
 #import "MyOrderViewController.h"
 #import "ShoppingCartViewController.h"
+#import "MineCollectionViewController.h"
 #import "JXCategoryView.h"
 
-@interface PagingViewController () <JXCategoryViewDelegate, JXPagerMainTableViewGestureDelegate, headerViewDelegate>
+@interface PagingViewController () <JXCategoryViewDelegate, JXPagerMainTableViewGestureDelegate, headerViewDelegate, TestListBaseViewDelegate>
 
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
 @property (nonatomic, strong) NSArray <NSString *> *titles;
@@ -98,6 +99,7 @@
 - (id<JXPagerViewListViewDelegate>)pagerView:(JXPagerView *)pagerView initListAtIndex:(NSInteger)index {
     if (index==0) {
         TestListBaseView *listView = [[TestListBaseView alloc] init];
+        listView.delegate = self;
         listView.naviController = self.navigationController;
         listView.isNeedHeader = self.isNeedHeader;
         listView.isNeedFooter = self.isNeedFooter;
@@ -171,6 +173,21 @@
 // 购物车
 -(void)shoppingCarAction{
     ShoppingCartViewController *vc = [[ShoppingCartViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:NO];
+}
+
+#pragma mark —— TestListBaseView 协议
+-(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        if (indexPath.row == 1) {
+            [self myCollection];
+        }
+    }
+}
+// 收藏
+- (void)myCollection{
+    MineCollectionViewController *vc = [[MineCollectionViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:NO];
 }

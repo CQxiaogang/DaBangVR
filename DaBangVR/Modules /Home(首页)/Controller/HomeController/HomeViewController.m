@@ -8,14 +8,11 @@
 
 #import "DBTopView.h"
 #import "JFLocation.h"
-#import "PageTitleView.h"
-#import "PageContentView.h"
 #import "DBPrefectureView.h"
 #import "JFAreaDataManager.h"
 #import "AnchorViewCell.h"
 #import "JFCityViewController.h"
 #import "HomeViewController.h"
-#import "MineViewController2.h"
 #import "GoodsShowViewController.h"
 // Controllers
 #import "SpellGroupViewController.h"        //拼团

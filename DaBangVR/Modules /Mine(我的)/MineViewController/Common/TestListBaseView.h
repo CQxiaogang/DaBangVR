@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "JXPagerView.h"
 
+@protocol TestListBaseViewDelegate <NSObject>
+
+-(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
 
 @interface TestListBaseView : UIView <JXPagerViewListViewDelegate>
 
@@ -21,6 +26,7 @@
 @property (nonatomic, assign) BOOL isNeedHeader;
 @property (nonatomic, assign) BOOL isHeaderRefreshed;   //默认为YES
 
-- (void)beginFirstRefresh;
+@property (nonatomic, weak) id <TestListBaseViewDelegate> delegate;
 
+- (void)beginFirstRefresh;
 @end

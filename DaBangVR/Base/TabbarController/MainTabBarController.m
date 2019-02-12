@@ -6,7 +6,6 @@
 //  Copyright © 2018 DaBangVR. All rights reserved.
 //
 #import "DBTabBar.h"
-#import "MineViewController2.h"
 #import "DBLiveViewController.h"
 #import "MainTabBarController.h"
 #import "HomeViewController.h"

@@ -8,7 +8,6 @@
 
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "MineHeaderView.h"
-#import "MineViewController2.h"
 #import "LoginViewController.h"
 #import "MainTabBarController.h"
 #import "MobilePhoneNoLoginViewController.h"

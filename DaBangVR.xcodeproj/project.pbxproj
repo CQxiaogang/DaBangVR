@@ -70,7 +70,6 @@
 		049D479C219FEC1E0058178D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D479B219FEC1E0058178D /* HomeViewController.m */; };
 		049D479F219FEC540058178D /* DBLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D479E219FEC540058178D /* DBLiveViewController.m */; };
 		049D47A2219FEC690058178D /* DBShortVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A1219FEC690058178D /* DBShortVideoViewController.m */; };
-		049D47A5219FEC790058178D /* MineViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A4219FEC790058178D /* MineViewController2.m */; };
 		04A3DA3021E9EF6400F689C7 /* GoodsShowListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */; };
 		04BF21832212B719002468C0 /* JXPagerListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF216F2212B719002468C0 /* JXPagerListContainerView.m */; };
 		04BF21842212B719002468C0 /* JXPagerMainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF21702212B719002468C0 /* JXPagerMainTableView.m */; };
@@ -82,6 +81,9 @@
 		04BF218A2212B719002468C0 /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF217B2212B719002468C0 /* TestTableViewCell.m */; };
 		04BF218B2212B719002468C0 /* PagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF217C2212B719002468C0 /* PagingViewController.m */; };
 		04BF218C2212B719002468C0 /* TestListBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF217E2212B719002468C0 /* TestListBaseView.m */; };
+		04BF21932212C279002468C0 /* MineCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF21922212C279002468C0 /* MineCollectionViewController.m */; };
+		04BF21972212CA71002468C0 /* MineCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF21952212CA71002468C0 /* MineCollectionTableViewCell.m */; };
+		04BF21982212CA71002468C0 /* MineCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BF21962212CA71002468C0 /* MineCollectionTableViewCell.xib */; };
 		04C1AD0E22116EF50011DDA3 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1AD0C22116EF50011DDA3 /* MineViewController.m */; };
 		04C1AD23221172770011DDA3 /* lufei.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04C1AD22221172770011DDA3 /* lufei.jpg */; };
 		04D9C46921EA0706005F23FF /* NetWorkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D9C46821EA0706005F23FF /* NetWorkHelper.m */; };
@@ -172,7 +174,6 @@
 		04F45F1521F5B2E9009F5907 /* SecondsKillTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45F1421F5B2E9009F5907 /* SecondsKillTableView.m */; };
 		04F45F1B21F5B7DE009F5907 /* RightSecondsKillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45F1921F5B7DE009F5907 /* RightSecondsKillCell.m */; };
 		04F45F1C21F5B7DE009F5907 /* RightSecondsKillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F45F1A21F5B7DE009F5907 /* RightSecondsKillCell.xib */; };
-		04F47E1F21E5AA01001B5F74 /* PageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F47E1E21E5AA01001B5F74 /* PageView.m */; };
 		04F47E2421E5D0EE001B5F74 /* AllOrdersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F47E2221E5D0EE001B5F74 /* AllOrdersCell.m */; };
 		04F47E2521E5D0EE001B5F74 /* AllOrdersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F47E2321E5D0EE001B5F74 /* AllOrdersCell.xib */; };
 		04F47E2B21E5F5D4001B5F74 /* EvaluationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F47E2A21E5F5D4001B5F74 /* EvaluationViewController.m */; };
@@ -242,8 +243,6 @@
 		04FC2C4221C0E3AD00329B53 /* shop_area.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 04FC2C3621C0E3AD00329B53 /* shop_area.sqlite */; };
 		04FC706E21AF8A4400E413AC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FC706D21AF8A4400E413AC /* SystemConfiguration.framework */; };
 		04FC707F21AF9BE000E413AC /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FC707E21AF9BE000E413AC /* TencentOpenAPI.framework */; };
-		04FDA16621AD3D6300E7804B /* PageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDA16421AD3D6300E7804B /* PageContentView.m */; };
-		04FDA16921AD3E3600E7804B /* PageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDA16721AD3E3600E7804B /* PageTitleView.m */; };
 		E22F41A47E3299E6ED92DD35 /* libPods-DaBangVR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A3876AE05E1A9859CD50F92 /* libPods-DaBangVR.a */; };
 /* End PBXBuildFile section */
 
@@ -372,8 +371,6 @@
 		049D479E219FEC540058178D /* DBLiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBLiveViewController.m; sourceTree = "<group>"; };
 		049D47A0219FEC690058178D /* DBShortVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBShortVideoViewController.h; sourceTree = "<group>"; };
 		049D47A1219FEC690058178D /* DBShortVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBShortVideoViewController.m; sourceTree = "<group>"; };
-		049D47A3219FEC790058178D /* MineViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController2.h; sourceTree = "<group>"; };
-		049D47A4219FEC790058178D /* MineViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController2.m; sourceTree = "<group>"; };
 		04A3DA2E21E9EF6400F689C7 /* GoodsShowListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsShowListModel.h; sourceTree = "<group>"; };
 		04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsShowListModel.m; sourceTree = "<group>"; };
 		04BF216F2212B719002468C0 /* JXPagerListContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerListContainerView.m; sourceTree = "<group>"; };
@@ -396,6 +393,11 @@
 		04BF21802212B719002468C0 /* TestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewCell.h; sourceTree = "<group>"; };
 		04BF21812212B719002468C0 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		04BF21822212B719002468C0 /* UIWindow+JXSafeArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+JXSafeArea.h"; sourceTree = "<group>"; };
+		04BF21912212C279002468C0 /* MineCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineCollectionViewController.h; sourceTree = "<group>"; };
+		04BF21922212C279002468C0 /* MineCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineCollectionViewController.m; sourceTree = "<group>"; };
+		04BF21942212CA71002468C0 /* MineCollectionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineCollectionTableViewCell.h; sourceTree = "<group>"; };
+		04BF21952212CA71002468C0 /* MineCollectionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineCollectionTableViewCell.m; sourceTree = "<group>"; };
+		04BF21962212CA71002468C0 /* MineCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineCollectionTableViewCell.xib; sourceTree = "<group>"; };
 		04C1AD0C22116EF50011DDA3 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		04C1AD0D22116EF50011DDA3 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		04C1AD22221172770011DDA3 /* lufei.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lufei.jpg; sourceTree = "<group>"; };
@@ -567,8 +569,6 @@
 		04F45F1821F5B7DE009F5907 /* RightSecondsKillCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RightSecondsKillCell.h; sourceTree = "<group>"; };
 		04F45F1921F5B7DE009F5907 /* RightSecondsKillCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RightSecondsKillCell.m; sourceTree = "<group>"; };
 		04F45F1A21F5B7DE009F5907 /* RightSecondsKillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightSecondsKillCell.xib; sourceTree = "<group>"; };
-		04F47E1D21E5AA01001B5F74 /* PageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageView.h; sourceTree = "<group>"; };
-		04F47E1E21E5AA01001B5F74 /* PageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageView.m; sourceTree = "<group>"; };
 		04F47E2121E5D0EE001B5F74 /* AllOrdersCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllOrdersCell.h; sourceTree = "<group>"; };
 		04F47E2221E5D0EE001B5F74 /* AllOrdersCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllOrdersCell.m; sourceTree = "<group>"; };
 		04F47E2321E5D0EE001B5F74 /* AllOrdersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllOrdersCell.xib; sourceTree = "<group>"; };
@@ -689,10 +689,6 @@
 		04FC2C3821C0E3AD00329B53 /* JFCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFCityHeaderView.h; sourceTree = "<group>"; };
 		04FC706D21AF8A4400E413AC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		04FC707E21AF9BE000E413AC /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
-		04FDA16221AD3D6300E7804B /* PageContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentView.h; sourceTree = "<group>"; };
-		04FDA16421AD3D6300E7804B /* PageContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentView.m; sourceTree = "<group>"; };
-		04FDA16721AD3E3600E7804B /* PageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTitleView.m; sourceTree = "<group>"; };
-		04FDA16821AD3E3600E7804B /* PageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTitleView.h; sourceTree = "<group>"; };
 		2A3876AE05E1A9859CD50F92 /* libPods-DaBangVR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DaBangVR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC7937929E43185E6865C40 /* Pods-DaBangVR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaBangVR.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaBangVR/Pods-DaBangVR.release.xcconfig"; sourceTree = "<group>"; };
 		FA6FA04E37216D0E61EA0AEE /* Pods-DaBangVR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaBangVR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaBangVR/Pods-DaBangVR.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1222,8 +1218,10 @@
 			children = (
 				04C1AD0D22116EF50011DDA3 /* MineViewController.h */,
 				04C1AD0C22116EF50011DDA3 /* MineViewController.m */,
-				049D47A3219FEC790058178D /* MineViewController2.h */,
-				049D47A4219FEC790058178D /* MineViewController2.m */,
+				04BF217F2212B719002468C0 /* PagingViewController.h */,
+				04BF217C2212B719002468C0 /* PagingViewController.m */,
+				04BF21912212C279002468C0 /* MineCollectionViewController.h */,
+				04BF21922212C279002468C0 /* MineCollectionViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1237,6 +1235,9 @@
 				04F7360721B679CE001CEBC0 /* MineTableViewCell.h */,
 				04F7360821B679CE001CEBC0 /* MineTableViewCell.m */,
 				04F7360921B679CE001CEBC0 /* MineTableViewCell.xib */,
+				04BF21942212CA71002468C0 /* MineCollectionTableViewCell.h */,
+				04BF21952212CA71002468C0 /* MineCollectionTableViewCell.m */,
+				04BF21962212CA71002468C0 /* MineCollectionTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1287,18 +1288,16 @@
 			isa = PBXGroup;
 			children = (
 				04BF216E2212B719002468C0 /* JXPagerView */,
-				04BF21772212B719002468C0 /* TestListBaseView2.m */,
 				04BF21782212B719002468C0 /* TestListBaseView.h */,
-				04BF21792212B719002468C0 /* UIWindow+JXSafeArea.m */,
-				04BF217A2212B719002468C0 /* DetailViewController.m */,
-				04BF217B2212B719002468C0 /* TestTableViewCell.m */,
-				04BF217C2212B719002468C0 /* PagingViewController.m */,
-				04BF217D2212B719002468C0 /* TestListBaseView2.h */,
 				04BF217E2212B719002468C0 /* TestListBaseView.m */,
-				04BF217F2212B719002468C0 /* PagingViewController.h */,
+				04BF217D2212B719002468C0 /* TestListBaseView2.h */,
+				04BF21772212B719002468C0 /* TestListBaseView2.m */,
 				04BF21802212B719002468C0 /* TestTableViewCell.h */,
+				04BF217B2212B719002468C0 /* TestTableViewCell.m */,
 				04BF21812212B719002468C0 /* DetailViewController.h */,
+				04BF217A2212B719002468C0 /* DetailViewController.m */,
 				04BF21822212B719002468C0 /* UIWindow+JXSafeArea.h */,
+				04BF21792212B719002468C0 /* UIWindow+JXSafeArea.m */,
 			);
 			name = Common;
 			path = "DaBangVR/Modules /Mine(我的)/MineViewController/Common";
@@ -1863,7 +1862,6 @@
 				04D9C46621EA06F6005F23FF /* NetWork */,
 				048E692921A26A9E00DB911A /* Category */,
 				0463025721BBAC700003C542 /* Adaptive */,
-				04FB2F7721BBA095007E63AA /* PageView */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2079,19 +2077,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		04FB2F7721BBA095007E63AA /* PageView */ = {
-			isa = PBXGroup;
-			children = (
-				04F47E1D21E5AA01001B5F74 /* PageView.h */,
-				04F47E1E21E5AA01001B5F74 /* PageView.m */,
-				04FDA16821AD3E3600E7804B /* PageTitleView.h */,
-				04FDA16721AD3E3600E7804B /* PageTitleView.m */,
-				04FDA16221AD3D6300E7804B /* PageContentView.h */,
-				04FDA16421AD3D6300E7804B /* PageContentView.m */,
-			);
-			path = PageView;
-			sourceTree = "<group>";
-		};
 		04FC2C2221C0E3AD00329B53 /* JFCityViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2278,6 +2263,7 @@
 			files = (
 				042FCECD21A3F1B7002AD0DB /* DBPrefectureView.xib in Resources */,
 				04F45F1C21F5B7DE009F5907 /* RightSecondsKillCell.xib in Resources */,
+				04BF21982212CA71002468C0 /* MineCollectionTableViewCell.xib in Resources */,
 				04F4469321D74FBF00524971 /* GoodsInfoView.xib in Resources */,
 				04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */,
 				04F8ED4521E32AC000004178 /* UserAdressCell.xib in Resources */,
@@ -2442,6 +2428,7 @@
 				049703E621A69860002359B5 /* DBLiveTableViewCell.m in Sources */,
 				04BF21872212B719002468C0 /* TestListBaseView2.m in Sources */,
 				04F45F1B21F5B7DE009F5907 /* RightSecondsKillCell.m in Sources */,
+				04BF21932212C279002468C0 /* MineCollectionViewController.m in Sources */,
 				043B467E21F804BF00C75536 /* OrderSureModel.m in Sources */,
 				0463025E21BBAC8D0003C542 /* DBFontOfSize.m in Sources */,
 				04F2FD2321EF259A000B58E2 /* SecondsKillViewController.m in Sources */,
@@ -2513,7 +2500,6 @@
 				0463026021BBAC8D0003C542 /* DBLayoutConstraint.m in Sources */,
 				04F3B31221EDDAF900DFBA84 /* JXCategoryTitleView.m in Sources */,
 				04457ABB21FC43B2003E5748 /* OrderSureHeaderView.m in Sources */,
-				049D47A5219FEC790058178D /* MineViewController2.m in Sources */,
 				04F3B32121EDDAF900DFBA84 /* JXCategoryBaseCellModel.m in Sources */,
 				04BF21862212B719002468C0 /* JXPagerListRefreshView.m in Sources */,
 				04C1AD0E22116EF50011DDA3 /* MineViewController.m in Sources */,
@@ -2521,8 +2507,8 @@
 				04F62FD421F951440094B26F /* ShoppingCartViewController.m in Sources */,
 				04BF218A2212B719002468C0 /* TestTableViewCell.m in Sources */,
 				049D4799219FE9480058178D /* MainTabBarController.m in Sources */,
+				04BF21972212CA71002468C0 /* MineCollectionTableViewCell.m in Sources */,
 				04F3B31321EDDAF900DFBA84 /* JXCategoryImageView.m in Sources */,
-				04FDA16921AD3E3600E7804B /* PageTitleView.m in Sources */,
 				04F3CF0321CB2FBB007C40A1 /* UserManager.m in Sources */,
 				04F8ED3A21E304C800004178 /* UserGoodsAdressViewController.m in Sources */,
 				04F3B31721EDDAF900DFBA84 /* JXCategoryNumberCell.m in Sources */,
@@ -2530,7 +2516,6 @@
 				0459D90A21E08FCD009BFFB4 /* OrderSureTopView.m in Sources */,
 				049D4766219FA91F0058178D /* main.m in Sources */,
 				04F4468121D74F7B00524971 /* DBFeatureList.m in Sources */,
-				04FDA16621AD3D6300E7804B /* PageContentView.m in Sources */,
 				0423DAF422003FC100325869 /* MyOrderDeptModel.m in Sources */,
 				042359EA21FEDF0200F4C345 /* SpellGroupModel.m in Sources */,
 				04F3B31121EDDAF900DFBA84 /* JXCategoryTitleCell.m in Sources */,
@@ -2554,7 +2539,6 @@
 				04F3B31021EDDAF900DFBA84 /* JXCategoryTitleCellModel.m in Sources */,
 				04F3B30A21EDDAF900DFBA84 /* JXCategoryDotCell.m in Sources */,
 				04053B5A21FAE4A9001120FC /* UserInfoChangeModel.m in Sources */,
-				04F47E1F21E5AA01001B5F74 /* PageView.m in Sources */,
 				04F47E2B21E5F5D4001B5F74 /* EvaluationViewController.m in Sources */,
 				04BF21852212B719002468C0 /* JXPagerView.m in Sources */,
 				04FC2C3921C0E3AD00329B53 /* JFCityCollectionViewCell.m in Sources */,

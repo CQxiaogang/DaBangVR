@@ -6,8 +6,6 @@
 //  Copyright © 2018 DaBangVR. All rights reserved.
 //
 
-#import "PageTitleView.h"
-#import "PageContentView.h"
 #import "DBLiveViewController.h"
 #import "WaterfallColectionLayout.h"
 
@@ -18,9 +16,7 @@ static NSString *cellID = @"cellID";
  UITableViewDelegate,
  UITableViewDataSource,
  UICollectionViewDelegate,
- UICollectionViewDataSource,
- PageTitleViewDelegate,
- pageContentViewDelegate
+ UICollectionViewDataSource
 >
 {
     /*
@@ -38,13 +34,6 @@ static NSString *cellID = @"cellID";
 @property (nonatomic, strong) UICollectionViewLayout *layout;
 
 @property (nonatomic, strong) NSArray *heightArr;
-
-/**
- 封装PageContentView / PageTitleView
- */
-@property (nonatomic, strong) PageTitleView *titleView;
-
-@property (nonatomic, strong) PageContentView *pageContentView;
 
 @property (nonatomic, strong) NSMutableArray *viewList;
 
@@ -98,36 +87,6 @@ static NSString *cellID = @"cellID";
     return _heightArr;
 }
 
--(PageTitleView *)titleView{
-    if (!_titleView) {
-        NSArray *array = @[@"购物",@"娱乐"];
-        
-        _titleView = [[PageTitleView alloc] initWithFrame:CGRectMake(0, 20, self.view.bounds.size.width, 44) Titles:array];
-        
-        _titleView.backgroundColor = [UIColor lightGreen];
-        
-        _titleView.delagate = self;
-    }
-    return _titleView;
-}
-
--(PageContentView *)pageContentView{
-    if (!_pageContentView) {
-        
-        CGFloat collectV_Y = self.titleView.mj_y + self.titleView.mj_h;
-        CGFloat collectV_W = self.view.mj_w;
-        CGFloat collectV_H = self.view.mj_h - self.titleView.mj_h - 20;
-        
-        _pageContentView = [[PageContentView alloc] initWithFrame:CGRectMake(0, collectV_Y, collectV_W, collectV_H) childSv:self.viewList];
-        
-        _pageContentView.backgroundColor = [UIColor redColor];
-        
-        _pageContentView.delegate = self;
-    }
-    
-    return _pageContentView;
-}
-
 - (NSMutableArray *)viewList{
     if (!_viewList) {
         _viewList = [NSMutableArray new];
@@ -178,33 +137,8 @@ static NSString *cellID = @"cellID";
 
 #pragma mark 设置UI
 - (void)setUp_UI{
-    __weak typeof (self) weakSelf = self;
     UIView *view = [[UIView alloc] init];
     view.backgroundColor = [UIColor lightGreen];
-    
-//    [self.view addSubview:view];
-//    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(22);
-//        make.centerX.equalTo(weakSelf.view);
-//        make.height.equalTo(44);
-//        make.width.equalTo(weakSelf.view.mj_w);
-//    }];
-//    
-//    [self.view addSubview:self.titleView];
-//    [self.titleView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(22);
-//        make.centerX.equalTo(weakSelf.view);
-//        make.height.equalTo(44);
-//        make.width.equalTo(weakSelf.view).multipliedBy(0.4);
-//    }];
-//    
-//    [self.view addSubview:self.pageContentView];
-//    [self.pageContentView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(weakSelf.titleView.mas_bottom).offset(0);
-//        make.left.right.bottom.equalTo(0);
-//    }];
-//    self.pageContentView.backgroundColor = [UIColor blueColor];
-    
 }
 
 #pragma mark tableView
@@ -264,16 +198,5 @@ static NSString *cellID = @"cellID";
     
     return cell;
 }
-
-#pragma mark pageTitleViewDelegate
--(void)pageTitleView:(UIView *)titleView selectedIndex:(int)index{
-    [self.pageContentView setCurrentIndex:index];
-}
-
-#pragma mark pageContentViewDelegate
-- (void)pageContentView:(UIView *)contentView progress:(CGFloat)p sourceIndex:(int)s targetIndex:(int)t{
-    [self.titleView setTitleWithProgress:p sourceIndex:s targetIndex:t];
-}
-
 @end
 

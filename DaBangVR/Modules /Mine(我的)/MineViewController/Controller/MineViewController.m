@@ -66,5 +66,4 @@
     percent = MAX(0, MIN(1, percent));
     self.naviBGView.alpha = percent;
 }
-
 @end
