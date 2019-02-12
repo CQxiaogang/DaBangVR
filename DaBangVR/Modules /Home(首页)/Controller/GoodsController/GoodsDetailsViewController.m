@@ -9,7 +9,7 @@
 #import "GoodsDetailsViewController.h"
 #import "AllCommentsViewController.h" //查看所以评论
 #import "OrderSureViewController.h"      //立即购买
-#import "HBK_ShoppingCartViewController.h" //购物车
+#import "ShoppingCartViewController.h" //购物车
 // ViewS
 #import "GoodsDetailsView.h"
 #import "GoodAttributesView.h"
@@ -349,7 +349,7 @@ static NSString *CellID = @"CellID";
 
 #pragma mark —— 购物车
 - (void)shoppingCarOfAction{
-    HBK_ShoppingCartViewController *vc = [[HBK_ShoppingCartViewController alloc] init];
+    ShoppingCartViewController *vc = [[ShoppingCartViewController alloc] init];
     [self.navigationController pushViewController:vc animated:NO];
 }
 
