@@ -7,9 +7,12 @@
 //
 
 #import "PagingViewController.h"
+#import "SettingViewController.h"
+#import "MyOrderViewController.h"
+#import "HBK_ShoppingCartViewController.h"
 #import "JXCategoryView.h"
 
-@interface PagingViewController () <JXCategoryViewDelegate, JXPagerMainTableViewGestureDelegate>
+@interface PagingViewController () <JXCategoryViewDelegate, JXPagerMainTableViewGestureDelegate, headerViewDelegate>
 
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
 @property (nonatomic, strong) NSArray <NSString *> *titles;
@@ -20,27 +23,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.translucent = false;
-    _titles = @[@"能力", @"爱好", @"队友"];
+    
+    _titles = @[@"我的", @"喜欢", @"动态", @"作品"];
 
     _userHeaderView = [[[NSBundle mainBundle] loadNibNamed:@"MineHeaderView" owner:nil options:nil] firstObject];
-    _userHeaderView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, JXTableHeaderViewHeight);
+    _userHeaderView.delegate = self;
     
-    _categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, JXheightForHeaderInSection)];
+    _categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(JXheightForHeaderInSection))];
     self.categoryView.titles = self.titles;
     self.categoryView.backgroundColor = [UIColor whiteColor];
     self.categoryView.delegate = self;
-    self.categoryView.titleSelectedColor = [UIColor colorWithRed:105/255.0 green:144/255.0 blue:239/255.0 alpha:1];
-    self.categoryView.titleColor = [UIColor blackColor];
+    self.categoryView.titleSelectedColor = [UIColor lightGreen];
+    self.categoryView.titleColor = KGrayColor;
     self.categoryView.titleColorGradientEnabled = YES;
-    self.categoryView.titleLabelZoomEnabled = YES;
-    self.categoryView.titleLabelZoomEnabled = YES;
 
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-    lineView.indicatorLineViewColor = [UIColor colorWithRed:105/255.0 green:144/255.0 blue:239/255.0 alpha:1];
-    lineView.indicatorLineWidth = 30;
+    lineView.indicatorLineViewColor = [UIColor lightGreen];
+    lineView.indicatorLineWidth = kFit(30);
     self.categoryView.indicators = @[lineView];
 
     _pagerView = [self preferredPagingView];
@@ -144,6 +143,37 @@
         return NO;
     }
     return [gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && [otherGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]];
+}
+
+#pragma mark —— 头部视图控件 delegate
+// 昵称点击事件
+-(void)nickNameViewClick{
+    if (!isLogin) {
+        KPostNotification(KNotificationLoginStateChange, @NO);
+    }
+}
+// 设置点击事件
+-(void)setupButtonClick{
+    
+    SettingViewController *vc = [[SettingViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:NO];
+}
+// 积分商城
+-(void)integralMallAction{
+    DLog(@"哎呦喂");
+}
+// 我的订单
+-(void)myOrderAction{
+    MyOrderViewController *VC = [[MyOrderViewController alloc] init];
+    VC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:VC animated:NO];
+}
+// 购物车
+-(void)shoppingCarAction{
+    HBK_ShoppingCartViewController *vc = [[HBK_ShoppingCartViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:NO];
 }
 
 @end

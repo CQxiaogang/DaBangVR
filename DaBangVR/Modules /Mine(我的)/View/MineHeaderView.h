@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UserInfo *userInfo;
 @property (nonatomic, assign) id<headerViewDelegate> delegate;
 
-- (void)scrollViewDidScroll:(CGFloat)contentOffsetY;
+//- (void)scrollViewDidScroll:(CGFloat)contentOffsetY;
 
 @end
 

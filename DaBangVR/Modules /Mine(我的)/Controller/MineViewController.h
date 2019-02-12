@@ -1,19 +1,13 @@
 //
-//  DBMyViewController.h
-//  DaBangVR
+//  NaviBarHiddenViewController.h
+//  JXPagerViewExample-OC
 //
-//  Created by mac on 2018/11/17.
-//  Copyright © 2018 DaBangVR. All rights reserved.
+//  Created by jiaxin on 2018/9/12.
+//  Copyright © 2018年 jiaxin. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "PagingViewController.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface MineViewController : RootViewController<UITableViewDelegate, UITableViewDataSource>
-
-@property (nonatomic, strong) NSDictionary *dic;
+@interface MineViewController : PagingViewController
 
 @end
-
-NS_ASSUME_NONNULL_END

@@ -71,15 +71,14 @@
 		049D479C219FEC1E0058178D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D479B219FEC1E0058178D /* HomeViewController.m */; };
 		049D479F219FEC540058178D /* DBLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D479E219FEC540058178D /* DBLiveViewController.m */; };
 		049D47A2219FEC690058178D /* DBShortVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A1219FEC690058178D /* DBShortVideoViewController.m */; };
-		049D47A5219FEC790058178D /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A4219FEC790058178D /* MineViewController.m */; };
+		049D47A5219FEC790058178D /* MineViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A4219FEC790058178D /* MineViewController2.m */; };
 		04A3DA3021E9EF6400F689C7 /* GoodsShowListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */; };
-		04C1AD0E22116EF50011DDA3 /* NaviBarHiddenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1AD0C22116EF50011DDA3 /* NaviBarHiddenViewController.m */; };
+		04C1AD0E22116EF50011DDA3 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1AD0C22116EF50011DDA3 /* MineViewController.m */; };
 		04C1AD23221172770011DDA3 /* lufei.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04C1AD22221172770011DDA3 /* lufei.jpg */; };
 		04C1AD302211756D0011DDA3 /* UIWindow+JXSafeArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1AD252211756B0011DDA3 /* UIWindow+JXSafeArea.m */; };
 		04C1AD312211756D0011DDA3 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1AD262211756C0011DDA3 /* DetailViewController.m */; };
 		04C1AD322211756D0011DDA3 /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1AD272211756C0011DDA3 /* TestTableViewCell.m */; };
 		04C1AD332211756D0011DDA3 /* PagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1AD282211756C0011DDA3 /* PagingViewController.m */; };
-		04C1AD342211756D0011DDA3 /* PagingViewTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1AD2A2211756C0011DDA3 /* PagingViewTableHeaderView.m */; };
 		04C1AD352211756D0011DDA3 /* TestListBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1AD2E2211756D0011DDA3 /* TestListBaseView.m */; };
 		04C1AD3F221175A60011DDA3 /* JXPagerListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1AD37221175A60011DDA3 /* JXPagerListContainerView.m */; };
 		04C1AD40221175A60011DDA3 /* JXPagerMainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1AD38221175A60011DDA3 /* JXPagerMainTableView.m */; };
@@ -379,20 +378,18 @@
 		049D479E219FEC540058178D /* DBLiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBLiveViewController.m; sourceTree = "<group>"; };
 		049D47A0219FEC690058178D /* DBShortVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBShortVideoViewController.h; sourceTree = "<group>"; };
 		049D47A1219FEC690058178D /* DBShortVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBShortVideoViewController.m; sourceTree = "<group>"; };
-		049D47A3219FEC790058178D /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
-		049D47A4219FEC790058178D /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		049D47A3219FEC790058178D /* MineViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController2.h; sourceTree = "<group>"; };
+		049D47A4219FEC790058178D /* MineViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController2.m; sourceTree = "<group>"; };
 		04A3DA2E21E9EF6400F689C7 /* GoodsShowListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsShowListModel.h; sourceTree = "<group>"; };
 		04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsShowListModel.m; sourceTree = "<group>"; };
-		04C1AD0C22116EF50011DDA3 /* NaviBarHiddenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviBarHiddenViewController.m; sourceTree = "<group>"; };
-		04C1AD0D22116EF50011DDA3 /* NaviBarHiddenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviBarHiddenViewController.h; sourceTree = "<group>"; };
+		04C1AD0C22116EF50011DDA3 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		04C1AD0D22116EF50011DDA3 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		04C1AD22221172770011DDA3 /* lufei.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lufei.jpg; sourceTree = "<group>"; };
 		04C1AD242211756B0011DDA3 /* PagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagingViewController.h; sourceTree = "<group>"; };
 		04C1AD252211756B0011DDA3 /* UIWindow+JXSafeArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+JXSafeArea.m"; sourceTree = "<group>"; };
 		04C1AD262211756C0011DDA3 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		04C1AD272211756C0011DDA3 /* TestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewCell.m; sourceTree = "<group>"; };
 		04C1AD282211756C0011DDA3 /* PagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagingViewController.m; sourceTree = "<group>"; };
-		04C1AD292211756C0011DDA3 /* PagingViewTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagingViewTableHeaderView.h; sourceTree = "<group>"; };
-		04C1AD2A2211756C0011DDA3 /* PagingViewTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagingViewTableHeaderView.m; sourceTree = "<group>"; };
 		04C1AD2B2211756C0011DDA3 /* TestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewCell.h; sourceTree = "<group>"; };
 		04C1AD2C2211756C0011DDA3 /* TestListBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestListBaseView.h; sourceTree = "<group>"; };
 		04C1AD2D2211756C0011DDA3 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -1225,8 +1222,6 @@
 				04C1AD2E2211756D0011DDA3 /* TestListBaseView.m */,
 				04C1AD2B2211756C0011DDA3 /* TestTableViewCell.h */,
 				04C1AD272211756C0011DDA3 /* TestTableViewCell.m */,
-				04C1AD292211756C0011DDA3 /* PagingViewTableHeaderView.h */,
-				04C1AD2A2211756C0011DDA3 /* PagingViewTableHeaderView.m */,
 				04C1AD2D2211756C0011DDA3 /* DetailViewController.h */,
 				04C1AD262211756C0011DDA3 /* DetailViewController.m */,
 				04C1AD2F2211756D0011DDA3 /* UIWindow+JXSafeArea.h */,
@@ -1921,10 +1916,10 @@
 			children = (
 				0423DAEB2200301C00325869 /* MyOrderController */,
 				04C1AD0F221170040011DDA3 /* Common */,
-				04C1AD0D22116EF50011DDA3 /* NaviBarHiddenViewController.h */,
-				04C1AD0C22116EF50011DDA3 /* NaviBarHiddenViewController.m */,
-				049D47A3219FEC790058178D /* MineViewController.h */,
-				049D47A4219FEC790058178D /* MineViewController.m */,
+				04C1AD0D22116EF50011DDA3 /* MineViewController.h */,
+				04C1AD0C22116EF50011DDA3 /* MineViewController.m */,
+				049D47A3219FEC790058178D /* MineViewController2.h */,
+				049D47A4219FEC790058178D /* MineViewController2.m */,
 				04FC07F121B50855008FF83B /* SettingViewController.h */,
 				04FC07F221B50855008FF83B /* SettingViewController.m */,
 				04EFA02421E7226D007C2FCA /* OrderDeliveryViewController.h */,
@@ -2429,7 +2424,6 @@
 				0402089121F1F6E70038C371 /* ShoppingCarViewController.m in Sources */,
 				044F3BAD21F0803900F3AD5E /* ProductInfoVoListModel.m in Sources */,
 				04F62FF321F9B69A0094B26F /* ModifyAddressModel.m in Sources */,
-				04C1AD342211756D0011DDA3 /* PagingViewTableHeaderView.m in Sources */,
 				0459D91721E0B437009BFFB4 /* DBDetailFooterView.m in Sources */,
 				04E0473221D36A42002DDB98 /* AllCommentsViewController.m in Sources */,
 				048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */,
@@ -2485,10 +2479,10 @@
 				0463026021BBAC8D0003C542 /* DBLayoutConstraint.m in Sources */,
 				04F3B31221EDDAF900DFBA84 /* JXCategoryTitleView.m in Sources */,
 				04457ABB21FC43B2003E5748 /* OrderSureHeaderView.m in Sources */,
-				049D47A5219FEC790058178D /* MineViewController.m in Sources */,
+				049D47A5219FEC790058178D /* MineViewController2.m in Sources */,
 				04F3B32121EDDAF900DFBA84 /* JXCategoryBaseCellModel.m in Sources */,
 				04C1AD40221175A60011DDA3 /* JXPagerMainTableView.m in Sources */,
-				04C1AD0E22116EF50011DDA3 /* NaviBarHiddenViewController.m in Sources */,
+				04C1AD0E22116EF50011DDA3 /* MineViewController.m in Sources */,
 				04F4467921D74F5300524971 /* DBFeatureHeaderView.m in Sources */,
 				04F62FD421F951440094B26F /* HBK_ShoppingCartViewController.m in Sources */,
 				049D4799219FE9480058178D /* MainTabBarController.m in Sources */,

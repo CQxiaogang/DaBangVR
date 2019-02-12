@@ -15,7 +15,7 @@
 #import "AnchorViewCell.h"
 #import "JFCityViewController.h"
 #import "HomeViewController.h"
-#import "MineViewController.h"
+#import "MineViewController2.h"
 #import "GoodsShowViewController.h"
 // Controllers
 #import "SpellGroupViewController.h"        //拼团

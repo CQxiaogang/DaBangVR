@@ -31,7 +31,8 @@
     
     [self setupUI];
     
-    
+    self.clipsToBounds = YES;
+    self.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 #pragma mark —— UI细节设置
@@ -42,7 +43,7 @@
     
     //设置headerView中label属性，根据内容显示字体大小
     _myFans.adjustsFontSizeToFitWidth = YES;
-    _tags.adjustsFontSizeToFitWidth = YES;
+    _tags.adjustsFontSizeToFitWidth   = YES;
     _myAttention.adjustsFontSizeToFitWidth = YES;
     [self addSubview:self.nickName];
 }
@@ -88,6 +89,5 @@
         [self.delegate shoppingCarAction];
     }
 }
-
 
 @end

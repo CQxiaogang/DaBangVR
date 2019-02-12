@@ -82,7 +82,7 @@ static NSString *cellID = @"cellID";
         make.centerX.equalTo(weakSelf.view);
     }];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(64);
+        make.top.equalTo(0);
         make.left.right.equalTo(0);
         make.bottom.equalTo(weakSelf.LogOutBtn.mas_top).offset(0);
     }];

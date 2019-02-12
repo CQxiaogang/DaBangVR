@@ -8,15 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "JXPagerView.h"
-#import "PagingViewTableHeaderView.h"
 #import "TestListBaseView.h"
 #import "JXCategoryTitleView.h"
 #import "MineHeaderView.h"
 
-static const CGFloat JXTableHeaderViewHeight = 200;
-static const CGFloat JXheightForHeaderInSection = 50;
+static const CGFloat JXTableHeaderViewHeight = 220;
+static const CGFloat JXheightForHeaderInSection = 40;
 
-@interface PagingViewController : UIViewController <JXPagerViewDelegate>
+@interface PagingViewController : RootViewController <JXPagerViewDelegate>
 
 @property (nonatomic, strong) JXPagerView *pagerView;
 //@property (nonatomic, strong) PagingViewTableHeaderView *userHeaderView;

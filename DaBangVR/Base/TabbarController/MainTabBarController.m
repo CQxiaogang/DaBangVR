@@ -6,13 +6,13 @@
 //  Copyright © 2018 DaBangVR. All rights reserved.
 //
 #import "DBTabBar.h"
-#import "MineViewController.h"
+#import "MineViewController2.h"
 #import "DBLiveViewController.h"
 #import "MainTabBarController.h"
 #import "HomeViewController.h"
 #import "DBShortVideoViewController.h"
 #import "PagingViewController.h"
-#import "NaviBarHiddenViewController.h"
+#import "MineViewController.h"
 
 #define kSWidth [UIScreen mainScreen].bounds.size.width
 
@@ -58,7 +58,7 @@
     DBShortVideoViewController *shortVideoVC = [DBShortVideoViewController new];
     [self addChildViewController:shortVideoVC title:@"短视频" imageName:@"h_ShortVideo" selectedImageName:@"h_ShortVideo_select"];
 
-    NaviBarHiddenViewController *myVC = [NaviBarHiddenViewController new];
+    MineViewController *myVC = [MineViewController new];
     [self addChildViewController:myVC title:@"我的" imageName:@"h_Member" selectedImageName:@"h_Member_select"];
 //    MineViewController *myVC = [MineViewController new];
 //    [self addChildViewController:myVC title:@"我的" imageName:@"h_Member" selectedImageName:@"h_Member_select"];
