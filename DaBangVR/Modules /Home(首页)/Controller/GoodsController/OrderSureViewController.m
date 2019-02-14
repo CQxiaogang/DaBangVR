@@ -18,6 +18,7 @@
 // Models
 #import "OrderSureModel.h"
 #import "OrderSureDeptGoodsModel.h"
+#import "SureCustomActionSheet.h"
 
 @interface OrderSureViewController ()
 <
@@ -139,8 +140,8 @@ static NSString *leaveMessage;
     }];
     
     [submitOrdersBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.bottom.equalTo(-10);
-        make.size.equalTo(CGSizeMake(80, 40));
+        make.right.bottom.equalTo(-15);
+        make.size.equalTo(CGSizeMake(80, 38));
     }];
     
     [thePrice mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -216,19 +217,44 @@ static NSString *leaveMessage;
 }
 #pragma mark —— 提交订单
 - (void)submitOrdersBtnAction{
-    leaveMessage = leaveMessage? leaveMessage:@"";
-    NSDictionary *dic = @{
-                          @"submitType" : @"buy",
-                          @"addressId" : _model.receivingAddress.id,
-                          @"addressId" : leaveMessage
-                          };
-    [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
-        [SVProgressHUD showInfoWithStatus:KJSONSerialization(responseObject)[@"errmsg"]];
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-        [SVProgressHUD dismissWithDelay:1.0];
-    } failure:^(NSError * _Nonnull error) {
-
+    kWeakSelf(self);
+    NSArray *optionsArr = @[@"微信", @"支付宝"];
+    NSArray *imgArr = @[@"p-WeChat", @"p-Alipay"];
+    
+    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenW - 20, 40)];
+    headView.backgroundColor = [UIColor whiteColor];
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, KScreenW - 20, 30)];
+    titleLabel.text = @"支付方式";
+    titleLabel.adaptiveFontSize = 15.0;
+    titleLabel.textColor = [UIColor colorWithRed:73/255.0 green:75/255.0 blue:90/255.0 alpha:1];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    [headView addSubview:titleLabel];
+    
+    SureCustomActionSheet *optionsView = [[SureCustomActionSheet alloc]initWithTitleView:headView optionsArr:optionsArr imgArr:imgArr cancelTitle:@"退出" selectedBlock:^(NSInteger index) {
+        if (index == 0) {
+            DLog(@"微信");
+        }else{
+            DLog(@"支付宝");
+        }
+        // 确认支付，调用后台
+        leaveMessage = leaveMessage? leaveMessage:@"";
+        NSDictionary *dic = @{
+                              @"submitType" : @"buy",
+                              @"addressId" : weakself.model.receivingAddress.id,
+                              @"addressId" : leaveMessage
+                              };
+        [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
+            [SVProgressHUD showInfoWithStatus:KJSONSerialization(responseObject)[@"errmsg"]];
+            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+            [SVProgressHUD dismissWithDelay:1.0];
+        } failure:^(NSError * _Nonnull error) {
+            
+        }];
+    } cancelBlock:^{
+        
     }];
+    
+    [self.navigationController.view addSubview:optionsView];
 }
 
 @end

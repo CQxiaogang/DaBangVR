@@ -89,7 +89,8 @@
 #pragma mark —— JXCategoryListContainerViewDelegate
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
     MyOrderTableViewController *myOrderVC = [[MyOrderTableViewController alloc] init];
-    myOrderVC.index = @"0";
+    NSArray *number  = @[@"0" ,@"0", @"301", @"402", @"401"];
+    myOrderVC.index = number[index];
     return myOrderVC;
 }
 

@@ -19,7 +19,6 @@
 #import "AllCommentsModel.h"
 // Vendors
 #import "FGGAutoScrollView.h" //无限轮播
-#import "SureCustomActionSheet.h"
 
 static NSArray *globalArray;
 @interface GoodsDetailsViewController ()<GoodsDetailsViewDelegate>
@@ -320,29 +319,7 @@ static NSString *CellID = @"CellID";
 }
 // 客服
 - (void)customerServiceBtnOfAction{
-    NSArray *optionsArr = @[@"微信", @"支付宝"];
-    NSArray *imgArr = @[@"p-WeChat", @"p-Alipay"];
     
-    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenW - 20, 40)];
-    headView.backgroundColor = [UIColor whiteColor];
-    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, KScreenW - 20, 30)];
-    titleLabel.text = @"支付方式";
-    titleLabel.adaptiveFontSize = 15.0;
-    titleLabel.textColor = [UIColor colorWithRed:73/255.0 green:75/255.0 blue:90/255.0 alpha:1];
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    [headView addSubview:titleLabel];
-    
-    SureCustomActionSheet *optionsView = [[SureCustomActionSheet alloc]initWithTitleView:headView optionsArr:optionsArr imgArr:imgArr cancelTitle:@"退出" selectedBlock:^(NSInteger index) {
-        if (index == 0) {
-            DLog(@"微信");
-        }else{
-            DLog(@"支付宝");
-        }
-    } cancelBlock:^{
-        
-    }];
-    
-    [self.navigationController.view addSubview:optionsView];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
