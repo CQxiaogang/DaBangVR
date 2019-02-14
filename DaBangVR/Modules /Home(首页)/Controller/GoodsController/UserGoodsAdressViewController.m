@@ -52,7 +52,7 @@ static NSString *const CellID = @"CellID";
 
 - (void)data{
     kWeakSelf(self)
-    [NetWorkHelper POST:URl_addressList parameters:@{@"token" :kToken} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_addressList parameters:nil success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *data = dic[@"data"];
         NSArray *receivingAddressVoList = data[@"receivingAddressVoList"];

@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger,UserGender){
 // 昵称
 @property (nonatomic, copy)NSString *nickName;
 @property (nonatomic, copy)NSString *openId;
+@property (nonatomic, copy)NSString *token;
 // 点赞数
 @property (nonatomic, copy)NSString *praisedNumber;
 @property (nonatomic,assign) UserGender sex;

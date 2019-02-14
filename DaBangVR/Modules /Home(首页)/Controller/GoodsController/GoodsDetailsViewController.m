@@ -19,6 +19,7 @@
 #import "AllCommentsModel.h"
 // Vendors
 #import "FGGAutoScrollView.h" //无限轮播
+#import "SureCustomActionSheet.h"
 
 static NSArray *globalArray;
 @interface GoodsDetailsViewController ()<GoodsDetailsViewDelegate>
@@ -33,8 +34,7 @@ static NSArray *globalArray;
 
 @property (nonatomic, strong)GoodsDetailsView *goodsView;
 // 回传数据,商品的属性
-@property (nonatomic, copy) NSArray *goodsAttributesArr;
-
+@property (nonatomic, copy) NSArray *goodsAttributesArr;;
 @end
 
 @implementation GoodsDetailsViewController
@@ -62,7 +62,7 @@ static NSString *CellID = @"CellID";
 - (void) getData{
     kWeakSelf(self);
     // 商品详情
-    [NetWorkHelper POST:URL_getGoodsDetails parameters:@{@"goodsId":_index,  @"token" :kToken} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URL_getGoodsDetails parameters:@{@"goodsId":_index} success:^(id  _Nonnull responseObject) {
         
         NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
         NSDictionary *goodsDetailsDic = dataDic[@"goodsDetails"];
@@ -75,7 +75,7 @@ static NSString *CellID = @"CellID";
     }];
     
     // 三条评论
-    [NetWorkHelper POST:URl_comment_list parameters:@{@"goodsId":_index, @"token" :kToken} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_comment_list parameters:@{@"goodsId":_index} success:^(id  _Nonnull responseObject) {
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *dataDic = dic[@"data"];
@@ -228,17 +228,14 @@ static NSString *CellID = @"CellID";
         dic = @{
                 @"productId":array[0],
                 @"goodsId"  :array[1],
-                @"number"   :array[2],
-                @"deptId"   :self.model.deptId,
-                @"token"    :kToken
+                @"number"   :array[2]
                 };
         
     }else{
         dic = @{
                 @"goodsId":array[0],
                 @"number" :array[1],
-                @"deptId" :self.model.deptId,
-                @"token"  :kToken
+                @"deptId" :self.model.deptId
                 };
         
     }
@@ -264,14 +261,13 @@ static NSString *CellID = @"CellID";
     }else{
         dic = @{
                 @"goodsId":array[0],
-                @"number" :array[1],
-                @"token"  :kToken
+                @"number" :array[1]
                 };
         
     }
     
     [NetWorkHelper POST:URl_confirmGoods2Buy parameters:dic success:^(id  _Nonnull responseObject) {
-        
+
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         DLog(@"%@",dic[@"errmsg"]);
         // 直接跳转确认订单界面
@@ -310,7 +306,6 @@ static NSString *CellID = @"CellID";
 // 收藏
 - (void)collectionBtnOfAction{
     NSDictionary *dic = @{
-                          @"token"  : kToken,
                           @"goodsId":_index
                           };
     [NetWorkHelper POST:URl_getGoodsCollectSave parameters:dic success:^(id  _Nonnull responseObject) {
@@ -325,6 +320,29 @@ static NSString *CellID = @"CellID";
 }
 // 客服
 - (void)customerServiceBtnOfAction{
+    NSArray *optionsArr = @[@"微信", @"支付宝"];
+    NSArray *imgArr = @[@"p-WeChat", @"p-Alipay"];
+    
+    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenW - 20, 40)];
+    headView.backgroundColor = [UIColor whiteColor];
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, KScreenW - 20, 30)];
+    titleLabel.text = @"支付方式";
+    titleLabel.adaptiveFontSize = 15.0;
+    titleLabel.textColor = [UIColor colorWithRed:73/255.0 green:75/255.0 blue:90/255.0 alpha:1];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    [headView addSubview:titleLabel];
+    
+    SureCustomActionSheet *optionsView = [[SureCustomActionSheet alloc]initWithTitleView:headView optionsArr:optionsArr imgArr:imgArr cancelTitle:@"退出" selectedBlock:^(NSInteger index) {
+        if (index == 0) {
+            DLog(@"微信");
+        }else{
+            DLog(@"支付宝");
+        }
+    } cancelBlock:^{
+        
+    }];
+    
+    [self.navigationController.view addSubview:optionsView];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

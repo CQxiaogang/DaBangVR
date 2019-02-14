@@ -15,8 +15,9 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/javascript" ,@"text/plain", nil];
-    
-    [manager POST:URL parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+    NSMutableDictionary *mutableDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    [mutableDic setObject:kToken forKey:@"DABANG-TOKEN"];
+    [manager POST:URL parameters:mutableDic progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

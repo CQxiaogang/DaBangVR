@@ -152,7 +152,7 @@ static NSString *leaveMessage;
 
 - (void)data{
     kWeakSelf(self);
-    [NetWorkHelper POST:URl_getConfirmGoods parameters:@{@"token" :kToken} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_getConfirmGoods parameters:nil success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
         weakself.model = [OrderSureModel modelWithDictionary:data];
         weakself.deptModels = [OrderSureDeptGoodsModel mj_objectArrayWithKeyValuesArray:weakself.model.deptGoodsList];
@@ -220,8 +220,7 @@ static NSString *leaveMessage;
     NSDictionary *dic = @{
                           @"submitType" : @"buy",
                           @"addressId" : _model.receivingAddress.id,
-                          @"addressId" : leaveMessage,
-                          @"token" :kToken
+                          @"addressId" : leaveMessage
                           };
     [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
         [SVProgressHUD showInfoWithStatus:KJSONSerialization(responseObject)[@"errmsg"]];

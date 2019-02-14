@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *password;
 @property (weak, nonatomic) IBOutlet UITextField *accountNunber;
 
+@property (nonatomic, assign) void (^phoneNumBlock)(NSString *string);
+
 @end
 
 NS_ASSUME_NONNULL_END

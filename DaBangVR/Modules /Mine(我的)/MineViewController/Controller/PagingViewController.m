@@ -80,11 +80,11 @@
 }
 
 - (NSUInteger)tableHeaderViewHeightInPagerView:(JXPagerView *)pagerView {
-    return JXTableHeaderViewHeight;
+    return kFit(JXTableHeaderViewHeight - JXheightForHeaderInSection);
 }
 
 - (NSUInteger)heightForPinSectionHeaderInPagerView:(JXPagerView *)pagerView {
-    return JXheightForHeaderInSection;
+    return kFit(JXheightForHeaderInSection);
 }
 
 - (UIView *)viewForPinSectionHeaderInPagerView:(JXPagerView *)pagerView {

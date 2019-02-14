@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F1EFE0FAE1B6228CE06F05C027D6D831"
+               BlueprintIdentifier = "71B77B20BA8C9C9D0D65F2A069486572"
                BlueprintName = "Pods-DaBangVR"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPods-DaBangVR.a">

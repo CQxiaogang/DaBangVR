@@ -50,6 +50,7 @@
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         [self.tableView registerNib:[UINib nibWithNibName:@"MineTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+        self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, 1)];
         [self addSubview:self.tableView];
     }
     return self;
@@ -185,17 +186,17 @@
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return 1;
-    }else{
-        return kFit(5);
-    }
-}
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *headerView = [[UIView alloc]init];
-    return headerView;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    if (section == 0) {
+//        return 1;
+//    }else{
+//        return kFit(5);
+//    }
+//}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    UIView *headerView = [[UIView alloc]init];
+//    return headerView;
+//}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     !self.scrollCallback ?: self.scrollCallback(scrollView);

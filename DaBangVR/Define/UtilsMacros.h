@@ -144,7 +144,7 @@ return shared##className; \
 }
 
 // token
-#define kToken curUser.openId? curUser.openId : @"0"
+#define kToken curUser.token? curUser.token : @"0"
 // 快速解析数据
 #define KJSONSerialization(responseObject) ([NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil])
 

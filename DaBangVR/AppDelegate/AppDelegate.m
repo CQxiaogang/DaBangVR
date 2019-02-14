@@ -33,6 +33,8 @@
     
     return YES;
 }
-
-
+// 真机友盟登录，不走回调解决方法
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    return  [[UMSocialManager defaultManager]  handleOpenURL:url];
+}
 @end

@@ -157,7 +157,6 @@ static NSString *const CellID = @"CellID";
 
 - (void)saveInfo{
     if (self.user_AdressDic) {
-        [self.user_AdressDic setObject:kToken forKey:@"token"];
         [NetWorkHelper POST:URl_addressAdd parameters:self.user_AdressDic success:^(id  _Nonnull responseObject) {
             
         } failure:^(NSError * _Nonnull error) {
@@ -289,7 +288,7 @@ static NSString *const CellID = @"CellID";
     dispatch_group_enter(group);
     
     _areaID   = _areaID? _areaID : @"1";
-    [NetWorkHelper POST:URl_getRegionChildrenList parameters:@{@"parentId":_areaID, @"token":kToken} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_getRegionChildrenList parameters:@{@"parentId":_areaID} success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSArray *regionList = dic[@"regionList"];
         for (NSDictionary *dic in regionList) {

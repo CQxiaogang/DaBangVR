@@ -97,7 +97,7 @@
                         <action selector="passwordAction:" destination="-1" eventType="touchUpInside" id="O47-iz-IjC"/>
                     </connections>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="账户" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bI9-Tq-VGm" userLabel="账户名">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="电话号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bI9-Tq-VGm" userLabel="账户名">
                     <rect key="frame" x="80" y="359" width="215" height="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -119,6 +119,14 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wT-4K-W21">
+                    <rect key="frame" x="24" y="20" width="31" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="返回"/>
+                    <connections>
+                        <action selector="comeBack:" destination="-1" eventType="touchUpInside" id="ESY-Wm-LXv"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>

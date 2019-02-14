@@ -42,17 +42,27 @@
     
     MobilePhoneNoLoginViewController *phoneLoginVC = [[MobilePhoneNoLoginViewController alloc] init];
     
-    [self presentViewController:phoneLoginVC animated:YES completion:nil];
+    [self presentViewController:phoneLoginVC animated:NO completion:nil];
 }
 
 #pragma mark —— QQ登陆
 - (IBAction)QQLogin:(id)sender {
-    [userManager login:kUserLoginTypeQQ completion:^(BOOL success, NSString * _Nonnull des) {
+    [userManager login:kUserLoginTypeQQ params:nil completion:^(BOOL success, NSString * _Nullable des) {
+        
         if (success) {
             DLog(@"成功");
         }else{
-            DLog(@"失败");
+            MobilePhoneNoLoginViewController *vc = [[MobilePhoneNoLoginViewController alloc] init];
+            [self presentViewController:vc animated:YES completion:nil];
+            isFirstEnter = 1;
+            // 回调数据
+            vc.phoneNumBlock = ^(NSString * _Nonnull string) {
+                NSDictionary *dic = @{@"phone" : string};
+                [userManager loginToServer:dic completion:nil];
+                
+            };
         }
+        
     }];
 }
 

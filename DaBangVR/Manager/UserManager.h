@@ -25,17 +25,25 @@ typedef void (^ _Nullable loginBlock)(BOOL success,NSString * _Nullable  des);
 #define isLogin [UserManager sharedUserManager].isLogined
 #define curUser [UserManager sharedUserManager].curUserInfo
 #define userManager [UserManager sharedUserManager]
+#define isFirstEnter [UserManager sharedUserManager].isFirst
+
+@protocol UserManagerDelegate <NSObject>
+
+- (void)comeBack;
+
+@end
 
 @interface UserManager : NSObject
 // 单例
 SINGLETON_FOR_HEADER(UserManager)
-
 // 用户信息
 @property (nonatomic, strong) UserInfo *__nullable curUserInfo;
 // 登录类型
 @property (nonatomic, assign) UserLoginType *loginType;
 // 是已登陆
 @property (nonatomic, assign) BOOL isLogined;
+// 是第一次
+@property (nonatomic, assign) BOOL isFirst;
 
 #pragma mark —— 登录相关 
 /**
@@ -64,6 +72,9 @@ SINGLETON_FOR_HEADER(UserManager)
  @return 是否成功
  */
 -(BOOL)loadUserInfo;
+
+// 登录服务器
+- (void)loginToServer:(NSDictionary *)params completion:(loginBlock)completion;
 
 @end
 

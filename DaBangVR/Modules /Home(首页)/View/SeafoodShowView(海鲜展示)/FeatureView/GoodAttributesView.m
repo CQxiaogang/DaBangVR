@@ -430,7 +430,7 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
     if (_seleArray.count != _featureAttr.count && lastSeleArray.count != _featureAttr.count) {
         [cell.goodImageView setImageWithURL:[NSURL URLWithString:_model.listUrl] placeholder:[UIImage imageNamed:@""]];
         cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",_model.remainingInventory];
-        cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %ld",[_model.sellingPrice integerValue]*lastNum];
+        cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %f",[_model.sellingPrice floatValue]*lastNum];
         cell.chooseAttLabel.text = @"请选择 颜色 尺码";
         
     }else {

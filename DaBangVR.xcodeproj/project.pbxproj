@@ -33,6 +33,7 @@
 		042FCECD21A3F1B7002AD0DB /* DBPrefectureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FCECC21A3F1B7002AD0DB /* DBPrefectureView.xib */; };
 		042FCED021A406FB002AD0DB /* DBHotVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FCECF21A406FB002AD0DB /* DBHotVideoView.m */; };
 		042FCED221A4070C002AD0DB /* DBHotVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FCED121A4070C002AD0DB /* DBHotVideoView.xib */; };
+		0430115022140C160003E082 /* SureCustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0430114E22140C160003E082 /* SureCustomActionSheet.m */; };
 		043B467E21F804BF00C75536 /* OrderSureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B467D21F804BF00C75536 /* OrderSureModel.m */; };
 		043B468421F80CB200C75536 /* UserAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B468321F80CB200C75536 /* UserAddressModel.m */; };
 		043B468E21F8682100C75536 /* LeaveMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B468C21F8682100C75536 /* LeaveMessageViewController.m */; };
@@ -304,6 +305,8 @@
 		042FCECE21A406FB002AD0DB /* DBHotVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBHotVideoView.h; sourceTree = "<group>"; };
 		042FCECF21A406FB002AD0DB /* DBHotVideoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBHotVideoView.m; sourceTree = "<group>"; };
 		042FCED121A4070C002AD0DB /* DBHotVideoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBHotVideoView.xib; sourceTree = "<group>"; };
+		0430114E22140C160003E082 /* SureCustomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SureCustomActionSheet.m; sourceTree = "<group>"; };
+		0430114F22140C160003E082 /* SureCustomActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SureCustomActionSheet.h; sourceTree = "<group>"; };
 		043B467C21F804BF00C75536 /* OrderSureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderSureModel.h; sourceTree = "<group>"; };
 		043B467D21F804BF00C75536 /* OrderSureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderSureModel.m; sourceTree = "<group>"; };
 		043B468221F80CB200C75536 /* UserAddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserAddressModel.h; sourceTree = "<group>"; };
@@ -974,6 +977,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0430114A221407140003E082 /* SureCustomActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				0430114F22140C160003E082 /* SureCustomActionSheet.h */,
+				0430114E22140C160003E082 /* SureCustomActionSheet.m */,
+			);
+			path = SureCustomActionSheet;
+			sourceTree = "<group>";
+		};
 		043B467B21F8048600C75536 /* BuyNowModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1306,14 +1318,14 @@
 		04BF216E2212B719002468C0 /* JXPagerView */ = {
 			isa = PBXGroup;
 			children = (
-				04BF216F2212B719002468C0 /* JXPagerListContainerView.m */,
-				04BF21702212B719002468C0 /* JXPagerMainTableView.m */,
-				04BF21712212B719002468C0 /* JXPagerView.m */,
-				04BF21722212B719002468C0 /* JXPagerListRefreshView.h */,
 				04BF21732212B719002468C0 /* JXPagerView.h */,
-				04BF21742212B719002468C0 /* JXPagerListContainerView.h */,
+				04BF21712212B719002468C0 /* JXPagerView.m */,
 				04BF21752212B719002468C0 /* JXPagerMainTableView.h */,
+				04BF21702212B719002468C0 /* JXPagerMainTableView.m */,
+				04BF21722212B719002468C0 /* JXPagerListRefreshView.h */,
 				04BF21762212B719002468C0 /* JXPagerListRefreshView.m */,
+				04BF21742212B719002468C0 /* JXPagerListContainerView.h */,
+				04BF216F2212B719002468C0 /* JXPagerListContainerView.m */,
 			);
 			path = JXPagerView;
 			sourceTree = "<group>";
@@ -1835,6 +1847,7 @@
 		04F5C8E321CA24FD008DD043 /* ThridParty */ = {
 			isa = PBXGroup;
 			children = (
+				0430114A221407140003E082 /* SureCustomActionSheet */,
 				04F2FD0D21EEE8B4000B58E2 /* FGGAutomaticScrollView */,
 				04F3B2AF21EDDAF900DFBA84 /* Sources */,
 				04F4464C21D71F6C00524971 /* PPNumberButton */,
@@ -2357,6 +2370,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DaBangVR/Pods-DaBangVR-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
@@ -2364,6 +2378,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
@@ -2461,6 +2476,7 @@
 				04F4468221D74F7B00524971 /* DBFeatureItem.m in Sources */,
 				04F8ED3E21E30E9A00004178 /* AddUserAdressView.m in Sources */,
 				04F3B31921EDDAF900DFBA84 /* JXCategoryListContainerView.m in Sources */,
+				0430115022140C160003E082 /* SureCustomActionSheet.m in Sources */,
 				04F5C8EA21CA4307008DD043 /* UIViewController+AlertViewAndActionSheet.m in Sources */,
 				04F62FDA21F951440094B26F /* ShoppingCartHeaderView.m in Sources */,
 				04F8FC0221F1D3F700913150 /* SecondsKillCell.m in Sources */,

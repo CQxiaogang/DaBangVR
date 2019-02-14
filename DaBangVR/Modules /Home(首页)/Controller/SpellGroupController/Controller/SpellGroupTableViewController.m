@@ -50,8 +50,7 @@ static NSString *CellID = @"CellID";
     NSDictionary *dic = @{
                           @"categoryId":self.index,
                           @"page"      :@"1",
-                          @"limit"     :@"10",
-                          @"token"     :kToken
+                          @"limit"     :@"10"
                           };
     [NetWorkHelper POST:URL_getGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];

@@ -9,4 +9,5 @@ pod 'SDWebImage', '~> 3.7.6'
 pod 'AFNetworking'
 pod 'MJExtension'
 pod 'SVProgressHUD'
+pod 'IQKeyboardManager' #iOS8 and later
 end

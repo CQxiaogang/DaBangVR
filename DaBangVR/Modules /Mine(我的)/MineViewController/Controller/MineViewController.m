@@ -38,7 +38,7 @@
     naviTitleLabel.frame = CGRectMake(0, 0, KScreenW, kNavBarHeight);
     [self.naviBGView addSubview:naviTitleLabel];
 
-    self.userHeaderView.frame = CGRectMake(0, 0, KScreenW, kFit(JXTableHeaderViewHeight+naviHeight-kStatusBarHeight));
+    self.userHeaderView.frame = CGRectMake(0, 0, KScreenW, kFit(JXTableHeaderViewHeight));
 }
 
 - (void)viewWillAppear:(BOOL)animated {

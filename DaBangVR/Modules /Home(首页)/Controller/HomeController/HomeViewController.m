@@ -27,6 +27,7 @@
 #import "ChannelModel.h"
 #import "GoodsRotationListModel.h"
 // 第三方
+#import "SureCustomActionSheet.h"
 
 static NSString *cellID = @"cellID";
 #define KCURRENTCITYINFODEFAULTS [NSUserDefaults standardUserDefaults]
@@ -71,7 +72,6 @@ TopViewDelegate
 // 主播推荐 view
 @property (nonatomic, strong) AnchorRecommendView *anchorRecommendView;
 @property (nonatomic, strong) NSMutableArray *arrayModel;
-
 @end
 
 @implementation HomeViewController
@@ -342,7 +342,6 @@ TopViewDelegate
 - (void)setupChannelMenuListView:(UITableViewCell *)cell{
     if (self.arrayModel.count == 0) {
         NSDictionary *dic = @{
-                              @"token"        :kToken,
                               @"mallSpeciesId":@"1"
                               };
         [NetWorkHelper POST:URL_getChannelMenuList parameters:dic success:^(id  _Nonnull responseObject) {
@@ -396,6 +395,7 @@ TopViewDelegate
 }
 
 - (void)seafoodShow{
+    
     GoodsShowViewController *goodsShowView = [[GoodsShowViewController alloc] init];
     goodsShowView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:goodsShowView animated:NO];
@@ -421,7 +421,7 @@ TopViewDelegate
     NSMutableArray *data = [NSMutableArray array];
     dispatch_group_t downloadGroup = dispatch_group_create();
     dispatch_group_enter(downloadGroup);
-    [NetWorkHelper POST:URl_goods_rotation_list parameters:@{@"token":kToken} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_goods_rotation_list parameters:nil success:^(id  _Nonnull responseObject) {
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSDictionary *dataDic= dictionary[@"data"];
         NSArray *goodsArray = dataDic[@"goodsRotationList"];
