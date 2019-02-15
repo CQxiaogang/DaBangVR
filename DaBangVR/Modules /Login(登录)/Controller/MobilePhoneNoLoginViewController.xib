@@ -119,18 +119,31 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wT-4K-W21">
-                    <rect key="frame" x="24" y="20" width="31" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="返回"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuS-3L-wGp">
+                    <rect key="frame" x="1" y="27" width="50" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="0Xc-g4-rn5">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="width" constant="50" id="ObZ-9J-gcF">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="comeBack"/>
                     <connections>
-                        <action selector="comeBack:" destination="-1" eventType="touchUpInside" id="ESY-Wm-LXv"/>
+                        <action selector="comeBack:" destination="-1" eventType="touchUpInside" id="oPd-yS-c1c"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="hHZ-EH-DoV" firstAttribute="top" secondItem="jCl-gP-4W6" secondAttribute="bottom" constant="19" id="7fz-QV-fMz"/>
+                <constraint firstItem="uuS-3L-wGp" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="1" id="AW0-PL-9tf"/>
                 <constraint firstItem="hHZ-EH-DoV" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="36" id="Dka-xW-Pzb"/>
                 <constraint firstAttribute="trailing" secondItem="jCl-gP-4W6" secondAttribute="trailing" constant="34" id="Dt5-b8-wUQ"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="b2P-pq-CVd" secondAttribute="trailing" constant="33" id="ExW-fC-Whd"/>
@@ -161,6 +174,7 @@
                 <constraint firstItem="b2P-pq-CVd" firstAttribute="leading" secondItem="Vkr-09-aeC" secondAttribute="trailing" constant="8" id="nfV-KZ-bmd"/>
                 <constraint firstItem="gMX-if-uzN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="r3Y-aT-IQR"/>
                 <constraint firstAttribute="trailing" secondItem="Vkr-09-aeC" secondAttribute="trailing" constant="129" id="sA1-og-tb5"/>
+                <constraint firstItem="uuS-3L-wGp" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="7" id="sJN-dK-lqR"/>
                 <constraint firstItem="Vkr-09-aeC" firstAttribute="top" secondItem="jCl-gP-4W6" secondAttribute="bottom" constant="18" id="wfN-Qt-T6Z"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
@@ -169,6 +183,7 @@
     </objects>
     <resources>
         <image name="background" width="750" height="1334"/>
+        <image name="comeBack" width="11" height="21"/>
         <image name="po_Button" width="199" height="180"/>
         <image name="po_Button2" width="593" height="200"/>
         <image name="po_Password" width="36" height="35"/>

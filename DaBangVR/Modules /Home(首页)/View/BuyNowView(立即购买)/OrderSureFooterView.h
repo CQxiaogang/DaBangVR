@@ -12,10 +12,10 @@
 NS_ASSUME_NONNULL_BEGIN
 @protocol DetailFooterViewDelegate <NSObject>
 
-- (void)leaveMessageBtnClickAction;
+- (void)leaveMessageBtnClickAction:(UIButton *)sender;
 
 @end
-@interface DBDetailFooterView : UITableView<UITableViewDataSource,UITableViewDelegate>
+@interface OrderSureFooterView : UITableView<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) OrderSureModel *model;
 @property (nonatomic, weak) id <DetailFooterViewDelegate> aDelegate;

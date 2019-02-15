@@ -51,7 +51,7 @@
 		0459D90F21E08FFD009BFFB4 /* OrderSureTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0459D90E21E08FFD009BFFB4 /* OrderSureTopView.xib */; };
 		0459D91321E0A78F009BFFB4 /* OrderSureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459D91121E0A78F009BFFB4 /* OrderSureTableViewCell.m */; };
 		0459D91421E0A78F009BFFB4 /* OrderSureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0459D91221E0A78F009BFFB4 /* OrderSureTableViewCell.xib */; };
-		0459D91721E0B437009BFFB4 /* DBDetailFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459D91621E0B437009BFFB4 /* DBDetailFooterView.m */; };
+		0459D91721E0B437009BFFB4 /* OrderSureFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459D91621E0B437009BFFB4 /* OrderSureFooterView.m */; };
 		0463025E21BBAC8D0003C542 /* DBFontOfSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463025921BBAC8C0003C542 /* DBFontOfSize.m */; };
 		0463026021BBAC8D0003C542 /* DBLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463025C21BBAC8D0003C542 /* DBLayoutConstraint.m */; };
 		0463026321BBC8C40003C542 /* DBTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463026221BBC8C40003C542 /* DBTopView.m */; };
@@ -336,8 +336,8 @@
 		0459D91021E0A78F009BFFB4 /* OrderSureTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderSureTableViewCell.h; sourceTree = "<group>"; };
 		0459D91121E0A78F009BFFB4 /* OrderSureTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderSureTableViewCell.m; sourceTree = "<group>"; };
 		0459D91221E0A78F009BFFB4 /* OrderSureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSureTableViewCell.xib; sourceTree = "<group>"; };
-		0459D91521E0B437009BFFB4 /* DBDetailFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBDetailFooterView.h; sourceTree = "<group>"; };
-		0459D91621E0B437009BFFB4 /* DBDetailFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBDetailFooterView.m; sourceTree = "<group>"; };
+		0459D91521E0B437009BFFB4 /* OrderSureFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderSureFooterView.h; sourceTree = "<group>"; };
+		0459D91621E0B437009BFFB4 /* OrderSureFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderSureFooterView.m; sourceTree = "<group>"; };
 		0463025921BBAC8C0003C542 /* DBFontOfSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBFontOfSize.m; sourceTree = "<group>"; };
 		0463025B21BBAC8D0003C542 /* DBLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBLayoutConstraint.h; sourceTree = "<group>"; };
 		0463025C21BBAC8D0003C542 /* DBLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBLayoutConstraint.m; sourceTree = "<group>"; };
@@ -1022,8 +1022,8 @@
 				0459D91021E0A78F009BFFB4 /* OrderSureTableViewCell.h */,
 				0459D91121E0A78F009BFFB4 /* OrderSureTableViewCell.m */,
 				0459D91221E0A78F009BFFB4 /* OrderSureTableViewCell.xib */,
-				0459D91521E0B437009BFFB4 /* DBDetailFooterView.h */,
-				0459D91621E0B437009BFFB4 /* DBDetailFooterView.m */,
+				0459D91521E0B437009BFFB4 /* OrderSureFooterView.h */,
+				0459D91621E0B437009BFFB4 /* OrderSureFooterView.m */,
 				04F8ED3321E2F0AA00004178 /* DBDetailFooterCell.h */,
 				04F8ED3421E2F0AA00004178 /* DBDetailFooterCell.m */,
 				04F8ED3521E2F0AA00004178 /* DBDetailFooterCell.xib */,
@@ -2461,7 +2461,7 @@
 				0403677221A5129800974435 /* DBTableViewCell.m in Sources */,
 				044F3BAD21F0803900F3AD5E /* ProductInfoVoListModel.m in Sources */,
 				04F62FF321F9B69A0094B26F /* ModifyAddressModel.m in Sources */,
-				0459D91721E0B437009BFFB4 /* DBDetailFooterView.m in Sources */,
+				0459D91721E0B437009BFFB4 /* OrderSureFooterView.m in Sources */,
 				04E0473221D36A42002DDB98 /* AllCommentsViewController.m in Sources */,
 				048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */,
 				04F2FD1721EF0C25000B58E2 /* HomeBannerView.m in Sources */,

@@ -85,14 +85,14 @@
 #define KRedColor    [UIColor redColor]
 #define KOrangeColor [UIColor orangeColor]
 #define kYellowColor [UIColor yellowColor]
+#define KGray3Color  [[UIColor alloc]initWithRed:229/255.0 green:229/255.0 blue:229/255.0 alpha:1]
 //随机色生成
 #define KRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 /**
  *  border颜色O
  */
 #define KBorderColor [UIColor colorWithRed:(225)/255.0 green:(225)/255.0 blue:(225)/255.0 alpha:1.0]
-// 主题颜色
-#define kMAINCOLOR [[UIColor alloc]initWithRed:250/255.0 green:54/255.0 blue:103/255.0 alpha:1]
+
 // 字体颜色
 #define KFontColor [[UIColor alloc]initWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:1]
 

@@ -14,7 +14,7 @@
 #import "OrderSureTopView.h"
 #import "OrderSureHeaderView.h"
 #import "OrderSureTableViewCell.h"
-#import "DBDetailFooterView.h"
+#import "OrderSureFooterView.h"
 // Models
 #import "OrderSureModel.h"
 #import "OrderSureDeptGoodsModel.h"
@@ -30,7 +30,7 @@
 
 @property (nonatomic, strong) UITableView         *tableView;
 @property (nonatomic, strong) OrderSureTopView    *topView;
-@property (nonatomic, strong) DBDetailFooterView  *footerView;
+@property (nonatomic, strong) OrderSureFooterView  *footerView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) NSMutableArray <OrderSureDeptGoodsModel *> *deptModels;
@@ -70,9 +70,9 @@ static NSString *leaveMessage;
     return _topView;
 }
 
-- (DBDetailFooterView *)footerView{
+- (OrderSureFooterView *)footerView{
     if (!_footerView) {
-        _footerView = [[DBDetailFooterView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.mj_w, 120) style:UITableViewStylePlain];
+        _footerView = [[OrderSureFooterView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.mj_w, 120) style:UITableViewStylePlain];
         _footerView.model = _model;
         _footerView.aDelegate = self;
     }
@@ -129,7 +129,7 @@ static NSString *leaveMessage;
     UILabel *thePrice = [[UILabel alloc] init];
     thePrice.adaptiveFontSize = 14;
     thePrice.textColor = KRedColor;
-    thePrice.text = [NSString stringWithFormat:@"￥%@ 元",_model.orderTotalPrice];
+    thePrice.text = [NSString stringWithFormat:@"￥%.f 元",[_model.orderTotalPrice floatValue]];
     thePrice.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:thePrice];
     
@@ -208,9 +208,12 @@ static NSString *leaveMessage;
 }
 
 #pragma mark —— 底部 View 协议
--(void)leaveMessageBtnClickAction{
+-(void)leaveMessageBtnClickAction:(UIButton *)sender{
     LeaveMessageViewController *vc = [[LeaveMessageViewController alloc] init];
     vc.textViewBlock = ^(NSString * _Nonnull string) {
+        if (string.length != 0) {
+            sender.titleLabel.text = string;
+        }
         leaveMessage = string;
     };
     [self.navigationController pushViewController:vc animated:NO];

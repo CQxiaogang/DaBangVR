@@ -261,6 +261,7 @@ static NSString *cellID = @"cellID";
         if (index == 1) {
             
             [userManager logout:nil];
+            DLog(@"%@",curUser.token);
         }
     }];
 }

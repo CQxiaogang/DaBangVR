@@ -40,9 +40,6 @@ static NSString *HeaderCellID = @"HeaderCellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-//    [self loadNewData];
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"AllOrdersCell" bundle:nil] forCellReuseIdentifier:CellID];
     [self.tableView registerNib:[UINib nibWithNibName:@"OrderSureHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:HeaderCellID];
     

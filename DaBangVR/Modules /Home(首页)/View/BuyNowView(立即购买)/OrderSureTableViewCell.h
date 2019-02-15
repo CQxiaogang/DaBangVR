@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *sellingPriceLab;
 // 市场价格
 @property (weak, nonatomic) IBOutlet UILabel *marketPriceLab;
+// 商品数量
+@property (weak, nonatomic) IBOutlet UILabel *goodsNum;
 
 @property (nonatomic, strong) OrderSureGoodsModel *model;
 

@@ -13,13 +13,14 @@
 @end
 
 @implementation LeaveMessageViewController
-
+static NSString *leaveMessage;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"评论";
+    self.title = @"买家留言";
     
     YYTextView *textView = [[YYTextView alloc] init];
-    textView.backgroundColor = KFontColor;
+    textView.text = leaveMessage;
+    textView.backgroundColor = KGray3Color;
     textView.delegate = self;
     [self.view addSubview:textView];
     [textView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -31,7 +32,12 @@
 }
 
 -(void)textViewDidEndEditing:(YYTextView *)textView{
-    self.textViewBlock(textView.text);
+    leaveMessage = textView.text;
+}
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    self.textViewBlock(leaveMessage);
 }
 
 @end

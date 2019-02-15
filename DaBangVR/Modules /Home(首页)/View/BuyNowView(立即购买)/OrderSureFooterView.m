@@ -6,17 +6,17 @@
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "DBDetailFooterView.h"
+#import "OrderSureFooterView.h"
 
 // Views
 #import "DBDetailFooterCell.h"
 
 static NSString *CellID = @"CellID";
-@interface DBDetailFooterView ()
+@interface OrderSureFooterView ()
 @property (nonatomic, strong) NSArray *infoArray;
 @property (nonatomic, strong) NSMutableArray *rigthViewArray;
 @end
-@implementation DBDetailFooterView
+@implementation OrderSureFooterView
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     self = [super initWithFrame:frame style:style];
@@ -40,11 +40,11 @@ static NSString *CellID = @"CellID";
     if (!_rigthViewArray) {
         _rigthViewArray = [NSMutableArray new];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.mj_w-90, 0, 80, 40)];
-//        if ([_model.logisticsPrice isEqualToString:@"0"]) {
-//            label.text = @"快递免邮";
-//        }else{
-//            label.text = [NSString stringWithFormat:@"快递费: %@ 元",_model.logisticsPrice];
-//        }
+        if ([_model.orderLogisticsTotalPrice isEqualToString:@"0"]) {
+            label.text = @"快递免邮";
+        }else{
+            label.text = [NSString stringWithFormat:@"快递费: %@ 元",_model.orderLogisticsTotalPrice];
+        }
         
         label.textAlignment = NSTextAlignmentRight;
         label.textColor = KFontColor;
@@ -61,7 +61,7 @@ static NSString *CellID = @"CellID";
         // btn 文字居右
         leaveMessageBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         leaveMessageBtn.titleLabel.adaptiveFontSize = 14;
-        [leaveMessageBtn addTarget:self action:@selector(leaveMessageBtnAction) forControlEvents:UIControlEventTouchUpInside];
+        [leaveMessageBtn addTarget:self action:@selector(leaveMessageBtnAction:) forControlEvents:UIControlEventTouchUpInside];
         [_rigthViewArray addObject:leaveMessageBtn];
     }
     return _rigthViewArray;
@@ -92,9 +92,9 @@ static NSString *CellID = @"CellID";
     _model = model;
 }
 
-- (void)leaveMessageBtnAction{
-    if (self.aDelegate && [self.aDelegate respondsToSelector:@selector(leaveMessageBtnClickAction)]) {
-        [self.aDelegate leaveMessageBtnClickAction];
+- (void)leaveMessageBtnAction:(UIButton *)sender{
+    if (self.aDelegate && [self.aDelegate respondsToSelector:@selector(leaveMessageBtnClickAction:)]) {
+        [self.aDelegate leaveMessageBtnClickAction:sender];
     }
 }
 

@@ -24,7 +24,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人中心" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bO-6S-Kk9" userLabel="个人">
-                    <rect key="frame" x="152.5" y="9.5" width="70" height="21"/>
+                    <rect key="frame" x="152.5" y="19.5" width="70" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="fey-at-vbd">
                             <userDefinedRuntimeAttributes>
@@ -79,7 +79,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粉丝:0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDG-Rd-NFG" userLabel="粉丝">
-                    <rect key="frame" x="205" y="115" width="61" height="14"/>
+                    <rect key="frame" x="205" y="125" width="61" height="14"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <color key="textColor" red="0.97566181419999998" green="0.4971321225" blue="0.13187760109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -90,7 +90,7 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关注:0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7W-Li-vDt" userLabel="关注">
-                    <rect key="frame" x="139" y="115" width="61" height="14"/>
+                    <rect key="frame" x="139" y="125" width="61" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="Ka9-IY-vRL">
                             <userDefinedRuntimeAttributes>
@@ -113,7 +113,7 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="获赞:0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFX-W7-cNX" userLabel="点赞">
-                    <rect key="frame" x="271" y="115" width="33" height="14"/>
+                    <rect key="frame" x="271" y="125" width="33" height="14"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <color key="textColor" red="0.97566181419999998" green="0.4971321225" blue="0.13187760109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -124,15 +124,15 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZ5-J1-ZhJ" userLabel="设置">
-                    <rect key="frame" x="349" y="10" width="20" height="20"/>
+                    <rect key="frame" x="329" y="10" width="40" height="40"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="20" id="44j-am-LRT">
+                        <constraint firstAttribute="height" constant="40" id="44j-am-LRT">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
-                        <constraint firstAttribute="width" constant="20" id="Jkf-eK-08y">
+                        <constraint firstAttribute="width" constant="40" id="Jkf-eK-08y">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -148,14 +148,14 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyN-Kn-NQH" userLabel="姓名">
-                    <rect key="frame" x="139" y="51" width="84" height="18"/>
+                    <rect key="frame" x="139" y="61" width="150" height="18"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="18" id="Grz-Pk-0eG">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
-                        <constraint firstAttribute="width" constant="84" id="yUO-SH-8pZ">
+                        <constraint firstAttribute="width" constant="150" id="yUO-SH-8pZ">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -272,7 +272,7 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="填上一些介绍自己的话吧！" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pX-mv-KjT" userLabel="简介">
-                    <rect key="frame" x="139" y="74" width="206" height="31"/>
+                    <rect key="frame" x="139" y="84" width="206" height="31"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="206" id="GU6-cH-f2K">
                             <userDefinedRuntimeAttributes>
@@ -403,7 +403,7 @@
         <image name="p_Cart" width="86" height="87"/>
         <image name="p_Gradual_change" width="599" height="186"/>
         <image name="p_Integral" width="86" height="87"/>
-        <image name="p_Setup" width="35" height="35"/>
+        <image name="p_Setup" width="70" height="70"/>
         <image name="p_Task" width="86" height="87"/>
         <image name="p_order" width="86" height="87"/>
         <image name="theDefaultAvatar" width="1080" height="1080"/>

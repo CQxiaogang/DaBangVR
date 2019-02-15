@@ -189,7 +189,7 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
     if (!_goodsNameLbl) {
         _goodsNameLbl = [[UILabel alloc] init];
         _goodsNameLbl.text = @"商品名字";
-        _goodsNameLbl.textColor = kMAINCOLOR;
+        _goodsNameLbl.textColor = KRedColor;
         _goodsNameLbl.font = [UIFont systemFontOfSize:15];
         CGFloat goodsNameLblX = CGRectGetMaxX(self.iconBackView.frame) + 10;
         CGFloat goodsNameLblY = self.XBtn.frame.origin.y;
@@ -210,7 +210,7 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
 - (UIButton *)sureBtn{
     if (!_sureBtn) {
         _sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _sureBtn.backgroundColor = kMAINCOLOR;
+        _sureBtn.backgroundColor = KRedColor;
         [_sureBtn setTitle:@"确定" forState:UIControlStateNormal];
         [_sureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _sureBtn.frame = CGRectMake(0, self.contentView.frame.size.height - 40, KScreenW, 40);

@@ -186,17 +186,15 @@
     }
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    if (section == 0) {
-//        return 1;
-//    }else{
-//        return kFit(5);
-//    }
-//}
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    UIView *headerView = [[UIView alloc]init];
-//    return headerView;
-//}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, .5)];
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section != 0) {
+        return kFit(5);
+    }
+    return 1;
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     !self.scrollCallback ?: self.scrollCallback(scrollView);

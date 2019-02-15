@@ -9,59 +9,44 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Modules /Mine(&#x6211;&#x7684;)/MyOrderController/Controller/MyOrderTableViewController.m"
-            timestampString = "571830120.1150711"
+            filePath = "DaBangVR/Utils/NetWork/NetWorkHelper.m"
+            timestampString = "571905094.881247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-loadNewData"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "+POST:parameters:success:failure:"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[MyOrderTableViewController loadNewData]"
+                  symbolName = "+[NetWorkHelper POST:parameters:success:failure:]"
                   moduleName = "DaBangVR"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/DaBangVR/DaBangVR/Modules%20/Mine(%E6%88%91%E7%9A%84)/MyOrderController/Controller/MyOrderTableViewController.m"
-                  timestampString = "571830120.369642"
+                  urlString = "file:///Users/mac/Desktop/DaBangVR/DaBangVR/Utils/NetWork/NetWorkHelper.m"
+                  timestampString = "571904727.00995"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "326">
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "980">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__41-[MyOrderTableViewController loadNewData]_block_invoke"
+                  symbolName = "__49+[NetWorkHelper POST:parameters:success:failure:]_block_invoke"
                   moduleName = "DaBangVR"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/DaBangVR/DaBangVR/Modules%20/Mine(%E6%88%91%E7%9A%84)/MyOrderController/Controller/MyOrderTableViewController.m"
-                  timestampString = "571830120.371919"
+                  urlString = "file:///Users/mac/Desktop/DaBangVR/DaBangVR/Utils/NetWork/NetWorkHelper.m"
+                  timestampString = "571904727.011487"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.198"
-                  moduleName = "DaBangVR"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/DaBangVR/DaBangVR/Modules%20/Mine(%E6%88%91%E7%9A%84)/MyOrderController/Controller/MyOrderTableViewController.m"
-                  timestampString = "571830120.373672"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "16">
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "56">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -72,13 +57,55 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Modules /Mine(&#x6211;&#x7684;)/MyOrderController/Controller/MyOrderTableViewController.m"
-            timestampString = "571830188.72892"
+            filePath = "DaBangVR/Manager/UserManager.m"
+            timestampString = "571918275.309462"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-loadNewData"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-login:params:completion:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DaBangVR/Manager/UserManager.m"
+            timestampString = "571918275.309697"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-loginToServer:completion:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/Controller/GoodsController/OrderSureViewController.m"
+            timestampString = "571918275.309751"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "-data"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

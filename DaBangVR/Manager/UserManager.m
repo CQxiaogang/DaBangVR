@@ -12,6 +12,8 @@
 
 @interface UserManager()
 
+@property(nonatomic, copy)NSString *loginTypeStr;
+
 @end
 
 @implementation UserManager
@@ -31,11 +33,12 @@ static UMSocialUserInfoResponse *resp;
     
     //友盟登录类型
     UMSocialPlatformType platFormType;
-    
     if (loginType == kUserLoginTypeQQ) {
         platFormType = UMSocialPlatformType_QQ;
+        _loginTypeStr = @"QQ";
     }else if (loginType == kUserLoginTypeWeChat){
         platFormType = UMSocialPlatformType_WechatSession;
+        _loginTypeStr = @"wechat";
     }else if (loginType == kUserLoginTypeWeibo){
         platFormType = UMSocialPlatformType_Sina;
     }else{
@@ -46,37 +49,30 @@ static UMSocialUserInfoResponse *resp;
     if (loginType != kUserLoginTypeUnknow) {
         [[UMSocialManager defaultManager] getUserInfoWithPlatform:platFormType currentViewController:nil completion:^(id result, NSError *error) {
             if (error) {
-                if (completion) {
-                    completion(NO,error.localizedDescription);
-                }
+//                if (completion) {
+//                    completion(NO,error.localizedDescription);
+//                }
             }else{
+                // 用户信息
                 resp = result;
-                //网络请求
-                NSDictionary *params = @{@"openId"   : resp.openid,
-                                         @"loginType": @"QQ"
-                                         };
-                [self loginToServer:params completion:completion];
+                // 网络请求
+                [self loginToServer:nil completion:completion];
             }
         }];
     }
 }
 
 #pragma mark —— 登录服务器
-- (void)loginToServer:(NSDictionary *)params completion:(loginBlock)completion{
+- (void)loginToServer:(NSDictionary *__nullable)params completion:(loginBlock)completion{
     NSMutableDictionary *mutableDic = [NSMutableDictionary new];
-    DLog(@"bool is %d",_isFirst);
-    DLog(@"bool is %@",resp.name);
-    if (isFirstEnter) {
-        [mutableDic addEntriesFromDictionary:params];;
-        params = @{@"openId"   : resp.openid,
-                   @"icon"     : resp.iconurl,
-                   @"nickName" : resp.name,
-                   @"loginType": @"QQ"
-                   };
-        [mutableDic addEntriesFromDictionary:params];
-    }else{
-        [mutableDic addEntriesFromDictionary:params];
-    }
+    [mutableDic addEntriesFromDictionary:params];;
+    params = @{@"openId"   : resp.openid,
+               @"icon"     : resp.iconurl,
+               @"nickName" : resp.name,
+               @"loginType": _loginTypeStr
+               };
+    [mutableDic addEntriesFromDictionary:params];
+   
     
     // 调用后台
     [NetWorkHelper POST:URl_login parameters:mutableDic success:^(id  _Nonnull responseObject) {

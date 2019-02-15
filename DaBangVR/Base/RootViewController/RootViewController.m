@@ -34,7 +34,7 @@ static NSString *const CellID = @"CellID";
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     tableView.delegate = self;
     tableView.dataSource = self;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.separatorStyle = UITableViewCellEditingStyleNone;
     tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellID];
     tableView.showsVerticalScrollIndicator = NO;
