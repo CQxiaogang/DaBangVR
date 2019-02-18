@@ -10,4 +10,5 @@ pod 'AFNetworking'
 pod 'MJExtension'
 pod 'SVProgressHUD'
 pod 'IQKeyboardManager' #iOS8 and later
+pod 'WechatOpenSDK'
 end

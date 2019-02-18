@@ -16,7 +16,7 @@
 
 //微信
 #define kAppKey_Wechat          @"wx2351c48134140a3c"
-#define kSecret_Wechat          @"94c11c57407933c4cfb4c03b91e245a1"
+#define kSecret_Wechat          @"93e6fe9703ba9e1b571a039bab64ef69"
 
 // 腾讯
 #define kAppKey_QQ              @"1107926397"

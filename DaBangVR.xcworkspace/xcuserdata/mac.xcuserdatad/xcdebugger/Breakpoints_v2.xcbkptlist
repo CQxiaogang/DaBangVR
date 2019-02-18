@@ -6,47 +6,79 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Utils/NetWork/NetWorkHelper.m"
-            timestampString = "571905094.881247"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/Controller/GoodsController/OrderSureViewController.m"
+            timestampString = "572177132.958281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "+POST:parameters:success:failure:"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "-easyPay"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/Controller/GoodsController/OrderSureViewController.m"
+            timestampString = "572177132.9583499"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
+            landmarkName = "-easyPay"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/Controller/GoodsController/OrderSureViewController.m"
+            timestampString = "572177132.9583991"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
+            landmarkName = "-submitOrdersBtnAction"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "+[NetWorkHelper POST:parameters:success:failure:]"
+                  symbolName = "__48-[OrderSureViewController submitOrdersBtnAction]_block_invoke"
                   moduleName = "DaBangVR"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/DaBangVR/DaBangVR/Utils/NetWork/NetWorkHelper.m"
-                  timestampString = "571904727.00995"
+                  urlString = "file:///Users/mac/Desktop/DaBangVR/DaBangVR/Modules%20/Home(%E9%A6%96%E9%A1%B5)/Controller/GoodsController/OrderSureViewController.m"
+                  timestampString = "572178056.986398"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "980">
+                  startingLineNumber = "260"
+                  endingLineNumber = "260"
+                  offsetFromSymbolStart = "304">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__49+[NetWorkHelper POST:parameters:success:failure:]_block_invoke"
+                  symbolName = "__48-[OrderSureViewController submitOrdersBtnAction]_block_invoke_2"
                   moduleName = "DaBangVR"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/DaBangVR/DaBangVR/Utils/NetWork/NetWorkHelper.m"
-                  timestampString = "571904727.011487"
+                  urlString = "file:///Users/mac/Desktop/DaBangVR/DaBangVR/Modules%20/Home(%E9%A6%96%E9%A1%B5)/Controller/GoodsController/OrderSureViewController.m"
+                  timestampString = "572178056.9878711"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "56">
+                  startingLineNumber = "261"
+                  endingLineNumber = "261"
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -54,58 +86,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Manager/UserManager.m"
-            timestampString = "571918275.309462"
+            filePath = "DaBangVR/Modules /Mine(&#x6211;&#x7684;)/MineViewController/Controller/MineCollectionViewController.m"
+            timestampString = "572178056.7946841"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "-login:params:completion:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Manager/UserManager.m"
-            timestampString = "571918275.309697"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "-loginToServer:completion:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/Controller/GoodsController/OrderSureViewController.m"
-            timestampString = "571918275.309751"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "-data"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

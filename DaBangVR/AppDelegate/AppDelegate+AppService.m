@@ -21,6 +21,8 @@
 
 #pragma mark —— 初始化 window
 -(void)initWindow{
+    [[UITableView appearance] setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = KWhiteColor;
     [self.window makeKeyAndVisible];
@@ -82,4 +84,41 @@
     }
    
 }
+
+-(void)initWX{
+    [WXApi registerApp:kAppKey_Wechat];
+}
+
+- (void)onResp:(BaseResp *)resp{
+    NSString *strMsg = [NSString stringWithFormat:@"errcode:%d",resp.errCode];
+    NSString *strTitle;
+    NSString *strNote;
+    if ([resp isKindOfClass:[PayResp class]]) {
+        // 支付返回结果,实际支付结果需要去微信服务器端查询
+        strTitle = @"支付结果";
+    }
+    switch (resp.errCode) {
+        case WXSuccess:{
+            strMsg = @"支付成功,可以进行洗车";
+            strNote = @"success";
+            break;
+        }
+        case WXErrCodeUserCancel:{
+            strMsg = @"支付已取消";
+            strNote = @"cancel";
+            break;
+        }
+        case WXErrCodeSentFail: {
+            strMsg = @"支付失败,请重新支付";
+            strNote = @"fail";
+            break;
+        }
+        default:{
+            strMsg = @"支付失败";
+            strNote = @"fail";
+            break;
+        }
+    }
+}
+
 @end

@@ -12,6 +12,7 @@
 		0403677221A5129800974435 /* DBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403677021A5129800974435 /* DBTableViewCell.m */; };
 		0403677321A5129800974435 /* DBtableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403677121A5129800974435 /* DBtableViewCell.xib */; };
 		04053B5A21FAE4A9001120FC /* UserInfoChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04053B5921FAE4A9001120FC /* UserInfoChangeModel.m */; };
+		0408156B221A9C85007A0B9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0408156A221A9C85007A0B9A /* QuartzCore.framework */; };
 		0410357F21CCD2F2002CB32C /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0410357021CCD2F2002CB32C /* UMSocialSDKResources.bundle */; };
 		0410358021CCD2F2002CB32C /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357121CCD2F2002CB32C /* UShareUI.framework */; };
 		0410358121CCD2F2002CB32C /* UMSocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357321CCD2F2002CB32C /* UMSocialNetwork.framework */; };
@@ -273,6 +274,7 @@
 		0403677121A5129800974435 /* DBtableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBtableViewCell.xib; sourceTree = "<group>"; };
 		04053B5821FAE4A9001120FC /* UserInfoChangeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoChangeModel.h; sourceTree = "<group>"; };
 		04053B5921FAE4A9001120FC /* UserInfoChangeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoChangeModel.m; sourceTree = "<group>"; };
+		0408156A221A9C85007A0B9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0410357021CCD2F2002CB32C /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
 		0410357121CCD2F2002CB32C /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UShareUI.framework; sourceTree = "<group>"; };
 		0410357321CCD2F2002CB32C /* UMSocialNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialNetwork.framework; sourceTree = "<group>"; };
@@ -702,6 +704,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0408156B221A9C85007A0B9A /* QuartzCore.framework in Frameworks */,
 				04FC706E21AF8A4400E413AC /* SystemConfiguration.framework in Frameworks */,
 				04F3CF3221CB91EB007C40A1 /* libsqlite3.tbd in Frameworks */,
 				04F3CF3021CB91DB007C40A1 /* ImageIO.framework in Frameworks */,
@@ -2143,6 +2146,7 @@
 		A44070A2CCEE5C6CDBC97FBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0408156A221A9C85007A0B9A /* QuartzCore.framework */,
 				04F3CF3121CB91EB007C40A1 /* libsqlite3.tbd */,
 				04F3CF2F21CB91DB007C40A1 /* ImageIO.framework */,
 				04F3CF2D21CB91A1007C40A1 /* CoreGraphics.framework */,

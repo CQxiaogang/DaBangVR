@@ -7,15 +7,11 @@
 //
 
 #import "MineCollectionViewController.h"
-#import "JXCategoryView.h"
-#import "JXCategoryListContainerView.h"
 // Cells
 #import "MineCollectionTableViewCell.h"
 
 @interface MineCollectionViewController ()
 
-@property (nonatomic, strong) JXCategoryTitleView *categoryView;
-@property (nonatomic, strong) JXCategoryListContainerView *listContainerView;
 @property (nonatomic, strong) NSArray <NSString *> *titles;
 
 @end
@@ -29,24 +25,13 @@ static NSString *CellID = @"CellID";
     self.title = @"收藏";
     
     [NetWorkHelper POST:URl_getGoodsCollectList parameters:nil success:^(id  _Nonnull responseObject) {
-        
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
-    
-//    _titles = @[@"全部", @"降价中", @"低库存", @"已失效"];
-//
-//    self.categoryView = [[JXCategoryTitleView alloc] init];
-//    self.categoryView.frame = CGRectMake(0, kTopHeight, KScreenW, 40);
-//    self.categoryView.delegate = self;
-//    self.categoryView.titles = _titles;
-//    self.categoryView.titleSelectedColor = [UIColor lightGreen];
-//    self.categoryView.titleColor = KGrayColor;
-//    self.categoryView.defaultSelectedIndex = 0;
-//    JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-//    lineView.indicatorLineViewColor = [UIColor lightGreen];
-//    self.categoryView.indicators = @[lineView];
-//    [self.view addSubview:self.categoryView];
+        NSDictionary *dic = KJSONSerialization(responseObject);
+     
+        DLog(@"--------%@",responseObject);
+        DLog(@"--------%@",dic);
+        DLog(@"--------%@",dic);
+        DLog(@"--------%@",dic);
+    } failure:nil];
 }
 
 - (void)setupUI{

@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 //初始化 UMeng
 -(void)initUMeng;
 
+//初始化微信
+-(void)initWX;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -19,6 +19,7 @@
 #import "OrderSureModel.h"
 #import "OrderSureDeptGoodsModel.h"
 #import "SureCustomActionSheet.h"
+#import "WXApi.h"
 
 @interface OrderSureViewController ()
 <
@@ -105,6 +106,16 @@ static NSString *leaveMessage;
     [super viewDidLoad];
     self.title = @"订单确认";
     [self data];
+    
+    // 判断 用户是否安装微信
+    //如果判断结果一直为NO,可能appid无效,这里的是无效的
+    if ([WXApi isWXAppInstalled]) {
+        {
+            // 监听一个通知
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getOrderPayResult:) name:@"ORDER_PAY_NOTIFICATION" object:nil];
+        }
+    }
+    
 }
 
 - (void)creatUI{
@@ -235,7 +246,7 @@ static NSString *leaveMessage;
     
     SureCustomActionSheet *optionsView = [[SureCustomActionSheet alloc]initWithTitleView:headView optionsArr:optionsArr imgArr:imgArr cancelTitle:@"退出" selectedBlock:^(NSInteger index) {
         if (index == 0) {
-            DLog(@"微信");
+            [self wechatPay];
         }else{
             DLog(@"支付宝");
         }
@@ -258,6 +269,45 @@ static NSString *leaveMessage;
     }];
     
     [self.navigationController.view addSubview:optionsView];
+}
+
+- (void)wechatPay{
+    
+    [self easyPay];
+}
+
+-(void)easyPay{
+    NSDictionary *dic = @{@"orderSn"       :@"",
+                          @"payOrderSnType":@""
+                          };
+    [NetWorkHelper POST:@"http://www.vrzbgw.com/dabang/api/payorder/prepayOrder?" parameters:dic success:^(id  _Nonnull responseObject) {
+        
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        
+        //配置调起微信支付所需要的参数
+        
+        PayReq *req  = [[PayReq alloc] init];
+        req.package = @"Sign=WXPay";
+        
+        //调起微信支付
+        if ([WXApi sendReq:req]) {
+            NSLog(@"吊起成功");
+        }
+        
+    } failure:^(NSError * _Nonnull error) {
+         NSLog(@"%@",error);
+    }];
+}
+
+#pragma mark - 收到支付成功的消息后作相应的处理
+- (void)getOrderPayResult:(NSNotification *)notification
+{
+    if ([notification.object isEqualToString:@"success"]) {
+        NSLog(@"支付成功");
+    } else {
+        NSLog(@"支付失败");
+    }
+    
 }
 
 @end
