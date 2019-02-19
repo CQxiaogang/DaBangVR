@@ -232,6 +232,24 @@ static NSString *leaveMessage;
 #pragma mark —— 提交订单
 - (void)submitOrdersBtnAction{
     kWeakSelf(self);
+    
+    // 确认支付，调用后台
+    leaveMessage = leaveMessage? leaveMessage:@"";
+    NSDictionary *dic = @{
+                          @"submitType" : @"buy",
+                          @"addressId" : weakself.model.receivingAddress.id,
+                          @"addressId" : leaveMessage
+                          };
+    [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
+        NSDictionary *orderVo = KJSONSerialization(responseObject)[@"orderVo"];
+        NSString *orderSn = orderVo[@"orderSn"];
+        [self orderSn:orderSn];
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+}
+
+- (void)orderSn:(NSString *)orderSn{
     NSArray *optionsArr = @[@"微信", @"支付宝"];
     NSArray *imgArr = @[@"p-WeChat", @"p-Alipay"];
     
@@ -245,57 +263,43 @@ static NSString *leaveMessage;
     [headView addSubview:titleLabel];
     
     SureCustomActionSheet *optionsView = [[SureCustomActionSheet alloc]initWithTitleView:headView optionsArr:optionsArr imgArr:imgArr cancelTitle:@"退出" selectedBlock:^(NSInteger index) {
-        if (index == 0) {
-            [self wechatPay];
-        }else{
-            DLog(@"支付宝");
-        }
-        // 确认支付，调用后台
-        leaveMessage = leaveMessage? leaveMessage:@"";
-        NSDictionary *dic = @{
-                              @"submitType" : @"buy",
-                              @"addressId" : weakself.model.receivingAddress.id,
-                              @"addressId" : leaveMessage
-                              };
-        [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
-            [SVProgressHUD showInfoWithStatus:KJSONSerialization(responseObject)[@"errmsg"]];
-            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-            [SVProgressHUD dismissWithDelay:1.0];
-        } failure:^(NSError * _Nonnull error) {
-            
-        }];
-    } cancelBlock:^{
         
+        if (index == 0) {
+            [self wechatPay:orderSn];
+        }else{
+            
+        }
+        
+    } cancelBlock:^{
     }];
     
     [self.navigationController.view addSubview:optionsView];
 }
 
-- (void)wechatPay{
+- (void)wechatPay:(NSString *)orderSn{
     
-    [self easyPay];
-}
-
--(void)easyPay{
-    NSDictionary *dic = @{@"orderSn"       :@"",
-                          @"payOrderSnType":@""
+    NSDictionary *dic = @{@"orderSn"       :orderSn,
+                          @"payOrderSnType":@"orderSnTotal"
                           };
-    [NetWorkHelper POST:@"http://www.vrzbgw.com/dabang/api/payorder/prepayOrder?" parameters:dic success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_prepayOrder parameters:dic success:^(id  _Nonnull responseObject) {
         
-        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        NSDictionary * dic = KJSONSerialization(responseObject);
         
         //配置调起微信支付所需要的参数
-        
         PayReq *req  = [[PayReq alloc] init];
-        req.package = @"Sign=WXPay";
-        
+        req.partnerId = dic[@"partnerid"];
+        req.prepayId = dic[@"prepayid"];
+        req.package = dic[@"package"];
+        req.nonceStr= dic[@"nonceStr"];
+        req.timeStamp= [dic[@"timeStamp"] intValue];
+        req.sign= dic[@"signType"];
         //调起微信支付
         if ([WXApi sendReq:req]) {
             NSLog(@"吊起成功");
         }
         
     } failure:^(NSError * _Nonnull error) {
-         NSLog(@"%@",error);
+        NSLog(@"%@",error);
     }];
 }
 

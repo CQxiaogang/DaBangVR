@@ -32,7 +32,7 @@
 
 /**开发服务器*/
 #define URL_main @"http://www.vrzbgw.com/dabang"
-//#define URL_main @"http://192.168.1.110:8080"
+//#define URL_main @"http://192.168.1.111:8080"
 //#define URL_main @"http://192.168.1.105:8080"
 #elif TestSever
 
@@ -110,3 +110,8 @@
 // 我的订单 - 列表统一入口
 #define URl_getOrderList NSStringFormat(@"%@%@",URL_main,@"/api/order/getOrderList?")
 #endif /* URLMacros_h */
+
+#pragma mark —————— 微信支付接口类 ——————
+//微信支付统一入口
+#define URl_prepayOrder NSStringFormat(@"%@%@",URL_main,@"/api/payorder/prepayOrder?")
+

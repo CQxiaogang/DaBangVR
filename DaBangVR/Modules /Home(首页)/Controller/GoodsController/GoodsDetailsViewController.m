@@ -254,8 +254,8 @@ static NSString *CellID = @"CellID";
     if (array.count == 3) {
         dic = @{
               @"productId":array[0],
-              @"goodsId":array[1],
-              @"number":array[2]
+              @"goodsId"  :array[1],
+              @"number"   :array[2]
               };
     }else{
         dic = @{
