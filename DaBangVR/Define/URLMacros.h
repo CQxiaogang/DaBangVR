@@ -52,7 +52,7 @@
 // 商品类型列表
 #define URL_getGoodsCategoryList NSStringFormat(@"%@%@",URL_main,@"/api/index/getGoodsCategoryList?")
 //轮播图列表
-#define URl_goods_rotation_list NSStringFormat(@"%@%@",URL_main,@"/api/index/getGoodsRotationList?parentId=1")
+#define URl_goods_rotation_list NSStringFormat(@"%@%@",URL_main,@"/api/index/getGoodsRotationList?")
 
 #pragma mark ——————   商品相关   ——————
 // 普通商品列表

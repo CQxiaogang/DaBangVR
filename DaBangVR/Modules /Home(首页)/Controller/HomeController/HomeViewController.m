@@ -418,16 +418,15 @@ TopViewDelegate
 
 #pragma mark —— 新上
 - (void)setupNew:(UITableViewCell *)cell{
-    NSMutableArray *data = [NSMutableArray array];
+    NSMutableArray *dataSource = [NSMutableArray array];
     dispatch_group_t downloadGroup = dispatch_group_create();
     dispatch_group_enter(downloadGroup);
-    [NetWorkHelper POST:URl_goods_rotation_list parameters:nil success:^(id  _Nonnull responseObject) {
-        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSDictionary *dataDic= dictionary[@"data"];
-        NSArray *goodsArray = dataDic[@"goodsRotationList"];
+    [NetWorkHelper POST:URl_goods_rotation_list parameters:@{@"parentId": @"1"} success:^(id  _Nonnull responseObject) {
+        NSDictionary *data= KJSONSerialization(responseObject)[@"data"];
+        NSArray *goodsArray = data[@"goodsRotationList"];
         for (NSDictionary *dic in goodsArray) {
             GoodsRotationListModel *model = [GoodsRotationListModel modelWithDictionary:dic];
-            [data addObject:model];
+            [dataSource addObject:model];
         }
         dispatch_group_leave(downloadGroup);
     } failure:^(NSError * _Nonnull error) {
@@ -435,7 +434,7 @@ TopViewDelegate
     }];
     
     dispatch_group_notify(downloadGroup, dispatch_get_main_queue(), ^{
-        HomeBannerView *bannerView = [[HomeBannerView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, 200)andGoodsArray:data];
+        HomeBannerView *bannerView = [[HomeBannerView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, 200)andGoodsArray:dataSource];
         [cell addSubview:bannerView];
     });
 }

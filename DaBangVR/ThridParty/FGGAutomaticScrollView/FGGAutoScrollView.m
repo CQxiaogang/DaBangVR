@@ -87,6 +87,7 @@
         
         CGFloat xpos=i*self.bounds.size.width;
         UIImageView *imv=[[UIImageView alloc]initWithFrame:CGRectMake(xpos, 0, self.bounds.size.width, self.bounds.size.height)];
+        imv.contentMode = UIViewContentModeScaleToFill;
         //设置灰色底
         imv.image=_placeHolderImage;
         imv.userInteractionEnabled=YES;

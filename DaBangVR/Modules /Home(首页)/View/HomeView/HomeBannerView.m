@@ -23,10 +23,12 @@
         _imgStrings = [NSMutableArray new];
         for (GoodsRotationListModel *model in array) {
             NSString *chartUrl = model.chartUrl;
-            [_imgStrings addObject:chartUrl];
+            if (chartUrl.length != 0) {
+                [_imgStrings addObject:chartUrl];
+            }
         }
         //初始化自动循环滚动视图，并且定义图片的点击事件
-        _bannerView = [[FGGAutoScrollView alloc]initWithFrame:self.bounds placeHolderImage:nil imageURLs:nil imageDidSelectedBlock:^(NSInteger selectedIndex) {
+        _bannerView = [[FGGAutoScrollView alloc]initWithFrame:self.bounds placeHolderImage:[UIImage imageNamed:@"ad3"] imageURLs:nil imageDidSelectedBlock:^(NSInteger selectedIndex) {
             DLog(@"Index is %ld",selectedIndex);
         }];
         _bannerView.isShow = YES;

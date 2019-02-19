@@ -10,11 +10,17 @@
 // TableView
 #import "SecondsKillTableView.h"
 #import "MySecondKillTableView.h"
+//Models
+#import "GoodsRotationListModel.h"
+#import "HomeBannerView.h"
 
 @interface SecondsKillViewController ()
 
 @property (nonatomic, strong) SecondsKillTableView  *leftTableView;
 @property (nonatomic, strong) MySecondKillTableView *rightTableView;
+
+@property (nonatomic, copy) NSArray *dataSource;
+@property (nonatomic, strong) HomeBannerView *bannerView;
 
 @end
 
@@ -22,19 +28,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"限时秒杀";
-    
-    
 }
 
 - (void)setupUI{
     [super setupUI];
+    // 轮播图
+    kWeakSelf(self);
+    NSMutableArray *dataSource = [NSMutableArray new];
+    dispatch_group_t downloadGroup = dispatch_group_create();
+    dispatch_group_enter(downloadGroup);
+    [NetWorkHelper POST:URl_goods_rotation_list parameters:@{@"parentId": @"1"} success:^(id  _Nonnull responseObject) {
+        NSDictionary *data= KJSONSerialization(responseObject)[@"data"];
+        NSArray *goodsRotationList = data[@"goodsRotationList"];
+        for (NSDictionary *dic in goodsRotationList) {
+            GoodsRotationListModel *model = [GoodsRotationListModel modelWithDictionary:dic];
+            [dataSource addObject:model];
+        }
+        dispatch_group_leave(downloadGroup);
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
     
-    
-    
-    // 设置 底部切换 button
-    [self creatBottomUI];
-    
-    [self creatLeftOfTableView];
+    dispatch_group_notify(downloadGroup, dispatch_get_main_queue(), ^{
+        weakself.bannerView = [[HomeBannerView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, kFit(150))andGoodsArray:dataSource];
+        [self.view addSubview:weakself.bannerView];
+        // 设置 底部切换 button
+        [self creatBottomUI];
+        
+        [self creatLeftOfTableView];
+    });
 }
 
 - (void)setupNavagation{
@@ -84,25 +106,25 @@
 - (void)creatLeftOfTableView{
     // 设置 navagtionBar
     [self setupNavagation];
-    
+    kWeakSelf(self);
     _leftTableView = [[SecondsKillTableView alloc] init];
     [self.view addSubview:_leftTableView];
     [_leftTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(0);
-        make.top.equalTo(kTopHeight);
+        make.top.equalTo(weakself.bannerView.mas_bottom).offset(0);
         make.bottom.equalTo(-kTabBarHeight);
     }];
 }
 
 - (void)creatRightOfTableView{
-    
+    kWeakSelf(self);
     self.navigationItem.rightBarButtonItem = nil;
     
     _rightTableView = [[MySecondKillTableView alloc] init];
     [self.view addSubview:_rightTableView];
     [_rightTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(0);
-        make.top.equalTo(kTopHeight);
+        make.top.equalTo(weakself.bannerView.mas_bottom).offset(0);
         make.bottom.equalTo(-kTabBarHeight);
     }];
 }

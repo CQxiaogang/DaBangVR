@@ -9,10 +9,14 @@
 #import "MineCollectionViewController.h"
 // Cells
 #import "MineCollectionTableViewCell.h"
+// Models
+#import "MineCollectionModel.h"
 
 @interface MineCollectionViewController ()
 
 @property (nonatomic, strong) NSArray <NSString *> *titles;
+
+@property (nonatomic, strong) NSArray *dataSource;
 
 @end
 
@@ -23,15 +27,15 @@ static NSString *CellID = @"CellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"收藏";
-    
+    kWeakSelf(self);
     [NetWorkHelper POST:URl_getGoodsCollectList parameters:nil success:^(id  _Nonnull responseObject) {
-        NSDictionary *dic = KJSONSerialization(responseObject);
-     
-        DLog(@"--------%@",responseObject);
-        DLog(@"--------%@",dic);
-        DLog(@"--------%@",dic);
-        DLog(@"--------%@",dic);
-    } failure:nil];
+        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
+        NSDictionary *goodsCollectVoList = data[@"goodsCollectVoList"];
+        weakself.dataSource = [MineCollectionModel mj_objectArrayWithKeyValuesArray:goodsCollectVoList];
+        [self.tableView reloadData];
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
 }
 
 - (void)setupUI{
@@ -46,18 +50,17 @@ static NSString *CellID = @"CellID";
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return _dataSource.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MineCollectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
-    
+    cell.model = _dataSource[indexPath.row];
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return kFit(91);
 }
-
 
 @end

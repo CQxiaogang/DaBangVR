@@ -17,8 +17,10 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-   
+}
+-(void)setModel:(MineCollectionModel *)model{
+    _model = model;
+    _goodsDetail.text = model.goodsName;
 }
 
 @end

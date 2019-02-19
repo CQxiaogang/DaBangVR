@@ -60,6 +60,7 @@
 		048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E692B21A26C5A00DB911A /* UIColor+category.m */; };
 		049703E621A69860002359B5 /* DBLiveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049703E421A69860002359B5 /* DBLiveTableViewCell.m */; };
 		049703E721A69860002359B5 /* DBLiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049703E521A69860002359B5 /* DBLiveTableViewCell.xib */; };
+		0497FB1C221B941D0095C6F5 /* MineCollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497FB1B221B941D0095C6F5 /* MineCollectionModel.m */; };
 		049D475E219FA91E0058178D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049D475C219FA91E0058178D /* Main.storyboard */; };
 		049D4760219FA91F0058178D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049D475F219FA91F0058178D /* Assets.xcassets */; };
 		049D4763219FA91F0058178D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049D4761219FA91F0058178D /* LaunchScreen.storyboard */; };
@@ -352,6 +353,8 @@
 		049703E321A69860002359B5 /* DBLiveTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBLiveTableViewCell.h; sourceTree = "<group>"; };
 		049703E421A69860002359B5 /* DBLiveTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBLiveTableViewCell.m; sourceTree = "<group>"; };
 		049703E521A69860002359B5 /* DBLiveTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBLiveTableViewCell.xib; sourceTree = "<group>"; };
+		0497FB1A221B941D0095C6F5 /* MineCollectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineCollectionModel.h; sourceTree = "<group>"; };
+		0497FB1B221B941D0095C6F5 /* MineCollectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineCollectionModel.m; sourceTree = "<group>"; };
 		049D4753219FA91E0058178D /* DaBangVR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaBangVR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049D475D219FA91E0058178D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		049D475F219FA91F0058178D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1260,6 +1263,8 @@
 		04BF21682212B35E002468C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0497FB1A221B941D0095C6F5 /* MineCollectionModel.h */,
+				0497FB1B221B941D0095C6F5 /* MineCollectionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2494,6 +2499,7 @@
 				04F62FD721F951440094B26F /* ShopppingCartBottomView.m in Sources */,
 				0463026321BBC8C40003C542 /* DBTopView.m in Sources */,
 				04F3B31621EDDAF900DFBA84 /* JXCategoryNumberView.m in Sources */,
+				0497FB1C221B941D0095C6F5 /* MineCollectionModel.m in Sources */,
 				04F3B30121EDDAF900DFBA84 /* JXCategoryIndicatorTriangleView.m in Sources */,
 				04F3B31521EDDAF900DFBA84 /* JXCategoryImageCellModel.m in Sources */,
 				04FC2C3E21C0E3AD00329B53 /* JFCityViewController.m in Sources */,
