@@ -10,14 +10,14 @@
 
 @interface OrderSureHeaderView ()
 
-@property (nonatomic, strong) NSMutableArray <OrderSureDeptGoodsModel *> *list;
+@property (nonatomic, strong) NSMutableArray <OrderDeptGoodsModel *> *list;
 
 @end
 
 @implementation OrderSureHeaderView
 
 
-- (void)setModel:(OrderSureDeptGoodsModel *)model{
+- (void)setModel:(OrderDeptGoodsModel *)model{
     _deptName.text = model.deptName;
     [_deptImgView setImageWithURL:[NSURL URLWithString:model.deptLogo] placeholder:[UIImage imageNamed:@""]];
 }

@@ -168,9 +168,7 @@ TopViewDelegate
     [super viewDidLoad];
     // 全局变量,定义边距
     _margin = Adapt(20);
-    
     [self setUp_homeUI];
-    
     self.locationManager = [[JFLocation alloc] init];
     _locationManager.delegate = self;
 }
@@ -345,10 +343,9 @@ TopViewDelegate
                               @"mallSpeciesId":@"1"
                               };
         [NetWorkHelper POST:URL_getChannelMenuList parameters:dic success:^(id  _Nonnull responseObject) {
-            NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            NSDictionary *dataDic= dictionary[@"data"];
-            NSArray *channelArray = dataDic[@"channelMenuList"];
-            for (NSDictionary *dic in channelArray) {
+            NSDictionary *data= KJSONSerialization(responseObject)[@"data"];
+            NSArray *channelMenuList = data[@"channelMenuList"];
+            for (NSDictionary *dic in channelMenuList) {
                 ChannelModel *model = [ChannelModel channelModelWithDic:dic];
                 [self.arrayModel addObject:model];
             }

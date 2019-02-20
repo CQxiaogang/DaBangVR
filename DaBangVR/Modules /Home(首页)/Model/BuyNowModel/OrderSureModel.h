@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OrderSureDeptGoodsModel.h"
+#import "OrderDeptGoodsModel.h"
 #import "UserAddressModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 商品总价
 @property(nonatomic, copy) NSString *goodsTotalPrice;
 // 店铺列表
-@property(nonatomic, strong) NSArray <OrderSureDeptGoodsModel *> *deptGoodsList;
+@property(nonatomic, strong) NSArray <OrderDeptGoodsModel *> *deptGoodsList;
 // 用户信息，地址信息
 @property(nonatomic, strong) UserAddressModel *receivingAddress;
 

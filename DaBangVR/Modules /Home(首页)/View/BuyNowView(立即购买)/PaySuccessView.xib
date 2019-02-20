@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="tqg-HR-g3M" customClass="PaySuccessView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lufei.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Cz5-7r-yz0">
+                    <rect key="frame" x="137.5" y="20" width="100" height="100"/>
+                    <color key="backgroundColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="5dY-sD-lRQ">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="100" id="JXV-1e-gRx">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="付款成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxh-Hb-XZp">
+                    <rect key="frame" x="148.5" y="140" width="78" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="23" id="Bm2-pE-ln4">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="width" constant="78" id="jS4-pf-wjv">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <color key="textColor" red="0.094376392660000002" green="0.8590441942" blue="0.86259275670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="19"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜，您已成功订购该商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELI-0x-oeo">
+                    <rect key="frame" x="95.5" y="170" width="184" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="184" id="DOw-UZ-RcA">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="18" id="RyK-K5-q6h">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.094376392660000002" green="0.8590441942" blue="0.86259275670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqI-XM-cbG">
+                    <rect key="frame" x="210" y="213" width="70" height="20"/>
+                    <color key="backgroundColor" red="0.094376392660000002" green="0.8590441942" blue="0.86259275670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="查找订单">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="13"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSD-X4-PYd">
+                    <rect key="frame" x="95" y="213" width="70" height="20"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Ff6-aF-hWO"/>
+                        <constraint firstAttribute="width" constant="70" id="uPX-gk-DWE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="查找订单">
+                        <color key="titleColor" red="0.094376392660000002" green="0.8590441942" blue="0.86259275670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="13"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Cz5-7r-yz0" firstAttribute="top" secondItem="Avm-xq-v0s" secondAttribute="top" constant="20" id="0Lg-uV-ub6"/>
+                <constraint firstItem="ELI-0x-oeo" firstAttribute="centerX" secondItem="tqg-HR-g3M" secondAttribute="centerX" id="89t-gj-JDT"/>
+                <constraint firstItem="eSD-X4-PYd" firstAttribute="top" secondItem="ELI-0x-oeo" secondAttribute="bottom" constant="25" id="J6t-tH-agk"/>
+                <constraint firstItem="wxh-Hb-XZp" firstAttribute="top" secondItem="Cz5-7r-yz0" secondAttribute="bottom" constant="20" id="LZR-4r-xfI"/>
+                <constraint firstItem="wxh-Hb-XZp" firstAttribute="centerX" secondItem="tqg-HR-g3M" secondAttribute="centerX" id="PjL-aQ-o9q"/>
+                <constraint firstItem="lqI-XM-cbG" firstAttribute="height" secondItem="eSD-X4-PYd" secondAttribute="height" id="XlI-G8-gdJ"/>
+                <constraint firstItem="lqI-XM-cbG" firstAttribute="centerY" secondItem="eSD-X4-PYd" secondAttribute="centerY" id="YbP-z9-Uq9"/>
+                <constraint firstItem="lqI-XM-cbG" firstAttribute="width" secondItem="eSD-X4-PYd" secondAttribute="width" id="mx5-Zm-hDM"/>
+                <constraint firstItem="Cz5-7r-yz0" firstAttribute="centerX" secondItem="tqg-HR-g3M" secondAttribute="centerX" id="tH7-GH-Rgb"/>
+                <constraint firstItem="ELI-0x-oeo" firstAttribute="top" secondItem="wxh-Hb-XZp" secondAttribute="bottom" constant="7" id="uSY-3r-Wjf"/>
+                <constraint firstItem="lqI-XM-cbG" firstAttribute="leading" secondItem="eSD-X4-PYd" secondAttribute="trailing" constant="45" id="uVS-vL-n3a"/>
+                <constraint firstItem="eSD-X4-PYd" firstAttribute="leading" secondItem="Avm-xq-v0s" secondAttribute="leading" constant="95" id="z7M-LR-uX6"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Avm-xq-v0s"/>
+            <point key="canvasLocation" x="272.80000000000001" y="-181.70914542728636"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="lufei.jpg" width="900" height="768"/>
+    </resources>
+</document>

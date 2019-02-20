@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OrderSureGoodsModel.h"
+#import "OrderGoodsModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 商品数量
 @property (weak, nonatomic) IBOutlet UILabel *goodsNum;
 
-@property (nonatomic, strong) OrderSureGoodsModel *model;
+@property (nonatomic, strong) OrderGoodsModel *model;
 
 @end
 

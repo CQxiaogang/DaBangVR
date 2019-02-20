@@ -6,8 +6,8 @@
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "OrderSureGoodsModel.h"
+#import "OrderGoodsModel.h"
 
-@implementation OrderSureGoodsModel
+@implementation OrderGoodsModel
 
 @end

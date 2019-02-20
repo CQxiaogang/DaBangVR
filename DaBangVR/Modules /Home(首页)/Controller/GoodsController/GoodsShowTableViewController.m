@@ -47,13 +47,9 @@
                           @"limit"     :@"10"
                           };
     [NetWorkHelper POST:URL_getGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSDictionary *dataDic= dic[@"data"];
-        NSArray *goodsList = dataDic[@"goodsList"];
-        for (NSDictionary *dic in goodsList) {
-            GoodsShowListModel *model = [GoodsShowListModel modelWithDictionary:dic];
-            [self.dataSource addObject:model];
-        }
+        NSDictionary *data= KJSONSerialization(responseObject)[@"data"];
+        NSArray *goodsList = data[@"goodsList"];
+        self.dataSource = [GoodsShowListModel mj_objectArrayWithKeyValuesArray:goodsList];
         [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {

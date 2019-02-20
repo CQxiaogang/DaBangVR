@@ -7,17 +7,21 @@
 //
 
 #import "MyOrderTableViewController.h"
+#import "EvaluationViewController.h"
+#import "OrderDeliveryViewController.h"
 //Cells
 #import "AllOrdersCell.h"
 #import "OrderSureHeaderView.h"
 // Models
-#import "MyOrderModel.h"
-#import "MyOrderDeptModel.h"
+//#import "MyOrderModel.h"
+//#import "MyOrderDeptModel.h"
+#import "OrderDeptGoodsModel.h"
+#import "OrderGoodsModel.h"
 
-@interface MyOrderTableViewController ()
+@interface MyOrderTableViewController ()<allOrdersCellDelegate>
 
-@property (nonatomic, strong) NSMutableArray <MyOrderDeptModel *> *deptData;
-@property (nonatomic, strong) NSMutableArray <MyOrderModel *> *orderData;
+@property (nonatomic, strong) NSMutableArray <OrderDeptGoodsModel *> *deptData;
+@property (nonatomic, strong) NSMutableArray <OrderGoodsModel *> *orderData;
 
 @end
 
@@ -31,7 +35,7 @@ static NSString *HeaderCellID = @"HeaderCellID";
     }
     return _deptData;
 }
--(NSMutableArray<MyOrderModel *> *)orderData{
+-(NSMutableArray<OrderGoodsModel *> *)orderData{
     if (!_orderData) {
         _orderData = [[NSMutableArray alloc] init];
     }
@@ -39,10 +43,8 @@ static NSString *HeaderCellID = @"HeaderCellID";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"AllOrdersCell" bundle:nil] forCellReuseIdentifier:CellID];
     [self.tableView registerNib:[UINib nibWithNibName:@"OrderSureHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:HeaderCellID];
-    
     self.tableView.mj_header  = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self loadNewData];
     }];
@@ -58,10 +60,9 @@ static NSString *HeaderCellID = @"HeaderCellID";
                           @"limit"     :@"10"
                           };
     [NetWorkHelper POST:URl_getOrderList parameters:dic success:^(id  _Nonnull responseObject) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSDictionary *dataDic= dic[@"data"];
+        NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
         NSArray *goodsList = dataDic[@"orderList"];
-        self.deptData = [MyOrderDeptModel mj_objectArrayWithKeyValuesArray:goodsList];
+        self.deptData = [OrderDeptGoodsModel mj_objectArrayWithKeyValuesArray:goodsList];
         [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {
@@ -81,7 +82,7 @@ static NSString *HeaderCellID = @"HeaderCellID";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AllOrdersCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
-    
+    cell.delegate = self;
     if (cell == nil) {
         cell = [[AllOrdersCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
@@ -95,7 +96,6 @@ static NSString *HeaderCellID = @"HeaderCellID";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     OrderSureHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:HeaderCellID];
-    
     if (self.deptData) {
       headerView.model = self.deptData[section];
     }
@@ -106,7 +106,14 @@ static NSString *HeaderCellID = @"HeaderCellID";
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return kFit(30);
 }
-
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, 1)];
+    return view;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01f;
+}
 #pragma mark - JXCategoryListContentViewDelegate
 
 - (UIView *)listView {
@@ -119,6 +126,31 @@ static NSString *HeaderCellID = @"HeaderCellID";
 
 - (void)listDidDisappear {
     NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+#pragma mark —— allOrderTableView Delegate
+// 右下角按钮的点击事件
+- (void)lowerRightCornerClickEvent:(NSString *)string{
+    if ([string isEqualToString:@"确认收货"]) {
+        DLog(@"确认收货");
+    }else if ([string isEqualToString:@"立即付款"]){
+        DLog(@"立即付款");
+    }else if ([string isEqualToString:@"删除订单"]){
+        DLog(@"删除订单");
+    }else if ([string isEqualToString:@"去评价"]){
+        DLog(@"去评价");
+        [self pushEvaluationVC];
+    }
+}
+// 评价界面
+- (void) pushEvaluationVC{
+    EvaluationViewController *vc = [[EvaluationViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
+}
+// cell 的点击事件
+- (void)didSelectRowAtIndexPath{
+    OrderDeliveryViewController *vc = [[OrderDeliveryViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
 }
 
 @end

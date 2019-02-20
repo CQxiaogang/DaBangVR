@@ -18,7 +18,7 @@
 - (void)setModel:(GoodsShowListModel *)model{
     [_headImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:[UIImage imageNamed:@""]];
     _describeLabel.text = model.describe;
-    _sellingPriceLabel.text = [NSString stringWithFormat:@"￥%ld",(long)model.sellingPrice];
+    _sellingPriceLabel.text = [NSString stringWithFormat:@"￥%.2f",(float)model.sellingPrice];
 }
 
 @end

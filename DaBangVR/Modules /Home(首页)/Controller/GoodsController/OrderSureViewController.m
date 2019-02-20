@@ -10,6 +10,7 @@
 #import "OrderSureViewController.h"
 #import "UserGoodsAdressViewController.h"
 #import "LeaveMessageViewController.h"
+#import "PaySuccessViewController.h"
 // Views
 #import "OrderSureTopView.h"
 #import "OrderSureHeaderView.h"
@@ -17,7 +18,7 @@
 #import "OrderSureFooterView.h"
 // Models
 #import "OrderSureModel.h"
-#import "OrderSureDeptGoodsModel.h"
+#import "OrderDeptGoodsModel.h"
 #import "SureCustomActionSheet.h"
 #import "WXApi.h"
 
@@ -34,9 +35,10 @@
 @property (nonatomic, strong) OrderSureFooterView  *footerView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
-@property (nonatomic, strong) NSMutableArray <OrderSureDeptGoodsModel *> *deptModels;
-@property (nonatomic, strong) NSMutableArray <OrderSureGoodsModel *>     *goodsModels;
+@property (nonatomic, strong) NSMutableArray <OrderDeptGoodsModel *> *deptModels;
+@property (nonatomic, strong) NSMutableArray <OrderGoodsModel *>     *goodsModels;
 @property (nonatomic, strong) OrderSureModel *model;
+
 
 
 @end
@@ -87,14 +89,14 @@ static NSString *leaveMessage;
     return _dataSource;
 }
 
--(NSMutableArray<OrderSureDeptGoodsModel *> *)deptModels{
+-(NSMutableArray<OrderDeptGoodsModel *> *)deptModels{
     if (!_deptModels) {
         _deptModels = [[NSMutableArray alloc] init];
     }
     return _deptModels;
 }
 
-- (NSMutableArray<OrderSureGoodsModel *> *)goodsModels{
+- (NSMutableArray<OrderGoodsModel *> *)goodsModels{
     if (_goodsModels) {
         _goodsModels = [[NSMutableArray alloc] init];
     }
@@ -106,16 +108,6 @@ static NSString *leaveMessage;
     [super viewDidLoad];
     self.title = @"订单确认";
     [self data];
-    
-    // 判断 用户是否安装微信
-    //如果判断结果一直为NO,可能appid无效,这里的是无效的
-    if ([WXApi isWXAppInstalled]) {
-        {
-            // 监听一个通知
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getOrderPayResult:) name:@"ORDER_PAY_NOTIFICATION" object:nil];
-        }
-    }
-    
 }
 
 - (void)creatUI{
@@ -140,7 +132,7 @@ static NSString *leaveMessage;
     UILabel *thePrice = [[UILabel alloc] init];
     thePrice.adaptiveFontSize = 14;
     thePrice.textColor = KRedColor;
-    thePrice.text = [NSString stringWithFormat:@"￥%.f 元",[_model.orderTotalPrice floatValue]];
+    thePrice.text = [NSString stringWithFormat:@"￥%.2f 元",[_model.orderTotalPrice floatValue]];
     thePrice.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:thePrice];
     
@@ -167,7 +159,7 @@ static NSString *leaveMessage;
     [NetWorkHelper POST:URl_getConfirmGoods parameters:nil success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
         weakself.model = [OrderSureModel modelWithDictionary:data];
-        weakself.deptModels = [OrderSureDeptGoodsModel mj_objectArrayWithKeyValuesArray:weakself.model.deptGoodsList];
+        weakself.deptModels = [OrderDeptGoodsModel mj_objectArrayWithKeyValuesArray:weakself.model.deptGoodsList];
         // 得到数据,创建UI
         [self creatUI];
     } failure:^(NSError * _Nonnull error) {
@@ -232,21 +224,24 @@ static NSString *leaveMessage;
 #pragma mark —— 提交订单
 - (void)submitOrdersBtnAction{
     kWeakSelf(self);
-    
+    PaySuccessViewController *vc = [[PaySuccessViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
     // 确认支付，调用后台
-    leaveMessage = leaveMessage? leaveMessage:@"";
-    NSDictionary *dic = @{
-                          @"submitType" : @"buy",
-                          @"addressId" : weakself.model.receivingAddress.id,
-                          @"addressId" : leaveMessage
-                          };
-    [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
-        NSDictionary *orderVo = KJSONSerialization(responseObject)[@"orderVo"];
-        NSString *orderSn = orderVo[@"orderSn"];
-        [self orderSn:orderSn];
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
+//    leaveMessage = leaveMessage? leaveMessage:@"无";
+//    if (weakself.model.receivingAddress.id.length != 0) {
+//        NSDictionary *dic = @{
+//                              @"submitType"    : @"buy",
+//                              @"addressId"     : weakself.model.receivingAddress.id,
+//                              @"leaveMessage"  : leaveMessage
+//                              };
+//        [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
+//            NSDictionary *orderVo = KJSONSerialization(responseObject)[@"orderVo"];
+//            NSString *orderSn = orderVo[@"orderSn"];
+//            [self orderSn:orderSn];
+//        } failure:^(NSError * _Nonnull error) {
+//            
+//        }];
+//    }
 }
 
 - (void)orderSn:(NSString *)orderSn{
@@ -283,35 +278,22 @@ static NSString *leaveMessage;
                           };
     [NetWorkHelper POST:URl_prepayOrder parameters:dic success:^(id  _Nonnull responseObject) {
         
-        NSDictionary * dic = KJSONSerialization(responseObject);
-        
+        NSDictionary * dic = KJSONSerialization(responseObject)[@"data"];
         //配置调起微信支付所需要的参数
-        PayReq *req  = [[PayReq alloc] init];
-        req.partnerId = dic[@"partnerid"];
-        req.prepayId = dic[@"prepayid"];
-        req.package = dic[@"package"];
-        req.nonceStr= dic[@"nonceStr"];
-        req.timeStamp= [dic[@"timeStamp"] intValue];
-        req.sign= dic[@"signType"];
+        PayReq *req   = [[PayReq alloc] init];
+        req.openID    = [dic objectForKey:@"appid"];
+        req.partnerId = [dic objectForKey:@"partnerid"];
+        req.prepayId  = [dic objectForKey:@"prepayid"];
+        req.package   = [dic objectForKey:@"package"];
+        req.nonceStr  = [dic objectForKey:@"noncestr"];
+        req.timeStamp = [dic[@"timestamp"] intValue];
+        req.sign      = [dic objectForKey:@"sign"];
         //调起微信支付
-        if ([WXApi sendReq:req]) {
-            NSLog(@"吊起成功");
-        }
+        [WXApi sendReq:req];
         
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
-}
-
-#pragma mark - 收到支付成功的消息后作相应的处理
-- (void)getOrderPayResult:(NSNotification *)notification
-{
-    if ([notification.object isEqualToString:@"success"]) {
-        NSLog(@"支付成功");
-    } else {
-        NSLog(@"支付失败");
-    }
-    
 }
 
 @end

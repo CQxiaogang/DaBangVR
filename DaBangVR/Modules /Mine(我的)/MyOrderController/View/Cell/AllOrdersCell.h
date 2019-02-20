@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MyOrderModel.h"
+#import "OrderGoodsModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) id<allOrdersCellDelegate> delegate;
 
-@property (nonatomic, strong) MyOrderModel *model;
+@property (nonatomic, strong) OrderGoodsModel *model;
 
 @end
 

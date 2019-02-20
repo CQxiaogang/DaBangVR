@@ -30,11 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的订单";
+    [self setupUI];
 }
 
 - (void)setupUI{
-    [super setupUI];
-    
     CGFloat categoryVHeight = kFit(40);
     self.categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, categoryVHeight)];
     self.categoryView.titles = @[@"全部", @"待付款", @"待收货", @"待评价", @"退款/售后"];
@@ -45,36 +44,11 @@
     [self.view addSubview:self.categoryView];
     
     self.listContainerView = [[JXCategoryListContainerView alloc] initWithParentVC:self delegate:self];
-    self.listContainerView.frame = CGRectMake(0, categoryVHeight + kTopHeight, KScreenW, KScreenH - categoryVHeight - kTopHeight - kNavBarHeight);
+    self.listContainerView.frame = CGRectMake(0, categoryVHeight + kTopHeight, KScreenW, KScreenH - categoryVHeight - kTopHeight);
     self.listContainerView.defaultSelectedIndex = 0;
     self.listContainerView.tag = 0;
     [self.view addSubview:self.listContainerView];
     self.categoryView.contentScrollView = self.listContainerView.scrollView;
-}
-
-#pragma mark —— allOrderTableView Delegate
-// 右下角按钮的点击事件
--(void)allOrderTableViewButtonOfAction:(NSString *)string{
-    if ([string isEqualToString:@"确认收货"]) {
-        DLog(@"确认收货");
-    }else if ([string isEqualToString:@"立即付款"]){
-        DLog(@"立即付款");
-    }else if ([string isEqualToString:@"删除订单"]){
-        DLog(@"删除订单");
-    }else if ([string isEqualToString:@"去评价"]){
-        DLog(@"去评价");
-        [self pushEvaluationVC];
-    }
-}
-// 评价界面
-- (void) pushEvaluationVC{
-    EvaluationViewController *vc = [[EvaluationViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:NO];
-}
-// cell 的点击事件
-- (void)didSelectRowAtIndexPath{
-    OrderDeliveryViewController *vc = [[OrderDeliveryViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:NO];
 }
 
 #pragma mark —— JXCategoryViewDelegate
@@ -88,7 +62,7 @@
 
 #pragma mark —— JXCategoryListContainerViewDelegate
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    MyOrderTableViewController *myOrderVC = [[MyOrderTableViewController alloc] init];
+    MyOrderTableViewController *myOrderVC = [[MyOrderTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
     NSArray *number  = @[@"0" ,@"0", @"301", @"402", @"401"];
     myOrderVC.index = number[index];
     return myOrderVC;

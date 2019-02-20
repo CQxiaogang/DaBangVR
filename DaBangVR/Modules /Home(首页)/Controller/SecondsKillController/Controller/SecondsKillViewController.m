@@ -13,6 +13,7 @@
 //Models
 #import "GoodsRotationListModel.h"
 #import "HomeBannerView.h"
+#import "ShufflingView.h"
 
 @interface SecondsKillViewController ()
 
@@ -33,30 +34,15 @@
 - (void)setupUI{
     [super setupUI];
     // 轮播图
-    kWeakSelf(self);
-    NSMutableArray *dataSource = [NSMutableArray new];
-    dispatch_group_t downloadGroup = dispatch_group_create();
-    dispatch_group_enter(downloadGroup);
-    [NetWorkHelper POST:URl_goods_rotation_list parameters:@{@"parentId": @"1"} success:^(id  _Nonnull responseObject) {
-        NSDictionary *data= KJSONSerialization(responseObject)[@"data"];
-        NSArray *goodsRotationList = data[@"goodsRotationList"];
-        for (NSDictionary *dic in goodsRotationList) {
-            GoodsRotationListModel *model = [GoodsRotationListModel modelWithDictionary:dic];
-            [dataSource addObject:model];
-        }
-        dispatch_group_leave(downloadGroup);
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
+    ShufflingView *shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, kFit(180))];
+    [self.view addSubview:shufflingView];
     
-    dispatch_group_notify(downloadGroup, dispatch_get_main_queue(), ^{
-        weakself.bannerView = [[HomeBannerView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, kFit(150))andGoodsArray:dataSource];
-        [self.view addSubview:weakself.bannerView];
-        // 设置 底部切换 button
-        [self creatBottomUI];
-        
-        [self creatLeftOfTableView];
-    });
+    // 设置 底部切换 button
+    [self creatBottomUI];
+    
+    [self creatLeftOfTableView];
+    
+
 }
 
 - (void)setupNavagation{

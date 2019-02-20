@@ -59,8 +59,6 @@
 
     MineViewController *myVC = [MineViewController new];
     [self addChildViewController:myVC title:@"我的" imageName:@"h_Member" selectedImageName:@"h_Member_select"];
-//    MineViewController *myVC = [MineViewController new];
-//    [self addChildViewController:myVC title:@"我的" imageName:@"h_Member" selectedImageName:@"h_Member_select"];
     
 }
 

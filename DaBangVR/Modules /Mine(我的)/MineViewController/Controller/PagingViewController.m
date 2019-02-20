@@ -166,9 +166,9 @@
 }
 // 我的订单
 -(void)myOrderAction{
-    MyOrderViewController *VC = [[MyOrderViewController alloc] init];
-    VC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:VC animated:NO];
+    MyOrderViewController *vc = [[MyOrderViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:NO];
 }
 // 购物车
 -(void)shoppingCarAction{

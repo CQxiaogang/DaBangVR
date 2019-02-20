@@ -38,25 +38,43 @@
 }
 // 真机友盟登录，不走回调解决方法
 -(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
-
-    if ([[UMSocialManager defaultManager] handleOpenURL:url options:options]) {
-        return [[UMSocialManager defaultManager] handleOpenURL:url options:options];
-    }
-    return [WXApi handleOpenURL:url delegate:nil];;
+    
+    [WXApi handleOpenURL:url delegate:nil];
+    [[UMSocialManager defaultManager] handleOpenURL:url];
+    return YES;
 }
 
--(void)onResp:(BaseResp *)resp{
-    if ([resp isKindOfClass:[PayResp class]]){
-        PayResp*response=(PayResp*)resp;
-        switch(response.errCode){
-            caseWXSuccess:
-                //服务器端查询支付通知或查询API返回的结果再提示成功
-                NSLog(@"支付成功");
-                break;
-            default:
-                NSLog(@"支付失败，retcode=%d",resp.errCode);
-                break;
+- (void)onResp:(BaseResp *)resp{
+    NSString *strMsg = [NSString stringWithFormat:@"errcode:%d",resp.errCode];
+    NSString *strTitle;
+    NSString *strNote;
+    if ([resp isKindOfClass:[PayResp class]]) {
+        // 支付返回结果,实际支付结果需要去微信服务器端查询
+        strTitle = @"支付结果";
+    }
+    switch (resp.errCode) {
+        case WXSuccess:{
+            strMsg = @"支付成功,可以进行洗车";
+            strNote = @"success";
+            
+            break;
+        }
+        case WXErrCodeUserCancel:{
+            strMsg = @"支付已取消";
+            strNote = @"cancel";
+            break;
+        }
+        case WXErrCodeSentFail: {
+            strMsg = @"支付失败,请重新支付";
+            strNote = @"fail";
+            break;
+        }
+        default:{
+            strMsg = @"支付失败";
+            strNote = @"fail";
+            break;
         }
     }
 }
+
 @end

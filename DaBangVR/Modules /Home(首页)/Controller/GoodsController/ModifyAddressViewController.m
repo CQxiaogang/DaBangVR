@@ -33,6 +33,7 @@
 // 用户，地址信息
 @property (nonatomic, strong) NSMutableDictionary *user_AdressDic;
 @property (nonatomic, strong) NSMutableArray *areaIDs;
+@property (nonatomic, copy) NSString *boolStr;
 
 @end
 
@@ -87,7 +88,7 @@ static NSString *const CellID = @"CellID";
     [super viewDidLoad];
     
     self.title = @"编辑地址";
-    
+    _boolStr = @"0";
     _areaIndex = 0;
     _area_dataArray1 = [[NSMutableArray alloc]init];
     _area_dataArray2 = [[NSMutableArray alloc]init];
@@ -156,9 +157,14 @@ static NSString *const CellID = @"CellID";
 }
 
 - (void)saveInfo{
+    [self.user_AdressDic setObject:_boolStr forKey:@"isDefault"];
     if (self.user_AdressDic) {
         [NetWorkHelper POST:URl_addressAdd parameters:self.user_AdressDic success:^(id  _Nonnull responseObject) {
-            
+            NSString *errmsg = KJSONSerialization(responseObject)[@"errmsg"];
+            [SVProgressHUD showInfoWithStatus:errmsg];
+            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+            [SVProgressHUD dismissWithDelay:1.0];
+            [self.navigationController popViewControllerAnimated:NO];
         } failure:^(NSError * _Nonnull error) {
             
         }];
@@ -364,12 +370,12 @@ static NSString *const CellID = @"CellID";
 - (void)valueChanged:(UISwitch*)sender{
     NSString *boolStr;
     if (sender.on == YES) {
-        boolStr = @"1" ;
+        _boolStr = @"1" ;
     }else{
-        boolStr = @"0";
+        _boolStr = @"0";
     }
     // 默认地址
-    [self.user_AdressDic setObject:boolStr forKey:@"isDefault"];
+    [self.user_AdressDic setObject:_boolStr forKey:@"isDefault"];
 }
 
 @end

@@ -19,7 +19,7 @@
     [super awakeFromNib];
 }
 
-- (void)setModel:(OrderSureGoodsModel *)model{
+- (void)setModel:(OrderGoodsModel *)model{
     _model = model;
     [_goodsImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:[UIImage imageNamed:@""]];
     _goodsDescribeLab.text = model.goodsName;

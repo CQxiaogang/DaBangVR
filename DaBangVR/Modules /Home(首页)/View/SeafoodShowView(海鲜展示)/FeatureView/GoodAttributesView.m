@@ -430,7 +430,7 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
     if (_seleArray.count != _featureAttr.count && lastSeleArray.count != _featureAttr.count) {
         [cell.goodImageView setImageWithURL:[NSURL URLWithString:_model.listUrl] placeholder:[UIImage imageNamed:@""]];
         cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",_model.remainingInventory];
-        cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %.1f",[_model.sellingPrice floatValue]*lastNum];
+        cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %.2f",[_model.sellingPrice floatValue]*lastNum];
         cell.chooseAttLabel.text = @"请选择 颜色 尺码";
         
     }else {
@@ -442,7 +442,7 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
             if ([attString isEqualToString:model.goodsSpecIds]) {
                 cell.chooseAttLabel.text = [NSString stringWithFormat:@"已选属性：%@",model.name];
                 cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",model.number];
-                cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %.1f",[model.retailPrice floatValue]*lastNum];
+                cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %.2f",[model.retailPrice floatValue]*lastNum];
                 
                 [self.goodsDetailsArr removeAllObjects];
                 [self.goodsDetailsArr addObject:model.id];

@@ -6,13 +6,14 @@
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "OrderSureDeptGoodsModel.h"
+#import "OrderDeptGoodsModel.h"
 
-@implementation OrderSureDeptGoodsModel
+@implementation OrderDeptGoodsModel
 
 + (NSDictionary *)mj_objectClassInArray{
     return @{
-             @"goodsList"    : [OrderSureGoodsModel   class]
+             @"goodsList"      : [OrderGoodsModel class],
+             @"orderGoodslist" : [OrderGoodsModel class]
              };
 }
 
