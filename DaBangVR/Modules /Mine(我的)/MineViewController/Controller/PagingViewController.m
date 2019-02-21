@@ -41,7 +41,7 @@
 
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
     lineView.indicatorLineViewColor = [UIColor lightGreen];
-    lineView.indicatorLineWidth = kFit(30);
+//    lineView.indicatorLineWidth = kFit(30);
     self.categoryView.indicators = @[lineView];
 
     _pagerView = [self preferredPagingView];

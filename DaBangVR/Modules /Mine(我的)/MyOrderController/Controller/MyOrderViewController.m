@@ -9,14 +9,14 @@
 // controllers
 #import "MyOrderViewController.h"
 #import "EvaluationViewController.h"
-#import "OrderDeliveryViewController.h"
+#import "OrderProcessingViewController2.h"
 #import "MyOrderTableViewController.h"
 // views
 // 第三方
 #import "JXCategoryView.h"
 #import "JXCategoryListContainerView.h"
 
-@interface MyOrderViewController ()< JXCategoryViewDelegate, JXCategoryListContainerViewDelegate>
+@interface MyOrderViewController ()< JXCategoryViewDelegate, JXCategoryListContainerViewDelegate, MyOrderTableVCDelegate>
 
 @property (nonatomic, strong) JXCategoryTitleView         *categoryView;
 @property (nonatomic, strong) JXCategoryListContainerView *listContainerView;
@@ -30,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的订单";
+    
     [self setupUI];
 }
 
@@ -39,8 +40,14 @@
     self.categoryView.titles = @[@"全部", @"待付款", @"待收货", @"待评价", @"退款/售后"];
     self.categoryView.defaultSelectedIndex = 0;
     self.categoryView.delegate = self;
+    self.categoryView.titleSelectedColor = [UIColor lightGreen];
+    self.categoryView.titleColor = KGrayColor;
+    self.categoryView.titleColorGradientEnabled = YES;
+    self.categoryView.titleFont = [UIFont systemFontOfSize:kFit(14)];
+    
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
     self.categoryView.indicators = @[lineView];
+    lineView.indicatorLineViewColor = [UIColor lightGreen];
     [self.view addSubview:self.categoryView];
     
     self.listContainerView = [[JXCategoryListContainerView alloc] initWithParentVC:self delegate:self];
@@ -63,6 +70,7 @@
 #pragma mark —— JXCategoryListContainerViewDelegate
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
     MyOrderTableViewController *myOrderVC = [[MyOrderTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    myOrderVC.aDelegate = self;
     NSArray *number  = @[@"0" ,@"0", @"301", @"402", @"401"];
     myOrderVC.index = number[index];
     return myOrderVC;
@@ -70,6 +78,12 @@
 
 - (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {
     return 5;
+}
+
+#pragma mark —— MyOrderVC 代理
+-(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    OrderProcessingViewController2 *vc = [[OrderProcessingViewController2 alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
 }
 
 @end

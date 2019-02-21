@@ -8,7 +8,7 @@
 
 #import "MyOrderTableViewController.h"
 #import "EvaluationViewController.h"
-#import "OrderDeliveryViewController.h"
+#import "OrderProcessingViewController2.h"
 //Cells
 #import "AllOrdersCell.h"
 #import "OrderSureHeaderView.h"
@@ -114,6 +114,14 @@ static NSString *HeaderCellID = @"HeaderCellID";
 {
     return 0.01f;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (self.aDelegate && [self.aDelegate respondsToSelector:@selector(didSelectRowAtIndexPath:)]) {
+        [self.aDelegate didSelectRowAtIndexPath:indexPath];
+    }
+}
+
 #pragma mark - JXCategoryListContentViewDelegate
 
 - (UIView *)listView {
@@ -149,7 +157,7 @@ static NSString *HeaderCellID = @"HeaderCellID";
 }
 // cell 的点击事件
 - (void)didSelectRowAtIndexPath{
-    OrderDeliveryViewController *vc = [[OrderDeliveryViewController alloc] init];
+    OrderProcessingViewController2 *vc = [[OrderProcessingViewController2 alloc] init];
     [self.navigationController pushViewController:vc animated:NO];
 }
 

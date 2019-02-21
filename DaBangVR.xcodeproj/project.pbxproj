@@ -55,6 +55,10 @@
 		0459D91421E0A78F009BFFB4 /* OrderSureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0459D91221E0A78F009BFFB4 /* OrderSureTableViewCell.xib */; };
 		0459D91721E0B437009BFFB4 /* OrderSureFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459D91621E0B437009BFFB4 /* OrderSureFooterView.m */; };
 		045FAEB6221E35E60086DE4E /* PaymentSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FAEB5221E35E60086DE4E /* PaymentSuccessViewController.m */; };
+		045FAEBD221E7F2A0086DE4E /* OrderProcessingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FAEBC221E7F2A0086DE4E /* OrderProcessingView.m */; };
+		045FAEBF221E81900086DE4E /* OrderProcessingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045FAEBE221E81900086DE4E /* OrderProcessingView.xib */; };
+		045FAEC3221E93AB0086DE4E /* OrderProcessingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FAEC1221E93AB0086DE4E /* OrderProcessingTableViewCell.m */; };
+		045FAEC4221E93AB0086DE4E /* OrderProcessingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045FAEC2221E93AB0086DE4E /* OrderProcessingTableViewCell.xib */; };
 		0463025E21BBAC8D0003C542 /* DBFontOfSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463025921BBAC8C0003C542 /* DBFontOfSize.m */; };
 		0463026021BBAC8D0003C542 /* DBLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463025C21BBAC8D0003C542 /* DBLayoutConstraint.m */; };
 		0463026321BBC8C40003C542 /* DBTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463026221BBC8C40003C542 /* DBTopView.m */; };
@@ -95,7 +99,7 @@
 		04E0473221D36A42002DDB98 /* AllCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E0473121D36A42002DDB98 /* AllCommentsViewController.m */; };
 		04EFA01821E7045C007C2FCA /* EvaluationSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA01721E7045C007C2FCA /* EvaluationSuccessView.m */; };
 		04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EFA01921E70470007C2FCA /* EvaluationSuccessView.xib */; };
-		04EFA02621E7226D007C2FCA /* OrderDeliveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA02521E7226D007C2FCA /* OrderDeliveryViewController.m */; };
+		04EFA02621E7226D007C2FCA /* OrderProcessingViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA02521E7226D007C2FCA /* OrderProcessingViewController2.m */; };
 		04EFA02C21E73391007C2FCA /* EvaluationOfSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA02B21E73391007C2FCA /* EvaluationOfSuccessViewController.m */; };
 		04EFA02F21E742E5007C2FCA /* ChannelMenuListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA02E21E742E5007C2FCA /* ChannelMenuListView.m */; };
 		04EFA03221E7436B007C2FCA /* ChannelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA03121E7436B007C2FCA /* ChannelViewCell.m */; };
@@ -346,6 +350,12 @@
 		0459D91621E0B437009BFFB4 /* OrderSureFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderSureFooterView.m; sourceTree = "<group>"; };
 		045FAEB4221E35E60086DE4E /* PaymentSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentSuccessViewController.h; sourceTree = "<group>"; };
 		045FAEB5221E35E60086DE4E /* PaymentSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentSuccessViewController.m; sourceTree = "<group>"; };
+		045FAEBB221E7F2A0086DE4E /* OrderProcessingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderProcessingView.h; sourceTree = "<group>"; };
+		045FAEBC221E7F2A0086DE4E /* OrderProcessingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderProcessingView.m; sourceTree = "<group>"; };
+		045FAEBE221E81900086DE4E /* OrderProcessingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderProcessingView.xib; sourceTree = "<group>"; };
+		045FAEC0221E93AB0086DE4E /* OrderProcessingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderProcessingTableViewCell.h; sourceTree = "<group>"; };
+		045FAEC1221E93AB0086DE4E /* OrderProcessingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderProcessingTableViewCell.m; sourceTree = "<group>"; };
+		045FAEC2221E93AB0086DE4E /* OrderProcessingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderProcessingTableViewCell.xib; sourceTree = "<group>"; };
 		0463025921BBAC8C0003C542 /* DBFontOfSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBFontOfSize.m; sourceTree = "<group>"; };
 		0463025B21BBAC8D0003C542 /* DBLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBLayoutConstraint.h; sourceTree = "<group>"; };
 		0463025C21BBAC8D0003C542 /* DBLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBLayoutConstraint.m; sourceTree = "<group>"; };
@@ -421,8 +431,8 @@
 		04EFA01621E7045C007C2FCA /* EvaluationSuccessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluationSuccessView.h; sourceTree = "<group>"; };
 		04EFA01721E7045C007C2FCA /* EvaluationSuccessView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluationSuccessView.m; sourceTree = "<group>"; };
 		04EFA01921E70470007C2FCA /* EvaluationSuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaluationSuccessView.xib; sourceTree = "<group>"; };
-		04EFA02421E7226D007C2FCA /* OrderDeliveryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDeliveryViewController.h; sourceTree = "<group>"; };
-		04EFA02521E7226D007C2FCA /* OrderDeliveryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDeliveryViewController.m; sourceTree = "<group>"; };
+		04EFA02421E7226D007C2FCA /* OrderProcessingViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderProcessingViewController2.h; sourceTree = "<group>"; };
+		04EFA02521E7226D007C2FCA /* OrderProcessingViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderProcessingViewController2.m; sourceTree = "<group>"; };
 		04EFA02A21E73391007C2FCA /* EvaluationOfSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluationOfSuccessViewController.h; sourceTree = "<group>"; };
 		04EFA02B21E73391007C2FCA /* EvaluationOfSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluationOfSuccessViewController.m; sourceTree = "<group>"; };
 		04EFA02D21E742E5007C2FCA /* ChannelMenuListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelMenuListView.h; sourceTree = "<group>"; };
@@ -1041,6 +1051,53 @@
 			path = "BuyNowView(立即购买)";
 			sourceTree = "<group>";
 		};
+		045FAEB7221E7E1C0086DE4E /* OrderDeliveryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				045FAEBA221E7E340086DE4E /* Controller */,
+				045FAEB9221E7E330086DE4E /* Model */,
+				045FAEB8221E7E330086DE4E /* View */,
+			);
+			path = OrderDeliveryViewController;
+			sourceTree = "<group>";
+		};
+		045FAEB8221E7E330086DE4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				045FAEC5221E93B00086DE4E /* Cell */,
+				045FAEBB221E7F2A0086DE4E /* OrderProcessingView.h */,
+				045FAEBC221E7F2A0086DE4E /* OrderProcessingView.m */,
+				045FAEBE221E81900086DE4E /* OrderProcessingView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		045FAEB9221E7E330086DE4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		045FAEBA221E7E340086DE4E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04EFA02421E7226D007C2FCA /* OrderProcessingViewController2.h */,
+				04EFA02521E7226D007C2FCA /* OrderProcessingViewController2.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		045FAEC5221E93B00086DE4E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				045FAEC0221E93AB0086DE4E /* OrderProcessingTableViewCell.h */,
+				045FAEC1221E93AB0086DE4E /* OrderProcessingTableViewCell.m */,
+				045FAEC2221E93AB0086DE4E /* OrderProcessingTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		0463025721BBAC700003C542 /* Adaptive */ = {
 			isa = PBXGroup;
 			children = (
@@ -1199,8 +1256,7 @@
 				04BF21692212B638002468C0 /* SettiingController */,
 				0423DAEB2200301C00325869 /* MyOrderController */,
 				04F62FC321F951440094B26F /* ShoppingCartController */,
-				04EFA02421E7226D007C2FCA /* OrderDeliveryViewController.h */,
-				04EFA02521E7226D007C2FCA /* OrderDeliveryViewController.m */,
+				045FAEB7221E7E1C0086DE4E /* OrderDeliveryViewController */,
 			);
 			path = "Mine(我的)";
 			sourceTree = "<group>";
@@ -2299,6 +2355,7 @@
 				04F8ED4521E32AC000004178 /* UserAdressCell.xib in Resources */,
 				0463026521BBC8DB0003C542 /* DBTopView.xib in Resources */,
 				043B468F21F8682100C75536 /* LeaveMessageViewController.xib in Resources */,
+				045FAEBF221E81900086DE4E /* OrderProcessingView.xib in Resources */,
 				04F62FD821F951440094B26F /* ShoppingCartCell.xib in Resources */,
 				0459D90F21E08FFD009BFFB4 /* OrderSureTopView.xib in Resources */,
 				049D4763219FA91F0058178D /* LaunchScreen.storyboard in Resources */,
@@ -2332,6 +2389,7 @@
 				04F8ED5121E349E000004178 /* modifyAddressViewCell.xib in Resources */,
 				04F8FBFB21F17E0200913150 /* AllCommentsCell.xib in Resources */,
 				0410358221CCD2F2002CB32C /* UMSocialSDKPromptResources.bundle in Resources */,
+				045FAEC4221E93AB0086DE4E /* OrderProcessingTableViewCell.xib in Resources */,
 				04F866B321A806F600A4D7F6 /* DBNewProductView.xib in Resources */,
 				0410357F21CCD2F2002CB32C /* UMSocialSDKResources.bundle in Resources */,
 				044F3BAA21F0201B00F3AD5E /* MySpellGroupCell.xib in Resources */,
@@ -2422,10 +2480,11 @@
 				04BF21882212B719002468C0 /* UIWindow+JXSafeArea.m in Sources */,
 				04F3B31421EDDAF900DFBA84 /* JXCategoryImageCell.m in Sources */,
 				04F4469D21D7772700524971 /* DBFeatureChoseTopCell.m in Sources */,
+				045FAEC3221E93AB0086DE4E /* OrderProcessingTableViewCell.m in Sources */,
 				04BF21892212B719002468C0 /* DetailViewController.m in Sources */,
 				04F3CF0621CB2FF1007C40A1 /* UserInfo.m in Sources */,
 				04F8ED4B21E3453800004178 /* ModifyAddressViewController.m in Sources */,
-				04EFA02621E7226D007C2FCA /* OrderDeliveryViewController.m in Sources */,
+				04EFA02621E7226D007C2FCA /* OrderProcessingViewController2.m in Sources */,
 				04F3B30921EDDAF900DFBA84 /* JXCategoryIndicatorView.m in Sources */,
 				04F8FBFE21F1ADE900913150 /* AllCommentsModel.m in Sources */,
 				042D1529221CEB0100DB895C /* ShufflingView.m in Sources */,
@@ -2453,6 +2512,7 @@
 				04BF21832212B719002468C0 /* JXPagerListContainerView.m in Sources */,
 				04F70C6921E98D35004BD4C6 /* AnchorRecommendView.m in Sources */,
 				04F2FD2E21EF479D000B58E2 /* GoodsShowTableViewController.m in Sources */,
+				045FAEBD221E7F2A0086DE4E /* OrderProcessingView.m in Sources */,
 				04F3B30821EDDAF900DFBA84 /* JXCategoryIndicatorCell.m in Sources */,
 				0459D91321E0A78F009BFFB4 /* OrderSureTableViewCell.m in Sources */,
 				04457AC021FC48C3003E5748 /* OrderDeptGoodsModel.m in Sources */,

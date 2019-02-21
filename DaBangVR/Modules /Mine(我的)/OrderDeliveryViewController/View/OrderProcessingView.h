@@ -1,8 +1,8 @@
 //
-//  MyOrderViewController.h
+//  OrderDeliveryView.h
 //  DaBangVR
 //
-//  Created by mac on 2019/1/8.
+//  Created by mac on 2019/2/21.
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
@@ -10,7 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MyOrderViewController : UIViewController
+@interface OrderProcessingView : UIView
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 

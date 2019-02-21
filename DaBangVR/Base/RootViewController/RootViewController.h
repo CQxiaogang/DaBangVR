@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UITableView *tableView;
 
 - (void)setupUI;
-- (void)setupJXCategory;
+//- (void)setupJXCategory;
 
 @property (nonatomic, copy) NSString *identifier;
 

@@ -6,6 +6,7 @@
 //  Copyright © 2018 DaBangVR. All rights reserved.
 //
 // Controllers
+#import <WebKit/WebKit.h>
 #import "GoodsDetailsViewController.h"
 #import "AllCommentsViewController.h" //查看所以评论
 #import "OrderSureViewController.h"      //立即购买
@@ -33,7 +34,9 @@ static NSArray *globalArray;
 
 @property (nonatomic, strong)GoodsDetailsView *goodsView;
 // 回传数据,商品的属性
-@property (nonatomic, copy) NSArray *goodsAttributesArr;;
+@property (nonatomic, copy) NSArray *goodsAttributesArr;
+@property (nonatomic, strong) WKWebView *webView;
+@property (nonatomic, strong) NSDictionary *goodsDetails;
 @end
 
 @implementation GoodsDetailsViewController
@@ -51,6 +54,13 @@ static NSString *CellID = @"CellID";
     }
     return _data;
 }
+-(WKWebView *)webView{
+    if (!_webView) {
+        _webView = [[WKWebView alloc] initWithFrame:self.view.frame];
+        _webView.scrollView.scrollEnabled = NO;
+    }
+    return _webView;
+}
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,9 +74,13 @@ static NSString *CellID = @"CellID";
     [NetWorkHelper POST:URL_getGoodsDetails parameters:@{@"goodsId":_index} success:^(id  _Nonnull responseObject) {
         
         NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
-        NSDictionary *goodsDetailsDic = dataDic[@"goodsDetails"];
-        weakself.model = [GoodsDetailsModel modelWithDictionary:goodsDetailsDic];
-        
+        NSDictionary *goodsDetails = dataDic[@"goodsDetails"];
+        weakself.goodsDetails = goodsDetails;
+        weakself.model = [GoodsDetailsModel modelWithDictionary:goodsDetails];
+        // html加载
+        NSString *heder = goodsDetails[@"goodsDesc"];
+        NSString *strUrl = [heder stringByReplacingOccurrencesOfString:@"300" withString:[NSString stringWithFormat:@"%.f",KScreenW]];
+        [self.webView loadHTMLString:strUrl baseURL:nil];
         [weakself.tableView reloadData];
     
     } failure:^(NSError * _Nonnull error) {
@@ -91,13 +105,16 @@ static NSString *CellID = @"CellID";
 
 -(void)setupUI{
     [super setupUI];
-    
     // 设置Navagation
     [self setupNavagation];
-    // 设置头部 view
+    
+    // 设置headerView
     _goodsView = [[GoodsDetailsView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, Adapt(184+250)) andDataSourse:self.model];
     _goodsView.delegate = self;
     self.tableView.tableHeaderView = _goodsView;
+    
+    // 设置footerView
+    self.tableView.tableFooterView = self.webView;
     
     // 设置tableView
     [self.tableView registerNib:[UINib nibWithNibName:@"NewCommentCell" bundle:nil] forCellReuseIdentifier:CellID];
@@ -121,6 +138,7 @@ static NSString *CellID = @"CellID";
     NSMutableArray *colors = [NSMutableArray arrayWithObjects:KOrangeColor, KRedColor, nil];
     
     if ([self.identifier isEqualToString:@"拼团"]) {
+        // 替换字符串
         [names replaceObjectAtIndex:0 withObject:@"拼  团"];
     }
     
