@@ -36,8 +36,7 @@
     [super viewDidLoad];
     
     [NetWorkHelper POST:URL_getGoodsCategoryList parameters:@{@"parentId":@"1036096"} success:^(id  _Nonnull responseObject) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSDictionary *dataDic= dic[@"data"];
+        NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
         NSArray *goodsList = dataDic[@"goodsCategoryList"];
         for (NSDictionary *dic in goodsList) {
             GoodsShowTitleModel *model = [GoodsShowTitleModel modelWithDictionary:dic];

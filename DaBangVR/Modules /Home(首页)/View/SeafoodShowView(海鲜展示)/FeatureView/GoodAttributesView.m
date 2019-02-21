@@ -453,8 +453,7 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
         if (_featureAttr.count == 0) {
             [cell.goodImageView setImageWithURL:[NSURL URLWithString:_model.listUrl] placeholder:[UIImage imageNamed:@""]];
             cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",_model.remainingInventory];
-            NSInteger price = [_model.sellingPrice integerValue];
-            cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %ld",price*lastNum];
+            cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %.2f",[_model.sellingPrice floatValue]*lastNum];
             cell.chooseAttLabel.text = _model.title;
             [self.goodsDetailsArr addObject:_model.id];
         }

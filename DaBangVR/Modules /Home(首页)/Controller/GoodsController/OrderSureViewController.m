@@ -10,7 +10,7 @@
 #import "OrderSureViewController.h"
 #import "UserGoodsAdressViewController.h"
 #import "LeaveMessageViewController.h"
-#import "PaySuccessViewController.h"
+#import "PaymentSuccessViewController.h"
 // Views
 #import "OrderSureTopView.h"
 #import "OrderSureHeaderView.h"
@@ -108,8 +108,9 @@ static NSString *leaveMessage;
     [super viewDidLoad];
     self.title = @"订单确认";
     [self data];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successPay) name:@"successPay" object:nil];
 }
-
 - (void)creatUI{
     kWeakSelf(self);
     [self.view addSubview:self.topView];
@@ -224,24 +225,22 @@ static NSString *leaveMessage;
 #pragma mark —— 提交订单
 - (void)submitOrdersBtnAction{
     kWeakSelf(self);
-    PaySuccessViewController *vc = [[PaySuccessViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:NO];
     // 确认支付，调用后台
-//    leaveMessage = leaveMessage? leaveMessage:@"无";
-//    if (weakself.model.receivingAddress.id.length != 0) {
-//        NSDictionary *dic = @{
-//                              @"submitType"    : @"buy",
-//                              @"addressId"     : weakself.model.receivingAddress.id,
-//                              @"leaveMessage"  : leaveMessage
-//                              };
-//        [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
-//            NSDictionary *orderVo = KJSONSerialization(responseObject)[@"orderVo"];
-//            NSString *orderSn = orderVo[@"orderSn"];
-//            [self orderSn:orderSn];
-//        } failure:^(NSError * _Nonnull error) {
-//            
-//        }];
-//    }
+    leaveMessage = leaveMessage? leaveMessage:@"无";
+    if (weakself.model.receivingAddress.id.length != 0) {
+        NSDictionary *dic = @{
+                              @"submitType"    : @"buy",
+                              @"addressId"     : weakself.model.receivingAddress.id,
+                              @"leaveMessage"  : leaveMessage
+                              };
+        [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
+            NSDictionary *orderVo = KJSONSerialization(responseObject)[@"orderVo"];
+            NSString *orderSn = orderVo[@"orderSn"];
+            [weakself orderSn:orderSn];
+        } failure:^(NSError * _Nonnull error) {
+            
+        }];
+    }
 }
 
 - (void)orderSn:(NSString *)orderSn{
@@ -294,6 +293,11 @@ static NSString *leaveMessage;
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+}
+
+- (void)successPay{
+    PaymentSuccessViewController *vc = [[PaymentSuccessViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
 }
 
 @end

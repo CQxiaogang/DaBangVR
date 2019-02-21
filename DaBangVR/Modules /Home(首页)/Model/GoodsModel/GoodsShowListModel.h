@@ -20,9 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 图片
 @property (nonatomic, copy)   NSString *listUrl;
 // 销售价格
-@property (nonatomic, assign) NSInteger sellingPrice;
+@property (nonatomic, assign) NSString *sellingPrice;
 // 市场价格
-@property (nonatomic, assign) NSInteger marketPrice;
+@property (nonatomic, assign) NSString *marketPrice;
 @end
 
 NS_ASSUME_NONNULL_END
