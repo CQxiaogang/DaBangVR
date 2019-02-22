@@ -64,7 +64,7 @@ static NSString *CellID = @"CellID";
         _wkWebView = [[WKWebView alloc] init];
         
         //以下代码适配大小
-        NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=100%'); document.getElementsByTagName('head')[0].appendChild(meta);";
+        NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
         
         WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
         WKUserContentController *wkUController = [[WKUserContentController alloc] init];
@@ -78,8 +78,8 @@ static NSString *CellID = @"CellID";
         _wkWebView.UIDelegate = self;
         _wkWebView.navigationDelegate = self;
         // 禁止滑动
-        _wkWebView.scrollView.scrollEnabled = NO;
-        // 禁止交互
+//        _wkWebView.scrollView.scrollEnabled = NO;
+//        // 禁止交互
         _wkWebView.userInteractionEnabled = NO;
         _wkWebView.contentMode = UIViewContentModeScaleAspectFill;
     }
@@ -103,8 +103,9 @@ static NSString *CellID = @"CellID";
         NSDictionary *goodsDetails = dataDic[@"goodsDetails"];
         weakself.goodsDetails = goodsDetails;
         weakself.model = [GoodsDetailsModel modelWithDictionary:goodsDetails];
+          NSString *htmlString = [goodsDetails[@"goodsDesc"] stringByReplacingOccurrencesOfString:@"300" withString:[NSString stringWithFormat:@"%.f",KScreenW]];
         // html加载
-        [self.wkWebView loadHTMLString:goodsDetails[@"goodsDesc"] baseURL:nil];
+        [self.wkWebView loadHTMLString:htmlString baseURL:nil];
         
         [self setupOtherUI];
         
