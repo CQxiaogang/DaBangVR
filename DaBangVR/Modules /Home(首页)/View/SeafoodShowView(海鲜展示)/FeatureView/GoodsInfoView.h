@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GoodsInfoView : UIView
 // 商品详情
 @property (weak, nonatomic) IBOutlet UILabel *introduce;
+// 原价
+@property (weak, nonatomic) IBOutlet UILabel *marketPriceLab;
 // 促销价
 @property (weak, nonatomic) IBOutlet UILabel *promotionPrice;
 // 选择商品规格

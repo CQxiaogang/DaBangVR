@@ -39,15 +39,14 @@
     _goodsNameLab.text = model.goodsName;
     _sizeLab.text = model.goodsNumber;
     [_goodsImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:[UIImage imageNamed:@""]];
-    
     NSString *goodsState = model.goodsState;
     if ([goodsState compare:@"0"] == NSOrderedSame) {
         _stateLab.text = @"待付款";
         [_lowerRightCornerBtn setTitle:@"待付款" forState:UIControlStateNormal];
-    }else if ([goodsState compare:@"301"] == NSOrderedSame){
+    }else if ([goodsState compare:@"201"] == NSOrderedSame){
         _stateLab.text = @"待收货";
         [_lowerRightCornerBtn setTitle:@"待收货" forState:UIControlStateNormal];
-    }else if ([goodsState compare:@"402"] == NSOrderedSame){
+    }else if ([goodsState compare:@"302"] == NSOrderedSame){
         _stateLab.text = @"待评价";
         [_lowerRightCornerBtn setTitle:@"待评价" forState:UIControlStateNormal];
     }else if ([goodsState compare:@"401"] == NSOrderedSame){

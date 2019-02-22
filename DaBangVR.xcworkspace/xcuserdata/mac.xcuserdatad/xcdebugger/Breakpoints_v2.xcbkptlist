@@ -4,13 +4,66 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
+            filePath = "DaBangVR/Modules /Mine(&#x6211;&#x7684;)/ShoppingCartController/Controller/ShoppingCartViewController.m"
+            timestampString = "572522375.7505569"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
+            landmarkName = "-goPaymentOfClick"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ShoppingCartViewController goPaymentOfClick]"
+                  moduleName = "DaBangVR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/DaBangVR/DaBangVR/Modules%20/Mine(%E6%88%91%E7%9A%84)/ShoppingCartController/Controller/ShoppingCartViewController.m"
+                  timestampString = "572502451.1247981"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "393"
+                  endingLineNumber = "393"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__46-[ShoppingCartViewController goPaymentOfClick]_block_invoke"
+                  moduleName = "DaBangVR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/DaBangVR/DaBangVR/Modules%20/Mine(%E6%88%91%E7%9A%84)/ShoppingCartController/Controller/ShoppingCartViewController.m"
+                  timestampString = "572502451.1276031"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "393"
+                  endingLineNumber = "393"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.428"
+                  moduleName = "DaBangVR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/DaBangVR/DaBangVR/Modules%20/Mine(%E6%88%91%E7%9A%84)/ShoppingCartController/Controller/ShoppingCartViewController.m"
+                  timestampString = "572502451.129769"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "393"
+                  endingLineNumber = "393"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -19,13 +72,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/Controller/SpellGroupController/Controller/SpellGroupViewController.m"
-            timestampString = "572321663.38385"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/Controller/GoodsController/OrderSureViewController.m"
+            timestampString = "572522375.7508121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-data"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,12 +88,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/View/SeafoodShowView(&#x6d77;&#x9c9c;&#x5c55;&#x793a;)/TableView/Cell/GoodsShowTableViewCell.m"
-            timestampString = "572436864.347887"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/View/SeafoodShowView(&#x6d77;&#x9c9c;&#x5c55;&#x793a;)/FeatureView/GoodAttributesView.m"
+            timestampString = "572522375.750985"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "501"
+            endingLineNumber = "501"
             landmarkName = "-setModel:"
             landmarkType = "7">
          </BreakpointContent>
@@ -52,12 +105,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/View/SeafoodShowView(&#x6d77;&#x9c9c;&#x5c55;&#x793a;)/FeatureView/GoodAttributesView.m"
-            timestampString = "572436864.348152"
+            timestampString = "572522375.751036"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
-            landmarkName = "-collectionView:numberOfItemsInSection:"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
+            landmarkName = "-collectionView:viewForSupplementaryElementOfKind:atIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -68,11 +121,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/View/SeafoodShowView(&#x6d77;&#x9c9c;&#x5c55;&#x793a;)/FeatureView/GoodAttributesView.m"
-            timestampString = "572436864.3483289"
+            timestampString = "572522375.751201"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "430"
-            endingLineNumber = "430"
+            startingLineNumber = "369"
+            endingLineNumber = "369"
+            landmarkName = "-collectionView:viewForSupplementaryElementOfKind:atIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/View/SeafoodShowView(&#x6d77;&#x9c9c;&#x5c55;&#x793a;)/FeatureView/GoodAttributesView.m"
+            timestampString = "572522375.751248"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "439"
+            endingLineNumber = "439"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>

@@ -14,12 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol GoodsDetailsViewDelegate <NSObject>
 
 /**
- 所以评论
+ 展示所以评论事件
  */
 - (void)allCommentsAction;
 
 /**
- 选择商品规格
+ 选择商品规格事件
 
  @param sender 当前按钮
  */

@@ -21,7 +21,7 @@
 
 
 @property (nonatomic, strong) UITableView *myTableView;
-@property (nonatomic, strong) NSMutableArray<StoreModel *> *storeArray;
+@property (nonatomic, strong) NSMutableArray<StoreModel *> *dataSource;
 @property (nonatomic, strong) ShopppingCartBottomView *bottomView;
 /**
  选中的数组
@@ -38,11 +38,11 @@
     }
     return _selectArray;
 }
-- (NSMutableArray *)storeArray {
-    if (!_storeArray) {
-        self.storeArray = [NSMutableArray new];
+- (NSMutableArray *)dataSource {
+    if (!_dataSource) {
+        self.dataSource = [NSMutableArray new];
     }
-    return _storeArray;
+    return _dataSource;
 }
 
 - (void)viewDidLoad {
@@ -51,7 +51,7 @@
     
     [self setSubViews];
     
-    [self loadingDataForPlist];
+    [self loadingData];
     
 }
 #pragma  mark --------------------- UI ------------------
@@ -86,15 +86,15 @@
 
 #pragma mark ------------------ <UITableViewDelegate, UITableViewDataSource> ----
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.storeArray.count;
+    return self.dataSource.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    StoreModel *storeModel = self.storeArray[section];
+    StoreModel *storeModel = self.dataSource[section];
     return storeModel.goodsArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ShoppingCartCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShoppingCartCell"];
-    StoreModel *storeModel = self.storeArray[indexPath.section];
+    StoreModel *storeModel = self.dataSource[indexPath.section];
     GoodsModel *goodsModel = storeModel.goodsArray[indexPath.row];
     cell.goodsModel = goodsModel;
     //把事件的处理分离出去
@@ -116,7 +116,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     ShoppingCartHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"ShoppingCartHeaderView"];
     headerView.contentView.backgroundColor = [UIColor whiteColor];
-    StoreModel *storeModel = self.storeArray[section];
+    StoreModel *storeModel = self.dataSource[section];
     headerView.storeModel = storeModel;
     //分区区头点击事件--- 把事件分离出去
     [self clickSectionHeaderView:headerView andHBK_StoreModel:storeModel];
@@ -150,7 +150,7 @@
  @param section 分区坐标
  */
 - (void)judgeIsSelectSection:(NSInteger)section {
-    StoreModel *storeModel = self.storeArray[section];
+    StoreModel *storeModel = self.dataSource[section];
     BOOL isSelectSection = YES;
     //遍历分区商品, 如果有商品的没有被选择, 跳出循环, 说明没有全选
     for (GoodsModel *goodsModel in storeModel.goodsArray) {
@@ -171,7 +171,7 @@
 - (void)judgeIsAllSelect {
     NSInteger count = 0;
     //先遍历购物车商品, 得到购物车有多少商品
-    for (StoreModel *storeModel in self.storeArray) {
+    for (StoreModel *storeModel in self.dataSource) {
         count += storeModel.goodsArray.count;
     }
     //如果购物车总商品数量 等于 选中的商品数量, 即表示全选了
@@ -248,7 +248,7 @@
         [self.selectArray removeAllObjects];
         if (isClick) {//选中
             NSLog(@"全选");
-            for (StoreModel *storeModel in self.storeArray) {
+            for (StoreModel *storeModel in self.dataSource) {
                 storeModel.isSelect = YES;
                 for (GoodsModel *goodsModel in storeModel.goodsArray) {
                     goodsModel.isSelect = YES;
@@ -257,7 +257,7 @@
             }
         } else {//取消选中
             NSLog(@"取消全选");
-            for (StoreModel *storeModel in self.storeArray) {
+            for (StoreModel *storeModel in self.dataSource) {
                 storeModel.isSelect = NO;
             }
         }
@@ -301,7 +301,7 @@
             [self.selectArray addObject:goodsModel];
             [self countPrice];
         }
-        
+        [self changeShoppingCarOfNub:goodsModel];
     };
     //减
     cell.CutBlock = ^(UILabel *countLabel) {
@@ -313,27 +313,35 @@
             [self.selectArray addObject:goodsModel];
             [self countPrice];
         }
+        [self changeShoppingCarOfNub:goodsModel];
     };
-    // 修改购物车数量
+    
+}
+// 修改购物车数量
+- (void)changeShoppingCarOfNub:(GoodsModel *)goodsModel{
+    
     NSDictionary *dic = @{
                           @"cartId":goodsModel.id,
                           @"number":goodsModel.number
                           };
-    [NetWorkHelper POST:URl_updateNumber2Cart parameters:dic success:nil failure:nil];
+    [NetWorkHelper POST:URl_updateNumber2Cart parameters:dic success:^(id  _Nonnull responseObject) {
+        DLog(@"%@",KJSONSerialization(responseObject)[@"errmsg"]);
+    } failure:^(NSError * _Nonnull error) {
+        DLog(@"error %@",error);
+    }];
 }
-
 
 /**
  删除某个商品
  @param indexPath 坐标
  */
 - (void)deleteGoodsWithIndexPath:(NSIndexPath *)indexPath {
-    StoreModel *storeModel = [self.storeArray objectAtIndex:indexPath.section];
+    StoreModel *storeModel = [self.dataSource objectAtIndex:indexPath.section];
     GoodsModel *goodsModel = [storeModel.goodsArray objectAtIndex:indexPath.row];
     [storeModel.goodsArray removeObjectAtIndex:indexPath.row];
     [self.myTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:(UITableViewRowAnimationFade)];
     if (storeModel.goodsArray.count == 0) {
-        [self.storeArray removeObjectAtIndex:indexPath.section];
+        [self.dataSource removeObjectAtIndex:indexPath.section];
     }
     
     if ([self.selectArray containsObject:goodsModel]) {
@@ -342,7 +350,7 @@
     }
     
     NSInteger count = 0;
-    for (StoreModel *storeModel in self.storeArray) {
+    for (StoreModel *storeModel in self.dataSource) {
         count += storeModel.goodsArray.count;
     }
     if (self.selectArray.count == count) {
@@ -360,18 +368,17 @@
     });
 }
 
-#pragma mark  -------------------- 此处模仿网络请求, 加载plist文件内容
-- (void)loadingDataForPlist {
+#pragma mark —— 加载数据
+- (void)loadingData{
     
     [NetWorkHelper POST:URl_getGoods2CartList parameters:nil success:^(id  _Nonnull responseObject) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSDictionary *dataDic = dic[@"data"];
-        NSArray *goodsArr = dataDic[@"goods2CartList"];
-        if (goodsArr.count > 0) {
-            for (NSDictionary *dic in goodsArr) {
+        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
+        NSArray *goods2CartList = data[@"goods2CartList"];
+        if (goods2CartList.count > 0) {
+            for (NSDictionary *dic in goods2CartList) {
                 StoreModel *model = [[StoreModel alloc] init];
                 [model setValuesForKeysWithDictionary:dic];
-                [self.storeArray addObject:model];
+                [self.dataSource addObject:model];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.myTableView reloadData];
@@ -380,22 +387,10 @@
     } failure:^(NSError * _Nonnull error) {
         
     }];
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"ShopCarNew" ofType:@"plist"];
-    NSDictionary *dataDic = [[NSDictionary alloc] initWithContentsOfFile:path];
-    NSLog(@"%@", dataDic);
-    NSArray *dataArray = dataDic[@"data"];
-    if (dataArray.count > 0) {
-        
-        
-    } else {
-        //加载数据为空时的展示
-        
-    }
 }
 
 #pragma mark —— 底部 view 协议
-
+// 去付款
 -(void)goPaymentOfClick{
     if (_goodsIDStr) {
         [NetWorkHelper POST:URl_confirmGoods2Cart parameters:@{@"cartIds":_goodsIDStr} success:^(id  _Nonnull responseObject) {

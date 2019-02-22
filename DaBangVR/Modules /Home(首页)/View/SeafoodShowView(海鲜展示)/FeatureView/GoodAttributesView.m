@@ -396,10 +396,6 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
             }
         }
     }
-    // 数组中的元素呼唤位置
-    if (_seleArray.count == 2) {
-        [_seleArray exchangeObjectAtIndex:0 withObjectAtIndex:1];
-    }
     //刷新tableView和collectionView
     [self.collectionView reloadData];
     [self.tableView reloadData];
@@ -439,6 +435,7 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
         NSString *attString = (_seleArray.count == _featureAttr.count) ? [_seleArray componentsJoinedByString:@"_"] : [lastSeleArray componentsJoinedByString:@"_"];
         
         for (ProductInfoVoListModel *model in _goodsSpecArr) {
+            DLog(@"goodsSpecIds is %@",model.goodsSpecIds);
             if ([attString isEqualToString:model.goodsSpecIds]) {
                 cell.chooseAttLabel.text = [NSString stringWithFormat:@"已选属性：%@",model.name];
                 cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",model.number];
@@ -498,12 +495,10 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
 }
 
 - (void)setModel:(GoodsDetailsModel *)model{
+    
     _model = model;
-    
     _featureAttr  = [DBFeatureItem mj_objectArrayWithKeyValuesArray:_model.goodsSpecVoList];
-    
     _goodsSpecArr = [ProductInfoVoListModel mj_objectArrayWithKeyValuesArray:_model.productInfoVoList];
-    
 }
 
 - (void)showInView:(UIView *)view {

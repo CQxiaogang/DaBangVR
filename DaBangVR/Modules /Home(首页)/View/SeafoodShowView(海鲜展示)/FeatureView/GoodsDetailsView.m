@@ -44,7 +44,7 @@
 
 - (void)creatUI{
     //初始化自动循环滚动视图，并且定义图片的点击事件
-    _bannerView=[[FGGAutoScrollView alloc]initWithFrame:CGRectMake(0, 0, self.mj_w, 250) placeHolderImage:nil imageURLs:nil imageDidSelectedBlock:^(NSInteger selectedIndex) {
+    _bannerView=[[FGGAutoScrollView alloc]initWithFrame:CGRectMake(0, 0, self.mj_w, kFit(250)) placeHolderImage:nil imageURLs:nil imageDidSelectedBlock:^(NSInteger selectedIndex) {
         switch (selectedIndex) {
             case 0:
                 NSLog(@"你选择了第%ld张图片",selectedIndex);

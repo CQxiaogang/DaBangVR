@@ -36,7 +36,7 @@ static NSArray *globalArray;
 // 回传数据,商品的属性
 @property (nonatomic, copy)   NSArray      *goodsAttributesArr;
 // 网页加载
-@property (nonatomic, strong) WKWebView    *webView;
+@property (nonatomic, strong) WKWebView    *wkWebView;
 // 商品详情
 @property (nonatomic, strong) NSDictionary *goodsDetails;
 @end
@@ -59,9 +59,9 @@ static NSString *CellID = @"CellID";
     }
     return _data;
 }
--(WKWebView *)webView{
-    if (!_webView) {
-        _webView = [[WKWebView alloc] init];
+-(WKWebView *)wkWebView{
+    if (!_wkWebView) {
+        _wkWebView = [[WKWebView alloc] init];
         
         //以下代码适配大小
         NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=100%'); document.getElementsByTagName('head')[0].appendChild(meta);";
@@ -73,25 +73,28 @@ static NSString *CellID = @"CellID";
         WKWebViewConfiguration *wkWebConfig = [[WKWebViewConfiguration alloc] init];
         wkWebConfig.userContentController = wkUController;
         
-        _webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:wkWebConfig];
+        _wkWebView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:wkWebConfig];
    
-        _webView.UIDelegate = self;
-        _webView.navigationDelegate = self;
+        _wkWebView.UIDelegate = self;
+        _wkWebView.navigationDelegate = self;
         // 禁止滑动
-        _webView.scrollView.scrollEnabled = NO;
+        _wkWebView.scrollView.scrollEnabled = NO;
         // 禁止交互
-        _webView.userInteractionEnabled = NO;
+        _wkWebView.userInteractionEnabled = NO;
+        _wkWebView.contentMode = UIViewContentModeScaleAspectFill;
     }
-    return _webView;
+    return _wkWebView;
 }
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 得到数据
-    [self getData];
+    [self loadingData];
+    
+    self.tableView.backgroundColor = KWhiteColor;
 }
 #pragma mark —— 数据
-- (void) getData{
+- (void) loadingData{
     kWeakSelf(self);
     // 商品详情
     [NetWorkHelper POST:URL_getGoodsDetails parameters:@{@"goodsId":_index} success:^(id  _Nonnull responseObject) {
@@ -101,7 +104,10 @@ static NSString *CellID = @"CellID";
         weakself.goodsDetails = goodsDetails;
         weakself.model = [GoodsDetailsModel modelWithDictionary:goodsDetails];
         // html加载
-        [self.webView loadHTMLString:goodsDetails[@"goodsDesc"] baseURL:nil];
+        [self.wkWebView loadHTMLString:goodsDetails[@"goodsDesc"] baseURL:nil];
+        
+        [self setupOtherUI];
+        
         [weakself.tableView reloadData];
     
     } failure:^(NSError * _Nonnull error) {
@@ -129,21 +135,11 @@ static NSString *CellID = @"CellID";
     // 设置Navagation
     [self setupNavagation];
     
-    // 设置headerView
-    _goodsView = [[GoodsDetailsView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, Adapt(184+250)) andDataSourse:self.model];
-    _goodsView.delegate = self;
-    self.tableView.tableHeaderView = _goodsView;
-    
-    // 设置footerView
-    self.tableView.tableFooterView = self.webView;
-    
     // 设置tableView
     [self.tableView registerNib:[UINib nibWithNibName:@"NewCommentCell" bundle:nil] forCellReuseIdentifier:CellID];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(kTopHeight);
-        make.left.right.equalTo(0);
-        make.bottom.equalTo(-kTabBarHeight);
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(kTopHeight, kFit(10), kTabBarHeight, kFit(10)));
     }];
     
     // 底部 view
@@ -201,14 +197,22 @@ static NSString *CellID = @"CellID";
         make.bottom.equalTo(@(0));
         make.height.equalTo(kTabBarHeight);
     }];
+    // 调整btn 图片和文字的位置。上图片下文字。
     for (UIButton *button in otherBtnArr) {
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         [button setTitleEdgeInsets:UIEdgeInsetsMake(button.imageView.mj_h ,-button.imageView.mj_w, -5,0)];
         [button setImageEdgeInsets:UIEdgeInsetsMake(-12, 0,0, -button.titleLabel.mj_w)];
     }
-    
 }
-
+#pragma mark —— 设置其他 UI
+- (void)setupOtherUI{
+    // 设置headerView
+    _goodsView = [[GoodsDetailsView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, Adapt(184+250)) andDataSourse:self.model];
+    _goodsView.delegate = self;
+    self.tableView.tableHeaderView = _goodsView;
+    // 设置footerView
+    self.tableView.tableFooterView = self.wkWebView;
+}
 #pragma mark —— UI设置
 - (void)setupNavagation{
     UIButton *shoppingCarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -227,8 +231,7 @@ static NSString *CellID = @"CellID";
     self.navigationItem.rightBarButtonItems = @[shareItem,shoppingCarItem];
 }
 
-#pragma mark —— GoodsDetailsView 代理
-// 所以评论
+#pragma mark —— GoodsDetailsView（商品细节代理）
 -(void)allCommentsAction{
     AllCommentsViewController *vc = [AllCommentsViewController new];
     [vc getData:self.model.id];
@@ -241,11 +244,9 @@ static NSString *CellID = @"CellID";
 }
 
 - (void)creatAttributesView:(NSString *)identifier{
-    // 弹出商品规格选择 view
+    // 弹出商品规格 view
     GoodAttributesView *attributesView = [[GoodAttributesView alloc] initWithFrame:(CGRect){0, 0, KScreenW, KScreenH}];
-    
     attributesView.model = self.model;
-    
     [attributesView showInView:self.navigationController.view];
     
     // 确认 btn 数据回掉
@@ -377,10 +378,6 @@ static NSString *CellID = @"CellID";
     return 39;
 }
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    return Adapt(184);
-//}
-
 #pragma mark —— 购物车
 - (void)shoppingCarOfAction{
     ShoppingCartViewController *vc = [[ShoppingCartViewController alloc] init];
@@ -388,10 +385,12 @@ static NSString *CellID = @"CellID";
 }
 
 #pragma mark —— WKNavigationDelegate
--(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
-    [webView evaluateJavaScript:@"document.body.scrollHeight;" completionHandler:^(id _Nullable any, NSError * _Nullable error) {
+// 页面加载完成之后调用
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    NSLog(@"加载完成");
+    [webView evaluateJavaScript:@"document.body.scrollHeight;" completionHandler:^(id _Nullable any, NSError * _Nullable error){
         NSString *heightStr = [NSString stringWithFormat:@"%@",any];
-        [self.webView setHeight:heightStr.intValue];
+        [self.wkWebView setHeight:heightStr.intValue];
         [self.tableView reloadData];
     }];
 }

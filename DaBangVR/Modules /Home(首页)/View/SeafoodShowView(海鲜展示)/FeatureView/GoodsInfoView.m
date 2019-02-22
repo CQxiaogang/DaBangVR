@@ -30,6 +30,7 @@
 
 - (void)setModel:(GoodsDetailsModel *)model{
     _promotionPrice.text = model.sellingPrice;
+    _marketPriceLab.text = [NSString stringWithFormat:@"原价:￥%@",model.marketPrice];
     _introduce.text  = model.describe;
 }
 

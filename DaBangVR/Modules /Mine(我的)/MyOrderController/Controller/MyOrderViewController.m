@@ -71,7 +71,7 @@
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
     MyOrderTableViewController *myOrderVC = [[MyOrderTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
     myOrderVC.aDelegate = self;
-    NSArray *number  = @[@"0" ,@"0", @"301", @"402", @"401"];
+    NSArray *number  = @[@"" ,@"0", @"201", @"301", @"401"];
     myOrderVC.index = number[index];
     return myOrderVC;
 }

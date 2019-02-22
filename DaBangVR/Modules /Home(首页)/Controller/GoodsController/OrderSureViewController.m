@@ -107,7 +107,7 @@ static NSString *leaveMessage;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"订单确认";
-    [self data];
+    [self loadingData];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successPay) name:@"successPay" object:nil];
 }
@@ -155,7 +155,7 @@ static NSString *leaveMessage;
     }];
 }
 
-- (void)data{
+-(void)loadingData{
     kWeakSelf(self);
     [NetWorkHelper POST:URl_getConfirmGoods parameters:nil success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
