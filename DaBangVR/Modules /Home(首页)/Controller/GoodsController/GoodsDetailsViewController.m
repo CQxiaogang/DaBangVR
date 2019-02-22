@@ -22,7 +22,7 @@
 #import "FGGAutoScrollView.h" //无限轮播
 
 static NSArray *globalArray;
-@interface GoodsDetailsViewController ()<GoodsDetailsViewDelegate>
+@interface GoodsDetailsViewController ()<GoodsDetailsViewDelegate, WKNavigationDelegate, WKUIDelegate>
 /* 通知 */
 @property (weak ,nonatomic) id dcObj;
 // 数据源
@@ -31,15 +31,20 @@ static NSArray *globalArray;
 @property (nonatomic, strong) FGGAutoScrollView *bannerView;
 // 数据源
 @property (nonatomic, strong) NSMutableArray *data;
-
+// 商品详情 view
 @property (nonatomic, strong)GoodsDetailsView *goodsView;
 // 回传数据,商品的属性
-@property (nonatomic, copy) NSArray *goodsAttributesArr;
-@property (nonatomic, strong) WKWebView *webView;
+@property (nonatomic, copy)   NSArray      *goodsAttributesArr;
+// 网页加载
+@property (nonatomic, strong) WKWebView    *webView;
+// 商品详情
 @property (nonatomic, strong) NSDictionary *goodsDetails;
 @end
 
-@implementation GoodsDetailsViewController
+@implementation GoodsDetailsViewController{
+    
+    CGFloat webContentHeight;
+}
 static NSString *CellID = @"CellID";
 #pragma mark —— 懒加载
 - (GoodsDetailsModel *)model{
@@ -56,8 +61,26 @@ static NSString *CellID = @"CellID";
 }
 -(WKWebView *)webView{
     if (!_webView) {
-        _webView = [[WKWebView alloc] initWithFrame:self.view.frame];
+        _webView = [[WKWebView alloc] init];
+        
+        //以下代码适配大小
+        NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=100%'); document.getElementsByTagName('head')[0].appendChild(meta);";
+        
+        WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+        WKUserContentController *wkUController = [[WKUserContentController alloc] init];
+        [wkUController addUserScript:wkUScript];
+        
+        WKWebViewConfiguration *wkWebConfig = [[WKWebViewConfiguration alloc] init];
+        wkWebConfig.userContentController = wkUController;
+        
+        _webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:wkWebConfig];
+   
+        _webView.UIDelegate = self;
+        _webView.navigationDelegate = self;
+        // 禁止滑动
         _webView.scrollView.scrollEnabled = NO;
+        // 禁止交互
+        _webView.userInteractionEnabled = NO;
     }
     return _webView;
 }
@@ -78,9 +101,7 @@ static NSString *CellID = @"CellID";
         weakself.goodsDetails = goodsDetails;
         weakself.model = [GoodsDetailsModel modelWithDictionary:goodsDetails];
         // html加载
-        NSString *heder = goodsDetails[@"goodsDesc"];
-        NSString *strUrl = [heder stringByReplacingOccurrencesOfString:@"300" withString:[NSString stringWithFormat:@"%.f",KScreenW]];
-        [self.webView loadHTMLString:strUrl baseURL:nil];
+        [self.webView loadHTMLString:goodsDetails[@"goodsDesc"] baseURL:nil];
         [weakself.tableView reloadData];
     
     } failure:^(NSError * _Nonnull error) {
@@ -364,6 +385,15 @@ static NSString *CellID = @"CellID";
 - (void)shoppingCarOfAction{
     ShoppingCartViewController *vc = [[ShoppingCartViewController alloc] init];
     [self.navigationController pushViewController:vc animated:NO];
+}
+
+#pragma mark —— WKNavigationDelegate
+-(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    [webView evaluateJavaScript:@"document.body.scrollHeight;" completionHandler:^(id _Nullable any, NSError * _Nullable error) {
+        NSString *heightStr = [NSString stringWithFormat:@"%@",any];
+        [self.webView setHeight:heightStr.intValue];
+        [self.tableView reloadData];
+    }];
 }
 
 @end
