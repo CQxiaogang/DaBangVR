@@ -54,6 +54,10 @@
 		0459D91321E0A78F009BFFB4 /* OrderSureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459D91121E0A78F009BFFB4 /* OrderSureTableViewCell.m */; };
 		0459D91421E0A78F009BFFB4 /* OrderSureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0459D91221E0A78F009BFFB4 /* OrderSureTableViewCell.xib */; };
 		0459D91721E0B437009BFFB4 /* OrderSureFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459D91621E0B437009BFFB4 /* OrderSureFooterView.m */; };
+		045A6FE82223D636006081CF /* GlobalShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A6FE72223D636006081CF /* GlobalShoppingViewController.m */; };
+		045A6FEB2223F49B006081CF /* HorizontalCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A6FEA2223F49B006081CF /* HorizontalCollectionView.m */; };
+		045A6FF02223F514006081CF /* CountryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A6FEE2223F514006081CF /* CountryCollectionViewCell.m */; };
+		045A6FF12223F514006081CF /* CountryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045A6FEF2223F514006081CF /* CountryCollectionViewCell.xib */; };
 		045FAEB6221E35E60086DE4E /* PaymentSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FAEB5221E35E60086DE4E /* PaymentSuccessViewController.m */; };
 		045FAEBD221E7F2A0086DE4E /* OrderProcessingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FAEBC221E7F2A0086DE4E /* OrderProcessingView.m */; };
 		045FAEBF221E81900086DE4E /* OrderProcessingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045FAEBE221E81900086DE4E /* OrderProcessingView.xib */; };
@@ -348,6 +352,13 @@
 		0459D91221E0A78F009BFFB4 /* OrderSureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSureTableViewCell.xib; sourceTree = "<group>"; };
 		0459D91521E0B437009BFFB4 /* OrderSureFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderSureFooterView.h; sourceTree = "<group>"; };
 		0459D91621E0B437009BFFB4 /* OrderSureFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderSureFooterView.m; sourceTree = "<group>"; };
+		045A6FE62223D636006081CF /* GlobalShoppingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalShoppingViewController.h; sourceTree = "<group>"; };
+		045A6FE72223D636006081CF /* GlobalShoppingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalShoppingViewController.m; sourceTree = "<group>"; };
+		045A6FE92223F49B006081CF /* HorizontalCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HorizontalCollectionView.h; sourceTree = "<group>"; };
+		045A6FEA2223F49B006081CF /* HorizontalCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HorizontalCollectionView.m; sourceTree = "<group>"; };
+		045A6FED2223F514006081CF /* CountryCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryCollectionViewCell.h; sourceTree = "<group>"; };
+		045A6FEE2223F514006081CF /* CountryCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountryCollectionViewCell.m; sourceTree = "<group>"; };
+		045A6FEF2223F514006081CF /* CountryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCollectionViewCell.xib; sourceTree = "<group>"; };
 		045FAEB4221E35E60086DE4E /* PaymentSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentSuccessViewController.h; sourceTree = "<group>"; };
 		045FAEB5221E35E60086DE4E /* PaymentSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentSuccessViewController.m; sourceTree = "<group>"; };
 		045FAEBB221E7F2A0086DE4E /* OrderProcessingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderProcessingView.h; sourceTree = "<group>"; };
@@ -771,6 +782,7 @@
 				04F2FD1C21EF23A3000B58E2 /* SpellGroupController */,
 				04F2FD2021EF2549000B58E2 /* SecondsKillController */,
 				0423DADC21FFF45100325869 /* NewProductLaunchController */,
+				045A6FE22223D59D006081CF /* GlobalShoppingController */,
 				04F3B33321EDF43900DFBA84 /* OtherController */,
 			);
 			path = Controller;
@@ -1049,6 +1061,52 @@
 				042D1530221D629A00DB895C /* PaySuccessView.xib */,
 			);
 			path = "BuyNowView(立即购买)";
+			sourceTree = "<group>";
+		};
+		045A6FE22223D59D006081CF /* GlobalShoppingController */ = {
+			isa = PBXGroup;
+			children = (
+				045A6FE42223D607006081CF /* Model */,
+				045A6FE32223D607006081CF /* View */,
+				045A6FE52223D607006081CF /* Controller */,
+			);
+			path = GlobalShoppingController;
+			sourceTree = "<group>";
+		};
+		045A6FE32223D607006081CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				045A6FEC2223F4DB006081CF /* Cell */,
+				045A6FE92223F49B006081CF /* HorizontalCollectionView.h */,
+				045A6FEA2223F49B006081CF /* HorizontalCollectionView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		045A6FE42223D607006081CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		045A6FE52223D607006081CF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				045A6FE62223D636006081CF /* GlobalShoppingViewController.h */,
+				045A6FE72223D636006081CF /* GlobalShoppingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		045A6FEC2223F4DB006081CF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				045A6FED2223F514006081CF /* CountryCollectionViewCell.h */,
+				045A6FEE2223F514006081CF /* CountryCollectionViewCell.m */,
+				045A6FEF2223F514006081CF /* CountryCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		045FAEB7221E7E1C0086DE4E /* OrderDeliveryViewController */ = {
@@ -2378,6 +2436,7 @@
 				04C1AD23221172770011DDA3 /* lufei.jpg in Resources */,
 				04FA5D6121AE3F480061AF27 /* LoginViewController.xib in Resources */,
 				04EFA03621E74398007C2FCA /* ChannelViewCell.xib in Resources */,
+				045A6FF12223F514006081CF /* CountryCollectionViewCell.xib in Resources */,
 				04457ABD21FC4446003E5748 /* OrderSureHeaderView.xib in Resources */,
 				04F62FDB21F951440094B26F /* ShoppingCartHeaderView.xib in Resources */,
 				04F4466F21D720CE00524971 /* ShopItem.plist in Resources */,
@@ -2549,6 +2608,7 @@
 				049D479C219FEC1E0058178D /* HomeViewController.m in Sources */,
 				0423DADF21FFF52700325869 /* NewProductLaunchViewController.m in Sources */,
 				04F8ED5021E349E000004178 /* modifyAddressViewCell.m in Sources */,
+				045A6FEB2223F49B006081CF /* HorizontalCollectionView.m in Sources */,
 				04F3B30B21EDDAF900DFBA84 /* JXCategoryDotView.m in Sources */,
 				04F70C6521E97D17004BD4C6 /* GoodsShowTitleModel.m in Sources */,
 				04EFA02C21E73391007C2FCA /* EvaluationOfSuccessViewController.m in Sources */,
@@ -2590,11 +2650,13 @@
 				04F4469421D74FBF00524971 /* GoodsInfoView.m in Sources */,
 				04F4468F21D74F9000524971 /* UIButton+Bootstrap.m in Sources */,
 				04FC07F321B50855008FF83B /* SettingViewController.m in Sources */,
+				045A6FF02223F514006081CF /* CountryCollectionViewCell.m in Sources */,
 				04F3B32421EDE01000DFBA84 /* GoodsShowViewController.m in Sources */,
 				04F3B31C21EDDAF900DFBA84 /* JXCategoryCollectionView.m in Sources */,
 				04FC2C3C21C0E3AD00329B53 /* JFCityHeaderView.m in Sources */,
 				0463026021BBAC8D0003C542 /* DBLayoutConstraint.m in Sources */,
 				04F3B31221EDDAF900DFBA84 /* JXCategoryTitleView.m in Sources */,
+				045A6FE82223D636006081CF /* GlobalShoppingViewController.m in Sources */,
 				04457ABB21FC43B2003E5748 /* OrderSureHeaderView.m in Sources */,
 				04F3B32121EDDAF900DFBA84 /* JXCategoryBaseCellModel.m in Sources */,
 				04BF21862212B719002468C0 /* JXPagerListRefreshView.m in Sources */,

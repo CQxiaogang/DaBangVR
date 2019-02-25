@@ -170,7 +170,7 @@
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Du-gz-Nfy" userLabel="分割线">
                     <rect key="frame" x="0.0" y="114" width="375" height="10"/>
-                    <color key="backgroundColor" white="0.83847388698630143" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.89658604452054802" alpha="0.33714148116438358" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="10" id="OVS-hf-Tdh">
                             <userDefinedRuntimeAttributes>

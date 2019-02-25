@@ -17,8 +17,9 @@
 // Controllers
 #import "SpellGroupViewController.h"        //拼团
 #import "SecondsKillViewController.h"       //秒杀
-#import "ShoppingCartViewController.h"  //购物车
-#import "NewProductLaunchViewController.h"       //新品首发
+#import "ShoppingCartViewController.h"      //购物车
+#import "NewProductLaunchViewController.h"  //新品首发
+#import "GlobalShoppingViewController.h"    //全球购
 // Views
 #import "AnchorRecommendView.h" //主播推荐
 #import "ChannelMenuListView.h" //频道菜单列表
@@ -144,7 +145,7 @@ TopViewDelegate
 // 频道列表
 - (ChannelMenuListView *)channelMenuListView{
     if (!_channelMenuListView) {
-        _channelMenuListView = [[ChannelMenuListView alloc] initWithFrame:CGRectMake(0, 0, self.view.mj_w, Adapt(130))];
+        _channelMenuListView = [[ChannelMenuListView alloc] initWithFrame:CGRectMake(0, 0, self.view.mj_w, kFit(130))];
         _channelMenuListView.delegate = self;
     }
     return _channelMenuListView;
@@ -364,20 +365,21 @@ TopViewDelegate
 -(void)channelBtnOfClick:(NSInteger)row{
     switch (row) {
         case 0: // 视屏
-            [self videoShow];
+//            [self pushViewController:[SecondsKillViewController alloc]];
             break;
         case 1: // 海鲜
-            [self seafoodShow];
+            [self pushViewController:[GoodsShowViewController alloc]];
             break;
         case 2: // 拼团
-            [self spellGroup];
+            [self pushViewController:[SpellGroupViewController alloc]];
             break;
         case 3: // 限时秒杀
-            [self limitedTimeSecondsKill];
+            [self pushViewController:[SecondsKillViewController alloc]];
             break;
         case 4: // 大邦
             break;
         case 5: // 全球购
+            [self pushViewController:[GlobalShoppingViewController alloc]];
             break;
         case 6: // 新品首发
             [self pushViewController:[NewProductLaunchViewController alloc]];
@@ -385,27 +387,6 @@ TopViewDelegate
         default:
             break;
     }
-}
-
-- (void)videoShow{
-    
-}
-
-- (void)seafoodShow{
-    
-    GoodsShowViewController *goodsShowView = [[GoodsShowViewController alloc] init];
-    goodsShowView.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:goodsShowView animated:NO];
-}
-- (void)spellGroup{
-    SpellGroupViewController *vc = [[SpellGroupViewController alloc] init];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:NO];
-}
-- (void)limitedTimeSecondsKill{
-    SecondsKillViewController *vc = [[SecondsKillViewController alloc] init];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:NO];
 }
 
 - (void)pushViewController:(UIViewController *)vc{

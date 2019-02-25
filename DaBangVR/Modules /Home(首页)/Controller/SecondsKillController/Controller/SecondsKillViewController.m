@@ -15,13 +15,16 @@
 #import "HomeBannerView.h"
 #import "ShufflingView.h"
 
-@interface SecondsKillViewController ()
+@interface SecondsKillViewController (){
+    
+}
 
 @property (nonatomic, strong) SecondsKillTableView  *leftTableView;
 @property (nonatomic, strong) MySecondKillTableView *rightTableView;
 
 @property (nonatomic, copy) NSArray *dataSource;
-@property (nonatomic, strong) HomeBannerView *bannerView;
+//@property (nonatomic, strong) HomeBannerView *bannerView;
+@property (nonatomic, strong) ShufflingView *shufflingView;
 
 @end
 
@@ -34,18 +37,16 @@
 - (void)setupUI{
     [super setupUI];
     // 轮播图
-    ShufflingView *shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, kFit(180))];
-    [self.view addSubview:shufflingView];
-    
-    // 设置 底部切换 button
+    _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(180)) andIndex:@"1"];
+    // 设置 navagtionBar
+    [self setupNavagationBar];
+    // 底部 UI
     [self creatBottomUI];
-    
+    // 左边的 view
     [self creatLeftOfTableView];
-    
-
 }
 
-- (void)setupNavagation{
+- (void)setupNavagationBar{
     UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [shareBtn.widthAnchor constraintEqualToConstant:25].active = YES;
     [shareBtn.heightAnchor constraintEqualToConstant:25].active = YES;
@@ -59,7 +60,7 @@
     bottomView.backgroundColor = KWhiteColor;
     [self.view addSubview:bottomView];
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(0);
+        make.left.right.bottom.equalTo(@0);
         make.height.equalTo(kTabBarHeight);
     }];
     NSMutableArray *btns = [NSMutableArray new];
@@ -80,7 +81,7 @@
     }
     [btns mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:30 leadSpacing:30 tailSpacing:30];
     [btns mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.equalTo(@(0));
+        make.top.bottom.equalTo(@0);
     }];
     for (UIButton *button in btns) {
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -90,27 +91,25 @@
 }
 
 - (void)creatLeftOfTableView{
-    // 设置 navagtionBar
-    [self setupNavagation];
-    kWeakSelf(self);
+   
     _leftTableView = [[SecondsKillTableView alloc] init];
+    _leftTableView.tableHeaderView = _shufflingView;
     [self.view addSubview:_leftTableView];
     [_leftTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(0);
-        make.top.equalTo(weakself.bannerView.mas_bottom).offset(0);
+        make.left.right.equalTo(@0);
+        make.top.equalTo(0);
         make.bottom.equalTo(-kTabBarHeight);
     }];
 }
 
 - (void)creatRightOfTableView{
-    kWeakSelf(self);
     self.navigationItem.rightBarButtonItem = nil;
     
     _rightTableView = [[MySecondKillTableView alloc] init];
     [self.view addSubview:_rightTableView];
     [_rightTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(0);
-        make.top.equalTo(weakself.bannerView.mas_bottom).offset(0);
+        make.left.right.equalTo(@0);
+        make.top.equalTo(kTopHeight);
         make.bottom.equalTo(-kTabBarHeight);
     }];
 }

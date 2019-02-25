@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ShufflingView : UIView
-
+-(instancetype)initWithFrame:(CGRect)frame andIndex:(NSString *)index;
 @end
 
 NS_ASSUME_NONNULL_END

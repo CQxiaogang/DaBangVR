@@ -16,7 +16,7 @@
 
 @interface ShoppingCartViewController ()<UITableViewDelegate, UITableViewDataSource, ShopppingCartBottomViewDeldegate>
 {
-    NSString *_goodsIDStr;
+    NSString *_cartIds;
 }
 
 
@@ -188,14 +188,14 @@
  */
 - (void)countPrice {
     double totlePrice = 0.0;
-    NSMutableArray *goodsIDs = [NSMutableArray new];
+    NSMutableArray *cartIds = [NSMutableArray new];
     for (GoodsModel *goodsModel in self.selectArray) {
         double price = [goodsModel.retailPrice doubleValue];
         totlePrice += price * [goodsModel.number integerValue];
-        [goodsIDs addObject:goodsModel.goodsId];
+        [cartIds addObject:goodsModel.id];
     }
-    NSString *goodsIDStr = [goodsIDs componentsJoinedByString:@","];
-    _goodsIDStr = goodsIDStr;
+    NSString *cartId = [cartIds componentsJoinedByString:@","];
+    _cartIds = cartId;
     self.bottomView.allPriceLabel.text = [NSString stringWithFormat:@"合计 ￥%.2f", totlePrice];
 }
 
@@ -392,8 +392,8 @@
 #pragma mark —— 底部 view 协议
 // 去付款
 -(void)goPaymentOfClick{
-    if (_goodsIDStr) {
-        [NetWorkHelper POST:URl_confirmGoods2Cart parameters:@{@"cartIds":_goodsIDStr} success:^(id  _Nonnull responseObject) {
+    if (_cartIds) {
+        [NetWorkHelper POST:URl_confirmGoods2Cart parameters:@{@"cartIds":_cartIds} success:^(id  _Nonnull responseObject) {
             
             OrderSureViewController *vc = [[OrderSureViewController alloc] init];
             [self.navigationController pushViewController:vc animated:NO];

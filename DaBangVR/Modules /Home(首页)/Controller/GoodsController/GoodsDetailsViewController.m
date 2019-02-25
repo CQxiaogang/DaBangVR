@@ -6,7 +6,6 @@
 //  Copyright © 2018 DaBangVR. All rights reserved.
 //
 // Controllers
-#import <WebKit/WebKit.h>
 #import "GoodsDetailsViewController.h"
 #import "AllCommentsViewController.h" //查看所以评论
 #import "OrderSureViewController.h"      //立即购买
@@ -22,7 +21,9 @@
 #import "FGGAutoScrollView.h" //无限轮播
 
 static NSArray *globalArray;
-@interface GoodsDetailsViewController ()<GoodsDetailsViewDelegate, WKNavigationDelegate, WKUIDelegate>
+@interface GoodsDetailsViewController ()<GoodsDetailsViewDelegate, UIWebViewDelegate>{
+    NSInteger _tablewVierwFooterHight;
+}
 /* 通知 */
 @property (weak ,nonatomic) id dcObj;
 // 数据源
@@ -36,7 +37,7 @@ static NSArray *globalArray;
 // 回传数据,商品的属性
 @property (nonatomic, copy)   NSArray      *goodsAttributesArr;
 // 网页加载
-@property (nonatomic, strong) WKWebView    *wkWebView;
+@property (nonatomic, strong) UIWebView    *webView;
 // 商品详情
 @property (nonatomic, strong) NSDictionary *goodsDetails;
 @end
@@ -59,32 +60,16 @@ static NSString *CellID = @"CellID";
     }
     return _data;
 }
--(WKWebView *)wkWebView{
-    if (!_wkWebView) {
-        _wkWebView = [[WKWebView alloc] init];
-        
-        //以下代码适配大小
-        NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
-        
-        WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
-        WKUserContentController *wkUController = [[WKUserContentController alloc] init];
-        [wkUController addUserScript:wkUScript];
-        
-        WKWebViewConfiguration *wkWebConfig = [[WKWebViewConfiguration alloc] init];
-        wkWebConfig.userContentController = wkUController;
-        
-        _wkWebView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:wkWebConfig];
-   
-        _wkWebView.UIDelegate = self;
-        _wkWebView.navigationDelegate = self;
-        // 禁止滑动
-//        _wkWebView.scrollView.scrollEnabled = NO;
-//        // 禁止交互
-        _wkWebView.userInteractionEnabled = NO;
-        _wkWebView.contentMode = UIViewContentModeScaleAspectFill;
+
+-(UIWebView *)webView{
+    if (!_webView) {
+        _webView = [[UIWebView alloc] init];
+        _webView.delegate = self;
+        _webView.userInteractionEnabled = NO;
     }
-    return _wkWebView;
+    return _webView;
 }
+
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -103,10 +88,8 @@ static NSString *CellID = @"CellID";
         NSDictionary *goodsDetails = dataDic[@"goodsDetails"];
         weakself.goodsDetails = goodsDetails;
         weakself.model = [GoodsDetailsModel modelWithDictionary:goodsDetails];
-          NSString *htmlString = [goodsDetails[@"goodsDesc"] stringByReplacingOccurrencesOfString:@"300" withString:[NSString stringWithFormat:@"%.f",KScreenW]];
         // html加载
-        [self.wkWebView loadHTMLString:htmlString baseURL:nil];
-        
+        [self.webView loadHTMLString:goodsDetails[@"goodsDesc"] baseURL:nil];
         [self setupOtherUI];
         
         [weakself.tableView reloadData];
@@ -212,7 +195,7 @@ static NSString *CellID = @"CellID";
     _goodsView.delegate = self;
     self.tableView.tableHeaderView = _goodsView;
     // 设置footerView
-    self.tableView.tableFooterView = self.wkWebView;
+    self.tableView.tableFooterView = self.webView;
 }
 #pragma mark —— UI设置
 - (void)setupNavagation{
@@ -378,22 +361,28 @@ static NSString *CellID = @"CellID";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 39;
 }
-
+//-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+//    return _webView;
+//}
+//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+//    return _tablewVierwFooterHight;
+//}
 #pragma mark —— 购物车
 - (void)shoppingCarOfAction{
     ShoppingCartViewController *vc = [[ShoppingCartViewController alloc] init];
     [self.navigationController pushViewController:vc animated:NO];
 }
 
-#pragma mark —— WKNavigationDelegate
+#pragma mark —— UIWebView 代理
 // 页面加载完成之后调用
-- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
-    NSLog(@"加载完成");
-    [webView evaluateJavaScript:@"document.body.scrollHeight;" completionHandler:^(id _Nullable any, NSError * _Nullable error){
-        NSString *heightStr = [NSString stringWithFormat:@"%@",any];
-        [self.wkWebView setHeight:heightStr.intValue];
-        [self.tableView reloadData];
-    }];
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    for (int i = 0; i<15; i++) {
+        NSString *str = [NSString stringWithFormat:@"document.getElementsByTagName('img')[%d].style.width = '100%%'",i];
+        [self.webView stringByEvaluatingJavaScriptFromString:str];
+    }
+    CGFloat webHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
+    [self.webView setSize:CGSizeMake(KScreenW, webHeight)];
+    [self.tableView reloadData];
 }
 
 @end
