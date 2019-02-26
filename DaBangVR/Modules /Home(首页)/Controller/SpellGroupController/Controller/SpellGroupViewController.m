@@ -87,7 +87,7 @@
         [self.listContainerView removeFromSuperview];
     }
     CGFloat categoryVHeight = Adapt(40);
-    self.categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, categoryVHeight)];
+    self.categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, categoryVHeight)];
     self.categoryView.titles = self.goodsNames;
     self.categoryView.defaultSelectedIndex = 0;
     self.categoryView.delegate = self;
@@ -96,7 +96,7 @@
     [self.view addSubview:self.categoryView];
     
     self.listContainerView = [[JXCategoryListContainerView alloc] initWithParentVC:self delegate:self];
-    self.listContainerView.frame = CGRectMake(0, categoryVHeight, KScreenW, KScreenH - categoryVHeight - kTopHeight - kNavBarHeight);
+    self.listContainerView.frame = CGRectMake(0, categoryVHeight+kTopHeight, KScreenW, KScreenH - categoryVHeight - kTopHeight - kNavBarHeight);
     self.listContainerView.defaultSelectedIndex = 0;
     self.listContainerView.tag = 0;
     [self.view addSubview:self.listContainerView];

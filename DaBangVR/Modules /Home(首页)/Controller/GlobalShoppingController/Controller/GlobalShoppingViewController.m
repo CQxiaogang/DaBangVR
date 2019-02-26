@@ -80,7 +80,8 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
     [super setupUI];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.bottom.equalTo(0);
+        make.left.right.bottom.equalTo(0);
+        make.top.equalTo(kTopHeight);
     }];
     // 设置顶部的搜索框
     [self setupNavagationBar];

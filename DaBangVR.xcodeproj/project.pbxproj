@@ -71,6 +71,7 @@
 		04716AC12224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04716ABF2224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib */; };
 		04716AC52224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04716AC32224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m */; };
 		04716AC62224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04716AC42224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.xib */; };
+		04716ACD22254F2F00FE2B42 /* SortSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04716ACC22254F2F00FE2B42 /* SortSearchViewController.m */; };
 		048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E692B21A26C5A00DB911A /* UIColor+category.m */; };
 		049703E621A69860002359B5 /* DBLiveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049703E421A69860002359B5 /* DBLiveTableViewCell.m */; };
 		049703E721A69860002359B5 /* DBLiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049703E521A69860002359B5 /* DBLiveTableViewCell.xib */; };
@@ -384,6 +385,8 @@
 		04716AC22224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendGoodsCollectionViewCell.h; sourceTree = "<group>"; };
 		04716AC32224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendGoodsCollectionViewCell.m; sourceTree = "<group>"; };
 		04716AC42224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendGoodsCollectionViewCell.xib; sourceTree = "<group>"; };
+		04716ACB22254F2F00FE2B42 /* SortSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SortSearchViewController.h; sourceTree = "<group>"; };
+		04716ACC22254F2F00FE2B42 /* SortSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SortSearchViewController.m; sourceTree = "<group>"; };
 		048E692A21A26C5A00DB911A /* UIColor+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+category.h"; sourceTree = "<group>"; };
 		048E692B21A26C5A00DB911A /* UIColor+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+category.m"; sourceTree = "<group>"; };
 		049703E321A69860002359B5 /* DBLiveTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBLiveTableViewCell.h; sourceTree = "<group>"; };
@@ -793,7 +796,7 @@
 				04F2FD2021EF2549000B58E2 /* SecondsKillController */,
 				0423DADC21FFF45100325869 /* NewProductLaunchController */,
 				045A6FE22223D59D006081CF /* GlobalShoppingController */,
-				04F3B33321EDF43900DFBA84 /* OtherController */,
+				04716AC722254E6C00FE2B42 /* SortSearchController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1183,6 +1186,39 @@
 				0463025C21BBAC8D0003C542 /* DBLayoutConstraint.m */,
 			);
 			path = Adaptive;
+			sourceTree = "<group>";
+		};
+		04716AC722254E6C00FE2B42 /* SortSearchController */ = {
+			isa = PBXGroup;
+			children = (
+				04716AC922254ED100FE2B42 /* Model */,
+				04716ACA22254ED200FE2B42 /* View */,
+				04716AC822254ED100FE2B42 /* Controller */,
+			);
+			path = SortSearchController;
+			sourceTree = "<group>";
+		};
+		04716AC822254ED100FE2B42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04716ACB22254F2F00FE2B42 /* SortSearchViewController.h */,
+				04716ACC22254F2F00FE2B42 /* SortSearchViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04716AC922254ED100FE2B42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04716ACA22254ED200FE2B42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		048E692921A26A9E00DB911A /* Category */ = {
@@ -1800,13 +1836,6 @@
 				04F8ED4A21E3453800004178 /* ModifyAddressViewController.m */,
 			);
 			path = GoodsController;
-			sourceTree = "<group>";
-		};
-		04F3B33321EDF43900DFBA84 /* OtherController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = OtherController;
 			sourceTree = "<group>";
 		};
 		04F3CF0721CB4B62007C40A1 /* NavigationController */ = {
@@ -2561,6 +2590,7 @@
 				04BF21892212B719002468C0 /* DetailViewController.m in Sources */,
 				04F3CF0621CB2FF1007C40A1 /* UserInfo.m in Sources */,
 				04F8ED4B21E3453800004178 /* ModifyAddressViewController.m in Sources */,
+				04716ACD22254F2F00FE2B42 /* SortSearchViewController.m in Sources */,
 				04EFA02621E7226D007C2FCA /* OrderProcessingViewController2.m in Sources */,
 				04F3B30921EDDAF900DFBA84 /* JXCategoryIndicatorView.m in Sources */,
 				04F8FBFE21F1ADE900913150 /* AllCommentsModel.m in Sources */,

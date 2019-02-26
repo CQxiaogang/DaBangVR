@@ -20,6 +20,7 @@
 #import "ShoppingCartViewController.h"      //购物车
 #import "NewProductLaunchViewController.h"  //新品首发
 #import "GlobalShoppingViewController.h"    //全球购
+#import "SortSearchViewController.h"        //分类搜索
 // Views
 #import "AnchorRecommendView.h" //主播推荐
 #import "ChannelMenuListView.h" //频道菜单列表
@@ -368,21 +369,24 @@ TopViewDelegate
 //            [self pushViewController:[SecondsKillViewController alloc]];
             break;
         case 1: // 海鲜
-            [self pushViewController:[GoodsShowViewController alloc]];
+            [self pushViewController:[GoodsShowViewController new]];
             break;
         case 2: // 拼团
-            [self pushViewController:[SpellGroupViewController alloc]];
+            [self pushViewController:[SpellGroupViewController new]];
             break;
         case 3: // 限时秒杀
-            [self pushViewController:[SecondsKillViewController alloc]];
+            [self pushViewController:[SecondsKillViewController new]];
             break;
         case 4: // 大邦
             break;
         case 5: // 全球购
-            [self pushViewController:[GlobalShoppingViewController alloc]];
+            [self pushViewController:[GlobalShoppingViewController new]];
             break;
         case 6: // 新品首发
-            [self pushViewController:[NewProductLaunchViewController alloc]];
+            [self pushViewController:[NewProductLaunchViewController new]];
+            break;
+        case 8: // 分类搜索
+            [self pushViewController:[SortSearchViewController new]];
             break;
         default:
             break;

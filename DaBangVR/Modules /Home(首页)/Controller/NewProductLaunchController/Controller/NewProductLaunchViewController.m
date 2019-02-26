@@ -26,7 +26,8 @@ static NSString *CellID = @"CellID";
     [self.tableView registerNib:[UINib nibWithNibName:@"NewProductLaunchCell" bundle:nil] forCellReuseIdentifier:CellID];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.bottom.equalTo(0);
+        make.left.top.equalTo(kTopHeight);
+        make.left.right.bottom.equalTo(0);
     }];
 }
 

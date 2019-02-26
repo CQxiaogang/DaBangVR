@@ -97,7 +97,7 @@
     [self.view addSubview:_leftTableView];
     [_leftTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(@0);
-        make.top.equalTo(0);
+        make.top.equalTo(kTopHeight);
         make.bottom.equalTo(-kTabBarHeight);
     }];
 }

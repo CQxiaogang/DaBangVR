@@ -62,7 +62,7 @@
     CGFloat height = KScreenH - kNavBarHeight -categoryViewHeight;
     
     self.categoryView = [[JXCategoryTitleView alloc] init];
-    self.categoryView.frame = CGRectMake(0, 0, KScreenW, categoryViewHeight);
+    self.categoryView.frame = CGRectMake(0, kTopHeight, KScreenW, categoryViewHeight);
     self.categoryView.delegate = self;
     self.categoryView.titles = names;
     self.categoryView.defaultSelectedIndex = 0;
@@ -71,7 +71,7 @@
     [self.view addSubview:self.categoryView];
     
     self.listContainerView = [[JXCategoryListContainerView alloc] initWithParentVC:self delegate:self];
-    self.listContainerView.frame = CGRectMake(0, categoryViewHeight, width, height);
+    self.listContainerView.frame = CGRectMake(0, categoryViewHeight+kTopHeight, width, height);
     self.listContainerView.defaultSelectedIndex = 0;
     [self.view addSubview:self.listContainerView];
     self.categoryView.contentScrollView = self.listContainerView.scrollView;
