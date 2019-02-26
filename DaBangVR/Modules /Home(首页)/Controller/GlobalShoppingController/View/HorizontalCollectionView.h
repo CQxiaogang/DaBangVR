@@ -10,7 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HorizontalCollectionView : UIView
+@interface HorizontalCollectionView : UICollectionView
+
+-(instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(nonnull UICollectionViewLayout *)layout nibWithNibName:(NSString *)NibName;
 
 @end
 

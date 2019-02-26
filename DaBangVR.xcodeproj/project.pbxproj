@@ -67,6 +67,10 @@
 		0463026021BBAC8D0003C542 /* DBLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463025C21BBAC8D0003C542 /* DBLayoutConstraint.m */; };
 		0463026321BBC8C40003C542 /* DBTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463026221BBC8C40003C542 /* DBTopView.m */; };
 		0463026521BBC8DB0003C542 /* DBTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0463026421BBC8DB0003C542 /* DBTopView.xib */; };
+		04716AC02224E69000FE2B42 /* CountryGoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04716ABE2224E69000FE2B42 /* CountryGoodsCollectionViewCell.m */; };
+		04716AC12224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04716ABF2224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib */; };
+		04716AC52224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04716AC32224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m */; };
+		04716AC62224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04716AC42224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.xib */; };
 		048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E692B21A26C5A00DB911A /* UIColor+category.m */; };
 		049703E621A69860002359B5 /* DBLiveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049703E421A69860002359B5 /* DBLiveTableViewCell.m */; };
 		049703E721A69860002359B5 /* DBLiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049703E521A69860002359B5 /* DBLiveTableViewCell.xib */; };
@@ -374,6 +378,12 @@
 		0463026121BBC8C40003C542 /* DBTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBTopView.h; sourceTree = "<group>"; };
 		0463026221BBC8C40003C542 /* DBTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBTopView.m; sourceTree = "<group>"; };
 		0463026421BBC8DB0003C542 /* DBTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBTopView.xib; sourceTree = "<group>"; };
+		04716ABD2224E69000FE2B42 /* CountryGoodsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryGoodsCollectionViewCell.h; sourceTree = "<group>"; };
+		04716ABE2224E69000FE2B42 /* CountryGoodsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountryGoodsCollectionViewCell.m; sourceTree = "<group>"; };
+		04716ABF2224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryGoodsCollectionViewCell.xib; sourceTree = "<group>"; };
+		04716AC22224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendGoodsCollectionViewCell.h; sourceTree = "<group>"; };
+		04716AC32224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendGoodsCollectionViewCell.m; sourceTree = "<group>"; };
+		04716AC42224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendGoodsCollectionViewCell.xib; sourceTree = "<group>"; };
 		048E692A21A26C5A00DB911A /* UIColor+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+category.h"; sourceTree = "<group>"; };
 		048E692B21A26C5A00DB911A /* UIColor+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+category.m"; sourceTree = "<group>"; };
 		049703E321A69860002359B5 /* DBLiveTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBLiveTableViewCell.h; sourceTree = "<group>"; };
@@ -1105,6 +1115,12 @@
 				045A6FED2223F514006081CF /* CountryCollectionViewCell.h */,
 				045A6FEE2223F514006081CF /* CountryCollectionViewCell.m */,
 				045A6FEF2223F514006081CF /* CountryCollectionViewCell.xib */,
+				04716ABD2224E69000FE2B42 /* CountryGoodsCollectionViewCell.h */,
+				04716ABE2224E69000FE2B42 /* CountryGoodsCollectionViewCell.m */,
+				04716ABF2224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib */,
+				04716AC22224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.h */,
+				04716AC32224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m */,
+				04716AC42224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2443,6 +2459,8 @@
 				04F8665021A7D50D00A4D7F6 /* MineHeaderView.xib in Resources */,
 				04F7360B21B679CE001CEBC0 /* MineTableViewCell.xib in Resources */,
 				04F3271421D09779009267F4 /* GoodsShowTableViewCell.xib in Resources */,
+				04716AC62224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.xib in Resources */,
+				04716AC12224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib in Resources */,
 				0459D91421E0A78F009BFFB4 /* OrderSureTableViewCell.xib in Resources */,
 				042D1531221D629A00DB895C /* PaySuccessView.xib in Resources */,
 				04F8ED5121E349E000004178 /* modifyAddressViewCell.xib in Resources */,
@@ -2553,6 +2571,7 @@
 				04F2FD2821EF35DE000B58E2 /* SpellGroupCell.m in Sources */,
 				04BF218B2212B719002468C0 /* PagingViewController.m in Sources */,
 				04F3B30521EDDAF900DFBA84 /* JXCategoryIndicatorComponentView.m in Sources */,
+				04716AC52224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m in Sources */,
 				04F4468C21D74F9000524971 /* DBCollectionHeaderLayout.m in Sources */,
 				04F62FD921F951440094B26F /* ShoppingCartCell.m in Sources */,
 				0459D89621E04FEA009BFFB4 /* OrderSureViewController.m in Sources */,
@@ -2684,6 +2703,7 @@
 				04F084F321E496DA00BFE102 /* MyOrderViewController.m in Sources */,
 				04F3B31A21EDDAF900DFBA84 /* JXCategoryListVCContainerView.m in Sources */,
 				04F3B30D21EDDAF900DFBA84 /* JXCategoryTitleImageView.m in Sources */,
+				04716AC02224E69000FE2B42 /* CountryGoodsCollectionViewCell.m in Sources */,
 				04F5C8ED21CA4D1D008DD043 /* BSFitdpiUtil.m in Sources */,
 				042D152F221D628F00DB895C /* PaySuccessView.m in Sources */,
 				04F084F021E48F9600BFE102 /* BaseTableViewCell.m in Sources */,

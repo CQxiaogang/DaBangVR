@@ -16,16 +16,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Modules /Mine(&#x6211;&#x7684;)/ShoppingCartController/Controller/ShoppingCartViewController.m"
-            timestampString = "572781565.138581"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/Controller/SpellGroupController/Controller/SpellGroupViewController.m"
+            timestampString = "572869267.214518"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "398"
-            endingLineNumber = "398"
-            landmarkName = "-goPaymentOfClick"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "-didSelectGoodsShowDetails:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

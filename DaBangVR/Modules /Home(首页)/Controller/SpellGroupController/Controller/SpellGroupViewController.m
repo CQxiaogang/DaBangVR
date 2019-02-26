@@ -55,8 +55,7 @@
     kWeakSelf(self);
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_enter(group);
-    NSDictionary *dic = @{@"parentId":@"1036100"
-                          };
+    NSDictionary *dic = @{@"parentId":@"1"};
     [NetWorkHelper POST:URL_getGoodsCategoryList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
         NSArray *list = dataDic[@"goodsCategoryList"];

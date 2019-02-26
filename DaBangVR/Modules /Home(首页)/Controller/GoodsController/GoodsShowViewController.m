@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [NetWorkHelper POST:URL_getGoodsCategoryList parameters:@{@"parentId":@"1036096"} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URL_getGoodsCategoryList parameters:@{@"parentId":@"1"} success:^(id  _Nonnull responseObject) {
         NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
         NSArray *goodsList = dataDic[@"goodsCategoryList"];
         for (NSDictionary *dic in goodsList) {
