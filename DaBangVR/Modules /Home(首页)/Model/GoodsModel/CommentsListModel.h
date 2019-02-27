@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AllCommentsModel : NSObject
+@interface CommentsListModel : NSObject
 // ID
-@property (nonatomic, copy) NSString *ID;
+@property (nonatomic, copy) NSString *id;
 // 用户 ID
 @property (nonatomic, copy) NSString *userId;
 // 商品 ID
@@ -25,6 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *state;
 // 评论数据
 @property (nonatomic, copy) NSString *commentData;
+// user 名字
+@property (nonatomic, copy) NSString *nickName;
+// user 头像
+@property (nonatomic, copy) NSString *headUrl;
 
 @end
 

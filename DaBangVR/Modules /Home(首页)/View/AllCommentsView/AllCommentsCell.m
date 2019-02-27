@@ -15,10 +15,11 @@
     [super awakeFromNib];
 }
 
-- (void)setModel:(AllCommentsModel *)model{
+- (void)setModel:(CommentsListModel *)model{
     _model = model;
-    _CommentsContentLabel.text = model.commentContent;
-    
+    _userComments.text = model.commentContent;
+    _userName.text = model.nickName;
+    [_userImgView setImageURL:[NSURL URLWithString:model.headUrl]];
 }
 
 @end

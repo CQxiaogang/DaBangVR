@@ -10,22 +10,22 @@
 // Cells
 #import "AllCommentsCell.h"
 // Models
-#import "AllCommentsModel.h"
+#import "CommentsListModel.h"
 
 @interface AllCommentsViewController ()
 // 数据源
-@property (nonatomic, copy) NSMutableArray *data;
+@property (nonatomic, copy) NSMutableArray *commentsData;
 
 @end
 
 @implementation AllCommentsViewController
 static NSString *CellID = @"CellID";
 #pragma mark —— 懒加载
-- (NSMutableArray *)data{
-    if (!_data) {
-        _data = [NSMutableArray new];
+- (NSMutableArray *)commentsData{
+    if (!_commentsData) {
+        _commentsData = [NSMutableArray new];
     }
-    return _data;
+    return _commentsData;
 }
 
 - (void)viewDidLoad {
@@ -36,15 +36,11 @@ static NSString *CellID = @"CellID";
 
 - (void)getData:(NSString *)goodsId{
     
-    [NetWorkHelper POST:URl_comment_list_two parameters:@{@"goodsId":goodsId} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_getCommentListTwo parameters:@{@"goodsId":goodsId} success:^(id  _Nonnull responseObject) {
         
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSDictionary *dataDic = dic[@"data"];
-        NSArray *commentArr = dataDic[@"commentVoList"];
-        for (NSDictionary *dic in commentArr) {
-            AllCommentsModel *model = [AllCommentsModel modelWithDictionary:dic];
-            [self.data addObject:model];
-        }
+        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
+        NSDictionary *commentVoList = data[@"commentVoList"];
+        self.commentsData = [CommentsListModel mj_objectArrayWithKeyValuesArray:commentVoList];
         [self.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {
         
@@ -64,14 +60,14 @@ static NSString *CellID = @"CellID";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.data.count;
+    return self.commentsData.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AllCommentsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     if (!cell) {
         cell = [[AllCommentsCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
-    cell.model = self.data[indexPath.row];
+    cell.model = self.commentsData[indexPath.row];
     return cell;
 }
 

@@ -32,7 +32,7 @@ static NSString *CellID = @"CellID";
         // 第一个cell和最后一个cell,与父控件之间的间距
         layout.sectionInset = UIEdgeInsetsMake(0, Adapt(20), 0, Adapt(20));
         //
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.mj_w,130) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:self.frame collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.backgroundColor = KWhiteColor;

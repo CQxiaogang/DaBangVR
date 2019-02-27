@@ -7,19 +7,19 @@
 //
 
 #import "BaseTableViewCell.h"
-#import "AllCommentsModel.h"
+#import "CommentsListModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AllCommentsCell : BaseTableViewCell
 // 头像
-@property (weak, nonatomic) IBOutlet UIImageView *headImgView;
+@property (weak, nonatomic) IBOutlet UIImageView *userImgView;
 // 昵称
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userName;
 //评论内容
-@property (weak, nonatomic) IBOutlet UILabel *CommentsContentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userComments;
 
 
-@property (nonatomic, strong)AllCommentsModel *model;
+@property (nonatomic, strong)CommentsListModel *model;
 
 @end
 

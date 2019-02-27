@@ -21,15 +21,23 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="20X-Mj-XXf">
                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                        <color key="backgroundColor" red="0.094376392660000002" green="0.8590441942" blue="0.86259275670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="70" id="YxA-gG-kAz"/>
+                            <constraint firstAttribute="height" constant="70" id="YxA-gG-kAz">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ba4-bJ-5lL">
                         <rect key="frame" x="0.0" y="70" width="70" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="cl3-T0-AbA"/>
+                            <constraint firstAttribute="height" constant="20" id="cl3-T0-AbA">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

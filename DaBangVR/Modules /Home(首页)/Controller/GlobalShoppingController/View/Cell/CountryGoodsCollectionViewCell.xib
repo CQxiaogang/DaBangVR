@@ -21,7 +21,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3q3-Xs-zyj">
                         <rect key="frame" x="0.0" y="0.0" width="70" height="90"/>
-                        <color key="backgroundColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="uIP-pl-Oxv"/>
                         </constraints>
@@ -103,13 +103,16 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdM-u9-hoj">
+                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdM-u9-hoj">
                         <rect key="frame" x="133" y="50" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="0z0-g3-EYg"/>
                             <constraint firstAttribute="width" constant="40" id="6k0-OR-wpE"/>
                         </constraints>
                         <state key="normal" image="s-Shopping_Cart"/>
+                        <connections>
+                            <action selector="addShoppingCarOfAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="ETk-Rv-Wzy"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
@@ -148,6 +151,12 @@
                 <constraint firstItem="euw-XQ-mcC" firstAttribute="centerY" secondItem="Gdd-pF-KcB" secondAttribute="centerY" id="zzZ-bO-5ck"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <connections>
+                <outlet property="goodsDescribe" destination="KPL-Xt-lxm" id="rci-CC-zna"/>
+                <outlet property="goodsImgView" destination="3q3-Xs-zyj" id="29k-xK-hK1"/>
+                <outlet property="goodsPrice" destination="3Ku-tj-X1a" id="LaP-fq-95v"/>
+                <outlet property="sendGoodsArea" destination="DBF-em-BQy" id="eX3-iq-o5U"/>
+            </connections>
             <point key="canvasLocation" x="-71.200000000000003" y="106.14692653673164"/>
         </collectionViewCell>
     </objects>

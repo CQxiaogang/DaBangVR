@@ -31,8 +31,8 @@
 #if DevelopSever
 
 /**开发服务器*/
-//#define URL_main @"http://www.vrzbgw.com/dabang"
-#define URL_main @"http://192.168.1.111:8080"
+#define URL_main @"http://www.vrzbgw.com/dabang"
+//#define URL_main @"http://192.168.1.111:8080"
 //#define URL_main @"http://192.168.1.105:8080"
 #elif TestSever
 
@@ -61,17 +61,18 @@
 #define URL_getGroupGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGroupGoodsList?")
 // 新品首发列表
 #define URL_getNewGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/goods/getNewGoodsList?")
-
 // 商品详情
 #define URL_getGoodsDetails NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGoodsDetails?")
 // 添加商品评论
 #define URL_comment_save @""
 // 商品评论列表
-#define URl_comment_list_two NSStringFormat(@"%@%@",URL_main,@"/api/goods/getCommentListTwo?")
-// 商品评论列表，最近三条
-#define URl_comment_list NSStringFormat(@"%@%@",URL_main,@"/api/goods/getCommentList?")
+#define URl_getCommentListTwo NSStringFormat(@"%@%@",URL_main,@"/api/goods/getCommentListTwo?")
 // 购物车列表
 #define URl_getGoods2CartList NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGoods2CartList?page=1&limit=10")
+// 全球购商品列表
+#define URl_getGlobalList NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGlobalList?")
+// 根据国家列表，查询商品
+#define URl_getGlobalLists NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGlobalLists?")
 
 #pragma mark ——————  登陆授权接口  ——————
 // 登录

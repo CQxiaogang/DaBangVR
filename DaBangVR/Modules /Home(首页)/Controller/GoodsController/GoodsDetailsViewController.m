@@ -16,7 +16,7 @@
 #import "NewCommentCell.h"
 // Models
 #import "GoodsDetailsModel.h"
-#import "AllCommentsModel.h"
+#import "CommentsListModel.h"
 // Vendors
 #import "FGGAutoScrollView.h" //无限轮播
 
@@ -30,8 +30,6 @@ static NSArray *globalArray;
 @property (nonatomic, strong) GoodsDetailsModel *model;
 // 自动循环滚动视图
 @property (nonatomic, strong) FGGAutoScrollView *bannerView;
-// 数据源
-@property (nonatomic, strong) NSMutableArray *data;
 // 商品详情 view
 @property (nonatomic, strong)GoodsDetailsView *goodsView;
 // 回传数据,商品的属性
@@ -40,6 +38,8 @@ static NSArray *globalArray;
 @property (nonatomic, strong) UIWebView    *webView;
 // 商品详情
 @property (nonatomic, strong) NSDictionary *goodsDetails;
+// 评论数据
+@property (nonatomic, strong) NSMutableArray *commentsData;
 @end
 
 @implementation GoodsDetailsViewController{
@@ -54,12 +54,6 @@ static NSString *CellID = @"CellID";
     }
     return _model;
 }
--(NSMutableArray *)data{
-    if (!_data) {
-        _data = [NSMutableArray new];
-    }
-    return _data;
-}
 
 -(UIWebView *)webView{
     if (!_webView) {
@@ -69,7 +63,12 @@ static NSString *CellID = @"CellID";
     }
     return _webView;
 }
-
+-(NSMutableArray *)commentsData{
+    if (!_commentsData) {
+        _commentsData = [[NSMutableArray alloc] init];
+    }
+    return _commentsData;
+}
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -85,30 +84,19 @@ static NSString *CellID = @"CellID";
     [NetWorkHelper POST:URL_getGoodsDetails parameters:@{@"goodsId":_index} success:^(id  _Nonnull responseObject) {
         
         NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
+        // 商品详情
         NSDictionary *goodsDetails = dataDic[@"goodsDetails"];
         weakself.goodsDetails = goodsDetails;
         weakself.model = [GoodsDetailsModel modelWithDictionary:goodsDetails];
+        // 评论
+        NSDictionary *commentVoList = dataDic[@"commentVoList"];
+        self.commentsData = [CommentsListModel mj_objectArrayWithKeyValuesArray:commentVoList];
         // html加载
         [self.webView loadHTMLString:goodsDetails[@"goodsDesc"] baseURL:nil];
         [self setupOtherUI];
         
         [weakself.tableView reloadData];
     
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
-    
-    // 三条评论
-    [NetWorkHelper POST:URl_comment_list parameters:@{@"goodsId":_index} success:^(id  _Nonnull responseObject) {
-        
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSDictionary *dataDic = dic[@"data"];
-        NSArray *commentArr = dataDic[@"commentVoList"];
-        for (NSDictionary *dic in commentArr) {
-            AllCommentsModel *model = [AllCommentsModel modelWithDictionary:dic];
-            [weakself.data addObject:model];
-        }
-        [weakself.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {
         
     }];
@@ -345,28 +333,23 @@ static NSString *CellID = @"CellID";
 - (void)customerServiceBtnOfAction{
     
 }
-
+#pragma mark —— tableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.data.count;
+    return self.commentsData.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NewCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     if (!cell) {
         cell = [[NewCommentCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
-    cell.model = self.data[indexPath.row];
+    cell.model = self.commentsData[indexPath.row];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 39;
+    return kFit(39);
 }
-//-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-//    return _webView;
-//}
-//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-//    return _tablewVierwFooterHight;
-//}
+
 #pragma mark —— 购物车
 - (void)shoppingCarOfAction{
     ShoppingCartViewController *vc = [[ShoppingCartViewController alloc] init];

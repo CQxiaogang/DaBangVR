@@ -44,6 +44,7 @@
 		04457ABD21FC4446003E5748 /* OrderSureHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04457ABC21FC4446003E5748 /* OrderSureHeaderView.xib */; };
 		04457AC021FC48C3003E5748 /* OrderDeptGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04457ABF21FC48C3003E5748 /* OrderDeptGoodsModel.m */; };
 		04457AC321FC49EE003E5748 /* OrderGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04457AC221FC49EE003E5748 /* OrderGoodsModel.m */; };
+		0449C32C2226251A007EE9E1 /* CountryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0449C32B2226251A007EE9E1 /* CountryListModel.m */; };
 		044F3BA921F0201B00F3AD5E /* MySpellGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F3BA721F0201B00F3AD5E /* MySpellGroupCell.m */; };
 		044F3BAA21F0201B00F3AD5E /* MySpellGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044F3BA821F0201B00F3AD5E /* MySpellGroupCell.xib */; };
 		044F3BAD21F0803900F3AD5E /* ProductInfoVoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F3BAC21F0803900F3AD5E /* ProductInfoVoListModel.m */; };
@@ -235,7 +236,7 @@
 		04F8ED5121E349E000004178 /* modifyAddressViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8ED4F21E349E000004178 /* modifyAddressViewCell.xib */; };
 		04F8FBFA21F17E0200913150 /* AllCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8FBF821F17E0200913150 /* AllCommentsCell.m */; };
 		04F8FBFB21F17E0200913150 /* AllCommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8FBF921F17E0200913150 /* AllCommentsCell.xib */; };
-		04F8FBFE21F1ADE900913150 /* AllCommentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8FBFD21F1ADE900913150 /* AllCommentsModel.m */; };
+		04F8FBFE21F1ADE900913150 /* CommentsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8FBFD21F1ADE900913150 /* CommentsListModel.m */; };
 		04F8FC0221F1D3F700913150 /* SecondsKillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8FC0121F1D3F700913150 /* SecondsKillCell.m */; };
 		04F8FC0421F1D40400913150 /* SecondsKillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8FC0321F1D40400913150 /* SecondsKillCell.xib */; };
 		04FA5D6021AE3F480061AF27 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA5D5E21AE3F480061AF27 /* LoginViewController.m */; };
@@ -340,6 +341,8 @@
 		04457ABF21FC48C3003E5748 /* OrderDeptGoodsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDeptGoodsModel.m; sourceTree = "<group>"; };
 		04457AC121FC49EE003E5748 /* OrderGoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderGoodsModel.h; sourceTree = "<group>"; };
 		04457AC221FC49EE003E5748 /* OrderGoodsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderGoodsModel.m; sourceTree = "<group>"; };
+		0449C32A2226251A007EE9E1 /* CountryListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryListModel.h; sourceTree = "<group>"; };
+		0449C32B2226251A007EE9E1 /* CountryListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountryListModel.m; sourceTree = "<group>"; };
 		044F3BA621F0201B00F3AD5E /* MySpellGroupCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySpellGroupCell.h; sourceTree = "<group>"; };
 		044F3BA721F0201B00F3AD5E /* MySpellGroupCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySpellGroupCell.m; sourceTree = "<group>"; };
 		044F3BA821F0201B00F3AD5E /* MySpellGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySpellGroupCell.xib; sourceTree = "<group>"; };
@@ -694,8 +697,8 @@
 		04F8FBF721F17E0200913150 /* AllCommentsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllCommentsCell.h; sourceTree = "<group>"; };
 		04F8FBF821F17E0200913150 /* AllCommentsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllCommentsCell.m; sourceTree = "<group>"; };
 		04F8FBF921F17E0200913150 /* AllCommentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllCommentsCell.xib; sourceTree = "<group>"; };
-		04F8FBFC21F1ADE900913150 /* AllCommentsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllCommentsModel.h; sourceTree = "<group>"; };
-		04F8FBFD21F1ADE900913150 /* AllCommentsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllCommentsModel.m; sourceTree = "<group>"; };
+		04F8FBFC21F1ADE900913150 /* CommentsListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentsListModel.h; sourceTree = "<group>"; };
+		04F8FBFD21F1ADE900913150 /* CommentsListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentsListModel.m; sourceTree = "<group>"; };
 		04F8FC0021F1D3F700913150 /* SecondsKillCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondsKillCell.h; sourceTree = "<group>"; };
 		04F8FC0121F1D3F700913150 /* SecondsKillCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondsKillCell.m; sourceTree = "<group>"; };
 		04F8FC0321F1D40400913150 /* SecondsKillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondsKillCell.xib; sourceTree = "<group>"; };
@@ -1099,6 +1102,8 @@
 		045A6FE42223D607006081CF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0449C32A2226251A007EE9E1 /* CountryListModel.h */,
+				0449C32B2226251A007EE9E1 /* CountryListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2131,8 +2136,8 @@
 				04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */,
 				04F2FD0A21EECDA1000B58E2 /* GoodsDetailsModel.h */,
 				04F2FD0B21EECDA1000B58E2 /* GoodsDetailsModel.m */,
-				04F8FBFC21F1ADE900913150 /* AllCommentsModel.h */,
-				04F8FBFD21F1ADE900913150 /* AllCommentsModel.m */,
+				04F8FBFC21F1ADE900913150 /* CommentsListModel.h */,
+				04F8FBFD21F1ADE900913150 /* CommentsListModel.m */,
 			);
 			path = GoodsModel;
 			sourceTree = "<group>";
@@ -2593,7 +2598,7 @@
 				04716ACD22254F2F00FE2B42 /* SortSearchViewController.m in Sources */,
 				04EFA02621E7226D007C2FCA /* OrderProcessingViewController2.m in Sources */,
 				04F3B30921EDDAF900DFBA84 /* JXCategoryIndicatorView.m in Sources */,
-				04F8FBFE21F1ADE900913150 /* AllCommentsModel.m in Sources */,
+				04F8FBFE21F1ADE900913150 /* CommentsListModel.m in Sources */,
 				042D1529221CEB0100DB895C /* ShufflingView.m in Sources */,
 				042FCEC621A3E22E002AD0DB /* DBTimeLimitSecondsKill.m in Sources */,
 				04F3B30F21EDDAF900DFBA84 /* JXCategoryTitleImageCellModel.m in Sources */,
@@ -2748,6 +2753,7 @@
 				04F3B30A21EDDAF900DFBA84 /* JXCategoryDotCell.m in Sources */,
 				04053B5A21FAE4A9001120FC /* UserInfoChangeModel.m in Sources */,
 				04F47E2B21E5F5D4001B5F74 /* EvaluationViewController.m in Sources */,
+				0449C32C2226251A007EE9E1 /* CountryListModel.m in Sources */,
 				04BF21852212B719002468C0 /* JXPagerView.m in Sources */,
 				04FC2C3921C0E3AD00329B53 /* JFCityCollectionViewCell.m in Sources */,
 				04F4468E21D74F9000524971 /* GoodAttributesView.m in Sources */,
@@ -2931,6 +2937,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSET_PACK_MANIFEST_URL_PREFIX = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6Y22Y687X2;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2959,6 +2966,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DaBangVR.DaBangVR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				VALID_ARCHS = "arm64e armv7 armv7s arm64";
@@ -2971,6 +2979,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSET_PACK_MANIFEST_URL_PREFIX = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6Y22Y687X2;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2999,6 +3008,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DaBangVR.DaBangVR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				VALID_ARCHS = "arm64e armv7 armv7s arm64";
@@ -3010,6 +3020,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6Y22Y687X2;
 				INFOPLIST_FILE = DaBangVRTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3028,6 +3039,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6Y22Y687X2;
 				INFOPLIST_FILE = DaBangVRTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

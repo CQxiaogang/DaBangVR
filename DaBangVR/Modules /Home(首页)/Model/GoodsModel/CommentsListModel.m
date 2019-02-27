@@ -6,9 +6,9 @@
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "AllCommentsModel.h"
+#import "CommentsListModel.h"
 
-@implementation AllCommentsModel
+@implementation CommentsListModel
 
 +(NSDictionary *)mj_replacedKeyFromPropertyName{
     return @{@"ID":@"id"};

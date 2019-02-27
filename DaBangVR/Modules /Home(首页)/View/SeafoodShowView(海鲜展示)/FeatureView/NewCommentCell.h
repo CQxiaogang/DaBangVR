@@ -7,7 +7,7 @@
 //
 
 #import "BaseTableViewCell.h"
-#import "AllCommentsModel.h"
+#import "CommentsListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *userComments;
 
-@property (nonatomic, strong) AllCommentsModel *model;
+@property (nonatomic, strong) CommentsListModel *model;
 
 @end
 

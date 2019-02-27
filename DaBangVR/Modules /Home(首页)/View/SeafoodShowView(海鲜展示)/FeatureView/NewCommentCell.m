@@ -21,8 +21,10 @@
     // Configure the view for the selected state
 }
 
-- (void)setModel:(AllCommentsModel *)model{
+- (void)setModel:(CommentsListModel *)model{
     _model = model;
+    _userName.text = model.nickName;
+    [_userImgView setImageURL:[NSURL URLWithString:model.headUrl]];
     _userComments.text = model.commentContent;
 }
 

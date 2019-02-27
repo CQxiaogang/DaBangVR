@@ -146,7 +146,7 @@ TopViewDelegate
 // 频道列表
 - (ChannelMenuListView *)channelMenuListView{
     if (!_channelMenuListView) {
-        _channelMenuListView = [[ChannelMenuListView alloc] initWithFrame:CGRectMake(0, 0, self.view.mj_w, kFit(130))];
+        _channelMenuListView = [[ChannelMenuListView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(130))];
         _channelMenuListView.delegate = self;
     }
     return _channelMenuListView;
@@ -287,7 +287,7 @@ TopViewDelegate
         switch (indexPath.section) {
             case 0:
                 // 直播推荐视图
-                return _totalH_anchorRecommendView+20;
+                return _totalH_anchorRecommendView+kFit(20);
                 break;
             case 1:
                 // 更多功能界面

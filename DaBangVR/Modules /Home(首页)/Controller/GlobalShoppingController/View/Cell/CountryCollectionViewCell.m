@@ -14,4 +14,10 @@
     [super awakeFromNib];
 }
 
+- (void)setModel:(CountryListModel *)model{
+    _model = model;
+    [_iconImgView setImageURL:[NSURL URLWithString:model.categoryImg]];
+    _titleLab.text = model.name;
+}
+
 @end

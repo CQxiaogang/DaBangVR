@@ -84,8 +84,8 @@
         NSString *imgString = dic[@"chartUrl"];
         [data addObject:imgString];
     }
-    
-    NSArray *array = data.count ? (NSArray *)data : @[@"http://test.fuxingsc.com/2.gif"];
+    // 三目运算，没有图片数据的时候，就加载单独的图片
+    NSArray *array = data.count ? (NSArray *)data : @[_model.listUrl];
     
     //完成后调用完成的回调代码块
     if(completion)

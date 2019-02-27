@@ -21,7 +21,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6av-SQ-10x">
                         <rect key="frame" x="0.0" y="0.0" width="173" height="123"/>
-                        <color key="backgroundColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="173" id="qhX-Py-d0q">
                                 <userDefinedRuntimeAttributes>
@@ -151,7 +151,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="me3-2O-3ol">
+                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="me3-2O-3ol">
                         <rect key="frame" x="123" y="184" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="nVU-BD-PCh">
@@ -166,6 +166,9 @@
                             </constraint>
                         </constraints>
                         <state key="normal" image="s-Cart"/>
+                        <connections>
+                            <action selector="andShoppingCarOfAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="lV9-YZ-Onc"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
@@ -200,6 +203,13 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="173" height="233"/>
+            <connections>
+                <outlet property="goodsActivity" destination="qj0-in-xU3" id="gbW-VT-oZH"/>
+                <outlet property="goodsDescribe" destination="sdF-9Y-ip9" id="GzH-HE-pbt"/>
+                <outlet property="goodsImgView" destination="6av-SQ-10x" id="5cn-g2-1f9"/>
+                <outlet property="goodsMarketPrice" destination="KGp-5Q-4QW" id="MId-Bv-axo"/>
+                <outlet property="goodsSellingPrice" destination="nhc-Lr-A1I" id="Vzb-2R-o7a"/>
+            </connections>
             <point key="canvasLocation" x="132" y="234.78260869565219"/>
         </collectionViewCell>
     </objects>

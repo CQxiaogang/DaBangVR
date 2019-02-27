@@ -7,26 +7,42 @@
 //
 
 #import "GlobalShoppingViewController.h"
+#import "GoodsDetailsViewController.h"
 // Views;
 #import "ShufflingView.h"
 #import "HorizontalCollectionView.h"
+// Models
+#import "CountryListModel.h"
+#import "GoodsDetailsModel.h"
 // 宏
 #define margin kFit(10)
-@interface GlobalShoppingViewController ()
+@interface GlobalShoppingViewController ()<HorizontalCollectionViewDelegate>
+{
+    CGFloat high;
+}
 
 @property (nonatomic, strong) ShufflingView *shufflingView;
-@property (nonatomic, strong) HorizontalCollectionView *CountryCollectionView;
-@property (nonatomic, strong) HorizontalCollectionView *GoodsCollectionView;
-@property (nonatomic, strong) HorizontalCollectionView *RecommendGoodsCollectionView;
+// 国家
+@property (nonatomic, strong) HorizontalCollectionView *countryCollectionView;
+// 国家下的商品
+@property (nonatomic, strong) HorizontalCollectionView *goodsCollectionView;
+// 推荐
+@property (nonatomic, strong) HorizontalCollectionView *recommendGoodsCollectionView;
 @property (nonatomic, strong) UIView *collectionHeaderView;
+// 国家数据
+@property (nonatomic, strong) NSMutableArray *countryData;
+// 国家的商品数据
+@property (nonatomic, strong) NSMutableArray *countryGoodsData;
+// 推荐商品数据
+@property (nonatomic, strong) NSMutableArray *recommendGoodsData;
 @end
 
 @implementation GlobalShoppingViewController
 static NSString *CellID = @"CellID";
 static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
 #pragma mark —— 懒加载
--(HorizontalCollectionView *)CountryCollectionView{
-    if (!_CountryCollectionView) {
+-(HorizontalCollectionView *)countryCollectionView{
+    if (!_countryCollectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         // 设置UICollectionView为横向滚动
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -35,16 +51,17 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
         // 设置第一个cell和最后一个cell,与父控件之间的间距
         layout.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin);
         layout.itemSize = CGSizeMake(kFit(70), kFit(90));
-        _CountryCollectionView = [[HorizontalCollectionView alloc] initWithFrame:CGRectMake(0, margin, KScreenW, kFit(90)) collectionViewLayout:layout nibWithNibName:@"CountryCollectionViewCell"];
+        _countryCollectionView = [[HorizontalCollectionView alloc] initWithFrame:CGRectMake(0, margin, KScreenW, kFit(90)) collectionViewLayout:layout nibWithNibName:@"CountryCollectionViewCell" collectionViewCellType:CountryCollectionViewCellType];
+        _countryCollectionView.aDelegate = self;
         // 解决tableview 和 collectionview 手势冲突问题
         /*意思是：如果手势A失败，手势B才起作用 eg:先让tableView滚在让scrollView滚*/
-        [self.tableView.panGestureRecognizer requireGestureRecognizerToFail:_CountryCollectionView.panGestureRecognizer];
+        [self.tableView.panGestureRecognizer requireGestureRecognizerToFail:_countryCollectionView.panGestureRecognizer];
     }
-    return _CountryCollectionView;
+    return _countryCollectionView;
 }
 
--(HorizontalCollectionView *)GoodsCollectionView{
-    if (!_GoodsCollectionView) {
+-(HorizontalCollectionView *)goodsCollectionView{
+    if (!_goodsCollectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         // 设置UICollectionView为横向滚动
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -53,38 +70,90 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
         // 设置第一个cell和最后一个cell,与父控件之间的间距
         layout.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin);
         layout.itemSize = CGSizeMake(kFit(173), kFit(90));
-        _GoodsCollectionView = [[HorizontalCollectionView alloc] initWithFrame:CGRectMake(0, margin, KScreenW, kFit(90)) collectionViewLayout:layout nibWithNibName:@"CountryGoodsCollectionViewCell"];
+        _goodsCollectionView = [[HorizontalCollectionView alloc] initWithFrame:CGRectMake(0, margin, KScreenW, kFit(90)) collectionViewLayout:layout nibWithNibName:@"CountryGoodsCollectionViewCell" collectionViewCellType:CountryGoodsCollectionViewCellllType];
+        _goodsCollectionView.aDelegate = self;
     }
-    return _GoodsCollectionView;
+    return _goodsCollectionView;
 }
 
--(HorizontalCollectionView *)RecommendGoodsCollectionView{
-    if (!_RecommendGoodsCollectionView) {
+-(HorizontalCollectionView *)recommendGoodsCollectionView{
+    if (!_recommendGoodsCollectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         layout.itemSize = CGSizeMake(kFit(172), kFit(234));
         layout.minimumInteritemSpacing = margin;
         layout.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin);
-        _RecommendGoodsCollectionView = [[HorizontalCollectionView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, KScreenH) collectionViewLayout:layout nibWithNibName:@"RecommendGoodsCollectionViewCell"];
+        _recommendGoodsCollectionView = [[HorizontalCollectionView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, KScreenH) collectionViewLayout:layout nibWithNibName:@"RecommendGoodsCollectionViewCell" collectionViewCellType:RecommendGoodsCollectionViewCellllType];
         // 禁止滑动
-        _RecommendGoodsCollectionView.scrollEnabled = NO;
+        _recommendGoodsCollectionView.scrollEnabled = NO;
+        _recommendGoodsCollectionView.aDelegate = self;
     }
-    return _RecommendGoodsCollectionView;
+    return _recommendGoodsCollectionView;
 }
-
+-(NSMutableArray *)countryData{
+    if (!_countryData) {
+        _countryData = [[NSMutableArray alloc] init];
+    }
+    return _countryData;
+}
+- (NSMutableArray *)countryGoodsData{
+    if (!_countryGoodsData) {
+        _countryGoodsData = [[NSMutableArray alloc] init];
+    }
+    return _countryGoodsData;
+}
+- (NSMutableArray *)recommendGoodsData{
+    if (!_recommendGoodsData) {
+        _recommendGoodsData = [[NSMutableArray alloc] init];
+    }
+    return _recommendGoodsData;
+}
+#pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"全球购";
 }
 
--(void)setupUI{
+- (void)loadingData{
+    NSDictionary *parameters = @{
+                                 @"parentId":@"2",
+                                 @"categoryId":@"1036112",
+                                 @"page":@"1",
+                                 @"limit":@"10"
+                                 };
+    [NetWorkHelper POST:URl_getGlobalList parameters:parameters success:^(id  _Nonnull responseObject) {
+        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
+        // 国家
+        self.countryData = [CountryListModel mj_objectArrayWithKeyValuesArray:data[@"goodsCategoryList"]];
+        self.countryCollectionView.data = self.countryData;
+        // 国家商品
+        self.countryGoodsData = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:data[@"goodsList"]];
+        self.goodsCollectionView.data = self.countryGoodsData;
+        // 推荐商品
+        self.recommendGoodsData = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:data[@"goodsLists"]];
+        self.recommendGoodsCollectionView.data = self.recommendGoodsData;
+        // 得到有了数据后的collectinView的内容高度，在重设tableViewCell的高度。不然显示不了数据
+        CGSize size = self.recommendGoodsCollectionView.collectionViewLayout.collectionViewContentSize;
+        self->high = size.height;
+        [self.tableView reloadData];
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+    
+}
+
+- (void)setupUI{
     [super setupUI];
+    // 加载数据
+    [self loadingData];
+    
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(0);
         make.top.equalTo(kTopHeight);
     }];
     // 设置顶部的搜索框
-    [self setupNavagationBar];
+//    [self setupNavagationBar];
     // 轮播
     _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(180)) andIndex:@"5"];
     self.tableView.tableHeaderView = _shufflingView;
@@ -114,6 +183,7 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
 - (void)searchOfAction{
     
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 3;
 }
@@ -122,12 +192,12 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.row == 0) {
-        [cell addSubview:self.CountryCollectionView];
+        [cell addSubview:self.countryCollectionView];
     }else if (indexPath.row == 1){
-        [cell addSubview:self.GoodsCollectionView];
+        [cell addSubview:self.goodsCollectionView];
     }else if (indexPath.row == 2){
         kWeakSelf(self);
-        _collectionHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.RecommendGoodsCollectionView.mj_w, kFit(80))];
+        _collectionHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(80))];
         UIView *searchView = [[UIView alloc] init];
         CGFloat searchH = kFit(30);
         searchView.layer.cornerRadius = searchH/2;
@@ -158,22 +228,90 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
             make.size.equalTo(CGSizeMake(kFit(40), kFit(40)));
         }];
         [cell addSubview:_collectionHeaderView];
-        [self.RecommendGoodsCollectionView setOrigin:CGPointMake(0, _collectionHeaderView.mj_y+_collectionHeaderView.mj_h)];
-        [cell addSubview:self.RecommendGoodsCollectionView];
+        
+        [self.recommendGoodsCollectionView setOrigin:CGPointMake(0, _collectionHeaderView.mj_y+_collectionHeaderView.mj_h)];
+        [cell addSubview:self.recommendGoodsCollectionView];
     }
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 2) {
-        [self.RecommendGoodsCollectionView reloadData];
         // 根据collectionView内容得到高度
-        CGSize size = self.RecommendGoodsCollectionView.collectionViewLayout.collectionViewContentSize;
+//        CGSize size = self.recommendGoodsCollectionView.collectionViewLayout.collectionViewContentSize;
         // 重新计算collectionView的大小
-        [self.RecommendGoodsCollectionView setSize:size];
-        return size.height + _collectionHeaderView.mj_h;
+        [self.recommendGoodsCollectionView setSize:CGSizeMake(KScreenW, high)];
+        return high + _collectionHeaderView.mj_h;
     }
-   return 100;
+   return kFit(100);
+}
+
+#pragma mark —— HorizontalCollectionView 协议
+-(void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath collectionViewCellType:(CollectionViewCellType)type{
+    switch (type) {
+        case CountryCollectionViewCellType:
+        {
+            CountryListModel *model = self.countryData[indexPath.row];
+            NSDictionary *parameters = @{
+                                         @"categoryId":model.id,
+                                         @"page":@"1",
+                                         @"limit":@"10"
+                                         };
+            
+            [NetWorkHelper POST:URl_getGlobalLists parameters:parameters success:^(id  _Nonnull responseObject) {
+                NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
+                self.countryGoodsData = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:data[@"goodsList"]];
+                self.goodsCollectionView.data = self.countryGoodsData;
+            } failure:^(NSError * _Nonnull error) {
+                
+            }];
+        }
+            break;
+        case CountryGoodsCollectionViewCellllType:
+        {
+            GoodsDetailsModel *model = self.countryGoodsData[indexPath.row];
+            GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
+            vc.index = model.id;
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+            break;
+        case RecommendGoodsCollectionViewCellllType:
+        {
+            GoodsDetailsModel *model = self.recommendGoodsData[indexPath.row];
+            GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
+            vc.index = model.id;
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)addShoppingCar:(UIButton *)sender didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    NSDictionary *dic;
+    if (sender.tag == 100) {
+        // 国家商品加入购物车
+        GoodsDetailsModel *model = self.countryGoodsData[indexPath.row];
+        dic = @{@"goodsId":model.id,
+                @"number":@"1"
+                };
+    }else{
+        // 推荐商品加入购物车
+        GoodsDetailsModel *model = self.recommendGoodsData[indexPath.row];
+        dic = @{@"goodsId":model.id,
+                @"number":@"1"
+                };
+    }
+    //添加w购物车
+    [NetWorkHelper POST:URl_addToCar parameters:dic success:^(id  _Nonnull responseObject) {
+        
+        [SVProgressHUD showInfoWithStatus:KJSONSerialization(responseObject)[@"errmsg"]];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        [SVProgressHUD dismissWithDelay:1.0];
+    } failure:^(NSError * _Nonnull error) {
+        DLog(@"error is %@",error);
+    }];
 }
 
 @end
