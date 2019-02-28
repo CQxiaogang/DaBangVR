@@ -61,7 +61,7 @@
 // 团购商品列表
 #define URL_getGroupGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGroupGoodsList?")
 // 新品首发列表
-#define URL_getNewGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/goods/getNewGoodsList?")
+#define URL_newGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/goods/newGoodsList?")
 // 商品详情
 #define URL_getGoodsDetails NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGoodsDetails?")
 // 添加商品评论

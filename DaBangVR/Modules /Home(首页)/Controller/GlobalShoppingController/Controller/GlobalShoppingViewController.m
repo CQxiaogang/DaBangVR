@@ -14,8 +14,6 @@
 // Models
 #import "CountryListModel.h"
 #import "GoodsDetailsModel.h"
-// 宏
-#define margin kFit(10)
 @interface GlobalShoppingViewController ()<HorizontalCollectionViewDelegate>
 {
     CGFloat high;
@@ -47,11 +45,11 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
         // 设置UICollectionView为横向滚动
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         // 每一行cell之间的间距
-        layout.minimumLineSpacing = margin;
+        layout.minimumLineSpacing = KMargin;
         // 设置第一个cell和最后一个cell,与父控件之间的间距
-        layout.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin);
+        layout.sectionInset = UIEdgeInsetsMake(0, KMargin, 0, KMargin);
         layout.itemSize = CGSizeMake(kFit(70), kFit(90));
-        _countryCollectionView = [[HorizontalCollectionView alloc] initWithFrame:CGRectMake(0, margin, KScreenW, kFit(90)) collectionViewLayout:layout nibWithNibName:@"CountryCollectionViewCell" collectionViewCellType:CountryCollectionViewCellType];
+        _countryCollectionView = [[HorizontalCollectionView alloc] initWithFrame:CGRectMake(0, KMargin, KScreenW, kFit(90)) collectionViewLayout:layout nibWithNibName:@"CountryCollectionViewCell" collectionViewCellType:CountryCollectionViewCellType];
         _countryCollectionView.aDelegate = self;
         // 解决tableview 和 collectionview 手势冲突问题
         /*意思是：如果手势A失败，手势B才起作用 eg:先让tableView滚在让scrollView滚*/
@@ -68,9 +66,9 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
         // 每一行cell之间的间距
         layout.minimumLineSpacing = kFit(10);
         // 设置第一个cell和最后一个cell,与父控件之间的间距
-        layout.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin);
+        layout.sectionInset = UIEdgeInsetsMake(0, KMargin, 0, KMargin);
         layout.itemSize = CGSizeMake(kFit(173), kFit(90));
-        _goodsCollectionView = [[HorizontalCollectionView alloc] initWithFrame:CGRectMake(0, margin, KScreenW, kFit(90)) collectionViewLayout:layout nibWithNibName:@"CountryGoodsCollectionViewCell" collectionViewCellType:CountryGoodsCollectionViewCellllType];
+        _goodsCollectionView = [[HorizontalCollectionView alloc] initWithFrame:CGRectMake(0, KMargin, KScreenW, kFit(90)) collectionViewLayout:layout nibWithNibName:@"CountryGoodsCollectionViewCell" collectionViewCellType:CountryGoodsCollectionViewCellllType];
         _goodsCollectionView.aDelegate = self;
     }
     return _goodsCollectionView;
@@ -81,8 +79,8 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         layout.itemSize = CGSizeMake(kFit(172), kFit(234));
-        layout.minimumInteritemSpacing = margin;
-        layout.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin);
+        layout.minimumInteritemSpacing = KMargin;
+        layout.sectionInset = UIEdgeInsetsMake(0, KMargin, 0, KMargin);
         _recommendGoodsCollectionView = [[HorizontalCollectionView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, KScreenH) collectionViewLayout:layout nibWithNibName:@"RecommendGoodsCollectionViewCell" collectionViewCellType:RecommendGoodsCollectionViewCellllType];
         // 禁止滑动
         _recommendGoodsCollectionView.scrollEnabled = NO;
@@ -165,7 +163,7 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
     view.backgroundColor = KWhiteColor;
     self.navigationItem.titleView = view;
     
-    UIButton *searchBtn = [[UIButton alloc] initWithFrame:CGRectMake(margin, 0, kFit(200), view.mj_h)];
+    UIButton *searchBtn = [[UIButton alloc] initWithFrame:CGRectMake(KMargin, 0, kFit(200), view.mj_h)];
     [searchBtn setTitle:@"搜索关键字" forState:UIControlStateNormal];
     [searchBtn setTitleColor:[UIColor lightGreen] forState:UIControlStateNormal];
     // 文字居左
@@ -207,7 +205,7 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
         [_collectionHeaderView addSubview:searchView];
         [searchView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(weakself.collectionHeaderView.mas_centerY);
-            make.left.equalTo(margin);
+            make.left.equalTo(KMargin);
             make.size.equalTo(CGSizeMake(searchH*4, searchH));
         }];
         UIImageView *searchImgView = [[UIImageView alloc] init];
@@ -216,7 +214,7 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
         [searchImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.equalTo(CGSizeMake(kFit(20), kFit(20)));
             make.centerY.equalTo(searchView.mas_centerY);
-            make.left.equalTo(margin);
+            make.left.equalTo(KMargin);
         }];
         
         UIImageView *changerImgView = [[UIImageView alloc] init];
@@ -224,7 +222,7 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
         [_collectionHeaderView addSubview:changerImgView];
         [changerImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(weakself.collectionHeaderView.mas_centerY);
-            make.right.equalTo(-margin);
+            make.right.equalTo(-KMargin);
             make.size.equalTo(CGSizeMake(kFit(40), kFit(40)));
         }];
         [cell addSubview:_collectionHeaderView];

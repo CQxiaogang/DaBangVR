@@ -147,5 +147,7 @@ return shared##className; \
 #define kToken curUser.token? curUser.token : @"0"
 // 快速解析数据
 #define KJSONSerialization(responseObject) ([NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil])
+// 边距
+#define KMargin kFit(10)
 
 #endif /* define_h */

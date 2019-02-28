@@ -10,6 +10,7 @@
 #import "CountryCollectionViewCell.h"
 #import "CountryGoodsCollectionViewCell.h"
 #import "RecommendGoodsCollectionViewCell.h"
+#import "NewGoodsCollectionViewCell.h"
 
 @interface HorizontalCollectionView  ()<UICollectionViewDelegate, UICollectionViewDataSource, CountryGoodsCollectionViewCellDelegate, RecommendGoodsCollectionViewCellDelegate>
 
@@ -35,7 +36,7 @@ static NSString *CellID = @"CellID";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
-    return _data.count;
+    return _data.count? _data.count:3;
     
 }
 
@@ -62,6 +63,13 @@ static NSString *CellID = @"CellID";
             RecommendGoodsCollectionViewCell *Cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellID forIndexPath:indexPath];
             Cell.model = _data[indexPath.row];
             Cell.delegate = self;
+            MCell = Cell;
+        }
+            break;
+        case NewGoondsCollectionViewCellType:
+        {
+            NewGoodsCollectionViewCell *Cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellID forIndexPath:indexPath];
+            Cell.model = _data[indexPath.row];
             MCell = Cell;
         }
             break;

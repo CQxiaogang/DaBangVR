@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NewGoodsCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="172" height="230"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="172" height="230"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fE-CL-fmQ" userLabel="背景view">
+                        <rect key="frame" x="0.0" y="0.0" width="172" height="165"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6oX-Xn-eWS">
+                                <rect key="frame" x="21" y="17.5" width="130" height="130"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="si7-Zk-yCB">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="130" id="xmo-LK-RpW">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92460006480000001" green="0.87367182970000001" blue="0.82742637399999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6oX-Xn-eWS" firstAttribute="centerX" secondItem="7fE-CL-fmQ" secondAttribute="centerX" id="Cvo-PX-qnb"/>
+                            <constraint firstItem="6oX-Xn-eWS" firstAttribute="top" secondItem="7fE-CL-fmQ" secondAttribute="top" constant="17.5" id="TQT-8F-lZD"/>
+                            <constraint firstAttribute="height" constant="165" id="nsj-ta-eHG">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="labellabellabellabellabellabellabellabellabelllabellabellabellabellabellabellabellabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuX-35-yUK">
+                        <rect key="frame" x="2" y="180" width="168" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="ylk-Vh-pFF">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥150.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlP-xY-NSs">
+                        <rect key="frame" x="5" y="215" width="47" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="Ntl-Zq-pgb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                                <real key="value" value="13"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月销售量:10000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftw-M8-6fb">
+                        <rect key="frame" x="92" y="216.5" width="75" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKx-nE-8Ln">
+                        <rect key="frame" x="56" y="156" width="60" height="20"/>
+                        <color key="backgroundColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="dzj-Sz-keD">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstAttribute="width" constant="60" id="s7n-nQ-qg2">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <state key="normal" title="立即购买">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="yuX-35-yUK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="BZG-Aw-8KX"/>
+                <constraint firstAttribute="trailing" secondItem="ftw-M8-6fb" secondAttribute="trailing" constant="5" id="Eqr-Hj-ccC"/>
+                <constraint firstItem="ftw-M8-6fb" firstAttribute="centerY" secondItem="TlP-xY-NSs" secondAttribute="centerY" id="HOe-UC-Ptt"/>
+                <constraint firstItem="yuX-35-yUK" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ItN-GP-PV0"/>
+                <constraint firstItem="7fE-CL-fmQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="LMQ-HR-Ls2"/>
+                <constraint firstItem="7fE-CL-fmQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Mob-kv-59H"/>
+                <constraint firstItem="SKx-nE-8Ln" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="156" id="Qjf-Iw-NWr"/>
+                <constraint firstAttribute="trailing" secondItem="yuX-35-yUK" secondAttribute="trailing" constant="2" id="Sgk-MA-kli"/>
+                <constraint firstAttribute="bottom" secondItem="TlP-xY-NSs" secondAttribute="bottom" id="VRY-55-xiT"/>
+                <constraint firstItem="yuX-35-yUK" firstAttribute="top" secondItem="SKx-nE-8Ln" secondAttribute="bottom" constant="4" id="aQH-oY-5EC"/>
+                <constraint firstItem="TlP-xY-NSs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="e1i-9d-hEU"/>
+                <constraint firstAttribute="trailing" secondItem="7fE-CL-fmQ" secondAttribute="trailing" id="lVh-DO-zzd"/>
+                <constraint firstItem="SKx-nE-8Ln" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ogM-8H-X60"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="165" height="230"/>
+            <connections>
+                <outlet property="goodsBackgroud" destination="7fE-CL-fmQ" id="m7N-Qr-JGf"/>
+                <outlet property="goodsDescribe" destination="yuX-35-yUK" id="lo2-g3-E9g"/>
+                <outlet property="goodsImgView" destination="6oX-Xn-eWS" id="uyi-JH-Z5l"/>
+                <outlet property="goodsPrice" destination="TlP-xY-NSs" id="Ph5-UH-th6"/>
+                <outlet property="goodsSales" destination="ftw-M8-6fb" id="jd2-yk-pyF"/>
+            </connections>
+            <point key="canvasLocation" x="131.19999999999999" y="127.736131934033"/>
+        </collectionViewCell>
+    </objects>
+</document>

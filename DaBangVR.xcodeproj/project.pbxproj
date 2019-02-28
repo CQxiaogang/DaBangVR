@@ -75,6 +75,9 @@
 		04716AC52224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04716AC32224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m */; };
 		04716AC62224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04716AC42224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.xib */; };
 		04716ACD22254F2F00FE2B42 /* SortSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04716ACC22254F2F00FE2B42 /* SortSearchViewController.m */; };
+		04743E8E2227C37500D7965B /* NewGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04743E8D2227C37500D7965B /* NewGoodsModel.m */; };
+		0474B6AF2227AA6B008F0C07 /* NewGoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B6AD2227AA6B008F0C07 /* NewGoodsCollectionViewCell.m */; };
+		0474B6B02227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0474B6AE2227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib */; };
 		048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E692B21A26C5A00DB911A /* UIColor+category.m */; };
 		049703E621A69860002359B5 /* DBLiveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049703E421A69860002359B5 /* DBLiveTableViewCell.m */; };
 		049703E721A69860002359B5 /* DBLiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049703E521A69860002359B5 /* DBLiveTableViewCell.xib */; };
@@ -395,6 +398,11 @@
 		04716AC42224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendGoodsCollectionViewCell.xib; sourceTree = "<group>"; };
 		04716ACB22254F2F00FE2B42 /* SortSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SortSearchViewController.h; sourceTree = "<group>"; };
 		04716ACC22254F2F00FE2B42 /* SortSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SortSearchViewController.m; sourceTree = "<group>"; };
+		04743E8C2227C37500D7965B /* NewGoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NewGoodsModel.h; path = "DaBangVR/Modules /Home(首页)/Controller/NewProductLaunchController/View/Cell/NewGoodsModel.h"; sourceTree = SOURCE_ROOT; };
+		04743E8D2227C37500D7965B /* NewGoodsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NewGoodsModel.m; path = "DaBangVR/Modules /Home(首页)/Controller/NewProductLaunchController/View/Cell/NewGoodsModel.m"; sourceTree = SOURCE_ROOT; };
+		0474B6AC2227AA6B008F0C07 /* NewGoodsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewGoodsCollectionViewCell.h; sourceTree = "<group>"; };
+		0474B6AD2227AA6B008F0C07 /* NewGoodsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewGoodsCollectionViewCell.m; sourceTree = "<group>"; };
+		0474B6AE2227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewGoodsCollectionViewCell.xib; sourceTree = "<group>"; };
 		048E692A21A26C5A00DB911A /* UIColor+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+category.h"; sourceTree = "<group>"; };
 		048E692B21A26C5A00DB911A /* UIColor+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+category.m"; sourceTree = "<group>"; };
 		049703E321A69860002359B5 /* DBLiveTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBLiveTableViewCell.h; sourceTree = "<group>"; };
@@ -980,6 +988,8 @@
 		0423DAE121FFF59F00325869 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04743E8C2227C37500D7965B /* NewGoodsModel.h */,
+				04743E8D2227C37500D7965B /* NewGoodsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -987,9 +997,7 @@
 		0423DAE221FFF5A600325869 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0423DAE321FFF64F00325869 /* NewProductLaunchCell.h */,
-				0423DAE421FFF64F00325869 /* NewProductLaunchCell.m */,
-				0423DAE521FFF64F00325869 /* NewProductLaunchCell.xib */,
+				0474B6AB2227AA0C008F0C07 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1232,6 +1240,19 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0474B6AB2227AA0C008F0C07 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0423DAE321FFF64F00325869 /* NewProductLaunchCell.h */,
+				0423DAE421FFF64F00325869 /* NewProductLaunchCell.m */,
+				0423DAE521FFF64F00325869 /* NewProductLaunchCell.xib */,
+				0474B6AC2227AA6B008F0C07 /* NewGoodsCollectionViewCell.h */,
+				0474B6AD2227AA6B008F0C07 /* NewGoodsCollectionViewCell.m */,
+				0474B6AE2227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		048E692921A26A9E00DB911A /* Category */ = {
@@ -2461,6 +2482,7 @@
 				04F4469321D74FBF00524971 /* GoodsInfoView.xib in Resources */,
 				04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */,
 				04F8ED4521E32AC000004178 /* UserAdressCell.xib in Resources */,
+				0474B6B02227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib in Resources */,
 				0463026521BBC8DB0003C542 /* DBTopView.xib in Resources */,
 				043B468F21F8682100C75536 /* LeaveMessageViewController.xib in Resources */,
 				045FAEBF221E81900086DE4E /* OrderProcessingView.xib in Resources */,
@@ -2661,6 +2683,7 @@
 				04F2FD1721EF0C25000B58E2 /* HomeBannerView.m in Sources */,
 				04457AC321FC49EE003E5748 /* OrderGoodsModel.m in Sources */,
 				043B468E21F8682100C75536 /* LeaveMessageViewController.m in Sources */,
+				04743E8E2227C37500D7965B /* NewGoodsModel.m in Sources */,
 				049D479C219FEC1E0058178D /* HomeViewController.m in Sources */,
 				0423DADF21FFF52700325869 /* NewProductLaunchViewController.m in Sources */,
 				04F8ED5021E349E000004178 /* modifyAddressViewCell.m in Sources */,
@@ -2754,6 +2777,7 @@
 				04F3B31021EDDAF900DFBA84 /* JXCategoryTitleCellModel.m in Sources */,
 				04F3B30A21EDDAF900DFBA84 /* JXCategoryDotCell.m in Sources */,
 				04053B5A21FAE4A9001120FC /* UserInfoChangeModel.m in Sources */,
+				0474B6AF2227AA6B008F0C07 /* NewGoodsCollectionViewCell.m in Sources */,
 				04F47E2B21E5F5D4001B5F74 /* EvaluationViewController.m in Sources */,
 				0449C32C2226251A007EE9E1 /* CountryListModel.m in Sources */,
 				04BF21852212B719002468C0 /* JXPagerView.m in Sources */,
