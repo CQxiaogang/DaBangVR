@@ -10,10 +10,13 @@
 // TableView
 #import "SecondsKillTableView.h"
 #import "MySecondKillTableView.h"
-//Models
-#import "GoodsRotationListModel.h"
+// Views
+#import "TimeChooseView.h"
 #import "HomeBannerView.h"
 #import "ShufflingView.h"
+//Models
+#import "GoodsRotationListModel.h"
+#import "GoodsDetailsModel.h"
 
 @interface SecondsKillViewController (){
     
@@ -21,29 +24,51 @@
 
 @property (nonatomic, strong) SecondsKillTableView  *leftTableView;
 @property (nonatomic, strong) MySecondKillTableView *rightTableView;
-
-@property (nonatomic, copy) NSArray *dataSource;
-//@property (nonatomic, strong) HomeBannerView *bannerView;
+// 商品数据
+@property (nonatomic, copy) NSArray *goodsData;
+// 轮播图
 @property (nonatomic, strong) ShufflingView *shufflingView;
 
 @end
 
 @implementation SecondsKillViewController
+#pragma mark —— 懒加载
+//- (NSArray *)goodsData{
+//    if (!_goodsData) {
+//        _goodsData = [[NSMutableArray alloc] init];
+//    }
+//    return _goodsData;
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"限时秒杀";
+    [self loadingData];
 }
 
 - (void)setupUI{
     [super setupUI];
-    // 轮播图
-    _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(180)) andIndex:@"1"];
     // 设置 navagtionBar
     [self setupNavagationBar];
     // 底部 UI
     [self creatBottomUI];
     // 左边的 view
     [self creatLeftOfTableView];
+}
+-(void)loadingData{
+    kWeakSelf(self);
+    NSDictionary *dic = @{
+                          @"hoursTime":@"12",
+                          @"page":@"1",
+                          @"limit":@"10"
+                          };
+    [NetWorkHelper POST:URl_getSecondsKillGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
+        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
+        NSDictionary *goodsList = data[@"goodsList"];
+        weakself.goodsData = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:goodsList];
+        weakself.leftTableView.goodsData = weakself.goodsData;
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
 }
 
 - (void)setupNavagationBar{
@@ -91,9 +116,18 @@
 }
 
 - (void)creatLeftOfTableView{
-   
+    // 轮播图
+    _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(180)) andIndex:@"1"];
+    // 轮播图下面的时间选择 View
+    TimeChooseView *timeChooseView = [[[NSBundle mainBundle] loadNibNamed:@"TimeChooseView" owner:nil options:nil] firstObject];
+    timeChooseView.frame = CGRectMake(0, _shufflingView.mj_h, KScreenW, kFit(50));
+    // tableViewHeaderView
+    UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, _shufflingView.mj_h+timeChooseView.mj_h)];
+    [tableHeaderView addSubview:_shufflingView];
+    [tableHeaderView addSubview:timeChooseView];
+    // 左边 tableView
     _leftTableView = [[SecondsKillTableView alloc] init];
-    _leftTableView.tableHeaderView = _shufflingView;
+    _leftTableView.tableHeaderView = tableHeaderView;
     [self.view addSubview:_leftTableView];
     [_leftTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(@0);

@@ -18,9 +18,12 @@
     _BuyNowBtn.layer.masksToBounds = YES;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
+- (void)setModel:(GoodsDetailsModel *)model{
+    _model = model;
+    [_goodsImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:nil];
+    _goodsDetails.text = model.describe;
+    _goodsMarketPrice.text = model.marketPrice;
+    _goodsSellingPrice.text = model.sellingPrice;
 }
 
 @end

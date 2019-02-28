@@ -40,6 +40,8 @@
 		043B468421F80CB200C75536 /* UserAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B468321F80CB200C75536 /* UserAddressModel.m */; };
 		043B468E21F8682100C75536 /* LeaveMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B468C21F8682100C75536 /* LeaveMessageViewController.m */; };
 		043B468F21F8682100C75536 /* LeaveMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043B468D21F8682100C75536 /* LeaveMessageViewController.xib */; };
+		044250B422277FCD00E9F64E /* TimeChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044250B322277FCD00E9F64E /* TimeChooseView.m */; };
+		044250B822277FE400E9F64E /* TimeChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044250B722277FE400E9F64E /* TimeChooseView.xib */; };
 		04457ABB21FC43B2003E5748 /* OrderSureHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04457ABA21FC43B2003E5748 /* OrderSureHeaderView.m */; };
 		04457ABD21FC4446003E5748 /* OrderSureHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04457ABC21FC4446003E5748 /* OrderSureHeaderView.xib */; };
 		04457AC021FC48C3003E5748 /* OrderDeptGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04457ABF21FC48C3003E5748 /* OrderDeptGoodsModel.m */; };
@@ -334,6 +336,9 @@
 		043B468B21F8682100C75536 /* LeaveMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeaveMessageViewController.h; sourceTree = "<group>"; };
 		043B468C21F8682100C75536 /* LeaveMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeaveMessageViewController.m; sourceTree = "<group>"; };
 		043B468D21F8682100C75536 /* LeaveMessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaveMessageViewController.xib; sourceTree = "<group>"; };
+		044250B222277FCD00E9F64E /* TimeChooseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeChooseView.h; sourceTree = "<group>"; };
+		044250B322277FCD00E9F64E /* TimeChooseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeChooseView.m; sourceTree = "<group>"; };
+		044250B722277FE400E9F64E /* TimeChooseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeChooseView.xib; sourceTree = "<group>"; };
 		04457AB921FC43B2003E5748 /* OrderSureHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderSureHeaderView.h; sourceTree = "<group>"; };
 		04457ABA21FC43B2003E5748 /* OrderSureHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderSureHeaderView.m; sourceTree = "<group>"; };
 		04457ABC21FC4446003E5748 /* OrderSureHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSureHeaderView.xib; sourceTree = "<group>"; };
@@ -820,7 +825,6 @@
 		0402F63421A3B845003634AE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				04F8FBFF21F1D3C700913150 /* SecondsKillView */,
 				04F8FBF621F17D8600913150 /* AllCommentsView */,
 				04F70C6621E98C38004BD4C6 /* AnchorRecommendView(主播推荐) */,
 				04F70C6A21E99A62004BD4C6 /* ChannelMenuListView(频道菜单) */,
@@ -939,6 +943,10 @@
 		042359ED21FF05E400F4C345 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04F45F1721F5B7A7009F5907 /* TableView */,
+				044250B222277FCD00E9F64E /* TimeChooseView.h */,
+				044250B322277FCD00E9F64E /* TimeChooseView.m */,
+				044250B722277FE400E9F64E /* TimeChooseView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1951,6 +1959,7 @@
 		04F45F1721F5B7A7009F5907 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				04F45F1621F5B79B009F5907 /* Cell */,
 				04F45F1321F5B2E9009F5907 /* SecondsKillTableView.h */,
 				04F45F1421F5B2E9009F5907 /* SecondsKillTableView.m */,
 				04F45F1021F5AD70009F5907 /* MySecondKillTableView.h */,
@@ -2224,15 +2233,6 @@
 			path = AllCommentsView;
 			sourceTree = "<group>";
 		};
-		04F8FBFF21F1D3C700913150 /* SecondsKillView */ = {
-			isa = PBXGroup;
-			children = (
-				04F45F1721F5B7A7009F5907 /* TableView */,
-				04F45F1621F5B79B009F5907 /* Cell */,
-			);
-			path = SecondsKillView;
-			sourceTree = "<group>";
-		};
 		04FA5D5821AE3B0D0061AF27 /* Login(登录) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2497,6 +2497,7 @@
 				04716AC12224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib in Resources */,
 				0459D91421E0A78F009BFFB4 /* OrderSureTableViewCell.xib in Resources */,
 				042D1531221D629A00DB895C /* PaySuccessView.xib in Resources */,
+				044250B822277FE400E9F64E /* TimeChooseView.xib in Resources */,
 				04F8ED5121E349E000004178 /* modifyAddressViewCell.xib in Resources */,
 				04F8FBFB21F17E0200913150 /* AllCommentsCell.xib in Resources */,
 				0410358221CCD2F2002CB32C /* UMSocialSDKPromptResources.bundle in Resources */,
@@ -2585,6 +2586,7 @@
 				04F3270A21D07F18009267F4 /* SettingTableViewCell.m in Sources */,
 				04F3B31E21EDDAF900DFBA84 /* UIColor+JXAdd.m in Sources */,
 				04F3CF0A21CB4C0D007C40A1 /* RootNavigationController.m in Sources */,
+				044250B422277FCD00E9F64E /* TimeChooseView.m in Sources */,
 				04F2FD2C21EF3EA9000B58E2 /* SpellGroupTableViewController.m in Sources */,
 				04F8ED4421E32AC000004178 /* UserAdressCell.m in Sources */,
 				04F45F1521F5B2E9009F5907 /* SecondsKillTableView.m in Sources */,

@@ -25,7 +25,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大虾🍤大虾🍤大虾🍤大虾🍤大虾🍤大虾🍤大虾🍤大虾🍤" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh2-Wv-mHB">
-                    <rect key="frame" x="130" y="10" width="225" height="29"/>
+                    <rect key="frame" x="130" y="10" width="225" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -36,9 +36,12 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥100.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcW-Ve-2Yp">
-                    <rect key="frame" x="130" y="74" width="43.5" height="15"/>
+                    <rect key="frame" x="130" y="79" width="44" height="0.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="zLi-ZW-hjs"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
@@ -47,7 +50,7 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥59.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uM-75-OI3">
-                    <rect key="frame" x="130" y="93" width="43.5" height="17"/>
+                    <rect key="frame" x="130" y="88.5" width="44" height="21.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -65,7 +68,7 @@
                         <constraint firstAttribute="width" constant="60" id="4c1-Ft-OnD"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="立即购买">
+                    <state key="normal" title="立即抢购">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -80,13 +83,25 @@
                         <constraint firstAttribute="height" constant="10" id="8he-Vt-c0r"/>
                     </constraints>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATR-Ko-DP6">
+                    <rect key="frame" x="130" y="79" width="44" height="0.5"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="EBC-ij-Gpc"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="ATR-Ko-DP6" firstAttribute="centerX" secondItem="TcW-Ve-2Yp" secondAttribute="centerX" id="4y3-N2-4KW"/>
                 <constraint firstItem="TcW-Ve-2Yp" firstAttribute="leading" secondItem="Qh2-Wv-mHB" secondAttribute="leading" id="5MA-Qh-U5d"/>
+                <constraint firstItem="ATR-Ko-DP6" firstAttribute="width" secondItem="TcW-Ve-2Yp" secondAttribute="width" id="A3v-75-4FJ"/>
                 <constraint firstItem="Qh2-Wv-mHB" firstAttribute="leading" secondItem="QHR-Zm-0b1" secondAttribute="trailing" constant="10" id="HKa-FI-6Z2"/>
                 <constraint firstItem="8uM-75-OI3" firstAttribute="leading" secondItem="Qh2-Wv-mHB" secondAttribute="leading" id="IK6-k0-Jqv"/>
+                <constraint firstItem="8uM-75-OI3" firstAttribute="top" secondItem="ATR-Ko-DP6" secondAttribute="bottom" constant="9" id="JUd-ob-M5M"/>
                 <constraint firstItem="0bt-oD-Anq" firstAttribute="top" secondItem="lC5-ab-qMq" secondAttribute="top" constant="105" id="Kl5-mf-8PR"/>
+                <constraint firstItem="ATR-Ko-DP6" firstAttribute="centerY" secondItem="TcW-Ve-2Yp" secondAttribute="centerY" id="NOc-PK-tOK"/>
+                <constraint firstItem="ATR-Ko-DP6" firstAttribute="top" secondItem="oB7-go-KPQ" secondAttribute="top" constant="79" id="QF2-XQ-ZYF"/>
                 <constraint firstItem="8uM-75-OI3" firstAttribute="bottom" secondItem="QHR-Zm-0b1" secondAttribute="bottom" id="Rgr-Z5-gob"/>
                 <constraint firstItem="VmF-D9-aes" firstAttribute="trailing" secondItem="lC5-ab-qMq" secondAttribute="trailing" id="VkA-WC-Czi"/>
                 <constraint firstItem="lC5-ab-qMq" firstAttribute="trailing" secondItem="0bt-oD-Anq" secondAttribute="trailing" constant="20" id="buA-zY-8cn"/>
@@ -102,6 +117,10 @@
             <viewLayoutGuide key="safeArea" id="lC5-ab-qMq"/>
             <connections>
                 <outlet property="BuyNowBtn" destination="0bt-oD-Anq" id="RtC-KO-qT7"/>
+                <outlet property="goodsDetails" destination="Qh2-Wv-mHB" id="d0n-dP-7X4"/>
+                <outlet property="goodsImgView" destination="QHR-Zm-0b1" id="TxZ-Ai-Onz"/>
+                <outlet property="goodsMarketPrice" destination="TcW-Ve-2Yp" id="tNT-BH-65m"/>
+                <outlet property="goodsSellingPrice" destination="8uM-75-OI3" id="YQ1-Td-Sju"/>
             </connections>
             <point key="canvasLocation" x="253.59999999999999" y="148.87556221889056"/>
         </view>

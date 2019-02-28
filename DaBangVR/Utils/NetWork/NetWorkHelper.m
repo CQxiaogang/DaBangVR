@@ -26,7 +26,7 @@
          */
         if ([error.domain isEqualToString:AFURLResponseSerializationErrorDomain]) {
                     id response = [NSJSONSerialization JSONObjectWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:0 error:nil];
-            [SVProgressHUD showInfoWithStatus:response[@"msg"]];
+            [SVProgressHUD showInfoWithStatus:response[@"errmsg"]];
             [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
             [SVProgressHUD dismissWithDelay:1.0];
         }

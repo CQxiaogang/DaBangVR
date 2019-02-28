@@ -26,7 +26,7 @@ static NSString *CellID = @"CellID";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return _goodsData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -34,18 +34,17 @@ static NSString *CellID = @"CellID";
     if (!cell) {
         cell = [[SecondsKillCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
+    cell.model = _goodsData[indexPath.row];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 165;
+    return kFit(165);
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    UIView *headerView = [[UIView alloc]init];
-//    return headerView;
-//}
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    return 150;
-//}
+- (void)setGoodsData:(NSArray *)goodsData{
+    _goodsData = goodsData;
+    [self reloadData];
+}
+
 @end

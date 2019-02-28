@@ -34,6 +34,7 @@
 #define URL_main @"http://www.vrzbgw.com/dabang"
 //#define URL_main @"http://192.168.1.111:8080"
 //#define URL_main @"http://192.168.1.105:8080"
+//#define URL_main @"http://192.168.1.107:8080"
 #elif TestSever
 
 /**测试服务器*/
@@ -73,6 +74,9 @@
 #define URl_getGlobalList NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGlobalList?")
 // 根据国家列表，查询商品
 #define URl_getGlobalLists NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGlobalLists?")
+// 秒杀商品列表
+#define URl_getSecondsKillGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/goods/getSecondsKillGoodsList?")
+
 
 #pragma mark ——————  登陆授权接口  ——————
 // 登录
