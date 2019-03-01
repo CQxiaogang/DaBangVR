@@ -48,10 +48,10 @@
     [super viewDidLoad];
     self.title = @"拼团";
     
-    [self data];
+    [self loadingData];
 }
 
-- (void)data{
+-(void)loadingData{
     kWeakSelf(self);
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_enter(group);

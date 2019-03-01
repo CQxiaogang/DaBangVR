@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *categoryImg;
 // 新品总量
 @property (nonatomic, copy) NSString *count;
-@property (nonatomic, copy) NSArray <GoodsDetailsModel *> *data;
+@property (nonatomic, copy) NSArray <GoodsDetailsModel *> *goodsVoList;
 @end
 
 NS_ASSUME_NONNULL_END

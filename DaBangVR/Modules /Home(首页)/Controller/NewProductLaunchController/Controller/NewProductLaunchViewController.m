@@ -14,7 +14,7 @@
 // Models
 #import "NewGoodsModel.h"
 
-@interface NewProductLaunchViewController ()<NewProductLaunchCellDelegate>
+@interface NewProductLaunchViewController ()
 
 @property (nonatomic, copy) NSArray *goodsData;
 
@@ -47,7 +47,7 @@ static NSString *CellID = @"CellID";
     kWeakSelf(self);
     NSDictionary *dic = @{
                           @"page":@"1",
-                          @"limit":@"10"
+                          @"limit":@"5"
                           };
     [NetWorkHelper POST:URL_newGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
@@ -65,33 +65,30 @@ static NSString *CellID = @"CellID";
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     NewProductLaunchCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
-    cell.delegate = self;
     if (cell == nil) {
         cell = [[NewProductLaunchCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
-    cell.model = _goodsData[indexPath.row];
+    if (_goodsData.count!=0) {
+        cell.model = _goodsData[indexPath.row];
+    }
+    // block回调
+    kWeakSelf(self);
+    cell.cellBlock = ^(NewProductLaunchCell * _Nonnull cell, NSIndexPath * _Nonnull indexPath) {
+        // 得到当前cell的indexPath.
+        NSIndexPath *tableIndexPath = [self.tableView indexPathForCell:cell];
+        NewGoodsModel *model = weakself.goodsData[tableIndexPath.row];
+        GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
+        GoodsDetailsModel *goodsModel = model.goodsVoList[indexPath.row];
+        vc.index = goodsModel.id;
+        [weakself.navigationController pushViewController:vc animated:NO];
+    };
+    
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     //358 根据控件所组合成的长度而来
     return kFit(358);
-}
-
-#pragma mark —— NewProductLaunchCell 代理
--(void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath tableViewCell:(nonnull id)cell{
-    UIView *parentView = [self.view superview];
-    while (![parentView isKindOfClass:[UITableViewCell class]] && parentView!=nil) {
-        parentView = parentView.superview;
-    }
-//    NSIndexPath *index = [self.tableView indexPathForCell:(cell*)parentView];
-    DLog(@"");
-    
-    NewGoodsModel *model = _goodsData[indexPath.row];
-    GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
-    GoodsDetailsModel *goodsModel = model.data[indexPath.row];
-    vc.index = goodsModel.id;
-    [self.navigationController pushViewController:vc animated:NO];
 }
 
 @end

@@ -11,14 +11,11 @@
 @implementation NewGoodsModel
 
 + (NSDictionary *)mj_objectClassInArray{
-    return @{@"data":[GoodsDetailsModel class]};
+    return @{@"goodsVoList":[GoodsDetailsModel class]};
 }
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName{
-    return @{@"ID":@"id",
-             @"data":@"page.data",
-             @"count":@"page.count"
-             };
+    return @{@"ID":@"id"};
 }
 
 @end

@@ -21,9 +21,9 @@
 
     _titleLabelZoomEnabled = NO;
     _titleLabelZoomScale = 1.2;
-    _titleColor = [UIColor blackColor];
-    _titleSelectedColor = [UIColor redColor];
-    _titleFont = [UIFont systemFontOfSize:15];
+    _titleColor = KGrayColor;
+    _titleSelectedColor = [UIColor lightGreen];
+    _titleFont = [UIFont systemFontOfSize:kFit(14)];
     _titleColorGradientEnabled = NO;
     _titleLabelMaskEnabled = NO;
     _titleLabelZoomScrollGradientEnabled = YES;

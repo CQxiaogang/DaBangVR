@@ -43,15 +43,16 @@
     _model = model;
     [_backgroundImg setImageURL:[NSURL URLWithString:model.categoryImg]];
     _goodsNum.text = [NSString stringWithFormat:@"查看全部%@种商品 >",model.count];
-    self.collectionView.data = model.data;
+    self.collectionView.data = model.goodsVoList;
 }
 
 #pragma mark —— HorizontalCollectionView 代理
 -(void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath collectionViewCellType:(CollectionViewCellType)type{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectItemAtIndexPath:tableViewCell:)]) {
-        [self.delegate didSelectItemAtIndexPath:indexPath tableViewCell:self];
-    }
     
+    if (!_cellBlock) {
+        self.cellBlock(self, indexPath);
+    }
+
 }
 
 @end

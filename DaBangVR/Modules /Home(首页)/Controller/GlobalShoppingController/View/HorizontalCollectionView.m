@@ -89,8 +89,10 @@ static NSString *CellID = @"CellID";
 }
 
 -(void)setData:(NSArray *)data{
-    _data = data;
-    [self reloadData];
+    if (data.count != 0) {
+        _data = data;
+        [self reloadData];
+    }
 }
 
 #pragma mark —— CountryGoodsCollectionViewCell 代理

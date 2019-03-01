@@ -34,14 +34,9 @@
     self.categoryView.titles = self.titles;
     self.categoryView.backgroundColor = [UIColor whiteColor];
     self.categoryView.delegate = self;
-    self.categoryView.titleSelectedColor = [UIColor lightGreen];
-    self.categoryView.titleColor = KGrayColor;
     self.categoryView.titleColorGradientEnabled = YES;
-    self.categoryView.titleFont = [UIFont systemFontOfSize:kFit(14)];
 
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-    lineView.indicatorLineViewColor = [UIColor lightGreen];
-//    lineView.indicatorLineWidth = kFit(30);
     self.categoryView.indicators = @[lineView];
 
     _pagerView = [self preferredPagingView];

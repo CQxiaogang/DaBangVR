@@ -25,13 +25,15 @@
 #import "AnchorRecommendView.h" //主播推荐
 #import "ChannelMenuListView.h" //频道菜单列表
 #import "HomeBannerView.h"      //轮播新上
+#import "SecondsKillView.h"     //秒杀
+#import "HomeTableViewCell.h"
 // Models
 #import "ChannelModel.h"
 #import "GoodsRotationListModel.h"
 // 第三方
 #import "SureCustomActionSheet.h"
 
-static NSString *cellID = @"cellID";
+static NSString *CellID = @"CellID";
 #define KCURRENTCITYINFODEFAULTS [NSUserDefaults standardUserDefaults]
 
 @interface HomeViewController ()
@@ -49,14 +51,14 @@ TopViewDelegate
     CGFloat _totalH_anchorRecommendView;  // 推荐直播总高度
     CGFloat _totalH_channelMenuList;      // 更多功能总高度
     CGFloat _totalH_newShang;             // 新上总高度
-    CGFloat _totalH_miaoS;                // 秒杀总高度
+    CGFloat _totalH_secondsKill;          // 秒杀总高度
     CGFloat _totalH_prefecture;           // 新品/热卖专区总高度
     CGFloat _totalH_hotVideo;             // 最热视频总高度
     CGFloat _totalH_globalShopping;       // 全球购总高度
     CGFloat _totalH_videoAndLocalfeatures;// 视频地方特色总高度
 }
 
-@property (nonatomic, strong) UITableView           *myTableView;     // 显示整个界面tableveiw
+//@property (nonatomic, strong) UITableView           *myTableView;     // 显示整个界面tableveiw
 
 @property (nonatomic, strong) UITableView           *homeTableView;   // 底部显示更多商品tableveiw
 
@@ -74,6 +76,8 @@ TopViewDelegate
 // 主播推荐 view
 @property (nonatomic, strong) AnchorRecommendView *anchorRecommendView;
 @property (nonatomic, strong) NSMutableArray *arrayModel;
+// 推荐商品数据
+@property (nonatomic, copy) NSArray *goodsData;
 @end
 
 @implementation HomeViewController
@@ -92,23 +96,23 @@ TopViewDelegate
     return _topView;
 }
 
-- (UITableView *)myTableView{
-    if (_myTableView == nil) {
-        _myTableView = [[UITableView alloc] init];
-        CGFloat tableViewY = self.topView.mj_h + self.topView.mj_y;
-        CGFloat tableView_H = self.view.mj_h - 49 - 20 - 44;
-        //tableView制定
-        _myTableView.frame = CGRectMake(0, tableViewY, self.view.mj_w, tableView_H);
-        _myTableView.delegate = self;
-        _myTableView.dataSource = self;
-        //隐藏tableView分割线
-        _myTableView.separatorStyle = UITableViewCellEditingStyleNone;
-        //隐藏滚动条
-        _myTableView.showsVerticalScrollIndicator = NO;
-       
-    }
-    return _myTableView;
-}
+//- (UITableView *)myTableView{
+//    if (_myTableView == nil) {
+//        _myTableView = [[UITableView alloc] init];
+//        CGFloat tableViewY = self.topView.mj_h + self.topView.mj_y;
+//        CGFloat tableView_H = self.view.mj_h - 49 - 20 - 44;
+//        //tableView制定
+//        _myTableView.frame = CGRectMake(0, tableViewY, self.view.mj_w, tableView_H);
+//        _myTableView.delegate = self;
+//        _myTableView.dataSource = self;
+//        //隐藏tableView分割线
+//        _myTableView.separatorStyle = UITableViewCellEditingStyleNone;
+//        //隐藏滚动条
+//        _myTableView.showsVerticalScrollIndicator = NO;
+//
+//    }
+//    return _myTableView;
+//}
 
 -(UITableView *)homeTableView{
     if (_homeTableView == nil) {
@@ -122,7 +126,7 @@ TopViewDelegate
         //根据homeTable的内容获取高度
         CGFloat homeT_H = 3 * 105;
         _homeTableView.frame = CGRectMake(0, 0, self.view.mj_w, homeT_H);
-        [_homeTableView registerNib:[UINib nibWithNibName:@"DBtableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
+        [_homeTableView registerNib:[UINib nibWithNibName:@"HomeTableViewCell" bundle:nil] forCellReuseIdentifier:CellID];
     }
     return _homeTableView;
 }
@@ -169,10 +173,11 @@ TopViewDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 全局变量,定义边距
-    _margin = Adapt(20);
-    [self setUp_homeUI];
+    _margin = kFit(20);
     self.locationManager = [[JFLocation alloc] init];
     _locationManager.delegate = self;
+    
+    [self loadingData];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -182,48 +187,65 @@ TopViewDelegate
 }
 
 #pragma mark —— 设置主页UI
-- (void)setUp_homeUI{
+-(void)setupUI{
+    [super setupUI];
     // 设置顶部视图
     [self.view addSubview:self.topView];
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(20);
-        make.size.equalTo(CGSizeMake(self.view.mj_w, self.topView.mj_h));
+        make.top.equalTo(kStatusBarHeight);
+        make.left.right.equalTo(0);
+        make.size.equalTo(CGSizeMake(KScreenW, kNavBarHeight));
     }];
-    
-    [self.view addSubview:self.myTableView];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellID];
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.topView.mas_bottom).offset(0);
+        make.left.equalTo(0);
+        make.right.equalTo(0);
+        make.bottom.equalTo(0);
+    }];
+}
+
+-(void)loadingData{
+    kWeakSelf(self);
+    NSDictionary *dic = @{
+                          @"parentId":@"2",
+                          @"categoryId":@"1036112",
+                          @"page":@"1",
+                          @"limit":@"10"
+                          };
+    [NetWorkHelper POST:URl_getGlobalList parameters:dic success:^(id  _Nonnull responseObject) {
+        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
+        // 推荐商品
+        weakself.goodsData = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:data[@"goodsLists"]];
+        [weakself.homeTableView reloadData];
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
 }
 
 #pragma mark —— tableView实现
 //设置多少个数据组
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    if ([tableView isEqual:self.myTableView]) {
+    if ([tableView isEqual:self.tableView]) {
         return 9;
     }else{
-        return 3;
+        return _goodsData.count;
     }
 }
 
 //此方法告诉tableview对应的组有多少个数据行。需要对每组依次进行设置，return几就表示几行
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
-}
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    return 1;
+//}
 
-/*
- 告诉tableview每一行显示什么内容—— 每一行都是一个UITableViewCell或其子类，故只需要返回一个cell即可。其中的参数indexPath
- indexPath.section 表示组（从0开始
- indexPath.row 表示行（从0开始
- 另外，给cell添加数据也是在此方法体中添加
- */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([tableView isEqual:self.myTableView]) {
-        static NSString *cellIdentifier = @"Cell";
+    if ([tableView isEqual:self.tableView]) {
         //让cell不重用
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         if (cell == nil) {
-            
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
         }
-//        cell.backgroundColor = DBRandomColor;
         switch (indexPath.section) {
             case 0:
                 // 主播推荐
@@ -239,7 +261,7 @@ TopViewDelegate
                 break;
             case 3:
                 // 限时秒杀
-                [self setUp_miaoSView:cell];
+                [self setupSecondsKillView:cell];
                 break;
             case 4:
                 // 新品/热卖 专区
@@ -270,20 +292,19 @@ TopViewDelegate
         return cell;
     }else{
         
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
         
         if (cell == nil) {
-
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+            cell = [[HomeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
         }
-        
+        cell.model = _goodsData[indexPath.row];
         return cell;
     }
 }
 
 //个方法返回指定的 row 的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([tableView isEqual:self.myTableView]) {
+    if ([tableView isEqual:self.tableView]) {
         switch (indexPath.section) {
             case 0:
                 // 直播推荐视图
@@ -299,7 +320,7 @@ TopViewDelegate
                 break;
             case 3:
                 // 限时秒杀
-                return _totalH_miaoS;
+                return _totalH_secondsKill;
                 break;
             case 4:
                 // 新品/热卖 专区
@@ -326,10 +347,22 @@ TopViewDelegate
         }
         return 0;
     }else{
-        return Adapt(105);
+        return kFit(105);
     }
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return [[UIView alloc] init];
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return .1f;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [[UIView alloc] init];
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return .1f;
+}
 #pragma mark —— 推荐主播
 - (void) setupAnchorRecommendView:(UITableViewCell *)cell{
     
@@ -422,26 +455,43 @@ TopViewDelegate
 }
 
 #pragma mark —— 限时秒杀
-- (void)setUp_miaoSView:(UITableViewCell *)cell{
-    //头部便签
-    UIView *titleView = [self titleImageOneString:@"h_maio" titleImageTwoString:@"h_tl" moreImageStrng:@"h_newshop_greater"];
-    [cell addSubview:titleView];
-    
-    UIView *miaoS_BabyView;
-    NSMutableArray *arr = [NSMutableArray new];
-    for (int i = 0; i<2; i++) {
-        //从xib中读出视图
-        miaoS_BabyView = [self loadNibNamed:@"DBTimeLimitSecondsKill"];
-        [arr addObject:miaoS_BabyView];
-        [cell addSubview:miaoS_BabyView];
-    }
-    if (arr.count != 0) {
-        [arr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:5 leadSpacing:10 tailSpacing:10];
-        [arr mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(titleView.mas_bottom).offset(0);
-        }];
-    }
-    _totalH_miaoS = Adapt(titleView.mj_h + miaoS_BabyView.mj_h);
+- (void)setupSecondsKillView:(UITableViewCell *)cell{
+//    kWeakSelf(self);
+    NSDictionary *dic = @{@"hoursTime":@"12",@"page":@"1", @"limit":@"2"};
+    [NetWorkHelper POST:URl_getSecondsKillGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
+        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
+        NSDictionary *goodsList = data[@"goodsList"];
+        NSArray *goodsData = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:goodsList];
+        
+        //头部便签
+        UIView *titleView = [self titleImageOneString:@"h_maio" titleImageTwoString:@"h_tl" moreImageStrng:@"h_newshop_greater"];
+        [cell addSubview:titleView];
+        
+        SecondsKillView *secondsKillView;
+        NSMutableArray *views = [NSMutableArray new];
+        for (int i = 0; i<2; i++) {
+            //从xib中读出视图
+            secondsKillView = [self loadNibNamed:@"SecondsKillView"];
+            if (goodsData.count != 0) {
+                secondsKillView.model = goodsData[i];
+                [views addObject:secondsKillView];
+                [cell addSubview:secondsKillView];
+            }
+        }
+        if (views.count != 0) {
+            [views mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:5 leadSpacing:10 tailSpacing:10];
+            [views mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(titleView.mas_bottom).offset(0);
+            }];
+        }
+        self->_totalH_secondsKill = kFit(titleView.mj_h + secondsKillView.mj_h);
+        if (goodsData.count == 0) {
+            [titleView removeFromSuperview];
+            self->_totalH_secondsKill = 0;
+        }
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
 }
 
 #pragma mark —— 新品/热卖 专区
@@ -462,9 +512,8 @@ TopViewDelegate
 #pragma mark —— 最热视频
 - (void)setUp_hotVideo:(UITableViewCell *)cell{
     UIView *titleView = [self titleImageOneString:@"h_hottest_video" titleImageTwoString:@"h_hotVideo" moreImageStrng:@"h_newshop_greater"];
-    titleView.backgroundColor = [UIColor redColor];
     [cell addSubview:titleView];
-    
+
     UIView *hotVideoView;
     for (int i=0; i<2; i++) {
         for (int j = 0; j<3; j++) {
@@ -488,7 +537,7 @@ TopViewDelegate
     more_hotVieoBtn.layer.borderColor = [[UIColor lightGreen] CGColor];
     more_hotVieoBtn.layer.borderWidth = 1.0f;
     [cell addSubview:more_hotVieoBtn];
-    
+
     [more_hotVieoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(cell);
         make.top.equalTo(hotVideoView.mas_bottom).with.offset(10);
@@ -560,34 +609,46 @@ TopViewDelegate
 }
 
 // 抽取读取xib文件方法
-- (UIView *)loadNibNamed:(NSString *)string{    return  [[[NSBundle mainBundle]loadNibNamed:string owner:nil options:nil] firstObject];
+- (id)loadNibNamed:(NSString *)string{
+    return  [[[NSBundle mainBundle]loadNibNamed:string owner:nil options:nil] firstObject];
 }
 
 // 标题视图封装
 - (UIView *)titleImageOneString:(NSString *)oneString titleImageTwoString:(NSString *)twoString moreImageStrng:(NSString *)moreString{
     
-    CGFloat imageY = 0;
-    CGFloat margin = _margin;//边距
+    CGFloat superViewH = kFit(40);
     
-    UIView *mainView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.mj_w, Adapt(20))];
+    UIView *superView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.mj_w, superViewH)];
     // 第一个图标
-    UIImageView *titleImageView_One = [[UIImageView alloc] initWithFrame:CGRectMake(margin, imageY, Adapt(30), Adapt(20))];
-    titleImageView_One.image = [UIImage imageNamed:oneString];
-    [mainView addSubview:titleImageView_One];
+    UIImageView *imgView = [[UIImageView alloc] init];
+    imgView.image = [UIImage imageNamed:oneString];
+    [superView addSubview:imgView];
+    [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(superView.mas_centerY);
+        make.left.equalTo(kFit(0));
+        make.size.equalTo(CGSizeMake(superViewH, superViewH/2));
+    }];
     // 第二个图标
-    UIImageView *titleImageView_Two = [[UIImageView alloc] initWithFrame:CGRectMake((titleImageView_One.mj_x+margin+titleImageView_One.mj_w), imageY, Adapt(100), Adapt(20))];
-    titleImageView_Two.image = [UIImage imageNamed:twoString];
-    [mainView addSubview:titleImageView_Two];
+    UIImageView *imgView2 = [[UIImageView alloc] init];
+    imgView2.image = [UIImage imageNamed:twoString];
+    [superView addSubview:imgView2];
+    [imgView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(superView.mas_centerY);
+        make.left.equalTo(imgView.mas_right).offset(2);
+        make.size.equalTo(CGSizeMake(superViewH*2, superViewH/2));
+    }];
     // 右边按钮
-    CGFloat btnW = Adapt(100);
-    CGFloat moreBtnX = self.view.mj_w - btnW - margin;
-    UIButton *moreBtn = [[UIButton alloc] initWithFrame:CGRectMake(moreBtnX, imageY, btnW, Adapt(20))];
-    [moreBtn setImage:[UIImage imageNamed:moreString] forState:UIControlStateNormal];
+    UIButton *btn = [[UIButton alloc] init];
+    [btn setImage:[UIImage imageNamed:moreString] forState:UIControlStateNormal];
     // 设置图片偏移量
-    moreBtn.imageEdgeInsets = UIEdgeInsetsMake(0, Adapt(80), 0, 0);
-    [mainView addSubview:moreBtn];
-    mainView.backgroundColor = [UIColor whiteColor];
-    return mainView;
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0, superViewH*2, 0, 0);
+    [superView addSubview:btn];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(superView.mas_centerY);
+        make.right.equalTo(superView.mas_right).offset(0);
+        make.size.equalTo(CGSizeMake(superViewH*3, superViewH));
+    }];
+    return superView;
 }
 
 #pragma mark —— 定位点击事件

@@ -102,9 +102,9 @@ static NSString *CellID = @"CellID";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    SpellGroupModel *model = self.data[indexPath.row];
+    
     if (self.aDelegate && [self.aDelegate respondsToSelector:@selector(didSelectGoodsShowDetails:)]) {
-        
+        SpellGroupModel *model = self.data[indexPath.row];
         [self.aDelegate didSelectGoodsShowDetails:model.id];
     }
 }
