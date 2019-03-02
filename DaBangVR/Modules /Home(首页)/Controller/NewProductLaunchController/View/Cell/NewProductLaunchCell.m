@@ -49,7 +49,7 @@
 #pragma mark —— HorizontalCollectionView 代理
 -(void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath collectionViewCellType:(CollectionViewCellType)type{
     
-    if (!_cellBlock) {
+    if (_cellBlock) {
         self.cellBlock(self, indexPath);
     }
 

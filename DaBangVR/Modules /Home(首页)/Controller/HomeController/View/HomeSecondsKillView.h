@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SecondsKillView : UIView
+@interface HomeSecondsKillView : UIView
 // 商品图片
 @property (weak, nonatomic) IBOutlet UIImageView *goodsImgView;
 // 商品价格

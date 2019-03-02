@@ -36,7 +36,7 @@ static NSString *CellID = @"CellID";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
-    return _data.count? _data.count:3;
+    return _data.count;
     
 }
 

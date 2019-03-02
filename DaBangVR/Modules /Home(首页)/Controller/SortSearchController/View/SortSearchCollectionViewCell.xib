@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SortSearchCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="173" height="235"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="173" height="235"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lufei.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JNR-Pt-0TN">
+                        <rect key="frame" x="0.0" y="0.0" width="173" height="173"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="173" id="2i8-pp-ECn"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="170" id="9El-RD-RnJ"/>
+                            <constraint firstAttribute="width" constant="173" id="iIF-cq-KnN"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jh-xn-TFy">
+                        <rect key="frame" x="0.0" y="178" width="173" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="fSZ-cJ-1U3"/>
+                        </constraints>
+                        <string key="text">LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="135.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kag-wg-33C">
+                        <rect key="frame" x="0.0" y="218" width="36" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="ZpB-HH-CaM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                                <real key="value" value="14"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已付款: 568" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKm-lH-Mjh">
+                        <rect key="frame" x="106" y="218" width="67" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="1jh-xn-TFy" firstAttribute="top" secondItem="JNR-Pt-0TN" secondAttribute="bottom" constant="5" id="3bc-ZL-Bq9"/>
+                <constraint firstItem="aKm-lH-Mjh" firstAttribute="centerY" secondItem="Kag-wg-33C" secondAttribute="centerY" id="4JK-cE-Oki"/>
+                <constraint firstItem="JNR-Pt-0TN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5iN-VP-lWJ"/>
+                <constraint firstAttribute="trailing" secondItem="1jh-xn-TFy" secondAttribute="trailing" id="6Vn-cP-X6N"/>
+                <constraint firstItem="Kag-wg-33C" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7fx-eR-8Cr"/>
+                <constraint firstItem="JNR-Pt-0TN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="AzW-Vy-9He"/>
+                <constraint firstItem="aKm-lH-Mjh" firstAttribute="height" secondItem="Kag-wg-33C" secondAttribute="height" id="IOU-rl-eve"/>
+                <constraint firstAttribute="trailing" secondItem="aKm-lH-Mjh" secondAttribute="trailing" id="JY7-PF-V4h"/>
+                <constraint firstItem="1jh-xn-TFy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Pbs-ub-Vq9"/>
+                <constraint firstItem="Kag-wg-33C" firstAttribute="top" secondItem="1jh-xn-TFy" secondAttribute="bottom" constant="10" id="lKt-D7-Hyc"/>
+                <constraint firstAttribute="trailing" secondItem="JNR-Pt-0TN" secondAttribute="trailing" id="lg0-hD-qah"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="174" height="235"/>
+            <connections>
+                <outlet property="goodsDetails" destination="1jh-xn-TFy" id="eHE-HH-9d8"/>
+                <outlet property="goodsImgView" destination="JNR-Pt-0TN" id="TLa-3c-wo8"/>
+                <outlet property="goodsPaymentNum" destination="aKm-lH-Mjh" id="eFG-rO-m8W"/>
+                <outlet property="goodsPrice" destination="Kag-wg-33C" id="ck1-ek-xGq"/>
+            </connections>
+            <point key="canvasLocation" x="-49" y="108"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="lufei.jpg" width="900" height="768"/>
+    </resources>
+</document>

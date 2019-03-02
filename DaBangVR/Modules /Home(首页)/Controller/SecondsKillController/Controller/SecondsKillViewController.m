@@ -24,8 +24,6 @@
 
 @property (nonatomic, strong) SecondsKillTableView  *leftTableView;
 @property (nonatomic, strong) MySecondKillTableView *rightTableView;
-// 商品数据
-@property (nonatomic, copy) NSArray *goodsData;
 // 轮播图
 @property (nonatomic, strong) ShufflingView *shufflingView;
 
@@ -33,12 +31,7 @@
 
 @implementation SecondsKillViewController
 #pragma mark —— 懒加载
-//- (NSArray *)goodsData{
-//    if (!_goodsData) {
-//        _goodsData = [[NSMutableArray alloc] init];
-//    }
-//    return _goodsData;
-//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"限时秒杀";
@@ -55,20 +48,7 @@
     [self creatLeftOfTableView];
 }
 -(void)loadingData{
-    kWeakSelf(self);
-    NSDictionary *dic = @{
-                          @"hoursTime":@"12",
-                          @"page":@"1",
-                          @"limit":@"10"
-                          };
-    [NetWorkHelper POST:URl_getSecondsKillGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
-        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
-        NSDictionary *goodsList = data[@"goodsList"];
-        weakself.goodsData = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:goodsList];
-        weakself.leftTableView.goodsData = weakself.goodsData;
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
+    
 }
 
 - (void)setupNavagationBar{
@@ -130,7 +110,7 @@
     _leftTableView.tableHeaderView = tableHeaderView;
     [self.view addSubview:_leftTableView];
     [_leftTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(@0);
+        make.left.right.equalTo(0);
         make.top.equalTo(kTopHeight);
         make.bottom.equalTo(-kTabBarHeight);
     }];

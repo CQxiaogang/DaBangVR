@@ -47,11 +47,15 @@ static NSString *CellID = @"CellID";
     kWeakSelf(self);
     NSDictionary *dic = @{
                           @"page":@"1",
-                          @"limit":@"5"
+                          @"limit":@"5",
+                          @"goodsPage":@"1",
+                          @"goodsLimit":@"5",
+                          @"categoryId":@"1",
+                          @"type":@"0",
                           };
     [NetWorkHelper POST:URL_newGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
-        weakself.goodsData = [NewGoodsModel mj_objectArrayWithKeyValuesArray:data];
+        weakself.goodsData = [NewGoodsModel mj_objectArrayWithKeyValuesArray:data[@"GoodsCategoryList"]];
         [weakself.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {
         

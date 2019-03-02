@@ -7,7 +7,7 @@
 //
 
 #import "SortSearchViewController.h"
-#import "SortSearchTableViewController.h"
+#import "SortSearchCollectionViewController.h"
 // Vendors
 #import "JXCategoryView.h"
 #import "JXCategoryListContainerView.h"
@@ -35,7 +35,7 @@
     
     [self setupNavagationBar];
     
-    CGFloat categoryViewHeight = 50;
+    CGFloat categoryViewHeight = kFit(50);
     CGFloat width = KScreenW;
     CGFloat height = KScreenH - kNavBarHeight -categoryViewHeight;
     
@@ -103,9 +103,9 @@
 #pragma mark —— JXCategoryListContainerViewDelegate
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    SortSearchTableViewController *tableVC = [[SortSearchTableViewController alloc] init];
-    tableVC.view.backgroundColor = KRandomColor;
-    return tableVC;
+    SortSearchCollectionViewController *vc = [[SortSearchCollectionViewController alloc] init];
+    vc.view.backgroundColor = KRandomColor;
+    return vc;
 }
 
 - (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="uWJ-Jv-kel" customClass="HomeNewAndHotGoodsView">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="185"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="h_new" translatesAutoresizingMaskIntoConstraints="NO" id="lZn-yc-jP2">
+                    <rect key="frame" x="0.0" y="10" width="20" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="4df-21-okb">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="15" id="dwf-VV-0BH">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="h_newshop" translatesAutoresizingMaskIntoConstraints="NO" id="3QW-Yn-HOh">
+                    <rect key="frame" x="22" y="10" width="40" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="WAf-ak-Kl1">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="width" constant="40" id="vDf-uh-7pc">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jm0-dZ-Mb9">
+                    <rect key="frame" x="0.0" y="35" width="150" height="150"/>
+                    <color key="backgroundColor" red="0.94855254889999996" green="0.3309721947" blue="0.3453642428" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="69t-Ld-pmd">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="width" constant="150" id="uZk-eR-xtS">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="left" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W10-Ua-sfc">
+                    <rect key="frame" x="90" y="0.0" width="60" height="35"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="dmK-um-5Y9">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                    <state key="normal" image="h_newshop_greater"/>
+                    <connections>
+                        <action selector="showMoreGoodsBtn:" destination="uWJ-Jv-kel" eventType="touchUpInside" id="3Ys-KP-gMw"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="lZn-yc-jP2" firstAttribute="leading" secondItem="dW2-r5-4c7" secondAttribute="leading" id="24R-94-PA2"/>
+                <constraint firstItem="dW2-r5-4c7" firstAttribute="trailing" secondItem="W10-Ua-sfc" secondAttribute="trailing" id="5JG-il-de0"/>
+                <constraint firstItem="3QW-Yn-HOh" firstAttribute="centerY" secondItem="lZn-yc-jP2" secondAttribute="centerY" id="7ar-tf-beX"/>
+                <constraint firstItem="3QW-Yn-HOh" firstAttribute="leading" secondItem="lZn-yc-jP2" secondAttribute="trailing" constant="2" id="CU5-q0-Gpe"/>
+                <constraint firstItem="jm0-dZ-Mb9" firstAttribute="trailing" secondItem="dW2-r5-4c7" secondAttribute="trailing" id="Jde-i1-9Un"/>
+                <constraint firstItem="lZn-yc-jP2" firstAttribute="top" secondItem="dW2-r5-4c7" secondAttribute="top" constant="10" id="JrC-2f-0Ui"/>
+                <constraint firstItem="jm0-dZ-Mb9" firstAttribute="top" secondItem="W10-Ua-sfc" secondAttribute="bottom" id="LMb-jH-375"/>
+                <constraint firstItem="jm0-dZ-Mb9" firstAttribute="top" secondItem="lZn-yc-jP2" secondAttribute="bottom" constant="10" id="mJr-tF-ybL"/>
+                <constraint firstItem="W10-Ua-sfc" firstAttribute="centerY" secondItem="3QW-Yn-HOh" secondAttribute="centerY" id="oFf-Oq-PwL"/>
+                <constraint firstItem="W10-Ua-sfc" firstAttribute="top" secondItem="dW2-r5-4c7" secondAttribute="top" id="tfP-Un-fgk"/>
+                <constraint firstItem="jm0-dZ-Mb9" firstAttribute="leading" secondItem="dW2-r5-4c7" secondAttribute="leading" id="wmT-QF-u9a"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="dW2-r5-4c7"/>
+            <connections>
+                <outlet property="firstImgView" destination="lZn-yc-jP2" id="foX-F6-jCb"/>
+                <outlet property="goodsImgView" destination="jm0-dZ-Mb9" id="kfB-JG-vx6"/>
+                <outlet property="secondImgView" destination="3QW-Yn-HOh" id="EOo-YI-dCa"/>
+                <outlet property="showMoreGoodsBtn" destination="W10-Ua-sfc" id="qj7-Kl-QtY"/>
+            </connections>
+            <point key="canvasLocation" x="32" y="92.203898050974516"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="h_new" width="53" height="30"/>
+        <image name="h_newshop" width="115" height="25"/>
+        <image name="h_newshop_greater" width="18" height="18"/>
+    </resources>
+</document>

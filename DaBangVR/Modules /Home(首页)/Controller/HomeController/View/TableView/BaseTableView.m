@@ -7,15 +7,46 @@
 //
 
 #import "BaseTableView.h"
+#import "HomeTableViewCell.h"
+
+@interface BaseTableView ()
+
+@end
 
 @implementation BaseTableView
+static NSString *CellID = @"CellID";
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(instancetype)init{
+    self = [super init];
+    if (self) {
+        self.scrollEnabled = NO;
+        self.dataSource = self;
+        self.delegate = self;
+        [self registerNib:[UINib nibWithNibName:@"HomeTableViewCell" bundle:nil] forCellReuseIdentifier:CellID];
+    }
+    return self;
 }
-*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _goodsData.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
+    if (!cell) {
+        cell = [[HomeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
+    }
+    cell.model = _goodsData[indexPath.row];
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return kFit(101);
+}
+
+-(void)setGoodsData:(NSArray *)goodsData{
+    _goodsData = goodsData;
+    [self reloadData];
+}
 
 @end

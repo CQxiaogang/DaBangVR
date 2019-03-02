@@ -149,5 +149,7 @@ return shared##className; \
 #define KJSONSerialization(responseObject) ([NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil])
 // 边距
 #define KMargin kFit(10)
+// 默认图片
+#define kDefaultImg [UIImage imageNamed:@"ad3"]
 
 #endif /* define_h */

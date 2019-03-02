@@ -6,15 +6,17 @@
 //  Copyright © 2018 DaBangVR. All rights reserved.
 //
 
-#import "SecondsKillView.h"
+#import "HomeSecondsKillView.h"
 
-@implementation SecondsKillView
+@implementation HomeSecondsKillView
 // 抢购btn点击事件
 - (IBAction)rushGoodsBtn:(id)sender {
 }
 
 - (void)setModel:(GoodsDetailsModel *)model{
     _model = model;
+    [_goodsImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:kDefaultImg];
+    _goodsPrice.text = [NSString stringWithFormat:@"￥ %@",model.sellingPrice];
 }
 
 @end

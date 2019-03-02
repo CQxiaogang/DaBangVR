@@ -10,7 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseTableView : UITableView
+@interface BaseTableView : UITableView<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, copy) NSArray *goodsData;
 
 @end
 

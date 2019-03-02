@@ -8,7 +8,7 @@
 
 #import "DBTopView.h"
 #import "JFLocation.h"
-#import "DBPrefectureView.h"
+#import "HomeNewAndHotGoodsView.h"
 #import "JFAreaDataManager.h"
 #import "AnchorViewCell.h"
 #import "JFCityViewController.h"
@@ -25,11 +25,14 @@
 #import "AnchorRecommendView.h" //主播推荐
 #import "ChannelMenuListView.h" //频道菜单列表
 #import "HomeBannerView.h"      //轮播新上
-#import "SecondsKillView.h"     //秒杀
+#import "HomeSecondsKillView.h" //秒杀
 #import "HomeTableViewCell.h"
+#import "BaseTableView.h"
+#import "HomeNewAndHotGoodsView.h"//新品和最热商品展示
 // Models
 #import "ChannelModel.h"
 #import "GoodsRotationListModel.h"
+#import "NewGoodsModel.h"
 // 第三方
 #import "SureCustomActionSheet.h"
 
@@ -43,7 +46,8 @@ UITableViewDataSource,
 JFLocationDelegate,
 JFCityViewControllerDelegate,
 ChannelMenuListViewDelegate,
-TopViewDelegate
+TopViewDelegate,
+HomeNewAndHotGoodsViewDelegate
 >
 
 {
@@ -58,13 +62,9 @@ TopViewDelegate
     CGFloat _totalH_videoAndLocalfeatures;// 视频地方特色总高度
 }
 
-//@property (nonatomic, strong) UITableView           *myTableView;     // 显示整个界面tableveiw
-
-@property (nonatomic, strong) UITableView           *homeTableView;   // 底部显示更多商品tableveiw
-
 @property (nonatomic, strong) DBTopView             *topView;         // 顶部navagationBar
 
-@property (nonatomic, strong) DBPrefectureView      *prefectureView;
+@property (nonatomic, strong) HomeNewAndHotGoodsView      *prefectureView;
 
 @property (nonatomic, strong) UICollectionView      *collectionView;
 /** 城市定位管理器*/
@@ -76,6 +76,7 @@ TopViewDelegate
 // 主播推荐 view
 @property (nonatomic, strong) AnchorRecommendView *anchorRecommendView;
 @property (nonatomic, strong) NSMutableArray *arrayModel;
+@property (nonatomic, strong)  BaseTableView *recommendGoodsTable;
 // 推荐商品数据
 @property (nonatomic, copy) NSArray *goodsData;
 @end
@@ -96,45 +97,10 @@ TopViewDelegate
     return _topView;
 }
 
-//- (UITableView *)myTableView{
-//    if (_myTableView == nil) {
-//        _myTableView = [[UITableView alloc] init];
-//        CGFloat tableViewY = self.topView.mj_h + self.topView.mj_y;
-//        CGFloat tableView_H = self.view.mj_h - 49 - 20 - 44;
-//        //tableView制定
-//        _myTableView.frame = CGRectMake(0, tableViewY, self.view.mj_w, tableView_H);
-//        _myTableView.delegate = self;
-//        _myTableView.dataSource = self;
-//        //隐藏tableView分割线
-//        _myTableView.separatorStyle = UITableViewCellEditingStyleNone;
-//        //隐藏滚动条
-//        _myTableView.showsVerticalScrollIndicator = NO;
-//
-//    }
-//    return _myTableView;
-//}
-
--(UITableView *)homeTableView{
-    if (_homeTableView == nil) {
-        
-        _homeTableView = [[UITableView alloc] init];
-        _homeTableView.delegate = self;
-        _homeTableView.dataSource = self;
-        //设置不能滚动
-        _homeTableView.scrollEnabled = NO;
-        _homeTableView.showsVerticalScrollIndicator = NO;
-        //根据homeTable的内容获取高度
-        CGFloat homeT_H = 3 * 105;
-        _homeTableView.frame = CGRectMake(0, 0, self.view.mj_w, homeT_H);
-        [_homeTableView registerNib:[UINib nibWithNibName:@"HomeTableViewCell" bundle:nil] forCellReuseIdentifier:CellID];
-    }
-    return _homeTableView;
-}
-
--(DBPrefectureView *)prefectureView{
+-(HomeNewAndHotGoodsView *)prefectureView{
     if (_prefectureView == nil) {
         
-        _prefectureView = [[DBPrefectureView alloc] init];
+        _prefectureView = [[HomeNewAndHotGoodsView alloc] init];
         
     }
     return _prefectureView;
@@ -212,143 +178,125 @@ TopViewDelegate
                           @"parentId":@"2",
                           @"categoryId":@"1036112",
                           @"page":@"1",
-                          @"limit":@"10"
+                          @"limit":@"5"
                           };
     [NetWorkHelper POST:URl_getGlobalList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
         // 推荐商品
         weakself.goodsData = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:data[@"goodsLists"]];
-        [weakself.homeTableView reloadData];
     } failure:^(NSError * _Nonnull error) {
         
     }];
 }
 
 #pragma mark —— tableView实现
-//设置多少个数据组
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    if ([tableView isEqual:self.tableView]) {
-        return 9;
-    }else{
-        return _goodsData.count;
-    }
+    return 9;
 }
 
-//此方法告诉tableview对应的组有多少个数据行。需要对每组依次进行设置，return几就表示几行
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    return 1;
-//}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([tableView isEqual:self.tableView]) {
-        //让cell不重用
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
-        }
-        switch (indexPath.section) {
-            case 0:
-                // 主播推荐
-                [self setupAnchorRecommendView:cell];
-                break;
-            case 1:
-                // 频道菜单
-                [self setupChannelMenuListView:cell];
-                break;
-            case 2:
-                // 新上
-                [self setupNew:cell];
-                break;
-            case 3:
-                // 限时秒杀
-                [self setupSecondsKillView:cell];
-                break;
-            case 4:
-                // 新品/热卖 专区
-                [self setUp_prefectureView:cell];
-                break;
-            case 5:
-                // 最热视频
-                [self setUp_hotVideo:cell];
-                break;
-            case 6:
-                // 全球购
-                [self setUp_globalShopping:cell];
-                break;
-            case 7:
-                // 视频 地方特色
-                [self setUp_videoAndLocalfeatures:cell];
-                break;
-            case 8:
-                // 商品列表
-                [cell addSubview:self.homeTableView];
-                break;
-            default:
-                break;
-        }
-        // 设置cell不能点击
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        return cell;
-    }else{
-        
-        HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
-        
-        if (cell == nil) {
-            cell = [[HomeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
-        }
-        cell.model = _goodsData[indexPath.row];
-        return cell;
+    //让cell不重用
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
+    switch (indexPath.section) {
+        case 0:
+            // 主播推荐
+            [self setupAnchorRecommendView:cell];
+            break;
+        case 1:
+            // 频道菜单
+            [self setupChannelMenuListView:cell];
+            break;
+        case 2:
+            // 新上
+            [self setupNew:cell];
+            break;
+        case 3:
+            // 限时秒杀
+            [self setupSecondsKillView:cell];
+            break;
+        case 4:
+            // 新品/热卖 专区
+            [self setupNewAndHotGoodsView:cell];
+            break;
+        case 5:
+            // 最热视频
+            [self setUp_hotVideo:cell];
+            break;
+        case 6:
+            // 全球购
+            [self setUp_globalShopping:cell];
+            break;
+        case 7:
+            // 视频 地方特色
+            [self setUp_videoAndLocalfeatures:cell];
+            break;
+        case 8:
+            // 商品列表
+        {
+            _recommendGoodsTable = [[BaseTableView alloc] init];
+            _recommendGoodsTable.goodsData = _goodsData;
+            [cell addSubview:_recommendGoodsTable];
+            [_recommendGoodsTable mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.right.top.bottom.equalTo(0);
+            }];
+        }
+            break;
+        default:
+            break;
+    }
+    // 设置cell不能点击
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    return cell;
 }
 
 //个方法返回指定的 row 的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([tableView isEqual:self.tableView]) {
-        switch (indexPath.section) {
-            case 0:
-                // 直播推荐视图
-                return _totalH_anchorRecommendView+kFit(20);
-                break;
-            case 1:
-                // 更多功能界面
-                return _totalH_channelMenuList;
-                break;
-            case 2:
-                // 新上
-                return Adapt(200);
-                break;
-            case 3:
-                // 限时秒杀
-                return _totalH_secondsKill;
-                break;
-            case 4:
-                // 新品/热卖 专区
-                return _totalH_prefecture;
-                break;
-            case 5:
-                // 最热视频
-                return _totalH_hotVideo;
-                break;
-            case 6:
-                // 全球购
-                return _totalH_globalShopping;
-                break;
-            case 7:
-                // 视频/地方特色
-                return _totalH_videoAndLocalfeatures;
-                break;
-            case 8:
-                // 商品列表
-                return self.homeTableView.mj_h;
-                break;
-            default:
-                break;
-        }
-        return 0;
-    }else{
-        return kFit(105);
+    switch (indexPath.section) {
+        case 0:
+            // 直播推荐视图
+            return _totalH_anchorRecommendView+kFit(20);
+            break;
+        case 1:
+            // 更多功能界面
+            return _totalH_channelMenuList;
+            break;
+        case 2:
+            // 新上
+            return kFit(200);
+            break;
+        case 3:
+            // 限时秒杀
+            return kFit(170);
+            break;
+        case 4:
+            // 新品/热卖 专区
+            return _totalH_prefecture;
+            break;
+        case 5:
+            // 最热视频
+            return _totalH_hotVideo;
+            break;
+        case 6:
+            // 全球购
+            return _totalH_globalShopping;
+            break;
+        case 7:
+            // 视频/地方特色
+            return _totalH_videoAndLocalfeatures;
+            break;
+        case 8:
+            // 商品列表
+            return _goodsData.count * kFit(101);
+            break;
+        default:
+            break;
     }
+    
+    return kFit(0);
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -457,29 +405,27 @@ TopViewDelegate
 #pragma mark —— 限时秒杀
 - (void)setupSecondsKillView:(UITableViewCell *)cell{
 //    kWeakSelf(self);
-    NSDictionary *dic = @{@"hoursTime":@"12",@"page":@"1", @"limit":@"2"};
+    NSDictionary *dic = @{@"hoursTime":@"17",@"page":@"1", @"limit":@"2"};
     [NetWorkHelper POST:URl_getSecondsKillGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
         NSDictionary *goodsList = data[@"goodsList"];
         NSArray *goodsData = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:goodsList];
         
         //头部便签
-        UIView *titleView = [self titleImageOneString:@"h_maio" titleImageTwoString:@"h_tl" moreImageStrng:@"h_newshop_greater"];
+        UIView *titleView = [self firstImgView:@"h_maio" secondImgView:@"h_tl" showMoreGoodsButton:@"h_newshop_greater" buttonTag:101];
         [cell addSubview:titleView];
         
-        SecondsKillView *secondsKillView;
+        HomeSecondsKillView *secondsKillView;
         NSMutableArray *views = [NSMutableArray new];
-        for (int i = 0; i<2; i++) {
+        for (int i = 0; i<goodsData.count; i++) {
             //从xib中读出视图
-            secondsKillView = [self loadNibNamed:@"SecondsKillView"];
-            if (goodsData.count != 0) {
-                secondsKillView.model = goodsData[i];
-                [views addObject:secondsKillView];
-                [cell addSubview:secondsKillView];
-            }
+            secondsKillView = [self loadNibNamed:@"HomeSecondsKillView"];
+            secondsKillView.model = goodsData[i];
+            [views addObject:secondsKillView];
+            [cell addSubview:secondsKillView];
         }
         if (views.count != 0) {
-            [views mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:5 leadSpacing:10 tailSpacing:10];
+//            [views mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:5 leadSpacing:10 tailSpacing:10];
             [views mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(titleView.mas_bottom).offset(0);
             }];
@@ -489,123 +435,167 @@ TopViewDelegate
             [titleView removeFromSuperview];
             self->_totalH_secondsKill = 0;
         }
+//        [self.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {
         
     }];
 }
 
-#pragma mark —— 新品/热卖 专区
-- (void)setUp_prefectureView:(UITableViewCell *)cell{
-    //新品/热卖 专区
-    UIView *prefectureView;
-    NSMutableArray *arr = [NSMutableArray new];
-    for (int i = 0; i<2; i++) {
-        //从xib中读出视图
-        prefectureView = [self loadNibNamed:@"DBPrefectureView"];
-        [arr addObject: prefectureView];
-        [cell addSubview:prefectureView];
+#pragma mark —— 新品,热卖专区
+- (void)setupNewAndHotGoodsView:(UITableViewCell *)cell{
+    
+    dispatch_group_t g = dispatch_group_create();
+    dispatch_group_enter(g);
+    
+    NSMutableArray *goodsImgList = [NSMutableArray new];
+    NSDictionary *dic = @{
+                          @"page":@"1",
+                          @"limit":@"5",
+                          @"goodsPage":@"1",
+                          @"goodsLimit":@"5",
+                          @"categoryId":@"1",
+                          @"type":@"0",
+                          };
+    [NetWorkHelper POST:URL_newGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
+        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
+        NSArray *list = [NewGoodsModel mj_objectArrayWithKeyValuesArray:data[@"GoodsCategoryList"]];
+        NewGoodsModel *model = list[0];
+        [goodsImgList addObject:model.listUrl];
+        [goodsImgList addObject:model.listUrl];
+        
+        dispatch_group_leave(g);
+        
+    } failure:^(NSError * _Nonnull error) {}];
+    
+    dispatch_group_notify(g, dispatch_get_main_queue(), ^{
+        //新品,热卖专区
+        HomeNewAndHotGoodsView *goodsView;
+        NSMutableArray *views = [NSMutableArray new];
+        NSArray *firstImgs = @[@"h_new", @"h_hot"];
+        NSArray *secondImgs = @[@"h_newshop", @"h_hotshop"];
+        for (int i = 0; i<2; i++) {
+            //从xib中读出视图
+            goodsView = [self loadNibNamed:@"HomeNewAndHotGoodsView"];
+            goodsView.delegate = self;
+            goodsView.firstImgView.image = [UIImage imageNamed:firstImgs[i]];
+            goodsView.secondImgView.image = [UIImage imageNamed:secondImgs[i]];
+            [goodsView.goodsImgView setImageWithURL:[NSURL URLWithString:goodsImgList[i]] placeholder:kDefaultImg];
+            goodsView.showMoreGoodsBtn.tag = 10+i;
+            [views addObject: goodsView];
+            [cell  addSubview:goodsView];
+        }
+        
+        [views mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:KMargin leadSpacing:KMargin tailSpacing:KMargin];
+        [views mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.equalTo(CGSizeMake(kFit(150), kFit(185)));
+        }];
+    });
+    _totalH_prefecture = kFit(185);
+}
+
+#pragma mark —— HomeNewAndHotGoodsView 代理
+-(void)showMoreGoods:(UIButton *)sender{
+    if (sender.tag == 10) {
+        // 新品专区
+        DLog(@"新品专区");
+        [self pushViewController:[NewProductLaunchViewController new]];
+    }else{
+        // 热卖专区
+        DLog(@"热卖专区");
     }
-    [arr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:10 leadSpacing:10 tailSpacing:10];
-     _totalH_prefecture = Adapt(prefectureView.mj_h);
 }
 
 #pragma mark —— 最热视频
 - (void)setUp_hotVideo:(UITableViewCell *)cell{
-    UIView *titleView = [self titleImageOneString:@"h_hottest_video" titleImageTwoString:@"h_hotVideo" moreImageStrng:@"h_newshop_greater"];
-    [cell addSubview:titleView];
-
-    UIView *hotVideoView;
-    for (int i=0; i<2; i++) {
-        for (int j = 0; j<3; j++) {
-            hotVideoView = [self loadNibNamed:@"DBHotVideoView"];
-            CGFloat hotV_W = Adapt(hotVideoView.mj_w);
-            CGFloat hotV_H = Adapt(hotVideoView.mj_h);
-            CGFloat margin = (self.view.mj_w - (hotV_W*3))/4;
-            CGFloat hotV_X = j * (hotV_W+margin) + margin;
-            CGFloat hotV_Y = i * hotV_H + titleView.mj_h;
-            hotVideoView.frame = CGRectMake(hotV_X, hotV_Y, hotV_W, hotV_H);
-            [cell addSubview:hotVideoView];
-        }
-    }
-    // 底部查看更多button
-    UIButton *more_hotVieoBtn = [[UIButton alloc] init];
-    [more_hotVieoBtn setTitle:@"查看更多" forState:UIControlStateNormal];
-    [more_hotVieoBtn setTitleColor:[UIColor lightGreen] forState:UIControlStateNormal];
-    more_hotVieoBtn.titleLabel.adaptiveFontSize = 12;
-    // 设置按钮样式
-    more_hotVieoBtn.layer.cornerRadius = 10;
-    more_hotVieoBtn.layer.borderColor = [[UIColor lightGreen] CGColor];
-    more_hotVieoBtn.layer.borderWidth = 1.0f;
-    [cell addSubview:more_hotVieoBtn];
-
-    [more_hotVieoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(cell);
-        make.top.equalTo(hotVideoView.mas_bottom).with.offset(10);
-        make.size.mas_equalTo(CGSizeMake(100, 25));
-    }];
-    _totalH_hotVideo = titleView.mj_h + hotVideoView.mj_h*2 + 35;
+//    UIView *titleView = [self titleImageOneString:@"h_hottest_video" titleImageTwoString:@"h_hotVideo" moreImageStrng:@"h_newshop_greater"];
+//    [cell addSubview:titleView];
+//
+//    UIView *hotVideoView;
+//    for (int i=0; i<2; i++) {
+//        for (int j = 0; j<3; j++) {
+//            hotVideoView = [self loadNibNamed:@"DBHotVideoView"];
+//            CGFloat hotV_W = Adapt(hotVideoView.mj_w);
+//            CGFloat hotV_H = Adapt(hotVideoView.mj_h);
+//            CGFloat margin = (self.view.mj_w - (hotV_W*3))/4;
+//            CGFloat hotV_X = j * (hotV_W+margin) + margin;
+//            CGFloat hotV_Y = i * hotV_H + titleView.mj_h;
+//            hotVideoView.frame = CGRectMake(hotV_X, hotV_Y, hotV_W, hotV_H);
+//            [cell addSubview:hotVideoView];
+//        }
+//    }
+//    // 底部查看更多button
+//    UIButton *more_hotVieoBtn = [[UIButton alloc] init];
+//    [more_hotVieoBtn setTitle:@"查看更多" forState:UIControlStateNormal];
+//    [more_hotVieoBtn setTitleColor:[UIColor lightGreen] forState:UIControlStateNormal];
+//    more_hotVieoBtn.titleLabel.adaptiveFontSize = 12;
+//    // 设置按钮样式
+//    more_hotVieoBtn.layer.cornerRadius = 10;
+//    more_hotVieoBtn.layer.borderColor = [[UIColor lightGreen] CGColor];
+//    more_hotVieoBtn.layer.borderWidth = 1.0f;
+//    [cell addSubview:more_hotVieoBtn];
+//
+//    [more_hotVieoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.equalTo(cell);
+//        make.top.equalTo(hotVideoView.mas_bottom).with.offset(10);
+//        make.size.mas_equalTo(CGSizeMake(100, 25));
+//    }];
+//    _totalH_hotVideo = titleView.mj_h + hotVideoView.mj_h*2 + 35;
 }
 
 #pragma mark —— 全球购
 - (void)setUp_globalShopping:(UITableViewCell *)cell{
-    UIView *titleView = [self titleImageOneString:@"h_global" titleImageTwoString:@"h_global2" moreImageStrng:@"h_newshop_greater"];
+    UIView *titleView = [self firstImgView:@"h_global" secondImgView:@"h_global2" showMoreGoodsButton:@"h_newshop_greater" buttonTag:100];
     [cell addSubview:titleView];
     
-    UIImageView *gs_recommend_Img = [[UIImageView alloc] init];
+    UIImageView *gs_recommend_Img = [[UIImageView alloc] initWithFrame:CGRectMake(0, titleView.mj_h, KScreenW, kFit(200))];
     gs_recommend_Img.image = [UIImage imageNamed:@"ad5"];
     [cell addSubview:gs_recommend_Img];
-    [gs_recommend_Img mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(titleView.mas_bottom).offset(0);
-        make.centerX.equalTo(cell);
-        make.height.equalTo(cell).multipliedBy(0.9);
-        make.width.equalTo(cell).multipliedBy(0.95);
-    }];
-    _totalH_globalShopping = 200;
+    _totalH_globalShopping = kFit(titleView.mj_h + gs_recommend_Img.mj_h+KMargin);
 }
 
 #pragma mark —— 视频 地方特色
 - (void)setUp_videoAndLocalfeatures:(UITableViewCell *)cell{
-    UIView *headView = [[UIView alloc] init];
-    headView.backgroundColor = [UIColor whiteColor];
-    [cell addSubview:headView];
-    [headView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(0);
-        make.left.mas_equalTo(10);
-        make.centerX.mas_equalTo(cell);
-        make.width.equalTo(cell).multipliedBy(0.95);
-        make.height.equalTo(cell).multipliedBy(0.2);
-    }];
-    
-    NSArray *list = @[@"视频",@"地方特色"];
-    UIButton *selectBtn;
-    NSMutableArray *arr = [NSMutableArray new];
-    for (int i=0; i<2; i++) {
-        selectBtn = [[UIButton alloc] init];
-        [selectBtn setTitle:list[i] forState:UIControlStateNormal];
-        [selectBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        selectBtn.tag = 10 + i;
-        selectBtn.titleLabel.adaptiveFontSize = 15;
-        selectBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//        selectBtn.backgroundColor = [UIColor randomColor];
-        [arr addObject:selectBtn];
-        [headView addSubview:selectBtn];
-    }
-    [arr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:0 tailSpacing:150];
-    [arr mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(100, 30));
-    }];
-    
-    UIView *contentView = [[UIView alloc] init];
-    contentView.backgroundColor = [UIColor redColor];
-    [cell addSubview:contentView];
-    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(headView.mas_bottom).offset(0);
-        make.left.mas_equalTo(10);
-        make.centerX.mas_equalTo(cell);
-        make.width.equalTo(cell).multipliedBy(0.95);
-        make.height.equalTo(cell).multipliedBy(0.8);
-    }];
-    _totalH_videoAndLocalfeatures = 150;
+//    UIView *headView = [[UIView alloc] init];
+//    headView.backgroundColor = [UIColor whiteColor];
+//    [cell addSubview:headView];
+//    [headView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(0);
+//        make.left.mas_equalTo(10);
+//        make.centerX.mas_equalTo(cell);
+//        make.width.equalTo(cell).multipliedBy(0.95);
+//        make.height.equalTo(cell).multipliedBy(0.2);
+//    }];
+//
+//    NSArray *list = @[@"视频",@"地方特色"];
+//    UIButton *selectBtn;
+//    NSMutableArray *arr = [NSMutableArray new];
+//    for (int i=0; i<2; i++) {
+//        selectBtn = [[UIButton alloc] init];
+//        [selectBtn setTitle:list[i] forState:UIControlStateNormal];
+//        [selectBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+//        selectBtn.tag = 10 + i;
+//        selectBtn.titleLabel.adaptiveFontSize = 15;
+//        selectBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+////        selectBtn.backgroundColor = [UIColor randomColor];
+//        [arr addObject:selectBtn];
+//        [headView addSubview:selectBtn];
+//    }
+//    [arr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:0 tailSpacing:150];
+//    [arr mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(CGSizeMake(100, 30));
+//    }];
+//
+//    UIView *contentView = [[UIView alloc] init];
+//    contentView.backgroundColor = [UIColor redColor];
+//    [cell addSubview:contentView];
+//    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(headView.mas_bottom).offset(0);
+//        make.left.mas_equalTo(10);
+//        make.centerX.mas_equalTo(cell);
+//        make.width.equalTo(cell).multipliedBy(0.95);
+//        make.height.equalTo(cell).multipliedBy(0.8);
+//    }];
+//    _totalH_videoAndLocalfeatures = 150;
 }
 
 // 抽取读取xib文件方法
@@ -614,14 +604,14 @@ TopViewDelegate
 }
 
 // 标题视图封装
-- (UIView *)titleImageOneString:(NSString *)oneString titleImageTwoString:(NSString *)twoString moreImageStrng:(NSString *)moreString{
+- (UIView *)firstImgView:(NSString *)firstStr secondImgView:(NSString *)secondStr showMoreGoodsButton:(NSString *)string buttonTag:(NSInteger)tag{
     
     CGFloat superViewH = kFit(40);
     
     UIView *superView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.mj_w, superViewH)];
     // 第一个图标
     UIImageView *imgView = [[UIImageView alloc] init];
-    imgView.image = [UIImage imageNamed:oneString];
+    imgView.image = [UIImage imageNamed:firstStr];
     [superView addSubview:imgView];
     [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(superView.mas_centerY);
@@ -630,7 +620,7 @@ TopViewDelegate
     }];
     // 第二个图标
     UIImageView *imgView2 = [[UIImageView alloc] init];
-    imgView2.image = [UIImage imageNamed:twoString];
+    imgView2.image = [UIImage imageNamed:secondStr];
     [superView addSubview:imgView2];
     [imgView2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(superView.mas_centerY);
@@ -639,7 +629,9 @@ TopViewDelegate
     }];
     // 右边按钮
     UIButton *btn = [[UIButton alloc] init];
-    [btn setImage:[UIImage imageNamed:moreString] forState:UIControlStateNormal];
+    btn.tag = tag;
+    [btn setImage:[UIImage imageNamed:string] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(showMoreGoods2:) forControlEvents:UIControlEventTouchUpInside];
     // 设置图片偏移量
     btn.imageEdgeInsets = UIEdgeInsetsMake(0, superViewH*2, 0, 0);
     [superView addSubview:btn];
@@ -649,6 +641,17 @@ TopViewDelegate
         make.size.equalTo(CGSizeMake(superViewH*3, superViewH));
     }];
     return superView;
+}
+
+- (void)showMoreGoods2:(UIButton *)sender{
+    if (sender.tag == 100) {
+        // 全球购
+        [self pushViewController:[GlobalShoppingViewController new]];
+
+    }else{
+        // 限时秒杀
+        [self pushViewController:[SecondsKillViewController new]];
+    }
 }
 
 #pragma mark —— 定位点击事件
