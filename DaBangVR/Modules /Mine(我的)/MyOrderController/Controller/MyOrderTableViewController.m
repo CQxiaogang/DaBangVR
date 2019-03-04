@@ -77,7 +77,7 @@ static NSString *HeaderCellID = @"HeaderCellID";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.deptData[section].orderGoodslist.count;
+    return self.deptData[section].goodsList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -86,7 +86,7 @@ static NSString *HeaderCellID = @"HeaderCellID";
     if (cell == nil) {
         cell = [[AllOrdersCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
-    cell.model = self.deptData[indexPath.section].orderGoodslist[indexPath.row];
+    cell.model = self.deptData[indexPath.section].goodsList[indexPath.row];
     return cell;
 }
 

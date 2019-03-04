@@ -42,17 +42,25 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyp-JN-0Kd">
-                    <rect key="frame" x="10" y="0.0" width="61" height="45"/>
+                <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyp-JN-0Kd">
+                    <rect key="frame" x="-20" y="2.5" width="91" height="40"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="gW1-BA-nD3">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <inset key="imageEdgeInsets" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
                     <state key="normal" title="全选" image="r-default">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <state key="selected" image="clicked"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
-                            <real key="value" value="14"/>
+                            <real key="value" value="13"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -63,12 +71,11 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="wPc-sh-iB3" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="4ml-bu-0Ri"/>
-                <constraint firstItem="Cyp-JN-0Kd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="CRU-og-H8T"/>
-                <constraint firstItem="Cyp-JN-0Kd" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="HEg-hm-DQq"/>
+                <constraint firstItem="Cyp-JN-0Kd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="-20" id="Pna-Am-g8I"/>
                 <constraint firstItem="Jer-Pl-Vkq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="RXd-Dd-jBZ"/>
                 <constraint firstItem="wPc-sh-iB3" firstAttribute="leading" secondItem="Jer-Pl-Vkq" secondAttribute="trailing" constant="10" id="TCr-EM-xhy"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wPc-sh-iB3" secondAttribute="trailing" id="cFC-YN-Mef"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Cyp-JN-0Kd" secondAttribute="bottom" id="fde-yP-O53"/>
+                <constraint firstItem="Cyp-JN-0Kd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="p9F-dj-kLC"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="wPc-sh-iB3" secondAttribute="bottom" id="pkI-gp-NNA"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -83,6 +90,6 @@
     </objects>
     <resources>
         <image name="clicked" width="29" height="29"/>
-        <image name="r-default" width="32" height="32"/>
+        <image name="r-default" width="64" height="64"/>
     </resources>
 </document>

@@ -397,9 +397,7 @@
             
             OrderSureViewController *vc = [[OrderSureViewController alloc] init];
             [self.navigationController pushViewController:vc animated:NO];
-        } failure:^(NSError * _Nonnull error) {
-            
-        }];
+        } failure:^(NSError * _Nonnull error) {}];
     }
 }
 @end
