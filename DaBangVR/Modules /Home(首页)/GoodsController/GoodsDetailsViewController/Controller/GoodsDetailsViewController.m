@@ -282,7 +282,9 @@ static NSString *CellID = @"CellID";
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         DLog(@"%@",dic[@"errmsg"]);
         // 直接跳转确认订单界面
-        [self.navigationController pushViewController:[[OrderSureViewController alloc] init] animated:NO];
+        OrderSureViewController *vc = [[OrderSureViewController alloc] init];
+        vc.submitType = @"buy";
+        [self.navigationController pushViewController:vc animated:NO];
     } failure:^(NSError * _Nonnull error) {
         DLog(@"error is %@",error);
     }];

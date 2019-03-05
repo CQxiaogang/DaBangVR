@@ -39,7 +39,7 @@
     _goodsNameLab.text = model.goodsName;
     _sizeLab.text = model.goodsNumber;
     [_goodsImgView setImageWithURL:[NSURL URLWithString:model.goodsListUrl] placeholder:[UIImage imageNamed:@""]];
-    NSString *goodsState = model.goodsState;
+    NSString *goodsState = model.orderState;
     if ([goodsState compare:@"0"] == NSOrderedSame) {
         _stateLab.text = @"待付款";
         [_lowerRightCornerBtn setTitle:@"待付款" forState:UIControlStateNormal];

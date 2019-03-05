@@ -32,7 +32,7 @@
     _isClick = isClick;
     self.clickBtn.selected = isClick;
     if (isClick) {
-        [self.clickBtn setImage:[UIImage imageNamed:@"r-default_select"] forState:(UIControlStateNormal)];
+        [self.clickBtn setImage:[UIImage imageNamed:@"r-default_select"] forState:UIControlStateSelected];
     } else {
         [self.clickBtn setImage:[UIImage imageNamed:@"r-default"] forState:(UIControlStateNormal)];
     }

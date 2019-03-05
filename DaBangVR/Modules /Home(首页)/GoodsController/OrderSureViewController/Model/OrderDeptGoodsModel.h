@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *deptId;
 // 店铺 商品
 @property (nonatomic, copy) NSArray <OrderGoodsModel *> *goodsList;
+@property (nonatomic, copy) NSArray <OrderGoodsModel *> *orderGoodslist;
 // 店铺 商品加邮费总价
 @property (nonatomic, copy) NSString *deptGoodsTotalPrice;
 @end

@@ -34,7 +34,7 @@
 #define URL_main @"http://www.vrzbgw.com/dabang"
 //#define URL_main @"http://192.168.1.111:8080"
 //#define URL_main @"http://192.168.1.105:8080"
-//#define URL_main @"http://192.168.1.103:8080"
+//#define URL_main @"http://192.168.1.106:8080"
 #elif TestSever
 
 /**测试服务器*/

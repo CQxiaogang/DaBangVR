@@ -10,6 +10,12 @@
 
 @implementation DBTopView
 
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    // 用户交互开启
+    _searchBox.userInteractionEnabled = YES;
+}
+
 - (IBAction)shoppingCarAction:(id)sender {
     if (self.delegate && [self.delegate respondsToSelector:@selector(shoppingCarClickAction)]) {
         [self.delegate shoppingCarClickAction];

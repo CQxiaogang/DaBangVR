@@ -235,7 +235,7 @@ static NSString *leaveMessage;
     leaveMessage = leaveMessage? leaveMessage:@"无";
     if (weakself.model.receivingAddress.id.length != 0) {
         NSDictionary *dic = @{
-                              @"submitType"    : @"buy",
+                              @"submitType"    : _submitType,
                               @"addressId"     : weakself.model.receivingAddress.id,
                               @"leaveMessage"  : leaveMessage
                               };
@@ -243,9 +243,7 @@ static NSString *leaveMessage;
             NSDictionary *orderVo = KJSONSerialization(responseObject)[@"orderVo"];
             NSString *orderSn = orderVo[@"orderSn"];
             [weakself orderSn:orderSn];
-        } failure:^(NSError * _Nonnull error) {
-            
-        }];
+        } failure:^(NSError * _Nonnull error) {}];
     }
 }
 

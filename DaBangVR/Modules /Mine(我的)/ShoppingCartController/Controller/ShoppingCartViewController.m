@@ -396,6 +396,7 @@
         [NetWorkHelper POST:URl_confirmGoods2Cart parameters:@{@"cartIds":_cartIds} success:^(id  _Nonnull responseObject) {
             
             OrderSureViewController *vc = [[OrderSureViewController alloc] init];
+            vc.submitType = @"cart";
             [self.navigationController pushViewController:vc animated:NO];
         } failure:^(NSError * _Nonnull error) {}];
     }

@@ -21,6 +21,7 @@
 #import "NewProductLaunchViewController.h"  //新品首发
 #import "GlobalShoppingViewController.h"    //全球购
 #import "SortSearchViewController.h"        //分类搜索
+#import "SearchGoodsViewController.h"       //搜索商品
 // Views
 #import "AnchorRecommendView.h" //主播推荐
 #import "ChannelMenuListView.h" //频道菜单列表
