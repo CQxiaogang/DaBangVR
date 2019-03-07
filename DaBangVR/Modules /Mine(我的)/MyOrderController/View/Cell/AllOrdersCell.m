@@ -23,7 +23,7 @@
 - (void) setupUI{
     _lowerRightCornerBtn.layer.borderColor = KOrangeColor.CGColor;
     _lowerRightCornerBtn.layer.borderWidth = 0.5;
-    _lowerRightCornerBtn.layer.cornerRadius = Adapt(10);
+    _lowerRightCornerBtn.layer.cornerRadius = kFit(_lowerRightCornerBtn.mj_h/2);
 }
 // 右下角 button 点击事件
 - (IBAction)lowerRightCornerBtnAction:(id)sender {
@@ -39,17 +39,21 @@
     _goodsNameLab.text = model.goodsName;
     _sizeLab.text = model.goodsNumber;
     [_goodsImgView setImageWithURL:[NSURL URLWithString:model.goodsListUrl] placeholder:[UIImage imageNamed:@""]];
-    NSString *goodsState = model.orderState;
-    if ([goodsState compare:@"0"] == NSOrderedSame) {
-        _stateLab.text = @"待付款";
-        [_lowerRightCornerBtn setTitle:@"待付款" forState:UIControlStateNormal];
-    }else if ([goodsState compare:@"201"] == NSOrderedSame){
-        _stateLab.text = @"待收货";
-        [_lowerRightCornerBtn setTitle:@"待收货" forState:UIControlStateNormal];
-    }else if ([goodsState compare:@"302"] == NSOrderedSame){
-        _stateLab.text = @"待评价";
-        [_lowerRightCornerBtn setTitle:@"待评价" forState:UIControlStateNormal];
-    }else if ([goodsState compare:@"401"] == NSOrderedSame){
+}
+
+-(void)setDepModel:(OrderDeptGoodsModel *)depModel{
+    _depModel = depModel;
+    NSString *state = depModel.orderState;
+    if ([state compare:@"0"] == NSOrderedSame) {
+        _stateLab.text = kOrderState_forThePayment;
+        [_lowerRightCornerBtn setTitle:kOrderState_forThePayment forState:UIControlStateNormal];
+    }else if ([state compare:@"201"] == NSOrderedSame){
+        _stateLab.text = kOrderState_ToSendTheGoods;
+        [_lowerRightCornerBtn setTitle:kOrderState_ToSendTheGoods forState:UIControlStateNormal];
+    }else if ([state compare:@"302"] == NSOrderedSame){
+        _stateLab.text = kOrderState_ToEvaluate;
+        [_lowerRightCornerBtn setTitle:kOrderState_ToEvaluate forState:UIControlStateNormal];
+    }else if ([state compare:@"401"] == NSOrderedSame){
         _stateLab.text = @"退款中";
         [_lowerRightCornerBtn setTitle:@"退款中" forState:UIControlStateNormal];
     }

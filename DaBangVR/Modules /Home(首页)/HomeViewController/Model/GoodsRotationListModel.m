@@ -10,9 +10,4 @@
 
 @implementation GoodsRotationListModel
 
-+ (id)mj_replacedKeyFromPropertyName121:(NSString *)propertyName{
-    if ([propertyName isEqualToString:@"ID"]) return @"id";
-    return [propertyName mj_underlineFromCamel];
-}
-
 @end

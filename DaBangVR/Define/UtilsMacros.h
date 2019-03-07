@@ -151,5 +151,10 @@ return shared##className; \
 #define KMargin kFit(10)
 // 默认图片
 #define kDefaultImg [UIImage imageNamed:@"ad3"]
-
+// 订单状态
+#define kOrderState_forThePayment    @"待付款"
+#define kOrderState_ToSendTheGoods   @"待发货"
+#define kOrderState_forTheGoods      @"待收货"
+#define kOrderState_ToEvaluate       @"待评价"
+#define kOrderState_refundOrAfterSales @"退款/售后"
 #endif /* define_h */

@@ -19,7 +19,7 @@
 #import "GoodsRotationListModel.h"
 #import "GoodsDetailsModel.h"
 
-@interface SecondsKillViewController ()<SecondsKillTableViewDelegate, TimeChooseViewDelegate>
+@interface SecondsKillViewController ()<SecondsKillTableViewDelegate, TimeChooseViewDelegate, ShufflingViewDelegate>
 {
     
 }
@@ -36,7 +36,8 @@
 -(SecondsKillTableView *)leftTableView{
     if (!_leftTableView) {
         // 轮播图
-        _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(180)) andIndex:@"1"];
+        _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(180)) andIndex:@"4"];
+        _shufflingView.delegate = self;
         // 轮播图下面的时间选择 View
         TimeChooseView *timeChooseView = [[[NSBundle mainBundle] loadNibNamed:@"TimeChooseView" owner:nil options:nil] firstObject];
         timeChooseView.frame = CGRectMake(0, _shufflingView.mj_h, KScreenW, kFit(50));
@@ -164,6 +165,13 @@
         // 即将秒杀
         self.leftTableView.hoursTime = @"1";
     }
+}
+
+#pragma mark —— ShufflingView 代理
+-(void)imgDidSelected:(NSString *)goodsID{
+    GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
+    vc.index = goodsID;
+    [self.navigationController pushViewController:vc animated:NO];
 }
 
 @end

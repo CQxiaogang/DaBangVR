@@ -16,32 +16,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/GoodsController/OrderSureViewController/Controller/OrderSureViewController.m"
-            timestampString = "573643195.344287"
+            timestampString = "573655872.08406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
-            landmarkName = "-successPay"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DaBangVR/AppDelegate/AppDelegate+AppService.m"
-            timestampString = "573643195.344587"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "-onResp:"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
+            landmarkName = "-successPay:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

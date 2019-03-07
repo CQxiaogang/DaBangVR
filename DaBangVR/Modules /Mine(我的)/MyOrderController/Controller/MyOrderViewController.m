@@ -37,7 +37,7 @@
 - (void)setupUI{
     CGFloat categoryVHeight = kFit(40);
     self.categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, categoryVHeight)];
-    self.categoryView.titles = @[@"全部", @"待付款", @"待收货", @"待评价", @"退款/售后"];
+    self.categoryView.titles = @[@"全部", @"待付款",@"待发货", @"待收货", @"待评价", @"退款/售后"];
     self.categoryView.defaultSelectedIndex = 0;
     self.categoryView.delegate = self;
     self.categoryView.titleSelectedColor = [UIColor lightGreen];
@@ -71,19 +71,31 @@
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
     MyOrderTableViewController *myOrderVC = [[MyOrderTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
     myOrderVC.aDelegate = self;
-    NSArray *number  = @[@"" ,@"0", @"201", @"301", @"401"];
+    NSArray *number  = @[@"" ,@"0", @"201", @"300", @"301", @"401"];
     myOrderVC.index = number[index];
     return myOrderVC;
 }
 
 - (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {
-    return 5;
+    return 6;
 }
 
-#pragma mark —— MyOrderVC 代理
+#pragma mark —— MyOrderTableVC 代理
 -(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     OrderProcessingViewController2 *vc = [[OrderProcessingViewController2 alloc] init];
     [self.navigationController pushViewController:vc animated:NO];
+}
+
+-(void)lowerRightCornerClickEvent:(NSString *)string{
+    if ([string isEqualToString:kOrderState_forThePayment]) {
+        DLog(@"");
+    }else if ([string isEqualToString:@"立即付款"]){
+        DLog(@"立即付款");
+    }else if ([string isEqualToString:@"删除订单"]){
+        DLog(@"删除订单");
+    }else if ([string isEqualToString:kOrderState_ToEvaluate]){
+        DLog(@"去评价");
+    }
 }
 
 @end

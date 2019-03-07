@@ -14,7 +14,7 @@
 // Models
 #import "CountryListModel.h"
 #import "GoodsDetailsModel.h"
-@interface GlobalShoppingViewController ()<HorizontalCollectionViewDelegate>
+@interface GlobalShoppingViewController ()<HorizontalCollectionViewDelegate, ShufflingViewDelegate>
 {
     CGFloat high;
 }
@@ -154,6 +154,7 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
 //    [self setupNavagationBar];
     // 轮播
     _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(180)) andIndex:@"5"];
+    _shufflingView.delegate = self;
     self.tableView.tableHeaderView = _shufflingView;
 }
 
@@ -310,6 +311,13 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
     } failure:^(NSError * _Nonnull error) {
         DLog(@"error is %@",error);
     }];
+}
+
+#pragma mark —— ShufflingView 代理
+-(void)imgDidSelected:(NSString *)goodsID{
+    GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
+    vc.index = goodsID;
+    [self.navigationController pushViewController:vc  animated:NO];
 }
 
 @end

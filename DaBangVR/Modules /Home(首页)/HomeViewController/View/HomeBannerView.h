@@ -10,10 +10,16 @@
 #import "GoodsRotationListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@protocol HomeBannerViewDelegate <NSObject>
 
+-(void)imageDidSelected:(NSString *)goodsID;
+
+@end
 @interface HomeBannerView : UIView
 
 -(instancetype)initWithFrame:(CGRect)frame andGoodsArray:(NSArray*)array;
+
+@property (nonatomic, weak) id <HomeBannerViewDelegate> delegate;
 
 @end
 

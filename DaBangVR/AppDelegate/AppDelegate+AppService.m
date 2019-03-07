@@ -90,16 +90,16 @@
 }
 
 -(void)onResp:(BaseResp*)resp{
-    NSString *strMsg = [NSString stringWithFormat:@"errcode:%d",resp.errCode];
+    NSString *strMsg = [NSString stringWithFormat:@"%d",resp.errCode];
     NSString *strTitle;
     NSString *strNote;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"successPay" object:strMsg];
     if ([resp isKindOfClass:[PayResp class]]) {
         // 支付返回结果,实际支付结果需要去微信服务器端查询
         strTitle = @"支付结果";
     }
     switch (resp.errCode) {
         case WXSuccess:{
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"successPay" object:nil];
             strMsg = @"支付成功";
             strNote = @"success";
             break;

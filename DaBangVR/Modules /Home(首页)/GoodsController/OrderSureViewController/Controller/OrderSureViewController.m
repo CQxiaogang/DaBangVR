@@ -109,7 +109,7 @@ static NSString *leaveMessage;
     self.title = @"订单确认";
     [self loadingData];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successPay) name:@"successPay" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successPay:) name:@"successPay" object:nil];
 }
 - (void)creatUI{
     kWeakSelf(self);
@@ -300,9 +300,20 @@ static NSString *leaveMessage;
     }];
 }
 // 付款成功跳转
-- (void)successPay{
-    PaymentSuccessViewController *vc = [[PaymentSuccessViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:NO];
+- (void)successPay:(NSNotification *)notification{
+    NSString *errCode = notification.object;// 支付成功或失败
+    NSDictionary *dic = @{
+                          @"orderSn"  : _orderSn,
+                          @"payState" : errCode,
+                          @"payOrderSnType":@"orderSnTotal"
+                          };
+    [NetWorkHelper POST:URl_notifyApp parameters:dic success:nil failure:nil];
+    // 支付成功才跳转
+    if ([errCode isEqualToString:@"0"]) {
+        PaymentSuccessViewController *vc = [[PaymentSuccessViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:NO];
+    }
+    
 }
 
 @end

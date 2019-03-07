@@ -84,7 +84,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合计:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43a-Al-Dfi">
-                        <rect key="frame" x="191" y="116.5" width="29" height="15"/>
+                        <rect key="frame" x="171" y="118" width="29" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="fjb-du-FBX"/>
                             <constraint firstAttribute="width" constant="29" id="hXe-XW-69n"/>
@@ -99,7 +99,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥135.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3w-wR-Myr">
-                        <rect key="frame" x="222" y="115.5" width="59" height="17"/>
+                        <rect key="frame" x="202" y="117" width="59" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="59" id="LUs-UK-aq5"/>
                             <constraint firstAttribute="height" constant="17" id="WbG-JT-3t0"/>
@@ -114,11 +114,19 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c59-oU-Xe2">
-                        <rect key="frame" x="286" y="114" width="60" height="20"/>
+                        <rect key="frame" x="266" y="113" width="80" height="25"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="4dz-wh-0GT"/>
-                            <constraint firstAttribute="width" constant="60" id="qvT-3t-5Nr"/>
+                            <constraint firstAttribute="height" constant="25" id="4dz-wh-0GT">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstAttribute="width" constant="80" id="qvT-3t-5Nr">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <state key="normal" title="确认收款">
@@ -140,7 +148,7 @@
                     <constraint firstItem="vc4-6O-HvC" firstAttribute="leading" secondItem="uBd-WW-Mha" secondAttribute="trailing" constant="5" id="BIB-S8-1Cr"/>
                     <constraint firstItem="KUj-m8-ZW4" firstAttribute="leading" secondItem="vc4-6O-HvC" secondAttribute="leading" id="BJt-OL-nRj"/>
                     <constraint firstItem="c59-oU-Xe2" firstAttribute="trailing" secondItem="vc4-6O-HvC" secondAttribute="trailing" id="CCd-2v-V9n"/>
-                    <constraint firstItem="c59-oU-Xe2" firstAttribute="top" secondItem="vc4-6O-HvC" secondAttribute="bottom" constant="31" id="Fl7-5g-YlK"/>
+                    <constraint firstItem="c59-oU-Xe2" firstAttribute="top" secondItem="vc4-6O-HvC" secondAttribute="bottom" constant="30" id="Fl7-5g-YlK"/>
                     <constraint firstItem="kJo-F9-TQO" firstAttribute="top" secondItem="KUj-m8-ZW4" secondAttribute="bottom" constant="2" id="GIH-lP-GaR"/>
                     <constraint firstItem="vc4-6O-HvC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="22" id="Gdo-AA-xA8"/>
                     <constraint firstItem="kJo-F9-TQO" firstAttribute="leading" secondItem="vc4-6O-HvC" secondAttribute="leading" id="Ijb-Fw-djy"/>

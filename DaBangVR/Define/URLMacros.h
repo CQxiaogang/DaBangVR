@@ -117,6 +117,9 @@
 #endif /* URLMacros_h */
 
 #pragma mark —————— 微信支付接口类 ——————
-//微信支付统一入口
+// 微信支付统一入口
 #define URl_prepayOrder NSStringFormat(@"%@%@",URL_main,@"/api/payorder/prepayOrder?")
+// 微信支付回调接口（APP主动调用)
+#define URl_notifyApp NSStringFormat(@"%@%@",URL_main,@"/api/payorder/notifyApp?")
+
 

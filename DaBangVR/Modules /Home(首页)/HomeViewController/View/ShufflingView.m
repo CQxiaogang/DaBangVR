@@ -7,7 +7,7 @@
 //
 
 #import "ShufflingView.h"
-#import "HomeBannerView.h"
+
 #import "GoodsRotationListModel.h"
 
 @implementation ShufflingView
@@ -26,16 +26,20 @@
                 [dataSource addObject:model];
             }
             dispatch_group_leave(downloadGroup);
-        } failure:^(NSError * _Nonnull error) {
-            
-        }];
+        } failure:^(NSError * _Nonnull error) {}];
         
         dispatch_group_notify(downloadGroup, dispatch_get_main_queue(), ^{
             HomeBannerView *bannerView = [[HomeBannerView alloc] initWithFrame:CGRectMake(0, 0, self.mj_w, self.mj_h) andGoodsArray:dataSource];
+            bannerView.delegate = self;
             [self addSubview:bannerView];
         });
     }
     return self;
+}
+-(void)imageDidSelected:(NSString *)goodsID{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(imgDidSelected:)]) {
+        [self.delegate imgDidSelected:goodsID];
+    }
 }
 
 @end

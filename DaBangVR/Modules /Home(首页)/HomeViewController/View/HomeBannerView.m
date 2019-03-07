@@ -29,7 +29,10 @@
         }
         //初始化自动循环滚动视图，并且定义图片的点击事件
         _bannerView = [[FGGAutoScrollView alloc]initWithFrame:self.bounds placeHolderImage:[UIImage imageNamed:@"ad3"] imageURLs:nil imageDidSelectedBlock:^(NSInteger selectedIndex) {
-            DLog(@"Index is %ld",selectedIndex);
+            if (self.delegate && [self.delegate respondsToSelector:@selector(imageDidSelected:)]) {
+                GoodsRotationListModel *model = array[selectedIndex];
+                [self.delegate imageDidSelected:model.jumpUrl];
+            }
         }];
         _bannerView.isShow = YES;
         [self addSubview:_bannerView];

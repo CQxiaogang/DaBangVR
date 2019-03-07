@@ -87,6 +87,7 @@ static NSString *HeaderCellID = @"HeaderCellID";
         cell = [[AllOrdersCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
     cell.model = self.deptData[indexPath.section].orderGoodslist[indexPath.row];
+    cell.depModel = self.deptData[indexPath.section];
     return cell;
 }
 
@@ -139,15 +140,8 @@ static NSString *HeaderCellID = @"HeaderCellID";
 #pragma mark —— allOrderTableView Delegate
 // 右下角按钮的点击事件
 - (void)lowerRightCornerClickEvent:(NSString *)string{
-    if ([string isEqualToString:@"确认收货"]) {
-        DLog(@"确认收货");
-    }else if ([string isEqualToString:@"立即付款"]){
-        DLog(@"立即付款");
-    }else if ([string isEqualToString:@"删除订单"]){
-        DLog(@"删除订单");
-    }else if ([string isEqualToString:@"去评价"]){
-        DLog(@"去评价");
-        [self pushEvaluationVC];
+    if (self.aDelegate && [self.aDelegate respondsToSelector:@selector(lowerRightCornerClickEvent:)]) {
+        [self.aDelegate lowerRightCornerClickEvent:string];
     }
 }
 // 评价界面

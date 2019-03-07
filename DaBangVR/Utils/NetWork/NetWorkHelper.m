@@ -19,7 +19,9 @@
     [mutableDic setObject:kToken forKey:@"DABANG-TOKEN"];
     [manager POST:URL parameters:mutableDic progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        success(responseObject);
+        if (success) {
+           success(responseObject);
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         /**
          从AFNetworking返回的Error中取出服务端返回的错误信息

@@ -14,7 +14,7 @@
 // Models
 #import "NewGoodsModel.h"
 
-@interface NewProductLaunchViewController ()
+@interface NewProductLaunchViewController ()<ShufflingViewDelegate>
 
 @property (nonatomic, copy) NSArray *goodsData;
 
@@ -35,7 +35,9 @@ static NSString *CellID = @"CellID";
     [super setupUI];
     [self.tableView registerNib:[UINib nibWithNibName:@"NewProductLaunchCell" bundle:nil] forCellReuseIdentifier:CellID];
     // tableViw 的header轮播图
-    self.tableView.tableHeaderView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.mj_w, kFit(180)) andIndex:@"1"];
+    ShufflingView *view = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.mj_w, kFit(180)) andIndex:@"7"];
+    view.delegate = self;
+    self.tableView.tableHeaderView = view;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(kTopHeight);
@@ -95,5 +97,11 @@ static NSString *CellID = @"CellID";
     return kFit(358);
 }
 
+#pragma mark —— HomeBannerView 代理
+- (void)imgDidSelected:(NSString *)goodsID{
+    GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
+    vc.index = goodsID;
+    [self.navigationController pushViewController:vc animated:NO];
+}
 @end
 

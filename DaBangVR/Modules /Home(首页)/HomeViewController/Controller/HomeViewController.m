@@ -22,6 +22,7 @@
 #import "GlobalShoppingViewController.h"    //全球购
 #import "SortSearchViewController.h"        //分类搜索
 #import "SearchGoodsViewController.h"       //搜索商品
+#import "GoodsDetailsViewController.h"      //商品详情
 // Views
 #import "AnchorRecommendView.h" //主播推荐
 #import "ChannelMenuListView.h" //频道菜单列表
@@ -30,6 +31,7 @@
 #import "HomeTableViewCell.h"
 #import "BaseTableView.h"
 #import "HomeNewAndHotGoodsView.h"//新品和最热商品展示
+#import "ShufflingView.h"
 // Models
 #import "ChannelModel.h"
 #import "GoodsRotationListModel.h"
@@ -48,7 +50,8 @@ JFLocationDelegate,
 JFCityViewControllerDelegate,
 ChannelMenuListViewDelegate,
 TopViewDelegate,
-HomeNewAndHotGoodsViewDelegate
+HomeNewAndHotGoodsViewDelegate,
+ShufflingViewDelegate
 >
 
 {
@@ -382,25 +385,10 @@ HomeNewAndHotGoodsViewDelegate
 
 #pragma mark —— 新上
 - (void)setupNew:(UITableViewCell *)cell{
-    NSMutableArray *dataSource = [NSMutableArray array];
-    dispatch_group_t downloadGroup = dispatch_group_create();
-    dispatch_group_enter(downloadGroup);
-    [NetWorkHelper POST:URl_goods_rotation_list parameters:@{@"parentId": @"1"} success:^(id  _Nonnull responseObject) {
-        NSDictionary *data= KJSONSerialization(responseObject)[@"data"];
-        NSArray *goodsArray = data[@"goodsRotationList"];
-        for (NSDictionary *dic in goodsArray) {
-            GoodsRotationListModel *model = [GoodsRotationListModel modelWithDictionary:dic];
-            [dataSource addObject:model];
-        }
-        dispatch_group_leave(downloadGroup);
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
-    
-    dispatch_group_notify(downloadGroup, dispatch_get_main_queue(), ^{
-        HomeBannerView *bannerView = [[HomeBannerView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, 200)andGoodsArray:dataSource];
-        [cell addSubview:bannerView];
-    });
+   
+    ShufflingView *view = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.mj_w, kFit(200)) andIndex:@"1"];
+    view.delegate = self;
+    [cell addSubview:view];
 }
 
 #pragma mark —— 限时秒杀
@@ -695,6 +683,14 @@ HomeNewAndHotGoodsViewDelegate
 - (void)shoppingCarClickAction{
     ShoppingCartViewController *vc = [[ShoppingCartViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:NO];
+}
+
+#pragma mark —— ShufflingView 代理
+-(void)imgDidSelected:(NSString *)goodsID{
+    GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    vc.index = goodsID;
     [self.navigationController pushViewController:vc animated:NO];
 }
 

@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
+- (void)lowerRightCornerClickEvent:(NSString *)string;
+
 @end
 
 @interface MyOrderTableViewController : LoadDataListBaseViewController<JXCategoryListContentViewDelegate>

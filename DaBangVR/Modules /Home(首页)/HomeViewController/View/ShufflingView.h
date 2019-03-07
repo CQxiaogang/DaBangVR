@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HomeBannerView.h"
 NS_ASSUME_NONNULL_BEGIN
+@protocol ShufflingViewDelegate <NSObject>
 
-@interface ShufflingView : UIView
+- (void)imgDidSelected:(NSString *)goodsID;
+
+@end
+@interface ShufflingView : UIView<HomeBannerViewDelegate>
 -(instancetype)initWithFrame:(CGRect)frame andIndex:(NSString *)index;
+
+@property (nonatomic, weak) id<ShufflingViewDelegate>delegate;
+
 @end
 
 NS_ASSUME_NONNULL_END
