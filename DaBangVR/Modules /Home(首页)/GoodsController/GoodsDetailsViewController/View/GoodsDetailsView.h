@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GoodsDetailsModel.h"
+#import "GoodsInfoView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(instancetype)initWithFrame:(CGRect)frame andDataSourse:(GoodsDetailsModel*)model;
 
 @property (nonatomic, weak) id <GoodsDetailsViewDelegate> delegate;
+
+// 基本信息 view
+@property (nonatomic, strong) GoodsInfoView *goodsInfoView;
 
 @end
 

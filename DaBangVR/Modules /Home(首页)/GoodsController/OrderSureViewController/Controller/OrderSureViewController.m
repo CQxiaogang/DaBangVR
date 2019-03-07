@@ -38,8 +38,8 @@
 //@property (nonatomic, strong) NSMutableArray <OrderDeptGoodsModel *> *deptModels;
 @property (nonatomic, strong) NSMutableArray <OrderGoodsModel *>     *goodsModels;
 @property (nonatomic, strong) OrderSureModel *model;
-
-
+// 订单号
+@property (nonatomic, copy) NSString *orderSn;
 
 @end
 
@@ -242,6 +242,7 @@ static NSString *leaveMessage;
         [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
             NSDictionary *orderVo = KJSONSerialization(responseObject)[@"orderVo"];
             NSString *orderSn = orderVo[@"orderSn"];
+            weakself.orderSn = orderSn;
             [weakself orderSn:orderSn];
         } failure:^(NSError * _Nonnull error) {}];
     }

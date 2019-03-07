@@ -9,7 +9,10 @@
 #import "GoodsShowTableViewController.h"
 #import "GoodsShowTableViewCell.h"
 
-@interface GoodsShowTableViewController ()
+@interface GoodsShowTableViewController (){
+    int page;
+    BOOL isNull;
+}
 // 数据源
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, assign) BOOL isDataLoaded;
@@ -28,33 +31,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    page=1;
+    [self loadingData];
     [self.tableView registerNib:[UINib nibWithNibName:@"GoodsShowTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    // 第三方控件，下拉刷新
+    // 下拉刷新
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self headerRefresh];
+        self->page = 1;
+        [self.dataSource removeAllObjects];
+        [self loadingData];
     }];
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
-    [self.tableView.mj_header beginRefreshing];
+    // 上拉刷新
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadingData)];
 }
-
-- (void)headerRefresh {
+- (void)loadingData {
     kWeakSelf(self);
-    [self.dataSource removeAllObjects];
-    NSDictionary *dic = @{
-                          @"categoryId":weakself.index,
-                          @"page"      :@"1",
-                          @"limit"     :@"10"
-                          };
-    [NetWorkHelper POST:URL_getGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
-        NSDictionary *data= KJSONSerialization(responseObject)[@"data"];
-        NSArray *goodsList = data[@"goodsList"];
-        self.dataSource = [GoodsShowListModel mj_objectArrayWithKeyValuesArray:goodsList];
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView reloadData];
-    } failure:^(NSError * _Nonnull error) {
-        DLog(@"error%@",error);
-    }];
+    if (!isNull) {
+        NSDictionary *dic = @{
+                              @"categoryId":weakself.index,
+                              @"page"      :[NSString stringWithFormat:@"%d",page],
+                              @"limit"     :@"10"
+                              };
+        [NetWorkHelper POST:URL_getGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
+            NSDictionary *data= KJSONSerialization(responseObject)[@"data"];
+            NSArray *goodsList = data[@"goodsList"];
+            NSArray *list = [GoodsShowListModel mj_objectArrayWithKeyValuesArray:goodsList];
+            [self.dataSource addObjectsFromArray:list];
+            [self.tableView reloadData];
+            if (list.count != 0) {
+                self->page++;
+                self->isNull = YES;
+            }
+        } failure:^(NSError * _Nonnull error) {}];
+    }
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -65,7 +75,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GoodsShowTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.model = self.dataSource[indexPath.row];
+    if (self.dataSource.count != 0) {
+        cell.model = self.dataSource[indexPath.row];
+    }
     return cell;
 }
 

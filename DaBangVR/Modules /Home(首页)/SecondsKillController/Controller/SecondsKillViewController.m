@@ -7,6 +7,7 @@
 //
 
 #import "SecondsKillViewController.h"
+#import "GoodsDetailsViewController.h"
 // TableView
 #import "SecondsKillTableView.h"
 #import "MySecondKillTableView.h"
@@ -18,7 +19,8 @@
 #import "GoodsRotationListModel.h"
 #import "GoodsDetailsModel.h"
 
-@interface SecondsKillViewController (){
+@interface SecondsKillViewController ()<SecondsKillTableViewDelegate, TimeChooseViewDelegate>
+{
     
 }
 
@@ -31,11 +33,27 @@
 
 @implementation SecondsKillViewController
 #pragma mark —— 懒加载
-
+-(SecondsKillTableView *)leftTableView{
+    if (!_leftTableView) {
+        // 轮播图
+        _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(180)) andIndex:@"1"];
+        // 轮播图下面的时间选择 View
+        TimeChooseView *timeChooseView = [[[NSBundle mainBundle] loadNibNamed:@"TimeChooseView" owner:nil options:nil] firstObject];
+        timeChooseView.frame = CGRectMake(0, _shufflingView.mj_h, KScreenW, kFit(50));
+        timeChooseView.delegate = self;
+        // tableViewHeaderView
+        UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, _shufflingView.mj_h+timeChooseView.mj_h)];
+        [tableHeaderView addSubview:_shufflingView];
+        [tableHeaderView addSubview:timeChooseView];
+        _leftTableView = [[SecondsKillTableView alloc] init];
+        _leftTableView.tableHeaderView = tableHeaderView;
+        _leftTableView.aDelegate = self;
+    }
+    return _leftTableView;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"限时秒杀";
-    [self loadingData];
 }
 
 - (void)setupUI{
@@ -47,10 +65,6 @@
     // 左边的 view
     [self creatLeftOfTableView];
 }
--(void)loadingData{
-    
-}
-
 - (void)setupNavagationBar{
     UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [shareBtn.widthAnchor constraintEqualToConstant:25].active = YES;
@@ -96,20 +110,9 @@
 }
 
 - (void)creatLeftOfTableView{
-    // 轮播图
-    _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(180)) andIndex:@"1"];
-    // 轮播图下面的时间选择 View
-    TimeChooseView *timeChooseView = [[[NSBundle mainBundle] loadNibNamed:@"TimeChooseView" owner:nil options:nil] firstObject];
-    timeChooseView.frame = CGRectMake(0, _shufflingView.mj_h, KScreenW, kFit(50));
-    // tableViewHeaderView
-    UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, _shufflingView.mj_h+timeChooseView.mj_h)];
-    [tableHeaderView addSubview:_shufflingView];
-    [tableHeaderView addSubview:timeChooseView];
     // 左边 tableView
-    _leftTableView = [[SecondsKillTableView alloc] init];
-    _leftTableView.tableHeaderView = tableHeaderView;
-    [self.view addSubview:_leftTableView];
-    [_leftTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.view addSubview:self.leftTableView];
+    [self.leftTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(0);
         make.top.equalTo(kTopHeight);
         make.bottom.equalTo(-kTabBarHeight);
@@ -118,7 +121,6 @@
 
 - (void)creatRightOfTableView{
     self.navigationItem.rightBarButtonItem = nil;
-    
     _rightTableView = [[MySecondKillTableView alloc] init];
     [self.view addSubview:_rightTableView];
     [_rightTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -139,6 +141,28 @@
         [_leftTableView removeFromSuperview];
         self.title = @"我的秒杀";
         [self creatRightOfTableView];
+    }
+}
+
+#pragma mark —— SecondsKillTableView 协议
+-(void)curentGooodsID:(NSString *)ID{
+    GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
+    vc.index = ID;
+    vc.interfaceState = self;
+    [self.navigationController pushViewController:vc animated:NO];
+}
+
+#pragma mark —— TimeChooseView 协议
+-(void)buttonSelectAction:(UIButton *)btn{
+    if (btn.tag == 10) {
+        // 结束秒杀
+        self.leftTableView.hoursTime = @"-1";
+    }else if (btn.tag == 11){
+        // 正在秒杀
+        self.leftTableView.hoursTime = @"0";
+    }else if (btn.tag == 12){
+        // 即将秒杀
+        self.leftTableView.hoursTime = @"1";
     }
 }
 

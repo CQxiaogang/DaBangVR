@@ -41,6 +41,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *remainingInventory;
 // 店铺 ID
 @property (nonatomic, copy) NSString *deptId;
+// 秒杀商品结束时间
+@property (nonatomic, copy) NSString *secondsEndTime;
+// 团购商品结束时间
+@property (nonatomic, copy) NSString *endTime;
 @end
 
 NS_ASSUME_NONNULL_END

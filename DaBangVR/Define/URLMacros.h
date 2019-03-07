@@ -33,8 +33,8 @@
 /**开发服务器*/
 #define URL_main @"http://www.vrzbgw.com/dabang"
 //#define URL_main @"http://192.168.1.111:8080"
-//#define URL_main @"http://192.168.1.105:8080"
-//#define URL_main @"http://192.168.1.106:8080"
+//#define URL_main @"http://192.168.1.107:8080"
+//#define URL_main @"http://192.168.1.168:8080" // 邓
 #elif TestSever
 
 /**测试服务器*/

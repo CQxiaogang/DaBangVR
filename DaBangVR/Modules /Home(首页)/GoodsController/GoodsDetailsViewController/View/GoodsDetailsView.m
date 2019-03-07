@@ -7,7 +7,6 @@
 //
 
 #import "GoodsDetailsView.h"
-#import "GoodsInfoView.h"
 #import "GoodAttributesView.h"
 // Vendors
 #import "FGGAutoScrollView.h" //无限轮播
@@ -16,8 +15,7 @@
 
 // 自动循环滚动 view
 @property (nonatomic, strong) FGGAutoScrollView *bannerView;
-// 基本信息 view
-@property (nonatomic, strong) GoodsInfoView     *goodsInfoView;
+
 /** 弹出视图 */
 @property (nonatomic, strong) GoodAttributesView *goodsAttributes;
 @property (nonatomic, strong) GoodsDetailsModel *model;
@@ -70,7 +68,7 @@
         make.top.equalTo(weakself.bannerView.mas_bottom).offset(0);
         make.left.equalTo(@(0));
         make.right.equalTo(@(0));
-        make.height.equalTo(184);
+        make.height.equalTo(kFit(184));
     }];
 }
 

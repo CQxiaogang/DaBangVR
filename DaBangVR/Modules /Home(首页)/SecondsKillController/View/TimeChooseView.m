@@ -9,9 +9,23 @@
 #import "TimeChooseView.h"
 
 @implementation TimeChooseView
-
+// 即将秒杀
 - (IBAction)seeGoods:(id)sender {
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(buttonSelectAction:)]) {
+        [self.delegate buttonSelectAction:sender];
+    }
+}
+// 正在秒杀
+- (IBAction)isKill:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(buttonSelectAction:)]) {
+        [self.delegate buttonSelectAction:sender];
+    }
+}
+// 结束秒杀
+- (IBAction)endKill:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(buttonSelectAction:)]) {
+        [self.delegate buttonSelectAction:sender];
+    }
 }
 
 @end

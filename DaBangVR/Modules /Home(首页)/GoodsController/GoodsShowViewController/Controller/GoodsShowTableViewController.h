@@ -11,5 +11,7 @@
 
 @interface GoodsShowTableViewController : LoadDataListBaseViewController <JXCategoryListContentViewDelegate>
 
+@property (nonatomic, copy) void (^block)(NSArray *list,NSError *error);
+
 @end
 

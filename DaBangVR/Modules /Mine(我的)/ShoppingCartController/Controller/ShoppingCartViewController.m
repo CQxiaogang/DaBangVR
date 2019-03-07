@@ -384,9 +384,7 @@
                 [self.myTableView reloadData];
             });
         }
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
+    } failure:^(NSError * _Nonnull error) {}];
 }
 
 #pragma mark —— 底部 view 协议
@@ -398,6 +396,7 @@
             OrderSureViewController *vc = [[OrderSureViewController alloc] init];
             vc.submitType = @"cart";
             [self.navigationController pushViewController:vc animated:NO];
+          
         } failure:^(NSError * _Nonnull error) {}];
     }
 }

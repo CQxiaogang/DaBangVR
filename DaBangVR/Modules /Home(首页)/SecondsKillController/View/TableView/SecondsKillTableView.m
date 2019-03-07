@@ -5,8 +5,9 @@
 //  Created by mac on 2019/1/21.
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
-
+// Controllers
 #import "SecondsKillTableView.h"
+// Views
 #import "SecondsKillCell.h"
 
 @interface SecondsKillTableView ()
@@ -21,7 +22,7 @@ static NSString *CellID = @"CellID";
     self = [super init];
     if (self) {
         // 加载数据
-        [self laodingData];
+        [self laodingData:@"0"];
         
         self.delegate = self;
         self.dataSource = self;
@@ -30,10 +31,10 @@ static NSString *CellID = @"CellID";
     return self;
 }
 
-- (void)laodingData{
+- (void)laodingData:(NSString *)hoursTime{
     kWeakSelf(self);
     NSDictionary *dic = @{
-                          @"hoursTime":@"17",
+                          @"hoursTime":hoursTime,
                           @"page":@"1",
                           @"limit":@"10"
                           };
@@ -62,6 +63,18 @@ static NSString *CellID = @"CellID";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return kFit(165);
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.aDelegate && [self.aDelegate respondsToSelector:@selector(curentGooodsID:)]) {
+        GoodsDetailsModel *model = _goodsData[indexPath.row];
+        [self.aDelegate curentGooodsID:model.id];
+    }
+}
+
+-(void)setHoursTime:(NSString *)hoursTime{
+    _hoursTime = hoursTime;
+    [self laodingData:hoursTime];
 }
 
 @end

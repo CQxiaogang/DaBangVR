@@ -10,7 +10,11 @@
 
 
 NS_ASSUME_NONNULL_BEGIN
+@protocol TimeChooseViewDelegate <NSObject>
 
+-(void)buttonSelectAction:(UIButton *)btn;
+
+@end
 @interface TimeChooseView : UIView
 // 限时秒杀
 @property (weak, nonatomic) IBOutlet UILabel *seckillLab;
@@ -21,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 参看商品标签
 @property (weak, nonatomic) IBOutlet UILabel *seeGoodsLab;
 
-
+@property (nonatomic, weak) id<TimeChooseViewDelegate>delegate;
 
 @end
 

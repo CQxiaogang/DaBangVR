@@ -3122,7 +3122,7 @@
 				ASSET_PACK_MANIFEST_URL_PREFIX = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6Y22Y687X2;
+				DEVELOPMENT_TEAM = W89H3NSM2M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DaBangVR/tools",
@@ -3147,7 +3147,7 @@
 					"$(PROJECT_DIR)/DaBangVR/ThridParty/UMSocial/UMSocialSDKPlugin",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.DaBangVR.DaBangVR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DaBangVR.seafoodStorm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3164,7 +3164,7 @@
 				ASSET_PACK_MANIFEST_URL_PREFIX = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6Y22Y687X2;
+				DEVELOPMENT_TEAM = W89H3NSM2M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DaBangVR/tools",
@@ -3189,7 +3189,7 @@
 					"$(PROJECT_DIR)/DaBangVR/ThridParty/UMSocial/UMSocialSDKPlugin",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.DaBangVR.DaBangVR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DaBangVR.seafoodStorm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;

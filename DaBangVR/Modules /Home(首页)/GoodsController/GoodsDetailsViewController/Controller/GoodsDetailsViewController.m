@@ -7,9 +7,11 @@
 //
 // Controllers
 #import "GoodsDetailsViewController.h"
-#import "AllCommentsViewController.h" //查看所以评论
+#import "AllCommentsViewController.h"    //查看所以评论
 #import "OrderSureViewController.h"      //立即购买
-#import "ShoppingCartViewController.h" //购物车
+#import "ShoppingCartViewController.h"   //购物车
+#import "SecondsKillViewController.h"    //秒杀
+#import "SpellGroupViewController.h"     //拼团
 // ViewS
 #import "GoodsDetailsView.h"
 #import "GoodAttributesView.h"
@@ -23,6 +25,8 @@
 static NSArray *globalArray;
 @interface GoodsDetailsViewController ()<GoodsDetailsViewDelegate, UIWebViewDelegate>{
     NSInteger _tablewVierwFooterHight;
+    
+    dispatch_source_t _timer;
 }
 /* 通知 */
 @property (weak ,nonatomic) id dcObj;
@@ -74,7 +78,6 @@ static NSString *CellID = @"CellID";
     [super viewDidLoad];
     // 得到数据
     [self loadingData];
-    
     self.tableView.backgroundColor = KWhiteColor;
 }
 #pragma mark —— 数据
@@ -125,9 +128,10 @@ static NSString *CellID = @"CellID";
     
     NSMutableArray *names  = [NSMutableArray arrayWithObjects:@"购物车", @"立即购买", nil];
     NSMutableArray *colors = [NSMutableArray arrayWithObjects:KOrangeColor, KRedColor, nil];
-    
-    if ([self.identifier isEqualToString:@"拼团"]) {
+    if ([_interfaceState isKindOfClass:[SecondsKillViewController class]]) {
         // 替换字符串
+        [names replaceObjectAtIndex:1 withObject:@"秒杀购买"];
+    }else if ([_interfaceState isKindOfClass:[SpellGroupViewController class]]){
         [names replaceObjectAtIndex:0 withObject:@"拼  团"];
     }
     
@@ -179,12 +183,102 @@ static NSString *CellID = @"CellID";
 #pragma mark —— 设置其他 UI
 - (void)setupOtherUI{
     // 设置headerView
-    _goodsView = [[GoodsDetailsView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, Adapt(184+250)) andDataSourse:self.model];
+    _goodsView = [[GoodsDetailsView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(184+250)) andDataSourse:self.model];
+    // 进入团购和秒杀界面的时候,做倒计时操作
+    if ([_interfaceState isKindOfClass:[SecondsKillViewController class]] || [_interfaceState isKindOfClass:[SpellGroupViewController class]]) {
+        UILabel *label = [[UILabel alloc] init];
+        label.adaptiveFontSize = 17;
+        label.textColor = KRedColor;
+        label.textAlignment = NSTextAlignmentCenter;
+        [_goodsView.goodsInfoView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(kFit(-10));
+            make.top.equalTo(kFit(50));
+            make.size.equalTo(CGSizeMake(kFit(150), kFit(30)));
+        }];
+        /**********倒计时***********/
+        NSString *endTime;
+        if ([_interfaceState isKindOfClass:[SecondsKillViewController class]]) {
+            endTime = self.model.secondsEndTime;
+        }else if ([_interfaceState isKindOfClass:[SpellGroupViewController class]]){
+            endTime = self.model.endTime;
+        }
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSDate *endDate = [dateFormatter dateFromString:[self timeWithTimeIntervalString:endTime]]; //结束时间
+        NSDate *endDate_tomorrow = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate:([endDate timeIntervalSinceReferenceDate])];
+        NSDate *startDate = [NSDate date];
+        NSTimeInterval timeInterval =[endDate_tomorrow timeIntervalSinceDate:startDate];
+        
+        __block int timeout = timeInterval;
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+        dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), 1.0*NSEC_PER_SEC, 0);//每秒执行
+        dispatch_source_set_event_handler(_timer, ^{
+            if (timeout<=0) {//倒计时结束，关闭
+                dispatch_source_cancel(_timer);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    label.text = @"活动结束";
+                });
+            }else{
+                int days = (int)(timeout/(3600*24));
+                int hours = (int)((timeout-days*24*3600)/3600);
+                int minutes = (int)(timeout-days*24*3600-hours*3600)/60;
+                int second = timeout-days*24*3600-hours*3600-minutes*60;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSString *day;      // 天
+                    NSString *hour;     // 时
+                    NSString *minute;   // 分
+                    NSString *secondS;  // 秒
+                    if (days == 0) {
+                        day = @"0";
+                    }else{
+                        day = [NSString stringWithFormat:@"%d",days];
+                    }
+                    if (hours<10) {
+                        hour = [NSString stringWithFormat:@"0%d",hours];
+                    }else{
+                        hour = [NSString stringWithFormat:@"%d",hours];
+                    }
+                    if (minutes<10) {
+                        minute = [NSString stringWithFormat:@"0%d",minutes];
+                    }else{
+                        minute = [NSString stringWithFormat:@"%d",minutes];
+                    }
+                    if (second<10) {
+                        secondS = [NSString stringWithFormat:@"0%d",second];
+                    }else{
+                        secondS = [NSString stringWithFormat:@"%d",second];
+                    }
+                    label.text = [NSString stringWithFormat:@"%@天%@时%@分%@秒",day,hour,minute,secondS];
+                });
+                timeout--;
+            }
+        });
+        dispatch_resume(_timer);
+    }
     _goodsView.delegate = self;
     self.tableView.tableHeaderView = _goodsView;
     // 设置footerView
     self.tableView.tableFooterView = self.webView;
 }
+
+// 时间戳转换为日期格式(毫秒的时间戳)
+- (NSString *)timeWithTimeIntervalString:(NSString *)timeString{
+    // 格式化时间
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.timeZone = [NSTimeZone timeZoneWithName:@"shanghai"];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    // 毫秒值转化为秒
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeString doubleValue]/ 1000.0];
+    NSString* dateString = [formatter stringFromDate:date];
+    NSLog(@"时间 === %@",dateString);
+    return dateString;
+}
+
 #pragma mark —— UI设置
 - (void)setupNavagation{
     UIButton *shoppingCarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
