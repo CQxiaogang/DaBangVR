@@ -48,6 +48,16 @@
 		04457AC021FC48C3003E5748 /* OrderDeptGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04457ABF21FC48C3003E5748 /* OrderDeptGoodsModel.m */; };
 		04457AC321FC49EE003E5748 /* OrderGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04457AC221FC49EE003E5748 /* OrderGoodsModel.m */; };
 		0449C32C2226251A007EE9E1 /* CountryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0449C32B2226251A007EE9E1 /* CountryListModel.m */; };
+		044E677F223221E60077365D /* DDLocalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 044E6771223221E60077365D /* DDLocalStore.m */; };
+		044E6780223221E60077365D /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 044E6772223221E60077365D /* UIView+Extension.m */; };
+		044E6781223221E60077365D /* UIColor+DD.m in Sources */ = {isa = PBXBuildFile; fileRef = 044E6773223221E60077365D /* UIColor+DD.m */; };
+		044E6782223221E60077365D /* DDMySearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 044E6775223221E60077365D /* DDMySearchBar.m */; };
+		044E6784223221E60077365D /* UILabel+HuaZhi.m in Sources */ = {isa = PBXBuildFile; fileRef = 044E677A223221E60077365D /* UILabel+HuaZhi.m */; };
+		044E6785223221E60077365D /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044E677B223221E60077365D /* SearchResultCell.xib */; };
+		044E6787223221E60077365D /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044E677E223221E60077365D /* SearchResultCell.m */; };
+		044E678B223229FE0077365D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044E6789223229FE0077365D /* SearchViewController.xib */; };
+		044E678C223229FE0077365D /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044E678A223229FE0077365D /* SearchViewController.m */; };
+		044E678F223276180077365D /* PaymentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 044E678E223276180077365D /* PaymentManager.m */; };
 		044F3BA921F0201B00F3AD5E /* MySpellGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F3BA721F0201B00F3AD5E /* MySpellGroupCell.m */; };
 		044F3BAA21F0201B00F3AD5E /* MySpellGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044F3BA821F0201B00F3AD5E /* MySpellGroupCell.xib */; };
 		044F3BAD21F0803900F3AD5E /* ProductInfoVoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F3BAC21F0803900F3AD5E /* ProductInfoVoListModel.m */; };
@@ -358,6 +368,24 @@
 		04457AC221FC49EE003E5748 /* OrderGoodsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderGoodsModel.m; sourceTree = "<group>"; };
 		0449C32A2226251A007EE9E1 /* CountryListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryListModel.h; sourceTree = "<group>"; };
 		0449C32B2226251A007EE9E1 /* CountryListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountryListModel.m; sourceTree = "<group>"; };
+		044E676E223221E60077365D /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		044E676F223221E60077365D /* DDLocalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLocalStore.h; sourceTree = "<group>"; };
+		044E6770223221E60077365D /* UIColor+DD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DD.h"; sourceTree = "<group>"; };
+		044E6771223221E60077365D /* DDLocalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLocalStore.m; sourceTree = "<group>"; };
+		044E6772223221E60077365D /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		044E6773223221E60077365D /* UIColor+DD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DD.m"; sourceTree = "<group>"; };
+		044E6775223221E60077365D /* DDMySearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMySearchBar.m; sourceTree = "<group>"; };
+		044E6776223221E60077365D /* UILabel+HuaZhi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HuaZhi.h"; sourceTree = "<group>"; };
+		044E6777223221E60077365D /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
+		044E677A223221E60077365D /* UILabel+HuaZhi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HuaZhi.m"; sourceTree = "<group>"; };
+		044E677B223221E60077365D /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		044E677C223221E60077365D /* DDMySearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMySearchBar.h; sourceTree = "<group>"; };
+		044E677E223221E60077365D /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
+		044E6788223229FE0077365D /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		044E6789223229FE0077365D /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		044E678A223229FE0077365D /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		044E678D223276180077365D /* PaymentManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentManager.h; sourceTree = "<group>"; };
+		044E678E223276180077365D /* PaymentManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentManager.m; sourceTree = "<group>"; };
 		044F3BA621F0201B00F3AD5E /* MySpellGroupCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySpellGroupCell.h; sourceTree = "<group>"; };
 		044F3BA721F0201B00F3AD5E /* MySpellGroupCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySpellGroupCell.m; sourceTree = "<group>"; };
 		044F3BA821F0201B00F3AD5E /* MySpellGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySpellGroupCell.xib; sourceTree = "<group>"; };
@@ -1058,6 +1086,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		044E676D223221E60077365D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				044E6770223221E60077365D /* UIColor+DD.h */,
+				044E6773223221E60077365D /* UIColor+DD.m */,
+				044E676F223221E60077365D /* DDLocalStore.h */,
+				044E6771223221E60077365D /* DDLocalStore.m */,
+				044E676E223221E60077365D /* UIView+Extension.h */,
+				044E6772223221E60077365D /* UIView+Extension.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		0459D89021E04AB0009BFFB4 /* RootViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1144,6 +1185,7 @@
 		045D559E222E79D100F128F8 /* SearchGoodsController */ = {
 			isa = PBXGroup;
 			children = (
+				044E676D223221E60077365D /* Other */,
 				045D55A1222E7A2A00F128F8 /* Model */,
 				045D559F222E7A2900F128F8 /* View */,
 				045D55A0222E7A2900F128F8 /* Controller */,
@@ -1154,6 +1196,13 @@
 		045D559F222E7A2900F128F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				044E677C223221E60077365D /* DDMySearchBar.h */,
+				044E6775223221E60077365D /* DDMySearchBar.m */,
+				044E6776223221E60077365D /* UILabel+HuaZhi.h */,
+				044E677A223221E60077365D /* UILabel+HuaZhi.m */,
+				044E6777223221E60077365D /* SearchResultCell.h */,
+				044E677E223221E60077365D /* SearchResultCell.m */,
+				044E677B223221E60077365D /* SearchResultCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1161,6 +1210,9 @@
 		045D55A0222E7A2900F128F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				044E6788223229FE0077365D /* SearchViewController.h */,
+				044E678A223229FE0077365D /* SearchViewController.m */,
+				044E6789223229FE0077365D /* SearchViewController.xib */,
 				045D55A2222E7A5800F128F8 /* SearchGoodsViewController.h */,
 				045D55A3222E7A5800F128F8 /* SearchGoodsViewController.m */,
 			);
@@ -2334,6 +2386,8 @@
 				04F3CF0221CB2FBB007C40A1 /* UserManager.m */,
 				04F3CF0421CB2FF1007C40A1 /* UserInfo.h */,
 				04F3CF0521CB2FF1007C40A1 /* UserInfo.m */,
+				044E678D223276180077365D /* PaymentManager.h */,
+				044E678E223276180077365D /* PaymentManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -2660,7 +2714,9 @@
 				04C1AD23221172770011DDA3 /* lufei.jpg in Resources */,
 				04F55B13222A844900692A4E /* SortSearchCollectionViewCell.xib in Resources */,
 				04FA5D6121AE3F480061AF27 /* LoginViewController.xib in Resources */,
+				044E678B223229FE0077365D /* SearchViewController.xib in Resources */,
 				04EFA03621E74398007C2FCA /* ChannelViewCell.xib in Resources */,
+				044E6785223221E60077365D /* SearchResultCell.xib in Resources */,
 				045A6FF12223F514006081CF /* CountryCollectionViewCell.xib in Resources */,
 				04457ABD21FC4446003E5748 /* OrderSureHeaderView.xib in Resources */,
 				04F62FDB21F951440094B26F /* ShoppingCartHeaderView.xib in Resources */,
@@ -2798,9 +2854,11 @@
 				04F55B12222A844900692A4E /* SortSearchCollectionViewCell.m in Sources */,
 				0423DAEA22002EDC00325869 /* MyOrderTableViewController.m in Sources */,
 				04F47E2421E5D0EE001B5F74 /* AllOrdersCell.m in Sources */,
+				044E677F223221E60077365D /* DDLocalStore.m in Sources */,
 				04F2FD1321EEEAE0000B58E2 /* GoodsDetailsView.m in Sources */,
 				04F2FD1F21EF23D5000B58E2 /* SpellGroupViewController.m in Sources */,
 				0476038B222D13AE00FDE903 /* NewGoodsModel.m in Sources */,
+				044E6781223221E60077365D /* UIColor+DD.m in Sources */,
 				04BF21832212B719002468C0 /* JXPagerListContainerView.m in Sources */,
 				04F70C6921E98D35004BD4C6 /* AnchorRecommendView.m in Sources */,
 				04F2FD2E21EF479D000B58E2 /* GoodsShowTableViewController.m in Sources */,
@@ -2853,6 +2911,7 @@
 				0430115022140C160003E082 /* SureCustomActionSheet.m in Sources */,
 				04F5C8EA21CA4307008DD043 /* UIViewController+AlertViewAndActionSheet.m in Sources */,
 				04F62FDA21F951440094B26F /* ShoppingCartHeaderView.m in Sources */,
+				044E678C223229FE0077365D /* SearchViewController.m in Sources */,
 				04F8FC0221F1D3F700913150 /* SecondsKillCell.m in Sources */,
 				04F8ED3621E2F0AA00004178 /* DBDetailFooterCell.m in Sources */,
 				04EFA03221E7436B007C2FCA /* ChannelViewCell.m in Sources */,
@@ -2873,6 +2932,7 @@
 				04F3B30021EDDAF900DFBA84 /* JXCategoryIndicatorLineView.m in Sources */,
 				04F866B021A7FF4D00A4D7F6 /* ADPageControlView.m in Sources */,
 				04F50D1921D215E3004EBFE1 /* GoodsDetailsViewController.m in Sources */,
+				044E6782223221E60077365D /* DDMySearchBar.m in Sources */,
 				04F4467821D74F5300524971 /* FeatureItemCell.m in Sources */,
 				04FC2C3B21C0E3AD00329B53 /* JFAreaDataManager.m in Sources */,
 				04F3B30321EDDAF900DFBA84 /* JXCategoryIndicatorImageView.m in Sources */,
@@ -2899,6 +2959,7 @@
 				04F4467921D74F5300524971 /* FeatureHeaderView.m in Sources */,
 				04F62FD421F951440094B26F /* ShoppingCartViewController.m in Sources */,
 				04BF218A2212B719002468C0 /* TestTableViewCell.m in Sources */,
+				044E6784223221E60077365D /* UILabel+HuaZhi.m in Sources */,
 				049D4799219FE9480058178D /* MainTabBarController.m in Sources */,
 				04BF21972212CA71002468C0 /* MineCollectionTableViewCell.m in Sources */,
 				04F3B31321EDDAF900DFBA84 /* JXCategoryImageView.m in Sources */,
@@ -2926,11 +2987,14 @@
 				04F084F021E48F9600BFE102 /* BaseTableViewCell.m in Sources */,
 				04BF21842212B719002468C0 /* JXPagerMainTableView.m in Sources */,
 				0459D89321E04ADB009BFFB4 /* RootViewController.m in Sources */,
+				044E6787223221E60077365D /* SearchResultCell.m in Sources */,
+				044E6780223221E60077365D /* UIView+Extension.m in Sources */,
 				04F3B31D21EDDAF900DFBA84 /* JXCategoryIndicatorParamsModel.m in Sources */,
 				04F3B30721EDDAF900DFBA84 /* JXCategoryIndicatorCellModel.m in Sources */,
 				04F4464F21D71F6C00524971 /* PPNumberButton.m in Sources */,
 				04D9C46921EA0706005F23FF /* NetWorkHelper.m in Sources */,
 				04F8664E21A7D50000A4D7F6 /* MineHeaderView.m in Sources */,
+				044E678F223276180077365D /* PaymentManager.m in Sources */,
 				04F3B31021EDDAF900DFBA84 /* JXCategoryTitleCellModel.m in Sources */,
 				04F3B30A21EDDAF900DFBA84 /* JXCategoryDotCell.m in Sources */,
 				04053B5A21FAE4A9001120FC /* UserInfoChangeModel.m in Sources */,

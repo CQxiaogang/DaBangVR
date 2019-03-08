@@ -76,9 +76,6 @@ static NSString *const CellID = @"CellID";
 }
 
 #pragma mark —— tableView delegate/dataSource;
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 5;
-}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.userData.count;
 }

@@ -22,6 +22,7 @@
 #import "GlobalShoppingViewController.h"    //全球购
 #import "SortSearchViewController.h"        //分类搜索
 #import "SearchGoodsViewController.h"       //搜索商品
+#import "SearchViewController.h"      //搜索商品
 #import "GoodsDetailsViewController.h"      //商品详情
 // Views
 #import "AnchorRecommendView.h" //主播推荐
@@ -686,12 +687,15 @@ ShufflingViewDelegate
     [self.navigationController pushViewController:vc animated:NO];
 }
 
+-(void)searchBoxClickAction{
+    [self pushViewController:[SearchViewController new]];
+}
+
 #pragma mark —— ShufflingView 代理
 -(void)imgDidSelected:(NSString *)goodsID{
     GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
-    vc.hidesBottomBarWhenPushed = YES;
     vc.index = goodsID;
-    [self.navigationController pushViewController:vc animated:NO];
+    [self pushViewController:vc];
 }
 
 @end

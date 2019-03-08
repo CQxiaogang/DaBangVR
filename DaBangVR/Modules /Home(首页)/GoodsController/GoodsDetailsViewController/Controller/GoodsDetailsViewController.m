@@ -84,7 +84,7 @@ static NSString *CellID = @"CellID";
 - (void) loadingData{
     kWeakSelf(self);
     // 商品详情
-    [NetWorkHelper POST:URL_getGoodsDetails parameters:@{@"goodsId":_index} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URL_getGoodsDetails parameters:@{@"goodsId":weakself.index} success:^(id  _Nonnull responseObject) {
         
         NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
         // 商品详情
@@ -410,8 +410,9 @@ static NSString *CellID = @"CellID";
 }
 // 收藏
 - (void)collectionBtnOfAction{
+    kWeakSelf(self);
     NSDictionary *dic = @{
-                          @"goodsId":_index
+                          @"goodsId":weakself.index
                           };
     [NetWorkHelper POST:URl_getGoodsCollectSave parameters:dic success:^(id  _Nonnull responseObject) {
         

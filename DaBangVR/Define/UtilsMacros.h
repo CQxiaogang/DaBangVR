@@ -157,4 +157,7 @@ return shared##className; \
 #define kOrderState_forTheGoods      @"待收货"
 #define kOrderState_ToEvaluate       @"待评价"
 #define kOrderState_refundOrAfterSales @"退款/售后"
+// 搜索框的宽高
+#define kSearchBoxW kFit(260)
+#define kSearchBoxH kFit(30)
 #endif /* define_h */

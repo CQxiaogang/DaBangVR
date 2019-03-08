@@ -57,7 +57,8 @@ static NSString *HeaderCellID = @"HeaderCellID";
     NSDictionary *dic = @{
                           @"orderState":self.index,
                           @"page"      :@"1",
-                          @"limit"     :@"10"
+                          @"limit"     :@"10",
+                          @"buyType"   :@""
                           };
     [NetWorkHelper POST:URl_getOrderList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];

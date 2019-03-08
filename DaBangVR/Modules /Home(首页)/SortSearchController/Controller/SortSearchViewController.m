@@ -8,6 +8,7 @@
 
 #import "SortSearchViewController.h"
 #import "SortSearchCollectionViewController.h"
+#import "SearchViewController.h"
 // Vendors
 #import "JXCategoryView.h"
 #import "JXCategoryListContainerView.h"
@@ -56,11 +57,11 @@
 }
 
 -(void)setupNavagationBar{
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kFit(260), kFit(30))];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kSearchBoxW, kSearchBoxH)];
     view.layer.cornerRadius = view.mj_h/2;
     view.backgroundColor = KWhiteColor;
     self.navigationItem.titleView = view;
-    
+
     UIButton *searchBtn = [[UIButton alloc] initWithFrame:CGRectMake(KMargin, 0, kFit(200), view.mj_h)];
     [searchBtn setTitle:@"搜索关键字" forState:UIControlStateNormal];
     [searchBtn setTitleColor:[UIColor lightGreen] forState:UIControlStateNormal];
@@ -82,9 +83,11 @@
     UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = btnItem;
 }
+
 // 搜索
 - (void)searchOfAction{
-    
+    SearchViewController *vc = [[SearchViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
 }
 // 更多功能
 - (void)shoppingCarOfAction{

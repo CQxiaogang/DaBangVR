@@ -31,10 +31,10 @@
 #if DevelopSever
 
 /**开发服务器*/
-#define URL_main @"http://www.vrzbgw.com/dabang"
+//#define URL_main @"http://www.vrzbgw.com/dabang"
 //#define URL_main @"http://192.168.1.111:8080"
 //#define URL_main @"http://192.168.1.107:8080"
-//#define URL_main @"http://192.168.1.168:8080" // 邓
+#define URL_main @"http://192.168.1.168:8080" // 邓
 #elif TestSever
 
 /**测试服务器*/
@@ -52,8 +52,11 @@
 #define URL_getChannelMenuList NSStringFormat(@"%@%@",URL_main,@"/api/index/getChannelMenuList?")
 // 商品类型列表
 #define URL_getGoodsCategoryList NSStringFormat(@"%@%@",URL_main,@"/api/index/getGoodsCategoryList?")
-//轮播图列表
+// 轮播图列表
 #define URl_goods_rotation_list NSStringFormat(@"%@%@",URL_main,@"/api/index/getGoodsRotationList?")
+// 搜索接口
+#define URl_getSearchGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/index/getSearchGoodsList?")
+
 
 #pragma mark ——————   商品相关   ——————
 // 普通商品列表

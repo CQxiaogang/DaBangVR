@@ -10,7 +10,7 @@
 #import "UserAddressModel.h"
 
 @implementation OrderSureTopView
-
+// 修改地址
 - (IBAction)alterAction:(id)sender {
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(informationModification)]) {

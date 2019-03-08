@@ -88,11 +88,8 @@
 
 -(void)lowerRightCornerClickEvent:(NSString *)string{
     if ([string isEqualToString:kOrderState_forThePayment]) {
-        DLog(@"");
-    }else if ([string isEqualToString:@"立即付款"]){
-        DLog(@"立即付款");
-    }else if ([string isEqualToString:@"删除订单"]){
-        DLog(@"删除订单");
+        // 待付款
+        
     }else if ([string isEqualToString:kOrderState_ToEvaluate]){
         DLog(@"去评价");
     }

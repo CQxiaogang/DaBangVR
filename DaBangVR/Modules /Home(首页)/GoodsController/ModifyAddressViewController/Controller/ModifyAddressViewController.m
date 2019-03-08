@@ -158,16 +158,18 @@ static NSString *const CellID = @"CellID";
 
 - (void)saveInfo{
     [self.user_AdressDic setObject:_boolStr forKey:@"isDefault"];
-    if (self.user_AdressDic) {
+    if ([self.user_AdressDic allKeys].count == 12) {
         [NetWorkHelper POST:URl_addressAdd parameters:self.user_AdressDic success:^(id  _Nonnull responseObject) {
             NSString *errmsg = KJSONSerialization(responseObject)[@"errmsg"];
             [SVProgressHUD showInfoWithStatus:errmsg];
             [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
             [SVProgressHUD dismissWithDelay:1.0];
             [self.navigationController popViewControllerAnimated:NO];
-        } failure:^(NSError * _Nonnull error) {
-            
-        }];
+        } failure:^(NSError * _Nonnull error) {}];
+    }else{
+        [SVProgressHUD showInfoWithStatus:@"信息不全,请填完信息"];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        [SVProgressHUD dismissWithDelay:1.0];
     }
 }
 

@@ -32,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     page=1;
+    isNull = YES;
     [self loadingData];
     [self.tableView registerNib:[UINib nibWithNibName:@"GoodsShowTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     // 下拉刷新
@@ -45,7 +46,7 @@
 }
 - (void)loadingData {
     kWeakSelf(self);
-    if (!isNull) {
+    if (isNull) {
         NSDictionary *dic = @{
                               @"categoryId":weakself.index,
                               @"page"      :[NSString stringWithFormat:@"%d",page],

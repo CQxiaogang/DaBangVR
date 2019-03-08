@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol TopViewDelegate <NSObject>
 // 购物车点击事件
 - (void)shoppingCarClickAction;
+// 搜索框处理
+- (void)searchBoxClickAction;
 
 @end
 
