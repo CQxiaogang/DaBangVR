@@ -8,6 +8,7 @@
 
 #import "AppDelegate+AppService.h"
 #import "LoginViewController.h"
+#import "LoginManger.h"
 #import <UMSocialCore/UMSocialCore.h>
 
 @implementation AppDelegate (AppService)
@@ -16,7 +17,6 @@
 - (void)initService{
     // 注册登录状态监听
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginStateChange:) name:KNotificationLoginStateChange object:nil];
-    
 }
 
 #pragma mark —— 初始化 window
@@ -62,15 +62,22 @@
     
     BOOL loginSuccess = [notification.object boolValue];
     if (loginSuccess) {// 登录成功加载主窗口
-        
         self.mainTabBar = [MainTabBarController new];
         CATransition *animation = [CATransition animation];
-        animation.type = @"cude"; // 动画类型
+        animation.type = @"fade"; // 动画类型
         animation.subtype = kCATransitionFromRight; // 动画方向
         animation.duration = 0.3f;
-        self.window.rootViewController = self.mainTabBar;
-        
-        [kAppWindow.layer addAnimation:animation forKey:@"revealAnimation"];
+        [self.window.layer addAnimation:animation forKey:@"revealAnimation"];
+        BOOL isB = [LoginManger sharedLoginManger].isBoundPhone;
+        if (isBound) {
+            // 登录切换视图，根视图不能销毁。
+            [kRootViewController dismissViewControllerAnimated:NO completion:^{
+                self.window.rootViewController = self.mainTabBar;
+                isBound = NO;
+            }];
+        }else{
+            self.window.rootViewController = self.mainTabBar;
+        }
         
     }else{
         RootNavigationController *loginNav = [[RootNavigationController alloc] initWithRootViewController:[LoginViewController new]];
@@ -78,48 +85,11 @@
         animation.type = @"fade"; // 设置动画的类型
         animation.subtype = kCATransitionFromRight; //设置动画方向
         animation.duration = 0.3f;
-        
         self.window.rootViewController = loginNav;
-        [kAppWindow.layer addAnimation:animation forKey:@"revealAnimation"];
+        [self.window.layer addAnimation:animation forKey:@"revealAnimation"];
     }
-   
 }
-
 -(void)initWX{
     [WXApi registerApp:kAppKey_Wechat];
 }
-
--(void)onResp:(BaseResp*)resp{
-    NSString *strMsg = [NSString stringWithFormat:@"%d",resp.errCode];
-    NSString *strTitle;
-    NSString *strNote;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"successPay" object:strMsg];
-    if ([resp isKindOfClass:[PayResp class]]) {
-        // 支付返回结果,实际支付结果需要去微信服务器端查询
-        strTitle = @"支付结果";
-    }
-    switch (resp.errCode) {
-        case WXSuccess:{
-            strMsg = @"支付成功";
-            strNote = @"success";
-            break;
-        }
-        case WXErrCodeUserCancel:{
-            strMsg = @"支付已取消";
-            strNote = @"cancel";
-            break;
-        }
-        case WXErrCodeSentFail: {
-            strMsg = @"支付失败,请重新支付";
-            strNote = @"fail";
-            break;
-        }
-        default:{
-            strMsg = @"支付失败";
-            strNote = @"fail";
-            break;
-        }
-    }
-}
-
 @end

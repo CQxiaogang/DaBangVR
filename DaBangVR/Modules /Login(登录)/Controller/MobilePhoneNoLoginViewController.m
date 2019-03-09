@@ -7,6 +7,7 @@
 //
 
 #import "MobilePhoneNoLoginViewController.h"
+#import "LoginManger.h"
 #import <SMS_SDK/SMSSDK.h>
 
 @interface MobilePhoneNoLoginViewController ()
@@ -38,13 +39,12 @@
 - (IBAction)loginAction:(id)sender {
     
     [SMSSDK commitVerificationCode:self.password.text phoneNumber:self.accountNunber.text zone:@"86" result:^(NSError *error) {
-        self.phoneNumBlock(self.accountNunber.text);
         if (error) {
             NSLog(@"验证码失败%@",error);
         }else{
-            
+            isBound = YES;
+            self.phoneNumBlock(self.accountNunber.text);
         }
-        
     }];
 }
 - (IBAction)comeBack:(id)sender {

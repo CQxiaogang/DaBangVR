@@ -11,6 +11,7 @@
 #import "EvaluationViewController.h"
 #import "OrderProcessingViewController2.h"
 #import "MyOrderTableViewController.h"
+#import "OrderSureViewController.h"  // 订单确认
 // views
 // 第三方
 #import "JXCategoryView.h"
@@ -80,10 +81,30 @@
     return 6;
 }
 
-#pragma mark —— MyOrderTableVC 代理
--(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    OrderProcessingViewController2 *vc = [[OrderProcessingViewController2 alloc] init];
-    [self.navigationController pushViewController:vc animated:NO];
+#pragma mark —— MyOrderTableViewController 代理
+-(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath orderState:(NSInteger)state{
+    switch (state) {
+        case 0: // 待付款
+        {
+            OrderSureViewController *vc = [[OrderSureViewController alloc] init];
+            vc.submitType = @"buy";
+            vc.orderSnTotal = @"orderSn";
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+            break;
+        case 201: // 待发货
+        
+            break;
+        case 300: // 已发货
+        {
+            // 订单物流界面
+            OrderProcessingViewController2 *vc = [[OrderProcessingViewController2 alloc] init];
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+        default:
+            break;
+    }
+    
 }
 
 -(void)lowerRightCornerClickEvent:(NSString *)string{

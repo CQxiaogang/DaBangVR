@@ -155,6 +155,7 @@ return shared##className; \
 #define kOrderState_forThePayment    @"待付款"
 #define kOrderState_ToSendTheGoods   @"待发货"
 #define kOrderState_forTheGoods      @"待收货"
+#define kOrderState_ConfirmTheGoods  @"确认收货"
 #define kOrderState_ToEvaluate       @"待评价"
 #define kOrderState_refundOrAfterSales @"退款/售后"
 // 搜索框的宽高

@@ -17,13 +17,28 @@ static NSString *CellID = @"CellID";
 {
     self = [super init];
     if (self) {
-        
+        // 加载数据
+        [self loadingData];
         self.delegate = self;
         self.dataSource = self;
-        
         [self registerNib:[UINib nibWithNibName:@"RightSecondsKillCell" bundle:nil] forCellReuseIdentifier:CellID];
     }
     return self;
+}
+
+-(void)loadingData{
+    NSDictionary *dic = @{
+                          @"orderState":@"",
+                          @"page"      :@"1",
+                          @"limit"     :@"10",
+                          @"buyType"   :@"6"
+                          };
+    [NetWorkHelper POST:URl_getOrderList parameters:dic success:^(id  _Nonnull responseObject) {
+        NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
+        NSArray *goodsList = dataDic[@"orderList"];
+    } failure:^(NSError * _Nonnull error) {
+        DLog(@"error%@",error);
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

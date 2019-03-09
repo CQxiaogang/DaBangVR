@@ -149,6 +149,7 @@
 -(void)curentGooodsID:(NSString *)ID{
     GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
     vc.index = ID;
+    vc.submitType = @"seconds";
     vc.interfaceState = self;
     [self.navigationController pushViewController:vc animated:NO];
 }

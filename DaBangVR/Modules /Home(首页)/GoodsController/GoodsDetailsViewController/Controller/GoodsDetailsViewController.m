@@ -377,7 +377,8 @@ static NSString *CellID = @"CellID";
         DLog(@"%@",dic[@"errmsg"]);
         // 直接跳转确认订单界面
         OrderSureViewController *vc = [[OrderSureViewController alloc] init];
-        vc.submitType = @"buy";
+        vc.submitType = self.submitType;
+        vc.orderSnTotal = @"orderSnTotal";
         [self.navigationController pushViewController:vc animated:NO];
     } failure:^(NSError * _Nonnull error) {
         DLog(@"error is %@",error);

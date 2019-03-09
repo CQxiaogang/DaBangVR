@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *orderLogisticsTotalPrice;
 // 购物车 ID
 @property (nonatomic, copy) NSString *cartIds;
+// 购物车 ID
+@property (nonatomic, copy) NSString *goodsId;
 // 商品总价
 @property (nonatomic, copy) NSString *orderGoodsTotalPrice;
 // 商品加邮费价格

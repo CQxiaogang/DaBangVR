@@ -14,7 +14,8 @@
 #pragma mark - ——————— 用户相关 ————————
 //登录状态改变通知
 #define KNotificationLoginStateChange @"loginStateChange"
-
+//绑定手机号
+#define KNotificationBoundPhone @"BoundPhone"
 //自动登录成功
 #define KNotificationAutoLoginSuccess @"KNotificationAutoLoginSuccess"
 

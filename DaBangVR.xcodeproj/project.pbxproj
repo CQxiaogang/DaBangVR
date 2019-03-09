@@ -21,6 +21,7 @@
 		0410358421CCD2F2002CB32C /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357821CCD2F2002CB32C /* libSocialWeChat.a */; };
 		0410358521CCD2F2002CB32C /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357C21CCD2F2002CB32C /* libSocialQQ.a */; };
 		0410358621CCD2F2002CB32C /* libUMSocialLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357E21CCD2F2002CB32C /* libUMSocialLog.a */; };
+		0413E25F2233BBC700BF008F /* LoginManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413E25E2233BBC700BF008F /* LoginManger.m */; };
 		042359EA21FEDF0200F4C345 /* SpellGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042359E921FEDF0200F4C345 /* SpellGroupModel.m */; };
 		0423DADF21FFF52700325869 /* NewProductLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423DADE21FFF52700325869 /* NewProductLaunchViewController.m */; };
 		0423DAE621FFF64F00325869 /* NewProductLaunchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423DAE421FFF64F00325869 /* NewProductLaunchCell.m */; };
@@ -322,6 +323,8 @@
 		0410357B21CCD2F2002CB32C /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
 		0410357C21CCD2F2002CB32C /* libSocialQQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialQQ.a; sourceTree = "<group>"; };
 		0410357E21CCD2F2002CB32C /* libUMSocialLog.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocialLog.a; sourceTree = "<group>"; };
+		0413E25D2233BBC700BF008F /* LoginManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginManger.h; sourceTree = "<group>"; };
+		0413E25E2233BBC700BF008F /* LoginManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginManger.m; sourceTree = "<group>"; };
 		042359E821FEDF0200F4C345 /* SpellGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpellGroupModel.h; sourceTree = "<group>"; };
 		042359E921FEDF0200F4C345 /* SpellGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpellGroupModel.m; sourceTree = "<group>"; };
 		0423DADD21FFF52700325869 /* NewProductLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewProductLaunchViewController.h; sourceTree = "<group>"; };
@@ -2382,10 +2385,12 @@
 		04F5C8E621CA264D008DD043 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				04F3CF0121CB2FBB007C40A1 /* UserManager.h */,
-				04F3CF0221CB2FBB007C40A1 /* UserManager.m */,
 				04F3CF0421CB2FF1007C40A1 /* UserInfo.h */,
 				04F3CF0521CB2FF1007C40A1 /* UserInfo.m */,
+				0413E25D2233BBC700BF008F /* LoginManger.h */,
+				0413E25E2233BBC700BF008F /* LoginManger.m */,
+				04F3CF0121CB2FBB007C40A1 /* UserManager.h */,
+				04F3CF0221CB2FBB007C40A1 /* UserManager.m */,
 				044E678D223276180077365D /* PaymentManager.h */,
 				044E678E223276180077365D /* PaymentManager.m */,
 			);
@@ -3000,6 +3005,7 @@
 				04053B5A21FAE4A9001120FC /* UserInfoChangeModel.m in Sources */,
 				0474B6AF2227AA6B008F0C07 /* NewGoodsCollectionViewCell.m in Sources */,
 				04F47E2B21E5F5D4001B5F74 /* EvaluationViewController.m in Sources */,
+				0413E25F2233BBC700BF008F /* LoginManger.m in Sources */,
 				0449C32C2226251A007EE9E1 /* CountryListModel.m in Sources */,
 				04BF21852212B719002468C0 /* JXPagerView.m in Sources */,
 				04FC2C3921C0E3AD00329B53 /* JFCityCollectionViewCell.m in Sources */,

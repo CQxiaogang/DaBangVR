@@ -21,6 +21,7 @@
 #import "OrderDeptGoodsModel.h"
 #import "SureCustomActionSheet.h"
 #import "WXApi.h"
+#import "PaymentManager.h"
 
 @interface OrderSureViewController ()
 <
@@ -234,14 +235,19 @@ static NSString *leaveMessage;
     // 确认支付，调用后台
     leaveMessage = leaveMessage? leaveMessage:@"无";
     if (weakself.model.receivingAddress.id.length != 0) {
+        NSString *goodsIds = _model.goodsId;
+        if ([_submitType isEqualToString:@"cart"]) {
+            goodsIds = _model.cartIds;
+        }
         NSDictionary *dic = @{
-                              @"submitType"    : _submitType,
-                              @"addressId"     : weakself.model.receivingAddress.id,
-                              @"leaveMessage"  : leaveMessage
+                              @"submitType"   : _submitType,
+                              @"addressId"    : weakself.model.receivingAddress.id,
+                              @"leaveMessage" : leaveMessage,
+                              @"goodsIds"     : goodsIds
                               };
         [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
-            NSDictionary *orderVo = KJSONSerialization(responseObject)[@"orderVo"];
-            NSString *orderSn = orderVo[@"orderSn"];
+            NSDictionary *orderVo = KJSONSerialization(responseObject);
+            NSString *orderSn = orderVo[weakself.orderSnTotal];
             weakself.orderSn = orderSn;
             [weakself orderSn:orderSn];
         } failure:^(NSError * _Nonnull error) {}];
@@ -264,48 +270,23 @@ static NSString *leaveMessage;
     SureCustomActionSheet *optionsView = [[SureCustomActionSheet alloc]initWithTitleView:headView optionsArr:optionsArr imgArr:imgArr cancelTitle:@"退出" selectedBlock:^(NSInteger index) {
         
         if (index == 0) {
-            [self wechatPay:orderSn];
+            [[PaymentManager sharedPaymentManager] weiXinPayWithOrderSn:orderSn andPayOrderSnType:_orderSnTotal];
         }else{
             
         }
         
-    } cancelBlock:^{
-    }];
+    } cancelBlock:^{}];
     
     [self.navigationController.view addSubview:optionsView];
 }
 
-- (void)wechatPay:(NSString *)orderSn{
-    
-    NSDictionary *dic = @{@"orderSn"       :orderSn,
-                          @"payOrderSnType":@"orderSnTotal"
-                          };
-    [NetWorkHelper POST:URl_prepayOrder parameters:dic success:^(id  _Nonnull responseObject) {
-        
-        NSDictionary * dic = KJSONSerialization(responseObject)[@"data"];
-        //配置调起微信支付所需要的参数
-        PayReq *req   = [[PayReq alloc] init];
-        req.openID    = [dic objectForKey:@"appid"];
-        req.partnerId = [dic objectForKey:@"partnerid"];
-        req.prepayId  = [dic objectForKey:@"prepayid"];
-        req.package   = [dic objectForKey:@"package"];
-        req.nonceStr  = [dic objectForKey:@"noncestr"];
-        req.timeStamp = [dic[@"timestamp"] intValue];
-        req.sign      = [dic objectForKey:@"sign"];
-        //调起微信支付
-        [WXApi sendReq:req];
-        
-    } failure:^(NSError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
-}
 // 付款成功跳转
 - (void)successPay:(NSNotification *)notification{
     NSString *errCode = notification.object;// 支付成功或失败
     NSDictionary *dic = @{
                           @"orderSn"  : _orderSn,
                           @"payState" : errCode,
-                          @"payOrderSnType":@"orderSnTotal"
+                          @"payOrderSnType":_orderSnTotal
                           };
     [NetWorkHelper POST:URl_notifyApp parameters:dic success:nil failure:nil];
     // 支付成功才跳转

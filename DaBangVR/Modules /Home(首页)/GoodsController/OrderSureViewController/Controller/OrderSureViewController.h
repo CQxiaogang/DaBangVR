@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface OrderSureViewController : UIViewController
 // 提交订单的状态
 @property (nonatomic, copy) NSString *submitType;
+// 订单状态
+@property (nonatomic, copy) NSString *orderSnTotal;
 
 @end
 

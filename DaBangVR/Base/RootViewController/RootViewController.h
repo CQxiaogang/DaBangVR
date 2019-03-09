@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *index;
 
+@property (nonatomic, copy) NSString *submitType;
 @end
 
 NS_ASSUME_NONNULL_END

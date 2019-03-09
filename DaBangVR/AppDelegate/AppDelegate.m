@@ -10,6 +10,7 @@
 #import "UMSocialWechatHandler.h"
 #import <UMSocialCore/UMSocialCore.h>
 #import <TencentOpenAPI/TencentOAuth.h>
+#import "PaymentManager.h"
 
 @interface AppDelegate ()
 
@@ -40,7 +41,7 @@
 -(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
     
     [[UMSocialManager defaultManager] handleOpenURL:url];
-    [WXApi handleOpenURL:url delegate:self];
+    [WXApi handleOpenURL:url delegate:[PaymentManager sharedPaymentManager]];
     return YES;
 }
 

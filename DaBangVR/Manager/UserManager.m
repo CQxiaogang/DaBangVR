@@ -10,7 +10,9 @@
 #import <UMSocialCore/UMSocialCore.h>
 #import "MobilePhoneNoLoginViewController.h"
 
-@interface UserManager()
+@interface UserManager(){
+   
+}
 
 @property(nonatomic, copy)NSString *loginTypeStr;
 
@@ -73,13 +75,13 @@ static UMSocialUserInfoResponse *resp;
                };
     [mutableDic addEntriesFromDictionary:params];
    
-    
     // 调用后台
     [NetWorkHelper POST:URl_login parameters:mutableDic success:^(id  _Nonnull responseObject) {
         [self LoginSuccess:responseObject completion:completion];
     } failure:^(NSError * _Nonnull error) {
         DLog(@"error is %@",error);
     }];
+    
 }
 
 #pragma mark —— 登录成功数据处理
@@ -146,4 +148,10 @@ static UMSocialUserInfoResponse *resp;
     
     KPostNotification(KNotificationLoginStateChange, @NO);
 }
+
+-(void)dealloc{
+    //移除该响应者的全部通知
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 @end

@@ -12,12 +12,14 @@
 NS_ASSUME_NONNULL_BEGIN
 @protocol MyOrderTableVCDelegate <NSObject>
 
+
 /**
  cell 点击
 
  @param indexPath 当前的indexPath
+ @param state 当前订单状态,例如201->待付款
  */
--(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+-(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath orderState:(NSInteger)state;
 
 /**
  订单状态的改变。例:待付款->代发货，待发货->待收货

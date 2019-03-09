@@ -40,22 +40,50 @@
     _sizeLab.text = model.goodsNumber;
     [_goodsImgView setImageWithURL:[NSURL URLWithString:model.goodsListUrl] placeholder:[UIImage imageNamed:@""]];
 }
-
+/*订单状态:0待付款
+         101订单已取消
+         102订单已删除
+         201订单已付款
+         300订单已发货
+         301用户确认收货
+         400申请退款
+         401退款中
+         402完成
+ */
 -(void)setDepModel:(OrderDeptGoodsModel *)depModel{
     _depModel = depModel;
     NSString *state = depModel.orderState;
-    if ([state compare:@"0"] == NSOrderedSame) {
-        _stateLab.text = kOrderState_forThePayment;
-        [_lowerRightCornerBtn setTitle:kOrderState_forThePayment forState:UIControlStateNormal];
-    }else if ([state compare:@"201"] == NSOrderedSame){
-        _stateLab.text = kOrderState_ToSendTheGoods;
-        [_lowerRightCornerBtn setTitle:kOrderState_ToSendTheGoods forState:UIControlStateNormal];
-    }else if ([state compare:@"302"] == NSOrderedSame){
-        _stateLab.text = kOrderState_ToEvaluate;
-        [_lowerRightCornerBtn setTitle:kOrderState_ToEvaluate forState:UIControlStateNormal];
-    }else if ([state compare:@"401"] == NSOrderedSame){
-        _stateLab.text = @"退款中";
-        [_lowerRightCornerBtn setTitle:@"退款中" forState:UIControlStateNormal];
+    switch ([state integerValue]) {
+        case 0: //待付款
+            _stateLab.text = kOrderState_forThePayment;
+            [_lowerRightCornerBtn setTitle:kOrderState_forThePayment forState:UIControlStateNormal];
+            break;
+        case 101: //订单已取消
+            break;
+        case 102: //订单已删除
+            break;
+        case 201: //订单已付款
+            _stateLab.text = kOrderState_ToSendTheGoods;
+            [_lowerRightCornerBtn setTitle:kOrderState_ToSendTheGoods forState:UIControlStateNormal];
+            break;
+        case 300: //订单已发货
+            _stateLab.text = kOrderState_forTheGoods;
+            [_lowerRightCornerBtn setTitle:kOrderState_ConfirmTheGoods forState:UIControlStateNormal];
+            break;
+        case 301: //用户确认收货
+            _stateLab.text = kOrderState_ToEvaluate;
+            [_lowerRightCornerBtn setTitle:kOrderState_ToEvaluate forState:UIControlStateNormal];
+            break;
+        case 400: //申请退款
+            break;
+        case 401: //退款中
+            _stateLab.text = @"退款中";
+            [_lowerRightCornerBtn setTitle:@"退款中" forState:UIControlStateNormal];
+            break;
+        case 402: //完成
+            break;
+        default:
+            break;
     }
 }
 
