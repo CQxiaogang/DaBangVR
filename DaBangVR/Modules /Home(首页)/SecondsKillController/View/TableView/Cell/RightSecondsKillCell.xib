@@ -109,6 +109,11 @@
             <viewLayoutGuide key="safeArea" id="NAz-Wm-zsp"/>
             <connections>
                 <outlet property="CancelReminderBtn" destination="euf-a3-z9X" id="8yZ-Bf-8Uz"/>
+                <outlet property="attentionNum" destination="IZ3-aJ-zPr" id="KY1-oe-6dx"/>
+                <outlet property="goodsDetails" destination="cfs-vF-KzI" id="nX4-ze-2Lv"/>
+                <outlet property="goodsImgView" destination="SEs-YY-mq8" id="IuN-xm-2pw"/>
+                <outlet property="goodsMarketPrice" destination="ref-3l-QxG" id="rfL-kt-Mcq"/>
+                <outlet property="goodsSellingPrice" destination="Oad-PN-gFc" id="OkM-dr-XGD"/>
             </connections>
             <point key="canvasLocation" x="253.59999999999999" y="133.13343328335833"/>
         </view>

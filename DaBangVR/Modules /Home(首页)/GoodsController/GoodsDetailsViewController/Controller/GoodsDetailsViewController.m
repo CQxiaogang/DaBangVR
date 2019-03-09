@@ -378,7 +378,7 @@ static NSString *CellID = @"CellID";
         // 直接跳转确认订单界面
         OrderSureViewController *vc = [[OrderSureViewController alloc] init];
         vc.submitType = self.submitType;
-        vc.orderSnTotal = @"orderSnTotal";
+        vc.orderSnTotal = self.orderSnTotal;
         [self.navigationController pushViewController:vc animated:NO];
     } failure:^(NSError * _Nonnull error) {
         DLog(@"error is %@",error);
@@ -387,14 +387,16 @@ static NSString *CellID = @"CellID";
 
 // 立即购买和购物车 btn
 - (void)buyNowOfCarBtnAction:(UIButton *)sender{
-    if (sender.tag == 1) {
-        // 立即购买
-        [self creatAttributesView:@"立即购买"];
-    }else{
-        // 加入购物车
-        [self addToShoppingCarBtnOfAction];
+    // 库存不为0 才能提交订单
+    if (![self.model.remainingInventory isEqualToString:@"0"]) {
+        if (sender.tag == 1) {
+            // 立即购买
+            [self creatAttributesView:@"立即购买"];
+        }else{
+            // 加入购物车
+            [self addToShoppingCarBtnOfAction];
+        }
     }
-    
 }
 
 // 加购

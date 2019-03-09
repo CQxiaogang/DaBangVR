@@ -151,6 +151,7 @@
     vc.index = ID;
     vc.submitType = @"seconds";
     vc.interfaceState = self;
+    vc.orderSnTotal = @"orderTotalSn";
     [self.navigationController pushViewController:vc animated:NO];
 }
 

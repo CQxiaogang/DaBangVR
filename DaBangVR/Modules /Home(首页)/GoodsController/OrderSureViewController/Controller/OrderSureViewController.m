@@ -246,7 +246,7 @@ static NSString *leaveMessage;
                               @"goodsIds"     : goodsIds
                               };
         [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
-            NSDictionary *orderVo = KJSONSerialization(responseObject);
+            NSDictionary *orderVo = KJSONSerialization(responseObject)[@"orderVo"];
             NSString *orderSn = orderVo[weakself.orderSnTotal];
             weakself.orderSn = orderSn;
             [weakself orderSn:orderSn];
@@ -268,9 +268,9 @@ static NSString *leaveMessage;
     [headView addSubview:titleLabel];
     
     SureCustomActionSheet *optionsView = [[SureCustomActionSheet alloc]initWithTitleView:headView optionsArr:optionsArr imgArr:imgArr cancelTitle:@"退出" selectedBlock:^(NSInteger index) {
-        
+        kWeakSelf(self);
         if (index == 0) {
-            [[PaymentManager sharedPaymentManager] weiXinPayWithOrderSn:orderSn andPayOrderSnType:_orderSnTotal];
+            [[PaymentManager sharedPaymentManager] weiXinPayWithOrderSn:orderSn andPayOrderSnType:weakself.orderSnTotal];
         }else{
             
         }

@@ -18,10 +18,12 @@
     _CancelReminderBtn.layer.masksToBounds = YES;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    
+- (void)setModel:(GoodsDetailsModel *)model{
+    _model = model;
+    [_goodsImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:kDefaultImg];
+    _goodsDetails.text = model.describe;
+    _goodsSellingPrice.text = [NSString stringWithFormat:@"￥ %@",model.sellingPrice];
+    _goodsMarketPrice.text = model.marketPrice;
 }
 
 @end

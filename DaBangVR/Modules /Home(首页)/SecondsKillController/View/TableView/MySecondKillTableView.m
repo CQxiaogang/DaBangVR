@@ -8,6 +8,11 @@
 
 #import "MySecondKillTableView.h"
 #import "RightSecondsKillCell.h"
+#import "GoodsDetailsModel.h"
+
+@interface MySecondKillTableView ()
+@property (nonatomic, copy) NSArray *goodsData;
+@end
 
 @implementation MySecondKillTableView
 
@@ -27,22 +32,22 @@ static NSString *CellID = @"CellID";
 }
 
 -(void)loadingData{
+    kWeakSelf(self);
     NSDictionary *dic = @{
-                          @"orderState":@"",
                           @"page"      :@"1",
                           @"limit"     :@"10",
                           @"buyType"   :@"6"
                           };
     [NetWorkHelper POST:URl_getOrderList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
-        NSArray *goodsList = dataDic[@"orderList"];
+        _goodsData = dataDic[@"orderList"];
     } failure:^(NSError * _Nonnull error) {
         DLog(@"error%@",error);
     }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return _goodsData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -50,6 +55,7 @@ static NSString *CellID = @"CellID";
     if (!cell) {
         cell = [[RightSecondsKillCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
+    cell.model = _goodsData[indexPath.row];
     return cell;
 }
 
