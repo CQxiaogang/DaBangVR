@@ -161,4 +161,8 @@ return shared##className; \
 // 搜索框的宽高
 #define kSearchBoxW kFit(260)
 #define kSearchBoxH kFit(30)
+
+// 微信支付状态
+#define kOrderSnTotal @"orderTotalSn"
+#define kOrderSn      @"orderSn"
 #endif /* define_h */
