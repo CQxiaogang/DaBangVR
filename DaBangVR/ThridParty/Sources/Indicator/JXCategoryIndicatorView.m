@@ -124,7 +124,9 @@
         }
     }else {
         JXCategoryIndicatorCellModel *leftCellModel = (JXCategoryIndicatorCellModel *)self.dataSource[baseIndex];
+        leftCellModel.selectedType = JXCategoryCellSelectedTypeUnknown;
         JXCategoryIndicatorCellModel *rightCellModel = (JXCategoryIndicatorCellModel *)self.dataSource[baseIndex + 1];
+        rightCellModel.selectedType = JXCategoryCellSelectedTypeUnknown;
         [self refreshLeftCellModel:leftCellModel rightCellModel:rightCellModel ratio:remainderRatio];
 
         for (UIView<JXCategoryIndicatorProtocol> *indicator in self.indicators) {
@@ -147,22 +149,23 @@
     }
 }
 
-- (BOOL)selectCellAtIndex:(NSInteger)index isClicked:(BOOL)isClicked {
+- (BOOL)selectCellAtIndex:(NSInteger)index selectedType:(JXCategoryCellSelectedType)selectedType {
     NSInteger lastSelectedIndex = self.selectedIndex;
-    BOOL result = [super selectCellAtIndex:index isClicked:isClicked];
+    BOOL result = [super selectCellAtIndex:index selectedType:selectedType];
     if (!result) {
         return NO;
     }
 
     CGRect clickedCellFrame = [self getTargetCellFrame:index];
-
+    
     JXCategoryIndicatorCellModel *selectedCellModel = (JXCategoryIndicatorCellModel *)self.dataSource[index];
+    selectedCellModel.selectedType = selectedType;
     for (UIView<JXCategoryIndicatorProtocol> *indicator in self.indicators) {
         JXCategoryIndicatorParamsModel *indicatorParamsModel = [[JXCategoryIndicatorParamsModel alloc] init];
         indicatorParamsModel.lastSelectedIndex = lastSelectedIndex;
         indicatorParamsModel.selectedIndex = index;
         indicatorParamsModel.selectedCellFrame = clickedCellFrame;
-        indicatorParamsModel.isClicked = isClicked;
+        indicatorParamsModel.selectedType = selectedType;
         [indicator jx_selectedCell:indicatorParamsModel];
         if ([indicator isKindOfClass:[JXCategoryIndicatorBackgroundView class]]) {
             CGRect maskFrame = indicator.frame;
@@ -177,6 +180,9 @@
     return YES;
 }
 
+@end
+
+@implementation JXCategoryIndicatorView (UISubclassingIndicatorHooks)
 
 - (void)refreshLeftCellModel:(JXCategoryBaseCellModel *)leftCellModel rightCellModel:(JXCategoryBaseCellModel *)rightCellModel ratio:(CGFloat)ratio {
     if (self.cellBackgroundColorGradientEnabled) {

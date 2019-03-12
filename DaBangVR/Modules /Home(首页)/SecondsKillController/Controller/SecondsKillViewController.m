@@ -8,6 +8,9 @@
 
 #import "SecondsKillViewController.h"
 #import "GoodsDetailsViewController.h"
+#import "GoodsShowTableViewController.h"
+// Vendors
+#import "JXCategoryTitleAttributeView.h"
 // TableView
 #import "SecondsKillTableView.h"
 #import "MySecondKillTableView.h"
@@ -19,15 +22,16 @@
 #import "GoodsRotationListModel.h"
 #import "GoodsDetailsModel.h"
 
-@interface SecondsKillViewController ()<SecondsKillTableViewDelegate, TimeChooseViewDelegate, ShufflingViewDelegate>
-{
-    
+@interface SecondsKillViewController ()<SecondsKillTableViewDelegate, TimeChooseViewDelegate, ShufflingViewDelegate>{
 }
 
 @property (nonatomic, strong) SecondsKillTableView  *leftTableView;
 @property (nonatomic, strong) MySecondKillTableView *rightTableView;
 // 轮播图
 @property (nonatomic, strong) ShufflingView *shufflingView;
+
+@property (nonatomic, strong) JXCategoryTitleAttributeView *myCategoryView;
+@property (nonatomic, strong) NSMutableArray <NSAttributedString *> *attributeTitles;
 
 @end
 
@@ -55,14 +59,50 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"限时秒杀";
+   
+    // 轮播图
+    _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, kFit(100)) andIndex:@"4"];
+    _shufflingView.delegate = self;
+    [self.view addSubview:_shufflingView];
+    
+    _attributeTitles = [NSMutableArray new];
+    
+    for (int i = 0; i<=23; i++) {
+        
+        NSString *string = [NSString stringWithFormat:@"%d:00\n海鲜粉",i];
+        if (i < 9) {
+            string = [NSString stringWithFormat:@"0%d:00\n海鲜粉",i];
+        }
+        NSMutableAttributedString *timeTitle = [[NSMutableAttributedString alloc] initWithString:string attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15], NSForegroundColorAttributeName : [UIColor grayColor]}];
+        [timeTitle addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0, 2)];
+        [_attributeTitles addObject:timeTitle];
+    }
+    NSMutableArray *titles = [NSMutableArray array];
+    for (NSMutableAttributedString *attriString in self.attributeTitles) {
+        [titles addObject:attriString.string];
+    }
+    self.titles = titles;
+    
+    [super viewDidLoad];
+    self.myCategoryView.attributeTitles = self.attributeTitles;
+    
+    JXCategoryIndicatorBackgroundView *backgroundView = [[JXCategoryIndicatorBackgroundView alloc] init];
+    backgroundView.backgroundViewHeight = 40;
+    backgroundView.backgroundViewCornerRadius = 5;
+    self.myCategoryView.indicators = @[backgroundView];
 }
-
+- (JXCategoryTitleAttributeView *)myCategoryView {
+    return (JXCategoryTitleAttributeView *)self.categoryView;
+}
+- (JXCategoryBaseView *)preferredCategoryView {
+    return [[JXCategoryTitleAttributeView alloc] init];
+}
 - (void)setupUI{
     [super setupUI];
     // 设置 navagtionBar
     [self setupNavagationBar];
     // 底部 UI
-    [self creatBottomUI];
+     [self creatBottomUI];
     // 左边的 view
     [self creatLeftOfTableView];
 }
@@ -74,7 +114,6 @@
     UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithCustomView:shareBtn];
     self.navigationItem.rightBarButtonItem = shareItem;
 }
-
 - (void)creatBottomUI{
     UIView *bottomView = [[UIView alloc] init];
     bottomView.backgroundColor = KWhiteColor;
@@ -109,17 +148,10 @@
         [button setImageEdgeInsets:UIEdgeInsetsMake(-12, 0,0, -button.titleLabel.mj_w)];
     }
 }
-
 - (void)creatLeftOfTableView{
-    // 左边 tableView
-    [self.view addSubview:self.leftTableView];
-    [self.leftTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(0);
-        make.top.equalTo(kTopHeight);
-        make.bottom.equalTo(-kTabBarHeight);
-    }];
+    
+    
 }
-
 - (void)creatRightOfTableView{
     self.navigationItem.rightBarButtonItem = nil;
     _rightTableView = [[MySecondKillTableView alloc] init];
@@ -130,7 +162,6 @@
         make.bottom.equalTo(-kTabBarHeight);
     }];
 }
-
 - (void)buttonClickOfAciton:(UIButton *)sender{
     if (sender.tag == 0) {
         [_rightTableView removeFromSuperview];
@@ -144,7 +175,6 @@
         [self creatRightOfTableView];
     }
 }
-
 #pragma mark —— SecondsKillTableView 协议
 -(void)curentGooodsID:(NSString *)ID{
     GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
@@ -154,7 +184,6 @@
     vc.orderSnTotal = @"orderTotalSn";
     [self.navigationController pushViewController:vc animated:NO];
 }
-
 #pragma mark —— TimeChooseView 协议
 -(void)buttonSelectAction:(UIButton *)btn{
     if (btn.tag == 10) {
@@ -168,7 +197,6 @@
         self.leftTableView.hoursTime = @"1";
     }
 }
-
 #pragma mark —— ShufflingView 代理
 -(void)imgDidSelected:(NSString *)goodsID{
     GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];

@@ -233,7 +233,7 @@ static NSString *leaveMessage;
 - (void)submitOrdersBtnAction{
     kWeakSelf(self);
     // 确认支付，调用后台
-    leaveMessage = leaveMessage? leaveMessage:@"无";
+    leaveMessage = leaveMessage? leaveMessage:@"";
     if (weakself.model.receivingAddress.id.length != 0) {
         NSString *goodsIds = _model.goodsId;
         if ([_submitType isEqualToString:@"cart"]) {
@@ -246,10 +246,12 @@ static NSString *leaveMessage;
                               @"goodsIds"     : goodsIds
                               };
         [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
-            NSDictionary *orderVo = KJSONSerialization(responseObject)[@"orderVo"];
+            NSDictionary *orderVo = KJSONSerialization(responseObject);
             NSString *orderSn = orderVo[weakself.orderSnTotal];
-            weakself.orderSn = orderSn;
-            [weakself orderSn:orderSn];
+            if (orderSn.length != 0) {
+                weakself.orderSn = orderSn;
+                [weakself orderSn:orderSn];
+            }
         } failure:^(NSError * _Nonnull error) {}];
     }
 }

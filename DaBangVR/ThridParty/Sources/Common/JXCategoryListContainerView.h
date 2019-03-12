@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JXCategoryViewDefines.h"
 @class JXCategoryListContainerView;
 
 @protocol JXCategoryListContentViewDelegate <NSObject>
@@ -31,6 +32,11 @@
  */
 - (void)listDidDisappear;
 
+/**
+ 可选实现，返回列表持有的滚动视图
+ */
+- (UIScrollView *)listScrollView;
+
 @end
 
 @protocol JXCategoryListContainerViewDelegate <NSObject>
@@ -53,6 +59,16 @@
  @return 新的遵从JXCategoryListContentViewDelegate协议的list实例
  */
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index;
+
+@optional
+/**
+ 返回自定义UIScrollView实例
+ 某些特殊情况需要自己处理UIScrollView内部逻辑。比如项目用了FDFullscreenPopGesture，需要处理手势相关代理。
+
+ @param listContainerView JXCategoryListContainerView
+ @return 自定义UIScrollView实例
+ */
+- (UIScrollView *)scrollViewInlistContainerView:(JXCategoryListContainerView *)listContainerView;
 @end
 
 
@@ -72,14 +88,7 @@
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder NS_UNAVAILABLE;
-/**
- 指定的初始化器
-
- @param parentVC 父vc
- @param delegate JXCategoryListContainerViewDelegate代理
- @return JXCategoryListContainerView实例
- */
-- (instancetype)initWithParentVC:(UIViewController *)parentVC delegate:(id<JXCategoryListContainerViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithDelegate:(id<JXCategoryListContainerViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
 
 - (void)reloadData;
 
@@ -90,3 +99,17 @@
 - (void)didClickSelectedItemAtIndex:(NSInteger)index;
 
 @end
+
+@interface JXCategoryListContainerView (Deprecated)
+
+/**
+ 初始化方法
+
+ @param parentVC 父vc，可选。主要用于将其automaticallyAdjustsScrollViewInsets设置为NO。但是现在JXCategoryBaseView内部已经做了该操作。所以该方法已经弃用！！！
+ @param delegate JXCategoryListContainerViewDelegate代理
+ @return JXCategoryListContainerView实例
+ */
+- (instancetype)initWithParentVC:(UIViewController *)parentVC delegate:(id<JXCategoryListContainerViewDelegate>)delegate  JXCategoryViewDeprecated("请使用`- (instancetype)initWithDelegate:(id<JXCategoryListContainerViewDelegate>)delegate`方法");
+
+@end
+

@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 * 2：立即购买=》取消=》重新付款     使用orderTotalSn
 * 3：立即购买=》取消=》查看订单=》订单详情=》去付款    使用orderSn
 * 4：购物车=》去付款    使用orderTotalSn
-* 5：购物车=》去付款=》取消=》重新付款    使用orderTotalSn
+* 5：购物车=》去付款=》取消=》重新付款    使用orderSn
 * 6：购物车=》去付款=》取消=》查看订单=》订单详情=》去付款    使用orderSn*/
 @property (nonatomic, copy) NSString *orderSnTotal;
 @end

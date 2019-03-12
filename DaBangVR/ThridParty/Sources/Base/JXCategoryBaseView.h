@@ -44,6 +44,7 @@
 
 
 /**
+  因为通过该代理方法控制点击的时候，contentScrollView是否需要动画过于繁琐。所以提供了contentScrollViewClickTransitionAnimationEnabled属性，可以便捷设置。该协议方法未来也会被弃用！！！
   只有点击的选中才会调用！！！
   因为用户点击，contentScrollView即将过渡到目标index的位置。内部默认实现`[self.contentScrollView setContentOffset:CGPointMake(targetIndex*self.contentScrollView.bounds.size.width, 0) animated:YES];`。如果实现该代理方法，以自定义实现为准。比如将animated设置为NO，点击切换时无需滚动效果。类似于今日头条APP。
 
@@ -78,6 +79,8 @@
 
 @property (nonatomic, assign, readonly) NSInteger selectedIndex;
 
+@property (nonatomic, assign) BOOL contentScrollViewClickTransitionAnimationEnabled;    //默认为YES，只有当delegate未实现`- (void)categoryView:(JXCategoryBaseView *)categoryView didClickedItemContentScrollViewTransitionToIndex:(NSInteger)index`代理方法时才有效
+
 @property (nonatomic, assign) CGFloat contentEdgeInsetLeft;     //整体内容的左边距，默认JXCategoryViewAutomaticDimension（等于cellSpacing）
 
 @property (nonatomic, assign) CGFloat contentEdgeInsetRight;    //整体内容的右边距，默认JXCategoryViewAutomaticDimension（等于cellSpacing）
@@ -90,13 +93,16 @@
 
 @property (nonatomic, assign) BOOL averageCellSpacingEnabled;     //当collectionView.contentSize.width小于JXCategoryBaseView的宽度，是否将cellSpacing均分。默认为YES。
 
-//----------------------cellWidthZoomEnabled-----------------------//
-//cell宽度的缩放主要是为了腾讯视频、汽车之家效果打造的，一般情况下慎用，不太好控制。
+//cell宽度是否缩放
 @property (nonatomic, assign) BOOL cellWidthZoomEnabled;     //默认为NO
 
 @property (nonatomic, assign) BOOL cellWidthZoomScrollGradientEnabled;     //手势滚动过程中，是否需要更新cell的宽度。默认为YES
 
 @property (nonatomic, assign) CGFloat cellWidthZoomScale;    //默认1.2，cellWidthZoomEnabled为YES才生效
+
+@property (nonatomic, assign) BOOL selectedAnimationEnabled;    //是否开启选中动画。默认为NO。自定义的cell选中动画需要自己实现。
+
+@property (nonatomic, assign) NSTimeInterval selectedAnimationDuration;     //cell选中动画的时间。默认0.25
 
 /**
  选中目标index的item
@@ -118,11 +124,11 @@
  */
 - (void)reloadCellAtIndex:(NSInteger)index;
 
-#pragma mark - Subclass use
+@end
+
+@interface JXCategoryBaseView (UISubclassingBaseHooks)
 
 - (CGRect)getTargetCellFrame:(NSInteger)targetIndex;
-
-#pragma mark - Subclass Override
 
 - (void)initializeData NS_REQUIRES_SUPER;
 
@@ -155,15 +161,13 @@
 
 /**
  选中某一个item的时候调用，该方法用于子类重载。
- isClicked=YES，表示点击选中
- isClicked=NO，表示滚动选中
  如果外部要选中某个index，请使用`- (void)selectItemAtIndex:(NSUInteger)index;`
 
  @param index 选中的index
- @param isClicked YES：点击选中；NO：滚动选中。
+ @param selectedType JXCategoryCellSelectedType
  @return 返回值为NO，表示触发内部某些判断（点击了同一个cell），子类无需后续操作。
  */
-- (BOOL)selectCellAtIndex:(NSInteger)index isClicked:(BOOL)isClicked NS_REQUIRES_SUPER;
+- (BOOL)selectCellAtIndex:(NSInteger)index selectedType:(JXCategoryCellSelectedType)selectedType NS_REQUIRES_SUPER;
 
 /**
  reloadData时，返回每个cell的宽度
@@ -186,6 +190,6 @@
  @param cellModel 待重置的cellModel
  @param index cellModel在数组中的index
  */
-- (void)refreshCellModel:(JXCategoryBaseCellModel *)cellModel index:(NSInteger)index;
+- (void)refreshCellModel:(JXCategoryBaseCellModel *)cellModel index:(NSInteger)index NS_REQUIRES_SUPER;
 
 @end

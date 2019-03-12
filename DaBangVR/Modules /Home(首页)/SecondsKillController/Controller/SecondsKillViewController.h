@@ -7,10 +7,11 @@
 //
 
 #import "RootViewController.h"
+#import "ContentBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SecondsKillViewController : RootViewController
+@interface SecondsKillViewController : ContentBaseViewController
 
 @end
 

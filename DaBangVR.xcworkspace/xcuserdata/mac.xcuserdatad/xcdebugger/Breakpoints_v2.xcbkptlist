@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/SecondsKillController/View/TableView/MySecondKillTableView.m"
-            timestampString = "573989226.303481"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/SpellGroupController/Controller/SpellGroupTableViewController.m"
+            timestampString = "573989226.3037519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "-loadingData"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-loadNewData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/SpellGroupController/Controller/SpellGroupTableViewController.m"
-            timestampString = "573989226.3037519"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/GoodsController/OrderSureViewController/Controller/OrderSureViewController.m"
+            timestampString = "574077627.263476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "-loadNewData"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "-orderSn:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
