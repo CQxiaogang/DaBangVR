@@ -85,10 +85,10 @@ static NSString *CellID = @"CellID";
 
 #pragma mark - Table view data source
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    if (self.index) {
-        return 0;
+    if (!self.index) {
+        return _goodsData.count;
     }
-    return _goodsData.count;
+    return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.index) {

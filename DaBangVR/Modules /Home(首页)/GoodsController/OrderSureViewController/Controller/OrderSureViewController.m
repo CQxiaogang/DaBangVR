@@ -154,7 +154,7 @@ static NSString *leaveMessage;
         make.size.equalTo(CGSizeMake(80, 40));
     }];
 }
-
+// 加载数据
 -(void)loadingData{
     kWeakSelf(self);
     [NetWorkHelper POST:URl_getConfirmGoods parameters:nil success:^(id  _Nonnull responseObject) {
@@ -234,7 +234,7 @@ static NSString *leaveMessage;
     kWeakSelf(self);
     // 确认支付，调用后台
     leaveMessage = leaveMessage? leaveMessage:@"";
-    if (weakself.model.receivingAddress.id.length != 0) {
+    if (weakself.model.receivingAddress.id.length != 0 && _submitType.length != 0) {
         NSString *goodsIds = _model.goodsId;
         if ([_submitType isEqualToString:@"cart"]) {
             goodsIds = _model.cartIds;

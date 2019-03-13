@@ -23,12 +23,11 @@
     _model = model;
     _consigneeNameLab.text = model.consigneeName;
     _consigneePhoneLab.text = model.consigneePhone;
-    _addressLab.text = [NSString stringWithFormat:@"%@%@%@%@%@",
-                        model.receivingCountry,
-                        model.province,
-                        model.city,
-                        model.area,
-                        model.address];
+    if (model.address.length != 0) {
+        _addressLab.text = [NSString stringWithFormat:@"%@",
+                            model.address];
+    }
+    
 }
 
 @end

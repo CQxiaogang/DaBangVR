@@ -377,8 +377,12 @@ static NSString *CellID = @"CellID";
         DLog(@"%@",dic[@"errmsg"]);
         // 直接跳转确认订单界面
         OrderSureViewController *vc = [[OrderSureViewController alloc] init];
-        vc.submitType = self.submitType;
-        vc.orderSnTotal = self.orderSnTotal;
+        // 提交订单所需参数
+        /**submitType除了这几个功能需要传不同的参数,其他就是后面的参数从不同页面传过buy立即购买，cart购物车，group1单独成团，group2发起拼团，group3参与拼团，seconds秒杀
+         **orderSnTotal除了重我的订单重新付款,所需参数不一样，其他都一样。
+         **/
+        vc.submitType = self.submitType?self.submitType:@"buy";
+        vc.orderSnTotal = self.orderSnTotal?self.orderSnTotal:kOrderSnTotal;
         [self.navigationController pushViewController:vc animated:NO];
     } failure:^(NSError * _Nonnull error) {
         DLog(@"error is %@",error);
@@ -422,7 +426,6 @@ static NSString *CellID = @"CellID";
                           @"goodsId":weakself.index
                           };
     [NetWorkHelper POST:URl_getGoodsCollectSave parameters:dic success:^(id  _Nonnull responseObject) {
-        
         [SVProgressHUD showInfoWithStatus:KJSONSerialization(responseObject)[@"errmsg"]];
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         [SVProgressHUD dismissWithDelay:1.0];

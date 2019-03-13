@@ -225,7 +225,7 @@
 
 - (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {
     if (listContainerView.tag == 0) {
-        return 5;
+        return self.goodsNames.count;
     }else if (listContainerView.tag == 1){
         return 1;
     }else{

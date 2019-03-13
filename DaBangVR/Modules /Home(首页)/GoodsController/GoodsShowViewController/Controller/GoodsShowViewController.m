@@ -106,8 +106,8 @@
     GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
     vc.identifier = @"海鲜";
     vc.index = index;
-    vc.submitType = @"buy";
-    vc.orderSnTotal = kOrderSnTotal;
+//    vc.submitType = @"buy";
+//    vc.orderSnTotal = kOrderSnTotal;
     [self.navigationController pushViewController:vc animated:NO];
     
 }
