@@ -246,12 +246,21 @@ static NSString *leaveMessage;
                               @"goodsIds"     : goodsIds
                               };
         [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
-            NSDictionary *orderVo = KJSONSerialization(responseObject);
-            NSString *orderSn = orderVo[weakself.orderSnTotal];
-            if (orderSn.length != 0) {
-                weakself.orderSn = orderSn;
-                [weakself orderSn:orderSn];
+            NSString *error = [NSString stringWithFormat:@"%@",KJSONSerialization(responseObject)[@"errno"]];
+            if ([error isEqualToString:@"1"]) {
+                NSString *errmsg = KJSONSerialization(responseObject)[@"errmsg"];
+                [SVProgressHUD showInfoWithStatus:errmsg];
+                [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+                [SVProgressHUD dismissWithDelay:1.0];
+            }else{
+                NSDictionary *orderVo = KJSONSerialization(responseObject)[@"orderVo"];
+                NSString *orderSn = orderVo[weakself.orderSnTotal];
+                if (orderSn.length != 0) {
+                    weakself.orderSn = orderSn;
+                    [weakself orderSn:orderSn];
+                }
             }
+            
         } failure:^(NSError * _Nonnull error) {}];
     }
 }

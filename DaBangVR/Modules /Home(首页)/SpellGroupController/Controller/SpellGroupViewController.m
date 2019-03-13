@@ -156,7 +156,7 @@
         make.height.equalTo(kTabBarHeight);
     }];
     NSMutableArray *btns = [NSMutableArray new];
-    NSArray *titles = @[@"正在拼单",@"热卖排行",@"我的拼单"];
+    NSArray *titles = @[@"正在团购",@"热卖排行",@"我的团购"];
     NSArray *images = @[@"mr-assembling",@"mr-hotSales",@"mr-myList"];
     
     UIButton *Btn;
@@ -239,6 +239,8 @@
     vc.index = index;
     vc.identifier = @"拼团";
     vc.interfaceState = self;
+    vc.submitType = @"group1";
+    vc.orderSnTotal = kOrderSnTotal;
     [self.navigationController pushViewController:vc animated:NO];
 }
 

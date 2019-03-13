@@ -8,10 +8,10 @@
 
 #import "MySecondKillTableView.h"
 #import "RightSecondsKillCell.h"
-#import "GoodsDetailsModel.h"
+#import "OrderDeptGoodsModel.h"
 
 @interface MySecondKillTableView ()
-@property (nonatomic, copy) NSArray *goodsData;
+@property (nonatomic, copy) NSArray <OrderDeptGoodsModel *> *goodsData;
 @end
 
 @implementation MySecondKillTableView
@@ -40,14 +40,17 @@ static NSString *CellID = @"CellID";
                           };
     [NetWorkHelper POST:URl_getOrderList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
-        _goodsData = dataDic[@"orderList"];
+        weakself.goodsData = [OrderDeptGoodsModel mj_objectArrayWithKeyValuesArray:dataDic[@"orderList"]];
+        [self reloadData];
     } failure:^(NSError * _Nonnull error) {
         DLog(@"error%@",error);
     }];
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return _goodsData.count;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _goodsData[section].orderGoodslist.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -55,7 +58,7 @@ static NSString *CellID = @"CellID";
     if (!cell) {
         cell = [[RightSecondsKillCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
-    cell.model = _goodsData[indexPath.row];
+    cell.model = _goodsData[indexPath.section].orderGoodslist[indexPath.row];
     return cell;
 }
 

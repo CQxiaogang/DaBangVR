@@ -204,4 +204,12 @@
     [self.navigationController pushViewController:vc animated:NO];
 }
 
+-(void)didSelectRowAtIndexPath:(NSString *)index{
+    GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
+    vc.index = index;
+    vc.orderSnTotal = kOrderSnTotal;
+    vc.submitType = @"seconds";
+    [self.navigationController pushViewController:vc animated:NO];
+}
+
 @end

@@ -77,6 +77,9 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4V6-9p-7IU" userLabel="删除">
                     <rect key="frame" x="176" y="101" width="51" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="ZMa-GM-zNI"/>
+                    </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1560人关注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZ3-aJ-zPr">
                     <rect key="frame" x="297.5" y="88" width="55" height="12"/>
@@ -87,23 +90,24 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="4V6-9p-7IU" firstAttribute="width" secondItem="ref-3l-QxG" secondAttribute="width" id="B3P-Pb-93F"/>
+                <constraint firstItem="ref-3l-QxG" firstAttribute="leading" secondItem="Oad-PN-gFc" secondAttribute="trailing" constant="2" id="D0A-pD-Jwy"/>
+                <constraint firstItem="ref-3l-QxG" firstAttribute="leading" secondItem="Oad-PN-gFc" secondAttribute="trailing" constant="2" id="FZ1-iZ-Tpd"/>
                 <constraint firstItem="Oad-PN-gFc" firstAttribute="bottom" secondItem="SEs-YY-mq8" secondAttribute="bottom" id="G6y-Qp-CKQ"/>
                 <constraint firstItem="euf-a3-z9X" firstAttribute="top" secondItem="IZ3-aJ-zPr" secondAttribute="bottom" constant="5" id="GVc-Fc-rwX"/>
                 <constraint firstItem="IZ3-aJ-zPr" firstAttribute="centerX" secondItem="euf-a3-z9X" secondAttribute="centerX" id="MHv-c6-KHp"/>
+                <constraint firstItem="4V6-9p-7IU" firstAttribute="leading" secondItem="ref-3l-QxG" secondAttribute="leading" id="RRC-Mx-cjh"/>
+                <constraint firstItem="ref-3l-QxG" firstAttribute="centerY" secondItem="Oad-PN-gFc" secondAttribute="centerY" id="W5o-Je-bE4"/>
+                <constraint firstItem="4V6-9p-7IU" firstAttribute="centerY" secondItem="ref-3l-QxG" secondAttribute="centerY" id="WlD-7V-3EH"/>
                 <constraint firstAttribute="trailing" secondItem="cfs-vF-KzI" secondAttribute="trailing" constant="20" id="XXy-Sw-8qh"/>
-                <constraint firstItem="ref-3l-QxG" firstAttribute="centerY" secondItem="Oad-PN-gFc" secondAttribute="centerY" id="Z5Q-Aj-O0M"/>
                 <constraint firstItem="NAz-Wm-zsp" firstAttribute="trailing" secondItem="euf-a3-z9X" secondAttribute="trailing" constant="20" id="ZFS-JV-BCc"/>
+                <constraint firstItem="4V6-9p-7IU" firstAttribute="centerY" secondItem="ref-3l-QxG" secondAttribute="centerY" id="cgX-0T-2Yg"/>
                 <constraint firstItem="cfs-vF-KzI" firstAttribute="leading" secondItem="SEs-YY-mq8" secondAttribute="trailing" constant="10" id="fWy-0r-A51"/>
                 <constraint firstItem="SEs-YY-mq8" firstAttribute="leading" secondItem="NAz-Wm-zsp" secondAttribute="leading" constant="20" id="guT-gx-RVs"/>
                 <constraint firstItem="cfs-vF-KzI" firstAttribute="top" secondItem="SEs-YY-mq8" secondAttribute="top" id="lAr-1Q-lP9"/>
-                <constraint firstItem="ref-3l-QxG" firstAttribute="leading" secondItem="Oad-PN-gFc" secondAttribute="trailing" constant="2" id="n0y-O7-YX3"/>
                 <constraint firstItem="euf-a3-z9X" firstAttribute="top" secondItem="NAz-Wm-zsp" secondAttribute="top" constant="105" id="opo-Gp-hlb"/>
-                <constraint firstItem="4V6-9p-7IU" firstAttribute="leading" secondItem="ref-3l-QxG" secondAttribute="leading" id="qWv-zY-B4a"/>
-                <constraint firstItem="4V6-9p-7IU" firstAttribute="centerY" secondItem="ref-3l-QxG" secondAttribute="centerY" id="sXF-5A-DPW"/>
                 <constraint firstItem="SEs-YY-mq8" firstAttribute="top" secondItem="NAz-Wm-zsp" secondAttribute="top" constant="10" id="slU-fJ-sbV"/>
+                <constraint firstItem="4V6-9p-7IU" firstAttribute="centerX" secondItem="ref-3l-QxG" secondAttribute="centerX" id="vWt-Gr-Ey1"/>
                 <constraint firstItem="Oad-PN-gFc" firstAttribute="leading" secondItem="cfs-vF-KzI" secondAttribute="leading" id="wiU-MA-7rO"/>
-                <constraint firstItem="4V6-9p-7IU" firstAttribute="top" secondItem="cfs-vF-KzI" secondAttribute="bottom" constant="62" id="zbn-4q-kZU"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="NAz-Wm-zsp"/>

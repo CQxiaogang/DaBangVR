@@ -12,11 +12,12 @@
 #import "MySpellGroupCell.h"
 // Models
 #import "GoodsShowListModel.h"
+#import "OrderDeptGoodsModel.h"
 
 @interface SpellGroupTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *data;
-
+@property (nonatomic, copy) NSArray <OrderDeptGoodsModel *> *goodsData;
 @end
 
 @implementation SpellGroupTableViewController
@@ -47,54 +48,73 @@ static NSString *CellID = @"CellID";
 }
 
 - (void)loadNewData{
-    NSDictionary *dic = @{
-                          @"categoryId":self.index,
-                          @"page"      :@"1",
-                          @"limit"     :@"10"
-                          };
-    [NetWorkHelper POST:URL_getGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSDictionary *dataDic= dic[@"data"];
-        NSArray *goodsList = dataDic[@"goodsList"];
-        for (NSDictionary *dic in goodsList) {
-            SpellGroupModel *model = [SpellGroupModel modelWithDictionary:dic];
-            [self.data addObject:model];
-        }
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView reloadData];
-    } failure:^(NSError * _Nonnull error) {
-        DLog(@"error%@",error);
-    }];
+    if (self.index) {
+        NSDictionary *dic = @{
+                              @"categoryId":self.index,
+                              @"page"      :@"1",
+                              @"limit"     :@"10"
+                              };
+        [NetWorkHelper POST:URL_getGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+            NSDictionary *dataDic= dic[@"data"];
+            NSArray *goodsList = dataDic[@"goodsList"];
+            for (NSDictionary *dic in goodsList) {
+                SpellGroupModel *model = [SpellGroupModel modelWithDictionary:dic];
+                [self.data addObject:model];
+            }
+            [self.tableView reloadData];
+        } failure:^(NSError * _Nonnull error) {
+            DLog(@"error%@",error);
+        }];
+    }else{
+        kWeakSelf(self);
+        NSDictionary *dic = @{
+                              @"page"      :@"1",
+                              @"limit"     :@"10",
+                              @"buyType"   :@"3"
+                              };
+        [NetWorkHelper POST:URl_getOrderList parameters:dic success:^(id  _Nonnull responseObject) {
+            NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
+            weakself.goodsData = [OrderDeptGoodsModel mj_objectArrayWithKeyValuesArray:dataDic[@"orderList"]];
+            [self.tableView reloadData];
+        } failure:^(NSError * _Nonnull error) {}];
+    }
+    // 结束刷新
+    [self.tableView.mj_header endRefreshing];
 }
 
 #pragma mark - Table view data source
-
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    if (self.index) {
+        return 0;
+    }
+    return _goodsData.count;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.data.count;
+    if (self.index) {
+        return self.data.count;
+    }
+    return self.goodsData[section].orderGoodslist.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
+    UITableViewCell *baseCell;
     if ([_currentView isEqualToString:@"leftView"]) {
-        SpellGroupCell *leftCell = [tableView dequeueReusableCellWithIdentifier:CellID forIndexPath:indexPath];
-        leftCell.model = self.data[indexPath.row];
-        cell = leftCell;
-    }else if ([_currentView isEqualToString:@"centerView"])
-    {
+        SpellGroupCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID forIndexPath:indexPath];
+        cell.model = self.data[indexPath.row];
+        baseCell = cell;
     }else if ([_currentView isEqualToString:@"rightView"]){
-        cell = [tableView dequeueReusableCellWithIdentifier:CellID forIndexPath:indexPath];
-        cell = (MySpellGroupCell *)cell;
+        MySpellGroupCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID forIndexPath:indexPath];
+        cell.model = _goodsData[indexPath.section].orderGoodslist[indexPath.row];
+        baseCell = cell;
     }
     
-    return cell;
+    return baseCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([_currentView isEqualToString:@"leftView"]) {
         return 218;
-    }else if ([_currentView isEqualToString:@"centerView"])
-    {
-        
     }else if ([_currentView isEqualToString:@"rightView"]){
         return 130;
     }

@@ -158,7 +158,7 @@ static NSString *const CellID = @"CellID";
 
 - (void)saveInfo{
     [self.user_AdressDic setObject:_boolStr forKey:@"isDefault"];
-    if ([self.user_AdressDic allKeys].count == 12) {
+    if ([self.user_AdressDic allKeys].count == 8) {
         [NetWorkHelper POST:URl_addressAdd parameters:self.user_AdressDic success:^(id  _Nonnull responseObject) {
             NSString *errmsg = KJSONSerialization(responseObject)[@"errmsg"];
             [SVProgressHUD showInfoWithStatus:errmsg];
@@ -262,10 +262,10 @@ static NSString *const CellID = @"CellID";
     // 区域 ID
     [self.areaIDs addObject:areaID];
     if (self.areaIDs.count == 3) {
-        [self.user_AdressDic setObject:@"1"            forKey:@"receivingCountryId"];
-        [self.user_AdressDic setObject:self.areaIDs[0] forKey:@"provinceId"]; // 675
-        [self.user_AdressDic setObject:self.areaIDs[1] forKey:@"cityId"];//1572
-        [self.user_AdressDic setObject:self.areaIDs[2] forKey:@"areaId"];
+        [self.user_AdressDic setObject:@"1"            forKey:@"receivingCountry"];
+        [self.user_AdressDic setObject:self.areaIDs[0] forKey:@"province"]; // 675
+        [self.user_AdressDic setObject:self.areaIDs[1] forKey:@"city"];     //1572
+        [self.user_AdressDic setObject:self.areaIDs[2] forKey:@"area"];
         [self.areaIDs removeAllObjects];
     }
     
@@ -273,10 +273,10 @@ static NSString *const CellID = @"CellID";
 }
 - (void)getSelectAddressInfor:(NSString *)addressInfor addressInfoArr:(NSArray *)array
 {
-    [self.user_AdressDic setObject:@"中国" forKey:@"receivingCountry"];
-    [self.user_AdressDic setObject:array[0] forKey:@"province"];
-    [self.user_AdressDic setObject:array[1] forKey:@"city"];
-    [self.user_AdressDic setObject:array[2] forKey:@"area"];
+//    [self.user_AdressDic setObject:@"中国" forKey:@"receivingCountry"];
+//    [self.user_AdressDic setObject:array[0] forKey:@"province"];
+//    [self.user_AdressDic setObject:array[1] forKey:@"city"];
+//    [self.user_AdressDic setObject:array[2] forKey:@"area"];
     
     _addressInfor = addressInfor;
     [self.tableView reloadData];
@@ -294,7 +294,7 @@ static NSString *const CellID = @"CellID";
     kWeakSelf(self);
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_enter(group);
-    
+    // 网络请求得到地区信息
     _areaID   = _areaID? _areaID : @"1";
     [NetWorkHelper POST:URl_getRegionChildrenList parameters:@{@"parentId":_areaID} success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];

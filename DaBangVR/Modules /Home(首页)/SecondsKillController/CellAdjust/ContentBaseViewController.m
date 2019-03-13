@@ -11,7 +11,7 @@
 #import "NestViewController.h"
 #import "NaviSegmentedControlViewController.h"
 
-@interface ContentBaseViewController () <JXCategoryViewDelegate, JXCategoryListContainerViewDelegate>
+@interface ContentBaseViewController () <JXCategoryViewDelegate, JXCategoryListContainerViewDelegate, ListViewControllerDelegate>
 @end
 
 @implementation ContentBaseViewController
@@ -78,6 +78,7 @@
 
 - (id<JXCategoryListContentViewDelegate>)preferredListAtIndex:(NSInteger)index {
     ListViewController *listView = [[ListViewController alloc] init];
+    listView.aDelegate = self;
     listView.timeIndex = index;
     return listView;
 }
@@ -140,6 +141,11 @@
 
 - (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {
     return self.titles.count;
+}
+
+#pragma mark —— ListViewController 代理
+-(void)didSelectRowAtIndexPath:(NSString *)index{
+    [self didSelectRowAtIndexPath:index];
 }
 
 @end

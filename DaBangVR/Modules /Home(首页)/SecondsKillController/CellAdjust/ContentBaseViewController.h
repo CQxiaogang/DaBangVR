@@ -12,6 +12,10 @@
 
 #define WindowsSize [UIScreen mainScreen].bounds.size
 
+@protocol ContentBaseViewControllerDelegate <NSObject>
+
+@end
+
 @interface ContentBaseViewController : RootViewController
 
 @property (nonatomic, strong) NSArray *titles;
@@ -24,10 +28,13 @@
 
 @property (nonatomic, assign) BOOL shouldHandleScreenEdgeGesture;
 
+@property (nonatomic, weak) id<ContentBaseViewControllerDelegate> delegate;
+
 - (JXCategoryBaseView *)preferredCategoryView;
 
 - (CGFloat)preferredCategoryViewHeight;
 
 - (id<JXCategoryListContentViewDelegate>)preferredListAtIndex:(NSInteger)index;
 
+- (void)didSelectRowAtIndexPath:(NSString *)index;
 @end

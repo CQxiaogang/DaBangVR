@@ -14,10 +14,7 @@
     _model = model;
     _userName.text = model.consigneeName;
     _userPhoneNum.text = model.consigneePhone;
-    _adress.text = [NSString stringWithFormat:@"%@%@%@%@",model.province,
-                                                          model.city,
-                                                          model.area,
-                                                          model.address];
+    _adress.text = [NSString stringWithFormat:@"%@",model.address];
     if ([model.isDefault isEqualToString:@"0"]) {
         [_defaultAdress setImage:[UIImage imageNamed:@"r-default"] forState:(UIControlStateNormal)];
     }else{

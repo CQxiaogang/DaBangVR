@@ -12,12 +12,14 @@
 
 @protocol ListViewControllerDelegate <NSObject>
 
-- (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)didSelectRowAtIndexPath:(NSString *)index;
 
 @end
 
 @interface ListViewController : LoadDataListBaseViewController <JXCategoryListContentViewDelegate>
 
 @property (nonatomic, assign) NSInteger timeIndex;
+
+@property (nonatomic, weak) id<ListViewControllerDelegate> aDelegate;
 
 @end

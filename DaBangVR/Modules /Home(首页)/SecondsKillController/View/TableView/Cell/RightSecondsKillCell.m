@@ -18,11 +18,11 @@
     _CancelReminderBtn.layer.masksToBounds = YES;
 }
 
-- (void)setModel:(GoodsDetailsModel *)model{
+- (void)setModel:(OrderGoodsModel *)model{
     _model = model;
-    [_goodsImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:kDefaultImg];
-    _goodsDetails.text = model.describe;
-    _goodsSellingPrice.text = [NSString stringWithFormat:@"￥ %@",model.sellingPrice];
+    [_goodsImgView setImageWithURL:[NSURL URLWithString:model.chartUrl] placeholder:kDefaultImg];
+    _goodsDetails.text = model.goodsName;
+    _goodsSellingPrice.text = [NSString stringWithFormat:@"￥ %@",model.retailPrice];
     _goodsMarketPrice.text = model.marketPrice;
 }
 

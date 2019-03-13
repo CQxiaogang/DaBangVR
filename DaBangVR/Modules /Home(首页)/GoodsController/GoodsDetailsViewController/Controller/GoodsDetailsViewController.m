@@ -396,6 +396,10 @@ static NSString *CellID = @"CellID";
             // 加入购物车
             [self addToShoppingCarBtnOfAction];
         }
+    }else{
+        [SVProgressHUD showInfoWithStatus:@"库存不足"];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        [SVProgressHUD dismissWithDelay:1.0];
     }
 }
 

@@ -21,7 +21,7 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkw-rs-8Yr">
                         <rect key="frame" x="20" y="11" width="25" height="25"/>
-                        <color key="backgroundColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="BcN-hR-RTk"/>
                             <constraint firstAttribute="height" constant="25" id="Puo-tA-75J"/>
@@ -133,6 +133,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lufei.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6uV-Av-yKK">
+                        <rect key="frame" x="20" y="11" width="25" height="25"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Rvu-HB-64S" firstAttribute="top" secondItem="iap-uJ-cm8" secondAttribute="top" id="0GR-8S-uQ0"/>
@@ -141,25 +144,43 @@
                     <constraint firstItem="dEp-TF-Pwm" firstAttribute="height" secondItem="Ffk-xb-AtP" secondAttribute="height" id="7qm-nv-an9"/>
                     <constraint firstItem="t2S-Xk-2Ik" firstAttribute="centerX" secondItem="j5z-ks-mhI" secondAttribute="centerX" id="8Gq-Of-71g"/>
                     <constraint firstItem="Rvu-HB-64S" firstAttribute="leading" secondItem="iap-uJ-cm8" secondAttribute="trailing" constant="5" id="DH0-Kl-m0d"/>
+                    <constraint firstItem="6uV-Av-yKK" firstAttribute="centerX" secondItem="tkw-rs-8Yr" secondAttribute="centerX" id="DIN-jZ-EEi"/>
                     <constraint firstItem="2zF-jO-weS" firstAttribute="trailing" secondItem="Ek3-dm-pzz" secondAttribute="trailing" id="GV6-cY-nGy"/>
                     <constraint firstItem="TdA-se-yso" firstAttribute="top" secondItem="Rvu-HB-64S" secondAttribute="bottom" constant="10" id="HbN-av-YnW"/>
                     <constraint firstItem="Ek3-dm-pzz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="MDJ-sz-4Or"/>
                     <constraint firstItem="j5z-ks-mhI" firstAttribute="trailing" secondItem="Ek3-dm-pzz" secondAttribute="trailing" id="PGa-HD-ZVg"/>
+                    <constraint firstItem="6uV-Av-yKK" firstAttribute="centerY" secondItem="tkw-rs-8Yr" secondAttribute="centerY" id="RdK-S8-mMO"/>
                     <constraint firstItem="t2S-Xk-2Ik" firstAttribute="top" secondItem="j5z-ks-mhI" secondAttribute="bottom" constant="2" id="UwM-oy-9v3"/>
                     <constraint firstItem="dEp-TF-Pwm" firstAttribute="leading" secondItem="Ffk-xb-AtP" secondAttribute="trailing" id="VOZ-au-MXQ"/>
                     <constraint firstItem="2zF-jO-weS" firstAttribute="top" secondItem="dEp-TF-Pwm" secondAttribute="bottom" constant="5" id="bE2-rg-I1F"/>
                     <constraint firstItem="Ffk-xb-AtP" firstAttribute="top" secondItem="Rvu-HB-64S" secondAttribute="bottom" constant="25" id="bNC-Ec-K0M"/>
                     <constraint firstItem="j5z-ks-mhI" firstAttribute="top" secondItem="Ek3-dm-pzz" secondAttribute="bottom" constant="5" id="c6j-3A-ZSD"/>
+                    <constraint firstItem="6uV-Av-yKK" firstAttribute="height" secondItem="tkw-rs-8Yr" secondAttribute="height" id="cVh-BN-erf"/>
                     <constraint firstItem="tkw-rs-8Yr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="d2t-f6-BWl"/>
                     <constraint firstItem="TdA-se-yso" firstAttribute="leading" secondItem="Rvu-HB-64S" secondAttribute="leading" id="f6f-ak-Oxs"/>
                     <constraint firstItem="Ek3-dm-pzz" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="n1Z-Kb-vhi"/>
                     <constraint firstItem="iap-uJ-cm8" firstAttribute="top" secondItem="tkw-rs-8Yr" secondAttribute="bottom" constant="5" id="oG2-Zb-4dj"/>
+                    <constraint firstItem="6uV-Av-yKK" firstAttribute="width" secondItem="tkw-rs-8Yr" secondAttribute="width" id="rqD-JL-pLq"/>
                     <constraint firstItem="dEp-TF-Pwm" firstAttribute="trailing" secondItem="j5z-ks-mhI" secondAttribute="trailing" id="ulX-Hi-Vho"/>
                     <constraint firstItem="tkw-rs-8Yr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="xJD-Lw-bVd"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
-            <point key="canvasLocation" x="31.199999999999999" y="143.92803598200899"/>
+            <connections>
+                <outlet property="goodsDetails" destination="Rvu-HB-64S" id="8xi-qB-qou"/>
+                <outlet property="goodsImgView" destination="iap-uJ-cm8" id="mjF-gx-cMe"/>
+                <outlet property="goodsNum" destination="t2S-Xk-2Ik" id="yrP-PH-bsl"/>
+                <outlet property="goodsNum2" destination="Ffk-xb-AtP" id="she-3q-5Nh"/>
+                <outlet property="goodsPrice" destination="j5z-ks-mhI" id="5YQ-Vx-Epi"/>
+                <outlet property="goodsSpec" destination="TdA-se-yso" id="6cX-kt-Rt0"/>
+                <outlet property="goodsTotalPrice" destination="dEp-TF-Pwm" id="x1E-38-xUQ"/>
+                <outlet property="headPortrait" destination="6uV-Av-yKK" id="aHy-Dc-snv"/>
+                <outlet property="spellGroupPepple" destination="Ek3-dm-pzz" id="nib-pZ-sE0"/>
+            </connections>
+            <point key="canvasLocation" x="31.199999999999999" y="143.02848575712144"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="lufei.jpg" width="900" height="768"/>
+    </resources>
 </document>

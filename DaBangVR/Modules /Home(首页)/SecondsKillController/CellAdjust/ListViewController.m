@@ -25,7 +25,7 @@ static NSString *CellID = @"CellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.backgroundColor = COLOR_WITH_RGB(arc4random()%255/255.0, arc4random()%255/255.0, arc4random()%255/255.0, 1);
+//    self.view.backgroundColor = COLOR_WITH_RGB(arc4random()%255/255.0, arc4random()%255/255.0, arc4random()%255/255.0, 1);
     
     [self.tableView registerNib:[UINib nibWithNibName:@"SecondsKillCell" bundle:nil] forCellReuseIdentifier:CellID];
     self.tableView.delegate = self;
@@ -66,7 +66,10 @@ static NSString *CellID = @"CellID";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (self.aDelegate && [self.aDelegate respondsToSelector:@selector(didSelectRowAtIndexPath:)]) {
+        GoodsDetailsModel *model = _goodsData[indexPath.row];
+        [self.aDelegate didSelectRowAtIndexPath:model.id];
+    }
 }
 
 - (UIView *)listView {

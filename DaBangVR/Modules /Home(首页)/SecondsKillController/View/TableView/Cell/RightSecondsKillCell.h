@@ -7,7 +7,7 @@
 //
 
 #import "BaseTableViewCell.h"
-#import "GoodsDetailsModel.h"
+#import "OrderGoodsModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *goodsMarketPrice;
 // 关注数量
 @property (weak, nonatomic) IBOutlet UILabel *attentionNum;
-@property (nonatomic, strong) GoodsDetailsModel *model;
+@property (nonatomic, strong) OrderGoodsModel *model;
 @end
 
 NS_ASSUME_NONNULL_END
