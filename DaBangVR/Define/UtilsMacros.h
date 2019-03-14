@@ -165,4 +165,15 @@ return shared##className; \
 // 微信支付状态
 #define kOrderSnTotal @"orderTotalSn"
 #define kOrderSn      @"orderSn"
+
+// 商品提交类型
+#define kGroup1  @"group1"  //单独成团
+#define kGroup2  @"group2"  //发起拼团
+#define kGroup3  @"group3"  //参与拼团
+#define kSeconds @"seconds" //秒杀
+#define kBuy @"buy"   //直接购买
+#define kCart @"cart" //从购物车购买
+// 我的订单类别购买类型参数
+#define kBuyTypeSeconds @"6" //秒杀
+#define kBuyTypeGroup   @"3" //拼团购买
 #endif /* define_h */

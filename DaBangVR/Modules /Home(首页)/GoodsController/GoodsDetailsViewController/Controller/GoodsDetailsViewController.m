@@ -12,6 +12,7 @@
 #import "ShoppingCartViewController.h"   //购物车
 #import "SecondsKillViewController.h"    //秒杀
 #import "SpellGroupViewController.h"     //拼团
+#import "GoodsShowViewController.h"      //海鲜
 // ViewS
 #import "GoodsDetailsView.h"
 #import "GoodAttributesView.h"
@@ -143,7 +144,7 @@ static NSString *CellID = @"CellID";
         buyOrCarBtn.backgroundColor = colors[i];
         buyOrCarBtn.titleLabel.adaptiveFontSize = 14;
         [buyOrCarBtn setTitle:names[i] forState:UIControlStateNormal];
-        [buyOrCarBtn addTarget:self action:@selector(buyNowOfCarBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        [buyOrCarBtn addTarget:self action:@selector(goodsBuyOfActon:) forControlEvents:UIControlEventTouchUpInside];
         [buyOrCarBtnArr addObject:buyOrCarBtn];
         [bottomView addSubview:buyOrCarBtn];
     }
@@ -173,7 +174,7 @@ static NSString *CellID = @"CellID";
         make.bottom.equalTo(@(0));
         make.height.equalTo(kTabBarHeight);
     }];
-    // 调整btn 图片和文字的位置。上图片下文字。
+    // 调整Button图片和文字的位置,上图片下文字。
     for (UIButton *button in otherBtnArr) {
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         [button setTitleEdgeInsets:UIEdgeInsetsMake(button.imageView.mj_h ,-button.imageView.mj_w, -5,0)];
@@ -262,8 +263,8 @@ static NSString *CellID = @"CellID";
     // 设置footerView
     self.tableView.tableFooterView = self.webView;
 }
-
 // 时间戳转换为日期格式(毫秒的时间戳)
+
 - (NSString *)timeWithTimeIntervalString:(NSString *)timeString{
     // 格式化时间
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
@@ -278,7 +279,6 @@ static NSString *CellID = @"CellID";
     NSLog(@"时间 === %@",dateString);
     return dateString;
 }
-
 #pragma mark —— UI设置
 - (void)setupNavagation{
     UIButton *shoppingCarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -298,7 +298,7 @@ static NSString *CellID = @"CellID";
 }
 
 #pragma mark —— GoodsDetailsView（商品细节代理）
--(void)allCommentsAction{
+- (void)allCommentsAction{
     AllCommentsViewController *vc = [AllCommentsViewController new];
     [vc getData:self.model.id];
     [self.navigationController pushViewController:vc animated:NO];
@@ -313,21 +313,22 @@ static NSString *CellID = @"CellID";
     // 弹出商品规格 view
     GoodAttributesView *attributesView = [[GoodAttributesView alloc] initWithFrame:(CGRect){0, 0, KScreenW, KScreenH}];
     attributesView.model = self.model;
+    attributesView.submitType = self.submitType;
     [attributesView showInView:self.navigationController.view];
     
-    // 确认 btn 数据回掉
+    // 确认Button数据回掉
     kWeakSelf(self);
     attributesView.goodsAttributesBlock = ^(NSArray *array) {
         weakself.goodsAttributesArr = array;
         if ([identifier isEqualToString:@"立即购买"] || identifier.length == 0) {
-            [self buyNow:array];
+            [self goodsBuyOfRightButton:array];
         }else if ([identifier isEqualToString:@"购物车"]){
-            [self addToShoppingCar:array];
+            [self goodsBuyOfLeftButton:array];
         }
     };
 }
-
-- (void)addToShoppingCar:(NSArray *)array{
+// 商品购买左边的Button操作
+- (void)goodsBuyOfLeftButton:(NSArray *)array{
     NSDictionary *dic;
     if (array.count == 3) {
         dic = @{
@@ -346,16 +347,13 @@ static NSString *CellID = @"CellID";
     }
     
     [NetWorkHelper POST:URl_addToCar parameters:dic success:^(id  _Nonnull responseObject) {
-    
         [SVProgressHUD showInfoWithStatus:KJSONSerialization(responseObject)[@"errmsg"]];
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         [SVProgressHUD dismissWithDelay:1.0];
-    } failure:^(NSError * _Nonnull error) {
-        DLog(@"error is %@",error);
-    }];
+    } failure:^(NSError * _Nonnull error) {}];
 }
-
-- (void)buyNow:(NSArray *)array{
+// 商品购买右边的Button操作
+- (void)goodsBuyOfRightButton:(NSArray *)array{
     NSDictionary *dic;
     if (array.count == 3) {
         dic = @{
@@ -372,7 +370,6 @@ static NSString *CellID = @"CellID";
     }
     
     [NetWorkHelper POST:URl_confirmGoods2Buy parameters:dic success:^(id  _Nonnull responseObject) {
-
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         DLog(@"%@",dic[@"errmsg"]);
         // 直接跳转确认订单界面
@@ -384,21 +381,26 @@ static NSString *CellID = @"CellID";
         vc.submitType = self.submitType?self.submitType:@"buy";
         vc.orderSnTotal = self.orderSnTotal?self.orderSnTotal:kOrderSnTotal;
         [self.navigationController pushViewController:vc animated:NO];
-    } failure:^(NSError * _Nonnull error) {
-        DLog(@"error is %@",error);
-    }];
+    } failure:^(NSError * _Nonnull error) {}];
 }
 
-// 立即购买和购物车 btn
-- (void)buyNowOfCarBtnAction:(UIButton *)sender{
-    // 库存不为0 才能提交订单
+// 商品购买的Buttons
+- (void)goodsBuyOfActon:(UIButton *)sender{
+    //库存不为0 才能提交订单
     if (![self.model.remainingInventory isEqualToString:@"0"]) {
         if (sender.tag == 1) {
-            // 立即购买
+            //立即购买
             [self creatAttributesView:@"立即购买"];
         }else{
-            // 加入购物车
-            [self addToShoppingCarBtnOfAction];
+            if ([self.interfaceState isKindOfClass:[SpellGroupViewController class]]) {
+                //拼团，执行拼团方法
+                [self creatAttributesView:@"立即购买"];
+                self.submitType = kGroup2;
+            }else if ([self.interfaceState isKindOfClass:[GoodsShowViewController class]]){
+                //加入购物车
+                [self GoodsBuyleftButtonOfAction];
+            }
+            
         }
     }else{
         [SVProgressHUD showInfoWithStatus:@"库存不足"];
@@ -407,11 +409,10 @@ static NSString *CellID = @"CellID";
     }
 }
 
-// 加购
-- (void)addToShoppingCarBtnOfAction{
+- (void)GoodsBuyleftButtonOfAction{
     [self creatAttributesView:@"购物车"];
 }
-
+// 其他Button的操作，如：收藏、客服。
 - (void)otherBtnClickAction:(UIButton *)sender{
     if (sender.tag == 0) {
         [self collectionBtnOfAction];
@@ -450,7 +451,6 @@ static NSString *CellID = @"CellID";
     cell.model = self.commentsData[indexPath.row];
     return cell;
 }
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return kFit(39);
 }

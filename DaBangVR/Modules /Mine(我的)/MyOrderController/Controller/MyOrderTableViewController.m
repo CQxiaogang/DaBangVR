@@ -54,21 +54,18 @@ static NSString *HeaderCellID = @"HeaderCellID";
 
 - (void)loadNewData{
     [self.deptData removeAllObjects];
-    NSDictionary *dic = @{
+    NSDictionary *parameters = @{
                           @"orderState":self.index,
                           @"page"      :@"1",
-                          @"limit"     :@"10",
-                          @"buyType"   :@""
+                          @"limit"     :@"10"
                           };
-    [NetWorkHelper POST:URl_getOrderList parameters:dic success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_getOrderList parameters:parameters success:^(id  _Nonnull responseObject) {
         NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
         NSArray *goodsList = dataDic[@"orderList"];
         self.deptData = [OrderDeptGoodsModel mj_objectArrayWithKeyValuesArray:goodsList];
-        [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
-    } failure:^(NSError * _Nonnull error) {
-        DLog(@"error%@",error);
-    }];
+    } failure:^(NSError * _Nonnull error) {}];
+    [self.tableView.mj_header endRefreshing];
 }
 
 #pragma mark - Table view data source

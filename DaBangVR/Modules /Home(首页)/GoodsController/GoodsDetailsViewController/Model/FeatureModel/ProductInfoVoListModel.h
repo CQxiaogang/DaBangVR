@@ -23,6 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *retailPrice;
 // 市场价格
 @property (nonatomic, copy) NSString *marketPrice;
+// 秒杀价格
+@property (nonatomic, copy) NSString *secondsPrice;
+// 团购价格
+@property (nonatomic, copy) NSString *groupPrice;
 // 商品规格 ID
 @property (nonatomic, copy) NSString *goodsSpecIds;
 // 商品名字

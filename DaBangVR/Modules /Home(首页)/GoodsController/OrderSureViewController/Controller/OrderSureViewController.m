@@ -28,12 +28,11 @@
  UITableViewDelegate,
  UITableViewDataSource,
  OrderSureTopViewDelegate,
- DetailFooterViewDelegate
+ OrderSureFooterViewDelegate    
 >
 
 @property (nonatomic, strong) UITableView         *tableView;
 @property (nonatomic, strong) OrderSureTopView    *topView;
-@property (nonatomic, strong) OrderSureFooterView  *footerView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 //@property (nonatomic, strong) NSMutableArray <OrderDeptGoodsModel *> *deptModels;
@@ -46,7 +45,8 @@
 
 @implementation OrderSureViewController
 static NSString *const DBDetailViewCellID = @"DBDetailViewCell";
-static NSString *const HeaderViewCellID = @"HeaderViewCellID";
+static NSString *const HeaderID = @"HeaderID";
+static NSString *const FooterID = @"FooterID";
 static NSString *leaveMessage;
 #pragma mark —— 懒加载
 - (UITableView *)tableView{
@@ -55,7 +55,8 @@ static NSString *leaveMessage;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerNib:[UINib nibWithNibName:@"OrderSureTableViewCell" bundle:nil] forCellReuseIdentifier:DBDetailViewCellID];
-        [_tableView registerNib:[UINib nibWithNibName:@"OrderSureHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:HeaderViewCellID];
+        [_tableView registerNib:[UINib nibWithNibName:@"OrderSureHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:HeaderID];
+        [_tableView registerNib:[UINib nibWithNibName:@"OrderSureFooterView" bundle:nil] forHeaderFooterViewReuseIdentifier:FooterID];
         
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
@@ -72,15 +73,6 @@ static NSString *leaveMessage;
         _topView.delegate = self;
     }
     return _topView;
-}
-
-- (OrderSureFooterView *)footerView{
-    if (!_footerView) {
-        _footerView = [[OrderSureFooterView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.mj_w, kFit(120)) style:UITableViewStylePlain];
-        _footerView.model = _model;
-        _footerView.aDelegate = self;
-    }
-    return _footerView;
 }
 
 - (NSMutableArray *)dataSource{
@@ -191,7 +183,7 @@ static NSString *leaveMessage;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    OrderSureHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:HeaderViewCellID];
+    OrderSureHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:HeaderID];
     headerView.model = _model.deptGoodsList[section];
     return headerView;
 }
@@ -201,7 +193,9 @@ static NSString *leaveMessage;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    return self.footerView;
+    OrderSureFooterView *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:FooterID];
+    footer.delegate = self;
+    return footer;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return kFit(120);
@@ -218,7 +212,7 @@ static NSString *leaveMessage;
     [self.navigationController pushViewController:vc animated:NO];
 }
 
-#pragma mark —— 底部 View 协议
+#pragma mark —— orderSureFooter 协议
 -(void)leaveMessageBtnClickAction:(UIButton *)sender{
     LeaveMessageViewController *vc = [[LeaveMessageViewController alloc] init];
     vc.textViewBlock = ^(NSString * _Nonnull string) {
@@ -239,13 +233,13 @@ static NSString *leaveMessage;
         if ([_submitType isEqualToString:@"cart"]) {
             goodsIds = _model.cartIds;
         }
-        NSDictionary *dic = @{
-                              @"submitType"   : _submitType,
-                              @"addressId"    : weakself.model.receivingAddress.id,
-                              @"leaveMessage" : leaveMessage,
-                              @"goodsIds"     : goodsIds
-                              };
-        [NetWorkHelper POST:URl_submitOrder parameters:dic success:^(id  _Nonnull responseObject) {
+        NSDictionary *parameters = @{
+                                     @"submitType"   : _submitType,
+                                     @"addressId"    : weakself.model.receivingAddress.id,
+                                     @"leaveMessage" : leaveMessage,
+                                     @"goodsIds"     : goodsIds
+                                     };
+        [NetWorkHelper POST:URl_submitOrder parameters:parameters success:^(id  _Nonnull responseObject) {
             NSString *error = [NSString stringWithFormat:@"%@",KJSONSerialization(responseObject)[@"errno"]];
             if ([error isEqualToString:@"1"]) {
                 NSString *errmsg = KJSONSerialization(responseObject)[@"errmsg"];

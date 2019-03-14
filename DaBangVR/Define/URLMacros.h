@@ -85,6 +85,12 @@
 // 登录
 #define URl_login NSStringFormat(@"%@%@",URL_main,@"/api/auth/login?")
 
+#pragma mark ——————  订单接口类  ——————
+// 订单详情
+#define URl_getOrderDetails NSStringFormat(@"%@%@",URL_main,@"/api/order/getOrderDetails?")
+// 物流查询接口
+#define URl_getOrderLogisticsDetails NSStringFormat(@"%@%@",URL_main,@"/api/order/getOrderLogisticsDetails?")
+
 #pragma mark ——————   个人中心    ——————
 // 添加收货地址
 #define URl_addressAdd NSStringFormat(@"%@%@",URL_main,@"/api/my/addressAdd?")

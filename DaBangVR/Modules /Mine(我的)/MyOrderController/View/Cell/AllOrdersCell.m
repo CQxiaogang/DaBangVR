@@ -37,8 +37,9 @@
     _model = model;
     _priceLab.text = model.retailPrice;
     _goodsNameLab.text = model.goodsName;
-    _sizeLab.text = model.goodsNumber;
-    [_goodsImgView setImageWithURL:[NSURL URLWithString:model.goodsListUrl] placeholder:[UIImage imageNamed:@""]];
+    _goodsSpec.text = model.goodsSpecNames;
+    _sizeLab.text = model.goodsNumber?model.goodsNumber:model.number;
+    [_goodsImgView setImageWithURL:[NSURL URLWithString:model.goodsListUrl?model.goodsListUrl:model.listUrl] placeholder:[UIImage imageNamed:@""]];
 }
 /*订单状态:0待付款
          101订单已取消

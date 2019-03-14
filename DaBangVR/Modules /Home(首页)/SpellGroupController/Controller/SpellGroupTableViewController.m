@@ -71,7 +71,7 @@ static NSString *CellID = @"CellID";
         NSDictionary *dic = @{
                               @"page"      :@"1",
                               @"limit"     :@"10",
-                              @"buyType"   :@"3"
+                              @"buyType"   :kBuyTypeGroup
                               };
         [NetWorkHelper POST:URl_getOrderList parameters:dic success:^(id  _Nonnull responseObject) {
             NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
@@ -123,9 +123,11 @@ static NSString *CellID = @"CellID";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (self.aDelegate && [self.aDelegate respondsToSelector:@selector(didSelectGoodsShowDetails:)]) {
-        SpellGroupModel *model = self.data[indexPath.row];
-        [self.aDelegate didSelectGoodsShowDetails:model.id];
+    if ([_currentView isEqualToString:@"leftView"]) {
+        if (self.aDelegate && [self.aDelegate respondsToSelector:@selector(didSelectGoodsShowDetails:)]) {
+            SpellGroupModel *model = self.data[indexPath.row];
+            [self.aDelegate didSelectGoodsShowDetails:model.id];
+        }
     }
 }
 

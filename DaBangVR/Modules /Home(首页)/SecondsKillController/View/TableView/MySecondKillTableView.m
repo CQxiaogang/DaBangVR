@@ -36,7 +36,7 @@ static NSString *CellID = @"CellID";
     NSDictionary *dic = @{
                           @"page"      :@"1",
                           @"limit"     :@"10",
-                          @"buyType"   :@"6"
+                          @"buyType"   :kBuyTypeSeconds
                           };
     [NetWorkHelper POST:URl_getOrderList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];

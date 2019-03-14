@@ -10,15 +10,16 @@
 #import "OrderSureModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@protocol DetailFooterViewDelegate <NSObject>
+@protocol OrderSureFooterViewDelegate <NSObject>
 
 - (void)leaveMessageBtnClickAction:(UIButton *)sender;
 
 @end
-@interface OrderSureFooterView : UITableView<UITableViewDataSource,UITableViewDelegate>
+@interface OrderSureFooterView : UITableViewHeaderFooterView
+// 邮费
+@property (weak, nonatomic) IBOutlet UILabel *postage;
 
-@property (nonatomic, strong) OrderSureModel *model;
-@property (nonatomic, weak) id <DetailFooterViewDelegate> aDelegate;
+@property (nonatomic, weak) id <OrderSureFooterViewDelegate> delegate;
 
 @end
 

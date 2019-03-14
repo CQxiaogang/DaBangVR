@@ -64,7 +64,7 @@
                             <constraint firstAttribute="width" constant="50" id="soB-tz-c9m"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
@@ -73,9 +73,9 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="白色" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJo-F9-TQO">
-                        <rect key="frame" x="146" y="102" width="50" height="15"/>
+                        <rect key="frame" x="146" y="102" width="25" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
@@ -90,7 +90,7 @@
                             <constraint firstAttribute="width" constant="29" id="hXe-XW-69n"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
@@ -155,7 +155,6 @@
                     <constraint firstItem="N3w-wR-Myr" firstAttribute="leading" secondItem="43a-Al-Dfi" secondAttribute="trailing" constant="2" id="Jee-6b-I8L"/>
                     <constraint firstItem="N3w-wR-Myr" firstAttribute="centerY" secondItem="43a-Al-Dfi" secondAttribute="centerY" id="KdQ-xf-iIT"/>
                     <constraint firstItem="KUj-m8-ZW4" firstAttribute="top" secondItem="vc4-6O-HvC" secondAttribute="bottom" constant="2" id="O4X-1T-rv9"/>
-                    <constraint firstItem="kJo-F9-TQO" firstAttribute="width" secondItem="KUj-m8-ZW4" secondAttribute="width" id="Rfl-2d-9ai"/>
                     <constraint firstItem="uBd-WW-Mha" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="S2T-wp-Lfa"/>
                     <constraint firstItem="JHU-uR-TM8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="d8T-Ex-gZ4"/>
                     <constraint firstItem="uBd-WW-Mha" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qaM-HH-wHk"/>
@@ -167,9 +166,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
-                <outlet property="colorLab" destination="kJo-F9-TQO" id="F2l-wR-8aH"/>
                 <outlet property="goodsImgView" destination="uBd-WW-Mha" id="ban-GG-Nwi"/>
                 <outlet property="goodsNameLab" destination="vc4-6O-HvC" id="m3W-hF-1WZ"/>
+                <outlet property="goodsSpec" destination="kJo-F9-TQO" id="F2l-wR-8aH"/>
                 <outlet property="lowerRightCornerBtn" destination="c59-oU-Xe2" id="Rqd-hr-VJf"/>
                 <outlet property="priceLab" destination="N3w-wR-Myr" id="nA5-rF-fvi"/>
                 <outlet property="sizeLab" destination="KUj-m8-ZW4" id="x8f-AT-7Bf"/>

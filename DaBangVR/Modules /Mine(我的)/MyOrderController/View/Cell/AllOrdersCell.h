@@ -23,7 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *goodsNameLab;
 @property (weak, nonatomic) IBOutlet UILabel *stateLab;
 @property (weak, nonatomic) IBOutlet UILabel *sizeLab;
-@property (weak, nonatomic) IBOutlet UILabel *colorLab;
+// 商品规格
+@property (weak, nonatomic) IBOutlet UILabel *goodsSpec;
 @property (weak, nonatomic) IBOutlet UILabel *priceLab;
 // 右下角 button
 @property (weak, nonatomic) IBOutlet UIButton *lowerRightCornerBtn;

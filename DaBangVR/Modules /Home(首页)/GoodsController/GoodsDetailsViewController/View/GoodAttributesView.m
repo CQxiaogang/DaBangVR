@@ -426,7 +426,7 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
     if (_seleArray.count != _featureAttr.count && lastSeleArray.count != _featureAttr.count) {
         [cell.goodImageView setImageWithURL:[NSURL URLWithString:_model.listUrl] placeholder:[UIImage imageNamed:@""]];
         cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",_model.remainingInventory];
-        cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %.2f",[_model.sellingPrice floatValue]*lastNum];
+        cell.goodPriceLabel.text = [self goodsPrice];
         cell.chooseAttLabel.text = @"请选择 颜色 尺码";
         
     }else {
@@ -435,11 +435,23 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
         NSString *attString = (_seleArray.count == _featureAttr.count) ? [_seleArray componentsJoinedByString:@"_"] : [lastSeleArray componentsJoinedByString:@"_"];
         
         for (ProductInfoVoListModel *model in _goodsSpecArr) {
-            DLog(@"goodsSpecIds is %@",model.goodsSpecIds);
             if ([attString isEqualToString:model.goodsSpecIds]) {
+                
+                NSString *goodsPrice;
+                if ([_submitType isEqualToString:kGroup2]) {
+                    // 拼团价格
+                    goodsPrice = [NSString stringWithFormat:@"¥ %.2f",[model.groupPrice floatValue]*lastNum];
+                }else if([_submitType isEqualToString:kSeconds]){
+                    // 秒杀价格
+                    goodsPrice = [NSString stringWithFormat:@"¥ %.2f",[model.secondsPrice floatValue]*lastNum];
+                }else{
+                    // 其他价格如：单独购买
+                    goodsPrice = [NSString stringWithFormat:@"¥ %.2f",[model.retailPrice floatValue]*lastNum];
+                }
+                
                 cell.chooseAttLabel.text = [NSString stringWithFormat:@"已选属性：%@",model.name];
                 cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",model.number];
-                cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %.2f",[model.retailPrice floatValue]*lastNum];
+                cell.goodPriceLabel.text = goodsPrice;
                 
                 [self.goodsDetailsArr removeAllObjects];
                 [self.goodsDetailsArr addObject:model.id];
@@ -448,9 +460,9 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
         }
         // 没有规格的时候
         if (_featureAttr.count == 0) {
+            cell.goodPriceLabel.text = [self goodsPrice];
             [cell.goodImageView setImageWithURL:[NSURL URLWithString:_model.listUrl] placeholder:[UIImage imageNamed:@""]];
             cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",_model.remainingInventory];
-            cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %.2f",[_model.sellingPrice floatValue]*lastNum];
             cell.chooseAttLabel.text = _model.title;
             [self.goodsDetailsArr addObject:_model.id];
         }
@@ -462,6 +474,21 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
         [weakself removeView];
     };
     return cell;
+}
+
+- (NSString *)goodsPrice{
+    NSString *goodsPrice;
+    if ([_submitType isEqualToString:kGroup2]) {
+        // 拼团价格
+        goodsPrice = [NSString stringWithFormat:@"¥ %.2f",[_model.groupPrice floatValue]*lastNum];
+    }else if([_submitType isEqualToString:kSeconds]){
+        // 秒杀价格
+        goodsPrice = [NSString stringWithFormat:@"¥ %.2f",[_model.secondsPrice floatValue]*lastNum];
+    }else{
+        // 其他价格如：单独购买
+        goodsPrice = [NSString stringWithFormat:@"¥ %.2f",[_model.sellingPrice floatValue]*lastNum];
+    }
+    return goodsPrice;
 }
 
 #pragma mark —— gestureRecognizer 代理
@@ -499,6 +526,10 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
     _model = model;
     _featureAttr  = [DBFeatureItem mj_objectArrayWithKeyValuesArray:_model.goodsSpecVoList];
     _goodsSpecArr = [ProductInfoVoListModel mj_objectArrayWithKeyValuesArray:_model.productInfoVoList];
+}
+
+- (void)setSubmitType:(NSString *)submitType{
+    _submitType = submitType;
 }
 
 - (void)showInView:(UIView *)view {

@@ -239,8 +239,7 @@
     vc.index = index;
     vc.identifier = @"拼团";
     vc.interfaceState = self;
-    vc.submitType = @"group1";
-    vc.orderSnTotal = kOrderSnTotal;
+    vc.submitType = kGroup1;
     [self.navigationController pushViewController:vc animated:NO];
 }
 

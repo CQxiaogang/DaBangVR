@@ -32,6 +32,8 @@ static NSInteger lastNum;
 /** 属性值2 */
 @property (nonatomic, copy) NSString *goods_attr_value_2;
 @property (nonatomic, strong) NSArray *goodAttrsArr;
+/** 订单提交类型，用于显示不同的价格 */
+@property (nonatomic, copy) NSString *submitType;
 
 /**
  商品详情 model,用于当商品p没有规格的时候显示价格等数据。

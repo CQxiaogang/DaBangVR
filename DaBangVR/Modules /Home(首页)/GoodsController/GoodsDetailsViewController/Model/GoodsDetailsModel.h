@@ -27,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *sellingPrice;
 // 市场价格
 @property (nonatomic, copy) NSString *marketPrice;
+// 秒杀价格
+@property (nonatomic, copy) NSString *secondsPrice;
+// 团购价格
+@property (nonatomic, copy) NSString *groupPrice;
 // 图片数组
 @property (nonatomic, copy) NSArray  *imgList;
 // 是新上
