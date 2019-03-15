@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="gqu-3v-rpY">
+        <view contentMode="scaleToFill" id="gqu-3v-rpY" customClass="OrderProcessingHeaderView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -40,7 +40,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="jgl-aT-8A4"/>
-            <point key="canvasLocation" x="44" y="139"/>
+            <point key="canvasLocation" x="44" y="138.53073463268368"/>
         </view>
     </objects>
     <resources>

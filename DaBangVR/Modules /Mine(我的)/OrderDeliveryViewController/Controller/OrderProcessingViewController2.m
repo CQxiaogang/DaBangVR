@@ -10,6 +10,7 @@
 //Views
 #import "OrderProcessingView.h"
 #import "OrderProcessingTableViewCell.h"
+#import "OrderProcessingHeaderView.h"
 // Models
 #import "OrderDeptGoodsModel.h"
 
@@ -82,4 +83,11 @@ static NSString *HeaderID = @"HeaderID";
     return kFit(120);
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    OrderProcessingHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:HeaderID];
+    return headerView;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return kFit(30);
+}
 @end
