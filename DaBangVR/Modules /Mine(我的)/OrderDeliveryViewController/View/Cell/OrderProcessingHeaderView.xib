@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="gqu-3v-rpY">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s-Commodity" translatesAutoresizingMaskIntoConstraints="NO" id="vjj-sR-qjZ">
+                    <rect key="frame" x="10" y="2.5" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="Lph-RY-hNH"/>
+                        <constraint firstAttribute="height" constant="25" id="nkr-Wj-9DM"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1Q-Rr-akc">
+                    <rect key="frame" x="40" y="7.5" width="50" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vjj-sR-qjZ" firstAttribute="centerY" secondItem="gqu-3v-rpY" secondAttribute="centerY" id="Cu7-pv-LlD"/>
+                <constraint firstItem="j1Q-Rr-akc" firstAttribute="leading" secondItem="vjj-sR-qjZ" secondAttribute="trailing" constant="5" id="Dwa-I2-yMM"/>
+                <constraint firstItem="j1Q-Rr-akc" firstAttribute="centerY" secondItem="gqu-3v-rpY" secondAttribute="centerY" id="J4g-32-UnR"/>
+                <constraint firstItem="j1Q-Rr-akc" firstAttribute="centerY" secondItem="vjj-sR-qjZ" secondAttribute="centerY" id="s8a-n4-qtY"/>
+                <constraint firstItem="vjj-sR-qjZ" firstAttribute="leading" secondItem="jgl-aT-8A4" secondAttribute="leading" constant="10" id="siz-fO-ROA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="jgl-aT-8A4"/>
+            <point key="canvasLocation" x="44" y="139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="s-Commodity" width="49" height="52"/>
+    </resources>
+</document>

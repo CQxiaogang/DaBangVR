@@ -116,11 +116,8 @@ static NSString *HeaderCellID = @"HeaderCellID";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (self.aDelegate && [self.aDelegate respondsToSelector:@selector(didSelectRowAtIndexPath:orderState:)]) {
-        
-        OrderDeptGoodsModel *model = self.deptData[indexPath.section];
-        
-        [self.aDelegate didSelectRowAtIndexPath:indexPath orderState:[model.orderState integerValue]];
+    if (self.aDelegate && [self.aDelegate respondsToSelector:@selector(didSelectRowAtIndexPath:OrderDeptGoodsModel:)]) {
+        [self.aDelegate didSelectRowAtIndexPath:indexPath OrderDeptGoodsModel:self.deptData[indexPath.section]];
     }
 }
 

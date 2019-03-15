@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface OrderDeptGoodsModel : NSObject
+@property (nonatomic, copy) NSString *id;
 // 店铺 logo
 @property (nonatomic, copy) NSString *deptLogo;
 // 店铺 名字
@@ -29,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSArray <OrderGoodsModel *> *orderGoodslist;
 // 店铺 商品加邮费总价
 @property (nonatomic, copy) NSString *deptGoodsTotalPrice;
+// 订单号
+@property (nonatomic, copy) NSString *orderSn;
 @end
 
 NS_ASSUME_NONNULL_END

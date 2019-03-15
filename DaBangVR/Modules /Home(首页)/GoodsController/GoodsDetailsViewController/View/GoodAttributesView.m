@@ -416,7 +416,11 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+{   //反正重复添加
+    if (self.goodsDetailsArr) {
+        [self.goodsDetailsArr removeAllObjects];
+    }
+    
     FeatureChoseTopCell *cell = [tableView dequeueReusableCellWithIdentifier:DBFeatureChoseTopCellID forIndexPath:indexPath];
     // cell不能点击
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

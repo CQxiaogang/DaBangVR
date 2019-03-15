@@ -207,8 +207,9 @@
 -(void)didSelectRowAtIndexPath:(NSString *)index{
     GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
     vc.index = index;
+    vc.interfaceState = self;
     vc.orderSnTotal = kOrderSnTotal;
-    vc.submitType = @"seconds";
+    vc.submitType = kSeconds;
     [self.navigationController pushViewController:vc animated:NO];
 }
 

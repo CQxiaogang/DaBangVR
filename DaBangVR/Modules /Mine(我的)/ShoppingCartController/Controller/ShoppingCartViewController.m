@@ -392,7 +392,6 @@
 -(void)goPaymentOfClick{
     if (_cartIds) {
         [NetWorkHelper POST:URl_confirmGoods2Cart parameters:@{@"cartIds":_cartIds} success:^(id  _Nonnull responseObject) {
-            
             OrderSureViewController *vc = [[OrderSureViewController alloc] init];
             vc.submitType = kCart;
             [self.navigationController pushViewController:vc animated:NO];

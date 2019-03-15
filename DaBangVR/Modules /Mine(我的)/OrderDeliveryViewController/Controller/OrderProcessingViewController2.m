@@ -10,25 +10,33 @@
 //Views
 #import "OrderProcessingView.h"
 #import "OrderProcessingTableViewCell.h"
+// Models
+#import "OrderDeptGoodsModel.h"
 
 @interface OrderProcessingViewController2 ()
+
+@property (nonatomic, strong) OrderDeptGoodsModel *model;
 
 @end
 
 @implementation OrderProcessingViewController2
 static NSString *CellID = @"CellID";
+static NSString *HeaderID = @"HeaderID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"海风暴";
     
     [self setupNavagationBar];
+    
+    [self loadingData];
 }
 
 -(void)setupUI{
     [super setupUI];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"OrderProcessingTableViewCell" bundle:nil] forCellReuseIdentifier:CellID];
+    [self.tableView registerNib:[UINib nibWithNibName:@"OrderProcessingHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:HeaderID];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(0);
@@ -39,10 +47,9 @@ static NSString *CellID = @"CellID";
     self.tableView.tableHeaderView = orderDeliveryV;
     [orderDeliveryV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(0);
-        make.height.equalTo(kFit(295));
+        make.height.equalTo(kFit(244));
         make.width.equalTo(KScreenW);
     }];
-    
 }
 -(void)setupNavagationBar{
     UIButton *phoneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -52,17 +59,26 @@ static NSString *CellID = @"CellID";
     UIBarButtonItem *phoneItem = [[UIBarButtonItem alloc] initWithCustomView:phoneBtn];
     self.navigationItem.rightBarButtonItem = phoneItem;
 }
+#pragma mark —— 加载数据
+-(void)loadingData{
+    kWeakSelf(self);
+    [NetWorkHelper POST:URl_getOrderDetails parameters:@{@"orderId":_orderId} success:^(id  _Nonnull responseObject) {
+        NSDictionary *dic = KJSONSerialization(responseObject)[@"data"];
+        weakself.model = [OrderDeptGoodsModel mj_objectWithKeyValues:dic[@"orderDetails"]];
+        [weakself.tableView reloadData];
+    } failure:nil];
+}
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     OrderProcessingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return kFit(120);
 }
 

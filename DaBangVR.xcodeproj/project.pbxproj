@@ -123,6 +123,8 @@
 		045A6FF12223F514006081CF /* CountryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045A6FEF2223F514006081CF /* CountryCollectionViewCell.xib */; };
 		045D55A4222E7A5800F128F8 /* SearchGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045D55A3222E7A5800F128F8 /* SearchGoodsViewController.m */; };
 		045EF146223B80E00051E029 /* NSDictionary+NilSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 045EF144223B80DF0051E029 /* NSDictionary+NilSafe.m */; };
+		045EF187223BB1080051E029 /* OrderProcessingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045EF186223BB1080051E029 /* OrderProcessingHeaderView.m */; };
+		045EF189223BB1180051E029 /* OrderProcessingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045EF188223BB1180051E029 /* OrderProcessingHeaderView.xib */; };
 		045FAEB6221E35E60086DE4E /* PaymentSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FAEB5221E35E60086DE4E /* PaymentSuccessViewController.m */; };
 		045FAEBD221E7F2A0086DE4E /* OrderProcessingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FAEBC221E7F2A0086DE4E /* OrderProcessingView.m */; };
 		045FAEBF221E81900086DE4E /* OrderProcessingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045FAEBE221E81900086DE4E /* OrderProcessingView.xib */; };
@@ -530,6 +532,9 @@
 		045D55A3222E7A5800F128F8 /* SearchGoodsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchGoodsViewController.m; sourceTree = "<group>"; };
 		045EF144223B80DF0051E029 /* NSDictionary+NilSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NilSafe.m"; sourceTree = "<group>"; };
 		045EF145223B80E00051E029 /* NSDictionary+NilSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NilSafe.h"; sourceTree = "<group>"; };
+		045EF185223BB1080051E029 /* OrderProcessingHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderProcessingHeaderView.h; sourceTree = "<group>"; };
+		045EF186223BB1080051E029 /* OrderProcessingHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderProcessingHeaderView.m; sourceTree = "<group>"; };
+		045EF188223BB1180051E029 /* OrderProcessingHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderProcessingHeaderView.xib; sourceTree = "<group>"; };
 		045FAEB4221E35E60086DE4E /* PaymentSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentSuccessViewController.h; sourceTree = "<group>"; };
 		045FAEB5221E35E60086DE4E /* PaymentSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentSuccessViewController.m; sourceTree = "<group>"; };
 		045FAEBB221E7F2A0086DE4E /* OrderProcessingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderProcessingView.h; sourceTree = "<group>"; };
@@ -1507,6 +1512,9 @@
 				045FAEC0221E93AB0086DE4E /* OrderProcessingTableViewCell.h */,
 				045FAEC1221E93AB0086DE4E /* OrderProcessingTableViewCell.m */,
 				045FAEC2221E93AB0086DE4E /* OrderProcessingTableViewCell.xib */,
+				045EF185223BB1080051E029 /* OrderProcessingHeaderView.h */,
+				045EF186223BB1080051E029 /* OrderProcessingHeaderView.m */,
+				045EF188223BB1180051E029 /* OrderProcessingHeaderView.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2820,6 +2828,7 @@
 				04716AC12224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib in Resources */,
 				0459D91421E0A78F009BFFB4 /* OrderSureTableViewCell.xib in Resources */,
 				042D1531221D629A00DB895C /* PaySuccessView.xib in Resources */,
+				045EF189223BB1180051E029 /* OrderProcessingHeaderView.xib in Resources */,
 				044250B822277FE400E9F64E /* TimeChooseView.xib in Resources */,
 				04F8ED5121E349E000004178 /* ModifyAddressViewCell.xib in Resources */,
 				04F8FBFB21F17E0200913150 /* AllCommentsCell.xib in Resources */,
@@ -2979,6 +2988,7 @@
 				04F866AF21A7FF4D00A4D7F6 /* ADCarouselView.m in Sources */,
 				0446656A2237654300DF6F47 /* JXCategoryIndicatorBackgroundView.m in Sources */,
 				04F2702521E830870019FB9F /* ChannelModel.m in Sources */,
+				045EF187223BB1080051E029 /* OrderProcessingHeaderView.m in Sources */,
 				0403676C21A4E9CE00974435 /* AnchorViewCell.m in Sources */,
 				04FB2F7321BB7BE8007E63AA /* UIView+FontSize.m in Sources */,
 				045FAEB6221E35E60086DE4E /* PaymentSuccessViewController.m in Sources */,
@@ -3345,7 +3355,7 @@
 					"$(PROJECT_DIR)/DaBangVR/ThridParty/UMSocial/UMSocialSDK",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/DaBangVR/Supporting Files/DaBangVR.pch";
 				INFOPLIST_FILE = "/Users/mac/Desktop/DaBangVR/DaBangVR/Supporting Files/Info.plist";

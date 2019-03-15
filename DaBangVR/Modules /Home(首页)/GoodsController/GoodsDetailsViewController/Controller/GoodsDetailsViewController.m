@@ -127,13 +127,13 @@ static NSString *CellID = @"CellID";
         make.size.equalTo(CGSizeMake(KScreenW, kTabBarHeight));
     }];
     
-    NSMutableArray *names  = [NSMutableArray arrayWithObjects:@"购物车", @"立即购买", nil];
+    NSMutableArray *names  = [NSMutableArray arrayWithObjects:kShoppingCar, kNowBuy, nil];
     NSMutableArray *colors = [NSMutableArray arrayWithObjects:KOrangeColor, KRedColor, nil];
     if ([_interfaceState isKindOfClass:[SecondsKillViewController class]]) {
         // 替换字符串
-        [names replaceObjectAtIndex:1 withObject:@"秒杀购买"];
+        [names replaceObjectAtIndex:1 withObject:kNowSecondsBuy];
     }else if ([_interfaceState isKindOfClass:[SpellGroupViewController class]]){
-        [names replaceObjectAtIndex:0 withObject:@"拼  团"];
+        [names replaceObjectAtIndex:0 withObject:kSpellGroup];
     }
     
     NSMutableArray *buyOrCarBtnArr = [NSMutableArray new];
@@ -320,9 +320,9 @@ static NSString *CellID = @"CellID";
     kWeakSelf(self);
     attributesView.goodsAttributesBlock = ^(NSArray *array) {
         weakself.goodsAttributesArr = array;
-        if ([identifier isEqualToString:@"立即购买"] || identifier.length == 0) {
+        if ([identifier isEqualToString:kNowBuy] || identifier.length == 0) {
             [self goodsBuyOfRightButton:array];
-        }else if ([identifier isEqualToString:@"购物车"]){
+        }else if ([identifier isEqualToString:kShoppingCar]){
             [self goodsBuyOfLeftButton:array];
         }
     };
@@ -368,10 +368,16 @@ static NSString *CellID = @"CellID";
                 };
         
     }
-    
-    [NetWorkHelper POST:URl_confirmGoods2Buy parameters:dic success:^(id  _Nonnull responseObject) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        DLog(@"%@",dic[@"errmsg"]);
+    NSString *URLString;
+    if ([_interfaceState isKindOfClass:[SecondsKillViewController class]]) {
+        //秒杀请求
+        URLString = URl_confirmGoods2seconds;
+    }else{
+        //直接购买接口
+        URLString = URl_confirmGoods2Buy;
+    }
+    [NetWorkHelper POST:URLString parameters:dic success:^(id  _Nonnull responseObject) {
+        DLog(@"errmsg is %@",KJSONSerialization(responseObject)[@"errmsg"]);
         // 直接跳转确认订单界面
         OrderSureViewController *vc = [[OrderSureViewController alloc] init];
         // 提交订单所需参数
@@ -390,17 +396,16 @@ static NSString *CellID = @"CellID";
     if (![self.model.remainingInventory isEqualToString:@"0"]) {
         if (sender.tag == 1) {
             //立即购买
-            [self creatAttributesView:@"立即购买"];
+            [self creatAttributesView:kNowBuy];
         }else{
             if ([self.interfaceState isKindOfClass:[SpellGroupViewController class]]) {
                 //拼团，执行拼团方法
-                [self creatAttributesView:@"立即购买"];
+                [self creatAttributesView:kNowBuy];
                 self.submitType = kGroup2;
             }else if ([self.interfaceState isKindOfClass:[GoodsShowViewController class]]){
                 //加入购物车
                 [self GoodsBuyleftButtonOfAction];
             }
-            
         }
     }else{
         [SVProgressHUD showInfoWithStatus:@"库存不足"];

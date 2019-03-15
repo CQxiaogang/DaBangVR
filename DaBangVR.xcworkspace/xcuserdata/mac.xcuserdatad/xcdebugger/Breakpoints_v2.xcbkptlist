@@ -67,13 +67,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/GoodsController/OrderSureViewController/Controller/OrderSureViewController.m"
-            timestampString = "574324986.484831"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/GoodsController/GoodsDetailsViewController/Controller/GoodsDetailsViewController.m"
+            timestampString = "574337525.437325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
-            landmarkName = "-submitOrdersBtnAction"
+            startingLineNumber = "331"
+            endingLineNumber = "331"
+            landmarkName = "-goodsBuyOfLeftButton:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/GoodsController/GoodsDetailsViewController/Controller/GoodsDetailsViewController.m"
+            timestampString = "574337525.437584"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
+            landmarkName = "-goodsBuyOfActon:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -176,4 +176,13 @@ return shared##className; \
 // 我的订单类别购买类型参数
 #define kBuyTypeSeconds @"6" //秒杀
 #define kBuyTypeGroup   @"3" //拼团购买
+
+//商品详情UI文字
+#define kShoppingCar    @"购物车"
+#define kNowBuy         @"立即购买"
+#define kNowSecondsBuy  @"立即秒杀"
+#define kSpellGroup     @"拼团"
+#define kSpellGroup1    @"去拼单"
+
+
 #endif /* define_h */

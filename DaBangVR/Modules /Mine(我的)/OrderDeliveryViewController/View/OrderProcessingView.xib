@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="lKk-JS-547" userLabel="OrderProcessingView" customClass="OrderProcessingView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="295"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="244"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s-background" translatesAutoresizingMaskIntoConstraints="NO" id="Jpb-hd-n28">
@@ -205,46 +205,21 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="5l8-Ph-FjC"/>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s-Commodity" translatesAutoresizingMaskIntoConstraints="NO" id="C8c-z2-eqt">
-                    <rect key="frame" x="10" y="249" width="25" height="27"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="25" id="5Oc-q9-Gck">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                            </userDefinedRuntimeAttributes>
-                        </constraint>
-                        <constraint firstAttribute="height" constant="27" id="PHW-49-dq8">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                            </userDefinedRuntimeAttributes>
-                        </constraint>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2Z-ey-lat">
-                    <rect key="frame" x="40" y="255" width="50" height="15"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="uXS-kR-bWY" firstAttribute="centerX" secondItem="lKk-JS-547" secondAttribute="centerX" id="1iS-FY-ASt"/>
-                <constraint firstItem="C8c-z2-eqt" firstAttribute="top" secondItem="Jpb-hd-n28" secondAttribute="bottom" constant="19" id="5lm-y3-LEO"/>
-                <constraint firstItem="d2Z-ey-lat" firstAttribute="centerY" secondItem="C8c-z2-eqt" secondAttribute="centerY" id="6Cb-5a-waW"/>
                 <constraint firstItem="8E8-Hu-P3X" firstAttribute="leading" secondItem="lkQ-4S-cgL" secondAttribute="leading" constant="112" id="AX9-dm-RFV"/>
                 <constraint firstItem="lkQ-4S-cgL" firstAttribute="trailing" secondItem="Jpb-hd-n28" secondAttribute="trailing" id="B51-2F-NaT"/>
                 <constraint firstItem="Jpb-hd-n28" firstAttribute="leading" secondItem="lkQ-4S-cgL" secondAttribute="leading" id="FeU-KC-uIo"/>
+                <constraint firstItem="uXS-kR-bWY" firstAttribute="bottom" secondItem="Jpb-hd-n28" secondAttribute="bottom" id="LA3-ja-igA"/>
                 <constraint firstItem="Jpb-hd-n28" firstAttribute="top" secondItem="lkQ-4S-cgL" secondAttribute="top" id="POz-di-Ya7"/>
                 <constraint firstItem="uXS-kR-bWY" firstAttribute="leading" secondItem="lkQ-4S-cgL" secondAttribute="leading" constant="20" id="Wc8-ru-1jo"/>
                 <constraint firstItem="8E8-Hu-P3X" firstAttribute="top" secondItem="lkQ-4S-cgL" secondAttribute="top" constant="30" id="XfU-ow-Lvb"/>
                 <constraint firstItem="LMK-7N-EHP" firstAttribute="leading" secondItem="8E8-Hu-P3X" secondAttribute="trailing" constant="10" id="ZSP-FU-KFy"/>
-                <constraint firstItem="C8c-z2-eqt" firstAttribute="leading" secondItem="lkQ-4S-cgL" secondAttribute="leading" constant="10" id="g1R-6S-cFG"/>
                 <constraint firstItem="lkQ-4S-cgL" firstAttribute="trailing" secondItem="uXS-kR-bWY" secondAttribute="trailing" constant="20" id="luD-NC-Sdq"/>
                 <constraint firstItem="KHg-JE-dYb" firstAttribute="top" secondItem="LMK-7N-EHP" secondAttribute="bottom" constant="5" id="peO-zS-IIw"/>
                 <constraint firstItem="KHg-JE-dYb" firstAttribute="leading" secondItem="LMK-7N-EHP" secondAttribute="leading" id="sXn-YJ-MXS"/>
-                <constraint firstItem="C8c-z2-eqt" firstAttribute="top" secondItem="uXS-kR-bWY" secondAttribute="bottom" constant="19" id="uNx-6J-JQP"/>
-                <constraint firstItem="d2Z-ey-lat" firstAttribute="leading" secondItem="C8c-z2-eqt" secondAttribute="trailing" constant="5" id="w9D-8W-f79"/>
                 <constraint firstItem="LMK-7N-EHP" firstAttribute="top" secondItem="8E8-Hu-P3X" secondAttribute="top" id="xBs-qM-Xyg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -252,12 +227,11 @@
             <connections>
                 <outlet property="contentView" destination="uXS-kR-bWY" id="YJA-2U-CdJ"/>
             </connections>
-            <point key="canvasLocation" x="264.80000000000001" y="216.34182908545728"/>
+            <point key="canvasLocation" x="264.80000000000001" y="193.4032983508246"/>
         </view>
     </objects>
     <resources>
         <image name="s-Button" width="149" height="44"/>
-        <image name="s-Commodity" width="49" height="52"/>
         <image name="s-Delivery" width="79" height="89"/>
         <image name="s-Receipt" width="79" height="89"/>
         <image name="s-Submission" width="79" height="89"/>

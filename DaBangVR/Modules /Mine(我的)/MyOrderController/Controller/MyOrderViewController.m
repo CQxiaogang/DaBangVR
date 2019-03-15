@@ -82,13 +82,14 @@
 }
 
 #pragma mark —— MyOrderTableViewController 代理
--(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath orderState:(NSInteger)state{
+-(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath OrderDeptGoodsModel:(nonnull OrderDeptGoodsModel *)model{
+    NSInteger state = [model.orderState integerValue];
     switch (state) {
         case 0: // 待付款
         {
             OrderSureViewController *vc = [[OrderSureViewController alloc] init];
-            vc.submitType = @"buy";
-            vc.orderSnTotal = @"orderSn";
+            vc.submitType = kBuy;
+            vc.orderSnTotal = kOrderSn;
             [self.navigationController pushViewController:vc animated:NO];
         }
             break;
@@ -99,6 +100,7 @@
         {
             // 订单物流界面
             OrderProcessingViewController2 *vc = [[OrderProcessingViewController2 alloc] init];
+            vc.orderId = model.id;
             [self.navigationController pushViewController:vc animated:NO];
         }
         default:

@@ -114,7 +114,11 @@
 // 立即购买 - 确认订单
 #define URl_confirmGoods2Buy  NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/confirmGoods2Buy?")
 // 购物车 - 确认订单
-#define URl_confirmGoods2Cart NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/confirmGoods2Cart?")
+#define URl_confirmGoods2Cart  NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/confirmGoods2Cart?")
+// 单独购买、发起拼团、参加拼团 - 确认订单
+#define URl_confirmGoods2groupbuy NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/confirmGoods2groupbuy?")
+// 秒杀商品 - 确认订单
+#define URl_confirmGoods2seconds NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/confirmGoods2seconds?")
 // 确认订单页面数据 - 统一入口
 #define URl_getConfirmGoods NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/getConfirmGoods")
 // 提交订单 - 统一入口

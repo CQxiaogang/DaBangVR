@@ -229,15 +229,10 @@ static NSString *leaveMessage;
     // 确认支付，调用后台
     leaveMessage = leaveMessage? leaveMessage:@"";
     if (weakself.model.receivingAddress.id.length != 0 && _submitType.length != 0) {
-        NSString *goodsIds = _model.goodsId;
-        if ([_submitType isEqualToString:@"cart"]) {
-            goodsIds = _model.cartIds;
-        }
         NSDictionary *parameters = @{
                                      @"submitType"   : _submitType,
                                      @"addressId"    : weakself.model.receivingAddress.id,
-                                     @"leaveMessage" : leaveMessage,
-                                     @"goodsIds"     : goodsIds
+                                     @"leaveMessage" : leaveMessage
                                      };
         [NetWorkHelper POST:URl_submitOrder parameters:parameters success:^(id  _Nonnull responseObject) {
             NSString *error = [NSString stringWithFormat:@"%@",KJSONSerialization(responseObject)[@"errno"]];
