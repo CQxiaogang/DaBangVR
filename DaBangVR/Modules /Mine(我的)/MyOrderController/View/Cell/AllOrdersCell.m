@@ -50,6 +50,7 @@
          400申请退款
          401退款中
          402完成
+         500已评论
  */
 -(void)setDepModel:(OrderDeptGoodsModel *)depModel{
     _depModel = depModel;
@@ -76,14 +77,16 @@
             [_lowerRightCornerBtn setTitle:kOrderState_ToEvaluate forState:UIControlStateNormal];
             break;
         case 400: //申请退款
+            _stateLab.text = @"退款中";
+            [_lowerRightCornerBtn setTitle:@"退款中" forState:UIControlStateNormal];
             break;
         case 401: //退款中
             _stateLab.text = @"退款中";
             [_lowerRightCornerBtn setTitle:@"退款中" forState:UIControlStateNormal];
             break;
         case 500: //完成
-            _stateLab.text = @"删除订单";
-            [_lowerRightCornerBtn setTitle:@"删除订单" forState:UIControlStateNormal];
+            _stateLab.text = @"已评论";
+            [_lowerRightCornerBtn setTitle:@"已评论" forState:UIControlStateNormal];
             break;
         default:
             break;

@@ -43,8 +43,9 @@ static NSString *FooterID = @"FooterID";
     [self.tableView registerNib:[UINib nibWithNibName:@"OrderProcessingFooterView" bundle:nil] forHeaderFooterViewReuseIdentifier:FooterID];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(0);
+        make.left.right.equalTo(0);
         make.top.equalTo(kTopHeight);
+        make.bottom.equalTo(kFit(-40));
     }];
     
     OrderProcessingView *orderDeliveryV = [[[NSBundle mainBundle] loadNibNamed:@"OrderProcessingView" owner:nil options:nil] firstObject];
@@ -54,6 +55,8 @@ static NSString *FooterID = @"FooterID";
         make.height.equalTo(kFit(244));
         make.width.equalTo(KScreenW);
     }];
+    // 设置底部UI
+    [self setupBottonUI];
 }
 -(void)setupNavagationBar{
     UIButton *phoneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -62,6 +65,31 @@ static NSString *FooterID = @"FooterID";
     [phoneBtn setImage:[UIImage imageNamed:@"o_delivey"] forState:UIControlStateNormal];
     UIBarButtonItem *phoneItem = [[UIBarButtonItem alloc] initWithCustomView:phoneBtn];
     self.navigationItem.rightBarButtonItem = phoneItem;
+}
+- (void)setupBottonUI{
+    // 退款
+    UIButton *refundBtn = [[UIButton alloc] init];
+    [refundBtn setTitle:@"申请退款" forState:UIControlStateNormal];
+    refundBtn.adaptiveFontSize = 12;
+    refundBtn.backgroundColor = KRedColor;
+    [refundBtn addTarget:self action:@selector(refundButOfAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:refundBtn];
+    [refundBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.equalTo(CGSizeMake(kFit(80), kFit(30)));
+        make.bottom.right.equalTo(kFit(-10));
+    }];
+}
+- (void)refundButOfAction{
+    // 退款
+    kWeakSelf(self);
+    [self AlertWithTitle:@"确认退款" message:@"是否确认退款" andOthers:@[@"取消",@"确定"] animated:YES action:^(NSInteger index) {
+        if (index == 1) {
+            [NetWorkHelper POST:URl_refundRequest parameters:@{@"orderId":weakself.orderId} success:^(id  _Nonnull responseObject) {
+                DLog(@"退款成功");
+            } failure:nil];
+        }
+    }];
+    
 }
 #pragma mark —— 加载数据
 -(void)loadingData{
@@ -98,6 +126,7 @@ static NSString *FooterID = @"FooterID";
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     OrderProcessingFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:FooterID];
+    footerView.model = _model;
     return footerView;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{

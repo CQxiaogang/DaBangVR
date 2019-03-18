@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 商品 图片地址
 @property(nonatomic, copy) NSString *listUrl;
 @property(nonatomic, copy) NSString *chartUrl;
-// 商品状态
+// 货物状态
 @property(nonatomic, copy) NSString *goodsState;
 // 订单状态
 @property (nonatomic, copy) NSString *orderState;
@@ -39,6 +39,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString *cartNumber;
 // 商品规格
 @property(nonatomic, copy) NSString *goodsSpecNames;
+// 商品规格ID
+@property(nonatomic, copy) NSString *goodsSpecIds;
+// 产品ID
+@property(nonatomic, copy) NSString *productId;
+
 @end
 
 NS_ASSUME_NONNULL_END

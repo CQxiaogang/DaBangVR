@@ -136,5 +136,6 @@
 #define URl_prepayOrder NSStringFormat(@"%@%@",URL_main,@"/api/payorder/prepayOrder?")
 // 微信支付回调接口（APP主动调用)
 #define URl_notifyApp NSStringFormat(@"%@%@",URL_main,@"/api/payorder/notifyApp?")
-
+// 取消订单及退款申请接口
+#define URl_refundRequest NSStringFormat(@"%@%@",URL_main,@"/api/payorder/refundRequest?")
 
