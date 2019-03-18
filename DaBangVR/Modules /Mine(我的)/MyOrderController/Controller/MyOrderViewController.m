@@ -8,7 +8,7 @@
 
 // controllers
 #import "MyOrderViewController.h"
-#import "EvaluationViewController.h"
+#import "EvaluationViewController.h" // 评价
 #import "OrderProcessingViewController2.h"
 #import "MyOrderTableViewController.h"
 #import "OrderSureViewController.h"  // 订单确认
@@ -51,7 +51,7 @@
     lineView.indicatorLineViewColor = [UIColor lightGreen];
     [self.view addSubview:self.categoryView];
     
-    self.listContainerView = [[JXCategoryListContainerView alloc] initWithParentVC:self delegate:self];
+    self.listContainerView = [[JXCategoryListContainerView alloc] initWithDelegate:self];
     self.listContainerView.frame = CGRectMake(0, categoryVHeight + kTopHeight, KScreenW, KScreenH - categoryVHeight - kTopHeight);
     self.listContainerView.defaultSelectedIndex = 0;
     self.listContainerView.tag = 0;
@@ -103,6 +103,14 @@
             vc.orderId = model.id;
             [self.navigationController pushViewController:vc animated:NO];
         }
+            break;
+        case 301:
+        {
+            EvaluationViewController *vc = [[EvaluationViewController alloc] init];
+            vc.model = model.orderGoodslist[indexPath.row];
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+           break;
         default:
             break;
     }

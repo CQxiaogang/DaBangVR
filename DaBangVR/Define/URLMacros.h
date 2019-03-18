@@ -79,6 +79,8 @@
 #define URl_getGlobalLists NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGlobalLists?")
 // 秒杀商品列表
 #define URl_getSecondsKillGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/goods/getSecondsKillGoodsList?")
+// 添加商品评论
+#define URl_getCommentSave NSStringFormat(@"%@%@",URL_main,@"/api/goods/getCommentSave?")
 
 
 #pragma mark ——————  登陆授权接口  ——————

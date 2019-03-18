@@ -24,12 +24,12 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11月30日  11:00  极速达订单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-tE-LxQ">
                                 <rect key="frame" x="20" y="0.0" width="355" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
-                                        <real key="value" value="14"/>
+                                        <real key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -39,8 +39,16 @@
                             <constraint firstItem="eXt-tE-LxQ" firstAttribute="top" secondItem="WUK-PU-eUW" secondAttribute="top" id="4Iw-V1-Smm"/>
                             <constraint firstItem="WUK-PU-eUW" firstAttribute="bottom" secondItem="eXt-tE-LxQ" secondAttribute="bottom" id="B1x-eY-dw0"/>
                             <constraint firstItem="WUK-PU-eUW" firstAttribute="trailing" secondItem="eXt-tE-LxQ" secondAttribute="trailing" id="CuB-rm-CfE"/>
-                            <constraint firstAttribute="height" constant="40" id="FAI-N2-4nl"/>
-                            <constraint firstAttribute="width" constant="375" id="Yfb-aE-Ge9"/>
+                            <constraint firstAttribute="height" constant="40" id="FAI-N2-4nl">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstAttribute="width" constant="375" id="Yfb-aE-Ge9">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="eXt-tE-LxQ" firstAttribute="leading" secondItem="WUK-PU-eUW" secondAttribute="leading" constant="20" id="cKJ-hk-Uji"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WUK-PU-eUW"/>
@@ -111,8 +119,16 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥135.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pz-j3-Y78">
                                 <rect key="frame" x="226" y="78.5" width="44" height="15"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="CDK-VT-IVb"/>
-                                    <constraint firstAttribute="width" constant="44" id="mFp-o8-U5b"/>
+                                    <constraint firstAttribute="height" constant="15" id="CDK-VT-IVb">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="44" id="mFp-o8-U5b">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.094376392660000002" green="0.8590441942" blue="0.86259275670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -126,8 +142,16 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(含配送费￥00.00)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SP4-78-1zh">
                                 <rect key="frame" x="275" y="80" width="90" height="12"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="12" id="9rP-Xt-wkB"/>
-                                    <constraint firstAttribute="width" constant="90" id="AeE-X1-hZ4"/>
+                                    <constraint firstAttribute="height" constant="12" id="9rP-Xt-wkB">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="90" id="AeE-X1-hZ4">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -143,13 +167,21 @@
                         <constraints>
                             <constraint firstItem="SP4-78-1zh" firstAttribute="centerY" secondItem="7Dg-zM-ySH" secondAttribute="centerY" id="Bhl-9p-APX"/>
                             <constraint firstItem="SP4-78-1zh" firstAttribute="leading" secondItem="6Pz-j3-Y78" secondAttribute="trailing" constant="5" id="C3w-qT-sRZ"/>
-                            <constraint firstAttribute="width" constant="375" id="D4S-bk-5U1"/>
+                            <constraint firstAttribute="width" constant="375" id="D4S-bk-5U1">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="WFs-s0-jcG" firstAttribute="top" secondItem="Gbe-2u-7gk" secondAttribute="top" id="KdR-Lt-Vx8"/>
                             <constraint firstItem="6Pz-j3-Y78" firstAttribute="leading" secondItem="2wX-9w-TSh" secondAttribute="trailing" id="QFh-oU-RWF"/>
                             <constraint firstItem="jrh-dG-Jnq" firstAttribute="bottom" secondItem="Gbe-2u-7gk" secondAttribute="bottom" constant="8" id="QZO-ia-pct"/>
                             <constraint firstItem="2wX-9w-TSh" firstAttribute="centerY" secondItem="7Dg-zM-ySH" secondAttribute="centerY" id="QhJ-nQ-CX5"/>
                             <constraint firstItem="2wX-9w-TSh" firstAttribute="leading" secondItem="7Dg-zM-ySH" secondAttribute="trailing" constant="5" id="Tok-1B-vIt"/>
-                            <constraint firstAttribute="height" constant="100" id="Wve-46-uD4"/>
+                            <constraint firstAttribute="height" constant="100" id="Wve-46-uD4">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="6Pz-j3-Y78" firstAttribute="centerY" secondItem="7Dg-zM-ySH" secondAttribute="centerY" id="dnm-2v-Xxu"/>
                             <constraint firstItem="Gbe-2u-7gk" firstAttribute="leading" secondItem="jrh-dG-Jnq" secondAttribute="leading" constant="10" id="gen-Ia-5PW"/>
                             <constraint firstItem="jrh-dG-Jnq" firstAttribute="trailing" secondItem="SP4-78-1zh" secondAttribute="trailing" constant="10" id="n64-fL-g6W"/>
@@ -379,6 +411,11 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="evaluationTextView" destination="P27-on-K7v" id="g8l-ua-Qgk"/>
+                <outlet property="goodsDetails" destination="WFs-s0-jcG" id="NqD-1h-2ei"/>
+                <outlet property="goodsImgView" destination="Gbe-2u-7gk" id="vj6-YF-Rai"/>
+                <outlet property="goodsNum" destination="7Dg-zM-ySH" id="l8r-U3-JDD"/>
+                <outlet property="goodsPostage" destination="SP4-78-1zh" id="0fF-CM-HE1"/>
+                <outlet property="goodsPrice" destination="6Pz-j3-Y78" id="y5t-82-pdf"/>
             </connections>
             <point key="canvasLocation" x="-202.40000000000001" y="153.82308845577214"/>
         </tableViewCell>

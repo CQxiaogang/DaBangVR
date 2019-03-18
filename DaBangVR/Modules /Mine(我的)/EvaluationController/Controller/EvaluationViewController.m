@@ -11,7 +11,11 @@
 // Views
 #import "EvaluationCell.h"
 
-@interface EvaluationViewController ()
+@interface EvaluationViewController (){
+   
+}
+
+@property (nonatomic, copy) NSString *commentContent;
 
 @end
 
@@ -55,8 +59,7 @@ static NSString *CellID = @"CellID";
 
 - (void)setupNavagationBar{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn.widthAnchor constraintEqualToConstant:25
-     ].active = YES;
+    [btn.widthAnchor constraintEqualToConstant:25].active = YES;
     [btn.heightAnchor constraintEqualToConstant:25].active = YES;
     [btn setImage:[UIImage imageNamed:@"e-more"] forState:UIControlStateNormal];
     UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
@@ -76,11 +79,16 @@ static NSString *CellID = @"CellID";
     if (!cell) {
         cell = [[EvaluationCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
+    cell.model = _model;
+    kWeakSelf(self);
+    cell.textViewBlock = ^(NSString * _Nonnull text) {
+        weakself.commentContent = text;
+    };
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 438;
+    return kFit(297);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -90,11 +98,20 @@ static NSString *CellID = @"CellID";
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 1;
 }
-#pragma mark —— button 点击事件
-// 提交 button 的点击事件
+#pragma mark —— 提交
 - (void)submitButtonOfAction{
-    EvaluationOfSuccessViewController *vc = [[EvaluationOfSuccessViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:NO];
+    if (_model) {
+        _commentContent = _commentContent?_commentContent:@"";
+        NSDictionary *parameters = @{
+                                     @"goodsId":_model.goodsId,
+                                     @"orderId":_model.orderId,
+                                     @"commentContent":_commentContent
+                                     };
+        [NetWorkHelper POST:URl_getCommentSave parameters:parameters success:^(id  _Nonnull responseObject) {
+            EvaluationOfSuccessViewController *vc = [[EvaluationOfSuccessViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:NO];
+        } failure:nil];
+    }
 }
 
 @end

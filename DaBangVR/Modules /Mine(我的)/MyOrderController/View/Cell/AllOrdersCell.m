@@ -81,7 +81,9 @@
             _stateLab.text = @"退款中";
             [_lowerRightCornerBtn setTitle:@"退款中" forState:UIControlStateNormal];
             break;
-        case 402: //完成
+        case 500: //完成
+            _stateLab.text = @"删除订单";
+            [_lowerRightCornerBtn setTitle:@"删除订单" forState:UIControlStateNormal];
             break;
         default:
             break;
