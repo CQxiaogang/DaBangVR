@@ -19,8 +19,16 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s-Commodity" translatesAutoresizingMaskIntoConstraints="NO" id="vjj-sR-qjZ">
                     <rect key="frame" x="10" y="2.5" width="25" height="25"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="25" id="Lph-RY-hNH"/>
-                        <constraint firstAttribute="height" constant="25" id="nkr-Wj-9DM"/>
+                        <constraint firstAttribute="width" constant="25" id="Lph-RY-hNH">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="25" id="nkr-Wj-9DM">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1Q-Rr-akc">
@@ -40,7 +48,11 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="jgl-aT-8A4"/>
-            <point key="canvasLocation" x="44" y="138.53073463268368"/>
+            <connections>
+                <outlet property="deptImgView" destination="vjj-sR-qjZ" id="nbf-tl-2QK"/>
+                <outlet property="deptName" destination="j1Q-Rr-akc" id="uOf-FD-0UA"/>
+            </connections>
+            <point key="canvasLocation" x="26" y="103"/>
         </view>
     </objects>
     <resources>

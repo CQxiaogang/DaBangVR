@@ -11,6 +11,7 @@
 #import "OrderProcessingView.h"
 #import "OrderProcessingTableViewCell.h"
 #import "OrderProcessingHeaderView.h"
+#import "OrderProcessingFooterView.h"
 // Models
 #import "OrderDeptGoodsModel.h"
 
@@ -23,6 +24,7 @@
 @implementation OrderProcessingViewController2
 static NSString *CellID = @"CellID";
 static NSString *HeaderID = @"HeaderID";
+static NSString *FooterID = @"FooterID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,6 +40,7 @@ static NSString *HeaderID = @"HeaderID";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"OrderProcessingTableViewCell" bundle:nil] forCellReuseIdentifier:CellID];
     [self.tableView registerNib:[UINib nibWithNibName:@"OrderProcessingHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:HeaderID];
+    [self.tableView registerNib:[UINib nibWithNibName:@"OrderProcessingFooterView" bundle:nil] forHeaderFooterViewReuseIdentifier:FooterID];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(0);
@@ -71,11 +74,12 @@ static NSString *HeaderID = @"HeaderID";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return _model.orderGoodslist.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     OrderProcessingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
+    cell.model = _model.orderGoodslist[indexPath.row];
     return cell;
 }
 
@@ -85,9 +89,19 @@ static NSString *HeaderID = @"HeaderID";
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     OrderProcessingHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:HeaderID];
+    headerView.model = _model;
     return headerView;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return kFit(30);
 }
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    OrderProcessingFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:FooterID];
+    return footerView;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return kFit(200);
+}
+
 @end

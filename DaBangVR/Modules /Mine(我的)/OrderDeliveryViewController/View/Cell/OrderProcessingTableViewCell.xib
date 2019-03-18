@@ -109,6 +109,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="goodsDestails" destination="hma-vJ-4MH" id="343-zZ-JDD"/>
+                <outlet property="goodsImgView" destination="HTD-Dm-wSS" id="TsO-AC-491"/>
+                <outlet property="goodsNum" destination="qx9-h9-OAU" id="JnM-jh-P6z"/>
+                <outlet property="goodsPrice" destination="ayh-bW-Chv" id="5QU-gL-Qyl"/>
+            </connections>
             <point key="canvasLocation" x="40.799999999999997" y="79.160419790104953"/>
         </tableViewCell>
     </objects>

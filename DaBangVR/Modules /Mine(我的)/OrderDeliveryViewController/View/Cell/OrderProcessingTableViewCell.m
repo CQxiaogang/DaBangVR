@@ -15,10 +15,12 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setModel:(OrderGoodsModel *)model{
+    _model = model;
+    [_goodsImgView setImageWithURL:[NSURL URLWithString:model.listUrl?model.listUrl:model.goodsListUrl] placeholder:kDefaultImg];
+    _goodsDestails.text = model.goodsName;
+    _goodsNum.text = [NSString stringWithFormat:@"x%@",model.goodsNumber];
+    _goodsPrice.text = [NSString stringWithFormat:@"￥%@",model.retailPrice];
 }
 
 @end

@@ -160,6 +160,8 @@
 		049D479F219FEC540058178D /* DBLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D479E219FEC540058178D /* DBLiveViewController.m */; };
 		049D47A2219FEC690058178D /* DBShortVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A1219FEC690058178D /* DBShortVideoViewController.m */; };
 		04A3DA3021E9EF6400F689C7 /* GoodsShowListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */; };
+		04ACFA69223F3A93006783BF /* OrderProcessingFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACFA68223F3A93006783BF /* OrderProcessingFooterView.m */; };
+		04ACFA6B223F3AA6006783BF /* OrderProcessingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ACFA6A223F3AA6006783BF /* OrderProcessingFooterView.xib */; };
 		04BF21832212B719002468C0 /* JXPagerListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF216F2212B719002468C0 /* JXPagerListContainerView.m */; };
 		04BF21842212B719002468C0 /* JXPagerMainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF21702212B719002468C0 /* JXPagerMainTableView.m */; };
 		04BF21852212B719002468C0 /* JXPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF21712212B719002468C0 /* JXPagerView.m */; };
@@ -597,6 +599,9 @@
 		049D47A1219FEC690058178D /* DBShortVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBShortVideoViewController.m; sourceTree = "<group>"; };
 		04A3DA2E21E9EF6400F689C7 /* GoodsShowListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsShowListModel.h; sourceTree = "<group>"; };
 		04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsShowListModel.m; sourceTree = "<group>"; };
+		04ACFA67223F3A93006783BF /* OrderProcessingFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderProcessingFooterView.h; sourceTree = "<group>"; };
+		04ACFA68223F3A93006783BF /* OrderProcessingFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderProcessingFooterView.m; sourceTree = "<group>"; };
+		04ACFA6A223F3AA6006783BF /* OrderProcessingFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderProcessingFooterView.xib; sourceTree = "<group>"; };
 		04BF216F2212B719002468C0 /* JXPagerListContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerListContainerView.m; sourceTree = "<group>"; };
 		04BF21702212B719002468C0 /* JXPagerMainTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerMainTableView.m; sourceTree = "<group>"; };
 		04BF21712212B719002468C0 /* JXPagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerView.m; sourceTree = "<group>"; };
@@ -1515,6 +1520,9 @@
 				045EF185223BB1080051E029 /* OrderProcessingHeaderView.h */,
 				045EF186223BB1080051E029 /* OrderProcessingHeaderView.m */,
 				045EF188223BB1180051E029 /* OrderProcessingHeaderView.xib */,
+				04ACFA67223F3A93006783BF /* OrderProcessingFooterView.h */,
+				04ACFA68223F3A93006783BF /* OrderProcessingFooterView.m */,
+				04ACFA6A223F3AA6006783BF /* OrderProcessingFooterView.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2806,6 +2814,7 @@
 				042FCEC821A3E24F002AD0DB /* HomeSecondsKillView.xib in Resources */,
 				042FCED221A4070C002AD0DB /* DBHotVideoView.xib in Resources */,
 				049D475E219FA91E0058178D /* Main.storyboard in Resources */,
+				04ACFA6B223F3AA6006783BF /* OrderProcessingFooterView.xib in Resources */,
 				0403676E21A4E9DA00974435 /* AnchorViewCell.xib in Resources */,
 				04F2FD2921EF35DE000B58E2 /* SpellGroupCell.xib in Resources */,
 				04F47E2521E5D0EE001B5F74 /* AllOrdersCell.xib in Resources */,
@@ -3050,6 +3059,7 @@
 				04F4469421D74FBF00524971 /* GoodsInfoView.m in Sources */,
 				04F4468F21D74F9000524971 /* UIButton+Bootstrap.m in Sources */,
 				04FC07F321B50855008FF83B /* SettingViewController.m in Sources */,
+				04ACFA69223F3A93006783BF /* OrderProcessingFooterView.m in Sources */,
 				045A6FF02223F514006081CF /* CountryCollectionViewCell.m in Sources */,
 				044665722237654300DF6F47 /* JXCategoryTitleImageCell.m in Sources */,
 				04F3B32421EDE01000DFBA84 /* GoodsShowViewController.m in Sources */,

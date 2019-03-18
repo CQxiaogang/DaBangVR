@@ -10,12 +10,10 @@
 
 @implementation OrderProcessingHeaderView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)setModel:(OrderDeptGoodsModel *)model{
+    _model = model;
+    _deptImgView.image = [UIImage imageNamed:model.deptLogo];
+    _deptName.text = model.deptName;
 }
-*/
 
 @end
