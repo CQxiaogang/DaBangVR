@@ -179,6 +179,10 @@
 		04C1AD23221172770011DDA3 /* lufei.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04C1AD22221172770011DDA3 /* lufei.jpg */; };
 		04D9C46921EA0706005F23FF /* NetWorkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D9C46821EA0706005F23FF /* NetWorkHelper.m */; };
 		04E0473221D36A42002DDB98 /* AllCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E0473121D36A42002DDB98 /* AllCommentsViewController.m */; };
+		04ECB9EF2241D9E800A02DB2 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ECB9EE2241D9E800A02DB2 /* UserInfoModel.m */; };
+		04ECB9F622422C7300A02DB2 /* GuideImage.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04ECB9F122422C7300A02DB2 /* GuideImage.bundle */; };
+		04ECB9F722422C7300A02DB2 /* DHGifImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ECB9F222422C7300A02DB2 /* DHGifImageOperation.m */; };
+		04ECB9F822422C7300A02DB2 /* DHGuidePageHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ECB9F522422C7300A02DB2 /* DHGuidePageHUD.m */; };
 		04EFA01821E7045C007C2FCA /* EvaluationSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA01721E7045C007C2FCA /* EvaluationSuccessView.m */; };
 		04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EFA01921E70470007C2FCA /* EvaluationSuccessView.xib */; };
 		04EFA02621E7226D007C2FCA /* OrderProcessingViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EFA02521E7226D007C2FCA /* OrderProcessingViewController2.m */; };
@@ -634,6 +638,13 @@
 		04D9C46821EA0706005F23FF /* NetWorkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkHelper.m; sourceTree = "<group>"; };
 		04E0473021D36A42002DDB98 /* AllCommentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllCommentsViewController.h; sourceTree = "<group>"; };
 		04E0473121D36A42002DDB98 /* AllCommentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllCommentsViewController.m; sourceTree = "<group>"; };
+		04ECB9ED2241D9E800A02DB2 /* UserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
+		04ECB9EE2241D9E800A02DB2 /* UserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
+		04ECB9F122422C7300A02DB2 /* GuideImage.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GuideImage.bundle; sourceTree = "<group>"; };
+		04ECB9F222422C7300A02DB2 /* DHGifImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHGifImageOperation.m; sourceTree = "<group>"; };
+		04ECB9F322422C7300A02DB2 /* DHGuidePageHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHGuidePageHUD.h; sourceTree = "<group>"; };
+		04ECB9F422422C7300A02DB2 /* DHGifImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHGifImageOperation.h; sourceTree = "<group>"; };
+		04ECB9F522422C7300A02DB2 /* DHGuidePageHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHGuidePageHUD.m; sourceTree = "<group>"; };
 		04EFA01621E7045C007C2FCA /* EvaluationSuccessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluationSuccessView.h; sourceTree = "<group>"; };
 		04EFA01721E7045C007C2FCA /* EvaluationSuccessView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluationSuccessView.m; sourceTree = "<group>"; };
 		04EFA01921E70470007C2FCA /* EvaluationSuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaluationSuccessView.xib; sourceTree = "<group>"; };
@@ -2137,7 +2148,7 @@
 		04BF21692212B638002468C0 /* SettiingController */ = {
 			isa = PBXGroup;
 			children = (
-				04BF216C2212B654002468C0 /* Model */,
+				04ECB9EC2241D9DC00A02DB2 /* Model */,
 				04BF216A2212B654002468C0 /* View */,
 				04BF216B2212B654002468C0 /* Controller */,
 			);
@@ -2160,13 +2171,6 @@
 				04FC07F221B50855008FF83B /* SettingViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		04BF216C2212B654002468C0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		04BF216D2212B719002468C0 /* Common */ = {
@@ -2247,6 +2251,27 @@
 				04D9C46821EA0706005F23FF /* NetWorkHelper.m */,
 			);
 			path = NetWork;
+			sourceTree = "<group>";
+		};
+		04ECB9EC2241D9DC00A02DB2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04ECB9ED2241D9E800A02DB2 /* UserInfoModel.h */,
+				04ECB9EE2241D9E800A02DB2 /* UserInfoModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04ECB9F022422C7300A02DB2 /* DHGuidePageHUD */ = {
+			isa = PBXGroup;
+			children = (
+				04ECB9F122422C7300A02DB2 /* GuideImage.bundle */,
+				04ECB9F222422C7300A02DB2 /* DHGifImageOperation.m */,
+				04ECB9F322422C7300A02DB2 /* DHGuidePageHUD.h */,
+				04ECB9F422422C7300A02DB2 /* DHGifImageOperation.h */,
+				04ECB9F522422C7300A02DB2 /* DHGuidePageHUD.m */,
+			);
+			path = DHGuidePageHUD;
 			sourceTree = "<group>";
 		};
 		04EFA01521E703DB007C2FCA /* EvaluationSuccessView */ = {
@@ -2452,6 +2477,7 @@
 		04F5C8E321CA24FD008DD043 /* ThridParty */ = {
 			isa = PBXGroup;
 			children = (
+				04ECB9F022422C7300A02DB2 /* DHGuidePageHUD */,
 				044665042237654300DF6F47 /* Sources */,
 				0430114A221407140003E082 /* SureCustomActionSheet */,
 				04F2FD0D21EEE8B4000B58E2 /* FGGAutomaticScrollView */,
@@ -2823,6 +2849,7 @@
 				04F55B13222A844900692A4E /* SortSearchCollectionViewCell.xib in Resources */,
 				04FA5D6121AE3F480061AF27 /* LoginViewController.xib in Resources */,
 				044E678B223229FE0077365D /* SearchViewController.xib in Resources */,
+				04ECB9F622422C7300A02DB2 /* GuideImage.bundle in Resources */,
 				04EFA03621E74398007C2FCA /* ChannelViewCell.xib in Resources */,
 				044E6785223221E60077365D /* SearchResultCell.xib in Resources */,
 				045A6FF12223F514006081CF /* CountryCollectionViewCell.xib in Resources */,
@@ -2929,6 +2956,7 @@
 				0446657A2237654300DF6F47 /* JXCategoryNumberView.m in Sources */,
 				04F4469D21D7772700524971 /* FeatureChoseTopCell.m in Sources */,
 				045FAEC3221E93AB0086DE4E /* OrderProcessingTableViewCell.m in Sources */,
+				04ECB9EF2241D9E800A02DB2 /* UserInfoModel.m in Sources */,
 				04BF21892212B719002468C0 /* DetailViewController.m in Sources */,
 				04F3CF0621CB2FF1007C40A1 /* UserInfo.m in Sources */,
 				04F8ED4B21E3453800004178 /* ModifyAddressViewController.m in Sources */,
@@ -2969,6 +2997,7 @@
 				044E6781223221E60077365D /* UIColor+DD.m in Sources */,
 				04BF21832212B719002468C0 /* JXPagerListContainerView.m in Sources */,
 				04F70C6921E98D35004BD4C6 /* AnchorRecommendView.m in Sources */,
+				04ECB9F822422C7300A02DB2 /* DHGuidePageHUD.m in Sources */,
 				04F2FD2E21EF479D000B58E2 /* GoodsShowTableViewController.m in Sources */,
 				045FAEBD221E7F2A0086DE4E /* OrderProcessingView.m in Sources */,
 				0459D91321E0A78F009BFFB4 /* OrderSureTableViewCell.m in Sources */,
@@ -3015,6 +3044,7 @@
 				049D479C219FEC1E0058178D /* HomeViewController.m in Sources */,
 				0423DADF21FFF52700325869 /* NewProductLaunchViewController.m in Sources */,
 				04F8ED5021E349E000004178 /* ModifyAddressViewCell.m in Sources */,
+				04ECB9F722422C7300A02DB2 /* DHGifImageOperation.m in Sources */,
 				044665612237654300DF6F47 /* JXCategoryTitleVerticalZoomCell.m in Sources */,
 				045A6FEB2223F49B006081CF /* HorizontalCollectionView.m in Sources */,
 				04F70C6521E97D17004BD4C6 /* GoodsShowTitleModel.m in Sources */,

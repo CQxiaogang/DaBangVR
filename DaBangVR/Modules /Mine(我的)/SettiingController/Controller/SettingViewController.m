@@ -7,46 +7,42 @@
 //
 
 #import "MineTableViewCell.h"
-// controllers
+// Controllers
 #import "LoginViewController.h"
 #import "MainTabBarController.h"
 #import "SettingViewController.h"
 #import "UserGoodsAdressViewController.h"
 #import "UIAlertController+TapGesAlertController.h"
-
-static NSString *cellID = @"cellID";
+// Models
+#import "UserInfoModel.h"
 
 @interface SettingViewController ()
 
-@property (nonatomic, strong)NSArray            *arrayImage;
-@property (nonatomic, strong)NSArray            *arrayTitle;
-@property (nonatomic, strong)NSMutableArray     *arrayContent;
+@property (nonatomic, strong)NSArray            *imgArr;
+@property (nonatomic, strong)NSArray            *titleArr;
+@property (nonatomic, strong)NSMutableArray     *contentArr;
 @property (nonatomic, strong)UIButton           *LogOutBtn;
 @property (nonatomic, strong)MineTableViewCell  *cell;
 @property (nonatomic, strong)UIAlertController  *alert;
+@property (nonatomic, strong)UserInfoModel      *model;
 @end
 
 @implementation SettingViewController
+static NSString *cellID = @"cellID";
+
 #pragma mark —— 懒加载
--(NSArray *)arrayImage{
-    if (!_arrayImage) {
-        _arrayImage = @[@"S_Nickname",@"S_Gender",@"S_Permanent_residence",@"S_Cell_phone",@"S_Password",@"S_address",@"S_Eliminate",@"S_To_update",@"S_Praise",];
+-(NSArray *)imgArr{
+    if (!_imgArr) {
+        _imgArr = @[@"S_Nickname",@"S_Gender",@"S_Permanent_residence",@"S_Cell_phone",@"S_Password",@"S_address",@"S_Eliminate",@"S_To_update",@"S_Praise",];
     }
-    return _arrayImage;
+    return _imgArr;
 }
 
--(NSArray *)arrayTitle{
-    if (!_arrayTitle) {
-        _arrayTitle = @[@"昵称",@"性别",@"常住地",@"绑定手机号",@"修改密码",@"我的地址",@"清除缓存",@"检查更新",@"给个好评",];
+-(NSArray *)titleArr{
+    if (!_titleArr) {
+        _titleArr = @[@"昵称",@"性别",@"常住地",@"绑定手机号",@"修改密码",@"我的地址",@"清除缓存",@"检查更新",@"给个好评",];
     }
-    return _arrayTitle;
-}
-- (NSMutableArray *)arrayContent{
-    if (!_arrayContent) {
-        NSArray *arr = @[@"微微一笑",@"女",@"广西南宁",@"",@"",@"",@"5.6M",@"",@""];
-        _arrayContent = [NSMutableArray arrayWithArray:arr];
-    }
-    return _arrayContent;
+    return _titleArr;
 }
 
 -(UIButton *)LogOutBtn{
@@ -64,6 +60,8 @@ static NSString *cellID = @"cellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"设置";
+    
+    [self loadingData];
 }
 // 父类 UI
 -(void)setupUI{
@@ -86,6 +84,15 @@ static NSString *cellID = @"cellID";
         make.left.right.equalTo(0);
         make.bottom.equalTo(weakSelf.LogOutBtn.mas_top).offset(0);
     }];
+}
+
+-(void)loadingData{
+    kWeakSelf(self);
+    [NetWorkHelper POST:URl_getUserInfo parameters:nil success:^(id  _Nonnull responseObject) {
+        NSDictionary *data= KJSONSerialization(responseObject)[@"data"];
+        weakself.model = [UserInfoModel mj_objectWithKeyValues:data];
+        [weakself.tableView reloadData];
+    } failure:nil];
 }
 
 #pragma mark -tableView-delegate,dataSource
@@ -123,17 +130,17 @@ static NSString *cellID = @"cellID";
         for (UIView *view in _cell.subviews){
             [view removeFromSuperview];
         }
-        UIImageView *userImageV = [[UIImageView alloc] init];
-        userImageV.layer.cornerRadius = Adapt(userImageV.mj_h/2);
+        UIImageView *userImgView = [[UIImageView alloc] init];
+        userImgView.layer.cornerRadius = Adapt(userImgView.mj_h/2);
         // 将多余的部分切掉
-        userImageV.layer.masksToBounds = YES;
-        userImageV.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:curUser.headUrl]]]?:[UIImage imageNamed:@"theDefaultAvatar"];
-        [_cell addSubview:userImageV];
-        [userImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        userImgView.layer.masksToBounds = YES;
+        userImgView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:curUser.headUrl]]]?:kDefaultImg;
+        [_cell addSubview:userImgView];
+        [userImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.equalTo(CGSizeMake(80, 80));
             make.left.equalTo(20);
             make.top.equalTo(10);
-            userImageV.layer.cornerRadius = 40;
+            userImgView.layer.cornerRadius = 40;
         }];
         UILabel *userName = [[UILabel alloc] init];
         userName.adaptiveFontSize = 16;
@@ -141,18 +148,18 @@ static NSString *cellID = @"cellID";
         [_cell addSubview:userName];
         [userName mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(20);
-            make.left.equalTo(userImageV.mas_right).offset(10);
+            make.left.equalTo(userImgView.mas_right).offset(10);
             make.right.equalTo(0);
             make.size.equalTo(CGSizeMake(self->_cell.mj_w, 30));
         }];
         
         UILabel *userProfile = [[UILabel alloc] init];
-        userProfile.text = @"未填写简介";
+        userProfile.text = _model.autograph?:@"未填写简介";
         userProfile.adaptiveFontSize = 12;
         [_cell addSubview:userProfile];
         [userProfile mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(userName.mas_bottom).offset(0);
-            make.left.equalTo(userImageV.mas_right).offset(10);
+            make.left.equalTo(userImgView.mas_right).offset(10);
             make.right.equalTo(0);
             make.size.equalTo(CGSizeMake(self->_cell.mj_w, 40));
         }];
@@ -160,19 +167,35 @@ static NSString *cellID = @"cellID";
 
     switch (indexPath.section) {
         case 1:
-            _cell.cellImgView.image = [UIImage imageNamed:self.arrayImage[indexPath.row]];
-            _cell.cellTitle.text = self.arrayTitle[indexPath.row];
-            _cell.contentLabel.text = self.arrayContent[indexPath.row];
+            _cell.imgView.image = [UIImage imageNamed:self.imgArr[indexPath.row]];
+            _cell.title.text = self.titleArr[indexPath.row];
+            switch (indexPath.row) {
+                case 0:
+                    _cell.content.text = _model.nickName;
+                    break;
+                case 1:
+                    _cell.content.text = _model.sex?:@"保密";
+                    break;
+                    
+                default:
+                    break;
+            }
             break;
         case 2:
-            _cell.cellImgView.image = [UIImage imageNamed:self.arrayImage[indexPath.row + 2]];
-            _cell.cellTitle.text = self.arrayTitle[indexPath.row + 2];
-            _cell.contentLabel.text = self.arrayContent[indexPath.row + 2];
+            _cell.imgView.image = [UIImage imageNamed:self.imgArr[indexPath.row + 2]];
+            _cell.title.text = self.titleArr[indexPath.row + 2];
+            switch (indexPath.row) {
+                case 1:
+                    _cell.content.text = _model.mobile;
+                break;
+                    
+                default:
+                    break;
+            }
             break;
         case 3:
-            _cell.cellImgView.image = [UIImage imageNamed:self.arrayImage[indexPath.row + 6]];
-            _cell.cellTitle.text = self.arrayTitle[indexPath.row + 6];
-            _cell.contentLabel.text = self.arrayContent[indexPath.row + 6];
+            _cell.imgView.image = [UIImage imageNamed:self.imgArr[indexPath.row + 6]];
+            _cell.title.text = self.titleArr[indexPath.row + 6];
             break;
         default:
             break;
@@ -211,7 +234,7 @@ static NSString *cellID = @"cellID";
         switch (indexPath.row) {
             case 0:
                 // 昵称修改
-                [self nicknameChange];
+                [self nicknameChange:indexPath];
                 break;
             case 1:
                 // 性别选择
@@ -267,18 +290,18 @@ static NSString *cellID = @"cellID";
 }
 
 // 昵称修改
-- (void)nicknameChange{
+- (void)nicknameChange:(NSIndexPath *)indexPath{
     // 创建UIAlertController
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"修改昵称" message:nil preferredStyle:UIAlertControllerStyleAlert];
     // 创建取消Button
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     // 创建确定Button
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        kWeakSelf(self);
         // 获取修改值
         UITextField *textfield = alert.textFields.firstObject;
         if (textfield.text.length>0) {
-            [self.arrayContent replaceObjectAtIndex:0 withObject:textfield.text];
-            [self.tableView reloadData];
+            weakself.cell.content.text = textfield.text;
         }
     }];
     // Button添加
@@ -320,7 +343,8 @@ static NSString *cellID = @"cellID";
     });
 }
 - (void)modifyTheGender:(NSString *)sex{
-    [self.arrayContent replaceObjectAtIndex:1 withObject:sex];
+//    [self.arrayContent replaceObjectAtIndex:1 withObject:sex];
+    _cell.content.text = sex;
     [self.tableView reloadData];
 }
 // 我的地址

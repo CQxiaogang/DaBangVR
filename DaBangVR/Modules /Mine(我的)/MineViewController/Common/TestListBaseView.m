@@ -162,16 +162,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     if (indexPath.section == 0) {
-        cell.cellTitle.text = self.titleData[indexPath.row];
-        cell.cellImgView.image = [UIImage imageNamed:self.imgData[indexPath.row]];
+        cell.title.text = self.titleData[indexPath.row];
+        cell.imgView.image = [UIImage imageNamed:self.imgData[indexPath.row]];
     }else if(indexPath.section ==1){
-        cell.cellTitle.text = self.titleData[indexPath.row + 3];
-        cell.cellImgView.image = [UIImage imageNamed:self.imgData[indexPath.row + 3]];
+        cell.title.text = self.titleData[indexPath.row + 3];
+        cell.imgView.image = [UIImage imageNamed:self.imgData[indexPath.row + 3]];
     }else{
-        cell.cellTitle.text = self.titleData[indexPath.row + 5];
-        cell.cellImgView.image = [UIImage imageNamed:self.imgData[indexPath.row + 5]];
+        cell.title.text = self.titleData[indexPath.row + 5];
+        cell.imgView.image = [UIImage imageNamed:self.imgData[indexPath.row + 5]];
     }
-    [cell.contentLabel removeFromSuperview];
+    [cell.content removeFromSuperview];
     [cell.otherImageV removeFromSuperview];
     return cell;
 }

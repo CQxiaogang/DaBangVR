@@ -86,6 +86,11 @@
 #pragma mark ——————  登陆授权接口  ——————
 // 登录
 #define URl_login NSStringFormat(@"%@%@",URL_main,@"/api/auth/login?")
+// 用户修改信息
+#define URl_update NSStringFormat(@"%@%@",URL_main,@"/api/auth/update?")
+// 获取用户信息接口
+#define URl_getUserInfo NSStringFormat(@"%@%@",URL_main,@"/api/auth/getUserInfo")
+
 
 #pragma mark ——————  订单接口类  ——————
 // 订单详情

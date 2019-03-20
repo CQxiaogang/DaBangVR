@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserInfoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MineTableViewCell : BaseTableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *cellImgView;  // 标题图片
-@property (weak, nonatomic) IBOutlet UILabel     *cellTitle;   // 标题
-@property (weak, nonatomic) IBOutlet UILabel     *contentLabel; // 内容
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;  // 标题图片
+@property (weak, nonatomic) IBOutlet UILabel     *title;   // 标题
+@property (weak, nonatomic) IBOutlet UILabel     *content; // 内容
 @property (weak, nonatomic) IBOutlet UIImageView *otherImageV;  // 内容右边的图片
 
 @end

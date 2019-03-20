@@ -39,6 +39,7 @@
 #import "NewGoodsModel.h"
 // 第三方
 #import "SureCustomActionSheet.h"
+#import "DHGuidePageHUD.h" //APP引导页
 
 static NSString *CellID = @"CellID";
 #define KCURRENTCITYINFODEFAULTS [NSUserDefaults standardUserDefaults]
@@ -149,12 +150,26 @@ ShufflingViewDelegate
     _locationManager.delegate = self;
     
     [self loadingData];
+    // App引导页
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:BOOLFORKEY]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:BOOLFORKEY];
+        // 静态引导页
+        [self setStaticGuidePage];                                                                                                                                                                                                                                                                                                                                                                                          
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     // 隐藏navigationBar
     [self.navigationController setNavigationBarHidden:YES];
+}
+
+#pragma mark - 设置APP静态图片引导页
+- (void)setStaticGuidePage {
+    NSArray *imageNameArray = @[@"G_img1",@"G_img2",@"G_img3"];
+    DHGuidePageHUD *guidePage = [[DHGuidePageHUD alloc] dh_initWithFrame:self.view.frame imageNameArray:imageNameArray buttonIsHidden:NO];
+    guidePage.slideInto = YES;
+    [self.tabBarController.view addSubview:guidePage];
 }
 
 #pragma mark —— 设置主页UI
