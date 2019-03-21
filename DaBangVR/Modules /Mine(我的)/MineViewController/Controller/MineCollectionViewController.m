@@ -11,7 +11,7 @@
 #import "MineCollectionTableViewCell.h"
 // Models
 #import "MineCollectionModel.h"
-
+#import "OrderGoodsModel.h"
 @interface MineCollectionViewController ()
 
 @property (nonatomic, strong) NSArray <NSString *> *titles;
@@ -31,7 +31,7 @@ static NSString *CellID = @"CellID";
     [NetWorkHelper POST:URl_getGoodsCollectList parameters:nil success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
         NSDictionary *goodsCollectVoList = data[@"goodsCollectVoList"];
-        weakself.dataSource = [MineCollectionModel mj_objectArrayWithKeyValuesArray:goodsCollectVoList];
+        weakself.dataSource = [OrderGoodsModel mj_objectArrayWithKeyValuesArray:goodsCollectVoList];
         [self.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {
         

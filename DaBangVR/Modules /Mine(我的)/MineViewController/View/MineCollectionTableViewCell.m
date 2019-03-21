@@ -18,9 +18,11 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
--(void)setModel:(MineCollectionModel *)model{
+- (void)setModel:(OrderGoodsModel *)model{
     _model = model;
     _goodsDetail.text = model.goodsName;
+    _PromotionPrice.text = [NSString stringWithFormat:@"￥%@",model.marketPrice];
+    [_goodsImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:kDefaultImg];
 }
 
 @end

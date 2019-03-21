@@ -7,19 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MineCollectionModel.h"
+#import "OrderGoodsModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MineCollectionTableViewCell : BaseTableViewCell
 
-@property (nonatomic, strong) MineCollectionModel *model;
+@property (nonatomic, strong) OrderGoodsModel *model;
 @property (weak, nonatomic) IBOutlet UIImageView *goodsImgView;
 @property (weak, nonatomic) IBOutlet UILabel *goodsDetail;
 // 原价
 @property (weak, nonatomic) IBOutlet UILabel *originalPrice;
 // 促销价
 @property (weak, nonatomic) IBOutlet UILabel *PromotionPrice;
+
+
 
 @end
 

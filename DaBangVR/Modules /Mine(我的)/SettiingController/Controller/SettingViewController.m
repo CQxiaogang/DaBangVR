@@ -95,6 +95,8 @@ static NSString *cellID = @"cellID";
     } failure:nil];
 }
 
+
+
 #pragma mark -tableView-delegate,dataSource
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -174,7 +176,7 @@ static NSString *cellID = @"cellID";
                     _cell.content.text = _model.nickName;
                     break;
                 case 1:
-                    _cell.content.text = _model.sex?:@"保密";
+                    _cell.content.text = _model.sex?:@"";
                     break;
                     
                 default:
@@ -301,7 +303,8 @@ static NSString *cellID = @"cellID";
         // 获取修改值
         UITextField *textfield = alert.textFields.firstObject;
         if (textfield.text.length>0) {
-            weakself.cell.content.text = textfield.text;
+            weakself.model.nickName = textfield.text;
+            [self.tableView reloadData];
         }
     }];
     // Button添加
@@ -343,14 +346,13 @@ static NSString *cellID = @"cellID";
     });
 }
 - (void)modifyTheGender:(NSString *)sex{
-//    [self.arrayContent replaceObjectAtIndex:1 withObject:sex];
-    _cell.content.text = sex;
+    _model.sex = sex;
     [self.tableView reloadData];
 }
+
 // 我的地址
 - (void)myAddress{
-    UserGoodsAdressViewController *VC = [[UserGoodsAdressViewController alloc] init];
-    [self.navigationController pushViewController:VC animated:NO];
+    UserGoodsAdressViewController *vc = [[UserGoodsAdressViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
 }
-
 @end

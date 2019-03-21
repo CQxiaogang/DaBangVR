@@ -84,8 +84,10 @@ static NSString *HeaderCellID = @"HeaderCellID";
     if (cell == nil) {
         cell = [[AllOrdersCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
-    cell.model = self.deptData[indexPath.section].orderGoodslist[indexPath.row];
-    cell.depModel = self.deptData[indexPath.section];
+    if (self.deptData) {
+        cell.model = self.deptData[indexPath.section].orderGoodslist[indexPath.row];
+        cell.depModel = self.deptData[indexPath.section];
+    }
     return cell;
 }
 

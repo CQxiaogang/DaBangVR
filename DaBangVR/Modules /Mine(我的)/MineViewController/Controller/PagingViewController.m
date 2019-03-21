@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _titles = @[@"我的", @"喜欢", @"动态", @"作品"];
+    _titles = @[@"我的"];//, @"喜欢", @"动态", @"作品"
 
     _userHeaderView = [[[NSBundle mainBundle] loadNibNamed:@"MineHeaderView" owner:nil options:nil] firstObject];
     _userHeaderView.delegate = self;

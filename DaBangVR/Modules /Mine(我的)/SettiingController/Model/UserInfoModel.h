@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserInfoModel : UIView
+@interface UserInfoModel : NSObject
 // 签名
 @property (nonatomic, copy) NSString *autograph;
 // 绑定手机

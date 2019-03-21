@@ -144,17 +144,17 @@ ShufflingViewDelegate
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 全局变量,定义边距
-    _margin = kFit(20);
-    self.locationManager = [[JFLocation alloc] init];
-    _locationManager.delegate = self;
-    
-    [self loadingData];
     // App引导页
     if (![[NSUserDefaults standardUserDefaults] boolForKey:BOOLFORKEY]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:BOOLFORKEY];
         // 静态引导页
         [self setStaticGuidePage];                                                                                                                                                                                                                                                                                                                                                                                          
+    }else{
+        // 全局变量,定义边距
+        _margin = kFit(20);
+        self.locationManager = [[JFLocation alloc] init];
+        _locationManager.delegate = self;
+        [self loadingData];
     }
 }
 

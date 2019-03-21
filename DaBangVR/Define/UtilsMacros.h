@@ -184,5 +184,6 @@ return shared##className; \
 #define kSpellGroup     @"拼团"
 #define kSpellGroup1    @"去拼单"
 
+#define kObserverKey    @"kObserverKey"
 
 #endif /* define_h */

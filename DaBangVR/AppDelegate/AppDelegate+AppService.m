@@ -67,9 +67,7 @@
         animation.type = @"fade"; // 动画类型
         animation.subtype = kCATransitionFromRight; // 动画方向
         animation.duration = 0.3f;
-        [self.window.layer addAnimation:animation forKey:@"revealAnimation"];
-        BOOL isB = [LoginManger sharedLoginManger].isBoundPhone;
-        if (isBound) {
+        [self.window.layer addAnimation:animation forKey:@"revealAnimation"];        if (isBound) {
             // 登录切换视图，根视图不能销毁。
             [kRootViewController dismissViewControllerAnimated:NO completion:^{
                 self.window.rootViewController = self.mainTabBar;

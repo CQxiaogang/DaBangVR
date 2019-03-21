@@ -14,4 +14,9 @@
     [super awakeFromNib];
 }
 
+- (void)setModel:(UserInfoModel *)model{
+    _model = model;
+    
+}
+
 @end

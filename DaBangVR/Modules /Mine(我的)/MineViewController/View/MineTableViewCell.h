@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel     *content; // 内容
 @property (weak, nonatomic) IBOutlet UIImageView *otherImageV;  // 内容右边的图片
 
+@property (nonatomic, strong) UserInfoModel *model;
+
 @end
 
 NS_ASSUME_NONNULL_END
