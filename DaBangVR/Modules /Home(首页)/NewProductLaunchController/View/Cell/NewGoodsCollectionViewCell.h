@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *goodsPrice;
 // 商品销量
 @property (weak, nonatomic) IBOutlet UILabel *goodsSales;
+@property (weak, nonatomic) IBOutlet UIButton *nowBuy;
 
 @property (nonatomic, strong) GoodsDetailsModel *model;
 

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4706966FF84DEF55D2294574CC4B596F"
-               BlueprintName = "YYKit"
+               BlueprintIdentifier = "940B1AFB98173A2E97ED801AAD1DC517"
+               BlueprintName = "QQCorner"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libYYKit.a">
+               BuildableName = "libQQCorner.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

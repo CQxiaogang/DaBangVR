@@ -13,6 +13,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    _liveLal = (UILabel *)[UIView viewOfStyle:_liveLal borderColor:KWhiteColor fillColor:KRedColor];
 }
 
 - (void)setModel:(GoodsShowListModel *)model{

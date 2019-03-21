@@ -24,6 +24,7 @@
 #import "AppDelegate+AppService.h"
 #import "RootNavigationController.h"
 #import "UIViewController+AlertViewAndActionSheet.h"
+#import "UIView+viewStyle.h"
 
 // 第三方
 #import <YYKit.h>
@@ -32,6 +33,7 @@
 #import "UIView+MJExtension.h"
 #import <SVProgressHUD.h>
 #import "MJExtension.h"
+#import <QQCorner/QQCorner.h>
 
 // 全局宏
 #import "URLMacros.h"

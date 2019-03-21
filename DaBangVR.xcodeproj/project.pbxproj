@@ -177,6 +177,7 @@
 		04BF21982212CA71002468C0 /* MineCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BF21962212CA71002468C0 /* MineCollectionTableViewCell.xib */; };
 		04C1AD0E22116EF50011DDA3 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1AD0C22116EF50011DDA3 /* MineViewController.m */; };
 		04C1AD23221172770011DDA3 /* lufei.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04C1AD22221172770011DDA3 /* lufei.jpg */; };
+		04D4EA6A22439C8600220D0A /* UIView+viewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D4EA6922439C8600220D0A /* UIView+viewStyle.m */; };
 		04D9C46921EA0706005F23FF /* NetWorkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D9C46821EA0706005F23FF /* NetWorkHelper.m */; };
 		04E0473221D36A42002DDB98 /* AllCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E0473121D36A42002DDB98 /* AllCommentsViewController.m */; };
 		04ECB9EF2241D9E800A02DB2 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ECB9EE2241D9E800A02DB2 /* UserInfoModel.m */; };
@@ -634,6 +635,8 @@
 		04C1AD0C22116EF50011DDA3 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		04C1AD0D22116EF50011DDA3 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		04C1AD22221172770011DDA3 /* lufei.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lufei.jpg; sourceTree = "<group>"; };
+		04D4EA6822439C8600220D0A /* UIView+viewStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+viewStyle.h"; sourceTree = "<group>"; };
+		04D4EA6922439C8600220D0A /* UIView+viewStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+viewStyle.m"; sourceTree = "<group>"; };
 		04D9C46721EA0706005F23FF /* NetWorkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkHelper.h; sourceTree = "<group>"; };
 		04D9C46821EA0706005F23FF /* NetWorkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkHelper.m; sourceTree = "<group>"; };
 		04E0473021D36A42002DDB98 /* AllCommentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllCommentsViewController.h; sourceTree = "<group>"; };
@@ -1927,6 +1930,8 @@
 				048E692B21A26C5A00DB911A /* UIColor+category.m */,
 				04FB2F7121BB7BE8007E63AA /* UIView+FontSize.h */,
 				04FB2F7221BB7BE8007E63AA /* UIView+FontSize.m */,
+				04D4EA6822439C8600220D0A /* UIView+viewStyle.h */,
+				04D4EA6922439C8600220D0A /* UIView+viewStyle.m */,
 				04F4468721D74F8F00524971 /* UIButton+Bootstrap.h */,
 				04F4468B21D74F9000524971 /* UIButton+Bootstrap.m */,
 				04F494C321C77D1B009A4518 /* UIAlertController+TapGesAlertController.h */,
@@ -3062,6 +3067,7 @@
 				04EFA03221E7436B007C2FCA /* ChannelViewCell.m in Sources */,
 				044665852237654300DF6F47 /* JXCategoryBaseCell.m in Sources */,
 				04F4468021D74F7B00524971 /* DBFeatureTitleItem.m in Sources */,
+				04D4EA6A22439C8600220D0A /* UIView+viewStyle.m in Sources */,
 				04FC2C4021C0E3AD00329B53 /* JFCityCollectionFlowLayout.m in Sources */,
 				044F3BA921F0201B00F3AD5E /* MySpellGroupCell.m in Sources */,
 				04F45F0B21F57EED009F5907 /* NewCommentCell.m in Sources */,

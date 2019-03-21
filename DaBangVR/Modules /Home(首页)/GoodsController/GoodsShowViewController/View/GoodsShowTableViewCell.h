@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 价格
 @property (weak, nonatomic) IBOutlet UILabel *sellingPriceLabel;
 //
+@property (weak, nonatomic) IBOutlet UILabel *liveLal;
 @property (strong, nonatomic) GoodsShowListModel *model;
 
 @end

@@ -39,7 +39,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.92460006480000001" green="0.87367182970000001" blue="0.82742637399999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6oX-Xn-eWS" firstAttribute="centerX" secondItem="7fE-CL-fmQ" secondAttribute="centerX" id="Cvo-PX-qnb"/>
                             <constraint firstItem="6oX-Xn-eWS" firstAttribute="top" secondItem="7fE-CL-fmQ" secondAttribute="top" constant="17.5" id="TQT-8F-lZD"/>
@@ -95,7 +95,7 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKx-nE-8Ln">
                         <rect key="frame" x="56" y="156" width="60" height="20"/>
-                        <color key="backgroundColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="dzj-Sz-keD">
                                 <userDefinedRuntimeAttributes>
@@ -108,7 +108,7 @@
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
                         <state key="normal" title="立即购买">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
@@ -138,6 +138,7 @@
                 <outlet property="goodsImgView" destination="6oX-Xn-eWS" id="uyi-JH-Z5l"/>
                 <outlet property="goodsPrice" destination="TlP-xY-NSs" id="Ph5-UH-th6"/>
                 <outlet property="goodsSales" destination="ftw-M8-6fb" id="jd2-yk-pyF"/>
+                <outlet property="nowBuy" destination="SKx-nE-8Ln" id="YS3-Qm-NXW"/>
             </connections>
             <point key="canvasLocation" x="131.19999999999999" y="127.736131934033"/>
         </collectionViewCell>

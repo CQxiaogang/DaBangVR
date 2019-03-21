@@ -24,6 +24,7 @@ PODS:
   - mob_smssdk (3.2.3):
     - MOBFoundation
   - MOBFoundation (3.2.0)
+  - QQCorner (1.1.0)
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - mob_smssdk
+  - QQCorner
   - SDWebImage (~> 3.7.6)
   - SVProgressHUD
   - WechatOpenSDK
@@ -56,6 +58,7 @@ SPEC REPOS:
     - MJRefresh
     - mob_smssdk
     - MOBFoundation
+    - QQCorner
     - SDWebImage
     - SVProgressHUD
     - WechatOpenSDK
@@ -70,11 +73,12 @@ SPEC CHECKSUMS:
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   mob_smssdk: cdb6a31d4fd4667ed928e2eca03f21ad89ebc05c
   MOBFoundation: ca11e6640e995875ff755faa56ea324eed260e70
+  QQCorner: cc97664d4d8e5b152be16d04fd5f9b721515b19f
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 0b600eaf8ab9b2edd197213fc81c9673e8484a94
+PODFILE CHECKSUM: 67dd7c8c5cfec9f046ac9f019c83bd47f0a80931
 
 COCOAPODS: 1.5.3

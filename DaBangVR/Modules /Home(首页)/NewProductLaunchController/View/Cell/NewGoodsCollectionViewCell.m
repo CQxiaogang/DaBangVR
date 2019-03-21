@@ -14,7 +14,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    _goodsBackgroud.backgroundColor = KRandomColor;
+    // 改变控件样式
+    [UIView viewOfStyle:_nowBuy borderColor:KWhiteColor fillColor:KRedColor];
 }
 
 - (void)setModel:(GoodsDetailsModel *)model{

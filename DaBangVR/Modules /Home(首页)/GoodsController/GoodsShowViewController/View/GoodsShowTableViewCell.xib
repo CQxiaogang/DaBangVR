@@ -155,13 +155,14 @@
             <connections>
                 <outlet property="describeLabel" destination="lim-cp-sRb" id="Dy5-8Y-ch7"/>
                 <outlet property="headImgView" destination="XXC-gi-MBU" id="Z1r-U0-nZG"/>
+                <outlet property="liveLal" destination="IjI-dw-HDe" id="NsQ-up-I8w"/>
                 <outlet property="sellingPriceLabel" destination="SzM-qB-6Xf" id="7q2-1f-u9e"/>
             </connections>
             <point key="canvasLocation" x="137.59999999999999" y="-19.340329835082461"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="s-fish" width="795" height="330"/>
+        <image name="s-fish" width="730" height="320"/>
         <image name="zhanweifu" width="200" height="200"/>
     </resources>
 </document>
