@@ -31,31 +31,23 @@ static NSString *const CellID = @"CellID";
 }
 
 -(void)setupUI{
-    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellEditingStyleNone;
     tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellID];
     tableView.showsVerticalScrollIndicator = NO;
     self.tableView = tableView;
 }
 
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
-
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return 1;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    DLog(@"rootViewController");
+    return 0;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    DLog(@"rootViewController");
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
-    }
     return cell;
 }
 

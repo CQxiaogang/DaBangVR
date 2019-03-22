@@ -57,7 +57,6 @@ ShufflingViewDelegate
 >
 
 {
-    CGFloat _margin;
     CGFloat _totalH_anchorRecommendView;  // 推荐直播总高度
     CGFloat _totalH_channelMenuList;      // 更多功能总高度
     CGFloat _totalH_newShang;             // 新上总高度
@@ -105,9 +104,7 @@ ShufflingViewDelegate
 
 -(HomeNewAndHotGoodsView *)prefectureView{
     if (_prefectureView == nil) {
-        
         _prefectureView = [[HomeNewAndHotGoodsView alloc] init];
-        
     }
     return _prefectureView;
 }
@@ -150,8 +147,6 @@ ShufflingViewDelegate
         // 静态引导页
         [self setStaticGuidePage];                                                                                                                                                                                                                                                                                                                                                                                          
     }else{
-        // 全局变量,定义边距
-        _margin = kFit(20);
         self.locationManager = [[JFLocation alloc] init];
         _locationManager.delegate = self;
         [self loadingData];
@@ -210,7 +205,7 @@ ShufflingViewDelegate
 }
 
 #pragma mark —— tableView实现
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 9;
 }
 
@@ -220,7 +215,7 @@ ShufflingViewDelegate
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
-    switch (indexPath.section) {
+    switch (indexPath.row) {
         case 0:
             // 主播推荐
             [self setupAnchorRecommendView:cell];
@@ -275,7 +270,7 @@ ShufflingViewDelegate
 
 //个方法返回指定的 row 的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.section) {
+    switch (indexPath.row) {
         case 0:
             // 直播推荐视图
             return _totalH_anchorRecommendView+kFit(20);
@@ -290,7 +285,7 @@ ShufflingViewDelegate
             break;
         case 3:
             // 限时秒杀
-            return kFit(170);
+            return kFit(_totalH_secondsKill);
             break;
         case 4:
             // 新品/热卖 专区
@@ -500,14 +495,15 @@ ShufflingViewDelegate
 
 #pragma mark —— HomeNewAndHotGoodsView 代理
 -(void)showMoreGoods:(UIButton *)sender{
-    if (sender.tag == 10) {
-        // 新品专区
-        DLog(@"新品专区");
-        [self pushViewController:[NewProductLaunchViewController new]];
-    }else{
-        // 热卖专区
-        DLog(@"热卖专区");
-    }
+    [self pushViewController:[NewProductLaunchViewController new]];
+//    if (sender.tag == 10) {
+//        // 新品专区
+//        DLog(@"新品专区");
+//        [self pushViewController:[NewProductLaunchViewController new]];
+//    }else{
+//        // 热卖专区
+//        DLog(@"热卖专区");
+//    }
 }
 
 #pragma mark —— 最热视频
@@ -662,11 +658,11 @@ ShufflingViewDelegate
 #pragma mark —— 定位点击事件
 - (void)searchTouchAction{
     // https://www.jianshu.com/p/40bc4b6ddceb demo地址
-    JFCityViewController *cityVC = [[JFCityViewController alloc] init];
-    cityVC.delegate = self;
-    // 给JFCityViewController添加一个导航控制器
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:cityVC];
-    [self presentViewController:nav animated:YES completion:nil];
+//    JFCityViewController *cityVC = [[JFCityViewController alloc] init];
+//    cityVC.delegate = self;
+//    // 给JFCityViewController添加一个导航控制器
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:cityVC];
+//    [self presentViewController:nav animated:YES completion:nil];
 }
 #pragma mark —— JFCityViewControllerDelegate
 - (void)cityName:(NSString *)name {

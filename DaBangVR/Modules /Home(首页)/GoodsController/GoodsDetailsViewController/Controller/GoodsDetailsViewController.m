@@ -45,6 +45,7 @@ static NSArray *globalArray;
 @property (nonatomic, strong) NSDictionary *goodsDetails;
 // 评论数据
 @property (nonatomic, strong) NSMutableArray *commentsData;
+@property (nonatomic, strong) NSArray *goodsImgsAndVideo;
 @end
 
 @implementation GoodsDetailsViewController{
@@ -101,9 +102,12 @@ static NSString *CellID = @"CellID";
         
         [weakself.tableView reloadData];
     
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
+    } failure:^(NSError * _Nonnull error) {}];
+    
+    [NetWorkHelper POST:URl_getInitiateGroupUserList parameters:@{@"goodsId":self.index} success:^(id  _Nonnull responseObject) {
+        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
+        DLog(@"");
+    } failure:nil];
 }
 
 -(void)setupUI{
@@ -354,24 +358,24 @@ static NSString *CellID = @"CellID";
 }
 // 商品购买右边的Button操作
 - (void)goodsBuyOfRightButton:(NSArray *)array{
-    NSDictionary *dic;
+    NSMutableDictionary *dic = [NSMutableDictionary new];
     if (array.count == 3) {
-        dic = @{
-              @"productId":array[0],
-              @"goodsId"  :array[1],
-              @"number"   :array[2]
-              };
+        [dic setObject:array[0] forKey:@"productId"];
+        [dic setObject:array[1] forKey:@"goodsId"];
+        [dic setObject:array[2] forKey:@"number"];
     }else{
-        dic = @{
-                @"goodsId":array[0],
-                @"number" :array[1]
-                };
-        
+        [dic setObject:array[0] forKey:@"goodsId"];
+        [dic setObject:array[1] forKey:@"number"];
     }
     NSString *URLString;
     if ([_interfaceState isKindOfClass:[SecondsKillViewController class]]) {
         //秒杀请求
         URLString = URl_confirmGoods2seconds;
+    }else if ([_interfaceState isKindOfClass:[SpellGroupViewController class]]){
+        /*拼团类型：301直接购买，302发起拼团，303参加拼团*/
+        [dic setObject:@"302" forKey:@"initiateType"];
+        //拼团
+        URLString = URl_confirmGoods2groupbuy;
     }else{
         //直接购买接口
         URLString = URl_confirmGoods2Buy;
@@ -399,9 +403,9 @@ static NSString *CellID = @"CellID";
             [self creatAttributesView:kNowBuy];
         }else{
             if ([self.interfaceState isKindOfClass:[SpellGroupViewController class]]) {
+                self.submitType = kGroup2;
                 //拼团，执行拼团方法
                 [self creatAttributesView:kNowBuy];
-                self.submitType = kGroup2;
             }else if ([self.interfaceState isKindOfClass:[GoodsShowViewController class]]){
                 //加入购物车
                 [self GoodsBuyleftButtonOfAction];

@@ -69,7 +69,6 @@ static NSString *cellID = @"cellID";
     [super setupUI];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"MineTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
-    
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.LogOutBtn];
     // 添加约束

@@ -15,10 +15,6 @@
 #import "CountryListModel.h"
 #import "GoodsDetailsModel.h"
 @interface GlobalShoppingViewController ()<HorizontalCollectionViewDelegate, ShufflingViewDelegate>
-{
-    CGFloat high;
-}
-
 @property (nonatomic, strong) ShufflingView *shufflingView;
 // 国家
 @property (nonatomic, strong) HorizontalCollectionView *countryCollectionView;
@@ -33,6 +29,9 @@
 @property (nonatomic, strong) NSMutableArray *countryGoodsData;
 // 推荐商品数据
 @property (nonatomic, strong) NSMutableArray *recommendGoodsData;
+
+@property (nonatomic, assign) NSInteger high;
+
 @end
 
 @implementation GlobalShoppingViewController
@@ -110,9 +109,12 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"全球购";
+    
+    [self loadingData];
 }
 
 - (void)loadingData{
+    kWeakSelf(self);
     NSDictionary *parameters = @{
                                  @"parentId":@"2",
                                  @"categoryId":@"1036112",
@@ -132,7 +134,7 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
         self.recommendGoodsCollectionView.data = self.recommendGoodsData;
         // 得到有了数据后的collectinView的内容高度，在重设tableViewCell的高度。不然显示不了数据
         CGSize size = self.recommendGoodsCollectionView.collectionViewLayout.collectionViewContentSize;
-        self->high = size.height;
+        weakself.high = size.height;
         [self.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {
         
@@ -143,8 +145,8 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
 - (void)setupUI{
     [super setupUI];
     // 加载数据
-    [self loadingData];
-    
+   
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellID];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(0);
@@ -179,57 +181,68 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
 }
 
 // 搜索事件
-- (void)searchOfAction{
-    
-}
+- (void)searchOfAction{}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 3;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    if (indexPath.row == 0) {
+    switch (indexPath.row) {
+        case 0:
         [cell addSubview:self.countryCollectionView];
-    }else if (indexPath.row == 1){
+            break;
+        case 1:
         [cell addSubview:self.goodsCollectionView];
-    }else if (indexPath.row == 2){
-        kWeakSelf(self);
-        _collectionHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(80))];
-        UIView *searchView = [[UIView alloc] init];
-        CGFloat searchH = kFit(30);
-        searchView.layer.cornerRadius = searchH/2;
-        searchView.layer.borderColor = [[UIColor lightGreen] CGColor];
-        searchView.layer.borderWidth = .5f;
-        searchView.layer.masksToBounds = YES;
-        [_collectionHeaderView addSubview:searchView];
-        [searchView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(weakself.collectionHeaderView.mas_centerY);
-            make.left.equalTo(KMargin);
-            make.size.equalTo(CGSizeMake(searchH*4, searchH));
-        }];
-        UIImageView *searchImgView = [[UIImageView alloc] init];
-        searchImgView.image = [UIImage imageNamed:@"h_Search"];
-        [searchView addSubview:searchImgView];
-        [searchImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.equalTo(CGSizeMake(kFit(20), kFit(20)));
-            make.centerY.equalTo(searchView.mas_centerY);
-            make.left.equalTo(KMargin);
-        }];
-        
-        UIImageView *changerImgView = [[UIImageView alloc] init];
-        changerImgView.image = [UIImage imageNamed:@"s-switch"];
-        [_collectionHeaderView addSubview:changerImgView];
-        [changerImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(weakself.collectionHeaderView.mas_centerY);
-            make.right.equalTo(-KMargin);
-            make.size.equalTo(CGSizeMake(kFit(40), kFit(40)));
-        }];
-        [cell addSubview:_collectionHeaderView];
-        
-        [self.recommendGoodsCollectionView setOrigin:CGPointMake(0, _collectionHeaderView.mj_y+_collectionHeaderView.mj_h)];
-        [cell addSubview:self.recommendGoodsCollectionView];
+            break;
+        case 2:
+        {
+            //collection顶部UI
+            kWeakSelf(self);
+            //重复添加UI
+            if (_collectionHeaderView) {
+                [_collectionHeaderView removeFromSuperview];
+            }
+            _collectionHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(80))];
+            UIView *searchView = [[UIView alloc] init];
+            CGFloat searchH = kFit(30);
+            searchView.layer.cornerRadius = searchH/2;
+            searchView.layer.borderColor = [[UIColor lightGreen] CGColor];
+            searchView.layer.borderWidth = .5f;
+            searchView.layer.masksToBounds = YES;
+            [_collectionHeaderView addSubview:searchView];
+            [searchView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(weakself.collectionHeaderView.mas_centerY);
+                make.left.equalTo(KMargin);
+                make.size.equalTo(CGSizeMake(searchH*4, searchH));
+            }];
+            UIImageView *searchImgView = [[UIImageView alloc] init];
+            searchImgView.image = [UIImage imageNamed:@"h_Search"];
+            [searchView addSubview:searchImgView];
+            [searchImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.size.equalTo(CGSizeMake(kFit(20), kFit(20)));
+                make.centerY.equalTo(searchView.mas_centerY);
+                make.left.equalTo(KMargin);
+            }];
+            
+            UIImageView *changerImgView = [[UIImageView alloc] init];
+            changerImgView.image = [UIImage imageNamed:@"s-switch"];
+            [_collectionHeaderView addSubview:changerImgView];
+            [changerImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(weakself.collectionHeaderView.mas_centerY);
+                make.right.equalTo(-KMargin);
+                make.size.equalTo(CGSizeMake(kFit(40), kFit(40)));
+            }];
+            [cell addSubview:_collectionHeaderView];
+            [self.recommendGoodsCollectionView setOrigin:CGPointMake(0, _collectionHeaderView.mj_y+_collectionHeaderView.mj_h)];
+            [cell addSubview:self.recommendGoodsCollectionView];
+        }
+            break;
+        default:
+            break;
     }
     return cell;
 }
@@ -239,8 +252,8 @@ static NSString *HeaerCollectionViewCellID = @"HeaerCollectionViewCellID";
         // 根据collectionView内容得到高度
 //        CGSize size = self.recommendGoodsCollectionView.collectionViewLayout.collectionViewContentSize;
         // 重新计算collectionView的大小
-        [self.recommendGoodsCollectionView setSize:CGSizeMake(KScreenW, high)];
-        return high + _collectionHeaderView.mj_h;
+        [self.recommendGoodsCollectionView setSize:CGSizeMake(KScreenW, _high)];
+        return _high + _collectionHeaderView.mj_h;
     }
    return kFit(100);
 }
