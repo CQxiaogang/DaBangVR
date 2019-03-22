@@ -1,0 +1,1 @@
+../../../QQCorner/QQCorner/Classes/QQCornerModel.h
