@@ -13,6 +13,8 @@
 // View
 #import "LiveCollectionView.h"
 #import "LiveTableView.h"
+// 七牛云
+#import <PLMediaStreamingKit/PLMediaStreamingKit.h>
 
 static NSString *cellID = @"cellID";
 
@@ -20,9 +22,11 @@ static NSString *cellID = @"cellID";
 
 /** 标题 */
 @property (nonatomic, copy) NSArray <NSString *>*titles;
+/** 第三方 */
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
 @property (nonatomic, strong) JXCategoryListContainerView *listContainerView;
-
+/** 七牛云 */
+@property (nonatomic, strong) PLMediaStreamingSession *session;
 @end
 
 @implementation LiveViewController
@@ -32,7 +36,40 @@ static NSString *cellID = @"cellID";
 #pragma mark 系统回调方法
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    PLVideoCaptureConfiguration *videoCaptureConfiguration = [PLVideoCaptureConfiguration defaultConfiguration];
+    PLAudioCaptureConfiguration *audioCaptureConfiguration = [PLAudioCaptureConfiguration defaultConfiguration];
+    PLVideoStreamingConfiguration *videoStreamingConfiguration = [PLVideoStreamingConfiguration defaultConfiguration];
+    PLAudioStreamingConfiguration *audioStreamingConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
+
+    //  创建推荐session对象
+    self.session = [[PLMediaStreamingSession alloc] initWithVideoCaptureConfiguration:videoCaptureConfiguration audioCaptureConfiguration:audioCaptureConfiguration videoStreamingConfiguration:videoStreamingConfiguration audioStreamingConfiguration:audioStreamingConfiguration stream:nil];
+
+    [self.view addSubview:self.session.previewView];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    [button setTitle:@"start" forState:UIControlStateNormal];
+    button.frame = CGRectMake(0, 0, 100, 44);
+    button.center = CGPointMake(CGRectGetMidX([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds) - 80);
+    [button addTarget:self action:@selector(actionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
+
+- (void)actionButtonPressed:(id)sender {
+    [NetWorkHelper POST:URl_createStream parameters:@{@"name":@"123456"} success:^(id  _Nonnull responseObject) {
+        NSString *result = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSURL *pushURL = [NSURL URLWithString:result];
+        [self.session startStreamingWithPushURL:pushURL feedback:^(PLStreamStartStateFeedback feedback) {
+            if (feedback == PLStreamStartStateSuccess) {
+                NSLog(@"Streaming started.");
+            }
+            else {
+                NSLog(@"Oops.");
+            }
+        }];
+    } failure:nil];
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -51,12 +88,12 @@ static NSString *cellID = @"cellID";
     self.categoryView.defaultSelectedIndex = 0;
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
     self.categoryView.indicators = @[lineView];
-    [self.view addSubview:self.categoryView];
+//    [self.view addSubview:self.categoryView];
     
     self.listContainerView = [[JXCategoryListContainerView alloc]initWithDelegate:self];
     self.listContainerView.frame = CGRectMake(0, kTopHeight, KScreenW, KScreenH-kTopHeight);
     self.listContainerView.defaultSelectedIndex = 0;
-    [self.view addSubview:self.listContainerView];
+//    [self.view addSubview:self.listContainerView];
     self.categoryView.contentScrollView = self.listContainerView.scrollView;
 }
 #pragma mark —— JXCategoryViewDelegate

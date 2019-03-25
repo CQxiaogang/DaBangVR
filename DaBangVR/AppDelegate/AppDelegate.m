@@ -11,6 +11,7 @@
 #import <UMSocialCore/UMSocialCore.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "PaymentManager.h"
+#import <PLMediaStreamingKit/PLMediaStreamingKit.h>
 
 @interface AppDelegate ()
 
@@ -34,6 +35,9 @@
     
     //微信初始化
     [self initWX];
+    
+    //七牛云初始化
+    [PLStreamingEnv initEnv];
     
     return YES;
 }

@@ -118,5 +118,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>海鲜风暴需要你的同意才能访问您的相机</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>海鲜风暴需要你的同意才能访问您的相册</string>
 </dict>
 </plist>

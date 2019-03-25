@@ -9,8 +9,7 @@
 /**开发服务器*/
 #define URL_main @"http://www.vrzbgw.com/dabang"
 //#define URL_main @"http://192.168.1.111:8080" // 强
-//#define URL_main @"http://192.168.1.110:8080" // 胡
-//#define URL_main @"http://192.168.1.168:8080" // 邓
+//#define URL_main @"http://192.168.1.106:8080" // 邓
 
 #pragma mark ——————   首页相关   ——————
 // 渠道列表
@@ -106,3 +105,7 @@
 #define URl_notifyApp NSStringFormat(@"%@%@",URL_main,@"/api/payorder/notifyApp?")
 // 取消订单及退款申请接口
 #define URl_refundRequest NSStringFormat(@"%@%@",URL_main,@"/api/payorder/refundRequest?")
+
+#pragma mark —————— 直播管理接口 ——————
+// 创建推流
+#define URl_createStream NSStringFormat(@"%@%@",URL_main,@"/api/pili/createStream?")
