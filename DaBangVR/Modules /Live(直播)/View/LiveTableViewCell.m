@@ -6,9 +6,9 @@
 //  Copyright © 2018 DaBangVR. All rights reserved.
 //
 
-#import "DBLiveTableViewCell.h"
+#import "LiveTableViewCell.h"
 
-@implementation DBLiveTableViewCell
+@implementation LiveTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

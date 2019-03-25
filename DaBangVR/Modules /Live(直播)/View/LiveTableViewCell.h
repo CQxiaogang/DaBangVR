@@ -1,8 +1,8 @@
 //
-//  DBLiveViewController.h
+//  DBLiveTableViewCell.h
 //  DaBangVR
 //
-//  Created by mac on 2018/11/17.
+//  Created by mac on 2018/11/22.
 //  Copyright © 2018 DaBangVR. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DBLiveViewController : RootViewController
+@interface LiveTableViewCell : UITableViewCell
 
 @end
 

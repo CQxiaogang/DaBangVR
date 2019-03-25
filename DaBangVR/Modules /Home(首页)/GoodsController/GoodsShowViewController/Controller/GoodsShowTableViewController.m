@@ -50,7 +50,7 @@
         NSDictionary *dic = @{
                               @"categoryId":weakself.index,
                               @"page"      :[NSString stringWithFormat:@"%d",page],
-                              @"limit"     :@"10"
+                              @"limit"     :kLimit
                               };
         [NetWorkHelper POST:URL_getGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
             NSDictionary *data= KJSONSerialization(responseObject)[@"data"];

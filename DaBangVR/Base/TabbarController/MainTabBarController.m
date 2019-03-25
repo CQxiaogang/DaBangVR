@@ -6,7 +6,7 @@
 //  Copyright © 2018 DaBangVR. All rights reserved.
 //
 #import "DBTabBar.h"
-#import "DBLiveViewController.h"
+#import "LiveViewController.h"
 #import "MainTabBarController.h"
 #import "HomeViewController.h"
 #import "DBShortVideoViewController.h"
@@ -51,7 +51,7 @@
     HomeViewController *homeVC = [HomeViewController new];
     [self addChildViewController:homeVC title:@"首页" imageName:@"h_homepage" selectedImageName:@"h_homepage_select"];
     
-    DBLiveViewController *liveVC = [DBLiveViewController new];
+    LiveViewController *liveVC = [LiveViewController new];
     [self addChildViewController:liveVC title:@"直播" imageName:@"h_LiveBroadcast" selectedImageName:@"h_LiveBroadcast_select"];
     
     DBShortVideoViewController *shortVideoVC = [DBShortVideoViewController new];

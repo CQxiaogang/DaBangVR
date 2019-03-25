@@ -12,4 +12,5 @@ pod 'SVProgressHUD'
 pod 'IQKeyboardManager' #iOS8 and later
 pod 'WechatOpenSDK'
 pod 'QQCorner'
+pod 'PLMediaStreamingKit'
 end

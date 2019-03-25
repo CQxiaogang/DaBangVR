@@ -183,7 +183,7 @@ return shared##className; \
 #define kNowSecondsBuy  @"立即秒杀"
 #define kSpellGroup     @"拼团"
 #define kSpellGroup1    @"去拼单"
-
-#define kObserverKey    @"kObserverKey"
+//数据一页显示10条数据
+#define kLimit @"10"
 
 #endif /* define_h */
