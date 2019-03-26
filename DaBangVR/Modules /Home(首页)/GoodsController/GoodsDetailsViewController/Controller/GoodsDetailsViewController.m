@@ -188,7 +188,7 @@ static NSString *CellID = @"CellID";
 #pragma mark —— 设置其他 UI
 - (void)setupOtherUI{
     // 设置headerView
-    _goodsView = [[GoodsDetailsView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(184+250)) andDataSourse:self.model];
+    _goodsView = [[GoodsDetailsView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(184+250+40)) andDataSourse:self.model];
     // 进入团购和秒杀界面的时候,做倒计时操作
     if ([_interfaceState isKindOfClass:[SecondsKillViewController class]] || [_interfaceState isKindOfClass:[SpellGroupViewController class]]) {
         UILabel *label = [[UILabel alloc] init];

@@ -14,6 +14,13 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - AZCategory (0.0.2):
+    - AZCategory/Gradient (= 0.0.2)
+    - AZCategory/PushAndPop (= 0.0.2)
+    - AZCategory/SafeArea (= 0.0.2)
+  - AZCategory/Gradient (0.0.2)
+  - AZCategory/PushAndPop (0.0.2)
+  - AZCategory/SafeArea (0.0.2)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -39,6 +46,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - AZCategory
   - FMDB
   - IQKeyboardManager
   - Masonry
@@ -55,6 +63,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - AZCategory
     - FMDB
     - IQKeyboardManager
     - Masonry
@@ -71,6 +80,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AZCategory: fbcb0ba6e1da3790cd3aefe13216b5adc25f6b56
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -85,6 +95,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 7e233f2d461be931d2272958ce6e84cef14e948a
+PODFILE CHECKSUM: 41360d498f6d8428788eda44d594071135dde97e
 
 COCOAPODS: 1.5.3

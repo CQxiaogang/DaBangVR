@@ -12,6 +12,7 @@
 #import "ShoppingCartViewController.h"
 #import "MineCollectionViewController.h"
 #import "JXCategoryView.h"
+#import "MerchantsSettledViewController.h"
 
 @interface PagingViewController () <JXCategoryViewDelegate, JXPagerMainTableViewGestureDelegate, headerViewDelegate, TestListBaseViewDelegate>
 
@@ -174,10 +175,10 @@
 
 #pragma mark —— TestListBaseView 协议
 -(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-        if (indexPath.row == 1) {
-            [self myCollection];
-        }
+    if (indexPath.row == 1) {
+        [self myCollection];
+    }else if (indexPath.row == 2){
+        [self pushMerchantsSettledViewController];
     }
 }
 // 收藏
@@ -186,7 +187,12 @@
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:NO];
 }
-
+// 商家入驻
+- (void)pushMerchantsSettledViewController{
+    MerchantsSettledViewController *vc = [[MerchantsSettledViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:NO];
+}
 @end
 
 

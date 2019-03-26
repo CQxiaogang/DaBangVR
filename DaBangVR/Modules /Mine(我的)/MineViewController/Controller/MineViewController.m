@@ -20,7 +20,6 @@
     [super viewDidLoad];
 
     self.automaticallyAdjustsScrollViewInsets = NO;
-    CGFloat topSafeMargin = [UIApplication.sharedApplication.keyWindow jx_layoutInsets].top;
     CGFloat naviHeight = [UIApplication.sharedApplication.keyWindow jx_navigationHeight];
     self.pinHeaderViewInsetTop = naviHeight;
 

@@ -15,7 +15,7 @@
 
 // 自动循环滚动 view
 @property (nonatomic, strong) FGGAutoScrollView *bannerView;
-
+@property (nonatomic, strong) UIButton *stateView;
 /** 弹出视图 */
 @property (nonatomic, strong) GoodAttributesView *goodsAttributes;
 @property (nonatomic, strong) GoodsDetailsModel *model;
@@ -58,18 +58,30 @@
         }
     }];
     [self addSubview:_bannerView];
-    
     kWeakSelf(self);
+    UIView *stateView = [[UIView alloc] init];
+    stateView.backgroundColor = KLightGreen;
+    [self addSubview:stateView];
+    [stateView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(0);
+        make.height.equalTo(kFit(60));
+        make.top.equalTo(weakself.bannerView.mas_bottom).offset(0);
+    }];
+    
     _goodsInfoView = [[[NSBundle mainBundle] loadNibNamed:@"GoodsInfoView" owner:nil options:nil] firstObject];
     _goodsInfoView.model = self.model;
     _goodsInfoView.delegate = self;
     [self addSubview:_goodsInfoView];
     [_goodsInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakself.bannerView.mas_bottom).offset(0);
+        make.top.equalTo(stateView.mas_bottom).offset(0);
         make.left.equalTo(@(0));
         make.right.equalTo(@(0));
         make.height.equalTo(kFit(184));
     }];
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
 }
 
 // 下载数据

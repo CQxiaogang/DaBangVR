@@ -24,6 +24,7 @@
 		0413E25F2233BBC700BF008F /* LoginManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413E25E2233BBC700BF008F /* LoginManger.m */; };
 		041A719A2249C85B0059B19F /* OrderTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041A71992249C85B0059B19F /* OrderTableViewFooterView.m */; };
 		041A719C2249C8680059B19F /* OrderTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041A719B2249C8680059B19F /* OrderTableViewFooterView.xib */; };
+		041A71A3224A0C490059B19F /* MerchantsSettledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041A71A2224A0C490059B19F /* MerchantsSettledViewController.m */; };
 		042359EA21FEDF0200F4C345 /* SpellGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042359E921FEDF0200F4C345 /* SpellGroupModel.m */; };
 		0423DADF21FFF52700325869 /* NewProductLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423DADE21FFF52700325869 /* NewProductLaunchViewController.m */; };
 		0423DAE621FFF64F00325869 /* NewProductLaunchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423DAE421FFF64F00325869 /* NewProductLaunchCell.m */; };
@@ -357,6 +358,8 @@
 		041A71982249C85B0059B19F /* OrderTableViewFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderTableViewFooterView.h; sourceTree = "<group>"; };
 		041A71992249C85B0059B19F /* OrderTableViewFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderTableViewFooterView.m; sourceTree = "<group>"; };
 		041A719B2249C8680059B19F /* OrderTableViewFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewFooterView.xib; sourceTree = "<group>"; };
+		041A71A1224A0C490059B19F /* MerchantsSettledViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MerchantsSettledViewController.h; sourceTree = "<group>"; };
+		041A71A2224A0C490059B19F /* MerchantsSettledViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantsSettledViewController.m; sourceTree = "<group>"; };
 		042359E821FEDF0200F4C345 /* SpellGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpellGroupModel.h; sourceTree = "<group>"; };
 		042359E921FEDF0200F4C345 /* SpellGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpellGroupModel.m; sourceTree = "<group>"; };
 		0423DADD21FFF52700325869 /* NewProductLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewProductLaunchViewController.h; sourceTree = "<group>"; };
@@ -991,6 +994,39 @@
 				0410357E21CCD2F2002CB32C /* libUMSocialLog.a */,
 			);
 			path = UMSocialSDKPlugin;
+			sourceTree = "<group>";
+		};
+		041A719D224A0BB20059B19F /* MerchantsSettledController */ = {
+			isa = PBXGroup;
+			children = (
+				041A719E224A0C1C0059B19F /* Model */,
+				041A71A0224A0C1D0059B19F /* View */,
+				041A719F224A0C1D0059B19F /* Controller */,
+			);
+			path = MerchantsSettledController;
+			sourceTree = "<group>";
+		};
+		041A719E224A0C1C0059B19F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		041A719F224A0C1D0059B19F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				041A71A1224A0C490059B19F /* MerchantsSettledViewController.h */,
+				041A71A2224A0C490059B19F /* MerchantsSettledViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		041A71A0224A0C1D0059B19F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		042359E721FEDEAC00F4C345 /* Model */ = {
@@ -2096,6 +2132,7 @@
 			isa = PBXGroup;
 			children = (
 				04BF21652212B321002468C0 /* MineViewController */,
+				041A719D224A0BB20059B19F /* MerchantsSettledController */,
 				04F2E44622488304001FB3C1 /* MineCollectionViewController */,
 				04BF218D2212B75D002468C0 /* EvaluationController */,
 				04BF21692212B638002468C0 /* SettiingController */,
@@ -3212,6 +3249,7 @@
 				04F4468121D74F7B00524971 /* DBFeatureList.m in Sources */,
 				042359EA21FEDF0200F4C345 /* SpellGroupModel.m in Sources */,
 				044664FD2237627D00DF6F47 /* NestViewController.m in Sources */,
+				041A71A3224A0C490059B19F /* MerchantsSettledViewController.m in Sources */,
 				04FC2C3D21C0E3AD00329B53 /* JFSearchView.m in Sources */,
 				04F2FD3021EF47BD000B58E2 /* LoadDataListBaseViewController.m in Sources */,
 				04FC2C4121C0E3AD00329B53 /* JFButton.m in Sources */,

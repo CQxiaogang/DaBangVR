@@ -37,22 +37,22 @@ static NSString *cellID = @"cellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    PLVideoCaptureConfiguration *videoCaptureConfiguration = [PLVideoCaptureConfiguration defaultConfiguration];
-    PLAudioCaptureConfiguration *audioCaptureConfiguration = [PLAudioCaptureConfiguration defaultConfiguration];
-    PLVideoStreamingConfiguration *videoStreamingConfiguration = [PLVideoStreamingConfiguration defaultConfiguration];
-    PLAudioStreamingConfiguration *audioStreamingConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
-
-    //  创建推荐session对象
-    self.session = [[PLMediaStreamingSession alloc] initWithVideoCaptureConfiguration:videoCaptureConfiguration audioCaptureConfiguration:audioCaptureConfiguration videoStreamingConfiguration:videoStreamingConfiguration audioStreamingConfiguration:audioStreamingConfiguration stream:nil];
-
-    [self.view addSubview:self.session.previewView];
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    [button setTitle:@"start" forState:UIControlStateNormal];
-    button.frame = CGRectMake(0, 0, 100, 44);
-    button.center = CGPointMake(CGRectGetMidX([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds) - 80);
-    [button addTarget:self action:@selector(actionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
+//    PLVideoCaptureConfiguration *videoCaptureConfiguration = [PLVideoCaptureConfiguration defaultConfiguration];
+//    PLAudioCaptureConfiguration *audioCaptureConfiguration = [PLAudioCaptureConfiguration defaultConfiguration];
+//    PLVideoStreamingConfiguration *videoStreamingConfiguration = [PLVideoStreamingConfiguration defaultConfiguration];
+//    PLAudioStreamingConfiguration *audioStreamingConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
+//
+//    //  创建推荐session对象
+//    self.session = [[PLMediaStreamingSession alloc] initWithVideoCaptureConfiguration:videoCaptureConfiguration audioCaptureConfiguration:audioCaptureConfiguration videoStreamingConfiguration:videoStreamingConfiguration audioStreamingConfiguration:audioStreamingConfiguration stream:nil];
+//
+//    [self.view addSubview:self.session.previewView];
+//
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [button setTitle:@"start" forState:UIControlStateNormal];
+//    button.frame = CGRectMake(0, 0, 100, 44);
+//    button.center = CGPointMake(CGRectGetMidX([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds) - 80);
+//    [button addTarget:self action:@selector(actionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:button];
 }
 
 - (void)actionButtonPressed:(id)sender {
@@ -88,12 +88,12 @@ static NSString *cellID = @"cellID";
     self.categoryView.defaultSelectedIndex = 0;
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
     self.categoryView.indicators = @[lineView];
-//    [self.view addSubview:self.categoryView];
+    [self.view addSubview:self.categoryView];
     
     self.listContainerView = [[JXCategoryListContainerView alloc]initWithDelegate:self];
     self.listContainerView.frame = CGRectMake(0, kTopHeight, KScreenW, KScreenH-kTopHeight);
     self.listContainerView.defaultSelectedIndex = 0;
-//    [self.view addSubview:self.listContainerView];
+    [self.view addSubview:self.listContainerView];
     self.categoryView.contentScrollView = self.listContainerView.scrollView;
 }
 #pragma mark —— JXCategoryViewDelegate

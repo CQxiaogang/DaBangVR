@@ -13,4 +13,5 @@ pod 'IQKeyboardManager' #iOS8 and later
 pod 'WechatOpenSDK'
 pod 'QQCorner'
 pod 'PLMediaStreamingKit'
+pod 'AZCategory'
 end

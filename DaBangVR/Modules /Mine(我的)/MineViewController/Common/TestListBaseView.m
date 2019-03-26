@@ -28,7 +28,7 @@
 
 - (NSArray *)titleData{
     if (!_titleData) {
-        _titleData = @[@"消息",@"收藏",@"余额",@"等级",@"红包/卡包",@"实名认证",@"主播认证",@"反馈"];
+        _titleData = @[@"消息",@"收藏",@"商家认证",@"主播认证"];
     }
     return _titleData;
 }
@@ -137,40 +137,15 @@
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
-}
-
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    switch (section) {
-        case 0:
-            return 3;
-            break;
-        case 1:
-            return 2;
-            break;
-        case 2:
-            return 3;
-            break;
-        default:
-            break;
-    }
-    return 0;
+    return self.titleData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    if (indexPath.section == 0) {
-        cell.title.text = self.titleData[indexPath.row];
-        cell.imgView.image = [UIImage imageNamed:self.imgData[indexPath.row]];
-    }else if(indexPath.section ==1){
-        cell.title.text = self.titleData[indexPath.row + 3];
-        cell.imgView.image = [UIImage imageNamed:self.imgData[indexPath.row + 3]];
-    }else{
-        cell.title.text = self.titleData[indexPath.row + 5];
-        cell.imgView.image = [UIImage imageNamed:self.imgData[indexPath.row + 5]];
-    }
+    cell.title.text = self.titleData[indexPath.row];
+    cell.imgView.image = [UIImage imageNamed:self.imgData[indexPath.row]];
     [cell.content removeFromSuperview];
     [cell.otherImageV removeFromSuperview];
     return cell;
