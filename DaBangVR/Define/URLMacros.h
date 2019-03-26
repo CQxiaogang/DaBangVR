@@ -9,7 +9,7 @@
 /**开发服务器*/
 #define URL_main @"http://www.vrzbgw.com/dabang"
 //#define URL_main @"http://192.168.1.111:8080" // 强
-//#define URL_main @"http://192.168.1.106:8080" // 邓
+//#define URL_main @"http://192.168.1.168:8080" // 邓
 
 #pragma mark ——————   首页相关   ——————
 // 渠道列表

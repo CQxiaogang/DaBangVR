@@ -25,9 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *sizeLab;
 // 商品规格
 @property (weak, nonatomic) IBOutlet UILabel *goodsSpec;
-@property (weak, nonatomic) IBOutlet UILabel *priceLab;
-// 右下角 button
-@property (weak, nonatomic) IBOutlet UIButton *lowerRightCornerBtn;
 
 @property (nonatomic, strong) id<allOrdersCellDelegate> delegate;
 

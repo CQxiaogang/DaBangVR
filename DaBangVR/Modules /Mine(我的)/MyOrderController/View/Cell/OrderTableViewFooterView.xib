@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="0AT-Ai-SqM" customClass="OrderTableViewFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合计:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMe-cF-bMQ">
+                    <rect key="frame" x="190" y="7.5" width="29" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥135.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsI-ku-B5g">
+                    <rect key="frame" x="221" y="6.5" width="59" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4KR-lN-x9T">
+                    <rect key="frame" x="285" y="2" width="80" height="26"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="cSv-aC-CaP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="确认收款">
+                        <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="stateChangeOfButton:" destination="-2" eventType="touchUpInside" id="Ufp-qO-c5B"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="uc8-PE-j2e" firstAttribute="bottom" secondItem="4KR-lN-x9T" secondAttribute="bottom" constant="2" id="0Fg-KC-zJR"/>
+                <constraint firstItem="uc8-PE-j2e" firstAttribute="trailing" secondItem="4KR-lN-x9T" secondAttribute="trailing" constant="10" id="TMV-9i-gqa"/>
+                <constraint firstItem="DsI-ku-B5g" firstAttribute="centerY" secondItem="vMe-cF-bMQ" secondAttribute="centerY" id="WYr-l7-tEn"/>
+                <constraint firstItem="4KR-lN-x9T" firstAttribute="top" secondItem="uc8-PE-j2e" secondAttribute="top" constant="2" id="Xjb-Hc-oMa"/>
+                <constraint firstItem="4KR-lN-x9T" firstAttribute="leading" secondItem="DsI-ku-B5g" secondAttribute="trailing" constant="5" id="cxz-us-OBE"/>
+                <constraint firstItem="DsI-ku-B5g" firstAttribute="leading" secondItem="vMe-cF-bMQ" secondAttribute="trailing" constant="2" id="mrO-ET-Ara"/>
+                <constraint firstItem="4KR-lN-x9T" firstAttribute="centerY" secondItem="vMe-cF-bMQ" secondAttribute="centerY" id="y1C-1e-Mzo"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="uc8-PE-j2e"/>
+            <connections>
+                <outlet property="goodsPrice" destination="DsI-ku-B5g" id="gEP-p0-Lov"/>
+                <outlet property="stateChangeOfButton" destination="4KR-lN-x9T" id="LO9-Mb-yBv"/>
+            </connections>
+            <point key="canvasLocation" x="188" y="-61.169415292353825"/>
+        </view>
+    </objects>
+</document>

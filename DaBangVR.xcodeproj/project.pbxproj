@@ -22,6 +22,8 @@
 		0410358521CCD2F2002CB32C /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357C21CCD2F2002CB32C /* libSocialQQ.a */; };
 		0410358621CCD2F2002CB32C /* libUMSocialLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357E21CCD2F2002CB32C /* libUMSocialLog.a */; };
 		0413E25F2233BBC700BF008F /* LoginManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413E25E2233BBC700BF008F /* LoginManger.m */; };
+		041A719A2249C85B0059B19F /* OrderTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041A71992249C85B0059B19F /* OrderTableViewFooterView.m */; };
+		041A719C2249C8680059B19F /* OrderTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041A719B2249C8680059B19F /* OrderTableViewFooterView.xib */; };
 		042359EA21FEDF0200F4C345 /* SpellGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042359E921FEDF0200F4C345 /* SpellGroupModel.m */; };
 		0423DADF21FFF52700325869 /* NewProductLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423DADE21FFF52700325869 /* NewProductLaunchViewController.m */; };
 		0423DAE621FFF64F00325869 /* NewProductLaunchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423DAE421FFF64F00325869 /* NewProductLaunchCell.m */; };
@@ -352,6 +354,9 @@
 		0410357E21CCD2F2002CB32C /* libUMSocialLog.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocialLog.a; sourceTree = "<group>"; };
 		0413E25D2233BBC700BF008F /* LoginManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginManger.h; sourceTree = "<group>"; };
 		0413E25E2233BBC700BF008F /* LoginManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginManger.m; sourceTree = "<group>"; };
+		041A71982249C85B0059B19F /* OrderTableViewFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderTableViewFooterView.h; sourceTree = "<group>"; };
+		041A71992249C85B0059B19F /* OrderTableViewFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderTableViewFooterView.m; sourceTree = "<group>"; };
+		041A719B2249C8680059B19F /* OrderTableViewFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewFooterView.xib; sourceTree = "<group>"; };
 		042359E821FEDF0200F4C345 /* SpellGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpellGroupModel.h; sourceTree = "<group>"; };
 		042359E921FEDF0200F4C345 /* SpellGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpellGroupModel.m; sourceTree = "<group>"; };
 		0423DADD21FFF52700325869 /* NewProductLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewProductLaunchViewController.h; sourceTree = "<group>"; };
@@ -2470,6 +2475,9 @@
 				04F47E2121E5D0EE001B5F74 /* AllOrdersCell.h */,
 				04F47E2221E5D0EE001B5F74 /* AllOrdersCell.m */,
 				04F47E2321E5D0EE001B5F74 /* AllOrdersCell.xib */,
+				041A71982249C85B0059B19F /* OrderTableViewFooterView.h */,
+				041A71992249C85B0059B19F /* OrderTableViewFooterView.m */,
+				041A719B2249C8680059B19F /* OrderTableViewFooterView.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2904,6 +2912,7 @@
 				04FC2C4221C0E3AD00329B53 /* shop_area.sqlite in Resources */,
 				04C1AD23221172770011DDA3 /* lufei.jpg in Resources */,
 				04F55B13222A844900692A4E /* SortSearchCollectionViewCell.xib in Resources */,
+				041A719C2249C8680059B19F /* OrderTableViewFooterView.xib in Resources */,
 				04FA5D6121AE3F480061AF27 /* LoginViewController.xib in Resources */,
 				044E678B223229FE0077365D /* SearchViewController.xib in Resources */,
 				04ECB9F622422C7300A02DB2 /* GuideImage.bundle in Resources */,
@@ -3052,6 +3061,7 @@
 				042D1529221CEB0100DB895C /* ShufflingView.m in Sources */,
 				042FCEC621A3E22E002AD0DB /* HomeSecondsKillView.m in Sources */,
 				04BF218C2212B719002468C0 /* TestListBaseView.m in Sources */,
+				041A719A2249C85B0059B19F /* OrderTableViewFooterView.m in Sources */,
 				04F2FD2821EF35DE000B58E2 /* SpellGroupCell.m in Sources */,
 				044664F62237623E00DF6F47 /* ContentBaseViewController.m in Sources */,
 				04BF218B2212B719002468C0 /* PagingViewController.m in Sources */,

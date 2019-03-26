@@ -12,13 +12,14 @@
 //Cells
 #import "AllOrdersCell.h"
 #import "OrderSureHeaderView.h"
+#import "OrderTableViewFooterView.h"
 // Models
 //#import "MyOrderModel.h"
 //#import "MyOrderDeptModel.h"
 #import "OrderDeptGoodsModel.h"
 #import "OrderGoodsModel.h"
 
-@interface MyOrderTableViewController ()<allOrdersCellDelegate>
+@interface MyOrderTableViewController ()<allOrdersCellDelegate, orderTableViewFooterViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray <OrderDeptGoodsModel *> *deptData;
 @property (nonatomic, strong) NSMutableArray <OrderGoodsModel *> *orderData;
@@ -28,6 +29,7 @@
 @implementation MyOrderTableViewController
 static NSString *CellID = @"CellID";
 static NSString *HeaderCellID = @"HeaderCellID";
+static NSString *const fooderCellID = @"fooderCellID";
 #pragma mark —— 懒加载
 - (NSMutableArray *)deptData{
     if (!_deptData) {
@@ -45,6 +47,8 @@ static NSString *HeaderCellID = @"HeaderCellID";
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"AllOrdersCell" bundle:nil] forCellReuseIdentifier:CellID];
     [self.tableView registerNib:[UINib nibWithNibName:@"OrderSureHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:HeaderCellID];
+    [self.tableView registerNib:[UINib nibWithNibName:@"OrderTableViewFooterView" bundle:nil] forHeaderFooterViewReuseIdentifier:fooderCellID];
+    
     self.tableView.mj_header  = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self loadNewData];
     }];
@@ -107,20 +111,28 @@ static NSString *HeaderCellID = @"HeaderCellID";
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return kFit(30);
 }
+
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, 1)];
-    return view;
+    OrderTableViewFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:fooderCellID];
+    footerView.delegate = self;
+    if (self.deptData) {
+        footerView.depModel = self.deptData[section];
+    }
+    return footerView;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.01f;
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return kFit(30);
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     if (self.aDelegate && [self.aDelegate respondsToSelector:@selector(didSelectRowAtIndexPath:OrderDeptGoodsModel:)]) {
         [self.aDelegate didSelectRowAtIndexPath:indexPath OrderDeptGoodsModel:self.deptData[indexPath.section]];
     }
+}
+// 设置UITableviewFooterView的背景颜色
+-(void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section{
+    ((UITableViewHeaderFooterView *)view).backgroundView.backgroundColor = [UIColor whiteColor];
 }
 
 #pragma mark - JXCategoryListContentViewDelegate
@@ -129,21 +141,13 @@ static NSString *HeaderCellID = @"HeaderCellID";
     return self.view;
 }
 
-- (void)listDidAppear {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
-- (void)listDidDisappear {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
-#pragma mark —— allOrderTableView Delegate
-// 右下角按钮的点击事件
-- (void)lowerRightCornerClickEvent:(NSString *)string{
+#pragma mark —— orderTableViewFooterViewDelegate
+-(void)stateChangeOfButton:(NSString *)string{
     if (self.aDelegate && [self.aDelegate respondsToSelector:@selector(lowerRightCornerClickEvent:)]) {
         [self.aDelegate lowerRightCornerClickEvent:string];
     }
 }
+
 // 评价界面
 - (void) pushEvaluationVC{
     EvaluationViewController *vc = [[EvaluationViewController alloc] init];
