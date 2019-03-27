@@ -8,28 +8,27 @@
 
 #import "LiveCollectionView.h"
 #import "DBLayout.h"
+// Models
+#import "LiveModel.h"
+/** Views */
+#import "LiveCollectionViewCell.h"
 
 @interface LiveCollectionView ()<UICollectionViewDelegate, UICollectionViewDataSource>;
 @property (nonatomic, strong)DBLayout *layout;
-@property (nonatomic, copy) NSArray *highArr;
+/** 数据源 */
+@property (nonatomic, copy) NSArray *liveDataSource;
 @end
 
 @implementation LiveCollectionView
 static NSString *const CellID = @"CellID";
 #pragma mark —— 懒加载
 
--(DBLayout *)layout{
-    if (!_layout) {
-        _layout = [[DBLayout alloc] init];
-        _layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        _layout.itemCount = 10;
-    }
-    return _layout;
-}
 -(instancetype)init{
     self = [super initWithFrame:self.frame collectionViewLayout:self.layout];
     if (self) {
-        self = [[LiveCollectionView alloc] initWithFrame:self.frame collectionViewLayout:self.layout];
+        _layout = [[DBLayout alloc] init];
+        _layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        self = [[LiveCollectionView alloc] initWithFrame:self.frame collectionViewLayout:_layout];
         self.delegate = self;
         self.dataSource = self;
         [self registerNib:[UINib nibWithNibName:@"LiveCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:CellID];
@@ -37,16 +36,30 @@ static NSString *const CellID = @"CellID";
         // 不显示滚动条
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
+        //加载数据
+        [self loadingData];
+        
     }
     return self;
 }
 
+- (void)loadingData{
+    kWeakSelf(self);
+    [NetWorkHelper POST:URl_getLiveStreamsList parameters:nil success:^(id  _Nonnull responseObject) {
+        NSDictionary *dic = KJSONSerialization(responseObject)[@"data"];
+        weakself.liveDataSource = [LiveModel mj_objectArrayWithKeyValuesArray:dic[@"playList"]];
+        weakself.layout.itemCount = (int)weakself.liveDataSource.count;
+        [weakself reloadData];
+    } failure:nil];
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return _liveDataSource.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellID forIndexPath:indexPath];
+    LiveCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellID forIndexPath:indexPath];
+    cell.model = _liveDataSource[indexPath.row];
     return cell;
 }
 

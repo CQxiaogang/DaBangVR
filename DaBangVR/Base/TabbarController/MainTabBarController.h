@@ -10,7 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol MainTableViewDelegate <NSObject>
+
+- (void)didClickButtonWithIndex:(NSInteger)index;
+
+@end
+
 @interface MainTabBarController : UITabBarController
+
+@property(nonatomic, weak) id<MainTableViewDelegate>MDelegate;
 
 @end
 

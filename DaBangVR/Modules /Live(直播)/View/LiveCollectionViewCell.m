@@ -15,4 +15,9 @@
     self.backgroundColor = KRandomColor;
 }
 
+- (void)setModel:(LiveModel *)model{
+    _model = model;
+    [_liveCover setImageWithURL:[NSURL URLWithString:model.snapshotPlayURL] placeholder:kDefaultImg];
+}
+
 @end

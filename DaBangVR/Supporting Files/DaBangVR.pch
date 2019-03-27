@@ -31,6 +31,8 @@
 #import "RootNavigationController.h"
 #import "UIViewController+AlertViewAndActionSheet.h"
 #import "UIView+viewStyle.h"
+#import "UIButton+Animate.h"
+#import "UIView+Alert.h"
 
 // 第三方
 #import <YYKit.h>
@@ -40,6 +42,7 @@
 #import <SVProgressHUD.h>
 #import "MJExtension.h"
 #import <QQCorner/QQCorner.h>
+#import <UIImageView+WebCache.h>
 
 // 全局宏
 #import "URLMacros.h"

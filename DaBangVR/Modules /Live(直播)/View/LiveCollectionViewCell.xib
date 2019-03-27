@@ -103,11 +103,18 @@
                             <constraint firstItem="0YN-5K-xbF" firstAttribute="leading" secondItem="4Qx-wI-aYf" secondAttribute="leading" id="vCd-Ll-q5t"/>
                         </constraints>
                     </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c2k-Ad-wDa">
+                        <rect key="frame" x="0.0" y="0.0" width="182.5" height="170"/>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="c2k-Ad-wDa" secondAttribute="trailing" id="Hg1-hj-PM8"/>
                 <constraint firstItem="jwZ-qX-BkK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Lnc-O2-W6a"/>
+                <constraint firstItem="jwZ-qX-BkK" firstAttribute="top" secondItem="c2k-Ad-wDa" secondAttribute="bottom" id="T4D-6Y-ahl"/>
+                <constraint firstItem="c2k-Ad-wDa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="U2U-oO-cXT"/>
                 <constraint firstAttribute="trailing" secondItem="jwZ-qX-BkK" secondAttribute="trailing" id="Xlh-QW-pGA"/>
+                <constraint firstItem="c2k-Ad-wDa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kKk-GL-qNd"/>
                 <constraint firstAttribute="bottom" secondItem="jwZ-qX-BkK" secondAttribute="bottom" id="x2g-kV-rJ1"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>

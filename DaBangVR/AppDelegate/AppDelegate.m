@@ -12,6 +12,7 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "PaymentManager.h"
 #import <PLMediaStreamingKit/PLMediaStreamingKit.h>
+#import "EntertainmentViewController.h"
 
 @interface AppDelegate ()
 
@@ -47,6 +48,10 @@
     [[UMSocialManager defaultManager] handleOpenURL:url];
     [WXApi handleOpenURL:url delegate:[PaymentManager sharedPaymentManager]];
     return YES;
+}
+
+-(void)didClickButtonWithIndex:(NSInteger)index{
+   
 }
 
 @end

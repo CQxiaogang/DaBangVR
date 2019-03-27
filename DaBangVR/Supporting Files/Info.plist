@@ -122,5 +122,14 @@
 	<string>海鲜风暴需要你的同意才能访问您的相机</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>海鲜风暴需要你的同意才能访问您的相册</string>
+	<key> App Transport Security Setting</key>
+	<dict>
+		<key>Allow Arbitrary Loads</key>
+		<true/>
+	</dict>
+	<key>WKBackgroundModes</key>
+	<array>
+		<string>app plays audio or streams audio/video using AirPlay</string>
+	</array>
 </dict>
 </plist>

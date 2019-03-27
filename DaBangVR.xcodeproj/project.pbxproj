@@ -137,6 +137,15 @@
 		0463026021BBAC8D0003C542 /* DBLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463025C21BBAC8D0003C542 /* DBLayoutConstraint.m */; };
 		0463026321BBC8C40003C542 /* DBTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463026221BBC8C40003C542 /* DBTopView.m */; };
 		0463026521BBC8DB0003C542 /* DBTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0463026421BBC8DB0003C542 /* DBTopView.xib */; };
+		046DB305224B216500C2CACB /* EntertainmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB304224B216500C2CACB /* EntertainmentViewController.m */; };
+		046DB30D224B279700C2CACB /* TPCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB307224B279700C2CACB /* TPCButton.m */; };
+		046DB30E224B279700C2CACB /* TPCItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB30A224B279700C2CACB /* TPCItem.m */; };
+		046DB30F224B279700C2CACB /* TPCSpringMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB30C224B279700C2CACB /* TPCSpringMenu.m */; };
+		046DB315224B5D8D00C2CACB /* LiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB314224B5D8D00C2CACB /* LiveModel.m */; };
+		046DB318224B71A600C2CACB /* PLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB316224B71A600C2CACB /* PLBaseViewController.m */; };
+		046DB31B224B71AE00C2CACB /* PLPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB31A224B71AE00C2CACB /* PLPlayViewController.m */; };
+		046DB31E224B739F00C2CACB /* UIButton+Animate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB31C224B739F00C2CACB /* UIButton+Animate.m */; };
+		046DB321224B742300C2CACB /* UIView+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB31F224B742300C2CACB /* UIView+Alert.m */; };
 		04716AC02224E69000FE2B42 /* CountryGoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04716ABE2224E69000FE2B42 /* CountryGoodsCollectionViewCell.m */; };
 		04716AC12224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04716ABF2224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib */; };
 		04716AC52224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04716AC32224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m */; };
@@ -569,6 +578,24 @@
 		0463026121BBC8C40003C542 /* DBTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBTopView.h; sourceTree = "<group>"; };
 		0463026221BBC8C40003C542 /* DBTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBTopView.m; sourceTree = "<group>"; };
 		0463026421BBC8DB0003C542 /* DBTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBTopView.xib; sourceTree = "<group>"; };
+		046DB303224B216500C2CACB /* EntertainmentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EntertainmentViewController.h; path = "DaBangVR/Modules /Entertainment(娱乐)/Controller/EntertainmentViewController.h"; sourceTree = SOURCE_ROOT; };
+		046DB304224B216500C2CACB /* EntertainmentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EntertainmentViewController.m; path = "DaBangVR/Modules /Entertainment(娱乐)/Controller/EntertainmentViewController.m"; sourceTree = SOURCE_ROOT; };
+		046DB307224B279700C2CACB /* TPCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCButton.m; sourceTree = "<group>"; };
+		046DB308224B279700C2CACB /* TPCItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCItem.h; sourceTree = "<group>"; };
+		046DB309224B279700C2CACB /* TPCSpringMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCSpringMenu.h; sourceTree = "<group>"; };
+		046DB30A224B279700C2CACB /* TPCItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCItem.m; sourceTree = "<group>"; };
+		046DB30B224B279700C2CACB /* TPCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCButton.h; sourceTree = "<group>"; };
+		046DB30C224B279700C2CACB /* TPCSpringMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCSpringMenu.m; sourceTree = "<group>"; };
+		046DB313224B5D8D00C2CACB /* LiveModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveModel.h; sourceTree = "<group>"; };
+		046DB314224B5D8D00C2CACB /* LiveModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveModel.m; sourceTree = "<group>"; };
+		046DB316224B71A600C2CACB /* PLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLBaseViewController.m; sourceTree = "<group>"; };
+		046DB317224B71A600C2CACB /* PLBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLBaseViewController.h; sourceTree = "<group>"; };
+		046DB319224B71AE00C2CACB /* PLPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLPlayViewController.h; sourceTree = "<group>"; };
+		046DB31A224B71AE00C2CACB /* PLPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLPlayViewController.m; sourceTree = "<group>"; };
+		046DB31C224B739F00C2CACB /* UIButton+Animate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Animate.m"; sourceTree = "<group>"; };
+		046DB31D224B739F00C2CACB /* UIButton+Animate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Animate.h"; sourceTree = "<group>"; };
+		046DB31F224B742300C2CACB /* UIView+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Alert.m"; sourceTree = "<group>"; };
+		046DB320224B742300C2CACB /* UIView+Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Alert.h"; sourceTree = "<group>"; };
 		04716ABD2224E69000FE2B42 /* CountryGoodsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryGoodsCollectionViewCell.h; sourceTree = "<group>"; };
 		04716ABE2224E69000FE2B42 /* CountryGoodsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountryGoodsCollectionViewCell.m; sourceTree = "<group>"; };
 		04716ABF2224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryGoodsCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -1606,6 +1633,42 @@
 			path = Adaptive;
 			sourceTree = "<group>";
 		};
+		046DB306224B279700C2CACB /* TPCSpringMenu */ = {
+			isa = PBXGroup;
+			children = (
+				046DB308224B279700C2CACB /* TPCItem.h */,
+				046DB30A224B279700C2CACB /* TPCItem.m */,
+				046DB30B224B279700C2CACB /* TPCButton.h */,
+				046DB307224B279700C2CACB /* TPCButton.m */,
+				046DB309224B279700C2CACB /* TPCSpringMenu.h */,
+				046DB30C224B279700C2CACB /* TPCSpringMenu.m */,
+			);
+			path = TPCSpringMenu;
+			sourceTree = "<group>";
+		};
+		046DB310224B579C00C2CACB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				046DB303224B216500C2CACB /* EntertainmentViewController.h */,
+				046DB304224B216500C2CACB /* EntertainmentViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		046DB311224B579C00C2CACB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		046DB312224B579C00C2CACB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		04716AC722254E6C00FE2B42 /* SortSearchController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1984,8 +2047,12 @@
 				04FB2F7221BB7BE8007E63AA /* UIView+FontSize.m */,
 				04D4EA6822439C8600220D0A /* UIView+viewStyle.h */,
 				04D4EA6922439C8600220D0A /* UIView+viewStyle.m */,
+				046DB320224B742300C2CACB /* UIView+Alert.h */,
+				046DB31F224B742300C2CACB /* UIView+Alert.m */,
 				04F4468721D74F8F00524971 /* UIButton+Bootstrap.h */,
 				04F4468B21D74F9000524971 /* UIButton+Bootstrap.m */,
+				046DB31D224B739F00C2CACB /* UIButton+Animate.h */,
+				046DB31C224B739F00C2CACB /* UIButton+Animate.m */,
 				04F494C321C77D1B009A4518 /* UIAlertController+TapGesAlertController.h */,
 				04F494C421C77D1B009A4518 /* UIAlertController+TapGesAlertController.m */,
 				04F5C8E821CA4307008DD043 /* UIViewController+AlertViewAndActionSheet.h */,
@@ -2004,11 +2071,11 @@
 				049703E521A69860002359B5 /* LiveTableViewCell.xib */,
 				04F2E4532248C255001FB3C1 /* DBLayout.h */,
 				04F2E4542248C255001FB3C1 /* DBLayout.m */,
+				04F2E44D2248B197001FB3C1 /* LiveCollectionView.h */,
+				04F2E44E2248B197001FB3C1 /* LiveCollectionView.m */,
 				04F2E4562248C627001FB3C1 /* LiveCollectionViewCell.h */,
 				04F2E4572248C627001FB3C1 /* LiveCollectionViewCell.m */,
 				04F2E4582248C627001FB3C1 /* LiveCollectionViewCell.xib */,
-				04F2E44D2248B197001FB3C1 /* LiveCollectionView.h */,
-				04F2E44E2248B197001FB3C1 /* LiveCollectionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2016,6 +2083,8 @@
 		049703DC21A69121002359B5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				046DB313224B5D8D00C2CACB /* LiveModel.h */,
+				046DB314224B5D8D00C2CACB /* LiveModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2025,6 +2094,10 @@
 			children = (
 				049D479D219FEC540058178D /* LiveViewController.h */,
 				049D479E219FEC540058178D /* LiveViewController.m */,
+				046DB317224B71A600C2CACB /* PLBaseViewController.h */,
+				046DB316224B71A600C2CACB /* PLBaseViewController.m */,
+				046DB319224B71AE00C2CACB /* PLPlayViewController.h */,
+				046DB31A224B71AE00C2CACB /* PLPlayViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2115,6 +2188,9 @@
 		049D478D219FB42C0058178D /* Entertainment(娱乐) */ = {
 			isa = PBXGroup;
 			children = (
+				046DB312224B579C00C2CACB /* Model */,
+				046DB311224B579C00C2CACB /* View */,
+				046DB310224B579C00C2CACB /* Controller */,
 			);
 			path = "Entertainment(娱乐)";
 			sourceTree = "<group>";
@@ -2577,6 +2653,7 @@
 		04F5C8E321CA24FD008DD043 /* ThridParty */ = {
 			isa = PBXGroup;
 			children = (
+				046DB306224B279700C2CACB /* TPCSpringMenu */,
 				04ECB9F022422C7300A02DB2 /* DHGuidePageHUD */,
 				044665042237654300DF6F47 /* Sources */,
 				0430114A221407140003E082 /* SureCustomActionSheet */,
@@ -3008,6 +3085,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-DaBangVR/Pods-DaBangVR-frameworks.sh",
 				"${PODS_ROOT}/PLMediaStreamingKit/Pod/Library/PLMediaStreamingKit.framework",
 				"${PODS_ROOT}/PLMediaStreamingKit/Pod/Library/HappyDNS.framework",
+				"${PODS_ROOT}/PLPlayerKit/Pod/Library/PLPlayerKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -3015,6 +3093,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PLMediaStreamingKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HappyDNS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PLPlayerKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3047,12 +3126,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DaBangVR/Pods-DaBangVR-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JGProgressHUD.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
@@ -3094,6 +3175,7 @@
 				044665632237654300DF6F47 /* JXCategoryIndicatorLineView.m in Sources */,
 				04EFA02621E7226D007C2FCA /* OrderProcessingViewController2.m in Sources */,
 				044665692237654300DF6F47 /* JXCategoryIndicatorDotLineView.m in Sources */,
+				046DB31B224B71AE00C2CACB /* PLPlayViewController.m in Sources */,
 				04F8FBFE21F1ADE900913150 /* CommentsListModel.m in Sources */,
 				042D1529221CEB0100DB895C /* ShufflingView.m in Sources */,
 				042FCEC621A3E22E002AD0DB /* HomeSecondsKillView.m in Sources */,
@@ -3140,6 +3222,7 @@
 				04F45F1B21F5B7DE009F5907 /* RightSecondsKillCell.m in Sources */,
 				0446656C2237654300DF6F47 /* JXCategoryIndicatorCell.m in Sources */,
 				04BF21932212C279002468C0 /* MineCollectionViewController.m in Sources */,
+				046DB321224B742300C2CACB /* UIView+Alert.m in Sources */,
 				043B467E21F804BF00C75536 /* OrderSureModel.m in Sources */,
 				0463025E21BBAC8D0003C542 /* DBFontOfSize.m in Sources */,
 				04F2FD2321EF259A000B58E2 /* SecondsKillViewController.m in Sources */,
@@ -3177,6 +3260,7 @@
 				04ECB9F722422C7300A02DB2 /* DHGifImageOperation.m in Sources */,
 				044665612237654300DF6F47 /* JXCategoryTitleVerticalZoomCell.m in Sources */,
 				045A6FEB2223F49B006081CF /* HorizontalCollectionView.m in Sources */,
+				046DB315224B5D8D00C2CACB /* LiveModel.m in Sources */,
 				04F70C6521E97D17004BD4C6 /* GoodsShowTitleModel.m in Sources */,
 				04EFA02C21E73391007C2FCA /* EvaluationOfSuccessViewController.m in Sources */,
 				044664F3223761FC00DF6F47 /* JXCategoryTitleAttributeCell.m in Sources */,
@@ -3186,6 +3270,7 @@
 				04F5C8EA21CA4307008DD043 /* UIViewController+AlertViewAndActionSheet.m in Sources */,
 				044664F92237625200DF6F47 /* ListViewController.m in Sources */,
 				04F62FDA21F951440094B26F /* ShoppingCartHeaderView.m in Sources */,
+				046DB318224B71A600C2CACB /* PLBaseViewController.m in Sources */,
 				044E678C223229FE0077365D /* SearchViewController.m in Sources */,
 				04F8FC0221F1D3F700913150 /* SecondsKillCell.m in Sources */,
 				044665832237654300DF6F47 /* UIColor+JXAdd.m in Sources */,
@@ -3195,6 +3280,7 @@
 				04D4EA6A22439C8600220D0A /* UIView+viewStyle.m in Sources */,
 				04FC2C4021C0E3AD00329B53 /* JFCityCollectionFlowLayout.m in Sources */,
 				044F3BA921F0201B00F3AD5E /* MySpellGroupCell.m in Sources */,
+				046DB30D224B279700C2CACB /* TPCButton.m in Sources */,
 				04F45F0B21F57EED009F5907 /* NewCommentCell.m in Sources */,
 				04F2FD1B21EF11D6000B58E2 /* GoodsRotationListModel.m in Sources */,
 				04F62FD721F951440094B26F /* ShopppingCartBottomView.m in Sources */,
@@ -3209,6 +3295,8 @@
 				0446657E2237654300DF6F47 /* JXCategoryFactory.m in Sources */,
 				044E6782223221E60077365D /* DDMySearchBar.m in Sources */,
 				04F4467821D74F5300524971 /* FeatureItemCell.m in Sources */,
+				046DB30E224B279700C2CACB /* TPCItem.m in Sources */,
+				046DB305224B216500C2CACB /* EntertainmentViewController.m in Sources */,
 				044665752237654300DF6F47 /* JXCategoryTitleCell.m in Sources */,
 				04FC2C3B21C0E3AD00329B53 /* JFAreaDataManager.m in Sources */,
 				04F62FEE21F9B69A0094B26F /* ModifyAddressAreaModel.m in Sources */,
@@ -3217,6 +3305,7 @@
 				04F494C521C77D1B009A4518 /* UIAlertController+TapGesAlertController.m in Sources */,
 				04F62FEF21F9B69A0094B26F /* AreaView.m in Sources */,
 				044665792237654300DF6F47 /* JXCategoryImageCellModel.m in Sources */,
+				046DB31E224B739F00C2CACB /* UIButton+Animate.m in Sources */,
 				04F4469421D74FBF00524971 /* GoodsInfoView.m in Sources */,
 				04F4468F21D74F9000524971 /* UIButton+Bootstrap.m in Sources */,
 				04FC07F321B50855008FF83B /* SettingViewController.m in Sources */,
@@ -3224,6 +3313,7 @@
 				045A6FF02223F514006081CF /* CountryCollectionViewCell.m in Sources */,
 				044665722237654300DF6F47 /* JXCategoryTitleImageCell.m in Sources */,
 				04F3B32421EDE01000DFBA84 /* GoodsShowViewController.m in Sources */,
+				046DB30F224B279700C2CACB /* TPCSpringMenu.m in Sources */,
 				0446656D2237654300DF6F47 /* JXCategoryIndicatorView.m in Sources */,
 				04FC2C3C21C0E3AD00329B53 /* JFCityHeaderView.m in Sources */,
 				0463026021BBAC8D0003C542 /* DBLayoutConstraint.m in Sources */,

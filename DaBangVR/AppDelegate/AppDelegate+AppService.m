@@ -32,6 +32,7 @@
 - (void)initUserManager{
     // 让自定义的tabBarViewController做为根试图
     self.mainTabBar = [MainTabBarController new];
+    self.mainTabBar.MDelegate = self;
     self.window.rootViewController = self.mainTabBar;
     if ([userManager loadUserInfo]) {
         
@@ -67,7 +68,8 @@
         animation.type = @"fade"; // 动画类型
         animation.subtype = kCATransitionFromRight; // 动画方向
         animation.duration = 0.3f;
-        [self.window.layer addAnimation:animation forKey:@"revealAnimation"];        if (isBound) {
+        [self.window.layer addAnimation:animation forKey:@"revealAnimation"];
+        if (isBound) {
             // 登录切换视图，根视图不能销毁。
             [kRootViewController dismissViewControllerAnimated:NO completion:^{
                 self.window.rootViewController = self.mainTabBar;
@@ -90,4 +92,7 @@
 -(void)initWX{
     [WXApi registerApp:kAppKey_Wechat];
 }
+
+
+
 @end

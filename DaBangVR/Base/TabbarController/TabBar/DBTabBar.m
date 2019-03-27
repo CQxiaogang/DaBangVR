@@ -45,7 +45,9 @@
 }
 
 - (void)releaseButtonClick{
-    
+    if ([self.myDelegate respondsToSelector:@selector(tabBarDidClickPlusButton:)]) {
+        [self.myDelegate tabBarDidClickPlusButton:self];
+    }
 }
 
 #pragma mark  - 系统方法

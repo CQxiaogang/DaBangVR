@@ -12,15 +12,21 @@
 #import "DBShortVideoViewController.h"
 #import "PagingViewController.h"
 #import "MineViewController.h"
+#import "EntertainmentViewController.h"
+#import "GoodAttributesView.h"
 
 #define kSWidth [UIScreen mainScreen].bounds.size.width
 
+#import "TPCSpringMenu.h"
+#import "TPCSpringMenu.h"
 
-@interface MainTabBarController ()<DBTabBarDelegate , UITabBarControllerDelegate>
+@interface MainTabBarController ()<DBTabBarDelegate , UITabBarControllerDelegate, TPCSpringMenuDataSource, TPCSpringMenuDelegate>
 
 {
     NSUInteger _selectedIndex;
 }
+
+@property (weak, nonatomic) TPCSpringMenu *menu;
 
 @end
 
@@ -38,6 +44,8 @@
     [self setValue:customTabBar forKey:@"tabBar"];
     //tabBar不透明
     self.tabBar.translucent = NO;
+    
+    [self setupTPCSpringMenu];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -59,7 +67,6 @@
 
     MineViewController *myVC = [MineViewController new];
     [self addChildViewController:myVC title:@"我的" imageName:@"h_Member" selectedImageName:@"h_Member_select"];
-    
 }
 
 /**
@@ -83,28 +90,70 @@
     
     [self addChildViewController:nav];
 }
+// 设置弹出菜单
+- (void)setupTPCSpringMenu{
+    TPCItem *item1 = [TPCItem itemWithImage:[UIImage imageNamed:@"per_center_broadcast"] title:@"开直播"];
+    TPCItem *item2 = [TPCItem itemWithImage:[UIImage imageNamed:@"per_center_ShortVideo"] title:@"短视频"];
+    TPCItem *item3 = [TPCItem itemWithImage:[UIImage imageNamed:@"per_center_dynamics"] title:@"发动态"];
+    NSArray *items = @[item1, item2, item3];
+    
+    TPCSpringMenu *menu = [TPCSpringMenu menuWithItems:items];
+    // 按钮文字颜色
+    menu.buttonTitleColor = KBlackColor;
+    // 按钮行数
+    menu.columns = 3;
+    // 最后一个按钮与底部的距离
+    menu.spaceToBottom = 100;
+    // 按钮半径（只支持圆形图片，非圆形图片以宽度算）
+    menu.buttonDiameter = 50;
+    // 允许点击隐藏menu
+    menu.enableTouchResignActive = YES;
+    menu.dataSource = self;
+    menu.delegate = self;
+    [self.view addSubview:menu];
+    _menu = menu;
+}
 
 #pragma mark - DBTabBar delegate
 - (void)tabBarDidClickPlusButton:(DBTabBar *)tabBar {
-    NSLog(@"点击，在这里实现代理操作，比如跳转一个控制器");
+    [_menu becomeActive];
 }
 
-//- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
-//    if ([viewController.tabBarItem.title isEqualToString:@"我的"]){
-//        if ([DBLoginModel sharedLoginModel].isLogin == NO) {
-//            /**
-//             在为登陆的情况下，当前tabBarItem.title是不是"我的"，是"我的"就跳转到登陆界面
-//             **/
-//                
-//            DBLoginViewController *loginVC = [DBLoginViewController new];
-//            
-//            [self presentViewController:loginVC animated:YES completion:nil];
-//            
-//            return NO;
-//        }
-//    }
-//    return YES;
-//}
-// 隐藏tabBar
+#pragma mark TPCSpringMenuDataSource
+- (UIButton *)buttonToChangeActiveForSpringMenu:(TPCSpringMenu *)menu
+{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, KScreenW, 40);
+    UIImage *img = [UIImage imageNamed:@"per_center_button"];
+    [btn setImage:img forState:UIControlStateNormal];
+    
+    return btn;
+}
+
+- (UIView *)backgroundViewOfSpringMenu:(TPCSpringMenu *)menu
+{
+    UIView *view = [[UIView alloc] initWithFrame:self.view.bounds];
+    view.backgroundColor = KWhiteColor;
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"compose_slogan"]];
+    imageView.bounds = CGRectMake(0, 0, 154, 48);
+    imageView.center = CGPointMake(self.view.bounds.size.width * 0.5, 100);
+    [view addSubview:imageView];
+    
+    return view;
+}
+#pragma mark TPCSpringMenuDelegate
+- (void)springMenu:(TPCSpringMenu *)menu didClickBottomActiveButton:(UIButton *)button
+{
+    
+}
+
+- (void)springMenu:(TPCSpringMenu *)menu didClickButtonWithIndex:(NSInteger)index
+{
+//    [self.MDelegate didClickButtonWithIndex:index];
+    if (index==0) {
+        EntertainmentViewController *vc = [EntertainmentViewController new];
+        [self presentViewController:vc animated:NO completion:nil];
+    }
+}
 
 @end

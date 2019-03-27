@@ -108,4 +108,7 @@
 
 #pragma mark —————— 直播管理接口 ——————
 // 创建推流
-#define URl_createStream NSStringFormat(@"%@%@",URL_main,@"/api/pili/createStream?")
+#define URl_create NSStringFormat(@"%@%@",URL_main,@"/api/pili/create?")
+// 获取流列表 - 正在直播
+#define URl_getLiveStreamsList NSStringFormat(@"%@%@",URL_main,@"/api/pili/getLiveStreamsList")
+
