@@ -24,13 +24,13 @@
     
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = KBlackColor;
     
     _closeButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
-    [_closeButton setTintColor:[UIColor whiteColor]];
-    [_closeButton setImage:[UIImage imageNamed:@"close"] forState:(UIControlStateNormal)];
+    [_closeButton setTintColor:KBlackColor];
+    [_closeButton setTitle:@"退出" forState:UIControlStateNormal];
     [_closeButton addTarget:self action:@selector(clickCloseButton) forControlEvents:(UIControlEventTouchUpInside)];
-    [_closeButton setBackgroundColor:[UIColor colorWithWhite:0 alpha:.5]];
+    [_closeButton setBackgroundColor:KWhiteColor];
     _closeButton.layer.cornerRadius = 22;
     
     self.thumbImageView = [[UIImageView alloc] init];
@@ -83,7 +83,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)setThumbImage:(UIImage *)thumbImage {

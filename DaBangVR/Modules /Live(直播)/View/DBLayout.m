@@ -45,7 +45,12 @@
         }
         
         //设置item的位置
-        attris.frame = CGRectMake(self.sectionInset.left+(self.minimumInteritemSpacing+WIDTH)*width, colHight[width]-hight-self.minimumLineSpacing, WIDTH, hight);
+        if (_itemCount == 1) {
+            attris.frame = CGRectMake(self.sectionInset.left, colHight[width]-hight-self.minimumLineSpacing, WIDTH, hight);
+        }else{
+            attris.frame = CGRectMake(self.sectionInset.left+(self.minimumInteritemSpacing+WIDTH)*width, colHight[width]-hight-self.minimumLineSpacing, WIDTH, hight);
+        }
+        
         [_attributeAttay addObject:attris];
     }
     
@@ -55,7 +60,6 @@
     }else{
         self.itemSize = CGSizeMake(WIDTH, (colHight[1]-self.sectionInset.top)*2/_itemCount-self.minimumLineSpacing);
     }
-
 }
 
 //这个方法中返回我们的布局数组

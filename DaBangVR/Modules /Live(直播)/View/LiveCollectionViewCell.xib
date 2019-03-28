@@ -22,22 +22,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jwZ-qX-BkK">
                         <rect key="frame" x="0.0" y="170" width="182.5" height="50"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vrq-6o-2It">
-                                <rect key="frame" x="0.0" y="-25" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Ukw-GY-pKB">
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </constraint>
-                                    <constraint firstAttribute="width" constant="50" id="vkn-eP-o1E">
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </constraint>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音乐爱好者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qx-wI-aYf">
                                 <rect key="frame" x="55" y="5" width="61.5" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -65,9 +49,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.0万" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ri2-tO-w8N">
                                 <rect key="frame" x="146.5" y="30" width="31" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="sdK-Mm-VyG"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -80,46 +61,59 @@
                         </subviews>
                         <color key="backgroundColor" red="0.23872119188308716" green="0.69104111194610596" blue="0.85568314790725708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="vrq-6o-2It" secondAttribute="bottom" constant="25" id="96e-yw-hdu">
+                            <constraint firstAttribute="height" constant="50" id="Dji-hN-jBt">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="4Qx-wI-aYf" firstAttribute="leading" secondItem="vrq-6o-2It" secondAttribute="trailing" constant="5" id="R7V-TH-O0d"/>
-                            <constraint firstItem="vrq-6o-2It" firstAttribute="leading" secondItem="jwZ-qX-BkK" secondAttribute="leading" id="XEM-ZX-oyU">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                            <constraint firstAttribute="bottom" secondItem="Ri2-tO-w8N" secondAttribute="bottom" constant="5" id="a47-jf-6Ac"/>
-                            <constraint firstAttribute="height" constant="50" id="bDc-AH-fhw">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                            <constraint firstItem="0YN-5K-xbF" firstAttribute="top" secondItem="4Qx-wI-aYf" secondAttribute="bottom" constant="5" id="hfK-6A-Fna"/>
-                            <constraint firstAttribute="trailing" secondItem="Ri2-tO-w8N" secondAttribute="trailing" constant="5" id="msp-bd-HGI"/>
-                            <constraint firstItem="4Qx-wI-aYf" firstAttribute="top" secondItem="jwZ-qX-BkK" secondAttribute="top" constant="5" id="pPF-lb-DMr"/>
-                            <constraint firstItem="0YN-5K-xbF" firstAttribute="leading" secondItem="4Qx-wI-aYf" secondAttribute="leading" id="vCd-Ll-q5t"/>
+                            <constraint firstItem="4Qx-wI-aYf" firstAttribute="top" secondItem="jwZ-qX-BkK" secondAttribute="top" constant="5" id="FIX-UZ-Eg6"/>
+                            <constraint firstItem="0YN-5K-xbF" firstAttribute="top" secondItem="4Qx-wI-aYf" secondAttribute="bottom" constant="5" id="FVC-TJ-QAK"/>
+                            <constraint firstItem="4Qx-wI-aYf" firstAttribute="leading" secondItem="jwZ-qX-BkK" secondAttribute="leading" constant="55" id="IGm-ef-qaL"/>
+                            <constraint firstItem="0YN-5K-xbF" firstAttribute="leading" secondItem="4Qx-wI-aYf" secondAttribute="leading" id="cJG-D9-Ubl"/>
+                            <constraint firstAttribute="bottom" secondItem="Ri2-tO-w8N" secondAttribute="bottom" constant="5" id="u0h-34-IDl"/>
+                            <constraint firstAttribute="trailing" secondItem="Ri2-tO-w8N" secondAttribute="trailing" constant="5" id="zMd-9l-35z"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c2k-Ad-wDa">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lufei.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="c2k-Ad-wDa">
                         <rect key="frame" x="0.0" y="0.0" width="182.5" height="170"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YH-OJ-Bzn">
+                        <rect key="frame" x="0.0" y="145" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="2Kh-Pr-NrY">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstAttribute="height" constant="50" id="PiC-Xd-8ar">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
                     </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="c2k-Ad-wDa" secondAttribute="trailing" id="Hg1-hj-PM8"/>
-                <constraint firstItem="jwZ-qX-BkK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Lnc-O2-W6a"/>
-                <constraint firstItem="jwZ-qX-BkK" firstAttribute="top" secondItem="c2k-Ad-wDa" secondAttribute="bottom" id="T4D-6Y-ahl"/>
-                <constraint firstItem="c2k-Ad-wDa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="U2U-oO-cXT"/>
-                <constraint firstAttribute="trailing" secondItem="jwZ-qX-BkK" secondAttribute="trailing" id="Xlh-QW-pGA"/>
-                <constraint firstItem="c2k-Ad-wDa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kKk-GL-qNd"/>
-                <constraint firstAttribute="bottom" secondItem="jwZ-qX-BkK" secondAttribute="bottom" id="x2g-kV-rJ1"/>
+                <constraint firstAttribute="trailing" secondItem="c2k-Ad-wDa" secondAttribute="trailing" id="05u-e2-xCO"/>
+                <constraint firstItem="c2k-Ad-wDa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="0Pd-8y-1Qz"/>
+                <constraint firstAttribute="bottom" secondItem="jwZ-qX-BkK" secondAttribute="bottom" id="Ccj-Qo-szZ"/>
+                <constraint firstItem="jwZ-qX-BkK" firstAttribute="top" secondItem="c2k-Ad-wDa" secondAttribute="bottom" id="FNu-lU-W4V"/>
+                <constraint firstItem="jwZ-qX-BkK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="L6t-q7-jdu"/>
+                <constraint firstItem="3YH-OJ-Bzn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NGh-kE-ryP"/>
+                <constraint firstItem="c2k-Ad-wDa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="elT-qf-7fC"/>
+                <constraint firstAttribute="trailing" secondItem="jwZ-qX-BkK" secondAttribute="trailing" id="wqh-gc-Qi4"/>
+                <constraint firstAttribute="bottom" secondItem="3YH-OJ-Bzn" secondAttribute="bottom" constant="25" id="wrT-Fy-Koi"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="131" height="200"/>
+            <connections>
+                <outlet property="liveCover" destination="c2k-Ad-wDa" id="PpU-n2-pEt"/>
+            </connections>
             <point key="canvasLocation" x="106.40000000000001" y="46.776611694152926"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="lufei.jpg" width="900" height="768"/>
+    </resources>
 </document>

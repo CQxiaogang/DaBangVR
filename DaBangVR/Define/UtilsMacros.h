@@ -152,7 +152,7 @@ return shared##className; \
 // 边距
 #define KMargin kFit(10)
 // 默认图片
-#define kDefaultImg [UIImage imageNamed:@"ad3"]
+#define kDefaultImg [UIImage imageNamed:@"lufei"]
 // 订单状态
 #define kOrderState_forThePayment    @"待付款"
 #define kOrderState_ToSendTheGoods   @"待发货"

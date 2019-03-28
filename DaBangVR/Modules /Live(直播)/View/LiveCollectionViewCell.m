@@ -12,7 +12,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.backgroundColor = KRandomColor;
 }
 
 - (void)setModel:(LiveModel *)model{
