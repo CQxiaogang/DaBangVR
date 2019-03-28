@@ -36,7 +36,6 @@ static NSString *const CellID = @"CellID";
         // 不显示滚动条
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
-        
         _liveData = arr;
     }
     return self;
@@ -59,6 +58,6 @@ static NSString *const CellID = @"CellID";
 
 #pragma mark - JXCategoryListContentViewDelegate
 - (UIView *)listView {
-    return self ;
+    return self;
 }
 @end

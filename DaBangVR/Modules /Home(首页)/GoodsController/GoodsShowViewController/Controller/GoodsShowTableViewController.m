@@ -91,17 +91,7 @@
 }
 
 #pragma mark - JXCategoryListContentViewDelegate
-
 - (UIView *)listView {
     return self.view;
 }
-
-- (void)listDidAppear {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
-- (void)listDidDisappear {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
 @end

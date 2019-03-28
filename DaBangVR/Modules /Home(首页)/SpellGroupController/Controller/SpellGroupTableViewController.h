@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LoadDataListBaseViewController.h"
+#import "LoadDataListBaseViewTableViewController.h"
 #import "JXCategoryListContainerView.h"
 
 @protocol SpellGroupTableViewDelegate <NSObject>
@@ -17,7 +17,7 @@
 @end
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SpellGroupTableViewController : LoadDataListBaseViewController<JXCategoryListContentViewDelegate>
+@interface SpellGroupTableViewController : LoadDataListBaseViewTableViewController<JXCategoryListContentViewDelegate>
 
 @property (nonatomic, copy) NSString *currentView;
 

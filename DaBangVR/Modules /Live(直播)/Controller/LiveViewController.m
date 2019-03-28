@@ -5,8 +5,9 @@
 //  Created by mac on 2018/11/17.
 //  Copyright © 2018 DaBangVR. All rights reserved.
 //
-
+/** Controllers */
 #import "LiveViewController.h"
+#import "RecreationLiveCollectionViewController.h"
 /** Vendors */
 #import "JXCategoryView.h"
 #import "JXCategoryListContainerView.h"
@@ -15,26 +16,36 @@
 #import "LiveTableView.h"
 /** Models */
 #import "LiveModel.h"
-#import "DBLayout.h"
 /** 放直播 */
 #import "PLPlayViewController.h"
 static NSString *cellID = @"cellID";
 
-@interface LiveViewController ()<JXCategoryViewDelegate, JXCategoryListContainerViewDelegate ,LiveCollectionViewDelegate>
+@interface LiveViewController ()<JXCategoryViewDelegate, JXCategoryListContainerViewDelegate , RecreationLiveCollectionViewControllerDelegate>
 
 /** 标题 */
 @property (nonatomic, copy) NSArray <NSString *>*titles;
 /** 第三方 */
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
 @property (nonatomic, strong) JXCategoryListContainerView *listContainerView;
-
-@property (nonatomic, strong)DBLayout *layout;
-@property (nonatomic, copy) NSArray *liveData;
+/** 娱乐数据源 */
+@property (nonatomic, copy) NSArray *recreationLiveData;
+/** 购物数据源 */
+@property (nonatomic, copy) NSArray *shoppngLiveData;
+/** 娱乐View */
+@property (nonatomic, strong) LiveCollectionView *collectionView;
 @end
 
 @implementation LiveViewController
 
 #pragma mark 懒加载
+
+- (LiveCollectionView *)collectionView{
+    if (!_collectionView) {
+        _collectionView = [[LiveCollectionView alloc] initWithFrame:self.view.frame itemCount:_recreationLiveData];
+        _collectionView.MDelegate = self;
+    }
+    return _collectionView;
+}
 
 #pragma mark 系统回调方法
 - (void)viewDidLoad {
@@ -49,35 +60,48 @@ static NSString *cellID = @"cellID";
 
 - (void)setupUI{
     [super setupUI];
-    kWeakSelf(self);
-    dispatch_group_t group = dispatch_group_create();
-    dispatch_group_enter(group);
-    [NetWorkHelper POST:URl_getLiveStreamsList parameters:nil success:^(id  _Nonnull responseObject) {
-        NSDictionary *dic = KJSONSerialization(responseObject)[@"data"];
-        weakself.liveData = [LiveModel mj_objectArrayWithKeyValuesArray:dic[@"playList"]];
-        dispatch_group_leave(group);
-    } failure:nil];
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        weakself.titles = @[@"购物",@"娱乐"];
-        weakself.categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, KScreenW, kNavBarHeight)];
-        self.categoryView.titles = self.titles;
-        self.categoryView.backgroundColor = [UIColor lightGreen];
-        self.categoryView.delegate = self;
-        self.categoryView.defaultSelectedIndex = 0;
-        JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-        self.categoryView.indicators = @[lineView];
-        [self.view addSubview:self.categoryView];
-        
-        self.listContainerView = [[JXCategoryListContainerView alloc]initWithDelegate:self];
-        self.listContainerView.frame = CGRectMake(0, kTopHeight, KScreenW, KScreenH-kTopHeight);
-        self.listContainerView.defaultSelectedIndex = 0;
-        [self.view addSubview:self.listContainerView];
-        self.categoryView.contentScrollView = self.listContainerView.scrollView;
-    });
-}
-
--(void)loadingData{
     
+    self.titles = @[@"娱乐",@"购物"];
+    self.categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, KScreenW, kNavBarHeight)];
+    self.categoryView.titles = self.titles;
+    self.categoryView.backgroundColor = [UIColor lightGreen];
+    self.categoryView.delegate = self;
+    self.categoryView.defaultSelectedIndex = 0;
+    JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
+    self.categoryView.indicators = @[lineView];
+    [self.view addSubview:self.categoryView];
+    
+    self.listContainerView = [[JXCategoryListContainerView alloc]initWithDelegate:self];
+    self.listContainerView.frame = CGRectMake(0, kTopHeight, KScreenW, KScreenH-kTopHeight);
+    self.listContainerView.defaultSelectedIndex = 0;
+    [self.view addSubview:self.listContainerView];
+    self.categoryView.contentScrollView = self.listContainerView.scrollView;
+    
+//    kWeakSelf(self);
+//    dispatch_group_t group = dispatch_group_create();
+//    dispatch_group_enter(group);
+//    [NetWorkHelper POST:URl_getLiveStreamsList parameters:nil success:^(id  _Nonnull responseObject) {
+//        NSDictionary *dic = KJSONSerialization(responseObject)[@"data"];
+//        weakself.recreationLiveData = [LiveModel mj_objectArrayWithKeyValuesArray:dic[@"playList"]];
+//        dispatch_group_leave(group);
+//    } failure:nil];
+//    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+//        weakself.titles = @[@"娱乐",@"购物"];
+//        weakself.categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, KScreenW, kNavBarHeight)];
+//        self.categoryView.titles = self.titles;
+//        self.categoryView.backgroundColor = [UIColor lightGreen];
+//        self.categoryView.delegate = self;
+//        self.categoryView.defaultSelectedIndex = 0;
+//        JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
+//        self.categoryView.indicators = @[lineView];
+//        [self.view addSubview:self.categoryView];
+//
+//        self.listContainerView = [[JXCategoryListContainerView alloc]initWithDelegate:self];
+//        self.listContainerView.frame = CGRectMake(0, kTopHeight, KScreenW, KScreenH-kTopHeight);
+//        self.listContainerView.defaultSelectedIndex = 0;
+//        [self.view addSubview:self.listContainerView];
+//        self.categoryView.contentScrollView = self.listContainerView.scrollView;
+//    });
 }
 
 #pragma mark —— JXCategoryViewDelegate
@@ -92,9 +116,11 @@ static NSString *cellID = @"cellID";
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
     if (index == 0) {
-        LiveCollectionView *collectionView = [[LiveCollectionView alloc] initWithFrame:self.view.frame itemCount:_liveData];
-        collectionView.MDelegate = self;
-        return collectionView;
+    
+        RecreationLiveCollectionViewController *vc = [[RecreationLiveCollectionViewController alloc] init];
+        vc.MDelegate = self;
+        return vc;
+        
     }else{
         LiveTableView *tableView = [[LiveTableView alloc] init];
         return tableView;
@@ -105,10 +131,10 @@ static NSString *cellID = @"cellID";
     return self.titles.count;
 }
 
-#pragma mark —— LiveCollectionViewDelegate
+#pragma mark —— RecreationLiveCollectionViewControllerDelegate
 -(void)collectionViewDidSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     PLPlayViewController *playController = [[PLPlayViewController alloc] init];
-    LiveModel *model = _liveData[indexPath.row];
+    LiveModel *model = _recreationLiveData[indexPath.row];
     playController.url = [NSURL URLWithString:model.hdlPlayURL];
     [self presentViewController:playController animated:YES completion:nil];
 }

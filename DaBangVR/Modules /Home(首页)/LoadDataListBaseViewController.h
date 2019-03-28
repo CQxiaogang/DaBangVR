@@ -1,24 +1,29 @@
 //
-//  LoadDataListBaseViewController.h
-//  JXCategoryView
+//  LoadDataListBaseCollectionViewController.h
+//  DaBangVR
 //
-//  Created by jiaxin on 2018/8/28.
-//  Copyright © 2018年 jiaxin. All rights reserved.
+//  Created by mac on 2019/3/28.
+//  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol LoadDataListBaseViewControllerDelegate <NSObject>
 
-- (void)didSelectGoodsShowDetails:(NSString *) index;
+- (void)collectionViewDidSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
-@interface LoadDataListBaseViewController : UITableViewController
+@interface LoadDataListBaseViewController : UIViewController
 
-@property (nonatomic, strong) NSString *index;
-- (void)loadDataForFirst;
+@property (nonatomic, strong) UICollectionView *collectionView;
+
+- (void)loadingData;
 
 @property (nonatomic, weak) id <LoadDataListBaseViewControllerDelegate> delegate;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -15,7 +15,7 @@
 // Models
 #import "GoodsShowTitleModel.h"
 
-@interface GoodsShowViewController ()<JXCategoryViewDelegate, JXCategoryListContainerViewDelegate,LoadDataListBaseViewControllerDelegate>
+@interface GoodsShowViewController ()<JXCategoryViewDelegate, JXCategoryListContainerViewDelegate,LoadDataListBaseTableViewControllerDelegate>
 
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
 @property (nonatomic, strong) JXCategoryListContainerView *listContainerView;

@@ -6,10 +6,10 @@
 //  Copyright © 2018 jiaxin. All rights reserved.
 //
 
-#import "LoadDataListBaseViewController.h"
+#import "LoadDataListBaseViewTableViewController.h"
 #import "JXCategoryListContainerView.h"
 
-@interface GoodsShowTableViewController : LoadDataListBaseViewController <JXCategoryListContentViewDelegate>
+@interface GoodsShowTableViewController : LoadDataListBaseViewTableViewController <JXCategoryListContentViewDelegate>
 
 @property (nonatomic, copy) void (^block)(NSArray *list,NSError *error);
 

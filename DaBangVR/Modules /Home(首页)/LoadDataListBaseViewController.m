@@ -1,45 +1,50 @@
 //
-//  LoadDataListBaseViewController.m
-//  JXCategoryView
+//  LoadDataListBaseCollectionViewController.m
+//  DaBangVR
 //
-//  Created by jiaxin on 2018/8/28.
-//  Copyright © 2018年 jiaxin. All rights reserved.
+//  Created by mac on 2019/3/28.
+//  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
 #import "LoadDataListBaseViewController.h"
-#import "GoodsShowTableViewCell.h"
 
-@interface LoadDataListBaseViewController ()
+@interface LoadDataListBaseViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+
+
 
 @end
 
 @implementation LoadDataListBaseViewController
 
-#pragma mark —— 懒加载
-#pragma mark —— 系统方法
+static NSString * const reuseIdentifier = @"Cell";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-    self.tableView.showsVerticalScrollIndicator = NO;
-    self.tableView.showsHorizontalScrollIndicator = NO;
+    
+    [self loadingData];
 }
 
-- (void)loadDataForFirst {
-  
+-(void)loadingData{
+    
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:flowLayout];
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    self.collectionView.backgroundColor = KRedColor;
+    // 不显示滚动条
+    self.collectionView.showsHorizontalScrollIndicator = NO;
+    self.collectionView.showsVerticalScrollIndicator = NO;
 }
 
-#pragma mark - UITableViewDataSource, UITableViewDelegate
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#pragma mark <UICollectionViewDataSource>
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 0;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     return cell;
 }
-
-
 
 @end

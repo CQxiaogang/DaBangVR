@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JXCategoryListContainerView.h"
-#import "LoadDataListBaseViewController.h"
+#import "LoadDataListBaseViewTableViewController.h"
 
 @protocol ListViewControllerDelegate <NSObject>
 
@@ -16,7 +16,7 @@
 
 @end
 
-@interface ListViewController : LoadDataListBaseViewController <JXCategoryListContentViewDelegate>
+@interface ListViewController : LoadDataListBaseViewTableViewController <JXCategoryListContentViewDelegate>
 
 @property (nonatomic, assign) NSInteger timeIndex;
 

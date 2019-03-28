@@ -13,6 +13,8 @@
 		0403677321A5129800974435 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403677121A5129800974435 /* HomeTableViewCell.xib */; };
 		04053B5A21FAE4A9001120FC /* UserInfoChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04053B5921FAE4A9001120FC /* UserInfoChangeModel.m */; };
 		0408156B221A9C85007A0B9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0408156A221A9C85007A0B9A /* QuartzCore.framework */; };
+		040F32D4224CB2BE0044E363 /* LoadDataListBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040F32D3224CB2BE0044E363 /* LoadDataListBaseViewController.m */; };
+		040F32D7224CB3510044E363 /* RecreationLiveCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040F32D6224CB3510044E363 /* RecreationLiveCollectionViewController.m */; };
 		0410357F21CCD2F2002CB32C /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0410357021CCD2F2002CB32C /* UMSocialSDKResources.bundle */; };
 		0410358021CCD2F2002CB32C /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357121CCD2F2002CB32C /* UShareUI.framework */; };
 		0410358121CCD2F2002CB32C /* UMSocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357321CCD2F2002CB32C /* UMSocialNetwork.framework */; };
@@ -222,7 +224,7 @@
 		04F2FD2921EF35DE000B58E2 /* SpellGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F2FD2721EF35DE000B58E2 /* SpellGroupCell.xib */; };
 		04F2FD2C21EF3EA9000B58E2 /* SpellGroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2FD2B21EF3EA9000B58E2 /* SpellGroupTableViewController.m */; };
 		04F2FD2E21EF479D000B58E2 /* GoodsShowTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2FD2D21EF479D000B58E2 /* GoodsShowTableViewController.m */; };
-		04F2FD3021EF47BD000B58E2 /* LoadDataListBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2FD2F21EF47BD000B58E2 /* LoadDataListBaseViewController.m */; };
+		04F2FD3021EF47BD000B58E2 /* LoadDataListBaseViewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2FD2F21EF47BD000B58E2 /* LoadDataListBaseViewTableViewController.m */; };
 		04F3270A21D07F18009267F4 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3270921D07F18009267F4 /* SettingTableViewCell.m */; };
 		04F3271321D09779009267F4 /* GoodsShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3271121D09779009267F4 /* GoodsShowTableViewCell.m */; };
 		04F3271421D09779009267F4 /* GoodsShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F3271221D09779009267F4 /* GoodsShowTableViewCell.xib */; };
@@ -352,6 +354,10 @@
 		04053B5821FAE4A9001120FC /* UserInfoChangeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoChangeModel.h; sourceTree = "<group>"; };
 		04053B5921FAE4A9001120FC /* UserInfoChangeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoChangeModel.m; sourceTree = "<group>"; };
 		0408156A221A9C85007A0B9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		040F32D2224CB2BE0044E363 /* LoadDataListBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadDataListBaseViewController.h; sourceTree = "<group>"; };
+		040F32D3224CB2BE0044E363 /* LoadDataListBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadDataListBaseViewController.m; sourceTree = "<group>"; };
+		040F32D5224CB3510044E363 /* RecreationLiveCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecreationLiveCollectionViewController.h; sourceTree = "<group>"; };
+		040F32D6224CB3510044E363 /* RecreationLiveCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecreationLiveCollectionViewController.m; sourceTree = "<group>"; };
 		0410357021CCD2F2002CB32C /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
 		0410357121CCD2F2002CB32C /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UShareUI.framework; sourceTree = "<group>"; };
 		0410357321CCD2F2002CB32C /* UMSocialNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialNetwork.framework; sourceTree = "<group>"; };
@@ -734,7 +740,7 @@
 		04F2FD2A21EF3EA9000B58E2 /* SpellGroupTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpellGroupTableViewController.h; sourceTree = "<group>"; };
 		04F2FD2B21EF3EA9000B58E2 /* SpellGroupTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpellGroupTableViewController.m; sourceTree = "<group>"; };
 		04F2FD2D21EF479D000B58E2 /* GoodsShowTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsShowTableViewController.m; sourceTree = "<group>"; };
-		04F2FD2F21EF47BD000B58E2 /* LoadDataListBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadDataListBaseViewController.m; sourceTree = "<group>"; };
+		04F2FD2F21EF47BD000B58E2 /* LoadDataListBaseViewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadDataListBaseViewTableViewController.m; sourceTree = "<group>"; };
 		04F3270821D07F18009267F4 /* SettingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
 		04F3270921D07F18009267F4 /* SettingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewCell.m; sourceTree = "<group>"; };
 		04F3271021D09779009267F4 /* GoodsShowTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsShowTableViewCell.h; sourceTree = "<group>"; };
@@ -743,7 +749,7 @@
 		04F3B32221EDE01000DFBA84 /* GoodsShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsShowViewController.h; sourceTree = "<group>"; };
 		04F3B32321EDE01000DFBA84 /* GoodsShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsShowViewController.m; sourceTree = "<group>"; };
 		04F3B32621EDE7F800DFBA84 /* GoodsShowTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsShowTableViewController.h; sourceTree = "<group>"; };
-		04F3B32C21EDE88D00DFBA84 /* LoadDataListBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadDataListBaseViewController.h; sourceTree = "<group>"; };
+		04F3B32C21EDE88D00DFBA84 /* LoadDataListBaseViewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadDataListBaseViewTableViewController.h; sourceTree = "<group>"; };
 		04F3CF0121CB2FBB007C40A1 /* UserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
 		04F3CF0221CB2FBB007C40A1 /* UserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
 		04F3CF0421CB2FF1007C40A1 /* UserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
@@ -2094,6 +2100,8 @@
 			children = (
 				049D479D219FEC540058178D /* LiveViewController.h */,
 				049D479E219FEC540058178D /* LiveViewController.m */,
+				040F32D5224CB3510044E363 /* RecreationLiveCollectionViewController.h */,
+				040F32D6224CB3510044E363 /* RecreationLiveCollectionViewController.m */,
 				046DB317224B71A600C2CACB /* PLBaseViewController.h */,
 				046DB316224B71A600C2CACB /* PLBaseViewController.m */,
 				046DB319224B71AE00C2CACB /* PLPlayViewController.h */,
@@ -2161,8 +2169,10 @@
 		049D478B219FB3C00058178D /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
-				04F3B32C21EDE88D00DFBA84 /* LoadDataListBaseViewController.h */,
-				04F2FD2F21EF47BD000B58E2 /* LoadDataListBaseViewController.m */,
+				04F3B32C21EDE88D00DFBA84 /* LoadDataListBaseViewTableViewController.h */,
+				04F2FD2F21EF47BD000B58E2 /* LoadDataListBaseViewTableViewController.m */,
+				040F32D2224CB2BE0044E363 /* LoadDataListBaseViewController.h */,
+				040F32D3224CB2BE0044E363 /* LoadDataListBaseViewController.m */,
 				045D559A222E794500F128F8 /* HomeController */,
 				04F3B33221EDF41D00DFBA84 /* GoodsController */,
 				04F2FD1C21EF23A3000B58E2 /* SpellGroupController */,
@@ -3161,6 +3171,7 @@
 				044665032237637D00DF6F47 /* TitleViewController.m in Sources */,
 				04F45F1521F5B2E9009F5907 /* SecondsKillTableView.m in Sources */,
 				04BF21882212B719002468C0 /* UIWindow+JXSafeArea.m in Sources */,
+				040F32D4224CB2BE0044E363 /* LoadDataListBaseViewController.m in Sources */,
 				0446657A2237654300DF6F47 /* JXCategoryNumberView.m in Sources */,
 				04F4469D21D7772700524971 /* FeatureChoseTopCell.m in Sources */,
 				045FAEC3221E93AB0086DE4E /* OrderProcessingTableViewCell.m in Sources */,
@@ -3246,6 +3257,7 @@
 				044665602237654300DF6F47 /* JXCategoryTitleVerticalZoomCellModel.m in Sources */,
 				0403677221A5129800974435 /* HomeTableViewCell.m in Sources */,
 				044F3BAD21F0803900F3AD5E /* ProductInfoVoListModel.m in Sources */,
+				040F32D7224CB3510044E363 /* RecreationLiveCollectionViewController.m in Sources */,
 				04F62FF321F9B69A0094B26F /* ModifyAddressModel.m in Sources */,
 				04F2E44F2248B197001FB3C1 /* LiveCollectionView.m in Sources */,
 				0459D91721E0B437009BFFB4 /* OrderSureFooterView.m in Sources */,
@@ -3341,7 +3353,7 @@
 				044664FD2237627D00DF6F47 /* NestViewController.m in Sources */,
 				041A71A3224A0C490059B19F /* MerchantsSettledViewController.m in Sources */,
 				04FC2C3D21C0E3AD00329B53 /* JFSearchView.m in Sources */,
-				04F2FD3021EF47BD000B58E2 /* LoadDataListBaseViewController.m in Sources */,
+				04F2FD3021EF47BD000B58E2 /* LoadDataListBaseViewTableViewController.m in Sources */,
 				04FC2C4121C0E3AD00329B53 /* JFButton.m in Sources */,
 				04466500223762DD00DF6F47 /* NaviSegmentedControlViewController.m in Sources */,
 				04F084F321E496DA00BFE102 /* MyOrderViewController.m in Sources */,
