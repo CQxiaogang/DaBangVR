@@ -6,14 +6,14 @@
 //  Copyright © 2018年 jiaxin. All rights reserved.
 //
 
-#import "LoadDataListBaseViewTableViewController.h"
+#import "LoadDataListBaseTableViewController.h"
 #import "GoodsShowTableViewCell.h"
 
-@interface LoadDataListBaseViewTableViewController ()
+@interface LoadDataListBaseTableViewController ()
 
 @end
 
-@implementation LoadDataListBaseViewTableViewController
+@implementation LoadDataListBaseTableViewController
 
 #pragma mark —— 懒加载
 #pragma mark —— 系统方法

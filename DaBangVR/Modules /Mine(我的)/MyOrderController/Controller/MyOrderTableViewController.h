@@ -6,7 +6,7 @@
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "LoadDataListBaseViewTableViewController.h"
+#import "LoadDataListBaseTableViewController.h"
 #import "JXCategoryListContainerView.h"
 #import "OrderDeptGoodsModel.h"
 
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface MyOrderTableViewController : LoadDataListBaseViewTableViewController<JXCategoryListContentViewDelegate>
+@interface MyOrderTableViewController : LoadDataListBaseTableViewController<JXCategoryListContentViewDelegate>
 
 @property (nonatomic, weak)id<MyOrderTableVCDelegate>aDelegate;
 

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="wBd-ys-tDU" customClass="PLPlayTopView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mxy-Qb-x6f">
+                    <rect key="frame" x="20" y="0.0" width="136" height="40"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lufei.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5RM-WL-TDS">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="hXQ-a7-gPg">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="javalin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqj-gv-cM1">
+                            <rect key="frame" x="50" y="0.0" width="35.5" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="4vR-GA-y2R">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                                    <real key="value" value="12"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.6万" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MN-6V-EJp">
+                            <rect key="frame" x="52.5" y="20" width="31" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                                    <real key="value" value="12"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTt-qt-W33">
+                            <rect key="frame" x="96" y="5" width="40" height="30"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="d6l-yj-12F">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="关注">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                                    <real key="value" value="12"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.10389019691780822" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="9MN-6V-EJp" firstAttribute="centerX" secondItem="dqj-gv-cM1" secondAttribute="centerX" id="5d4-HS-zDk"/>
+                        <constraint firstItem="dqj-gv-cM1" firstAttribute="top" secondItem="juh-8F-oY4" secondAttribute="top" id="702-QC-SPL"/>
+                        <constraint firstItem="juh-8F-oY4" firstAttribute="trailing" secondItem="aTt-qt-W33" secondAttribute="trailing" id="IsH-ww-vnb"/>
+                        <constraint firstItem="5RM-WL-TDS" firstAttribute="leading" secondItem="juh-8F-oY4" secondAttribute="leading" id="NaF-Lc-8eE"/>
+                        <constraint firstItem="5RM-WL-TDS" firstAttribute="top" secondItem="juh-8F-oY4" secondAttribute="top" id="Nwm-g8-cRd"/>
+                        <constraint firstAttribute="width" constant="136" id="VRZ-OD-DAB">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstItem="aTt-qt-W33" firstAttribute="top" secondItem="juh-8F-oY4" secondAttribute="top" constant="5" id="WjC-Xd-bGa"/>
+                        <constraint firstItem="dqj-gv-cM1" firstAttribute="leading" secondItem="5RM-WL-TDS" secondAttribute="trailing" constant="10" id="c8z-ST-jvo"/>
+                        <constraint firstItem="9MN-6V-EJp" firstAttribute="top" secondItem="dqj-gv-cM1" secondAttribute="bottom" id="jr0-5s-Mq9"/>
+                        <constraint firstItem="9MN-6V-EJp" firstAttribute="height" secondItem="dqj-gv-cM1" secondAttribute="height" id="nyH-NS-nrj"/>
+                        <constraint firstItem="juh-8F-oY4" firstAttribute="bottom" secondItem="aTt-qt-W33" secondAttribute="bottom" constant="5" id="tIM-aN-eVx"/>
+                        <constraint firstItem="5RM-WL-TDS" firstAttribute="bottom" secondItem="juh-8F-oY4" secondAttribute="bottom" id="yBh-Ur-N79"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="juh-8F-oY4"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvc-Kx-dQv">
+                    <rect key="frame" x="330" y="7.5" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="WGc-K0-zls">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="width" constant="25" id="pTa-bx-4m5">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                    <state key="normal" image="s-close"/>
+                    <connections>
+                        <action selector="clickCloseButton:" destination="wBd-ys-tDU" eventType="touchUpInside" id="Um0-eh-RTM"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Mxy-Qb-x6f" firstAttribute="bottom" secondItem="cA5-M1-4jS" secondAttribute="bottom" id="GOp-BO-g5d"/>
+                <constraint firstItem="jvc-Kx-dQv" firstAttribute="centerY" secondItem="wBd-ys-tDU" secondAttribute="centerY" id="oS2-A1-reQ"/>
+                <constraint firstItem="cA5-M1-4jS" firstAttribute="trailing" secondItem="jvc-Kx-dQv" secondAttribute="trailing" constant="20" id="pXZ-VB-gPz"/>
+                <constraint firstItem="Mxy-Qb-x6f" firstAttribute="leading" secondItem="cA5-M1-4jS" secondAttribute="leading" constant="20" id="rqa-Ba-ReM"/>
+                <constraint firstItem="Mxy-Qb-x6f" firstAttribute="top" secondItem="cA5-M1-4jS" secondAttribute="top" id="yyv-Sg-5hz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="cA5-M1-4jS"/>
+            <connections>
+                <outlet property="anchorInfoView" destination="Mxy-Qb-x6f" id="BOc-gZ-trW"/>
+                <outlet property="attentionButton" destination="aTt-qt-W33" id="dVb-Qg-k5Z"/>
+                <outlet property="closeButton" destination="jvc-Kx-dQv" id="6BS-LK-EHb"/>
+                <outlet property="headPortraitImgView" destination="5RM-WL-TDS" id="dSq-A7-zK6"/>
+            </connections>
+            <point key="canvasLocation" x="161" y="42"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="lufei.jpg" width="900" height="768"/>
+        <image name="s-close" width="35" height="35"/>
+    </resources>
+</document>

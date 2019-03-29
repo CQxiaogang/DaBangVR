@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="206" id="KGk-i7-Jjw" customClass="ShoppingLiveTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="428" height="220"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="428" height="219.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YdS-kK-RN5">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="150"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="H29-u7-jMa">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_shopping" translatesAutoresizingMaskIntoConstraints="NO" id="R0h-Gy-CBD">
+                        <rect key="frame" x="0.0" y="150" width="428" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="IDk-bK-ngf">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b96-eI-I94">
+                        <rect key="frame" x="10" y="150" width="50" height="50"/>
+                        <color key="backgroundColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="CXC-uY-jKn">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstAttribute="width" constant="50" id="HrT-IJ-2y3">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3N-fP-5VD">
+                        <rect key="frame" x="288" y="155" width="40" height="40"/>
+                        <color key="backgroundColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXv-Yh-1Ct">
+                        <rect key="frame" x="228" y="155" width="40" height="40"/>
+                        <color key="backgroundColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Mra-I0-zgZ">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstAttribute="width" constant="40" id="VaH-nj-QZI">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Je2-UQ-3Eq">
+                        <rect key="frame" x="348" y="155" width="40" height="40"/>
+                        <color key="backgroundColor" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="喵喵姐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjp-7V-TPp">
+                        <rect key="frame" x="10" y="200" width="50" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="ZDe-TK-JzS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                                <real key="value" value="13"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ti-iA-1Dj">
+                        <rect key="frame" x="189" y="51" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="1xp-cd-NmT">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstAttribute="height" constant="50" id="Myd-IB-uiz">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                        <state key="normal" backgroundImage="page-Button"/>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="2ti-iA-1Dj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="40" id="0GM-vZ-xkQ"/>
+                    <constraint firstItem="Je2-UQ-3Eq" firstAttribute="width" secondItem="VXv-Yh-1Ct" secondAttribute="width" id="1eE-EF-CRH"/>
+                    <constraint firstItem="f3N-fP-5VD" firstAttribute="leading" secondItem="VXv-Yh-1Ct" secondAttribute="trailing" constant="20" id="296-jQ-nbd"/>
+                    <constraint firstItem="f3N-fP-5VD" firstAttribute="height" secondItem="VXv-Yh-1Ct" secondAttribute="height" id="3WP-T4-chO"/>
+                    <constraint firstItem="R0h-Gy-CBD" firstAttribute="top" secondItem="YdS-kK-RN5" secondAttribute="bottom" id="DAW-l3-d25"/>
+                    <constraint firstItem="VXv-Yh-1Ct" firstAttribute="top" secondItem="YdS-kK-RN5" secondAttribute="bottom" constant="5" id="HW7-He-kSH"/>
+                    <constraint firstItem="Je2-UQ-3Eq" firstAttribute="centerY" secondItem="b96-eI-I94" secondAttribute="centerY" id="Idb-9E-m3g"/>
+                    <constraint firstItem="f3N-fP-5VD" firstAttribute="centerY" secondItem="b96-eI-I94" secondAttribute="centerY" id="JL5-CW-vVI"/>
+                    <constraint firstItem="Je2-UQ-3Eq" firstAttribute="height" secondItem="VXv-Yh-1Ct" secondAttribute="height" id="Lt1-Qi-qPv"/>
+                    <constraint firstAttribute="trailing" secondItem="R0h-Gy-CBD" secondAttribute="trailing" id="Nnw-WW-JpC"/>
+                    <constraint firstItem="b96-eI-I94" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Olz-5f-OIl"/>
+                    <constraint firstAttribute="trailing" secondItem="YdS-kK-RN5" secondAttribute="trailing" id="Oyx-jG-66o"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Je2-UQ-3Eq" secondAttribute="trailing" constant="20" id="T78-Pu-OD5"/>
+                    <constraint firstItem="YdS-kK-RN5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="UtC-A3-oNY"/>
+                    <constraint firstItem="2ti-iA-1Dj" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="VCy-NK-sow"/>
+                    <constraint firstItem="sjp-7V-TPp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Wzz-dn-la5"/>
+                    <constraint firstItem="f3N-fP-5VD" firstAttribute="width" secondItem="VXv-Yh-1Ct" secondAttribute="width" id="bzR-CN-Kyv"/>
+                    <constraint firstItem="Je2-UQ-3Eq" firstAttribute="leading" secondItem="f3N-fP-5VD" secondAttribute="trailing" constant="20" id="cyn-Rp-Igp"/>
+                    <constraint firstItem="R0h-Gy-CBD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pJq-dH-imd"/>
+                    <constraint firstItem="YdS-kK-RN5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qIc-8W-K4D"/>
+                    <constraint firstItem="VXv-Yh-1Ct" firstAttribute="centerY" secondItem="b96-eI-I94" secondAttribute="centerY" id="s69-m7-EH4"/>
+                    <constraint firstItem="sjp-7V-TPp" firstAttribute="top" secondItem="R0h-Gy-CBD" secondAttribute="bottom" id="sGo-9r-Fjq"/>
+                    <constraint firstItem="b96-eI-I94" firstAttribute="top" secondItem="YdS-kK-RN5" secondAttribute="bottom" id="vNX-dc-AcP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="goods1" destination="VXv-Yh-1Ct" id="zdY-jq-0T0"/>
+                <outlet property="goods2" destination="f3N-fP-5VD" id="POv-uf-K4i"/>
+                <outlet property="goods3" destination="Je2-UQ-3Eq" id="m0J-T2-QjO"/>
+                <outlet property="headPortrait" destination="b96-eI-I94" id="xPW-es-111"/>
+                <outlet property="nickName" destination="sjp-7V-TPp" id="3ys-RC-idl"/>
+                <outlet property="snapshotPlayImgView" destination="YdS-kK-RN5" id="5e1-4v-gvb"/>
+            </connections>
+            <point key="canvasLocation" x="65.599999999999994" y="200.14992503748127"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="page-Button" width="89" height="89"/>
+        <image name="page_shopping" width="750" height="94"/>
+    </resources>
+</document>

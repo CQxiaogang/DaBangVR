@@ -8,8 +8,6 @@
 
 #import "RecreationLiveCollectionViewController.h"
 #import "DBLayout.h"
-/** Models */
-#import "LiveModel.h"
 /** Cell */
 #import "LiveCollectionViewCell.h"
 /** 放直播 */
@@ -79,10 +77,8 @@ static NSString * const cellID = @"cellID";
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    PLPlayViewController *playController = [[PLPlayViewController alloc] init];
     LiveModel *model = _recreationLiveData[indexPath.row];
-    playController.url = [NSURL URLWithString:model.hdlPlayURL];
-    [self presentViewController:playController animated:YES completion:nil];
+    [self.MDelegate collectionViewDidSelectItemAtIndexPathForModel:model];
 }
 
 #pragma mark - JXCategoryListContentViewDelegate

@@ -14,7 +14,7 @@
 
 @end
 
-@interface LoadDataListBaseViewTableViewController : UITableViewController
+@interface LoadDataListBaseTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSString *index;
 - (void)loadDataForFirst;

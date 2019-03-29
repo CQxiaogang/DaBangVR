@@ -8,11 +8,13 @@
 
 #import "LoadDataListBaseViewController.h"
 #import "JXCategoryListContainerView.h"
+/** Models */
+#import "LiveModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol RecreationLiveCollectionViewControllerDelegate <NSObject>
 
-- (void)collectionViewDidSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)collectionViewDidSelectItemAtIndexPathForModel:(LiveModel *)model;
 
 @end
 

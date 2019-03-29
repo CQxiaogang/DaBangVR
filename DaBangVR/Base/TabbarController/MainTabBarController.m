@@ -45,7 +45,7 @@
     //tabBar不透明
     self.tabBar.translucent = NO;
     
-    [self setupTPCSpringMenu];
+//    [self setupTPCSpringMenu];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -116,7 +116,7 @@
 
 #pragma mark - DBTabBar delegate
 - (void)tabBarDidClickPlusButton:(DBTabBar *)tabBar {
-    [_menu becomeActive];
+//    [_menu becomeActive];
 }
 
 #pragma mark TPCSpringMenuDataSource

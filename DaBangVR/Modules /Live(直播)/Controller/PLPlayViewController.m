@@ -7,8 +7,10 @@
 //
 
 #import "PLPlayViewController.h"
+/** Views */
+#import "PLPlayTopView.h"
 
-@interface PLPlayViewController ()
+@interface PLPlayViewController ()<PLPlayTopViewDelegate>
 
 @property (nonatomic, strong) UIVisualEffectView *effectView;
 
@@ -24,14 +26,19 @@
     
     [super viewDidLoad];
     
-    self.view.backgroundColor = KBlackColor;
+    self.view.backgroundColor = KWhiteColor;
     
     _closeButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
     [_closeButton setTintColor:KBlackColor];
-    [_closeButton setTitle:@"退出" forState:UIControlStateNormal];
+    [_closeButton setBackgroundImage:[UIImage imageNamed:@"s-close"] forState:UIControlStateNormal];
     [_closeButton addTarget:self action:@selector(clickCloseButton) forControlEvents:(UIControlEventTouchUpInside)];
-    [_closeButton setBackgroundColor:KWhiteColor];
-    _closeButton.layer.cornerRadius = 22;
+//    [self.view addSubview:_closeButton];
+//
+//    [_closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.equalTo(self.view).offset(-20);
+//        make.top.equalTo(self.view).offset(30);
+//        make.size.equalTo(CGSizeMake(30, 30));
+//    }];
     
     self.thumbImageView = [[UIImageView alloc] init];
     self.thumbImageView.image = [UIImage imageNamed:@"qn_niu"];
@@ -53,19 +60,12 @@
     self.playButton.hidden = YES;
     [self.playButton addTarget:self action:@selector(clickPlayButton:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.playButton setImage:[UIImage imageNamed:@"play"] forState:(UIControlStateNormal)];
-    [self.view addSubview:self.playButton];
-    [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.equalTo(CGSizeMake(60, 60));
-        make.center.equalTo(self.view);
-    }];
-    
-    [self.view addSubview:_closeButton];
-    
-    [_closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.right.equalTo(self.view).offset(-10);
-        make.size.equalTo(CGSizeMake(44, 44));
-    }];
-    
+//    [self.view addSubview:self.playButton];
+//    [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.size.equalTo(CGSizeMake(60, 60));
+//        make.center.equalTo(self.view);
+//    }];
+    //UIVisualEffect模糊动画
     UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     self.effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
     [self.thumbImageView addSubview:_effectView];
@@ -79,6 +79,57 @@
     [self setupPlayer];
     
     self.enableGesture = YES;
+    
+    PLPlayTopView *topView = [[[NSBundle mainBundle] loadNibNamed:@"PLPlayTopView" owner:nil options:nil] firstObject];
+    topView.delegate = self;
+    [self.view addSubview:topView];
+    [topView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(0);
+        make.top.equalTo(30);
+        make.height.equalTo(40);
+    }];
+    
+    [self setupBottonUI];
+}
+
+- (void)setupBottonUI{
+    NSMutableArray *buttonArr = [NSMutableArray new];
+    NSArray *imgArr = @[@"s-comment",@"s-share",@"s-commodity"];
+    for (int i=0; i<3; i++) {
+        UIButton *baseButton = [[UIButton alloc] init];
+        baseButton.tag = i;
+        [baseButton setImage:[UIImage imageNamed:imgArr[i]] forState:UIControlStateNormal];
+        [baseButton addTarget:self action:@selector(clickBaseButton:) forControlEvents:(UIControlEventTouchUpInside)];
+        [self.view addSubview:baseButton];
+        [buttonArr addObject:baseButton];
+    }
+    CGFloat buttonW = 30;
+    CGFloat buttonH = 30;
+    CGFloat HorSpacing = 30;
+    [buttonArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:HorSpacing leadSpacing:HorSpacing tailSpacing:KScreenW-HorSpacing*3 - buttonW*3];
+    [buttonArr mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view).offset(-20);
+        make.size.equalTo(CGSizeMake(buttonW, buttonH));
+    }];
+}
+
+- (void)clickBaseButton:(UIButton *)button{
+    switch (button.tag) {
+        case 0:
+            //发信息
+            DLog(@"发信息");
+            break;
+        case 1:
+            //分享
+            DLog(@"分享");
+            break;
+        case 2:
+            //购物
+            DLog(@"购物");
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -131,13 +182,10 @@
         make.edges.equalTo(self.view);
     }];
     self.player.delegateQueue = dispatch_get_main_queue();
-    self.player.playerView.contentMode = UIViewContentModeScaleAspectFit;
+    //playerViewc铺满整个屏幕
+    self.player.playerView.contentMode = UIViewContentModeScaleAspectFill;
     self.player.delegate = self;
     self.player.loopPlay = YES;
-}
-
-- (void)clickCloseButton {
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -155,15 +203,15 @@
 }
 
 - (void)singleTapAction:(UIGestureRecognizer *)gesture {
-    if ([self.player isPlaying]) {
-        [self.player pause];
-    } else {
-        [self.player resume];
-    }
+//    if ([self.player isPlaying]) {
+//        [self.player pause];
+//    } else {
+//        [self.player resume];
+//    }
 }
 
 - (void)clickPlayButton:(UIButton *)button {
-    [self.player resume];
+//    [self.player resume];
 }
 
 - (void)stop {
@@ -303,5 +351,10 @@
 }
 
 - (void)player:(PLPlayer *)player loadedTimeRange:(CMTimeRange)timeRange {}
+
+#pragma mark —— PLPlayTopViewDelegate
+-(void)clickCloseButton{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

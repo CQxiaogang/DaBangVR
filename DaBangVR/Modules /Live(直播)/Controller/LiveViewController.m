@@ -8,6 +8,7 @@
 /** Controllers */
 #import "LiveViewController.h"
 #import "RecreationLiveCollectionViewController.h"
+#import "ShoppingLiveTableViewController.h"
 /** Vendors */
 #import "JXCategoryView.h"
 #import "JXCategoryListContainerView.h"
@@ -20,7 +21,7 @@
 #import "PLPlayViewController.h"
 static NSString *cellID = @"cellID";
 
-@interface LiveViewController ()<JXCategoryViewDelegate, JXCategoryListContainerViewDelegate , RecreationLiveCollectionViewControllerDelegate>
+@interface LiveViewController ()<JXCategoryViewDelegate, JXCategoryListContainerViewDelegate , RecreationLiveCollectionViewControllerDelegate, ShoppingLiveTableViewControllerDelegate>
 
 /** 标题 */
 @property (nonatomic, copy) NSArray <NSString *>*titles;
@@ -116,14 +117,14 @@ static NSString *cellID = @"cellID";
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
     if (index == 0) {
-    
         RecreationLiveCollectionViewController *vc = [[RecreationLiveCollectionViewController alloc] init];
         vc.MDelegate = self;
         return vc;
         
     }else{
-        LiveTableView *tableView = [[LiveTableView alloc] init];
-        return tableView;
+        ShoppingLiveTableViewController *vc = [[ShoppingLiveTableViewController alloc] init];
+        vc.MDelegate = self;
+        return vc;
     }
 }
 
@@ -132,11 +133,19 @@ static NSString *cellID = @"cellID";
 }
 
 #pragma mark —— RecreationLiveCollectionViewControllerDelegate
--(void)collectionViewDidSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+-(void)collectionViewDidSelectItemAtIndexPathForModel:(LiveModel *)model{
     PLPlayViewController *playController = [[PLPlayViewController alloc] init];
-    LiveModel *model = _recreationLiveData[indexPath.row];
     playController.url = [NSURL URLWithString:model.hdlPlayURL];
-    [self presentViewController:playController animated:YES completion:nil];
+    playController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:playController animated:NO];
+}
+
+#pragma mark —— ShoppingLiveTableViewControllerDelegate
+-(void)tableViewDidSelectRowAtIndexPathForModel:(LiveModel *)model{
+    PLPlayViewController *playController = [[PLPlayViewController alloc] init];
+    playController.url = [NSURL URLWithString:model.hdlPlayURL];
+    playController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:playController animated:YES];
 }
 
 @end
