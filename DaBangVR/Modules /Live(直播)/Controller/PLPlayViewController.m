@@ -9,18 +9,36 @@
 #import "PLPlayViewController.h"
 /** Views */
 #import "PLPlayTopView.h"
+/** 弹出键盘 */
+#import "DB_TextView.h"
 
-@interface PLPlayViewController ()<PLPlayTopViewDelegate>
+@interface PLPlayViewController ()<PLPlayTopViewDelegate, UITextViewDelegate>
 
 @property (nonatomic, strong) UIVisualEffectView *effectView;
 
 @property (nonatomic, assign) BOOL isDisapper;
 
 @property (nonatomic, strong) UIPanGestureRecognizer *panGesture;
-
+/** 发布按钮 */
+@property (nonatomic, strong) UIButton *sendButton;
+/** 弹出键盘 */
+@property (nonatomic, strong) DB_TextView *textView;
 @end
 
 @implementation PLPlayViewController
+#pragma mark —— 懒加载
+- (DB_TextView *)textView{
+    if (!_textView) {
+        _textView = [[DB_TextView alloc] initWithFrame:CGRectMake(0, KScreenH, KScreenW, 49)];
+        _textView.backgroundColor = [UIColor colorWithWhite:0 alpha:.3];
+        [_textView setPlaceholderText:@"请输入内容"];
+        _textView.textBlock = ^(NSString * _Nonnull string) {
+            NSLog(@"%@",string);
+        };
+    }
+    
+    return _textView;
+}
 
 - (void)viewDidLoad {
     
@@ -90,6 +108,9 @@
     }];
     
     [self setupBottonUI];
+    
+    [self.view addSubview:self.textView];
+    
 }
 
 - (void)setupBottonUI{
@@ -118,6 +139,7 @@
         case 0:
             //发信息
             DLog(@"发信息");
+            [self.textView.textView becomeFirstResponder];
             break;
         case 1:
             //分享

@@ -43,6 +43,7 @@
 #import "MJExtension.h"
 #import <QQCorner/QQCorner.h>
 #import <UIImageView+WebCache.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 // 全局宏
 #import "URLMacros.h"
