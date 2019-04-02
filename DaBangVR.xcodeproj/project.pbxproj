@@ -11,6 +11,10 @@
 		0403676E21A4E9DA00974435 /* AnchorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403676D21A4E9DA00974435 /* AnchorViewCell.xib */; };
 		0403677221A5129800974435 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403677021A5129800974435 /* HomeTableViewCell.m */; };
 		0403677321A5129800974435 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403677121A5129800974435 /* HomeTableViewCell.xib */; };
+		0404776D2252FBA400EA6FFF /* SeasonAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0404776B2252FBA400EA6FFF /* SeasonAuthenticationViewController.m */; };
+		0404776E2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0404776C2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib */; };
+		040477722252FFA600EA6FFF /* SeasonAuthenticationViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 040477702252FFA600EA6FFF /* SeasonAuthenticationViewController2.m */; };
+		040477732252FFA600EA6FFF /* SeasonAuthenticationViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040477712252FFA600EA6FFF /* SeasonAuthenticationViewController2.xib */; };
 		04053B5A21FAE4A9001120FC /* UserInfoChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04053B5921FAE4A9001120FC /* UserInfoChangeModel.m */; };
 		0408156B221A9C85007A0B9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0408156A221A9C85007A0B9A /* QuartzCore.framework */; };
 		040F32D4224CB2BE0044E363 /* LoadDataListBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040F32D3224CB2BE0044E363 /* LoadDataListBaseViewController.m */; };
@@ -30,6 +34,7 @@
 		041DC2B6224DB9F600BD1196 /* ShoppingLiveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041DC2B5224DB9F600BD1196 /* ShoppingLiveTableViewController.m */; };
 		041DC2B9224E1B8500BD1196 /* PLPlayTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041DC2B8224E1B8500BD1196 /* PLPlayTopView.m */; };
 		041DC2BB224E1BF200BD1196 /* PLPlayTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041DC2BA224E1BF200BD1196 /* PLPlayTopView.xib */; };
+		0420A17E22535D1800EFFCF4 /* DDPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0420A17D22535D1800EFFCF4 /* DDPhotoViewController.m */; };
 		042359EA21FEDF0200F4C345 /* SpellGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042359E921FEDF0200F4C345 /* SpellGroupModel.m */; };
 		0423DADF21FFF52700325869 /* NewProductLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423DADE21FFF52700325869 /* NewProductLaunchViewController.m */; };
 		0423DAE621FFF64F00325869 /* NewProductLaunchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423DAE421FFF64F00325869 /* NewProductLaunchCell.m */; };
@@ -355,6 +360,12 @@
 		0403676F21A5129800974435 /* HomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		0403677021A5129800974435 /* HomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		0403677121A5129800974435 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		0404776A2252FBA400EA6FFF /* SeasonAuthenticationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasonAuthenticationViewController.h; sourceTree = "<group>"; };
+		0404776B2252FBA400EA6FFF /* SeasonAuthenticationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasonAuthenticationViewController.m; sourceTree = "<group>"; };
+		0404776C2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonAuthenticationViewController.xib; sourceTree = "<group>"; };
+		0404776F2252FFA600EA6FFF /* SeasonAuthenticationViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasonAuthenticationViewController2.h; sourceTree = "<group>"; };
+		040477702252FFA600EA6FFF /* SeasonAuthenticationViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasonAuthenticationViewController2.m; sourceTree = "<group>"; };
+		040477712252FFA600EA6FFF /* SeasonAuthenticationViewController2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonAuthenticationViewController2.xib; sourceTree = "<group>"; };
 		04053B5821FAE4A9001120FC /* UserInfoChangeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoChangeModel.h; sourceTree = "<group>"; };
 		04053B5921FAE4A9001120FC /* UserInfoChangeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoChangeModel.m; sourceTree = "<group>"; };
 		0408156A221A9C85007A0B9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -384,6 +395,8 @@
 		041DC2B7224E1B8500BD1196 /* PLPlayTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPlayTopView.h; sourceTree = "<group>"; };
 		041DC2B8224E1B8500BD1196 /* PLPlayTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPlayTopView.m; sourceTree = "<group>"; };
 		041DC2BA224E1BF200BD1196 /* PLPlayTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PLPlayTopView.xib; sourceTree = "<group>"; };
+		0420A17C22535D1700EFFCF4 /* DDPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPhotoViewController.h; sourceTree = "<group>"; };
+		0420A17D22535D1800EFFCF4 /* DDPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPhotoViewController.m; sourceTree = "<group>"; };
 		042359E821FEDF0200F4C345 /* SpellGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpellGroupModel.h; sourceTree = "<group>"; };
 		042359E921FEDF0200F4C345 /* SpellGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpellGroupModel.m; sourceTree = "<group>"; };
 		0423DADD21FFF52700325869 /* NewProductLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewProductLaunchViewController.h; sourceTree = "<group>"; };
@@ -975,6 +988,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040477612252F65600EA6FFF /* SeasonAuthenticationController */ = {
+			isa = PBXGroup;
+			children = (
+				040477622252F6E000EA6FFF /* Model */,
+				040477632252F6E000EA6FFF /* View */,
+				040477642252F6E100EA6FFF /* Controller */,
+			);
+			path = SeasonAuthenticationController;
+			sourceTree = "<group>";
+		};
+		040477622252F6E000EA6FFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		040477632252F6E000EA6FFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		040477642252F6E100EA6FFF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0404776A2252FBA400EA6FFF /* SeasonAuthenticationViewController.h */,
+				0404776B2252FBA400EA6FFF /* SeasonAuthenticationViewController.m */,
+				0404776C2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib */,
+				0404776F2252FFA600EA6FFF /* SeasonAuthenticationViewController2.h */,
+				040477702252FFA600EA6FFF /* SeasonAuthenticationViewController2.m */,
+				040477712252FFA600EA6FFF /* SeasonAuthenticationViewController2.xib */,
+				0420A17C22535D1700EFFCF4 /* DDPhotoViewController.h */,
+				0420A17D22535D1800EFFCF4 /* DDPhotoViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		0410356E21CCD2F2002CB32C /* UMSocial */ = {
 			isa = PBXGroup;
 			children = (
@@ -2237,6 +2289,7 @@
 			children = (
 				04BF21652212B321002468C0 /* MineViewController */,
 				041A719D224A0BB20059B19F /* MerchantsSettledController */,
+				040477612252F65600EA6FFF /* SeasonAuthenticationController */,
 				04F2E44622488304001FB3C1 /* MineCollectionViewController */,
 				04BF218D2212B75D002468C0 /* EvaluationController */,
 				04BF21692212B638002468C0 /* SettiingController */,
@@ -3027,6 +3080,7 @@
 				04F4469321D74FBF00524971 /* GoodsInfoView.xib in Resources */,
 				04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */,
 				04F8ED4521E32AC000004178 /* UserAdressCell.xib in Resources */,
+				0404776E2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib in Resources */,
 				0474B6B02227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib in Resources */,
 				0463026521BBC8DB0003C542 /* DBTopView.xib in Resources */,
 				043B468F21F8682100C75536 /* LeaveMessageViewController.xib in Resources */,
@@ -3070,6 +3124,7 @@
 				041DC2BB224E1BF200BD1196 /* PLPlayTopView.xib in Resources */,
 				04F3271421D09779009267F4 /* GoodsShowTableViewCell.xib in Resources */,
 				04716AC62224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.xib in Resources */,
+				040477732252FFA600EA6FFF /* SeasonAuthenticationViewController2.xib in Resources */,
 				04716AC12224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib in Resources */,
 				0459D91421E0A78F009BFFB4 /* OrderSureTableViewCell.xib in Resources */,
 				042D1531221D629A00DB895C /* PaySuccessView.xib in Resources */,
@@ -3227,12 +3282,14 @@
 				04FC2C3F21C0E3AD00329B53 /* JFCityTableViewCell.m in Sources */,
 				04EFA01821E7045C007C2FCA /* EvaluationSuccessView.m in Sources */,
 				04F3271321D09779009267F4 /* GoodsShowTableViewCell.m in Sources */,
+				0420A17E22535D1800EFFCF4 /* DDPhotoViewController.m in Sources */,
 				04F55B12222A844900692A4E /* SortSearchCollectionViewCell.m in Sources */,
 				0423DAEA22002EDC00325869 /* MyOrderTableViewController.m in Sources */,
 				04F47E2421E5D0EE001B5F74 /* AllOrdersCell.m in Sources */,
 				044E677F223221E60077365D /* DDLocalStore.m in Sources */,
 				04F2FD1321EEEAE0000B58E2 /* GoodsDetailsView.m in Sources */,
 				04F2FD1F21EF23D5000B58E2 /* SpellGroupViewController.m in Sources */,
+				0404776D2252FBA400EA6FFF /* SeasonAuthenticationViewController.m in Sources */,
 				044665772237654300DF6F47 /* JXCategoryImageView.m in Sources */,
 				0476038B222D13AE00FDE903 /* NewGoodsModel.m in Sources */,
 				044E6781223221E60077365D /* UIColor+DD.m in Sources */,
@@ -3296,6 +3353,7 @@
 				04F70C6521E97D17004BD4C6 /* GoodsShowTitleModel.m in Sources */,
 				04EFA02C21E73391007C2FCA /* EvaluationOfSuccessViewController.m in Sources */,
 				044664F3223761FC00DF6F47 /* JXCategoryTitleAttributeCell.m in Sources */,
+				040477722252FFA600EA6FFF /* SeasonAuthenticationViewController2.m in Sources */,
 				04F4468221D74F7B00524971 /* DBFeatureItem.m in Sources */,
 				04F8ED3E21E30E9A00004178 /* AddUserAdressView.m in Sources */,
 				0430115022140C160003E082 /* SureCustomActionSheet.m in Sources */,

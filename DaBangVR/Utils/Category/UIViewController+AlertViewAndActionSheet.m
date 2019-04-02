@@ -11,9 +11,10 @@
 @implementation UIViewController (AlertViewAndActionSheet)
 
 #pragma mark —— alert view
--(void)AlertWithTitle:(NSString *)title message:(NSString *)message andOthers:(NSArray<NSString *> *)others animated:(BOOL)animated action:(click)click{
+
+-(void)AlertWithTitle:(NSString *__nullable)title preferredStyle:(UIAlertControllerStyle)style message:(NSString *__nullable)message andOthers:(NSArray<NSString *> *)others animated:(BOOL)animated action:(click)click{
     // 创建提示框
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:style];
     
     [others enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         // 取消
@@ -26,7 +27,7 @@
                 
             }]];
         }else{
-        // 确定
+            // 确定
             [alertController addAction:[UIAlertAction actionWithTitle:obj style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
                 if (action && click) {
@@ -38,5 +39,4 @@
     }];
     [self presentViewController:alertController animated:animated completion:nil];
 }
-
 @end

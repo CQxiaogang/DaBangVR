@@ -5,14 +5,17 @@
 //  Created by jiaxin on 2018/8/27.
 //  Copyright © 2018年 jiaxin. All rights reserved.
 //
-
+/** Controlles */
 #import "PagingViewController.h"
 #import "SettingViewController.h"
 #import "MyOrderViewController.h"
 #import "ShoppingCartViewController.h"
 #import "MineCollectionViewController.h"
-#import "JXCategoryView.h"
 #import "MerchantsSettledViewController.h"
+#import "SeasonAuthenticationViewController.h"
+/** 第三方 */
+#import "JXCategoryView.h"
+
 
 @interface PagingViewController () <JXCategoryViewDelegate, JXPagerMainTableViewGestureDelegate, headerViewDelegate, TestListBaseViewDelegate>
 
@@ -179,20 +182,28 @@
         [self myCollection];
     }else if (indexPath.row == 2){
         [self pushMerchantsSettledViewController];
+    }else if (indexPath.row == 3){
+        [self pushSeasonAuthenticationViewController];
     }
 }
-// 收藏
+//收藏
 - (void)myCollection{
-    MineCollectionViewController *vc = [[MineCollectionViewController alloc] init];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:NO];
+    [self pushViewController:[MineCollectionViewController new]];
 }
-// 商家入驻
+//商家入驻
 - (void)pushMerchantsSettledViewController{
-    MerchantsSettledViewController *vc = [[MerchantsSettledViewController alloc] init];
+    [self pushViewController:[MerchantsSettledViewController new]];
+}
+//主播认证
+- (void)pushSeasonAuthenticationViewController{
+    [self pushViewController:[SeasonAuthenticationViewController new]];
+}
+
+- (void)pushViewController:(UIViewController *)vc{
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:NO];
 }
+
 @end
 
 

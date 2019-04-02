@@ -112,3 +112,7 @@
 // 获取流列表 - 正在直播
 #define URl_getLiveStreamsList NSStringFormat(@"%@%@",URL_main,@"/api/pili/getLiveStreamsList")
 
+#pragma mark —————— 商家接口类 ——————
+//申请成为主播
+#define URl_appAnchor NSStringFormat(@"%@%@",URL_main,@"/api/dept/appAnchor?")
+

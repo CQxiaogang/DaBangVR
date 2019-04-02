@@ -281,9 +281,8 @@ static NSString *cellID = @"cellID";
 #pragma mark —— 退出登录
 -(void)LogOutAction{
    
-    [self AlertWithTitle:@"" message:@"确定要退出吗?" andOthers:@[@"取消",@"确定"] animated:YES action:^(NSInteger index) {
+    [self AlertWithTitle:@"" preferredStyle:UIAlertControllerStyleAlert message:@"确定要退出吗?" andOthers:@[@"取消",@"确定"] animated:YES action:^(NSInteger index) {
         if (index == 1) {
-            
             [userManager logout:nil];
             DLog(@"%@",curUser.token);
         }

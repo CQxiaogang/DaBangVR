@@ -121,7 +121,7 @@ static NSString *const CellID = @"CellID";
 }
 
 -(void)deleteAdress{
-    [self AlertWithTitle:@"确定删除" message:@"" andOthers:@[@"取消",@"确认"] animated:YES action:^(NSInteger index) {
+    [self AlertWithTitle:@"确定删除" preferredStyle:UIAlertControllerStyleAlert message:@"" andOthers:@[@"取消",@"确认"] animated:YES action:^(NSInteger index) {
         if (index == 0) {
             [NetWorkHelper POST:URl_addressDelete parameters:nil success:nil failure:nil];
         }

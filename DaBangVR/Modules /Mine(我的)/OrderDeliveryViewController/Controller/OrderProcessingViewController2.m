@@ -82,14 +82,13 @@ static NSString *FooterID = @"FooterID";
 - (void)refundButOfAction{
     // 退款
     kWeakSelf(self);
-    [self AlertWithTitle:@"确认退款" message:@"是否确认退款" andOthers:@[@"取消",@"确定"] animated:YES action:^(NSInteger index) {
+    [self AlertWithTitle:@"确认退款" preferredStyle:UIAlertControllerStyleAlert message:@"是否确认退款" andOthers:@[@"取消",@"确定"] animated:YES action:^(NSInteger index) {
         if (index == 1) {
             [NetWorkHelper POST:URl_refundRequest parameters:@{@"orderId":weakself.orderId} success:^(id  _Nonnull responseObject) {
                 DLog(@"退款成功");
             } failure:nil];
         }
     }];
-    
 }
 #pragma mark —— 加载数据
 -(void)loadingData{
