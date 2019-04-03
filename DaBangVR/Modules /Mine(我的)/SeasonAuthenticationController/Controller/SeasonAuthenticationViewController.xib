@@ -17,6 +17,9 @@
                 <outlet property="iDCardImgView1" destination="uUe-M2-LQt" id="7Ad-dy-esX"/>
                 <outlet property="iDCardImgView2" destination="aky-Fj-99c" id="3rB-fz-xom"/>
                 <outlet property="iDCardImgView3" destination="bM6-ev-taL" id="vBH-t3-C04"/>
+                <outlet property="iDCardNameTextField" destination="7rx-0f-XNV" id="cjb-C6-n5h"/>
+                <outlet property="nameTextField" destination="m0j-il-Rrk" id="Ddr-8C-enY"/>
+                <outlet property="phoneNumTextField" destination="INK-dK-Tqc" id="qGT-xF-mPj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

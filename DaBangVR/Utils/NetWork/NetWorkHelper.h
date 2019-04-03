@@ -16,9 +16,16 @@ typedef void(^RequestSuccess)(id responseObject);
 /** 请求失败的Block */
 typedef void(^RequestFailed)(NSError *error);
 
+typedef void (^constructingBodyWithBlock)(id _Nonnull formData);
 @interface NetWorkHelper : NSObject
 
 + (void)POST:(NSString *)URL
+  parameters:(id __nullable)parameters
+     success:(RequestSuccess __nullable)success
+     failure:(RequestFailed __nullable)failure;
+
++ (void)POST:(NSString *)URL
+constructingBodyWithBlock:(constructingBodyWithBlock)constructingBodyWithBlock
   parameters:(id __nullable)parameters
      success:(RequestSuccess __nullable)success
      failure:(RequestFailed __nullable)failure;

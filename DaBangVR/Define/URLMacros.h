@@ -116,3 +116,6 @@
 //申请成为主播
 #define URl_appAnchor NSStringFormat(@"%@%@",URL_main,@"/api/dept/appAnchor?")
 
+#pragma mark —————— 配置文件接口类 ——————
+//获取七牛云token
+#define URl_getUploadConfigToken NSStringFormat(@"%@%@",URL_main,@"/api/config/getUploadConfigToken")

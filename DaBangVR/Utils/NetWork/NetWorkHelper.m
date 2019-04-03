@@ -15,6 +15,17 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/javascript" ,@"text/plain", nil];
+    
+    [manager POST:URL parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    
     NSMutableDictionary *mutableDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
     [mutableDic setObject:kToken forKey:@"DABANG-TOKEN"];
     [manager POST:URL parameters:mutableDic progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -38,6 +49,41 @@
         }
     }];
 }
+
+
++ (void)POST:(NSString *)URL constructingBodyWithBlock:(nonnull constructingBodyWithBlock)constructingBodyWithBlock parameters:(id _Nullable)parameters success:(RequestSuccess _Nullable)success failure:(RequestFailed _Nullable)failure{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/javascript" ,@"text/plain", nil];
+    NSMutableDictionary *mutableDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    [mutableDic setObject:kToken forKey:@"DABANG-TOKEN"];
+    [manager POST:URL parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        if (constructingBodyWithBlock) {
+            constructingBodyWithBlock(formData);
+        }
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        /**
+         从AFNetworking返回的Error中取出服务端返回的错误信息
+         */
+        if ([error.domain isEqualToString:AFURLResponseSerializationErrorDomain]) {
+            id response = [NSJSONSerialization JSONObjectWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:0 error:nil];
+            [SVProgressHUD showInfoWithStatus:response[@"errmsg"]];
+            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+            [SVProgressHUD dismissWithDelay:1.0];
+        }
+        DLog(@"TIM_POST请求失败:%@", error.description);
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
 
 + (void)GET:(NSString *)URL parameters:(id __nullable)parameters success:(RequestSuccess)success failure:(RequestFailed)failure{
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];

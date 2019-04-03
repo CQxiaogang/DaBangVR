@@ -164,6 +164,8 @@
 		0474B6AF2227AA6B008F0C07 /* NewGoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B6AD2227AA6B008F0C07 /* NewGoodsCollectionViewCell.m */; };
 		0474B6B02227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0474B6AE2227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib */; };
 		0476038B222D13AE00FDE903 /* NewGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04760389222D13AE00FDE903 /* NewGoodsModel.m */; };
+		048016F22254A6ED00B83F08 /* RAYUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 048016EE2254A6ED00B83F08 /* RAYUploader.m */; };
+		048016F32254A6ED00B83F08 /* RAYUploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 048016F02254A6ED00B83F08 /* RAYUploadFile.m */; };
 		048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E692B21A26C5A00DB911A /* UIColor+category.m */; };
 		0493B954223A607300418E17 /* OrderSureFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0493B953223A607300418E17 /* OrderSureFooterView.xib */; };
 		049703E621A69860002359B5 /* ShoppingLiveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049703E421A69860002359B5 /* ShoppingLiveTableViewCell.m */; };
@@ -637,6 +639,10 @@
 		0474B6AE2227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewGoodsCollectionViewCell.xib; sourceTree = "<group>"; };
 		04760389222D13AE00FDE903 /* NewGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGoodsModel.m; sourceTree = "<group>"; };
 		0476038A222D13AE00FDE903 /* NewGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGoodsModel.h; sourceTree = "<group>"; };
+		048016EE2254A6ED00B83F08 /* RAYUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAYUploader.m; sourceTree = "<group>"; };
+		048016EF2254A6ED00B83F08 /* RAYUploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAYUploadFile.h; sourceTree = "<group>"; };
+		048016F02254A6ED00B83F08 /* RAYUploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAYUploadFile.m; sourceTree = "<group>"; };
+		048016F12254A6ED00B83F08 /* RAYUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAYUploader.h; sourceTree = "<group>"; };
 		048E692A21A26C5A00DB911A /* UIColor+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+category.h"; sourceTree = "<group>"; };
 		048E692B21A26C5A00DB911A /* UIColor+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+category.m"; sourceTree = "<group>"; };
 		0493B953223A607300418E17 /* OrderSureFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSureFooterView.xib; sourceTree = "<group>"; };
@@ -2105,6 +2111,17 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		048016ED2254A6ED00B83F08 /* RAYUploader */ = {
+			isa = PBXGroup;
+			children = (
+				048016EF2254A6ED00B83F08 /* RAYUploadFile.h */,
+				048016F02254A6ED00B83F08 /* RAYUploadFile.m */,
+				048016F12254A6ED00B83F08 /* RAYUploader.h */,
+				048016EE2254A6ED00B83F08 /* RAYUploader.m */,
+			);
+			path = RAYUploader;
+			sourceTree = "<group>";
+		};
 		048E692921A26A9E00DB911A /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -2734,6 +2751,7 @@
 		04F5C8E321CA24FD008DD043 /* ThridParty */ = {
 			isa = PBXGroup;
 			children = (
+				048016ED2254A6ED00B83F08 /* RAYUploader */,
 				046DB306224B279700C2CACB /* TPCSpringMenu */,
 				04ECB9F022422C7300A02DB2 /* DHGuidePageHUD */,
 				044665042237654300DF6F47 /* Sources */,
@@ -3464,9 +3482,11 @@
 				04F4468E21D74F9000524971 /* GoodAttributesView.m in Sources */,
 				049D4796219FB7710058178D /* DBTabBar.m in Sources */,
 				049D47A2219FEC690058178D /* DBShortVideoViewController.m in Sources */,
+				048016F32254A6ED00B83F08 /* RAYUploadFile.m in Sources */,
 				043B468421F80CB200C75536 /* UserAddressModel.m in Sources */,
 				044665822237654300DF6F47 /* JXCategoryListCollectionContainerView.m in Sources */,
 				049D478A219FAB880058178D /* AppDelegate.m in Sources */,
+				048016F22254A6ED00B83F08 /* RAYUploader.m in Sources */,
 				04F2E4592248C627001FB3C1 /* LiveCollectionViewCell.m in Sources */,
 				044665672237654300DF6F47 /* JXCategoryIndicatorBallView.m in Sources */,
 				04F47E3921E5FAF6001B5F74 /* EvaluationCell.m in Sources */,

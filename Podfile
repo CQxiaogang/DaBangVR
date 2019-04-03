@@ -17,4 +17,5 @@ pod 'PLPlayerKit'
 pod 'AZCategory'
 pod 'JGProgressHUD'
 pod 'MMMaterialDesignSpinner'
+pod 'Qiniu'
 end

@@ -24,6 +24,7 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - HappyDNS (0.3.15)
   - IQKeyboardManager (6.2.0)
   - JGProgressHUD (2.0.3)
   - Masonry (1.1.0)
@@ -39,6 +40,8 @@ PODS:
   - PLPlayerKit (3.4.1):
     - PLPlayerKit/iphoneos (= 3.4.1)
   - PLPlayerKit/iphoneos (3.4.1)
+  - Qiniu (7.2.5):
+    - HappyDNS (~> 0.3)
   - QQCorner (1.1.0)
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
@@ -62,6 +65,7 @@ DEPENDENCIES:
   - mob_smssdk
   - PLMediaStreamingKit
   - PLPlayerKit
+  - Qiniu
   - QQCorner
   - SDWebImage (~> 3.7.6)
   - SVProgressHUD
@@ -73,6 +77,7 @@ SPEC REPOS:
     - AFNetworking
     - AZCategory
     - FMDB
+    - HappyDNS
     - IQKeyboardManager
     - JGProgressHUD
     - Masonry
@@ -83,6 +88,7 @@ SPEC REPOS:
     - MOBFoundation
     - PLMediaStreamingKit
     - PLPlayerKit
+    - Qiniu
     - QQCorner
     - SDWebImage
     - SVProgressHUD
@@ -93,6 +99,7 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   AZCategory: fbcb0ba6e1da3790cd3aefe13216b5adc25f6b56
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  HappyDNS: 00c15e651a347206e58a20503a32a5564589b56a
   IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -103,12 +110,13 @@ SPEC CHECKSUMS:
   MOBFoundation: ca11e6640e995875ff755faa56ea324eed260e70
   PLMediaStreamingKit: 762e312dd088b1b487c5b7f3a59b56231d1cbb71
   PLPlayerKit: ebec9d70b66a95d1770b2dc5107fe2a469454a28
+  Qiniu: 909b408ee489ea54827e9717be90b94bc9dfbc48
   QQCorner: cc97664d4d8e5b152be16d04fd5f9b721515b19f
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 87734e4ea2f82d8be58322722fb36ce7f7a3b80b
+PODFILE CHECKSUM: d4527aa4808a8c0174702c180c200cdb45f225ff
 
 COCOAPODS: 1.5.3
