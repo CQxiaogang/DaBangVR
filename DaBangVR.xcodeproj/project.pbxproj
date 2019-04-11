@@ -32,6 +32,9 @@
 		0413E25F2233BBC700BF008F /* LoginManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413E25E2233BBC700BF008F /* LoginManger.m */; };
 		041A719A2249C85B0059B19F /* OrderTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041A71992249C85B0059B19F /* OrderTableViewFooterView.m */; };
 		041A719C2249C8680059B19F /* OrderTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041A719B2249C8680059B19F /* OrderTableViewFooterView.xib */; };
+		041C0947225F2184008A38F0 /* ShouldBeginLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C0945225F2184008A38F0 /* ShouldBeginLiveViewController.m */; };
+		041C0948225F2184008A38F0 /* ShouldBeginLiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041C0946225F2184008A38F0 /* ShouldBeginLiveViewController.xib */; };
+		041C094F225F2681008A38F0 /* DidBeginLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C094E225F2681008A38F0 /* DidBeginLiveViewController.m */; };
 		041DC2B6224DB9F600BD1196 /* ShoppingLiveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041DC2B5224DB9F600BD1196 /* ShoppingLiveTableViewController.m */; };
 		041DC2B9224E1B8500BD1196 /* PLPlayTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041DC2B8224E1B8500BD1196 /* PLPlayTopView.m */; };
 		041DC2BB224E1BF200BD1196 /* PLPlayTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041DC2BA224E1BF200BD1196 /* PLPlayTopView.xib */; };
@@ -148,7 +151,6 @@
 		0463026021BBAC8D0003C542 /* DBLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463025C21BBAC8D0003C542 /* DBLayoutConstraint.m */; };
 		0463026321BBC8C40003C542 /* DBTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463026221BBC8C40003C542 /* DBTopView.m */; };
 		0463026521BBC8DB0003C542 /* DBTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0463026421BBC8DB0003C542 /* DBTopView.xib */; };
-		046DB305224B216500C2CACB /* EntertainmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB304224B216500C2CACB /* EntertainmentViewController.m */; };
 		046DB30D224B279700C2CACB /* TPCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB307224B279700C2CACB /* TPCButton.m */; };
 		046DB30E224B279700C2CACB /* TPCItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB30A224B279700C2CACB /* TPCItem.m */; };
 		046DB30F224B279700C2CACB /* TPCSpringMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB30C224B279700C2CACB /* TPCSpringMenu.m */; };
@@ -393,6 +395,11 @@
 		041A71982249C85B0059B19F /* OrderTableViewFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderTableViewFooterView.h; sourceTree = "<group>"; };
 		041A71992249C85B0059B19F /* OrderTableViewFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderTableViewFooterView.m; sourceTree = "<group>"; };
 		041A719B2249C8680059B19F /* OrderTableViewFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewFooterView.xib; sourceTree = "<group>"; };
+		041C0944225F2184008A38F0 /* ShouldBeginLiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShouldBeginLiveViewController.h; sourceTree = "<group>"; };
+		041C0945225F2184008A38F0 /* ShouldBeginLiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShouldBeginLiveViewController.m; sourceTree = "<group>"; };
+		041C0946225F2184008A38F0 /* ShouldBeginLiveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShouldBeginLiveViewController.xib; sourceTree = "<group>"; };
+		041C094D225F2681008A38F0 /* DidBeginLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DidBeginLiveViewController.h; sourceTree = "<group>"; };
+		041C094E225F2681008A38F0 /* DidBeginLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DidBeginLiveViewController.m; sourceTree = "<group>"; };
 		041DC2B4224DB9F600BD1196 /* ShoppingLiveTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoppingLiveTableViewController.h; sourceTree = "<group>"; };
 		041DC2B5224DB9F600BD1196 /* ShoppingLiveTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoppingLiveTableViewController.m; sourceTree = "<group>"; };
 		041DC2B7224E1B8500BD1196 /* PLPlayTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPlayTopView.h; sourceTree = "<group>"; };
@@ -609,8 +616,6 @@
 		0463026121BBC8C40003C542 /* DBTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBTopView.h; sourceTree = "<group>"; };
 		0463026221BBC8C40003C542 /* DBTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBTopView.m; sourceTree = "<group>"; };
 		0463026421BBC8DB0003C542 /* DBTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBTopView.xib; sourceTree = "<group>"; };
-		046DB303224B216500C2CACB /* EntertainmentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EntertainmentViewController.h; path = "DaBangVR/Modules /Entertainment(娱乐)/Controller/EntertainmentViewController.h"; sourceTree = SOURCE_ROOT; };
-		046DB304224B216500C2CACB /* EntertainmentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EntertainmentViewController.m; path = "DaBangVR/Modules /Entertainment(娱乐)/Controller/EntertainmentViewController.m"; sourceTree = SOURCE_ROOT; };
 		046DB307224B279700C2CACB /* TPCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCButton.m; sourceTree = "<group>"; };
 		046DB308224B279700C2CACB /* TPCItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCItem.h; sourceTree = "<group>"; };
 		046DB309224B279700C2CACB /* TPCSpringMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCSpringMenu.h; sourceTree = "<group>"; };
@@ -1128,6 +1133,50 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		041C0943225F1AE3008A38F0 /* ShouldBeginLiveController */ = {
+			isa = PBXGroup;
+			children = (
+				041C094A225F218F008A38F0 /* Model */,
+				041C094B225F218F008A38F0 /* View */,
+				041C0949225F218F008A38F0 /* Controller */,
+			);
+			path = ShouldBeginLiveController;
+			sourceTree = "<group>";
+		};
+		041C0949225F218F008A38F0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				041C0944225F2184008A38F0 /* ShouldBeginLiveViewController.h */,
+				041C0945225F2184008A38F0 /* ShouldBeginLiveViewController.m */,
+				041C0946225F2184008A38F0 /* ShouldBeginLiveViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		041C094A225F218F008A38F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		041C094B225F218F008A38F0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		041C094C225F21B6008A38F0 /* DidBeginLiveController */ = {
+			isa = PBXGroup;
+			children = (
+				046DB312224B579C00C2CACB /* Model */,
+				046DB311224B579C00C2CACB /* View */,
+				046DB310224B579C00C2CACB /* Controller */,
+			);
+			path = DidBeginLiveController;
 			sourceTree = "<group>";
 		};
 		042359E721FEDEAC00F4C345 /* Model */ = {
@@ -1723,8 +1772,8 @@
 		046DB310224B579C00C2CACB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				046DB303224B216500C2CACB /* EntertainmentViewController.h */,
-				046DB304224B216500C2CACB /* EntertainmentViewController.m */,
+				041C094D225F2681008A38F0 /* DidBeginLiveViewController.h */,
+				041C094E225F2681008A38F0 /* DidBeginLiveViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2273,9 +2322,8 @@
 		049D478D219FB42C0058178D /* Entertainment(娱乐) */ = {
 			isa = PBXGroup;
 			children = (
-				046DB312224B579C00C2CACB /* Model */,
-				046DB311224B579C00C2CACB /* View */,
-				046DB310224B579C00C2CACB /* Controller */,
+				041C0943225F1AE3008A38F0 /* ShouldBeginLiveController */,
+				041C094C225F21B6008A38F0 /* DidBeginLiveController */,
 			);
 			path = "Entertainment(娱乐)";
 			sourceTree = "<group>";
@@ -3087,6 +3135,7 @@
 				04F8ED4521E32AC000004178 /* UserAdressCell.xib in Resources */,
 				0404776E2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib in Resources */,
 				0474B6B02227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib in Resources */,
+				041C0948225F2184008A38F0 /* ShouldBeginLiveViewController.xib in Resources */,
 				0463026521BBC8DB0003C542 /* DBTopView.xib in Resources */,
 				043B468F21F8682100C75536 /* LeaveMessageViewController.xib in Resources */,
 				045FAEBF221E81900086DE4E /* OrderProcessingView.xib in Resources */,
@@ -3300,6 +3349,7 @@
 				044E6781223221E60077365D /* UIColor+DD.m in Sources */,
 				04BF21832212B719002468C0 /* JXPagerListContainerView.m in Sources */,
 				04F70C6921E98D35004BD4C6 /* AnchorRecommendView.m in Sources */,
+				041C094F225F2681008A38F0 /* DidBeginLiveViewController.m in Sources */,
 				04ECB9F822422C7300A02DB2 /* DHGuidePageHUD.m in Sources */,
 				04F2FD2E21EF479D000B58E2 /* GoodsShowTableViewController.m in Sources */,
 				045FAEBD221E7F2A0086DE4E /* OrderProcessingView.m in Sources */,
@@ -3393,7 +3443,6 @@
 				044E6782223221E60077365D /* DDMySearchBar.m in Sources */,
 				04F4467821D74F5300524971 /* FeatureItemCell.m in Sources */,
 				046DB30E224B279700C2CACB /* TPCItem.m in Sources */,
-				046DB305224B216500C2CACB /* EntertainmentViewController.m in Sources */,
 				044665752237654300DF6F47 /* JXCategoryTitleCell.m in Sources */,
 				04FC2C3B21C0E3AD00329B53 /* JFAreaDataManager.m in Sources */,
 				04F62FEE21F9B69A0094B26F /* ModifyAddressAreaModel.m in Sources */,
@@ -3406,6 +3455,7 @@
 				04F4469421D74FBF00524971 /* GoodsInfoView.m in Sources */,
 				04F4468F21D74F9000524971 /* UIButton+Bootstrap.m in Sources */,
 				04FC07F321B50855008FF83B /* SettingViewController.m in Sources */,
+				041C0947225F2184008A38F0 /* ShouldBeginLiveViewController.m in Sources */,
 				04ACFA69223F3A93006783BF /* OrderProcessingFooterView.m in Sources */,
 				045A6FF02223F514006081CF /* CountryCollectionViewCell.m in Sources */,
 				041DC2B6224DB9F600BD1196 /* ShoppingLiveTableViewController.m in Sources */,

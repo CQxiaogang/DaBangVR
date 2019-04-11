@@ -12,7 +12,7 @@
 #import "DBShortVideoViewController.h"
 #import "PagingViewController.h"
 #import "MineViewController.h"
-#import "EntertainmentViewController.h"
+#import "ShouldBeginLiveViewController.h"
 #import "GoodAttributesView.h"
 
 #define kSWidth [UIScreen mainScreen].bounds.size.width
@@ -151,7 +151,7 @@
 {
 //    [self.MDelegate didClickButtonWithIndex:index];
     if (index==0) {
-        EntertainmentViewController *vc = [EntertainmentViewController new];
+        ShouldBeginLiveViewController *vc = [ShouldBeginLiveViewController new];
         [self presentViewController:vc animated:NO completion:nil];
     }
 }

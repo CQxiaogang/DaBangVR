@@ -6,18 +6,18 @@
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "EntertainmentViewController.h"
+#import "DidBeginLiveViewController.h"
 // 七牛云
 #import <PLMediaStreamingKit/PLMediaStreamingKit.h>
 
-@interface EntertainmentViewController ()
+@interface DidBeginLiveViewController ()
 
 /** 七牛云 */
 @property (nonatomic, strong) PLMediaStreamingSession *session;
 
 @end
 
-@implementation EntertainmentViewController
+@implementation DidBeginLiveViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,10 +32,15 @@
     self.session = [[PLMediaStreamingSession alloc] initWithVideoCaptureConfiguration:videoCaptureConfiguration audioCaptureConfiguration:audioCaptureConfiguration videoStreamingConfiguration:videoStreamingConfiguration audioStreamingConfiguration:audioStreamingConfiguration stream:nil];
 
     [self.view addSubview:self.session.previewView];
-
+    /**
+     *liveTitle 直播标题
+     *coverUrl  直播封面图片
+     *goodsIds  勾选商品的id数组，用逗号：1,2,3；如果不传则为娱乐直播
+     */
     NSDictionary *parameters = @{
-                                 @"streamKey" :@"test1",
-                                 @"streamName":@"test1"
+                                 @"liveTitle":@"test1",
+                                 @"coverUrl" :@"test1",
+                                 @"goodsIds" :@""
                                  };
     [NetWorkHelper POST:URl_create parameters:parameters success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = KJSONSerialization(responseObject);

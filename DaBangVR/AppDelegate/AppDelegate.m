@@ -12,7 +12,7 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "PaymentManager.h"
 #import <PLMediaStreamingKit/PLMediaStreamingKit.h>
-#import "EntertainmentViewController.h"
+//#import "ShouldBeginLiveViewController.h"
 
 @interface AppDelegate ()
 
