@@ -114,7 +114,7 @@
 
 #pragma mark —————— 商家接口类 ——————
 //申请成为主播
-#define URl_appAnchor NSStringFormat(@"%@%@",URL_main,@"/api/dept/appAnchor?")
+#define URl_appAnchor NSStringFormat(@"%@%@",URL_main,@"/api/config/uploadFiles")
 
 #pragma mark —————— 配置文件接口类 ——————
 //获取七牛云token

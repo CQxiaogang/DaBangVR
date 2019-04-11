@@ -102,4 +102,30 @@
     }];
 }
 
++(void)POST:(NSString *)URL images:(UIImage *)image success:(RequestSuccess)success failure:(RequestFailed)failure{
+    NSDictionary *dic = @{@"DABANG-TOKEN":kToken};
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html",@"image/jpeg",@"image/png",@"application/octet-stream",@"text/json",@"image/jpg",@"text/plain",nil];
+    [manager POST:URL parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        //取出单张图片二进制数据
+        NSData *imgData = UIImageJPEGRepresentation(image, 0.8);
+        //上传的参数名，在服务器端保存文件的文件夹名
+        NSString *name = @"file";
+        //上传filename
+        NSString *fileName = [NSString stringWithFormat:@"%@.jpg",name];
+        [formData appendPartWithFileData:imgData name:name fileName:fileName mimeType:@"image/jpeg"];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
 @end

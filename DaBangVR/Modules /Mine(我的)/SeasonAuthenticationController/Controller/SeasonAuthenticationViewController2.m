@@ -20,11 +20,11 @@
     [super viewDidLoad];
     self.title = @"身份认证";
     
-    [_infoSubmitBtn setBackgroundImage:[UIImage imageWithGradualChangingColor:^(QQGradualChangingColor *graColor) {
-        graColor.fromColor = KWhiteColor;
-        graColor.toColor = KLightGreen;
-        graColor.type = QQGradualChangeTypeUpLeftToDownRight;
-    } size:_infoSubmitBtn.size cornerRadius:QQRadiusMakeSame(_infoSubmitBtn.size.height/2)] forState:UIControlStateNormal];
+//    [_infoSubmitBtn setBackgroundImage:[UIImage imageWithGradualChangingColor:^(QQGradualChangingColor *graColor) {
+//        graColor.fromColor = KWhiteColor;
+//        graColor.toColor = KLightGreen;
+//        graColor.type = QQGradualChangeTypeUpLeftToDownRight;
+//    } size:_infoSubmitBtn.size cornerRadius:QQRadiusMakeSame(_infoSubmitBtn.size.height/2)] forState:UIControlStateNormal];
     
 }
 //立即提交

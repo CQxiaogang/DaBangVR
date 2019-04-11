@@ -30,6 +30,11 @@ constructingBodyWithBlock:(constructingBodyWithBlock)constructingBodyWithBlock
      success:(RequestSuccess __nullable)success
      failure:(RequestFailed __nullable)failure;
 
++ (void)POST:(NSString *)URL
+      images:(UIImage *)image
+     success:(RequestSuccess __nullable)success
+     failure:(RequestFailed __nullable)failure;
+
 + (void)GET:(NSString *)URL
  parameters:(id __nullable)parameters
     success:(RequestSuccess __nullable)success
