@@ -97,10 +97,6 @@
                 vc.imageblock = ^(UIImage *image) {
                     //身份证正面
                     self.iDCardImgView1.image = image;
-                    [NetWorkHelper POST:URl_appAnchor images:image success:^(id  _Nonnull responseObject) {
-                        NSDictionary *dic = KJSONSerialization(responseObject);
-                        NSLog(@"%@",dic);
-                    } failure:nil];
                 };
             }else if (imgView.tag == 102){
                 vc.imageblock = ^(UIImage *image) {

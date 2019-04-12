@@ -151,6 +151,9 @@
 		0463026021BBAC8D0003C542 /* DBLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463025C21BBAC8D0003C542 /* DBLayoutConstraint.m */; };
 		0463026321BBC8C40003C542 /* DBTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463026221BBC8C40003C542 /* DBTopView.m */; };
 		0463026521BBC8DB0003C542 /* DBTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0463026421BBC8DB0003C542 /* DBTopView.xib */; };
+		04670FFD2260314C0025E001 /* ShouldBeginLiveGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04670FFB2260314C0025E001 /* ShouldBeginLiveGoodsCell.m */; };
+		04670FFE2260314C0025E001 /* ShouldBeginLiveGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04670FFC2260314C0025E001 /* ShouldBeginLiveGoodsCell.xib */; };
+		0467100122603A280025E001 /* ShouldBeginLiveGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0467100022603A280025E001 /* ShouldBeginLiveGoodsModel.m */; };
 		046DB30D224B279700C2CACB /* TPCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB307224B279700C2CACB /* TPCButton.m */; };
 		046DB30E224B279700C2CACB /* TPCItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB30A224B279700C2CACB /* TPCItem.m */; };
 		046DB30F224B279700C2CACB /* TPCSpringMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB30C224B279700C2CACB /* TPCSpringMenu.m */; };
@@ -616,6 +619,11 @@
 		0463026121BBC8C40003C542 /* DBTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBTopView.h; sourceTree = "<group>"; };
 		0463026221BBC8C40003C542 /* DBTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBTopView.m; sourceTree = "<group>"; };
 		0463026421BBC8DB0003C542 /* DBTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBTopView.xib; sourceTree = "<group>"; };
+		04670FFA2260314C0025E001 /* ShouldBeginLiveGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShouldBeginLiveGoodsCell.h; sourceTree = "<group>"; };
+		04670FFB2260314C0025E001 /* ShouldBeginLiveGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShouldBeginLiveGoodsCell.m; sourceTree = "<group>"; };
+		04670FFC2260314C0025E001 /* ShouldBeginLiveGoodsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShouldBeginLiveGoodsCell.xib; sourceTree = "<group>"; };
+		04670FFF22603A280025E001 /* ShouldBeginLiveGoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShouldBeginLiveGoodsModel.h; sourceTree = "<group>"; };
+		0467100022603A280025E001 /* ShouldBeginLiveGoodsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShouldBeginLiveGoodsModel.m; sourceTree = "<group>"; };
 		046DB307224B279700C2CACB /* TPCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCButton.m; sourceTree = "<group>"; };
 		046DB308224B279700C2CACB /* TPCItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCItem.h; sourceTree = "<group>"; };
 		046DB309224B279700C2CACB /* TPCSpringMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCSpringMenu.h; sourceTree = "<group>"; };
@@ -1158,6 +1166,8 @@
 		041C094A225F218F008A38F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04670FFF22603A280025E001 /* ShouldBeginLiveGoodsModel.h */,
+				0467100022603A280025E001 /* ShouldBeginLiveGoodsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1165,6 +1175,7 @@
 		041C094B225F218F008A38F0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04670FF9226030F60025E001 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1754,6 +1765,16 @@
 				0463025C21BBAC8D0003C542 /* DBLayoutConstraint.m */,
 			);
 			path = Adaptive;
+			sourceTree = "<group>";
+		};
+		04670FF9226030F60025E001 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				04670FFA2260314C0025E001 /* ShouldBeginLiveGoodsCell.h */,
+				04670FFB2260314C0025E001 /* ShouldBeginLiveGoodsCell.m */,
+				04670FFC2260314C0025E001 /* ShouldBeginLiveGoodsCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		046DB306224B279700C2CACB /* TPCSpringMenu */ = {
@@ -3154,6 +3175,7 @@
 				04F45F0C21F57EED009F5907 /* NewCommentCell.xib in Resources */,
 				042FCEC821A3E24F002AD0DB /* HomeSecondsKillView.xib in Resources */,
 				042FCED221A4070C002AD0DB /* DBHotVideoView.xib in Resources */,
+				04670FFE2260314C0025E001 /* ShouldBeginLiveGoodsCell.xib in Resources */,
 				049D475E219FA91E0058178D /* Main.storyboard in Resources */,
 				04ACFA6B223F3AA6006783BF /* OrderProcessingFooterView.xib in Resources */,
 				0403676E21A4E9DA00974435 /* AnchorViewCell.xib in Resources */,
@@ -3398,6 +3420,7 @@
 				048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */,
 				04F2FD1721EF0C25000B58E2 /* HomeBannerView.m in Sources */,
 				04457AC321FC49EE003E5748 /* OrderGoodsModel.m in Sources */,
+				04670FFD2260314C0025E001 /* ShouldBeginLiveGoodsCell.m in Sources */,
 				043B468E21F8682100C75536 /* LeaveMessageViewController.m in Sources */,
 				049D479C219FEC1E0058178D /* HomeViewController.m in Sources */,
 				0423DADF21FFF52700325869 /* NewProductLaunchViewController.m in Sources */,
@@ -3447,6 +3470,7 @@
 				04FC2C3B21C0E3AD00329B53 /* JFAreaDataManager.m in Sources */,
 				04F62FEE21F9B69A0094B26F /* ModifyAddressAreaModel.m in Sources */,
 				042FCED021A406FB002AD0DB /* DBHotVideoView.m in Sources */,
+				0467100122603A280025E001 /* ShouldBeginLiveGoodsModel.m in Sources */,
 				04F45F1221F5AD70009F5907 /* MySecondKillTableView.m in Sources */,
 				04F494C521C77D1B009A4518 /* UIAlertController+TapGesAlertController.m in Sources */,
 				04F62FEF21F9B69A0094B26F /* AreaView.m in Sources */,

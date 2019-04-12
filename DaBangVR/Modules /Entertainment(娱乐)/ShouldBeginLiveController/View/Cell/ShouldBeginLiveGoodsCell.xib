@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ShouldBeginLiveGoodsCell">
+            <rect key="frame" x="0.0" y="0.0" width="105" height="146"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="105" height="146"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bMX-8j-vfO">
+                        <rect key="frame" x="0.0" y="0.0" width="105" height="77"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="77" id="ToH-B7-hgC">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2X3-4u-Fdp">
+                        <rect key="frame" x="0.0" y="134" width="12" height="12"/>
+                        <color key="backgroundColor" white="0.8085402397260274" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="12" id="VXf-y1-wuO">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstAttribute="height" constant="12" id="stc-lx-nzS">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                <color key="value" red="0.9826136231" green="0.1439966261" blue="0.29850026969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择需要主推的商品" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1J-1O-755">
+                        <rect key="frame" x="0.0" y="77" width="105" height="57"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="57" id="EW9-9V-45u">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="bMX-8j-vfO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="38W-YJ-EeI"/>
+                <constraint firstAttribute="trailing" secondItem="bMX-8j-vfO" secondAttribute="trailing" id="7oK-7B-L4w"/>
+                <constraint firstItem="U1J-1O-755" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="F1V-Rj-8Zz"/>
+                <constraint firstItem="U1J-1O-755" firstAttribute="top" secondItem="bMX-8j-vfO" secondAttribute="bottom" id="LNk-m5-ZOc"/>
+                <constraint firstItem="bMX-8j-vfO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="dor-a6-mZ1"/>
+                <constraint firstItem="2X3-4u-Fdp" firstAttribute="top" secondItem="U1J-1O-755" secondAttribute="bottom" id="dx5-PY-dU5"/>
+                <constraint firstItem="2X3-4u-Fdp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fka-hG-zsQ"/>
+                <constraint firstAttribute="trailing" secondItem="U1J-1O-755" secondAttribute="trailing" id="kXP-hl-5r5"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="127" height="146"/>
+            <connections>
+                <outlet property="goodsImgView" destination="bMX-8j-vfO" id="TVh-gJ-GM7"/>
+                <outlet property="goodsName" destination="U1J-1O-755" id="Lhh-2f-pDF"/>
+                <outlet property="selectBtn" destination="2X3-4u-Fdp" id="E0g-Jj-QwV"/>
+            </connections>
+            <point key="canvasLocation" x="194.40000000000001" y="197.9010494752624"/>
+        </collectionViewCell>
+    </objects>
+</document>

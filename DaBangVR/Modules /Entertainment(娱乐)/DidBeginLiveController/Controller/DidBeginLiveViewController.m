@@ -21,39 +21,52 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+}
+
+-(void)setupUI{
+    [super setupUI];
     PLVideoCaptureConfiguration *videoCaptureConfiguration = [PLVideoCaptureConfiguration defaultConfiguration];
     //摄像头的方向
     videoCaptureConfiguration.position = AVCaptureDevicePositionFront;
     PLAudioCaptureConfiguration *audioCaptureConfiguration = [PLAudioCaptureConfiguration defaultConfiguration];
     PLVideoStreamingConfiguration *videoStreamingConfiguration = [PLVideoStreamingConfiguration defaultConfiguration];
     PLAudioStreamingConfiguration *audioStreamingConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
-
+    
     //  创建推荐session对象
     self.session = [[PLMediaStreamingSession alloc] initWithVideoCaptureConfiguration:videoCaptureConfiguration audioCaptureConfiguration:audioCaptureConfiguration videoStreamingConfiguration:videoStreamingConfiguration audioStreamingConfiguration:audioStreamingConfiguration stream:nil];
-
+    
     [self.view addSubview:self.session.previewView];
     /**
      *liveTitle 直播标题
      *coverUrl  直播封面图片
-     *goodsIds  勾选商品的id数组，用逗号：1,2,3；如果不传则为娱乐直播
+     *goodsIds  勾选商品的id数组，用逗号：1,2,3 如果不传则为娱乐直播
      */
     NSDictionary *parameters = @{
-                                 @"liveTitle":@"test1",
-                                 @"coverUrl" :@"test1",
-                                 @"goodsIds" :@""
+                                 @"liveTitle":_parameters[@"liveTitle"],
+                                 @"goodsIds" :_parameters[@"goodsIds"]
                                  };
-    [NetWorkHelper POST:URl_create parameters:parameters success:^(id  _Nonnull responseObject) {
-        NSDictionary *dic = KJSONSerialization(responseObject);
-        NSURL *pushURL = [NSURL URLWithString:dic[@"publishURL"]];
+    
+    [NetWorkHelper POST:URl_create images:_parameters[@"coverUrl"] parameters:parameters success:^(id  _Nonnull responseObject) {
+        NSURL *pushURL = [NSURL URLWithString:responseObject[@"publishURL"]];
         [self.session startStreamingWithPushURL:pushURL feedback:^(PLStreamStartStateFeedback feedback) {
-//            if (feedback == PLStreamStartStateSuccess) {
-//                NSLog(@"Streaming started.");
-//            }
-//            else {
-//                NSLog(@"Oops.");
-//            }
+            
         }];
-    } failure:nil];
+    } failure:^(NSError * _Nonnull error) {}];
+    
+    UIButton *closeButton = [[UIButton alloc] init];
+    closeButton.backgroundColor = KRedColor;
+    [closeButton addTarget:self action:@selector(clickCloseButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:closeButton];
+    [closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(20);
+        make.size.equalTo(CGSizeMake(100, 50));
+    }];
+}
+
+-(void)clickCloseButton{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

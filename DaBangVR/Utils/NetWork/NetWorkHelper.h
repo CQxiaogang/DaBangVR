@@ -30,8 +30,18 @@ constructingBodyWithBlock:(constructingBodyWithBlock)constructingBodyWithBlock
      success:(RequestSuccess __nullable)success
      failure:(RequestFailed __nullable)failure;
 
+/**
+ POST含图片的时候调用
+
+ @param URL 请求地址
+ @param image 需要上传的图片
+ @param parameters 需要上传的参数
+ @param success 成功回调
+ @param failure 失败回调
+ */
 + (void)POST:(NSString *)URL
       images:(UIImage *)image
+ parameters:(id __nullable)parameters
      success:(RequestSuccess __nullable)success
      failure:(RequestFailed __nullable)failure;
 

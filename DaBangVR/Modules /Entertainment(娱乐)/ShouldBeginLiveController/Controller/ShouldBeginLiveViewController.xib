@@ -12,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShouldBeginLiveViewController">
             <connections>
+                <outlet property="goodsTitle" destination="ktv-T6-5Cz" id="hyo-JF-v2m"/>
+                <outlet property="liveCoverImgView" destination="kZA-Og-8dC" id="ykG-gS-jeA"/>
+                <outlet property="liveTitleTextField" destination="88H-ga-vJu" id="JxF-bQ-iQ3"/>
                 <outlet property="shouldBeginLiveBtn" destination="aF2-tr-crO" id="nQB-Ox-LAc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
