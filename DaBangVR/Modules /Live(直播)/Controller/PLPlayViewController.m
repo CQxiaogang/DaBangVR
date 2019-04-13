@@ -11,8 +11,10 @@
 #import "PLPlayTopView.h"
 /** 弹出键盘 */
 #import "DB_TextView.h"
+/** 直播聊天评论Cell */
+#import "LiveCommentTableViewCell.h"
 
-@interface PLPlayViewController ()<PLPlayTopViewDelegate, UITextViewDelegate>
+@interface PLPlayViewController ()<PLPlayTopViewDelegate, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UIVisualEffectView *effectView;
 
@@ -23,9 +25,20 @@
 @property (nonatomic, strong) UIButton *sendButton;
 /** 弹出键盘 */
 @property (nonatomic, strong) DB_TextView *textView;
+/** 聊天评论区 */
+@property (nonatomic, strong) UITableView *tableView;
+/** 聊天评论的数组 */
+@property (nonatomic, strong) NSMutableArray *commentArr;
+
+@property (nonatomic, strong) UITextView *commentText;
+@property (nonatomic, strong) UIView *commentsView;
+
 @end
 
 @implementation PLPlayViewController
+
+static NSString *const cellID = @"cellID";
+
 #pragma mark —— 懒加载
 - (DB_TextView *)textView{
     if (!_textView) {
@@ -36,27 +49,57 @@
             NSLog(@"%@",string);
         };
     }
-    
     return _textView;
 }
 
+-(UITableView *)tableView{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] init];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.backgroundColor = KClearColor;
+        //把tableView倒过来
+        _tableView.transform = CGAffineTransformMakeScale(1, -1);
+        //取消滚动条
+        _tableView.showsHorizontalScrollIndicator = NO;
+        _tableView.showsVerticalScrollIndicator = NO;
+        //取消拉伸
+        _tableView.bounces = NO;
+        [_tableView registerNib:[UINib nibWithNibName:@"LiveCommentTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
+    }
+    return _tableView;
+}
+
+-(NSMutableArray *)commentArr{
+    if (!_commentArr) {
+        _commentArr = [NSMutableArray new];
+    }
+    return _commentArr;
+}
+
+#pragma mark —— 系统方法
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     
     self.view.backgroundColor = KWhiteColor;
     
+    [self setupUI];
+    
+    [self setupBottonUI];
+}
+
+-(void)setupUI{
     _closeButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
     [_closeButton setTintColor:KBlackColor];
     [_closeButton setBackgroundImage:[UIImage imageNamed:@"s-close"] forState:UIControlStateNormal];
     [_closeButton addTarget:self action:@selector(clickCloseButton) forControlEvents:(UIControlEventTouchUpInside)];
-//    [self.view addSubview:_closeButton];
-//
-//    [_closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.right.equalTo(self.view).offset(-20);
-//        make.top.equalTo(self.view).offset(30);
-//        make.size.equalTo(CGSizeMake(30, 30));
-//    }];
+    //    [self.view addSubview:_closeButton];
+    //
+    //    [_closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.right.equalTo(self.view).offset(-20);
+    //        make.top.equalTo(self.view).offset(30);
+    //        make.size.equalTo(CGSizeMake(30, 30));
+    //    }];
     
     self.thumbImageView = [[UIImageView alloc] init];
     self.thumbImageView.image = [UIImage imageNamed:@"qn_niu"];
@@ -78,11 +121,11 @@
     self.playButton.hidden = YES;
     [self.playButton addTarget:self action:@selector(clickPlayButton:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.playButton setImage:[UIImage imageNamed:@"play"] forState:(UIControlStateNormal)];
-//    [self.view addSubview:self.playButton];
-//    [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.size.equalTo(CGSizeMake(60, 60));
-//        make.center.equalTo(self.view);
-//    }];
+    //    [self.view addSubview:self.playButton];
+    //    [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.size.equalTo(CGSizeMake(60, 60));
+    //        make.center.equalTo(self.view);
+    //    }];
     //UIVisualEffect模糊动画
     UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     self.effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
@@ -106,14 +149,10 @@
         make.top.equalTo(30);
         make.height.equalTo(40);
     }];
-    
-    [self setupBottonUI];
-    
     [self.view addSubview:self.textView];
-    
 }
 
-- (void)setupBottonUI{
+-(void)setupBottonUI{
     NSMutableArray *buttonArr = [NSMutableArray new];
     NSArray *imgArr = @[@"s-comment",@"s-share",@"s-commodity"];
     for (int i=0; i<3; i++) {
@@ -132,14 +171,29 @@
         make.bottom.equalTo(self.view).offset(-20);
         make.size.equalTo(CGSizeMake(buttonW, buttonH));
     }];
+    
+    //添加评论区
+    [self.view addSubview:self.tableView];
+    UIButton *firstBtn = buttonArr[0];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(30);
+        make.bottom.equalTo(firstBtn.mas_top).offset(-10);
+        make.size.equalTo(CGSizeMake(220, 200));
+    }];
 }
 
 - (void)clickBaseButton:(UIButton *)button{
     switch (button.tag) {
         case 0:
+        {
             //发信息
             DLog(@"发信息");
-            [self.textView.textView becomeFirstResponder];
+//            [self.textView.textView becomeFirstResponder];
+//            [self.commentArr insertObject:@"测试信息添加成功" atIndex:0];
+//            button.userInteractionEnabled = NO;
+            [button performSelector:@selector(setUserInteractionEnabled:) withObject:@YES afterDelay:1];
+            [self showCommentText];
+        }
             break;
         case 1:
             //分享
@@ -153,6 +207,35 @@
             break;
     }
 }
+
+-(void)showCommentText{
+    [self createCommentsView];
+    [_commentText becomeFirstResponder];
+}
+
+
+-(void)createCommentsView{
+    if (!_commentsView) {
+        
+        _commentsView = [[UIView alloc] initWithFrame:CGRectMake(0.0, KScreenH - kTabBarHeight - 40.0, KScreenW, 40.0)];
+        _commentsView.backgroundColor = [UIColor whiteColor];
+        
+        _commentText = [[UITextView alloc] initWithFrame:CGRectInset(_commentsView.bounds, 5.0, 5.0)];
+        _commentText.layer.borderWidth   = 1.0;
+        _commentText.layer.cornerRadius  = 2.0;
+        _commentText.layer.masksToBounds = YES;
+        
+        _commentText.inputAccessoryView  = _commentsView;
+        _commentText.backgroundColor     = [UIColor clearColor];
+        _commentText.returnKeyType       = UIReturnKeySend;
+        _commentText.delegate            = self;
+        _commentText.font                = [UIFont systemFontOfSize:15.0];
+        [_commentsView addSubview:_commentText];
+    }
+    [self.view.window addSubview:_commentsView];//添加到window上或者其他视图也行，只要在视图以外就好了
+    [_commentText becomeFirstResponder];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -360,10 +443,6 @@
     }
 }
 
-- (void)player:(nonnull PLPlayer *)player SEIData:(nullable NSData *)SEIData {
-    
-}
-
 - (void)player:(PLPlayer *)player codecError:(NSError *)error {
     
     NSString *info = error.userInfo[@"NSLocalizedDescription"];
@@ -372,11 +451,29 @@
     [self hideWaiting];
 }
 
-- (void)player:(PLPlayer *)player loadedTimeRange:(CMTimeRange)timeRange {}
-
 #pragma mark —— PLPlayTopViewDelegate
 -(void)clickCloseButton{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark —— tableView
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.commentArr.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    LiveCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    cell.textLabel.text = self.commentArr[indexPath.row];
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return kFit(24);
+}
+/** tableView输入插入方法 */
+-(void)tableViewInsertRowsAtIndexPaths{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
 }
 
 @end

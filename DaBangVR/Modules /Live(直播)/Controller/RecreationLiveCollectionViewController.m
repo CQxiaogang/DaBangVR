@@ -36,7 +36,7 @@ static NSString * const cellID = @"cellID";
 - (void)loadingData{
     [super loadingData];
     kWeakSelf(self);
-    [NetWorkHelper POST:URl_getLiveStreamsList parameters:nil success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_getRecreationLiveList parameters:nil success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = KJSONSerialization(responseObject)[@"data"];
         weakself.recreationLiveData = [LiveModel mj_objectArrayWithKeyValuesArray:dic[@"playList"]];
         weakself.layout = [[DBLayout alloc] init];

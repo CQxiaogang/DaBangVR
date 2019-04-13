@@ -171,6 +171,8 @@
 		0474B6B02227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0474B6AE2227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib */; };
 		0476038B222D13AE00FDE903 /* NewGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04760389222D13AE00FDE903 /* NewGoodsModel.m */; };
 		048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E692B21A26C5A00DB911A /* UIColor+category.m */; };
+		048EC5652261CDD4007288FB /* LiveCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048EC5632261CDD4007288FB /* LiveCommentTableViewCell.m */; };
+		048EC5662261CDD4007288FB /* LiveCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048EC5642261CDD4007288FB /* LiveCommentTableViewCell.xib */; };
 		0493B954223A607300418E17 /* OrderSureFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0493B953223A607300418E17 /* OrderSureFooterView.xib */; };
 		049703E621A69860002359B5 /* ShoppingLiveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049703E421A69860002359B5 /* ShoppingLiveTableViewCell.m */; };
 		049703E721A69860002359B5 /* ShoppingLiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049703E521A69860002359B5 /* ShoppingLiveTableViewCell.xib */; };
@@ -655,6 +657,9 @@
 		0476038A222D13AE00FDE903 /* NewGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGoodsModel.h; sourceTree = "<group>"; };
 		048E692A21A26C5A00DB911A /* UIColor+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+category.h"; sourceTree = "<group>"; };
 		048E692B21A26C5A00DB911A /* UIColor+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+category.m"; sourceTree = "<group>"; };
+		048EC5622261CDD4007288FB /* LiveCommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveCommentTableViewCell.h; sourceTree = "<group>"; };
+		048EC5632261CDD4007288FB /* LiveCommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveCommentTableViewCell.m; sourceTree = "<group>"; };
+		048EC5642261CDD4007288FB /* LiveCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveCommentTableViewCell.xib; sourceTree = "<group>"; };
 		0493B953223A607300418E17 /* OrderSureFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSureFooterView.xib; sourceTree = "<group>"; };
 		049703E321A69860002359B5 /* ShoppingLiveTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoppingLiveTableViewCell.h; sourceTree = "<group>"; };
 		049703E421A69860002359B5 /* ShoppingLiveTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoppingLiveTableViewCell.m; sourceTree = "<group>"; };
@@ -2205,21 +2210,32 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		049703DB21A69117002359B5 /* View */ = {
+		048EC5612261CD71007288FB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				04F2E4502248B2CF001FB3C1 /* LiveTableView.h */,
-				04F2E4512248B2CF001FB3C1 /* LiveTableView.m */,
+				04F2E4562248C627001FB3C1 /* LiveCollectionViewCell.h */,
+				04F2E4572248C627001FB3C1 /* LiveCollectionViewCell.m */,
+				04F2E4582248C627001FB3C1 /* LiveCollectionViewCell.xib */,
 				049703E321A69860002359B5 /* ShoppingLiveTableViewCell.h */,
 				049703E421A69860002359B5 /* ShoppingLiveTableViewCell.m */,
 				049703E521A69860002359B5 /* ShoppingLiveTableViewCell.xib */,
+				048EC5622261CDD4007288FB /* LiveCommentTableViewCell.h */,
+				048EC5632261CDD4007288FB /* LiveCommentTableViewCell.m */,
+				048EC5642261CDD4007288FB /* LiveCommentTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		049703DB21A69117002359B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				048EC5612261CD71007288FB /* Cell */,
+				04F2E4502248B2CF001FB3C1 /* LiveTableView.h */,
+				04F2E4512248B2CF001FB3C1 /* LiveTableView.m */,
 				04F2E4532248C255001FB3C1 /* DBLayout.h */,
 				04F2E4542248C255001FB3C1 /* DBLayout.m */,
 				04F2E44D2248B197001FB3C1 /* LiveCollectionView.h */,
 				04F2E44E2248B197001FB3C1 /* LiveCollectionView.m */,
-				04F2E4562248C627001FB3C1 /* LiveCollectionViewCell.h */,
-				04F2E4572248C627001FB3C1 /* LiveCollectionViewCell.m */,
-				04F2E4582248C627001FB3C1 /* LiveCollectionViewCell.xib */,
 				041DC2B7224E1B8500BD1196 /* PLPlayTopView.h */,
 				041DC2B8224E1B8500BD1196 /* PLPlayTopView.m */,
 				041DC2BA224E1BF200BD1196 /* PLPlayTopView.xib */,
@@ -3159,6 +3175,7 @@
 				041C0948225F2184008A38F0 /* ShouldBeginLiveViewController.xib in Resources */,
 				0463026521BBC8DB0003C542 /* DBTopView.xib in Resources */,
 				043B468F21F8682100C75536 /* LeaveMessageViewController.xib in Resources */,
+				048EC5662261CDD4007288FB /* LiveCommentTableViewCell.xib in Resources */,
 				045FAEBF221E81900086DE4E /* OrderProcessingView.xib in Resources */,
 				04F62FD821F951440094B26F /* ShoppingCartCell.xib in Resources */,
 				0459D90F21E08FFD009BFFB4 /* OrderSureTopView.xib in Resources */,
@@ -3344,6 +3361,7 @@
 				04BF218C2212B719002468C0 /* TestListBaseView.m in Sources */,
 				041A719A2249C85B0059B19F /* OrderTableViewFooterView.m in Sources */,
 				04F2FD2821EF35DE000B58E2 /* SpellGroupCell.m in Sources */,
+				048EC5652261CDD4007288FB /* LiveCommentTableViewCell.m in Sources */,
 				044664F62237623E00DF6F47 /* ContentBaseViewController.m in Sources */,
 				04BF218B2212B719002468C0 /* PagingViewController.m in Sources */,
 				044664F0223761FC00DF6F47 /* AttributeViewViewController.m in Sources */,
