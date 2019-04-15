@@ -221,21 +221,21 @@ static NSString *const cellID = @"cellID";
         _commentsView.backgroundColor = [UIColor whiteColor];
         
         _commentText = [[UITextView alloc] initWithFrame:CGRectInset(_commentsView.bounds, 5.0, 5.0)];
-        _commentText.layer.borderWidth   = 1.0;
-        _commentText.layer.cornerRadius  = 2.0;
-        _commentText.layer.masksToBounds = YES;
+//        _commentText.layer.borderWidth   = 1.0;
+//        _commentText.layer.cornerRadius  = 2.0;
+//        _commentText.layer.masksToBounds = YES;
         
         _commentText.inputAccessoryView  = _commentsView;
         _commentText.backgroundColor     = [UIColor clearColor];
         _commentText.returnKeyType       = UIReturnKeySend;
         _commentText.delegate            = self;
         _commentText.font                = [UIFont systemFontOfSize:15.0];
+        _commentText.returnKeyType       = UIReturnKeySend;//变为发送按钮
         [_commentsView addSubview:_commentText];
     }
     [self.view.window addSubview:_commentsView];//添加到window上或者其他视图也行，只要在视图以外就好了
     [_commentText becomeFirstResponder];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -430,7 +430,6 @@ static NSString *const cellID = @"cellID";
             [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
         }
     });
-    
 }
 
 - (AudioBufferList *)player:(PLPlayer *)player willAudioRenderBuffer:(AudioBufferList *)audioBufferList asbd:(AudioStreamBasicDescription)audioStreamDescription pts:(int64_t)pts sampleFormat:(PLPlayerAVSampleFormat)sampleFormat{

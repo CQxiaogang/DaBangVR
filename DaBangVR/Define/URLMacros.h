@@ -13,7 +13,6 @@
 
 #pragma mark ——————   首页相关   ——————
 // 渠道列表
-
 #define URL_getChannelMenuList NSStringFormat(@"%@%@",URL_main,@"/api/index/getChannelMenuList?")
 // 商品类型列表
 #define URL_getGoodsCategoryList NSStringFormat(@"%@%@",URL_main,@"/api/index/getGoodsCategoryList?")
@@ -109,10 +108,8 @@
 #pragma mark —————— 直播管理接口 ——————
 //创建推流
 #define URl_create NSStringFormat(@"%@%@",URL_main,@"/api/pili/create?")
-//获取正在直播 - 购物类 - 直播流列表
-#define URl_getShoppingLiveList NSStringFormat(@"%@%@",URL_main,@"/api/pili/getShoppingLiveList")
-//获取正在直播 - 娱乐类 -流列表
-#define URl_getRecreationLiveList NSStringFormat(@"%@%@",URL_main,@"/api/pili/getRecreationLiveList")
+//获取所有正在直播的流列表
+#define URl_getLiveStreamsList NSStringFormat(@"%@%@",URL_main,@"/api/pili/getLiveStreamsList")
 //获取可直播的商品列表
 #define URl_getLiveGoodgsList NSStringFormat(@"%@%@",URL_main,@"/api/pili/getLiveGoodgsList")
 

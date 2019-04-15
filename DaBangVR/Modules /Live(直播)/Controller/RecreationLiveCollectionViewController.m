@@ -36,7 +36,15 @@ static NSString * const cellID = @"cellID";
 - (void)loadingData{
     [super loadingData];
     kWeakSelf(self);
-    [NetWorkHelper POST:URl_getRecreationLiveList parameters:nil success:^(id  _Nonnull responseObject) {
+    /**
+     *streamName标识符确定当前是什么直播
+     *recreation表示购物
+     */
+    NSDictionary *parameters = @{@"streamName":@"recreation",
+                                 @"limit"     :@"10",
+                                 @"marker"    :@""
+                                 };
+    [NetWorkHelper POST:URl_getLiveStreamsList parameters:parameters success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = KJSONSerialization(responseObject)[@"data"];
         weakself.recreationLiveData = [LiveModel mj_objectArrayWithKeyValuesArray:dic[@"playList"]];
         weakself.layout = [[DBLayout alloc] init];
