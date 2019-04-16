@@ -18,4 +18,5 @@ pod 'AZCategory'
 pod 'JGProgressHUD'
 pod 'MMMaterialDesignSpinner'
 pod 'Qiniu'
+pod 'SocketRocket'
 end

@@ -19,8 +19,6 @@ PLPlayerDelegate
 @property (nonatomic, strong) UIButton      *playButton;
 /** 开始播放前的背景图片界面 */
 @property (nonatomic, strong) UIImageView   *thumbImageView;
-/** 关闭直播界面按钮 */
-@property (nonatomic, strong) UIButton      *closeButton;
 /** 直播地址 */
 @property (nonatomic, strong) NSURL *url;
 /** 开始播放前的背景图片 */

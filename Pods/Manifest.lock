@@ -46,6 +46,7 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
+  - SocketRocket (0.5.1)
   - SVProgressHUD (2.2.5)
   - WechatOpenSDK (1.8.3)
   - YYKit (1.0.9):
@@ -68,6 +69,7 @@ DEPENDENCIES:
   - Qiniu
   - QQCorner
   - SDWebImage (~> 3.7.6)
+  - SocketRocket
   - SVProgressHUD
   - WechatOpenSDK
   - YYKit
@@ -91,6 +93,7 @@ SPEC REPOS:
     - Qiniu
     - QQCorner
     - SDWebImage
+    - SocketRocket
     - SVProgressHUD
     - WechatOpenSDK
     - YYKit
@@ -113,10 +116,11 @@ SPEC CHECKSUMS:
   Qiniu: 909b408ee489ea54827e9717be90b94bc9dfbc48
   QQCorner: cc97664d4d8e5b152be16d04fd5f9b721515b19f
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: d4527aa4808a8c0174702c180c200cdb45f225ff
+PODFILE CHECKSUM: ceb01c1c603227c0c8224a28e06429d657459eb2
 
 COCOAPODS: 1.5.3

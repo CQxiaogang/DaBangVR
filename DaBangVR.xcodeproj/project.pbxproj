@@ -169,6 +169,9 @@
 		04716ACD22254F2F00FE2B42 /* SortSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04716ACC22254F2F00FE2B42 /* SortSearchViewController.m */; };
 		0474B6AF2227AA6B008F0C07 /* NewGoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B6AD2227AA6B008F0C07 /* NewGoodsCollectionViewCell.m */; };
 		0474B6B02227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0474B6AE2227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib */; };
+		0475E023226586DF004B79D8 /* RCDLiveTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0475E022226586DE004B79D8 /* RCDLiveTextMessageCell.m */; };
+		0475E026226586EA004B79D8 /* RCCRMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0475E025226586EA004B79D8 /* RCCRMessageModel.m */; };
+		0475E0292265CD2F004B79D8 /* WebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0475E0282265CD2F004B79D8 /* WebSocketManager.m */; };
 		0476038B222D13AE00FDE903 /* NewGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04760389222D13AE00FDE903 /* NewGoodsModel.m */; };
 		048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E692B21A26C5A00DB911A /* UIColor+category.m */; };
 		048EC5652261CDD4007288FB /* LiveCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048EC5632261CDD4007288FB /* LiveCommentTableViewCell.m */; };
@@ -653,6 +656,12 @@
 		0474B6AC2227AA6B008F0C07 /* NewGoodsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewGoodsCollectionViewCell.h; sourceTree = "<group>"; };
 		0474B6AD2227AA6B008F0C07 /* NewGoodsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewGoodsCollectionViewCell.m; sourceTree = "<group>"; };
 		0474B6AE2227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewGoodsCollectionViewCell.xib; sourceTree = "<group>"; };
+		0475E021226586DE004B79D8 /* RCDLiveTextMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDLiveTextMessageCell.h; sourceTree = "<group>"; };
+		0475E022226586DE004B79D8 /* RCDLiveTextMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDLiveTextMessageCell.m; sourceTree = "<group>"; };
+		0475E024226586EA004B79D8 /* RCCRMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRMessageModel.h; sourceTree = "<group>"; };
+		0475E025226586EA004B79D8 /* RCCRMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRMessageModel.m; sourceTree = "<group>"; };
+		0475E0272265CD2F004B79D8 /* WebSocketManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebSocketManager.h; sourceTree = "<group>"; };
+		0475E0282265CD2F004B79D8 /* WebSocketManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebSocketManager.m; sourceTree = "<group>"; };
 		04760389222D13AE00FDE903 /* NewGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGoodsModel.m; sourceTree = "<group>"; };
 		0476038A222D13AE00FDE903 /* NewGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGoodsModel.h; sourceTree = "<group>"; };
 		048E692A21A26C5A00DB911A /* UIColor+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+category.h"; sourceTree = "<group>"; };
@@ -2222,6 +2231,8 @@
 				048EC5622261CDD4007288FB /* LiveCommentTableViewCell.h */,
 				048EC5632261CDD4007288FB /* LiveCommentTableViewCell.m */,
 				048EC5642261CDD4007288FB /* LiveCommentTableViewCell.xib */,
+				0475E021226586DE004B79D8 /* RCDLiveTextMessageCell.h */,
+				0475E022226586DE004B79D8 /* RCDLiveTextMessageCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2250,6 +2261,8 @@
 			children = (
 				046DB313224B5D8D00C2CACB /* LiveModel.h */,
 				046DB314224B5D8D00C2CACB /* LiveModel.m */,
+				0475E024226586EA004B79D8 /* RCCRMessageModel.h */,
+				0475E025226586EA004B79D8 /* RCCRMessageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2869,6 +2882,8 @@
 				04F3CF0221CB2FBB007C40A1 /* UserManager.m */,
 				044E678D223276180077365D /* PaymentManager.h */,
 				044E678E223276180077365D /* PaymentManager.m */,
+				0475E0272265CD2F004B79D8 /* WebSocketManager.h */,
+				0475E0282265CD2F004B79D8 /* WebSocketManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -3367,6 +3382,7 @@
 				044664F0223761FC00DF6F47 /* AttributeViewViewController.m in Sources */,
 				04716AC52224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m in Sources */,
 				04F4468C21D74F9000524971 /* CollectionHeaderLayout.m in Sources */,
+				0475E0292265CD2F004B79D8 /* WebSocketManager.m in Sources */,
 				04F2E4552248C255001FB3C1 /* DBLayout.m in Sources */,
 				04F62FD921F951440094B26F /* ShoppingCartCell.m in Sources */,
 				0446656B2237654300DF6F47 /* JXCategoryIndicatorCellModel.m in Sources */,
@@ -3396,6 +3412,7 @@
 				0459D91321E0A78F009BFFB4 /* OrderSureTableViewCell.m in Sources */,
 				044309AA22293B5400AD8077 /* BaseTableView.m in Sources */,
 				04F2E4522248B2CF001FB3C1 /* LiveTableView.m in Sources */,
+				0475E026226586EA004B79D8 /* RCCRMessageModel.m in Sources */,
 				04457AC021FC48C3003E5748 /* OrderDeptGoodsModel.m in Sources */,
 				044665782237654300DF6F47 /* JXCategoryImageCell.m in Sources */,
 				049D479F219FEC540058178D /* LiveViewController.m in Sources */,
@@ -3428,6 +3445,7 @@
 				042FCECB21A3F1AB002AD0DB /* HomeNewAndHotGoodsView.m in Sources */,
 				044665602237654300DF6F47 /* JXCategoryTitleVerticalZoomCellModel.m in Sources */,
 				0403677221A5129800974435 /* HomeTableViewCell.m in Sources */,
+				0475E023226586DF004B79D8 /* RCDLiveTextMessageCell.m in Sources */,
 				044F3BAD21F0803900F3AD5E /* ProductInfoVoListModel.m in Sources */,
 				040F32D7224CB3510044E363 /* RecreationLiveCollectionViewController.m in Sources */,
 				04F62FF321F9B69A0094B26F /* ModifyAddressModel.m in Sources */,

@@ -13,7 +13,10 @@
 #import "DB_TextView.h"
 /** 直播聊天评论Cell */
 #import "LiveCommentTableViewCell.h"
+#import "RCDLiveTextMessageCell.h"
+#import "RCCRMessageModel.h"
 
+static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 @interface PLPlayViewController ()<PLPlayTopViewDelegate, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UIVisualEffectView *effectView;
@@ -22,13 +25,14 @@
 
 @property (nonatomic, strong) UIPanGestureRecognizer *panGesture;
 /** 发布按钮 */
-@property (nonatomic, strong) UIButton *sendButton;
+@property (nonatomic, strong) UIButton *commentSendBtn;
 /** 弹出键盘 */
 @property (nonatomic, strong) DB_TextView *textView;
 /** 聊天评论区 */
-@property (nonatomic, strong) UITableView *tableView;
-/** 聊天评论的数组 */
-@property (nonatomic, strong) NSMutableArray *commentArr;
+@property (nonatomic, strong) UITableView *conversationMessageTableView;
+@property (nonatomic, strong) RCDLiveTextMessageCell *tempMsgCell;
+/** 聊天内容的消息Cell数据模型的数据源 */
+@property (nonatomic, strong) NSMutableArray<RCCRMessageModel *> *conversationDataRepository;
 
 @property (nonatomic, strong) UITextView *commentText;
 @property (nonatomic, strong) UIView *commentsView;
@@ -36,8 +40,6 @@
 @end
 
 @implementation PLPlayViewController
-
-static NSString *const cellID = @"cellID";
 
 #pragma mark —— 懒加载
 - (DB_TextView *)textView{
@@ -52,29 +54,28 @@ static NSString *const cellID = @"cellID";
     return _textView;
 }
 
--(UITableView *)tableView{
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] init];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.backgroundColor = KClearColor;
-        //把tableView倒过来
-        _tableView.transform = CGAffineTransformMakeScale(1, -1);
-        //取消滚动条
-        _tableView.showsHorizontalScrollIndicator = NO;
-        _tableView.showsVerticalScrollIndicator = NO;
-        //取消拉伸
-        _tableView.bounces = NO;
-        [_tableView registerNib:[UINib nibWithNibName:@"LiveCommentTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
+-(UITableView *)conversationMessageTableView{
+    if (!_conversationMessageTableView) {
+        _conversationMessageTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _conversationMessageTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _conversationMessageTableView.delegate = self;
+        _conversationMessageTableView.dataSource = self;
+        _conversationMessageTableView.alwaysBounceVertical = YES;
+        _conversationMessageTableView.showsVerticalScrollIndicator = NO;
+        [_conversationMessageTableView registerClass:[RCDLiveTextMessageCell class] forCellReuseIdentifier:rctextCellIndentifier];
+        _conversationMessageTableView.backgroundColor = [UIColor clearColor];
+        _conversationMessageTableView.estimatedRowHeight = 0;
+        _conversationMessageTableView.estimatedSectionHeaderHeight = 0;
+        _conversationMessageTableView.estimatedSectionFooterHeight = 0;
     }
-    return _tableView;
+    return _conversationMessageTableView;
 }
 
--(NSMutableArray *)commentArr{
-    if (!_commentArr) {
-        _commentArr = [NSMutableArray new];
+-(NSMutableArray<RCCRMessageModel *> *)conversationDataRepository{
+    if (!_conversationDataRepository) {
+        _conversationDataRepository = [NSMutableArray new];
     }
-    return _commentArr;
+    return _conversationDataRepository;
 }
 
 #pragma mark —— 系统方法
@@ -82,25 +83,14 @@ static NSString *const cellID = @"cellID";
     [super viewDidLoad];
     
     self.view.backgroundColor = KWhiteColor;
-    
+    //用于计算高度
+    self.tempMsgCell = [[RCDLiveTextMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rctextCellIndentifier];
     [self setupUI];
     
     [self setupBottonUI];
 }
 
 -(void)setupUI{
-    _closeButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
-    [_closeButton setTintColor:KBlackColor];
-    [_closeButton setBackgroundImage:[UIImage imageNamed:@"s-close"] forState:UIControlStateNormal];
-    [_closeButton addTarget:self action:@selector(clickCloseButton) forControlEvents:(UIControlEventTouchUpInside)];
-    //    [self.view addSubview:_closeButton];
-    //
-    //    [_closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.right.equalTo(self.view).offset(-20);
-    //        make.top.equalTo(self.view).offset(30);
-    //        make.size.equalTo(CGSizeMake(30, 30));
-    //    }];
-    
     self.thumbImageView = [[UIImageView alloc] init];
     self.thumbImageView.image = [UIImage imageNamed:@"qn_niu"];
     self.thumbImageView.clipsToBounds = YES;
@@ -116,16 +106,6 @@ static NSString *const cellID = @"cellID";
     [self.thumbImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    
-    self.playButton = [[UIButton alloc] init];
-    self.playButton.hidden = YES;
-    [self.playButton addTarget:self action:@selector(clickPlayButton:) forControlEvents:(UIControlEventTouchUpInside)];
-    [self.playButton setImage:[UIImage imageNamed:@"play"] forState:(UIControlStateNormal)];
-    //    [self.view addSubview:self.playButton];
-    //    [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.size.equalTo(CGSizeMake(60, 60));
-    //        make.center.equalTo(self.view);
-    //    }];
     //UIVisualEffect模糊动画
     UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     self.effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
@@ -173,12 +153,12 @@ static NSString *const cellID = @"cellID";
     }];
     
     //添加评论区
-    [self.view addSubview:self.tableView];
+    [self.view addSubview:self.conversationMessageTableView];
     UIButton *firstBtn = buttonArr[0];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.conversationMessageTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(30);
         make.bottom.equalTo(firstBtn.mas_top).offset(-10);
-        make.size.equalTo(CGSizeMake(220, 200));
+        make.size.equalTo(CGSizeMake(250, 240));
     }];
 }
 
@@ -188,9 +168,6 @@ static NSString *const cellID = @"cellID";
         {
             //发信息
             DLog(@"发信息");
-//            [self.textView.textView becomeFirstResponder];
-//            [self.commentArr insertObject:@"测试信息添加成功" atIndex:0];
-//            button.userInteractionEnabled = NO;
             [button performSelector:@selector(setUserInteractionEnabled:) withObject:@YES afterDelay:1];
             [self showCommentText];
         }
@@ -217,14 +194,21 @@ static NSString *const cellID = @"cellID";
 -(void)createCommentsView{
     if (!_commentsView) {
         
-        _commentsView = [[UIView alloc] initWithFrame:CGRectMake(0.0, KScreenH - kTabBarHeight - 40.0, KScreenW, 40.0)];
-        _commentsView.backgroundColor = [UIColor whiteColor];
+        _commentsView = [[UIView alloc] initWithFrame:CGRectMake(0.0, KScreenH - kTabBarHeight - 40.0, KScreenW-80, 40.0)];
+        _commentsView.backgroundColor = KWhiteColor;
+        
+        _commentSendBtn = [[UIButton alloc] init];
+        [_commentSendBtn setTitle:@"发送" forState:UIControlStateNormal];
+        [_commentSendBtn setTitleColor:KGrayColor forState:UIControlStateNormal];
+        [_commentSendBtn addTarget:self action:@selector(clickCommentSendButton:) forControlEvents:UIControlEventTouchUpInside];
+        _commentSendBtn.adaptiveFontSize = 15;
+        [_commentsView addSubview:_commentSendBtn];
+        [_commentSendBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.right.equalTo(0);
+            make.size.equalTo(CGSizeMake(60, 40));
+        }];
         
         _commentText = [[UITextView alloc] initWithFrame:CGRectInset(_commentsView.bounds, 5.0, 5.0)];
-//        _commentText.layer.borderWidth   = 1.0;
-//        _commentText.layer.cornerRadius  = 2.0;
-//        _commentText.layer.masksToBounds = YES;
-        
         _commentText.inputAccessoryView  = _commentsView;
         _commentText.backgroundColor     = [UIColor clearColor];
         _commentText.returnKeyType       = UIReturnKeySend;
@@ -237,8 +221,34 @@ static NSString *const cellID = @"cellID";
     [_commentText becomeFirstResponder];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+#pragma mark —— UITextView 代理
+-(void)textViewDidChange:(UITextView *)textView{
+    [textView flashScrollIndicators];
+    static CGFloat maxHeight = 130.0f;
+    CGRect frame = textView.frame;
+    CGSize constraintSize = CGSizeMake(frame.size.width, MAXFLOAT);
+    CGSize size = [textView sizeThatFits:constraintSize];
+    if (size.height >= maxHeight) {
+        size.height = maxHeight;
+        textView.scrollEnabled = YES;//允许滚到
+    }else{
+        textView.scrollEnabled = NO; // 不允许滚动，当textview的大小足以容纳它的text的时候，需要设置scrollEnabed为NO，否则会出现光标乱滚动的情况
+    }
+//    [_commentsView setHeight:size.height];
+    DLog(@"height is %f",size.height);
+//    _commentText.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, size.height);
+}
+
+/** 信息按钮点击事件 */
+-(void)clickCommentSendButton:(UIButton *)sender{
+    if (_commentText.text.length != 0) {
+        RCCRMessageModel *model = [[RCCRMessageModel alloc] init];
+        model.name = [NSString stringWithFormat:@"%@:",curUser.nickName];
+        model.message = _commentText.text;
+        [self.conversationDataRepository addObject:model];
+        _commentText.text = nil;
+        [self tableViewInsertRowsAtIndexPaths];
+    }
 }
 
 - (void)setThumbImage:(UIImage *)thumbImage {
@@ -327,7 +337,6 @@ static NSString *const cellID = @"cellID";
 - (void)showWaiting {
     [self.playButton hide];
     [self.view showFullLoading];
-    [self.view bringSubviewToFront:self.closeButton];
 }
 
 - (void)hideWaiting {
@@ -457,22 +466,33 @@ static NSString *const cellID = @"cellID";
 
 #pragma mark —— tableView
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.commentArr.count;
+    return self.conversationDataRepository.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    LiveCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-    cell.textLabel.text = self.commentArr[indexPath.row];
+    RCDLiveTextMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:rctextCellIndentifier forIndexPath:indexPath];
+    cell.model = self.conversationDataRepository[indexPath.row];
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return kFit(24);
+    RCCRMessageModel *model = [self.conversationDataRepository objectAtIndex:indexPath.row];
+    if (model.cellHeight == 0) {
+        
+        CGFloat cellHeight = [self.tempMsgCell heightForModel:model];
+        model.cellHeight = cellHeight;
+        return cellHeight;
+        
+    }else{
+        return model.cellHeight;
+    }
 }
 /** tableView输入插入方法 */
 -(void)tableViewInsertRowsAtIndexPaths{
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    //插入到tableView中
+    [self.conversationMessageTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.conversationDataRepository.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    // 再滚动到最底部
+    [self.conversationMessageTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.conversationDataRepository.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:YES];
 }
 
 @end
