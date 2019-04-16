@@ -12,7 +12,7 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "PaymentManager.h"
 #import <PLMediaStreamingKit/PLMediaStreamingKit.h>
-//#import "ShouldBeginLiveViewController.h"
+#import "WebSocketManager.h"
 
 @interface AppDelegate ()
 
@@ -52,6 +52,12 @@
 
 -(void)didClickButtonWithIndex:(NSInteger)index{
    
+}
+
+-(void)applicationDidBecomeActive:(UIApplication *)application{
+    if ([WebSocketManager shared].connectType == WebSocketDisconnect) {
+        [[WebSocketManager shared] connectServer];
+    }
 }
 
 @end

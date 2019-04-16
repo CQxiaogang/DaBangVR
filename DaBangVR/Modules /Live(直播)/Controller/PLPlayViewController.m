@@ -15,6 +15,7 @@
 #import "LiveCommentTableViewCell.h"
 #import "RCDLiveTextMessageCell.h"
 #import "RCCRMessageModel.h"
+#import "WebSocketManager.h"
 
 static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 @interface PLPlayViewController ()<PLPlayTopViewDelegate, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -88,6 +89,11 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     [self setupUI];
     
     [self setupBottonUI];
+    
+    if ([WebSocketManager shared].connectType == WebSocketConnect) {
+        [[WebSocketManager shared] sendDataToServer:[NSString stringWithFormat:@"%@:%@",curUser.nickName,_commentText.text]];
+    }
+    
 }
 
 -(void)setupUI{

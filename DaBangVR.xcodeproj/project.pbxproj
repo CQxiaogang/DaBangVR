@@ -172,6 +172,7 @@
 		0475E023226586DF004B79D8 /* RCDLiveTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0475E022226586DE004B79D8 /* RCDLiveTextMessageCell.m */; };
 		0475E026226586EA004B79D8 /* RCCRMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0475E025226586EA004B79D8 /* RCCRMessageModel.m */; };
 		0475E0292265CD2F004B79D8 /* WebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0475E0282265CD2F004B79D8 /* WebSocketManager.m */; };
+		0475E02C2265DC7B004B79D8 /* WebSocketManager2.m in Sources */ = {isa = PBXBuildFile; fileRef = 0475E02B2265DC7B004B79D8 /* WebSocketManager2.m */; };
 		0476038B222D13AE00FDE903 /* NewGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04760389222D13AE00FDE903 /* NewGoodsModel.m */; };
 		048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E692B21A26C5A00DB911A /* UIColor+category.m */; };
 		048EC5652261CDD4007288FB /* LiveCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048EC5632261CDD4007288FB /* LiveCommentTableViewCell.m */; };
@@ -662,6 +663,8 @@
 		0475E025226586EA004B79D8 /* RCCRMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRMessageModel.m; sourceTree = "<group>"; };
 		0475E0272265CD2F004B79D8 /* WebSocketManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebSocketManager.h; sourceTree = "<group>"; };
 		0475E0282265CD2F004B79D8 /* WebSocketManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebSocketManager.m; sourceTree = "<group>"; };
+		0475E02A2265DC7B004B79D8 /* WebSocketManager2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebSocketManager2.h; sourceTree = "<group>"; };
+		0475E02B2265DC7B004B79D8 /* WebSocketManager2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebSocketManager2.m; sourceTree = "<group>"; };
 		04760389222D13AE00FDE903 /* NewGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGoodsModel.m; sourceTree = "<group>"; };
 		0476038A222D13AE00FDE903 /* NewGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGoodsModel.h; sourceTree = "<group>"; };
 		048E692A21A26C5A00DB911A /* UIColor+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+category.h"; sourceTree = "<group>"; };
@@ -2884,6 +2887,8 @@
 				044E678E223276180077365D /* PaymentManager.m */,
 				0475E0272265CD2F004B79D8 /* WebSocketManager.h */,
 				0475E0282265CD2F004B79D8 /* WebSocketManager.m */,
+				0475E02A2265DC7B004B79D8 /* WebSocketManager2.h */,
+				0475E02B2265DC7B004B79D8 /* WebSocketManager2.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -3444,6 +3449,7 @@
 				045EF146223B80E00051E029 /* NSDictionary+NilSafe.m in Sources */,
 				042FCECB21A3F1AB002AD0DB /* HomeNewAndHotGoodsView.m in Sources */,
 				044665602237654300DF6F47 /* JXCategoryTitleVerticalZoomCellModel.m in Sources */,
+				0475E02C2265DC7B004B79D8 /* WebSocketManager2.m in Sources */,
 				0403677221A5129800974435 /* HomeTableViewCell.m in Sources */,
 				0475E023226586DF004B79D8 /* RCDLiveTextMessageCell.m in Sources */,
 				044F3BAD21F0803900F3AD5E /* ProductInfoVoListModel.m in Sources */,
