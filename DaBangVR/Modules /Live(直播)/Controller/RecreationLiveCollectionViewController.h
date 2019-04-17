@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol RecreationLiveCollectionViewControllerDelegate <NSObject>
 
-- (void)collectionViewDidSelectItemAtIndexPathForModel:(LiveModel *)model;
+- (void)collectionViewSelectItemAtIndexPathForModel:(LiveModel *)model;
 
 @end
 

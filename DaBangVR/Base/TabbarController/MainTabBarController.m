@@ -150,9 +150,11 @@
 - (void)springMenu:(TPCSpringMenu *)menu didClickButtonWithIndex:(NSInteger)index
 {
 //    [self.MDelegate didClickButtonWithIndex:index];
-    if (index==0) {
+    if (index == 0) {
         ShouldBeginLiveViewController *vc = [ShouldBeginLiveViewController new];
         [self presentViewController:vc animated:NO completion:nil];
+    }else{
+        [self DB_SVProgressHUD];
     }
 }
 

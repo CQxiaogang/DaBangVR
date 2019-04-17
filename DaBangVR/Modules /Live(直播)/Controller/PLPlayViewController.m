@@ -14,11 +14,16 @@
 /** 直播聊天评论Cell */
 #import "LiveCommentTableViewCell.h"
 #import "RCDLiveTextMessageCell.h"
+/** 直播聊天评论Model */
 #import "RCCRMessageModel.h"
+/** 长连接 */
 #import "WebSocketManager.h"
+#import "DemoViewController.h"
+/** 分页自定义layout */
+#import "PagingEnableLayout.h"
 
 static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
-@interface PLPlayViewController ()<PLPlayTopViewDelegate, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface PLPlayViewController ()<PLPlayTopViewDelegate, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UIVisualEffectView *effectView;
 
@@ -34,7 +39,9 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 @property (nonatomic, strong) RCDLiveTextMessageCell *tempMsgCell;
 /** 聊天内容的消息Cell数据模型的数据源 */
 @property (nonatomic, strong) NSMutableArray<RCCRMessageModel *> *conversationDataRepository;
-
+/** 装底部按钮的数组 */
+@property (nonatomic, copy) NSMutableArray* buttonArr;
+@property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UITextView *commentText;
 @property (nonatomic, strong) UIView *commentsView;
 
@@ -53,6 +60,13 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         };
     }
     return _textView;
+}
+
+-(NSMutableArray *)buttonArr{
+    if (!_buttonArr) {
+        _buttonArr = [NSMutableArray new];
+    }
+    return _buttonArr;
 }
 
 -(UITableView *)conversationMessageTableView{
@@ -79,6 +93,22 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     return _conversationDataRepository;
 }
 
+-(UICollectionView *)collectionView{
+    if (!_collectionView) {
+        PagingEnableLayout *layout = [[PagingEnableLayout alloc] init];
+        //水平布局
+        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        _collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
+        _collectionView.backgroundColor = KClearColor;
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        _collectionView.pagingEnabled = YES;
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellId"];
+    }
+    return _collectionView;
+}
+
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -93,7 +123,6 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     if ([WebSocketManager shared].connectType == WebSocketConnect) {
         [[WebSocketManager shared] sendDataToServer:[NSString stringWithFormat:@"%@:%@",curUser.nickName,_commentText.text]];
     }
-    
 }
 
 -(void)setupUI{
@@ -139,7 +168,6 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 }
 
 -(void)setupBottonUI{
-    NSMutableArray *buttonArr = [NSMutableArray new];
     NSArray *imgArr = @[@"s-comment",@"s-share",@"s-commodity"];
     for (int i=0; i<3; i++) {
         UIButton *baseButton = [[UIButton alloc] init];
@@ -147,20 +175,21 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         [baseButton setImage:[UIImage imageNamed:imgArr[i]] forState:UIControlStateNormal];
         [baseButton addTarget:self action:@selector(clickBaseButton:) forControlEvents:(UIControlEventTouchUpInside)];
         [self.view addSubview:baseButton];
-        [buttonArr addObject:baseButton];
+        [self.buttonArr addObject:baseButton];
     }
+    kWeakSelf(self);
     CGFloat buttonW = 30;
     CGFloat buttonH = 30;
     CGFloat HorSpacing = 30;
-    [buttonArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:HorSpacing leadSpacing:HorSpacing tailSpacing:KScreenW-HorSpacing*3 - buttonW*3];
-    [buttonArr mas_makeConstraints:^(MASConstraintMaker *make) {
+    [weakself.buttonArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:HorSpacing leadSpacing:HorSpacing tailSpacing:KScreenW-HorSpacing*3 - buttonW*3];
+    [weakself.buttonArr mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view).offset(-20);
         make.size.equalTo(CGSizeMake(buttonW, buttonH));
     }];
     
     //添加评论区
     [self.view addSubview:self.conversationMessageTableView];
-    UIButton *firstBtn = buttonArr[0];
+    UIButton *firstBtn = self.buttonArr[0];
     [self.conversationMessageTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(30);
         make.bottom.equalTo(firstBtn.mas_top).offset(-10);
@@ -184,7 +213,7 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
             break;
         case 2:
             //购物
-            DLog(@"购物");
+            [self buyGoodsAttributes];
             break;
         default:
             break;
@@ -195,7 +224,6 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     [self createCommentsView];
     [_commentText becomeFirstResponder];
 }
-
 
 -(void)createCommentsView{
     if (!_commentsView) {
@@ -255,6 +283,19 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         _commentText.text = nil;
         [self tableViewInsertRowsAtIndexPaths];
     }
+}
+
+/** 购买商品 */
+-(void)buyGoodsAttributes{
+//    DemoViewController *vc = [[DemoViewController alloc] init];
+    [self.view addSubview:self.collectionView];
+    UIButton *Button = self.buttonArr[0];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(0);
+        make.right.equalTo(0);
+        make.bottom.equalTo(Button.mas_top).offset(0);
+        make.height.equalTo(350);
+    }];
 }
 
 - (void)setThumbImage:(UIImage *)thumbImage {
@@ -499,6 +540,17 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     [self.conversationMessageTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.conversationDataRepository.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     // 再滚动到最底部
     [self.conversationMessageTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.conversationDataRepository.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:YES];
+}
+
+#pragma mark —— UICollectionView 代理
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 5;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
+    cell.backgroundColor = KRandomColor;
+    return cell;
 }
 
 @end

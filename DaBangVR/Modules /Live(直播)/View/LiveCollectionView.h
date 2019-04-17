@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol LiveCollectionViewDelegate <NSObject>
 
-- (void)collectionViewDidSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)collectionViewSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

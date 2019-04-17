@@ -70,6 +70,9 @@
 }
 #pragma mark —— 任务中心
 - (IBAction)taskCenterAction:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(taskCenterAction)]) {
+        [self.delegate taskCenterAction];
+    }
 }
 #pragma mark —— 积分商城
 - (IBAction)integralMallAction:(id)sender {

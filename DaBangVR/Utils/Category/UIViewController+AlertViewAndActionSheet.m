@@ -39,4 +39,11 @@
     }];
     [self presentViewController:alertController animated:animated completion:nil];
 }
+
+-(void)DB_SVProgressHUD{
+    [SVProgressHUD showInfoWithStatus:@"功能尚未实现,请尽请期待"];
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    [SVProgressHUD dismissWithDelay:1.0];
+}
+
 @end

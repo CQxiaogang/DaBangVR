@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)myOrderAction;
 // 购物车
 - (void)shoppingCarAction;
+//任务中心
+- (void)taskCenterAction;
 
 @end
 

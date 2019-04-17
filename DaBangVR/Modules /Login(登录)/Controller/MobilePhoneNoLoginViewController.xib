@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MobilePhoneNoLoginViewController">
             <connections>
                 <outlet property="accountNunber" destination="bI9-Tq-VGm" id="dhi-5F-k3Z"/>
+                <outlet property="getVerificationCodeBtn" destination="b2P-pq-CVd" id="1mQ-Q7-sRu"/>
                 <outlet property="password" destination="Vkr-09-aeC" id="kIR-1M-5er"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -87,7 +88,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2P-pq-CVd">
                     <rect key="frame" x="254" y="403" width="88" height="31"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" title="获取动态密码" backgroundImage="po_Button"/>
+                    <state key="normal" title="获取验证码" backgroundImage="po_Button"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
                             <real key="value" value="11"/>

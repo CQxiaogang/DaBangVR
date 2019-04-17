@@ -51,8 +51,8 @@ static NSString *const CellID = @"CellID";
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.MDelegate && [self.MDelegate respondsToSelector:@selector(collectionViewDidSelectItemAtIndexPath:)]) {
-        [self.MDelegate collectionViewDidSelectItemAtIndexPath:indexPath];
+    if (self.MDelegate && [self.MDelegate respondsToSelector:@selector(collectionViewSelectItemAtIndexPath:)]) {
+        [self.MDelegate collectionViewSelectItemAtIndexPath:indexPath];
     }
 }
 

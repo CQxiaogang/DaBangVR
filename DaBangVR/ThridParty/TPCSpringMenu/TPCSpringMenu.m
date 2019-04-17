@@ -117,7 +117,7 @@
     self.needAdjustButtonFrame = NO;
     
     [UIView animateWithDuration:0.1 animations:^{
-        btn.transform = CGAffineTransformMakeScale(1.2, 1.2);
+//        btn.transform = CGAffineTransformMakeScale(1.2, 1.2);
     }];
 }
 
@@ -127,8 +127,8 @@
     self.needAdjustButtonFrame = NO;
     
     [UIView animateWithDuration:0.2 animations:^{
-        btn.transform = CGAffineTransformMakeScale(2, 2);
-        btn.alpha = 0;
+//        btn.transform = CGAffineTransformMakeScale(1.2, 1.2);
+//        btn.alpha = 0;
     } completion:^(BOOL finished) {
         if ([self.delegate respondsToSelector:@selector(springMenu:didClickButtonWithIndex:)]) {
             [self.delegate springMenu:self didClickButtonWithIndex:btn.tag];

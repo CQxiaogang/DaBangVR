@@ -159,23 +159,26 @@
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:NO];
 }
-// 积分商城
--(void)integralMallAction{
-    DLog(@"哎呦喂");
+/** 任务中心 */
+-(void)taskCenterAction{
+    [self DB_SVProgressHUD];
 }
-// 我的订单
+/** 积分商城 */
+-(void)integralMallAction{
+    [self DB_SVProgressHUD];
+}
+/** 我的订单 */
 -(void)myOrderAction{
     MyOrderViewController *vc = [[MyOrderViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:NO];
 }
-// 购物车
+/** 购物车 */
 -(void)shoppingCarAction{
     ShoppingCartViewController *vc = [[ShoppingCartViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:NO];
 }
-
 #pragma mark —— TestListBaseView 协议
 -(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 1) {
@@ -184,6 +187,8 @@
         [self pushMerchantsSettledViewController];
     }else if (indexPath.row == 3){
         [self pushSeasonAuthenticationViewController];
+    }else{
+        [self DB_SVProgressHUD];
     }
 }
 //收藏

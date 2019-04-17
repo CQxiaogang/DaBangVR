@@ -86,7 +86,7 @@ static NSString * const cellID = @"cellID";
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     LiveModel *model = _recreationLiveData[indexPath.row];
-    [self.MDelegate collectionViewDidSelectItemAtIndexPathForModel:model];
+    [self.MDelegate collectionViewSelectItemAtIndexPathForModel:model];
 }
 
 #pragma mark - JXCategoryListContentViewDelegate

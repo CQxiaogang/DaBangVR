@@ -284,9 +284,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.delegate respondsToSelector:@selector(carouselView:didSelectItemAtIndex:)])
+    if ([self.delegate respondsToSelector:@selector(carouselView:selectItemAtIndex:)])
     {
-        [self.delegate carouselView:self didSelectItemAtIndex:self.currentIndex];
+        [self.delegate carouselView:self selectItemAtIndex:self.currentIndex];
     }
 }
 

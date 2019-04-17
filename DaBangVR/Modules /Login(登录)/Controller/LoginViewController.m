@@ -97,6 +97,7 @@
 
 //微博登陆
 - (IBAction)weiboLogin:(id)sender {
+    [self DB_SVProgressHUD];
 }
 
 @end

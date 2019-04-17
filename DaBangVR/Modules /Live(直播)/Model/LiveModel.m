@@ -10,4 +10,7 @@
 
 @implementation LiveModel
 
++ (NSDictionary *)mj_objectClassInArray{
+    return @{@"liveGoodsList":[GoodsDetailsModel class]};
+}
 @end

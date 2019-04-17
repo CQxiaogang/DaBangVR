@@ -15,7 +15,7 @@
 
 @optional
 
-- (void)carouselView:(ADCarouselView *)carouselView didSelectItemAtIndex:(NSInteger)didSelectItemAtIndex;
+- (void)carouselView:(ADCarouselView *)carouselView selectItemAtIndex:(NSInteger)index;
 
 @end
 

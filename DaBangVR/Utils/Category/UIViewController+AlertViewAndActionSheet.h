@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
              andOthers:(NSArray<NSString *> *)others
               animated:(BOOL)animated
                 action:(click)click;
+-(void)DB_SVProgressHUD;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -46,6 +46,7 @@ static NSString *const cellID = @"cellID";
         _collectionView.backgroundColor = KWhiteColor;
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
+        //允许多个选择
         _collectionView.allowsMultipleSelection = YES;
         //取消滚动条
         _collectionView.showsVerticalScrollIndicator = NO;

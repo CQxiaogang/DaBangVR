@@ -133,7 +133,7 @@ static NSString *cellID = @"cellID";
 }
 
 #pragma mark —— RecreationLiveCollectionViewControllerDelegate
--(void)collectionViewDidSelectItemAtIndexPathForModel:(LiveModel *)model{
+-(void)collectionViewSelectItemAtIndexPathForModel:(LiveModel *)model{
     PLPlayViewController *playController = [[PLPlayViewController alloc] init];
     playController.url = [NSURL URLWithString:model.hdlPlayURL];
     playController.hidesBottomBarWhenPushed = YES;
