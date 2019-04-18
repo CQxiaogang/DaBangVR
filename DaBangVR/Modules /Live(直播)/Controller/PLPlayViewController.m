@@ -448,14 +448,14 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
             }
             [self.player setVolume:volume];
         } else {// 调节亮度f
-            CGFloat currentBrightness = [[UIScreen mainScreen] brightness];
-            currentBrightness -= percent;
-            if (currentBrightness < 0.1) {
-                currentBrightness = 0.1;
-            } else if (currentBrightness > 1) {
-                currentBrightness = 1;
-            }
-            [[UIScreen mainScreen] setBrightness:currentBrightness];
+//            CGFloat currentBrightness = [[UIScreen mainScreen] brightness];
+//            currentBrightness -= percent;
+//            if (currentBrightness < 0.1) {
+//                currentBrightness = 0.1;
+//            } else if (currentBrightness > 1) {
+//                currentBrightness = 1;
+//            }
+//            [[UIScreen mainScreen] setBrightness:currentBrightness];
         }
     }
 }

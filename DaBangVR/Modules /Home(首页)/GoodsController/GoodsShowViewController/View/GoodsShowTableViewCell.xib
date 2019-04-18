@@ -21,6 +21,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s-fish" translatesAutoresizingMaskIntoConstraints="NO" id="FgI-u2-FEI">
                         <rect key="frame" x="5" y="0.0" width="430" height="136.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhanweifu" translatesAutoresizingMaskIntoConstraints="NO" id="XXC-gi-MBU" customClass="YYAnimatedImageView">
                         <rect key="frame" x="48" y="21" width="100" height="100"/>
@@ -151,6 +152,7 @@
                     <constraint firstItem="lim-cp-sRb" firstAttribute="leading" secondItem="IjI-dw-HDe" secondAttribute="trailing" constant="19" id="va4-mM-p2y"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="describeLabel" destination="lim-cp-sRb" id="Dy5-8Y-ch7"/>

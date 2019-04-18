@@ -97,6 +97,10 @@
                 <constraint firstItem="D1c-YL-Rh4" firstAttribute="leading" secondItem="Kqp-wd-KCF" secondAttribute="trailing" constant="5" id="wbg-l3-kdW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <connections>
+                <outlet property="addShoppingCarBtn" destination="Kqp-wd-KCF" id="aLx-ZA-42a"/>
+                <outlet property="nowBuyBtn" destination="D1c-YL-Rh4" id="5tc-EB-GDy"/>
+            </connections>
             <point key="canvasLocation" x="41.600000000000001" y="46.776611694152926"/>
         </collectionViewCell>
     </objects>

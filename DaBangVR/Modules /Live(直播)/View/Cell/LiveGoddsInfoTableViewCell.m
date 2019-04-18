@@ -8,11 +8,15 @@
 
 #import "LiveGoddsInfoTableViewCell.h"
 
+@interface LiveGoddsInfoTableViewCell ()
+
+@end
+
 @implementation LiveGoddsInfoTableViewCell
+#pragma mark —— 懒加载
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.5];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

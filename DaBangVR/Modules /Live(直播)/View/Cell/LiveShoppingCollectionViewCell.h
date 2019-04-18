@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/* 上一次选择的数量 */
+static NSInteger lastNum;
+
 @interface LiveShoppingCollectionViewCell : UICollectionViewCell
 
 @end
