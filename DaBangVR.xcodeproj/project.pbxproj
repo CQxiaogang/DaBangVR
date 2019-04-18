@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		04002F40225D969E006DC794 /* MerchantsSettledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04002F3F225D969E006DC794 /* MerchantsSettledViewController.m */; };
 		04002F43225D96D4006DC794 /* MerchantsSettledViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 04002F42225D96D4006DC794 /* MerchantsSettledViewController2.m */; };
+		04029FDF226827710032ED06 /* LiveShoppingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04029FDD226827710032ED06 /* LiveShoppingCollectionViewCell.m */; };
+		04029FE0226827710032ED06 /* LiveShoppingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04029FDE226827710032ED06 /* LiveShoppingCollectionViewCell.xib */; };
+		04029FE4226830A00032ED06 /* LiveGoddsInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04029FE2226830A00032ED06 /* LiveGoddsInfoTableViewCell.m */; };
+		04029FE5226830A00032ED06 /* LiveGoddsInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04029FE3226830A00032ED06 /* LiveGoddsInfoTableViewCell.xib */; };
 		0403676C21A4E9CE00974435 /* AnchorViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403676B21A4E9CE00974435 /* AnchorViewCell.m */; };
 		0403676E21A4E9DA00974435 /* AnchorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403676D21A4E9DA00974435 /* AnchorViewCell.xib */; };
 		0403677221A5129800974435 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403677021A5129800974435 /* HomeTableViewCell.m */; };
@@ -372,6 +376,12 @@
 		04002F3F225D969E006DC794 /* MerchantsSettledViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantsSettledViewController.m; sourceTree = "<group>"; };
 		04002F41225D96D4006DC794 /* MerchantsSettledViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MerchantsSettledViewController2.h; sourceTree = "<group>"; };
 		04002F42225D96D4006DC794 /* MerchantsSettledViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantsSettledViewController2.m; sourceTree = "<group>"; };
+		04029FDC226827710032ED06 /* LiveShoppingCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveShoppingCollectionViewCell.h; sourceTree = "<group>"; };
+		04029FDD226827710032ED06 /* LiveShoppingCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveShoppingCollectionViewCell.m; sourceTree = "<group>"; };
+		04029FDE226827710032ED06 /* LiveShoppingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveShoppingCollectionViewCell.xib; sourceTree = "<group>"; };
+		04029FE1226830A00032ED06 /* LiveGoddsInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveGoddsInfoTableViewCell.h; sourceTree = "<group>"; };
+		04029FE2226830A00032ED06 /* LiveGoddsInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveGoddsInfoTableViewCell.m; sourceTree = "<group>"; };
+		04029FE3226830A00032ED06 /* LiveGoddsInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveGoddsInfoTableViewCell.xib; sourceTree = "<group>"; };
 		0403676A21A4E9CE00974435 /* AnchorViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnchorViewCell.h; sourceTree = "<group>"; };
 		0403676B21A4E9CE00974435 /* AnchorViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnchorViewCell.m; sourceTree = "<group>"; };
 		0403676D21A4E9DA00974435 /* AnchorViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnchorViewCell.xib; sourceTree = "<group>"; };
@@ -2242,6 +2252,12 @@
 				048EC5642261CDD4007288FB /* LiveCommentTableViewCell.xib */,
 				0475E021226586DE004B79D8 /* RCDLiveTextMessageCell.h */,
 				0475E022226586DE004B79D8 /* RCDLiveTextMessageCell.m */,
+				04029FDC226827710032ED06 /* LiveShoppingCollectionViewCell.h */,
+				04029FDD226827710032ED06 /* LiveShoppingCollectionViewCell.m */,
+				04029FDE226827710032ED06 /* LiveShoppingCollectionViewCell.xib */,
+				04029FE1226830A00032ED06 /* LiveGoddsInfoTableViewCell.h */,
+				04029FE2226830A00032ED06 /* LiveGoddsInfoTableViewCell.m */,
+				04029FE3226830A00032ED06 /* LiveGoddsInfoTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -3200,6 +3216,7 @@
 				04F4469321D74FBF00524971 /* GoodsInfoView.xib in Resources */,
 				04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */,
 				04F8ED4521E32AC000004178 /* UserAdressCell.xib in Resources */,
+				04029FE5226830A00032ED06 /* LiveGoddsInfoTableViewCell.xib in Resources */,
 				0404776E2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib in Resources */,
 				0474B6B02227AA6B008F0C07 /* NewGoodsCollectionViewCell.xib in Resources */,
 				041C0948225F2184008A38F0 /* ShouldBeginLiveViewController.xib in Resources */,
@@ -3212,6 +3229,7 @@
 				049D4763219FA91F0058178D /* LaunchScreen.storyboard in Resources */,
 				04F62FD621F951440094B26F /* ShopppingCartBottomView.xib in Resources */,
 				04F2E45A2248C627001FB3C1 /* LiveCollectionViewCell.xib in Resources */,
+				04029FE0226827710032ED06 /* LiveShoppingCollectionViewCell.xib in Resources */,
 				0423DAE721FFF64F00325869 /* NewProductLaunchCell.xib in Resources */,
 				04FA5D6621AE476F0061AF27 /* MobilePhoneNoLoginViewController.xib in Resources */,
 				049D4760219FA91F0058178D /* Assets.xcassets in Resources */,
@@ -3372,6 +3390,7 @@
 				0446657A2237654300DF6F47 /* JXCategoryNumberView.m in Sources */,
 				04F4469D21D7772700524971 /* FeatureChoseTopCell.m in Sources */,
 				045FAEC3221E93AB0086DE4E /* OrderProcessingTableViewCell.m in Sources */,
+				04029FE4226830A00032ED06 /* LiveGoddsInfoTableViewCell.m in Sources */,
 				04ECB9EF2241D9E800A02DB2 /* UserInfoModel.m in Sources */,
 				04BF21892212B719002468C0 /* DetailViewController.m in Sources */,
 				041DC2B9224E1B8500BD1196 /* PLPlayTopView.m in Sources */,
@@ -3460,6 +3479,7 @@
 				045EF146223B80E00051E029 /* NSDictionary+NilSafe.m in Sources */,
 				042FCECB21A3F1AB002AD0DB /* HomeNewAndHotGoodsView.m in Sources */,
 				044665602237654300DF6F47 /* JXCategoryTitleVerticalZoomCellModel.m in Sources */,
+				04029FDF226827710032ED06 /* LiveShoppingCollectionViewCell.m in Sources */,
 				0475E02C2265DC7B004B79D8 /* WebSocketManager2.m in Sources */,
 				0403677221A5129800974435 /* HomeTableViewCell.m in Sources */,
 				0475E023226586DF004B79D8 /* RCDLiveTextMessageCell.m in Sources */,

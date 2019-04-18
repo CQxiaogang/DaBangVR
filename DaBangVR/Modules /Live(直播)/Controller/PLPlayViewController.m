@@ -21,9 +21,12 @@
 #import "DemoViewController.h"
 /** 分页自定义layout */
 #import "PagingEnableLayout.h"
+#import "LiveShoppingCollectionViewCell.h"
 
 static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
-@interface PLPlayViewController ()<PLPlayTopViewDelegate, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface PLPlayViewController ()<PLPlayTopViewDelegate, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>{
+    BOOL isSelected;//当前是否被点击，用于显示商品详情框
+}
 
 @property (nonatomic, strong) UIVisualEffectView *effectView;
 
@@ -41,9 +44,10 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 @property (nonatomic, strong) NSMutableArray<RCCRMessageModel *> *conversationDataRepository;
 /** 装底部按钮的数组 */
 @property (nonatomic, copy) NSMutableArray* buttonArr;
+/** 直播购物 */
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UITextView *commentText;
-@property (nonatomic, strong) UIView *commentsView;
+@property (nonatomic, strong) UIView     *commentsView;
 
 @end
 
@@ -104,7 +108,8 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         _collectionView.dataSource = self;
         _collectionView.pagingEnabled = YES;
         _collectionView.showsHorizontalScrollIndicator = NO;
-        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellId"];
+//        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellId"];
+        [_collectionView registerNib:[UINib nibWithNibName:@"LiveShoppingCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cellId"];
     }
     return _collectionView;
 }
@@ -213,7 +218,7 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
             break;
         case 2:
             //购物
-            [self buyGoodsAttributes];
+            [self buyGoodsAttributes:button];
             break;
         default:
             break;
@@ -286,8 +291,10 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 }
 
 /** 购买商品 */
--(void)buyGoodsAttributes{
-//    DemoViewController *vc = [[DemoViewController alloc] init];
+-(void)buyGoodsAttributes:(UIButton *)button{
+    if (self.collectionView) {
+        [self.collectionView removeFromSuperview];
+    }
     [self.view addSubview:self.collectionView];
     UIButton *Button = self.buttonArr[0];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -296,6 +303,18 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         make.bottom.equalTo(Button.mas_top).offset(0);
         make.height.equalTo(350);
     }];
+    if (!isSelected) {
+        self.collectionView.alpha = 1;
+        isSelected = YES;
+    } else {
+        self.collectionView.alpha = 0;
+        isSelected = NO;
+    }
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    self.collectionView.alpha = 0;
+    isSelected = NO;
 }
 
 - (void)setThumbImage:(UIImage *)thumbImage {
@@ -548,8 +567,7 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
-    cell.backgroundColor = KRandomColor;
+    LiveShoppingCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
     return cell;
 }
 
