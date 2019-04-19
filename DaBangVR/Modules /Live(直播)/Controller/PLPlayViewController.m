@@ -46,6 +46,7 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 @property (nonatomic, copy) NSMutableArray* buttonArr;
 /** 直播购物 */
 @property (nonatomic, strong) UICollectionView *collectionView;
+/** 点击按钮弹出键盘 */
 @property (nonatomic, strong) UITextView *commentText;
 @property (nonatomic, strong) UIView     *commentsView;
 
@@ -117,7 +118,6 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = KWhiteColor;
     //用于计算高度
     self.tempMsgCell = [[RCDLiveTextMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rctextCellIndentifier];
@@ -169,7 +169,24 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         make.top.equalTo(30);
         make.height.equalTo(40);
     }];
+    
     [self.view addSubview:self.textView];
+    
+    UILabel *livePeople            = [[UILabel alloc] init];
+    livePeople.text                = @"当前有:1位关注";
+    livePeople.textColor           = KWhiteColor;
+    livePeople.textAlignment       = NSTextAlignmentCenter;
+    livePeople.backgroundColor     = KLightGreen;
+    livePeople.adaptiveFontSize    = 12;
+    livePeople.layer.cornerRadius  = kFit(10);
+    livePeople.layer.masksToBounds = YES;
+    [livePeople sizeToFit];
+    [self.view addSubview:livePeople];
+    [livePeople mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(topView.mas_bottom).offset(5);
+        make.left.equalTo(20);
+        make.size.equalTo(CGSizeMake(livePeople.mj_w + 20, 20));
+    }];
 }
 
 -(void)setupBottonUI{
@@ -256,6 +273,10 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         _commentText.returnKeyType       = UIReturnKeySend;//变为发送按钮
         [_commentsView addSubview:_commentText];
     }
+    /** 解决界面不退场问题 */
+    self.collectionView.alpha = 0;
+    isSelected = NO;
+    
     [self.view.window addSubview:_commentsView];//添加到window上或者其他视图也行，只要在视图以外就好了
     [_commentText becomeFirstResponder];
 }
@@ -311,10 +332,11 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         isSelected = NO;
     }
 }
-
+/** 屏幕点击事件 */
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     self.collectionView.alpha = 0;
     isSelected = NO;
+    [self.commentText resignFirstResponder];
 }
 
 - (void)setThumbImage:(UIImage *)thumbImage {

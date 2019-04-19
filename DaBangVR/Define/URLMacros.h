@@ -121,3 +121,5 @@
 #pragma mark —————— 配置文件接口类 ——————
 //获取七牛云token
 #define URl_getUploadConfigToken NSStringFormat(@"%@%@",URL_main,@"/api/config/getUploadConfigToken")
+//获取某个直播在线人数
+#define URl_getLookCountStreamList NSStringFormat(@"%@%@",URL_main,@"/api/pili/getLookCountStreamList?")

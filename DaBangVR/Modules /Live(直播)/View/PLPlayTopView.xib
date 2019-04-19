@@ -134,7 +134,9 @@
                 <outlet property="anchorInfoView" destination="Mxy-Qb-x6f" id="BOc-gZ-trW"/>
                 <outlet property="attentionButton" destination="aTt-qt-W33" id="dVb-Qg-k5Z"/>
                 <outlet property="closeButton" destination="jvc-Kx-dQv" id="6BS-LK-EHb"/>
+                <outlet property="fansNumLabel" destination="9MN-6V-EJp" id="uPi-On-p9Q"/>
                 <outlet property="headPortraitImgView" destination="5RM-WL-TDS" id="dSq-A7-zK6"/>
+                <outlet property="userNameLabel" destination="dqj-gv-cM1" id="t2J-Qz-oKh"/>
             </connections>
             <point key="canvasLocation" x="161" y="42"/>
         </view>

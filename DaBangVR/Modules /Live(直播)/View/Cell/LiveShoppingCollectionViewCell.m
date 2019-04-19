@@ -77,10 +77,11 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
         _numberButton.inputFieldFont = 16;
         _numberButton.increaseTitle = @"＋";
         _numberButton.decreaseTitle = @"－";
-        lastNum = (lastNum == 0) ? 1:lastNum;
-        _numberButton.currentNumber = lastNum;
         _numberButton.delegate = self;
-        //        kWeakSelf(self);
+        _numberButton.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.4];
+//        lastNum = (lastNum == 0) ? 1:lastNum;
+//        _numberButton.currentNumber = lastNum;
+//        kWeakSelf(self);
         _numberButton.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
             lastNum = num;
         };

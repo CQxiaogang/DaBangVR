@@ -138,14 +138,34 @@ static NSString *const cellID = @"cellID";
 
 /** 开始直播按钮 */
 - (IBAction)shouldBeginLIveBtnOfClick:(id)sender {
-    DidBeginLiveViewController *vc = [DidBeginLiveViewController new];
-    //利用keyValue的方式（KVO）去除数组中重复数据
-    self.selectIDArr = [self.selectIDArr valueForKeyPath:@"@distinctUnionOfObjects.self"];
-    //数组转字符串
-    NSString *goodsIds = [self.selectIDArr componentsJoinedByString:@","];
-    [self.infoDic setObject:goodsIds forKey:@"goodsIds"];
-    vc.parameters = self.infoDic;
-    [self presentViewController:vc animated:YES completion:nil];
+    //校验
+    CGImageRef cgref = [_liveCoverImgView.image CGImage];
+    NSArray *goodsArr = [self.selectIDArr valueForKeyPath:@"@distinctUnionOfObjects.self"];
+    if (goodsArr.count<3 || _liveTitleTextField.text.length == 0 || cgref==NULL) {
+        if (goodsArr.count<3) {
+            [self SVProgressHUD:@"至少选择3个主播产品"];
+        }else if (_liveTitleTextField.text.length == 0){
+            [self SVProgressHUD:@"请填写播放主题"];
+        }else if (cgref == NULL){
+            [self SVProgressHUD:@"请选择封面"];
+        }
+    }else{
+        //利用keyValue的方式（KVO）去除数组中重复数据
+        self.selectIDArr = [self.selectIDArr valueForKeyPath:@"@distinctUnionOfObjects.self"];
+        //数组转字符串
+        NSString *goodsIds = [self.selectIDArr componentsJoinedByString:@","];
+        [self.infoDic setObject:goodsIds forKey:@"goodsIds"];
+        
+        DidBeginLiveViewController *vc = [DidBeginLiveViewController new];
+        vc.parameters = self.infoDic;
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+}
+
+-(void)SVProgressHUD:(NSString *)string{
+    [SVProgressHUD showInfoWithStatus:string];
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    [SVProgressHUD dismissWithDelay:1.0];
 }
 
 #pragma mark —— UICollectionView dataSource;

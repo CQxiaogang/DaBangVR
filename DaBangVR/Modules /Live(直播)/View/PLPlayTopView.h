@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PLPlayTopView : UIView
 /** 主播头像 */
 @property (weak, nonatomic) IBOutlet UIImageView *headPortraitImgView;
+/** 用户名字 */
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+/** 粉丝数量 */
+@property (weak, nonatomic) IBOutlet UILabel *fansNumLabel;
 /** 关注按钮 */
 @property (weak, nonatomic) IBOutlet UIButton *attentionButton;
 /** 装载主播信息的背景视图 */

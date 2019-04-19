@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *coverUrl;
 /** 直播名字 */
 @property (nonatomic, copy) NSString *anchorName;
+/** 粉丝数量 */
+@property (nonatomic, copy) NSString *fans;
 @end
 
 NS_ASSUME_NONNULL_END
