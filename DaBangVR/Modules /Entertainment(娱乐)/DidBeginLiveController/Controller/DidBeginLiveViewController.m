@@ -13,10 +13,13 @@
 #import "RCDLiveTextMessageCell.h"
 /** 直播聊天评论Model */
 #import "RCCRMessageModel.h"
+/** 第三方右侧弹出菜单 */
+#import "CDSideBarController.h"
+#import "ZLBounceView.h"
 
 static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 
-@interface DidBeginLiveViewController ()<UITextViewDelegate>
+@interface DidBeginLiveViewController ()<UITextViewDelegate,CDSideBarControllerDelegate>
 /** 七牛云 */
 @property (nonatomic, strong) PLMediaStreamingSession *session;
 /** 装底部按钮的数组 */
@@ -31,6 +34,9 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 @property (nonatomic, strong) UIView     *commentsView;
 /** 点击按钮弹出键盘中发送按钮 */
 @property (nonatomic, strong) UIButton   *commentSendBtn;
+/** 第三方右侧弹出菜单 */
+@property (nonatomic, strong) CDSideBarController *sideBar;
+@property (nonatomic, strong) ZLBounceView *zlbounceView;
 @end
 @implementation DidBeginLiveViewController
 #pragma mark —— 懒加载
@@ -65,32 +71,51 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     return _conversationDataRepository;
 }
 
+- (ZLBounceView *)zlbounceView{
+    if (!_zlbounceView) {
+        _zlbounceView = [[ZLBounceView alloc] init];
+    }
+    return _zlbounceView;
+}
+
 #pragma mark —— 系统方法
 -(void)viewDidLoad {
     [super viewDidLoad];
     //用于计算高度
     self.tempMsgCell = [[RCDLiveTextMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rctextCellIndentifier];
+    
+    NSArray *imageList = @[[UIImage imageNamed:@"menuChat.png"], [UIImage imageNamed:@"menuUsers.png"], [UIImage imageNamed:@"menuMap.png"], [UIImage imageNamed:@"menuClose.png"]];
+    _sideBar = [[CDSideBarController alloc] initWithImages:imageList];
+    _sideBar.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    /** 点击按钮弹出键盘,导致view上移。所以禁用三方控件IQKeyboardManager */
+    /** 点击按钮弹出键盘,f导致view上移。所以禁用三方控件IQKeyboardManager */
     [[IQKeyboardManager sharedManager] setEnable:NO];
+    
+    [_sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 50, KScreenH - 100)];
 }
 
 -(void)setupUI{
     [super setupUI];
     PLVideoCaptureConfiguration *videoCaptureConfiguration = [PLVideoCaptureConfiguration defaultConfiguration];
     //摄像头的方向
-    videoCaptureConfiguration.position = AVCaptureDevicePositionFront;
+    videoCaptureConfiguration.position = AVCaptureDevicePositionFront; 
     PLAudioCaptureConfiguration *audioCaptureConfiguration = [PLAudioCaptureConfiguration defaultConfiguration];
     PLVideoStreamingConfiguration *videoStreamingConfiguration = [PLVideoStreamingConfiguration defaultConfiguration];
     PLAudioStreamingConfiguration *audioStreamingConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
     
-    //  创建推荐session对象
+    //创建推荐session对象
     self.session = [[PLMediaStreamingSession alloc] initWithVideoCaptureConfiguration:videoCaptureConfiguration audioCaptureConfiguration:audioCaptureConfiguration videoStreamingConfiguration:videoStreamingConfiguration audioStreamingConfiguration:audioStreamingConfiguration stream:nil];
     
     [self.view addSubview:self.session.previewView];
+    //美颜
+    [self.session setBeautifyModeOn:YES];
+    [self.session setRedden:1.0f];
+    [self.session setWhiten:1.0f];
+    [self.session setBeautify:1.0f];
+    
     /**
      *liveTitle 直播标题
      *coverUrl  直播封面图片
@@ -242,4 +267,19 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.commentText resignFirstResponder];
 }
+
+#pragma mark - CDSideBarController delegate
+
+- (void)menuButtonClicked:(int)index
+{
+    switch (index) {
+        case 0:
+            [self.zlbounceView showInView:self.view];
+            break;
+            
+        default:
+            break;
+    }
+}
+
 @end
