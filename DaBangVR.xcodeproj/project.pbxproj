@@ -35,6 +35,7 @@
 		0410358421CCD2F2002CB32C /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357821CCD2F2002CB32C /* libSocialWeChat.a */; };
 		0410358521CCD2F2002CB32C /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357C21CCD2F2002CB32C /* libSocialQQ.a */; };
 		0410358621CCD2F2002CB32C /* libUMSocialLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357E21CCD2F2002CB32C /* libUMSocialLog.a */; };
+		0411D8412271968E00E5B5DF /* 测试.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0411D8402271968E00E5B5DF /* 测试.mp3 */; };
 		0413E25F2233BBC700BF008F /* LoginManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413E25E2233BBC700BF008F /* LoginManger.m */; };
 		041A719A2249C85B0059B19F /* OrderTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041A71992249C85B0059B19F /* OrderTableViewFooterView.m */; };
 		041A719C2249C8680059B19F /* OrderTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041A719B2249C8680059B19F /* OrderTableViewFooterView.xib */; };
@@ -357,7 +358,7 @@
 		04FC2C4221C0E3AD00329B53 /* shop_area.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 04FC2C3621C0E3AD00329B53 /* shop_area.sqlite */; };
 		04FC706E21AF8A4400E413AC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FC706D21AF8A4400E413AC /* SystemConfiguration.framework */; };
 		04FC707F21AF9BE000E413AC /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FC707E21AF9BE000E413AC /* TencentOpenAPI.framework */; };
-		04FDDA3F226EF6F6008E456D /* ZLBounceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDDA3E226EF6F6008E456D /* ZLBounceView.m */; };
+		04FDDA3F226EF6F6008E456D /* DB_BounceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDDA3E226EF6F6008E456D /* DB_BounceView.m */; };
 		E22F41A47E3299E6ED92DD35 /* libPods-DaBangVR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A3876AE05E1A9859CD50F92 /* libPods-DaBangVR.a */; };
 /* End PBXBuildFile section */
 
@@ -422,6 +423,7 @@
 		0410357B21CCD2F2002CB32C /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
 		0410357C21CCD2F2002CB32C /* libSocialQQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialQQ.a; sourceTree = "<group>"; };
 		0410357E21CCD2F2002CB32C /* libUMSocialLog.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocialLog.a; sourceTree = "<group>"; };
+		0411D8402271968E00E5B5DF /* 测试.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "测试.mp3"; sourceTree = "<group>"; };
 		0413E25D2233BBC700BF008F /* LoginManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginManger.h; sourceTree = "<group>"; };
 		0413E25E2233BBC700BF008F /* LoginManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginManger.m; sourceTree = "<group>"; };
 		041A71982249C85B0059B19F /* OrderTableViewFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderTableViewFooterView.h; sourceTree = "<group>"; };
@@ -1002,8 +1004,8 @@
 		04FC2C3821C0E3AD00329B53 /* JFCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFCityHeaderView.h; sourceTree = "<group>"; };
 		04FC706D21AF8A4400E413AC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		04FC707E21AF9BE000E413AC /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
-		04FDDA3D226EF6F6008E456D /* ZLBounceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLBounceView.h; sourceTree = "<group>"; };
-		04FDDA3E226EF6F6008E456D /* ZLBounceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLBounceView.m; sourceTree = "<group>"; };
+		04FDDA3D226EF6F6008E456D /* DB_BounceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DB_BounceView.h; sourceTree = "<group>"; };
+		04FDDA3E226EF6F6008E456D /* DB_BounceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DB_BounceView.m; sourceTree = "<group>"; };
 		2A3876AE05E1A9859CD50F92 /* libPods-DaBangVR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DaBangVR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC7937929E43185E6865C40 /* Pods-DaBangVR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaBangVR.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaBangVR/Pods-DaBangVR.release.xcconfig"; sourceTree = "<group>"; };
 		FA6FA04E37216D0E61EA0AEE /* Pods-DaBangVR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaBangVR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaBangVR/Pods-DaBangVR.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2882,6 +2884,7 @@
 		04F5C8E121CA23B5008DD043 /* ReSource */ = {
 			isa = PBXGroup;
 			children = (
+				0411D8402271968E00E5B5DF /* 测试.mp3 */,
 				04C1AD22221172770011DDA3 /* lufei.jpg */,
 				049D475F219FA91F0058178D /* Assets.xcassets */,
 				04F4466E21D720CE00524971 /* ShopItem.plist */,
@@ -3117,8 +3120,8 @@
 		04FDDA3C226EF6D8008E456D /* ZLBounceView */ = {
 			isa = PBXGroup;
 			children = (
-				04FDDA3D226EF6F6008E456D /* ZLBounceView.h */,
-				04FDDA3E226EF6F6008E456D /* ZLBounceView.m */,
+				04FDDA3D226EF6F6008E456D /* DB_BounceView.h */,
+				04FDDA3E226EF6F6008E456D /* DB_BounceView.m */,
 			);
 			path = ZLBounceView;
 			sourceTree = "<group>";
@@ -3284,6 +3287,7 @@
 				0423DAE721FFF64F00325869 /* NewProductLaunchCell.xib in Resources */,
 				04765430226D72F500289AA7 /* menuIcon.png in Resources */,
 				04FA5D6621AE476F0061AF27 /* MobilePhoneNoLoginViewController.xib in Resources */,
+				0411D8412271968E00E5B5DF /* 测试.mp3 in Resources */,
 				049D4760219FA91F0058178D /* Assets.xcassets in Resources */,
 				04F8FC0421F1D40400913150 /* SecondsKillCell.xib in Resources */,
 				0403677321A5129800974435 /* HomeTableViewCell.xib in Resources */,
@@ -3496,7 +3500,7 @@
 				04F70C6921E98D35004BD4C6 /* AnchorRecommendView.m in Sources */,
 				041C094F225F2681008A38F0 /* DidBeginLiveViewController.m in Sources */,
 				04ECB9F822422C7300A02DB2 /* DHGuidePageHUD.m in Sources */,
-				04FDDA3F226EF6F6008E456D /* ZLBounceView.m in Sources */,
+				04FDDA3F226EF6F6008E456D /* DB_BounceView.m in Sources */,
 				04F2FD2E21EF479D000B58E2 /* GoodsShowTableViewController.m in Sources */,
 				045FAEBD221E7F2A0086DE4E /* OrderProcessingView.m in Sources */,
 				0459D91321E0A78F009BFFB4 /* OrderSureTableViewCell.m in Sources */,

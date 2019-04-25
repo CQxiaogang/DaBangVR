@@ -30,15 +30,16 @@
     _buttonList = [[NSMutableArray alloc] initWithCapacity:images.count];
     
     int index = 0;
-    for (UIImage *image in [images copy])
+    NSArray *titles = @[@"美颜",@"音乐",@"K歌",@"切换",@"分享"];
+    for (NSString *title in titles)
     {
         UIButton *button = [UIButton new];
 //        button.backgroundColor = KBlueColor;
         button.frame     = CGRectMake(0, 200 + ((kButtonW+30) * index), kButtonW*2, kButtonW);
         button.tag       = index;
         [button setAdaptiveFontSize:12];
-        [button setTitle:@"测试" forState:UIControlStateNormal];
-        [button setImage:image forState:UIControlStateNormal];
+        [button setTitle:title forState:UIControlStateNormal];
+//        [button setImage:image forState:UIControlStateNormal];
         //改变图片和文字位置
 //        [button setTitleEdgeInsets:UIEdgeInsetsMake(15, -button.imageView.size.width, 15, button.imageView.size.width)];
         [button setImageEdgeInsets:UIEdgeInsetsMake(0, button.titleLabel.bounds.size.width, 0, -button.titleLabel.bounds.size.width)];
@@ -125,7 +126,7 @@
 - (void)performOpenAnimation{
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIView animateWithDuration:0.4 animations:^{
-//            _menuButton.alpha = 0.0f;
+            _menuButton.alpha = 0.0f;
 //            _menuButton.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, -kCGSideW - 10, 0);
             _backgroundMenuView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, -kCGSideW - 10, 0);
         }];

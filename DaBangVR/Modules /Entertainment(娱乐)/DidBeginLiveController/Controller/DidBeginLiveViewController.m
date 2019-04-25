@@ -15,11 +15,11 @@
 #import "RCCRMessageModel.h"
 /** 第三方右侧弹出菜单 */
 #import "CDSideBarController.h"
-#import "ZLBounceView.h"
+#import "DB_BounceView.h"
 
 static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 
-@interface DidBeginLiveViewController ()<UITextViewDelegate,CDSideBarControllerDelegate>
+@interface DidBeginLiveViewController ()<UITextViewDelegate, CDSideBarControllerDelegate, DB_BounceViewDelagete>
 /** 七牛云 */
 @property (nonatomic, strong) PLMediaStreamingSession *session;
 /** 装底部按钮的数组 */
@@ -36,7 +36,11 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 @property (nonatomic, strong) UIButton   *commentSendBtn;
 /** 第三方右侧弹出菜单 */
 @property (nonatomic, strong) CDSideBarController *sideBar;
-@property (nonatomic, strong) ZLBounceView *zlbounceView;
+/** 美化模式弹出视图 */
+@property (nonatomic, strong) DB_BounceView *beautifyModeBounceView;
+/** 音乐选择弹出视图 */
+@property (nonatomic, strong) DB_BounceView *musicSelectionBounceView;
+@property (nonatomic, strong) PLVideoCaptureConfiguration *videoCaptureConfiguration;
 @end
 @implementation DidBeginLiveViewController
 #pragma mark —— 懒加载
@@ -71,11 +75,36 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     return _conversationDataRepository;
 }
 
-- (ZLBounceView *)zlbounceView{
-    if (!_zlbounceView) {
-        _zlbounceView = [[ZLBounceView alloc] init];
+- (DB_BounceView *)beautifyModeBounceView{
+    if (!_beautifyModeBounceView) {
+        CGFloat width = 150;
+        _beautifyModeBounceView = [[DB_BounceView alloc] initWithContentViewFrame:CGRectMake(0, KScreenH-width, KScreenW, width)];
+        _beautifyModeBounceView.delegate = self;
+        NSArray *titles = @[@"红润",@"美白",@"美颜"];
+        for (int i = 0; i<=2; i++) {
+            UILabel *titleLabel         = [[UILabel alloc] initWithFrame:CGRectMake(25,5+i*50, 30, 20)];
+            titleLabel.text             = titles[i];
+            titleLabel.adaptiveFontSize = 12;
+            titleLabel.textColor        = KWhiteColor;
+            [_beautifyModeBounceView.contentView addSubview:titleLabel];
+            UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(20, 10+i*50, 335, 50)];
+            slider.value     = 0.1;
+            slider.tag       = i+10;
+            slider.tintColor = KRedColor;
+            [slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventValueChanged];
+            [_beautifyModeBounceView.contentView addSubview:slider];
+        }
     }
-    return _zlbounceView;
+    return _beautifyModeBounceView;
+}
+
+-(DB_BounceView *)musicSelectionBounceView{
+    if (!_musicSelectionBounceView) {
+        CGFloat width = 150;
+        _musicSelectionBounceView = [[DB_BounceView alloc] initWithContentViewFrame:CGRectMake(0, KScreenH-width, KScreenW, width)];
+        _musicSelectionBounceView.delegate = self;
+    }
+    return _musicSelectionBounceView;
 }
 
 #pragma mark —— 系统方法
@@ -94,28 +123,26 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     /** 点击按钮弹出键盘,f导致view上移。所以禁用三方控件IQKeyboardManager */
     [[IQKeyboardManager sharedManager] setEnable:NO];
     
-    [_sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 50, KScreenH - 100)];
+    [_sideBar insertMenuButtonOnView:self.view atPosition:CGPointMake(self.view.frame.size.width - 50, KScreenH - 100)];
 }
 
 -(void)setupUI{
     [super setupUI];
-    PLVideoCaptureConfiguration *videoCaptureConfiguration = [PLVideoCaptureConfiguration defaultConfiguration];
+    _videoCaptureConfiguration = [PLVideoCaptureConfiguration defaultConfiguration];
     //摄像头的方向
-    videoCaptureConfiguration.position = AVCaptureDevicePositionFront; 
+    _videoCaptureConfiguration.position = AVCaptureDevicePositionFront;
     PLAudioCaptureConfiguration *audioCaptureConfiguration = [PLAudioCaptureConfiguration defaultConfiguration];
     PLVideoStreamingConfiguration *videoStreamingConfiguration = [PLVideoStreamingConfiguration defaultConfiguration];
     PLAudioStreamingConfiguration *audioStreamingConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
     
     //创建推荐session对象
-    self.session = [[PLMediaStreamingSession alloc] initWithVideoCaptureConfiguration:videoCaptureConfiguration audioCaptureConfiguration:audioCaptureConfiguration videoStreamingConfiguration:videoStreamingConfiguration audioStreamingConfiguration:audioStreamingConfiguration stream:nil];
+    self.session = [[PLMediaStreamingSession alloc] initWithVideoCaptureConfiguration:_videoCaptureConfiguration audioCaptureConfiguration:audioCaptureConfiguration videoStreamingConfiguration:videoStreamingConfiguration audioStreamingConfiguration:audioStreamingConfiguration stream:nil];
     
     [self.view addSubview:self.session.previewView];
-    //美颜
+    //开启美颜
     [self.session setBeautifyModeOn:YES];
-    [self.session setRedden:1.0f];
-    [self.session setWhiten:1.0f];
-    [self.session setBeautify:1.0f];
-    
+    //回声消除开关
+    audioCaptureConfiguration.acousticEchoCancellationEnable = YES;
     /**
      *liveTitle 直播标题
      *coverUrl  直播封面图片
@@ -208,7 +235,6 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
             make.top.right.equalTo(0);
             make.size.equalTo(CGSizeMake(60, 40));
         }];
-        
         _commentText = [[UITextView alloc] initWithFrame:CGRectInset(_commentsView.bounds, 5.0, 5.0)];
         _commentText.inputAccessoryView  = _commentsView;
         _commentText.backgroundColor     = KClearColor;
@@ -263,23 +289,78 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         return model.cellHeight;
     }
 }
+
 /** 屏幕点击事件 */
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.commentText resignFirstResponder];
 }
 
 #pragma mark - CDSideBarController delegate
-
 - (void)menuButtonClicked:(int)index
 {
     switch (index) {
         case 0:
-            [self.zlbounceView showInView:self.view];
+            [self.beautifyModeBounceView showInView:self.view];
+            for (UIButton *button in self.buttonArr) {
+                [UIView animateWithDuration:0.3 animations:^{
+                    button.alpha = 0;
+                }];
+            }
             break;
+        case 1:
+        {
+//            NSString *path = [[NSBundle mainBundle] pathForResource:@"测试" ofType:@"mp3"];
+//            PLAudioPlayer *player = [self.session audioPlayerWithFilePath:path];
+//            [player play];
+            [self.musicSelectionBounceView showInView:self.view];
+            for (UIButton *button in self.buttonArr) {
+                [UIView animateWithDuration:0.3 animations:^{
+                    button.alpha = 0;
+                }];
+            }
+        }
             
+            break;
+        case 3:
+            //摄像头旋转
+            [self.session toggleCamera];
+            break;
         default:
             break;
     }
+}
+/** UISlider */
+-(void)sliderAction:(UISlider *)sender{
+    switch (sender.tag) {
+        case 10:
+            //红润
+            [self.session setRedden:sender.value];
+            break;
+        case 11:
+            //美白
+            [self.session setWhiten:sender.value];
+            break;
+        case 12:
+            //美颜
+            [self.session setBeautify:sender.value];
+            break;
+        default:
+            break;
+    }
+}
+#pragma mark —— DB_BounceView
+-(void)dismissViewShowButton{
+    for (UIButton *button in self.buttonArr) {
+        [UIView animateWithDuration:0.3 animations:^{
+            button.alpha = 1.0;
+        }];
+    }
+}
+
+-(void)dealloc{
+    
+    [self.session closeCurrentAudio];
+    
 }
 
 @end
