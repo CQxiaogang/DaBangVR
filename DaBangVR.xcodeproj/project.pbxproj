@@ -190,6 +190,17 @@
 		048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E692B21A26C5A00DB911A /* UIColor+category.m */; };
 		048EC5652261CDD4007288FB /* LiveCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048EC5632261CDD4007288FB /* LiveCommentTableViewCell.m */; };
 		048EC5662261CDD4007288FB /* LiveCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048EC5642261CDD4007288FB /* LiveCommentTableViewCell.xib */; };
+		048F79B32272AC3500407050 /* musicCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F79B12272AC3500407050 /* musicCollectionViewCell.m */; };
+		048F79B42272AC3500407050 /* musicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048F79B22272AC3500407050 /* musicCollectionViewCell.xib */; };
+		048F79B72272B57800407050 /* DidBeginLiveTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F79B62272B57800407050 /* DidBeginLiveTopView.m */; };
+		048F79B92272B58700407050 /* DidBeginLiveTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048F79B82272B58700407050 /* DidBeginLiveTopView.xib */; };
+		048F79BC2272E87D00407050 /* DidBeginLiveAnchorInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F79BB2272E87D00407050 /* DidBeginLiveAnchorInfoView.m */; };
+		048F79BE2272E88E00407050 /* DidBeginLiveAnchorInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048F79BD2272E88E00407050 /* DidBeginLiveAnchorInfoView.xib */; };
+		048F79C12272EFAF00407050 /* DidBeginLiveTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F79C02272EFAF00407050 /* DidBeginLiveTaskView.m */; };
+		048F79C32272EFC100407050 /* DidBeginLiveTaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048F79C22272EFC100407050 /* DidBeginLiveTaskView.xib */; };
+		048F79C62272F58F00407050 /* DidBeginLiveGoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F79C52272F58F00407050 /* DidBeginLiveGoodsView.m */; };
+		048F79CA2272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F79C82272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.m */; };
+		048F79CB2272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048F79C92272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.xib */; };
 		0493B954223A607300418E17 /* OrderSureFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0493B953223A607300418E17 /* OrderSureFooterView.xib */; };
 		049703E621A69860002359B5 /* ShoppingLiveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049703E421A69860002359B5 /* ShoppingLiveTableViewCell.m */; };
 		049703E721A69860002359B5 /* ShoppingLiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049703E521A69860002359B5 /* ShoppingLiveTableViewCell.xib */; };
@@ -704,6 +715,23 @@
 		048EC5622261CDD4007288FB /* LiveCommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveCommentTableViewCell.h; sourceTree = "<group>"; };
 		048EC5632261CDD4007288FB /* LiveCommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveCommentTableViewCell.m; sourceTree = "<group>"; };
 		048EC5642261CDD4007288FB /* LiveCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveCommentTableViewCell.xib; sourceTree = "<group>"; };
+		048F79B02272AC3500407050 /* musicCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = musicCollectionViewCell.h; sourceTree = "<group>"; };
+		048F79B12272AC3500407050 /* musicCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = musicCollectionViewCell.m; sourceTree = "<group>"; };
+		048F79B22272AC3500407050 /* musicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = musicCollectionViewCell.xib; sourceTree = "<group>"; };
+		048F79B52272B57800407050 /* DidBeginLiveTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DidBeginLiveTopView.h; sourceTree = "<group>"; };
+		048F79B62272B57800407050 /* DidBeginLiveTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DidBeginLiveTopView.m; sourceTree = "<group>"; };
+		048F79B82272B58700407050 /* DidBeginLiveTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DidBeginLiveTopView.xib; sourceTree = "<group>"; };
+		048F79BA2272E87D00407050 /* DidBeginLiveAnchorInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DidBeginLiveAnchorInfoView.h; sourceTree = "<group>"; };
+		048F79BB2272E87D00407050 /* DidBeginLiveAnchorInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DidBeginLiveAnchorInfoView.m; sourceTree = "<group>"; };
+		048F79BD2272E88E00407050 /* DidBeginLiveAnchorInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DidBeginLiveAnchorInfoView.xib; sourceTree = "<group>"; };
+		048F79BF2272EFAF00407050 /* DidBeginLiveTaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DidBeginLiveTaskView.h; sourceTree = "<group>"; };
+		048F79C02272EFAF00407050 /* DidBeginLiveTaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DidBeginLiveTaskView.m; sourceTree = "<group>"; };
+		048F79C22272EFC100407050 /* DidBeginLiveTaskView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DidBeginLiveTaskView.xib; sourceTree = "<group>"; };
+		048F79C42272F58F00407050 /* DidBeginLiveGoodsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DidBeginLiveGoodsView.h; sourceTree = "<group>"; };
+		048F79C52272F58F00407050 /* DidBeginLiveGoodsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DidBeginLiveGoodsView.m; sourceTree = "<group>"; };
+		048F79C72272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DidBeginLiveGoodsTableViewCell.h; sourceTree = "<group>"; };
+		048F79C82272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DidBeginLiveGoodsTableViewCell.m; sourceTree = "<group>"; };
+		048F79C92272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DidBeginLiveGoodsTableViewCell.xib; sourceTree = "<group>"; };
 		0493B953223A607300418E17 /* OrderSureFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSureFooterView.xib; sourceTree = "<group>"; };
 		049703E321A69860002359B5 /* ShoppingLiveTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoppingLiveTableViewCell.h; sourceTree = "<group>"; };
 		049703E421A69860002359B5 /* ShoppingLiveTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoppingLiveTableViewCell.m; sourceTree = "<group>"; };
@@ -1853,6 +1881,18 @@
 		046DB311224B579C00C2CACB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				048F79AF2272AC0700407050 /* Cell */,
+				048F79B52272B57800407050 /* DidBeginLiveTopView.h */,
+				048F79B62272B57800407050 /* DidBeginLiveTopView.m */,
+				048F79B82272B58700407050 /* DidBeginLiveTopView.xib */,
+				048F79BA2272E87D00407050 /* DidBeginLiveAnchorInfoView.h */,
+				048F79BB2272E87D00407050 /* DidBeginLiveAnchorInfoView.m */,
+				048F79BD2272E88E00407050 /* DidBeginLiveAnchorInfoView.xib */,
+				048F79BF2272EFAF00407050 /* DidBeginLiveTaskView.h */,
+				048F79C02272EFAF00407050 /* DidBeginLiveTaskView.m */,
+				048F79C22272EFC100407050 /* DidBeginLiveTaskView.xib */,
+				048F79C42272F58F00407050 /* DidBeginLiveGoodsView.h */,
+				048F79C52272F58F00407050 /* DidBeginLiveGoodsView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2298,6 +2338,19 @@
 				04029FE1226830A00032ED06 /* LiveGoddsInfoTableViewCell.h */,
 				04029FE2226830A00032ED06 /* LiveGoddsInfoTableViewCell.m */,
 				04029FE3226830A00032ED06 /* LiveGoddsInfoTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		048F79AF2272AC0700407050 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				048F79B02272AC3500407050 /* musicCollectionViewCell.h */,
+				048F79B12272AC3500407050 /* musicCollectionViewCell.m */,
+				048F79B22272AC3500407050 /* musicCollectionViewCell.xib */,
+				048F79C72272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.h */,
+				048F79C82272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.m */,
+				048F79C92272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -3266,6 +3319,7 @@
 				04F45F1C21F5B7DE009F5907 /* RightSecondsKillCell.xib in Resources */,
 				04BF21982212CA71002468C0 /* MineCollectionTableViewCell.xib in Resources */,
 				04765431226D72F500289AA7 /* menuUsers.png in Resources */,
+				048F79B42272AC3500407050 /* musicCollectionViewCell.xib in Resources */,
 				04F4469321D74FBF00524971 /* GoodsInfoView.xib in Resources */,
 				04EFA01A21E70470007C2FCA /* EvaluationSuccessView.xib in Resources */,
 				04F8ED4521E32AC000004178 /* UserAdressCell.xib in Resources */,
@@ -3292,6 +3346,7 @@
 				04F8FC0421F1D40400913150 /* SecondsKillCell.xib in Resources */,
 				0403677321A5129800974435 /* HomeTableViewCell.xib in Resources */,
 				049703E721A69860002359B5 /* ShoppingLiveTableViewCell.xib in Resources */,
+				048F79B92272B58700407050 /* DidBeginLiveTopView.xib in Resources */,
 				04F8ED4021E3272A00004178 /* AddUserAdressView.xib in Resources */,
 				04F45F0C21F57EED009F5907 /* NewCommentCell.xib in Resources */,
 				042FCEC821A3E24F002AD0DB /* HomeSecondsKillView.xib in Resources */,
@@ -3327,16 +3382,19 @@
 				04716AC12224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib in Resources */,
 				0459D91421E0A78F009BFFB4 /* OrderSureTableViewCell.xib in Resources */,
 				042D1531221D629A00DB895C /* PaySuccessView.xib in Resources */,
+				048F79BE2272E88E00407050 /* DidBeginLiveAnchorInfoView.xib in Resources */,
 				045EF189223BB1180051E029 /* OrderProcessingHeaderView.xib in Resources */,
 				044250B822277FE400E9F64E /* TimeChooseView.xib in Resources */,
 				04F8ED5121E349E000004178 /* ModifyAddressViewCell.xib in Resources */,
 				04F8FBFB21F17E0200913150 /* AllCommentsCell.xib in Resources */,
+				048F79CB2272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.xib in Resources */,
 				0410358221CCD2F2002CB32C /* UMSocialSDKPromptResources.bundle in Resources */,
 				045FAEC4221E93AB0086DE4E /* OrderProcessingTableViewCell.xib in Resources */,
 				04F866B321A806F600A4D7F6 /* DBNewProductView.xib in Resources */,
 				0410357F21CCD2F2002CB32C /* UMSocialSDKResources.bundle in Resources */,
 				044F3BAA21F0201B00F3AD5E /* MySpellGroupCell.xib in Resources */,
 				04F47E3A21E5FAF6001B5F74 /* EvaluationCell.xib in Resources */,
+				048F79C32272EFC100407050 /* DidBeginLiveTaskView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3462,6 +3520,7 @@
 				04EFA02621E7226D007C2FCA /* OrderProcessingViewController2.m in Sources */,
 				044665692237654300DF6F47 /* JXCategoryIndicatorDotLineView.m in Sources */,
 				046DB31B224B71AE00C2CACB /* PLPlayViewController.m in Sources */,
+				048F79CA2272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.m in Sources */,
 				04F8FBFE21F1ADE900913150 /* CommentsListModel.m in Sources */,
 				042D1529221CEB0100DB895C /* ShufflingView.m in Sources */,
 				042FCEC621A3E22E002AD0DB /* HomeSecondsKillView.m in Sources */,
@@ -3600,12 +3659,14 @@
 				04F4467821D74F5300524971 /* FeatureItemCell.m in Sources */,
 				046DB30E224B279700C2CACB /* TPCItem.m in Sources */,
 				044665752237654300DF6F47 /* JXCategoryTitleCell.m in Sources */,
+				048F79C12272EFAF00407050 /* DidBeginLiveTaskView.m in Sources */,
 				04FC2C3B21C0E3AD00329B53 /* JFAreaDataManager.m in Sources */,
 				04F62FEE21F9B69A0094B26F /* ModifyAddressAreaModel.m in Sources */,
 				042FCED021A406FB002AD0DB /* DBHotVideoView.m in Sources */,
 				0467100122603A280025E001 /* ShouldBeginLiveGoodsModel.m in Sources */,
 				04F45F1221F5AD70009F5907 /* MySecondKillTableView.m in Sources */,
 				04F494C521C77D1B009A4518 /* UIAlertController+TapGesAlertController.m in Sources */,
+				048F79B72272B57800407050 /* DidBeginLiveTopView.m in Sources */,
 				04F62FEF21F9B69A0094B26F /* AreaView.m in Sources */,
 				044665792237654300DF6F47 /* JXCategoryImageCellModel.m in Sources */,
 				046DB31E224B739F00C2CACB /* UIButton+Animate.m in Sources */,
@@ -3646,6 +3707,7 @@
 				044664FD2237627D00DF6F47 /* NestViewController.m in Sources */,
 				04FC2C3D21C0E3AD00329B53 /* JFSearchView.m in Sources */,
 				04F2FD3021EF47BD000B58E2 /* LoadDataListBaseTableViewController.m in Sources */,
+				048F79B32272AC3500407050 /* musicCollectionViewCell.m in Sources */,
 				04FC2C4121C0E3AD00329B53 /* JFButton.m in Sources */,
 				04002F43225D96D4006DC794 /* MerchantsSettledViewController2.m in Sources */,
 				04466500223762DD00DF6F47 /* NaviSegmentedControlViewController.m in Sources */,
@@ -3654,6 +3716,7 @@
 				04F5C8ED21CA4D1D008DD043 /* BSFitdpiUtil.m in Sources */,
 				045D55A4222E7A5800F128F8 /* SearchGoodsViewController.m in Sources */,
 				042D152F221D628F00DB895C /* PaySuccessView.m in Sources */,
+				048F79C62272F58F00407050 /* DidBeginLiveGoodsView.m in Sources */,
 				04F084F021E48F9600BFE102 /* BaseTableViewCell.m in Sources */,
 				04BF21842212B719002468C0 /* JXPagerMainTableView.m in Sources */,
 				044665812237654300DF6F47 /* JXCategoryViewAnimator.m in Sources */,
@@ -3681,6 +3744,7 @@
 				04765434226D72FF00289AA7 /* CDSideBarController.m in Sources */,
 				044665822237654300DF6F47 /* JXCategoryListCollectionContainerView.m in Sources */,
 				049D478A219FAB880058178D /* AppDelegate.m in Sources */,
+				048F79BC2272E87D00407050 /* DidBeginLiveAnchorInfoView.m in Sources */,
 				04F2E4592248C627001FB3C1 /* LiveCollectionViewCell.m in Sources */,
 				044665672237654300DF6F47 /* JXCategoryIndicatorBallView.m in Sources */,
 				04F47E3921E5FAF6001B5F74 /* EvaluationCell.m in Sources */,

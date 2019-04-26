@@ -7,19 +7,20 @@
 //
 
 #import "DidBeginLiveViewController.h"
-// 七牛云
-#import <PLMediaStreamingKit/PLMediaStreamingKit.h>/** 直播聊天评论Cell */
+#import <PLMediaStreamingKit/PLMediaStreamingKit.h>
 #import "LiveCommentTableViewCell.h"
 #import "RCDLiveTextMessageCell.h"
-/** 直播聊天评论Model */
 #import "RCCRMessageModel.h"
-/** 第三方右侧弹出菜单 */
 #import "CDSideBarController.h"
 #import "DB_BounceView.h"
+#import "DidBeginLiveTopView.h"
+#import "DidBeginLiveAnchorInfoView.h"
+#import "DidBeginLiveTaskView.h"
+#import "DidBeginLiveGoodsView.h"
 
 static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 
-@interface DidBeginLiveViewController ()<UITextViewDelegate, CDSideBarControllerDelegate, DB_BounceViewDelagete>
+@interface DidBeginLiveViewController ()<UITextViewDelegate, CDSideBarControllerDelegate, DB_BounceViewDelagete, UICollectionViewDelegate, UICollectionViewDataSource, DidBeginLiveTopViewDelegate>
 /** 七牛云 */
 @property (nonatomic, strong) PLMediaStreamingSession *session;
 /** 装底部按钮的数组 */
@@ -40,7 +41,16 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 @property (nonatomic, strong) DB_BounceView *beautifyModeBounceView;
 /** 音乐选择弹出视图 */
 @property (nonatomic, strong) DB_BounceView *musicSelectionBounceView;
+@property (nonatomic, strong) UICollectionView *musicCollectionView;
 @property (nonatomic, strong) PLVideoCaptureConfiguration *videoCaptureConfiguration;
+/** 顶部的视图 */
+@property (nonatomic, strong) DidBeginLiveTopView *didBeginLiveTopView;
+/** 主播信息视图 */
+@property (nonatomic, strong) DidBeginLiveAnchorInfoView *didBeginLiveAnchorInfoView;
+/** 主播任务视图 */
+@property (nonatomic, strong) DidBeginLiveTaskView *didBeginLiveTaskView;
+/** 直播的商品 */
+@property (nonatomic, strong) DidBeginLiveGoodsView *didBeginLiveGoodsView;
 @end
 @implementation DidBeginLiveViewController
 #pragma mark —— 懒加载
@@ -103,8 +113,48 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         CGFloat width = 150;
         _musicSelectionBounceView = [[DB_BounceView alloc] initWithContentViewFrame:CGRectMake(0, KScreenH-width, KScreenW, width)];
         _musicSelectionBounceView.delegate = self;
+        self.musicCollectionView.frame = CGRectMake(0, 10, KScreenW, width-20);
+        [_musicSelectionBounceView.contentView addSubview:self.musicCollectionView];
     }
     return _musicSelectionBounceView;
+}
+
+-(UICollectionView *)musicCollectionView{
+    if (!_musicCollectionView) {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        layout.scrollDirection             = UICollectionViewScrollDirectionHorizontal;
+        layout.itemSize                    = CGSizeMake(80, 80);
+        _musicCollectionView               = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        layout.sectionInset                = UIEdgeInsetsMake(0, 10, 0, 10);
+        _musicCollectionView.delegate      = self;
+        _musicCollectionView.dataSource    = self;
+        _musicCollectionView.backgroundColor = KClearColor;
+        _musicCollectionView.showsHorizontalScrollIndicator = NO;
+        [_musicCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellID"];
+    }
+    return _musicCollectionView;
+}
+
+-(DidBeginLiveTopView *)didBeginLiveTopView{
+    if (!_didBeginLiveTopView) {
+        _didBeginLiveTopView = [[[NSBundle mainBundle] loadNibNamed:@"DidBeginLiveTopView" owner:nil options:nil] firstObject];
+        _didBeginLiveTopView.delegate = self;
+    }
+    return _didBeginLiveTopView;
+}
+
+-(DidBeginLiveAnchorInfoView *)didBeginLiveAnchorInfoView{
+    if (!_didBeginLiveAnchorInfoView) {
+        _didBeginLiveAnchorInfoView = [[[NSBundle mainBundle] loadNibNamed:@"DidBeginLiveAnchorInfoView" owner:nil options:nil] firstObject];
+    }
+    return _didBeginLiveAnchorInfoView;
+}
+
+-(DidBeginLiveTaskView *)didBeginLiveTaskView{
+    if (!_didBeginLiveTaskView) {
+        _didBeginLiveTaskView = [[[NSBundle mainBundle] loadNibNamed:@"DidBeginLiveTaskView" owner:nil options:nil] firstObject];
+    }
+    return _didBeginLiveTaskView;
 }
 
 #pragma mark —— 系统方法
@@ -128,6 +178,9 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 
 -(void)setupUI{
     [super setupUI];
+    
+    kWeakSelf(self);
+    
     _videoCaptureConfiguration = [PLVideoCaptureConfiguration defaultConfiguration];
     //摄像头的方向
     _videoCaptureConfiguration.position = AVCaptureDevicePositionFront;
@@ -162,6 +215,36 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     
     //设置底部UI
     [self setupBottomUI];
+    
+    [self.view addSubview:self.didBeginLiveTopView];
+    [self.didBeginLiveTopView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(0);
+        make.top.equalTo(20);
+        make.height.equalTo(40);
+    }];
+    
+    [self.view addSubview:self.didBeginLiveAnchorInfoView];
+    [self.didBeginLiveAnchorInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(0);
+        make.top.equalTo(weakself.didBeginLiveTopView.mas_bottom).offset(5);
+        make.size.equalTo(CGSizeMake(160, 50));
+    }];
+    
+    [self.view addSubview:self.didBeginLiveTaskView];
+    [self.didBeginLiveTaskView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(0);
+        make.top.equalTo(weakself.didBeginLiveAnchorInfoView.mas_bottom).offset(10);
+        make.size.equalTo(CGSizeMake(140, 30));
+    }];
+    [self.view layoutSubviews];
+    _didBeginLiveGoodsView = [[DidBeginLiveGoodsView alloc] init];
+    [self.view addSubview:self.didBeginLiveGoodsView];
+    [self.didBeginLiveGoodsView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(10);
+        make.top.equalTo(weakself.didBeginLiveTaskView.mas_bottom).offset(5);
+        make.bottom.equalTo(weakself.conversationMessageTableView.mas_top).offset(0);
+        make.width.equalTo(80);
+    }];
 }
 
 -(void)setupBottomUI{
@@ -355,6 +438,22 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
             button.alpha = 1.0;
         }];
     }
+}
+
+#pragma mark —— UICollectionView
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellID" forIndexPath:indexPath];
+    cell.backgroundColor = KRandomColor;
+    return cell;
+}
+
+#pragma mark —— DidBeginLiveTopViewDelegate
+-(void)dismissAction{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)dealloc{
