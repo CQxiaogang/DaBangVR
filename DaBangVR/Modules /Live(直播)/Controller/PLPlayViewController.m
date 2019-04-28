@@ -18,7 +18,6 @@
 #import "RCCRMessageModel.h"
 /** 长连接 */
 #import "WebSocketManager.h"
-#import "DemoViewController.h"
 /** 分页自定义layout */
 #import "PagingEnableLayout.h"
 #import "LiveShoppingCollectionViewCell.h"
@@ -274,7 +273,9 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         [_commentsView addSubview:_commentText];
     }
     /** 解决界面不退场问题 */
-    self.collectionView.alpha = 0;
+    [UIView animateWithDuration:0.3f animations:^{
+        self.collectionView.alpha = 0;
+    }];
     isSelected = NO;
     
     [self.view.window addSubview:_commentsView];//添加到window上或者其他视图也行，只要在视图以外就好了
@@ -316,6 +317,10 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     if (self.collectionView) {
         [self.collectionView removeFromSuperview];
     }
+    [NetWorkHelper POST:URl_getAnchorLiveGoodsList parameters:@{@"anchorId":_anchorId} success:^(id  _Nonnull responseObject) {
+        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
+        
+    } failure:nil];
     [self.view addSubview:self.collectionView];
     UIButton *Button = self.buttonArr[0];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -325,16 +330,22 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         make.height.equalTo(350);
     }];
     if (!isSelected) {
-        self.collectionView.alpha = 1;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.collectionView.alpha = 1;
+        }];
         isSelected = YES;
     } else {
-        self.collectionView.alpha = 0;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.collectionView.alpha = 0;
+        }];
         isSelected = NO;
     }
 }
 /** 屏幕点击事件 */
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    self.collectionView.alpha = 0;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.collectionView.alpha = 0;
+    }];
     isSelected = NO;
     [self.commentText resignFirstResponder];
 }

@@ -17,6 +17,7 @@
 #import "DidBeginLiveAnchorInfoView.h"
 #import "DidBeginLiveTaskView.h"
 #import "DidBeginLiveGoodsView.h"
+#import "GoodsDetailsModel.h"
 
 static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 
@@ -51,6 +52,7 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 @property (nonatomic, strong) DidBeginLiveTaskView *didBeginLiveTaskView;
 /** 直播的商品 */
 @property (nonatomic, strong) DidBeginLiveGoodsView *didBeginLiveGoodsView;
+@property (nonatomic, strong) NSArray <GoodsDetailsModel *> *goodsDataSource;
 @end
 @implementation DidBeginLiveViewController
 #pragma mark —— 懒加载
@@ -157,6 +159,12 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     return _didBeginLiveTaskView;
 }
 
+-(DidBeginLiveGoodsView *)didBeginLiveGoodsView{
+    if (!_didBeginLiveGoodsView) {
+        _didBeginLiveGoodsView = [[DidBeginLiveGoodsView alloc] init];
+    }
+    return _didBeginLiveGoodsView;
+}
 #pragma mark —— 系统方法
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -211,6 +219,10 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         [self.session startStreamingWithPushURL:pushURL feedback:^(PLStreamStartStateFeedback feedback) {
             
         }];
+        //数据解析
+        NSArray *goodsVoList = responseObject[@"goodsVoList"];
+        weakself.goodsDataSource = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:goodsVoList];
+        self.didBeginLiveGoodsView.goodsData = weakself.goodsDataSource;
     } failure:^(NSError * _Nonnull error) {}];
     
     //设置底部UI
@@ -237,7 +249,6 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         make.size.equalTo(CGSizeMake(140, 30));
     }];
     [self.view layoutSubviews];
-    _didBeginLiveGoodsView = [[DidBeginLiveGoodsView alloc] init];
     [self.view addSubview:self.didBeginLiveGoodsView];
     [self.didBeginLiveGoodsView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(10);

@@ -33,17 +33,17 @@
                     <state key="normal" image="h_Position"/>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vaq-gN-Mfw" userLabel="搜索框">
-                    <rect key="frame" x="57.5" y="7" width="260" height="30"/>
+                    <rect key="frame" x="57.5" y="7" width="250" height="30"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xk5-Fa-3uT" userLabel="搜索">
-                            <rect key="frame" x="10" y="5" width="20" height="20"/>
+                            <rect key="frame" x="10" y="5.5" width="20.5" height="19.5"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="20" id="9X5-jM-wW3">
+                                <constraint firstAttribute="height" constant="19.5" id="9X5-jM-wW3">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </constraint>
-                                <constraint firstAttribute="width" constant="20" id="ToY-Fo-OFc">
+                                <constraint firstAttribute="width" constant="20.5" id="ToY-Fo-OFc">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                                     </userDefinedRuntimeAttributes>
@@ -52,13 +52,13 @@
                             <state key="normal" image="h_Search"/>
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwy-ht-qkw" userLabel="扫码">
-                            <rect key="frame" x="230" y="5" width="20" height="20"/>
+                            <rect key="frame" x="219.5" y="5.5" width="20.5" height="19.5"/>
                             <state key="normal" image="h_Scan"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="260" id="CRb-pK-FtR">
+                        <constraint firstAttribute="width" constant="250" id="CRb-pK-FtR">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                             </userDefinedRuntimeAttributes>

@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *snapshotPlayURL;
 /** 封面 */
 @property (nonatomic, copy) NSString *coverUrl;
+/** 直播ID */
+@property (nonatomic, copy) NSString *anchorId;
 /** 直播名字 */
 @property (nonatomic, copy) NSString *anchorName;
 /** 粉丝数量 */

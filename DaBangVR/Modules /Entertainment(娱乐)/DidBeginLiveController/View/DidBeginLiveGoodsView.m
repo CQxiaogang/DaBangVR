@@ -43,16 +43,22 @@ static NSString *const cellID = @"cellID";
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return _goodsData.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     DidBeginLiveGoodsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    cell.model = _goodsData[indexPath.row];
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return kFit(80);
+}
+
+-(void)setGoodsData:(NSArray *)goodsData{
+    _goodsData = goodsData;
+    [_tableView reloadData];
 }
 
 @end

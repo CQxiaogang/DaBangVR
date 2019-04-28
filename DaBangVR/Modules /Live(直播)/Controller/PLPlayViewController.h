@@ -25,7 +25,8 @@ PLPlayerDelegate
 @property (nonatomic, strong) UIImage *thumbImage;
 /** 开始播放前的背景图片地址 */
 @property (nonatomic, strong) NSURL *thumbImageURL;
-
+/** 主播ID */
+@property (nonatomic, copy) NSString *anchorId;
 //是否启用手指滑动调节音量和亮度, default YES
 @property (nonatomic, assign) BOOL enableGesture;
 

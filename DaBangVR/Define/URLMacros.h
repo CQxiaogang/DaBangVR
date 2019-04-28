@@ -7,9 +7,9 @@
 //
 
 /**开发服务器*/
-#define URL_main @"http://www.vrzbgw.com/dabang"
+//#define URL_main @"http://www.vrzbgw.com/dabang"
 //#define URL_main @"http://192.168.1.114:8080" // 强
-//#define URL_main @"http://192.168.1.168:8080" // 邓
+#define URL_main @"http://192.168.1.168:8080" // 邓
 //#define URL_main @"http://192.168.1.109:8080" // 豪
 
 #pragma mark ——————   首页相关   ——————
@@ -113,6 +113,8 @@
 #define URl_getLiveStreamsList NSStringFormat(@"%@%@",URL_main,@"/api/pili/getLiveStreamsList")
 //获取可直播的商品列表
 #define URl_getLiveGoodgsList NSStringFormat(@"%@%@",URL_main,@"/api/pili/getLiveGoodgsList")
+//获取当前主播所关联的商品列表
+#define URl_getAnchorLiveGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/pili/getAnchorLiveGoodsList?")
 
 #pragma mark —————— 商家接口类 ——————
 //申请成为主播

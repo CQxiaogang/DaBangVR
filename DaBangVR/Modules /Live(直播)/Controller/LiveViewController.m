@@ -144,6 +144,7 @@ static NSString *cellID = @"cellID";
 -(void)tableViewDidSelectRowAtIndexPathForModel:(LiveModel *)model{
     PLPlayViewController *playController = [[PLPlayViewController alloc] init];
     playController.url = [NSURL URLWithString:model.hdlPlayURL];
+    playController.anchorId = model.anchorId;
     playController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:playController animated:YES];
 }

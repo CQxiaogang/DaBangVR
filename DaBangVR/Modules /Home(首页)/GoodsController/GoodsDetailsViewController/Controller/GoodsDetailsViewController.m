@@ -347,7 +347,6 @@ static NSString *CellID = @"CellID";
                 @"number" :array[1],
                 @"deptId" :self.model.deptId
                 };
-        
     }
     
     [NetWorkHelper POST:URl_addToCar parameters:dic success:^(id  _Nonnull responseObject) {

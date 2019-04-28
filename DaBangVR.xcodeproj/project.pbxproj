@@ -21,7 +21,6 @@
 		0404776E2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0404776C2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib */; };
 		040477722252FFA600EA6FFF /* SeasonAuthenticationViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 040477702252FFA600EA6FFF /* SeasonAuthenticationViewController2.m */; };
 		040477732252FFA600EA6FFF /* SeasonAuthenticationViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040477712252FFA600EA6FFF /* SeasonAuthenticationViewController2.xib */; };
-		0404C86E2267211100C5F7EB /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0404C86D2267211100C5F7EB /* DemoViewController.m */; };
 		0404C87122672DCB00C5F7EB /* PagingEnableLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0404C86F22672DCB00C5F7EB /* PagingEnableLayout.m */; };
 		04053B5A21FAE4A9001120FC /* UserInfoChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04053B5921FAE4A9001120FC /* UserInfoChangeModel.m */; };
 		0408156B221A9C85007A0B9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0408156A221A9C85007A0B9A /* QuartzCore.framework */; };
@@ -413,8 +412,6 @@
 		0404776F2252FFA600EA6FFF /* SeasonAuthenticationViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasonAuthenticationViewController2.h; sourceTree = "<group>"; };
 		040477702252FFA600EA6FFF /* SeasonAuthenticationViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasonAuthenticationViewController2.m; sourceTree = "<group>"; };
 		040477712252FFA600EA6FFF /* SeasonAuthenticationViewController2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonAuthenticationViewController2.xib; sourceTree = "<group>"; };
-		0404C86C2267211100C5F7EB /* DemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
-		0404C86D2267211100C5F7EB /* DemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		0404C86F22672DCB00C5F7EB /* PagingEnableLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagingEnableLayout.m; sourceTree = "<group>"; };
 		0404C87022672DCB00C5F7EB /* PagingEnableLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagingEnableLayout.h; sourceTree = "<group>"; };
 		04053B5821FAE4A9001120FC /* UserInfoChangeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoChangeModel.h; sourceTree = "<group>"; };
@@ -2400,8 +2397,6 @@
 				046DB316224B71A600C2CACB /* PLBaseViewController.m */,
 				046DB319224B71AE00C2CACB /* PLPlayViewController.h */,
 				046DB31A224B71AE00C2CACB /* PLPlayViewController.m */,
-				0404C86C2267211100C5F7EB /* DemoViewController.h */,
-				0404C86D2267211100C5F7EB /* DemoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3654,7 +3649,6 @@
 				04F50D1921D215E3004EBFE1 /* GoodsDetailsViewController.m in Sources */,
 				044665702237654300DF6F47 /* JXCategoryDotCellModel.m in Sources */,
 				0446657E2237654300DF6F47 /* JXCategoryFactory.m in Sources */,
-				0404C86E2267211100C5F7EB /* DemoViewController.m in Sources */,
 				044E6782223221E60077365D /* DDMySearchBar.m in Sources */,
 				04F4467821D74F5300524971 /* FeatureItemCell.m in Sources */,
 				046DB30E224B279700C2CACB /* TPCItem.m in Sources */,

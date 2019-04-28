@@ -15,4 +15,11 @@
     
 }
 
+- (void)setModel:(GoodsDetailsModel *)model{
+    _model = model;
+    [_goodsImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:kDefaultImg];
+    _goodsPrice.text = model.sellingPrice;
+    
+}
+
 @end
