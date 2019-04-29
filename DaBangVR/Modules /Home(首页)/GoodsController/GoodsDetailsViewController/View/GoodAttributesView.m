@@ -516,17 +516,18 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
     _good_img = good_img;
     [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:good_img] placeholderImage:nil];
 }
+
 - (void)setGood_name:(NSString *)good_name {
     _good_name = good_name;
     self.goodsNameLbl.text = good_name;
 }
+
 - (void)setGood_price:(NSString *)good_price {
     _good_price = good_price;
     self.goodsPriceLbl.text = [NSString stringWithFormat:@"%@元", good_price];
 }
 
 - (void)setModel:(GoodsDetailsModel *)model{
-    
     _model = model;
     _featureAttr  = [DBFeatureItem mj_objectArrayWithKeyValuesArray:_model.goodsSpecVoList];
     _goodsSpecArr = [ProductInfoVoListModel mj_objectArrayWithKeyValuesArray:_model.productInfoVoList];

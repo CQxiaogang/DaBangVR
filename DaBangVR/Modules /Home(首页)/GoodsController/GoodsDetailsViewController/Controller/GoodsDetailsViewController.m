@@ -54,7 +54,7 @@ static NSArray *globalArray;
 }
 static NSString *CellID = @"CellID";
 #pragma mark —— 懒加载
-- (GoodsDetailsModel *)model{
+- (GoodsDetailsModel *)         model{
     if (!_model) {
         _model = [GoodsDetailsModel new];
     }
@@ -83,7 +83,7 @@ static NSString *CellID = @"CellID";
     self.tableView.backgroundColor = KWhiteColor;
 }
 #pragma mark —— 数据
-- (void) loadingData{
+- (void)loadingData{
     kWeakSelf(self);
     // 商品详情
     [NetWorkHelper POST:URL_getGoodsDetails parameters:@{@"goodsId":weakself.index} success:^(id  _Nonnull responseObject) {

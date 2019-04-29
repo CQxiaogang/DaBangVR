@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GoodsDetailsModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 static NSInteger lastNum;
 
 @interface LiveShoppingCollectionViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) GoodsDetailsModel *model;
 
 @end
 

@@ -21,6 +21,7 @@
 /** 分页自定义layout */
 #import "PagingEnableLayout.h"
 #import "LiveShoppingCollectionViewCell.h"
+#import "GoodsDetailsModel.h"
 
 static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 @interface PLPlayViewController ()<PLPlayTopViewDelegate, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>{
@@ -48,6 +49,8 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 /** 点击按钮弹出键盘 */
 @property (nonatomic, strong) UITextView *commentText;
 @property (nonatomic, strong) UIView     *commentsView;
+
+@property (nonatomic, strong) NSArray <GoodsDetailsModel*> *goodsData;
 
 @end
 
@@ -127,6 +130,9 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     if ([WebSocketManager shared].connectType == WebSocketConnect) {
         [[WebSocketManager shared] sendDataToServer:[NSString stringWithFormat:@"%@:%@",curUser.nickName,_commentText.text]];
     }
+    //加载数据
+    [self loadingData];
+    
 }
 
 -(void)setupUI{
@@ -217,7 +223,13 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
         make.size.equalTo(CGSizeMake(250, 240));
     }];
 }
-
+-(void)loadingData{
+    kWeakSelf(self);
+    [NetWorkHelper POST:URl_getAnchorLiveGoodsList parameters:@{@"anchorId":_anchorId} success:^(id  _Nonnull responseObject) {
+        NSDictionary *goodsDetails = KJSONSerialization(responseObject)[@"data"];
+        weakself.goodsData = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:goodsDetails];
+    } failure:nil];
+}
 - (void)clickBaseButton:(UIButton *)button{
     switch (button.tag) {
         case 0:
@@ -317,10 +329,6 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     if (self.collectionView) {
         [self.collectionView removeFromSuperview];
     }
-    [NetWorkHelper POST:URl_getAnchorLiveGoodsList parameters:@{@"anchorId":_anchorId} success:^(id  _Nonnull responseObject) {
-        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
-        
-    } failure:nil];
     [self.view addSubview:self.collectionView];
     UIButton *Button = self.buttonArr[0];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -596,11 +604,12 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 
 #pragma mark —— UICollectionView 代理
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 5;
+    return _goodsData.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     LiveShoppingCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
+    cell.model = _goodsData[indexPath.row];
     return cell;
 }
 

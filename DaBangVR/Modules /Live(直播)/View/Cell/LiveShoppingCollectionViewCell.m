@@ -14,7 +14,7 @@
 #import "FeatureHeaderView.h"
 /** 增减数量控件 */
 #import "PPNumberButton.h"
-
+#import "ProductInfoVoListModel.h"
 
 static NSString *cellID = @"cellID";
 static NSString *FeatureItemCellID = @"FeatureItemCellID";
@@ -32,6 +32,10 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
 @property (nonatomic, strong) UICollectionView *collectionView;
 /** 增减数量控件 */
 @property (nonatomic, strong) PPNumberButton *numberButton;
+/* 商品规格展示的数据 */
+@property (strong , nonatomic)NSMutableArray <DBFeatureItem *> *featureAttr;
+/* 商品规格数据 */
+@property (strong , nonatomic)NSMutableArray <ProductInfoVoListModel *> *goodsSpecArr;
 @end
 
 @implementation LiveShoppingCollectionViewCell
@@ -147,13 +151,23 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
         [cell setWidth:KScreenW];
         [cell addSubview:self.numberButton];
     }
-    
     return cell;
 }
 
 #pragma mark —— HorizontalCollectionLayoutDelegate
 -(NSString *)collectionViewItemSizeWithIndexPath:(NSIndexPath *)indexPath{
-    return @"测试";
+    if (_featureAttr.count == 0) {
+        return @"无数据";
+    }
+    DBFeatureItem *item = _featureAttr[indexPath.section];
+    DBFeatureList *list = item.goodsSpecList[indexPath.row];
+    return list.value;
+}
+
+-(void)setModel:(GoodsDetailsModel *)model{
+    _model = model;
+    _featureAttr  = [DBFeatureItem mj_objectArrayWithKeyValuesArray:_model.goodsSpecVoList];
+    _goodsSpecArr = [ProductInfoVoListModel mj_objectArrayWithKeyValuesArray:_model.productInfoVoList];
 }
 
 @end
