@@ -6,13 +6,13 @@
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "LiveGoddsInfoTableViewCell.h"
+#import "LiveGoodsInfoTableViewCell.h"
 
-@interface LiveGoddsInfoTableViewCell ()
+@interface LiveGoodsInfoTableViewCell ()
 
 @end
 
-@implementation LiveGoddsInfoTableViewCell
+@implementation LiveGoodsInfoTableViewCell
 #pragma mark —— 懒加载
 
 - (void)awakeFromNib {

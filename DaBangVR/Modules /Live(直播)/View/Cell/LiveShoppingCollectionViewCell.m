@@ -8,7 +8,7 @@
 
 #import "LiveShoppingCollectionViewCell.h"
 /** 商品信息Cell */
-#import "LiveGoddsInfoTableViewCell.h"
+#import "LiveGoodsInfoTableViewCell.h"
 #import "CollectionHeaderLayout.h"
 #import "FeatureItemCell.h"
 #import "FeatureHeaderView.h"
@@ -32,10 +32,13 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
 @property (nonatomic, strong) UICollectionView *collectionView;
 /** 增减数量控件 */
 @property (nonatomic, strong) PPNumberButton *numberButton;
-/* 商品规格展示的数据 */
+/** 商品规格展示的数据 */
 @property (strong , nonatomic)NSMutableArray <DBFeatureItem *> *featureAttr;
-/* 商品规格数据 */
+/** 商品规格数据 */
 @property (strong , nonatomic)NSMutableArray <ProductInfoVoListModel *> *goodsSpecArr;
+/** 选择属性 */
+@property (strong , nonatomic)NSMutableArray *seleArray;
+@property (strong, nonatomic) NSMutableArray *goodsDetailsArr;
 @end
 
 @implementation LiveShoppingCollectionViewCell
@@ -47,7 +50,7 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
         _tableView.dataSource = self;
         _tableView.backgroundColor = KClearColor;
         _tableView.userInteractionEnabled = NO;
-        [_tableView registerNib:[UINib nibWithNibName:@"LiveGoddsInfoTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
+        [_tableView registerNib:[UINib nibWithNibName:@"LiveGoodsInfoTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
     }
     return _tableView;
 }
@@ -93,6 +96,13 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
     return _numberButton;
 }
 
+- (NSMutableArray *)goodsDetailsArr{
+    if (!_goodsDetailsArr) {
+        _goodsDetailsArr = [NSMutableArray new];
+    }
+    return _goodsDetailsArr;
+}
+
 #pragma mark —— 系统方法
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -122,7 +132,16 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    LiveGoddsInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    //重复添加
+    if (self.goodsDetailsArr) {
+        [self.goodsDetailsArr removeAllObjects];
+    }
+    LiveGoodsInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    if (_seleArray.count != _featureAttr.count && lastSeleArray.count != _featureAttr.count) {
+        [cell.goodsImgView setImageURL:[NSURL URLWithString:_model.listUrl]];
+        cell.goodsPrice.text = [NSString stringWithFormat:@"¥ %.2f",[_model.sellingPrice floatValue]*lastNum];
+        cell.goodsDetails.text = _model.title;
+    }
     return cell;
 }
 

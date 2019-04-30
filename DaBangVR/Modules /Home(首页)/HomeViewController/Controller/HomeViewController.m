@@ -119,7 +119,7 @@ ShufflingViewDelegate
 // 频道列表
 - (ChannelMenuListView *)channelMenuListView{
     if (!_channelMenuListView) {
-        _channelMenuListView = [[ChannelMenuListView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(130))];
+        _channelMenuListView = [[ChannelMenuListView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(168))];
         _channelMenuListView.delegate = self;
     }
     return _channelMenuListView;
@@ -397,7 +397,7 @@ ShufflingViewDelegate
 #pragma mark —— 新上
 - (void)setupNew:(UITableViewCell *)cell{
    
-    ShufflingView *view = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.mj_w, kFit(200)) andIndex:@"1"];
+    ShufflingView *view = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.mj_w, kFit(188)) andIndex:@"1"];
     view.delegate = self;
     [cell addSubview:view];
 }

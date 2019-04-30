@@ -13,11 +13,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="I9O-CH-Cm5" customClass="ChannelViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="65"/>
+            <rect key="frame" x="0.0" y="0.0" width="47" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="视屏" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6L-Vn-HFs" userLabel="标题">
-                    <rect key="frame" x="0.0" y="50" width="50" height="15"/>
+                    <rect key="frame" x="-1.5" y="55" width="50" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="g9c-mo-cZt">
                             <userDefinedRuntimeAttributes>
@@ -30,24 +30,24 @@
                             </userDefinedRuntimeAttributes>
                         </constraint>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.66930383439999996" green="0.66982263330000003" blue="0.66938418150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" red="0.396078431372549" green="0.38823529411764707" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
-                            <real key="value" value="12"/>
+                            <real key="value" value="11"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fuo-co-FTp">
-                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    <rect key="frame" x="0.0" y="0.0" width="47" height="47"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="Rw9-zo-cdG">
+                        <constraint firstAttribute="height" constant="47" id="Rw9-zo-cdG">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
-                        <constraint firstAttribute="width" constant="50" id="ZBV-pa-R63">
+                        <constraint firstAttribute="width" constant="47" id="ZBV-pa-R63">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -61,7 +61,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="g6L-Vn-HFs" firstAttribute="top" secondItem="Fuo-co-FTp" secondAttribute="bottom" id="1nM-n2-s5b"/>
+                <constraint firstItem="g6L-Vn-HFs" firstAttribute="top" secondItem="Fuo-co-FTp" secondAttribute="bottom" constant="8" id="1nM-n2-s5b"/>
                 <constraint firstItem="g6L-Vn-HFs" firstAttribute="centerX" secondItem="I9O-CH-Cm5" secondAttribute="centerX" id="IiK-dc-pAZ"/>
                 <constraint firstItem="Fuo-co-FTp" firstAttribute="top" secondItem="TbU-rr-L7d" secondAttribute="top" id="gpH-3g-qXQ"/>
                 <constraint firstItem="Fuo-co-FTp" firstAttribute="centerX" secondItem="I9O-CH-Cm5" secondAttribute="centerX" id="vgb-yH-9qH"/>
@@ -75,7 +75,7 @@
                 <outlet property="channelBtn" destination="Fuo-co-FTp" id="zB5-Sc-6ob"/>
                 <outlet property="channelTitle" destination="g6L-Vn-HFs" id="TE5-s5-rS8"/>
             </connections>
-            <point key="canvasLocation" x="96" y="90.854572713643179"/>
+            <point key="canvasLocation" x="95.200000000000003" y="92.653673163418304"/>
         </view>
     </objects>
     <resources>

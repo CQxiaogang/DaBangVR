@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "GoodsDetailsModel.h"
 
+/* 上一次选择的属性 */
+static NSArray *lastSeleArray;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /* 上一次选择的数量 */
