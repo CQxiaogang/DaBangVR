@@ -12,6 +12,7 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "PaymentManager.h"
 #import <PLMediaStreamingKit/PLMediaStreamingKit.h>
+#import <PLPlayerKit/PLPlayerKit.h>
 #import "WebSocketManager.h"
 
 @interface AppDelegate ()

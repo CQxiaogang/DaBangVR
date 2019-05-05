@@ -40,7 +40,6 @@
 		041A719C2249C8680059B19F /* OrderTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041A719B2249C8680059B19F /* OrderTableViewFooterView.xib */; };
 		041C0947225F2184008A38F0 /* ShouldBeginLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C0945225F2184008A38F0 /* ShouldBeginLiveViewController.m */; };
 		041C0948225F2184008A38F0 /* ShouldBeginLiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041C0946225F2184008A38F0 /* ShouldBeginLiveViewController.xib */; };
-		041C094F225F2681008A38F0 /* DidBeginLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C094E225F2681008A38F0 /* DidBeginLiveViewController.m */; };
 		041DC2B6224DB9F600BD1196 /* ShoppingLiveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041DC2B5224DB9F600BD1196 /* ShoppingLiveTableViewController.m */; };
 		041DC2B9224E1B8500BD1196 /* PLPlayTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041DC2B8224E1B8500BD1196 /* PLPlayTopView.m */; };
 		041DC2BB224E1BF200BD1196 /* PLPlayTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041DC2BA224E1BF200BD1196 /* PLPlayTopView.xib */; };
@@ -211,7 +210,6 @@
 		049D4766219FA91F0058178D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D4765219FA91F0058178D /* main.m */; };
 		049D4770219FA9200058178D /* DaBangVRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D476F219FA9200058178D /* DaBangVRTests.m */; };
 		049D477B219FA9200058178D /* DaBangVRUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D477A219FA9200058178D /* DaBangVRUITests.m */; };
-		049D478A219FAB880058178D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D4789219FAB880058178D /* AppDelegate.m */; };
 		049D4796219FB7710058178D /* DBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D4795219FB7710058178D /* DBTabBar.m */; };
 		049D4799219FE9480058178D /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D4798219FE9480058178D /* MainTabBarController.m */; };
 		049D479C219FEC1E0058178D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D479B219FEC1E0058178D /* HomeViewController.m */; };
@@ -220,6 +218,9 @@
 		04A3DA3021E9EF6400F689C7 /* GoodsShowListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */; };
 		04ACFA69223F3A93006783BF /* OrderProcessingFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACFA68223F3A93006783BF /* OrderProcessingFooterView.m */; };
 		04ACFA6B223F3AA6006783BF /* OrderProcessingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ACFA6A223F3AA6006783BF /* OrderProcessingFooterView.xib */; };
+		04BA61AD227EC4DE004E1FFD /* PLPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BA61AC227EC4DE004E1FFD /* PLPlayerKit.framework */; };
+		04BA61B4227EC8C0004E1FFD /* DidBeginLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA61B1227EC84C004E1FFD /* DidBeginLiveViewController.m */; };
+		04BA61B6227ECF30004E1FFD /* PLPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BA61B5227ECF30004E1FFD /* PLPlayerKit.framework */; };
 		04BF21832212B719002468C0 /* JXPagerListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF216F2212B719002468C0 /* JXPagerListContainerView.m */; };
 		04BF21842212B719002468C0 /* JXPagerMainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF21702212B719002468C0 /* JXPagerMainTableView.m */; };
 		04BF21852212B719002468C0 /* JXPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF21712212B719002468C0 /* JXPagerView.m */; };
@@ -235,6 +236,24 @@
 		04BF21982212CA71002468C0 /* MineCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BF21962212CA71002468C0 /* MineCollectionTableViewCell.xib */; };
 		04C1AD0E22116EF50011DDA3 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1AD0C22116EF50011DDA3 /* MineViewController.m */; };
 		04C1AD23221172770011DDA3 /* lufei.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04C1AD22221172770011DDA3 /* lufei.jpg */; };
+		04CAE99F227EC1D30071F790 /* ModifyAddressViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED4E21E349E000004178 /* ModifyAddressViewCell.m */; };
+		04CAE9A0227EC1DA0071F790 /* ModifyAddressViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8ED4F21E349E000004178 /* ModifyAddressViewCell.xib */; };
+		04CAE9A1227EC28C0071F790 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D4789219FAB880058178D /* AppDelegate.m */; };
+		04CAE9A4227EC3A10071F790 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9A3227EC3A10071F790 /* libbz2.tbd */; };
+		04CAE9A6227EC3B50071F790 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9A5227EC3B50071F790 /* VideoToolbox.framework */; };
+		04CAE9A8227EC3C70071F790 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9A7227EC3C70071F790 /* CoreMedia.framework */; };
+		04CAE9AA227EC3D30071F790 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9A9227EC3D30071F790 /* AVKit.framework */; };
+		04CAE9AC227EC3E90071F790 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9AB227EC3E90071F790 /* CoreVideo.framework */; };
+		04CAE9AE227EC3F50071F790 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9AD227EC3F50071F790 /* AVFoundation.framework */; };
+		04CAE9B0227EC4000071F790 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9AF227EC4000071F790 /* OpenGLES.framework */; };
+		04CAE9B2227EC4070071F790 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9B1227EC4070071F790 /* Accelerate.framework */; };
+		04CAE9B4227EC4130071F790 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9B3227EC4130071F790 /* AudioToolbox.framework */; };
+		04CAE9B6227EC41D0071F790 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9B5227EC41D0071F790 /* CoreAudio.framework */; };
+		04CAE9B8227EC4420071F790 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9B7227EC4420071F790 /* MediaPlayer.framework */; };
+		04CAE9BA227EC45E0071F790 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9B9227EC45E0071F790 /* UIKit.framework */; };
+		04CAE9BC227EC46A0071F790 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9BB227EC46A0071F790 /* libresolv.tbd */; };
+		04CAE9BE227EC4750071F790 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9BD227EC4750071F790 /* libiconv.tbd */; };
+		04CAE9C0227EC4840071F790 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAE9BF227EC4840071F790 /* Foundation.framework */; };
 		04D4EA6A22439C8600220D0A /* UIView+viewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D4EA6922439C8600220D0A /* UIView+viewStyle.m */; };
 		04D9C46921EA0706005F23FF /* NetWorkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D9C46821EA0706005F23FF /* NetWorkHelper.m */; };
 		04E0473221D36A42002DDB98 /* AllCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E0473121D36A42002DDB98 /* AllCommentsViewController.m */; };
@@ -338,8 +357,6 @@
 		04F8ED4421E32AC000004178 /* UserAdressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED4221E32AC000004178 /* UserAdressCell.m */; };
 		04F8ED4521E32AC000004178 /* UserAdressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8ED4321E32AC000004178 /* UserAdressCell.xib */; };
 		04F8ED4B21E3453800004178 /* ModifyAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED4A21E3453800004178 /* ModifyAddressViewController.m */; };
-		04F8ED5021E349E000004178 /* ModifyAddressViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8ED4E21E349E000004178 /* ModifyAddressViewCell.m */; };
-		04F8ED5121E349E000004178 /* ModifyAddressViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8ED4F21E349E000004178 /* ModifyAddressViewCell.xib */; };
 		04F8FBFA21F17E0200913150 /* AllCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8FBF821F17E0200913150 /* AllCommentsCell.m */; };
 		04F8FBFB21F17E0200913150 /* AllCommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8FBF921F17E0200913150 /* AllCommentsCell.xib */; };
 		04F8FBFE21F1ADE900913150 /* CommentsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8FBFD21F1ADE900913150 /* CommentsListModel.m */; };
@@ -440,8 +457,6 @@
 		041C0944225F2184008A38F0 /* ShouldBeginLiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShouldBeginLiveViewController.h; sourceTree = "<group>"; };
 		041C0945225F2184008A38F0 /* ShouldBeginLiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShouldBeginLiveViewController.m; sourceTree = "<group>"; };
 		041C0946225F2184008A38F0 /* ShouldBeginLiveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShouldBeginLiveViewController.xib; sourceTree = "<group>"; };
-		041C094D225F2681008A38F0 /* DidBeginLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DidBeginLiveViewController.h; sourceTree = "<group>"; };
-		041C094E225F2681008A38F0 /* DidBeginLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DidBeginLiveViewController.m; sourceTree = "<group>"; };
 		041DC2B4224DB9F600BD1196 /* ShoppingLiveTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoppingLiveTableViewController.h; sourceTree = "<group>"; };
 		041DC2B5224DB9F600BD1196 /* ShoppingLiveTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoppingLiveTableViewController.m; sourceTree = "<group>"; };
 		041DC2B7224E1B8500BD1196 /* PLPlayTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPlayTopView.h; sourceTree = "<group>"; };
@@ -766,6 +781,10 @@
 		04ACFA67223F3A93006783BF /* OrderProcessingFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderProcessingFooterView.h; sourceTree = "<group>"; };
 		04ACFA68223F3A93006783BF /* OrderProcessingFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderProcessingFooterView.m; sourceTree = "<group>"; };
 		04ACFA6A223F3AA6006783BF /* OrderProcessingFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderProcessingFooterView.xib; sourceTree = "<group>"; };
+		04BA61AC227EC4DE004E1FFD /* PLPlayerKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PLPlayerKit.framework; path = "Pods/PLPlayerKit/Pod/Library-Universal/PLPlayerKit.framework"; sourceTree = "<group>"; };
+		04BA61B1227EC84C004E1FFD /* DidBeginLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DidBeginLiveViewController.m; sourceTree = "<group>"; };
+		04BA61B2227EC84D004E1FFD /* DidBeginLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DidBeginLiveViewController.h; sourceTree = "<group>"; };
+		04BA61B5227ECF30004E1FFD /* PLPlayerKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PLPlayerKit.framework; sourceTree = "<group>"; };
 		04BF216F2212B719002468C0 /* JXPagerListContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerListContainerView.m; sourceTree = "<group>"; };
 		04BF21702212B719002468C0 /* JXPagerMainTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerMainTableView.m; sourceTree = "<group>"; };
 		04BF21712212B719002468C0 /* JXPagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerView.m; sourceTree = "<group>"; };
@@ -794,6 +813,21 @@
 		04C1AD0C22116EF50011DDA3 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		04C1AD0D22116EF50011DDA3 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		04C1AD22221172770011DDA3 /* lufei.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lufei.jpg; sourceTree = "<group>"; };
+		04CAE9A3227EC3A10071F790 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		04CAE9A5227EC3B50071F790 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		04CAE9A7227EC3C70071F790 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		04CAE9A9227EC3D30071F790 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		04CAE9AB227EC3E90071F790 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		04CAE9AD227EC3F50071F790 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		04CAE9AF227EC4000071F790 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		04CAE9B1227EC4070071F790 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		04CAE9B3227EC4130071F790 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		04CAE9B5227EC41D0071F790 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		04CAE9B7227EC4420071F790 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		04CAE9B9227EC45E0071F790 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		04CAE9BB227EC46A0071F790 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		04CAE9BD227EC4750071F790 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		04CAE9BF227EC4840071F790 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		04D4EA6822439C8600220D0A /* UIView+viewStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+viewStyle.h"; sourceTree = "<group>"; };
 		04D4EA6922439C8600220D0A /* UIView+viewStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+viewStyle.m"; sourceTree = "<group>"; };
 		04D9C46721EA0706005F23FF /* NetWorkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkHelper.h; sourceTree = "<group>"; };
@@ -1041,13 +1075,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BA61B6227ECF30004E1FFD /* PLPlayerKit.framework in Frameworks */,
 				0408156B221A9C85007A0B9A /* QuartzCore.framework in Frameworks */,
+				04BA61AD227EC4DE004E1FFD /* PLPlayerKit.framework in Frameworks */,
+				04CAE9C0227EC4840071F790 /* Foundation.framework in Frameworks */,
+				04F3CF2E21CB91A1007C40A1 /* CoreGraphics.framework in Frameworks */,
+				04CAE9BE227EC4750071F790 /* libiconv.tbd in Frameworks */,
+				04CAE9BC227EC46A0071F790 /* libresolv.tbd in Frameworks */,
+				04CAE9BA227EC45E0071F790 /* UIKit.framework in Frameworks */,
+				04CAE9B8227EC4420071F790 /* MediaPlayer.framework in Frameworks */,
+				04CAE9B6227EC41D0071F790 /* CoreAudio.framework in Frameworks */,
+				04CAE9B4227EC4130071F790 /* AudioToolbox.framework in Frameworks */,
+				04CAE9B2227EC4070071F790 /* Accelerate.framework in Frameworks */,
+				04CAE9B0227EC4000071F790 /* OpenGLES.framework in Frameworks */,
+				04CAE9AE227EC3F50071F790 /* AVFoundation.framework in Frameworks */,
+				04CAE9AC227EC3E90071F790 /* CoreVideo.framework in Frameworks */,
+				04CAE9AA227EC3D30071F790 /* AVKit.framework in Frameworks */,
+				04CAE9A8227EC3C70071F790 /* CoreMedia.framework in Frameworks */,
+				04CAE9A6227EC3B50071F790 /* VideoToolbox.framework in Frameworks */,
+				04CAE9A4227EC3A10071F790 /* libbz2.tbd in Frameworks */,
+				04F3CF0C21CB9008007C40A1 /* CoreTelephony.framework in Frameworks */,
 				04FC706E21AF8A4400E413AC /* SystemConfiguration.framework in Frameworks */,
 				04F3CF3221CB91EB007C40A1 /* libsqlite3.tbd in Frameworks */,
 				04F3CF3021CB91DB007C40A1 /* ImageIO.framework in Frameworks */,
-				04F3CF0C21CB9008007C40A1 /* CoreTelephony.framework in Frameworks */,
 				0410358621CCD2F2002CB32C /* libUMSocialLog.a in Frameworks */,
-				04F3CF2E21CB91A1007C40A1 /* CoreGraphics.framework in Frameworks */,
 				04FA5E1B21AE95710061AF27 /* libz.tbd in Frameworks */,
 				04FC707F21AF9BE000E413AC /* TencentOpenAPI.framework in Frameworks */,
 				04FA5E2321AE959E0061AF27 /* libc++.tbd in Frameworks */,
@@ -1869,8 +1920,8 @@
 		046DB310224B579C00C2CACB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				041C094D225F2681008A38F0 /* DidBeginLiveViewController.h */,
-				041C094E225F2681008A38F0 /* DidBeginLiveViewController.m */,
+				04BA61B2227EC84D004E1FFD /* DidBeginLiveViewController.h */,
+				04BA61B1227EC84C004E1FFD /* DidBeginLiveViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3177,6 +3228,23 @@
 		A44070A2CCEE5C6CDBC97FBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04BA61AC227EC4DE004E1FFD /* PLPlayerKit.framework */,
+				04BA61B5227ECF30004E1FFD /* PLPlayerKit.framework */,
+				04CAE9BF227EC4840071F790 /* Foundation.framework */,
+				04CAE9BD227EC4750071F790 /* libiconv.tbd */,
+				04CAE9BB227EC46A0071F790 /* libresolv.tbd */,
+				04CAE9B9227EC45E0071F790 /* UIKit.framework */,
+				04CAE9B7227EC4420071F790 /* MediaPlayer.framework */,
+				04CAE9B5227EC41D0071F790 /* CoreAudio.framework */,
+				04CAE9B3227EC4130071F790 /* AudioToolbox.framework */,
+				04CAE9B1227EC4070071F790 /* Accelerate.framework */,
+				04CAE9AF227EC4000071F790 /* OpenGLES.framework */,
+				04CAE9AD227EC3F50071F790 /* AVFoundation.framework */,
+				04CAE9AB227EC3E90071F790 /* CoreVideo.framework */,
+				04CAE9A9227EC3D30071F790 /* AVKit.framework */,
+				04CAE9A7227EC3C70071F790 /* CoreMedia.framework */,
+				04CAE9A5227EC3B50071F790 /* VideoToolbox.framework */,
+				04CAE9A3227EC3A10071F790 /* libbz2.tbd */,
 				0408156A221A9C85007A0B9A /* QuartzCore.framework */,
 				04F3CF3121CB91EB007C40A1 /* libsqlite3.tbd */,
 				04F3CF2F21CB91DB007C40A1 /* ImageIO.framework */,
@@ -3310,6 +3378,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CAE9A0227EC1DA0071F790 /* ModifyAddressViewCell.xib in Resources */,
 				042FCECD21A3F1B7002AD0DB /* HomeNewAndHotGoodsView.xib in Resources */,
 				04F45F1C21F5B7DE009F5907 /* RightSecondsKillCell.xib in Resources */,
 				04BF21982212CA71002468C0 /* MineCollectionTableViewCell.xib in Resources */,
@@ -3380,7 +3449,6 @@
 				048F79BE2272E88E00407050 /* DidBeginLiveAnchorInfoView.xib in Resources */,
 				045EF189223BB1180051E029 /* OrderProcessingHeaderView.xib in Resources */,
 				044250B822277FE400E9F64E /* TimeChooseView.xib in Resources */,
-				04F8ED5121E349E000004178 /* ModifyAddressViewCell.xib in Resources */,
 				04F8FBFB21F17E0200913150 /* AllCommentsCell.xib in Resources */,
 				048F79CB2272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.xib in Resources */,
 				0410358221CCD2F2002CB32C /* UMSocialSDKPromptResources.bundle in Resources */,
@@ -3421,7 +3489,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-DaBangVR/Pods-DaBangVR-frameworks.sh",
 				"${PODS_ROOT}/PLMediaStreamingKit/Pod/Library/PLMediaStreamingKit.framework",
 				"${PODS_ROOT}/PLMediaStreamingKit/Pod/Library/HappyDNS.framework",
-				"${PODS_ROOT}/PLPlayerKit/Pod/Library/PLPlayerKit.framework",
+				"${PODS_ROOT}/PLPlayerKit/Pod/Library-Universal/PLPlayerKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -3485,6 +3553,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BA61B4227EC8C0004E1FFD /* DidBeginLiveViewController.m in Sources */,
+				04CAE9A1227EC28C0071F790 /* AppDelegate.m in Sources */,
+				04CAE99F227EC1D30071F790 /* ModifyAddressViewCell.m in Sources */,
 				0446657D2237654300DF6F47 /* JXCategoryListContainerView.m in Sources */,
 				044665622237654300DF6F47 /* JXCategoryTitleVerticalZoomView.m in Sources */,
 				04F62FD521F951440094B26F /* ShoppingCartModel.m in Sources */,
@@ -3552,7 +3623,6 @@
 				044E6781223221E60077365D /* UIColor+DD.m in Sources */,
 				04BF21832212B719002468C0 /* JXPagerListContainerView.m in Sources */,
 				04F70C6921E98D35004BD4C6 /* AnchorRecommendView.m in Sources */,
-				041C094F225F2681008A38F0 /* DidBeginLiveViewController.m in Sources */,
 				04ECB9F822422C7300A02DB2 /* DHGuidePageHUD.m in Sources */,
 				04FDDA3F226EF6F6008E456D /* DB_BounceView.m in Sources */,
 				04F2FD2E21EF479D000B58E2 /* GoodsShowTableViewController.m in Sources */,
@@ -3610,7 +3680,6 @@
 				043B468E21F8682100C75536 /* LeaveMessageViewController.m in Sources */,
 				049D479C219FEC1E0058178D /* HomeViewController.m in Sources */,
 				0423DADF21FFF52700325869 /* NewProductLaunchViewController.m in Sources */,
-				04F8ED5021E349E000004178 /* ModifyAddressViewCell.m in Sources */,
 				04ECB9F722422C7300A02DB2 /* DHGifImageOperation.m in Sources */,
 				044665612237654300DF6F47 /* JXCategoryTitleVerticalZoomCell.m in Sources */,
 				045A6FEB2223F49B006081CF /* HorizontalCollectionView.m in Sources */,
@@ -3737,7 +3806,6 @@
 				043B468421F80CB200C75536 /* UserAddressModel.m in Sources */,
 				04765434226D72FF00289AA7 /* CDSideBarController.m in Sources */,
 				044665822237654300DF6F47 /* JXCategoryListCollectionContainerView.m in Sources */,
-				049D478A219FAB880058178D /* AppDelegate.m in Sources */,
 				048F79BC2272E87D00407050 /* DidBeginLiveAnchorInfoView.m in Sources */,
 				04F2E4592248C627001FB3C1 /* LiveCollectionViewCell.m in Sources */,
 				044665672237654300DF6F47 /* JXCategoryIndicatorBallView.m in Sources */,
@@ -3929,6 +3997,7 @@
 					"$(PROJECT_DIR)/DaBangVR/Utils/common/common_ios_1.5.3/normal",
 					"$(PROJECT_DIR)/DaBangVR/ThridParty/UMSocial/UMSocialUI",
 					"$(PROJECT_DIR)/DaBangVR/ThridParty/UMSocial/UMSocialSDK",
+					"$(PROJECT_DIR)/Pods/PLPlayerKit/Pod/Library-Universal",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -3972,6 +4041,7 @@
 					"$(PROJECT_DIR)/DaBangVR/Utils/common/common_ios_1.5.3/normal",
 					"$(PROJECT_DIR)/DaBangVR/ThridParty/UMSocial/UMSocialUI",
 					"$(PROJECT_DIR)/DaBangVR/ThridParty/UMSocial/UMSocialSDK",
+					"$(PROJECT_DIR)/Pods/PLPlayerKit/Pod/Library-Universal",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_OPTIMIZATION_LEVEL = s;

@@ -17,33 +17,25 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esU-QZ-iS1" userLabel="定位">
-                    <rect key="frame" x="5" y="7" width="23.5" height="29"/>
+                    <rect key="frame" x="9.5" y="9.5" width="20.5" height="25"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="29" id="RvJ-9s-3T6">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                            </userDefinedRuntimeAttributes>
-                        </constraint>
-                        <constraint firstAttribute="width" constant="23.5" id="Zpf-1d-Quz">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                            </userDefinedRuntimeAttributes>
-                        </constraint>
+                        <constraint firstAttribute="height" constant="25" id="USp-MV-lSd"/>
+                        <constraint firstAttribute="width" constant="20.5" id="aFJ-kV-GFv"/>
                     </constraints>
                     <state key="normal" image="h_Position"/>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vaq-gN-Mfw" userLabel="搜索框">
-                    <rect key="frame" x="62.5" y="6.5" width="250" height="30"/>
+                    <rect key="frame" x="62.5" y="7" width="250" height="30"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xk5-Fa-3uT" userLabel="搜索">
-                            <rect key="frame" x="10" y="5.5" width="20.5" height="19.5"/>
+                            <rect key="frame" x="11" y="6" width="20.5" height="18"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="19.5" id="9X5-jM-wW3">
+                                <constraint firstAttribute="height" constant="18" id="GKj-jw-nMd">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </constraint>
-                                <constraint firstAttribute="width" constant="20.5" id="ToY-Fo-OFc">
+                                <constraint firstAttribute="width" constant="20.5" id="qwn-es-POZ">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                                     </userDefinedRuntimeAttributes>
@@ -52,23 +44,38 @@
                             <state key="normal" image="h_Search"/>
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwy-ht-qkw" userLabel="扫码">
-                            <rect key="frame" x="219.5" y="5.5" width="20.5" height="19.5"/>
+                            <rect key="frame" x="220.5" y="6" width="18.5" height="18.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18.5" id="YdZ-Nf-n7S">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstAttribute="width" constant="18.5" id="opG-po-hHv">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                            </constraints>
                             <state key="normal" image="h_Scan"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="Xk5-Fa-3uT" firstAttribute="leading" secondItem="Jba-1u-Ont" secondAttribute="leading" constant="10" id="Bpi-Za-WXv"/>
-                        <constraint firstAttribute="width" constant="250" id="CRb-pK-FtR">
+                        <constraint firstItem="Xk5-Fa-3uT" firstAttribute="centerY" secondItem="vaq-gN-Mfw" secondAttribute="centerY" id="0ul-0O-hBG"/>
+                        <constraint firstAttribute="width" constant="250" id="Cnx-Lj-i8r">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
-                        <constraint firstItem="iwy-ht-qkw" firstAttribute="height" secondItem="Xk5-Fa-3uT" secondAttribute="height" id="Nia-YJ-kTx"/>
-                        <constraint firstItem="iwy-ht-qkw" firstAttribute="width" secondItem="Xk5-Fa-3uT" secondAttribute="width" id="Uy0-ZS-kwj"/>
-                        <constraint firstItem="iwy-ht-qkw" firstAttribute="centerY" secondItem="Xk5-Fa-3uT" secondAttribute="centerY" id="YUl-mQ-FFj"/>
-                        <constraint firstItem="Jba-1u-Ont" firstAttribute="trailing" secondItem="iwy-ht-qkw" secondAttribute="trailing" constant="10" id="ekK-rG-0W8"/>
-                        <constraint firstAttribute="height" constant="30" id="heL-mR-Ic4"/>
+                        <constraint firstItem="Xk5-Fa-3uT" firstAttribute="leading" secondItem="vaq-gN-Mfw" secondAttribute="leading" constant="11" id="GgM-ij-fAP"/>
+                        <constraint firstAttribute="trailing" secondItem="iwy-ht-qkw" secondAttribute="trailing" constant="11" id="Jov-rj-1sa"/>
+                        <constraint firstAttribute="height" constant="30" id="aCz-eX-yQN">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstItem="iwy-ht-qkw" firstAttribute="centerY" secondItem="vaq-gN-Mfw" secondAttribute="centerY" id="xKb-CT-Kbz"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="Jba-1u-Ont"/>
                     <userDefinedRuntimeAttributes>
@@ -78,18 +85,10 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSK-7e-BwD" userLabel="购物车">
-                    <rect key="frame" x="339" y="7.5" width="31" height="29"/>
+                    <rect key="frame" x="338.5" y="9.5" width="27" height="25"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="31" id="50F-Xd-aGU">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                            </userDefinedRuntimeAttributes>
-                        </constraint>
-                        <constraint firstAttribute="height" constant="29" id="Jkg-ZZ-sI5">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                            </userDefinedRuntimeAttributes>
-                        </constraint>
+                        <constraint firstAttribute="height" constant="25" id="t4B-hy-QCG"/>
+                        <constraint firstAttribute="width" constant="27" id="zhS-Rh-yB9"/>
                     </constraints>
                     <state key="normal" image="h_Cart"/>
                     <connections>
@@ -99,14 +98,12 @@
             </subviews>
             <color key="backgroundColor" red="0.094376392662525177" green="0.85904419422149658" blue="0.86259275674819946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="esU-QZ-iS1" firstAttribute="leading" secondItem="tXN-2M-egq" secondAttribute="leading" constant="5" id="Qpu-pZ-b0v"/>
-                <constraint firstItem="Xk5-Fa-3uT" firstAttribute="centerY" secondItem="esU-QZ-iS1" secondAttribute="centerY" id="Qsi-6f-3uG"/>
-                <constraint firstItem="vaq-gN-Mfw" firstAttribute="centerY" secondItem="esU-QZ-iS1" secondAttribute="centerY" id="aVa-6u-m8Q"/>
-                <constraint firstItem="esU-QZ-iS1" firstAttribute="top" secondItem="tXN-2M-egq" secondAttribute="top" constant="7" id="bQn-AQ-wWC"/>
-                <constraint firstItem="vaq-gN-Mfw" firstAttribute="centerX" secondItem="Gb9-0R-2HT" secondAttribute="centerX" id="exP-Ez-Kev"/>
-                <constraint firstItem="iwy-ht-qkw" firstAttribute="centerY" secondItem="esU-QZ-iS1" secondAttribute="centerY" id="qP8-lS-Wuv"/>
-                <constraint firstItem="tXN-2M-egq" firstAttribute="trailing" secondItem="sSK-7e-BwD" secondAttribute="trailing" constant="5" id="rnk-ee-vmg"/>
-                <constraint firstItem="sSK-7e-BwD" firstAttribute="centerY" secondItem="Gb9-0R-2HT" secondAttribute="centerY" id="y52-Pq-Fi2"/>
+                <constraint firstItem="tXN-2M-egq" firstAttribute="trailing" secondItem="sSK-7e-BwD" secondAttribute="trailing" constant="9.5" id="0Bc-f5-dDF"/>
+                <constraint firstItem="esU-QZ-iS1" firstAttribute="leading" secondItem="tXN-2M-egq" secondAttribute="leading" constant="9.5" id="9Zb-Ah-pOa"/>
+                <constraint firstItem="vaq-gN-Mfw" firstAttribute="centerX" secondItem="Gb9-0R-2HT" secondAttribute="centerX" id="pjA-jY-J3u"/>
+                <constraint firstItem="sSK-7e-BwD" firstAttribute="centerY" secondItem="Gb9-0R-2HT" secondAttribute="centerY" id="qvg-2D-XO6"/>
+                <constraint firstItem="vaq-gN-Mfw" firstAttribute="centerY" secondItem="Gb9-0R-2HT" secondAttribute="centerY" id="rcc-D0-vSe"/>
+                <constraint firstItem="esU-QZ-iS1" firstAttribute="centerY" secondItem="Gb9-0R-2HT" secondAttribute="centerY" id="yv6-Wt-s0p"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="tXN-2M-egq"/>

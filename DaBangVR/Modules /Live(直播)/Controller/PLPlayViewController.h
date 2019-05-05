@@ -8,7 +8,7 @@
 
 #import "PLBaseViewController.h"
 /** 七牛云直播 */
-//#import <PLPlayerKit/PLPlayerKit.h>
+#import <PLPlayerKit/PLPlayerKit.h>
 
 @interface PLPlayViewController : PLBaseViewController
 <

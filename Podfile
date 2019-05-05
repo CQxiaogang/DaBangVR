@@ -13,7 +13,7 @@ pod 'IQKeyboardManager' #iOS8 and later
 pod 'WechatOpenSDK'
 pod 'QQCorner'
 pod 'PLMediaStreamingKit'
-pod 'PLPlayerKit'
+pod "PLPlayerKit", :podspec => 'https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec'
 pod 'AZCategory'
 pod 'JGProgressHUD'
 pod 'MMMaterialDesignSpinner'

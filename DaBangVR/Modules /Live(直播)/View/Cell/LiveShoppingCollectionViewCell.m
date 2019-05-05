@@ -108,20 +108,37 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
     [super awakeFromNib];
     //设置UI
     [self setupUI];
+    
+    _featureAttr = [NSMutableArray new];
+    _seleArray   = [NSMutableArray new];
 }
 
 -(void)setupUI{
-    kWeakSelf(self);
+    
     [self addSubview:self.tableView];
+    [self addSubview:self.collectionView];
+    [self addSubview:self.numberButton];
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    
+    kWeakSelf(self);
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(0);
         make.height.equalTo(70);
     }];
-    [self addSubview:self.collectionView];
+    
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(0);
         make.top.equalTo(weakself.tableView.mas_bottom).offset(0);
         make.bottom.equalTo(weakself.addShoppingCarBtn.mas_top).offset(0);
+    }];
+    
+    [self.numberButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(5);
+        make.bottom.equalTo(weakself.addShoppingCarBtn.mas_top).offset(-10);
+        make.size.equalTo(CGSizeMake(80, 25));
     }];
 }
 
@@ -137,11 +154,9 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
         [self.goodsDetailsArr removeAllObjects];
     }
     LiveGoodsInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-    if (_seleArray.count != _featureAttr.count && lastSeleArray.count != _featureAttr.count) {
-        [cell.goodsImgView setImageURL:[NSURL URLWithString:_model.listUrl]];
-        cell.goodsPrice.text = [NSString stringWithFormat:@"¥ %.2f",[_model.sellingPrice floatValue]*lastNum];
-        cell.goodsDetails.text = _model.title;
-    }
+    [cell.goodsImgView setImageURL:[NSURL URLWithString:_model.listUrl]];
+    cell.goodsPrice.text = [NSString stringWithFormat:@"¥ %.2f",[_model.sellingPrice floatValue]*lastNum];
+    cell.goodsDetails.text = _model.title;
     return cell;
 }
 
@@ -151,33 +166,34 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
 
 #pragma mark —— UICollectionView
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 3;
+    return _featureAttr.count;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (section == 3-1) {
-        return 1;
-    }else{
-        return 3;
-    }
+    return _featureAttr[section].goodsSpecList.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FeatureItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeatureItemCellID forIndexPath:indexPath];
-    cell.backgroundColor = KRandomColor;
-    if (indexPath.section == 2) {
-        cell.backgroundColor = KClearColor;
-        [cell setWidth:KScreenW];
-        [cell addSubview:self.numberButton];
+    if (_featureAttr.count != 0) {
+        cell.content = _featureAttr[indexPath.section].goodsSpecList[indexPath.row];
     }
     return cell;
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        FeatureHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:FeatureHeaderViewCellID forIndexPath:indexPath];
+        headerView.headTitle = _featureAttr[indexPath.section].name;
+        return headerView;
+    }else{
+        UICollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:FeatureFooterViewCellID forIndexPath:indexPath];
+        return footerView;
+    }
+}
+
 #pragma mark —— HorizontalCollectionLayoutDelegate
 -(NSString *)collectionViewItemSizeWithIndexPath:(NSIndexPath *)indexPath{
-    if (_featureAttr.count == 0) {
-        return @"无数据";
-    }
     DBFeatureItem *item = _featureAttr[indexPath.section];
     DBFeatureList *list = item.goodsSpecList[indexPath.row];
     return list.value;
@@ -187,6 +203,7 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
     _model = model;
     _featureAttr  = [DBFeatureItem mj_objectArrayWithKeyValuesArray:_model.goodsSpecVoList];
     _goodsSpecArr = [ProductInfoVoListModel mj_objectArrayWithKeyValuesArray:_model.productInfoVoList];
+    [_tableView reloadData];
 }
 
 @end
