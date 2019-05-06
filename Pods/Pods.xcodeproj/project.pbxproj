@@ -928,6 +928,7 @@
 		63C6FB174067F8D40334A7658CF15417 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		64042D3D2E98E3929F68AB0824B4F886 /* IQNSArray+Sort.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQNSArray+Sort.m"; path = "IQKeyboardManager/Categories/IQNSArray+Sort.m"; sourceTree = "<group>"; };
 		641E487A47D07197CD7B140BF0FA6466 /* IQKeyboardReturnKeyHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQKeyboardReturnKeyHandler.m; path = IQKeyboardManager/IQKeyboardReturnKeyHandler.m; sourceTree = "<group>"; };
+		647EC63265BFB1298056474618A71F9C /* PLPlayerKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PLPlayerKit.framework; path = Pod/Library/PLPlayerKit.framework; sourceTree = "<group>"; };
 		64F5DA778EA2BBAB15E295F1B01A767B /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		65DB73A62FECFE66B05ECD7882C51386 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDecoder.h; path = SDWebImage/SDWebImageDecoder.h; sourceTree = "<group>"; };
 		6609245E3D005B7B3E5D01B7D2F335DE /* SRWebSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRWebSocket.m; path = SocketRocket/SRWebSocket.m; sourceTree = "<group>"; };
@@ -1239,7 +1240,6 @@
 		E12FEAB3575F0D4ADDD6758D2607410D /* MJPropertyType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJPropertyType.h; path = MJExtension/MJPropertyType.h; sourceTree = "<group>"; };
 		E1FB8D48F933BBCCD13C68C730D462AE /* MKAnnotationView+YYWebImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MKAnnotationView+YYWebImage.m"; path = "YYKit/Image/Categories/MKAnnotationView+YYWebImage.m"; sourceTree = "<group>"; };
 		E31C1CD8855EF0C5979DB9CA92AFB7AF /* QNMD5.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNMD5.h; path = HappyDNS/Util/QNMD5.h; sourceTree = "<group>"; };
-		E418E2D7AFDF9A55F4815B21DAAA1136 /* PLPlayerKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PLPlayerKit.framework; path = "Pod/Library-Universal/PLPlayerKit.framework"; sourceTree = "<group>"; };
 		E419E1B2E6487D6A824886D7808A6553 /* UIControl+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIControl+YYAdd.h"; path = "YYKit/Base/UIKit/UIControl+YYAdd.h"; sourceTree = "<group>"; };
 		E42E3EBE1F10C28D8D2C63F7374DD92D /* UIScreen+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScreen+YYAdd.m"; path = "YYKit/Base/UIKit/UIScreen+YYAdd.m"; sourceTree = "<group>"; };
 		E440B562180528493A5CBCC30B1AB0BB /* YYKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYKit.xcconfig; sourceTree = "<group>"; };
@@ -1694,6 +1694,15 @@
 			path = "Target Support Files/Pods-DaBangVR";
 			sourceTree = "<group>";
 		};
+		332FF2FF958C4C23ACE9B7B6019E314A /* PLPlayerKit */ = {
+			isa = PBXGroup;
+			children = (
+				58AC21FAA71293F24CE6BE005A1E8CF6 /* iphoneos */,
+			);
+			name = PLPlayerKit;
+			path = PLPlayerKit;
+			sourceTree = "<group>";
+		};
 		38747FD603286BE1B2EDB19EBE7DF5E1 /* NSURLSession */ = {
 			isa = PBXGroup;
 			children = (
@@ -1807,12 +1816,12 @@
 			path = "../Target Support Files/YYKit";
 			sourceTree = "<group>";
 		};
-		5A820B7B6E4C386EB77F7DE24214DAB9 /* universal */ = {
+		58AC21FAA71293F24CE6BE005A1E8CF6 /* iphoneos */ = {
 			isa = PBXGroup;
 			children = (
-				D28220C8657BC6D8B008BB4975B2CC47 /* Frameworks */,
+				A3353F22C14BCADF2A73DAC9F438E82F /* Frameworks */,
 			);
-			name = universal;
+			name = iphoneos;
 			sourceTree = "<group>";
 		};
 		5F8BAF6FA0B509033556AF49F9A311FD /* mob_smssdk */ = {
@@ -1906,7 +1915,7 @@
 				5F8BAF6FA0B509033556AF49F9A311FD /* mob_smssdk */,
 				F920DA22D8E6AE2742C2E3604F5035DA /* MOBFoundation */,
 				2590F6850B186C9CB5455281C443BEE7 /* PLMediaStreamingKit */,
-				D65529854CB89850E35D694E64E828FE /* PLPlayerKit */,
+				332FF2FF958C4C23ACE9B7B6019E314A /* PLPlayerKit */,
 				877402B0FBC94FE002388D3313FFD776 /* Qiniu */,
 				09B2509AD049051E301D5FACF2C731C2 /* QQCorner */,
 				6FE16B47D71213FC926EE123214333D0 /* SDWebImage */,
@@ -2249,6 +2258,14 @@
 			path = "../Target Support Files/Masonry";
 			sourceTree = "<group>";
 		};
+		A3353F22C14BCADF2A73DAC9F438E82F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				647EC63265BFB1298056474618A71F9C /* PLPlayerKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AAD5BF9DF06A69CFFD9088C20C2C2E32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2441,29 +2458,12 @@
 			name = SafeArea;
 			sourceTree = "<group>";
 		};
-		D28220C8657BC6D8B008BB4975B2CC47 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E418E2D7AFDF9A55F4815B21DAAA1136 /* PLPlayerKit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		D604AD25117AD34A368215600BBFD936 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				14728F945C1094797065681BDC5A34BF /* WebP.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D65529854CB89850E35D694E64E828FE /* PLPlayerKit */ = {
-			isa = PBXGroup;
-			children = (
-				5A820B7B6E4C386EB77F7DE24214DAB9 /* universal */,
-			);
-			name = PLPlayerKit;
-			path = PLPlayerKit;
 			sourceTree = "<group>";
 		};
 		DD1B73AD4340B97FD908590ACC7AEC92 /* Support Files */ = {

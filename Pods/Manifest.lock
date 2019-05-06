@@ -38,8 +38,8 @@ PODS:
     - PLMediaStreamingKit/iphoneos (= 2.3.3)
   - PLMediaStreamingKit/iphoneos (2.3.3)
   - PLPlayerKit (3.4.1):
-    - PLPlayerKit/universal (= 3.4.1)
-  - PLPlayerKit/universal (3.4.1)
+    - PLPlayerKit/iphoneos (= 3.4.1)
+  - PLPlayerKit/iphoneos (3.4.1)
   - Qiniu (7.2.5):
     - HappyDNS (~> 0.3)
   - QQCorner (1.1.0)
@@ -65,7 +65,7 @@ DEPENDENCIES:
   - MMMaterialDesignSpinner
   - mob_smssdk
   - PLMediaStreamingKit
-  - PLPlayerKit (from `https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec`)
+  - PLPlayerKit
   - Qiniu
   - QQCorner
   - SDWebImage (~> 3.7.6)
@@ -89,6 +89,7 @@ SPEC REPOS:
     - mob_smssdk
     - MOBFoundation
     - PLMediaStreamingKit
+    - PLPlayerKit
     - Qiniu
     - QQCorner
     - SDWebImage
@@ -96,10 +97,6 @@ SPEC REPOS:
     - SVProgressHUD
     - WechatOpenSDK
     - YYKit
-
-EXTERNAL SOURCES:
-  PLPlayerKit:
-    :podspec: https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -115,7 +112,7 @@ SPEC CHECKSUMS:
   mob_smssdk: cdb6a31d4fd4667ed928e2eca03f21ad89ebc05c
   MOBFoundation: ca11e6640e995875ff755faa56ea324eed260e70
   PLMediaStreamingKit: 762e312dd088b1b487c5b7f3a59b56231d1cbb71
-  PLPlayerKit: 8dbda4525878842315e0ae6329dcefa7b5d8cc7e
+  PLPlayerKit: ebec9d70b66a95d1770b2dc5107fe2a469454a28
   Qiniu: 909b408ee489ea54827e9717be90b94bc9dfbc48
   QQCorner: cc97664d4d8e5b152be16d04fd5f9b721515b19f
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
@@ -124,6 +121,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: cffca01fb2223f8638c5eec903371600c39ddc89
+PODFILE CHECKSUM: ceb01c1c603227c0c8224a28e06429d657459eb2
 
 COCOAPODS: 1.5.3

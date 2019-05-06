@@ -1,1 +1,1 @@
-../../../../PLPlayerKit/Pod/Library-Universal/PLPlayerKit.framework/Headers/PLPlayerKit.h
+../../../../PLPlayerKit/Pod/Library/PLPlayerKit.framework/Headers/PLPlayerKit.h

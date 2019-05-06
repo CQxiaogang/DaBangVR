@@ -218,9 +218,7 @@
 		04A3DA3021E9EF6400F689C7 /* GoodsShowListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */; };
 		04ACFA69223F3A93006783BF /* OrderProcessingFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACFA68223F3A93006783BF /* OrderProcessingFooterView.m */; };
 		04ACFA6B223F3AA6006783BF /* OrderProcessingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ACFA6A223F3AA6006783BF /* OrderProcessingFooterView.xib */; };
-		04BA61AD227EC4DE004E1FFD /* PLPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BA61AC227EC4DE004E1FFD /* PLPlayerKit.framework */; };
 		04BA61B4227EC8C0004E1FFD /* DidBeginLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA61B1227EC84C004E1FFD /* DidBeginLiveViewController.m */; };
-		04BA61B6227ECF30004E1FFD /* PLPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BA61B5227ECF30004E1FFD /* PLPlayerKit.framework */; };
 		04BF21832212B719002468C0 /* JXPagerListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF216F2212B719002468C0 /* JXPagerListContainerView.m */; };
 		04BF21842212B719002468C0 /* JXPagerMainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF21702212B719002468C0 /* JXPagerMainTableView.m */; };
 		04BF21852212B719002468C0 /* JXPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF21712212B719002468C0 /* JXPagerView.m */; };
@@ -1075,9 +1073,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04BA61B6227ECF30004E1FFD /* PLPlayerKit.framework in Frameworks */,
 				0408156B221A9C85007A0B9A /* QuartzCore.framework in Frameworks */,
-				04BA61AD227EC4DE004E1FFD /* PLPlayerKit.framework in Frameworks */,
 				04CAE9C0227EC4840071F790 /* Foundation.framework in Frameworks */,
 				04F3CF2E21CB91A1007C40A1 /* CoreGraphics.framework in Frameworks */,
 				04CAE9BE227EC4750071F790 /* libiconv.tbd in Frameworks */,
@@ -3489,7 +3485,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-DaBangVR/Pods-DaBangVR-frameworks.sh",
 				"${PODS_ROOT}/PLMediaStreamingKit/Pod/Library/PLMediaStreamingKit.framework",
 				"${PODS_ROOT}/PLMediaStreamingKit/Pod/Library/HappyDNS.framework",
-				"${PODS_ROOT}/PLPlayerKit/Pod/Library-Universal/PLPlayerKit.framework",
+				"${PODS_ROOT}/PLPlayerKit/Pod/Library/PLPlayerKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
