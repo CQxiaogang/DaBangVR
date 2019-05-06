@@ -86,11 +86,10 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
         _numberButton.decreaseTitle = @"－";
         _numberButton.delegate = self;
         _numberButton.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.4];
-//        lastNum = (lastNum == 0) ? 1:lastNum;
-//        _numberButton.currentNumber = lastNum;
-//        kWeakSelf(self);
+        kWeakSelf(self);
         _numberButton.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
-            lastNum = num;
+            curNum = num;
+            [weakself.tableView  reloadData];
         };
     }
     return _numberButton;
@@ -110,7 +109,14 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
     [self setupUI];
     
     _featureAttr = [NSMutableArray new];
-    _seleArray   = [NSMutableArray new];
+    //解决CollectionView cell 无法点击
+    /**
+     解决方法L：ViewController 中应该设置了一个手势(UITapGestureRecognizer)，与UICollectionView的点击事件冲突，
+     这个手势的覆盖区域应该与UICollectionView的监听区域冲突了，去掉这个手势，后者是处理一下这个手势的覆盖范围即可。
+     */
+    UITapGestureRecognizer *contentViewTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:nil];
+    contentViewTapGesture.cancelsTouchesInView = false;
+    [self addGestureRecognizer:contentViewTapGesture];
 }
 
 -(void)setupUI{
@@ -154,9 +160,29 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
         [self.goodsDetailsArr removeAllObjects];
     }
     LiveGoodsInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-    [cell.goodsImgView setImageURL:[NSURL URLWithString:_model.listUrl]];
-    cell.goodsPrice.text = [NSString stringWithFormat:@"¥ %.2f",[_model.sellingPrice floatValue]*lastNum];
-    cell.goodsDetails.text = _model.title;
+    if (_seleArray.count != _featureAttr.count) {
+        [cell.goodsImgView setImageURL:[NSURL URLWithString:_model.listUrl]];
+        cell.goodsPrice.text = [NSString stringWithFormat:@"¥ %.2f",[_model.sellingPrice floatValue]*curNum];
+        cell.goodsDetails.text = _model.title;
+    }else{
+        NSString *attString = (_seleArray.count == _featureAttr.count) ? [_seleArray componentsJoinedByString:@"_"] : [lastSeleArray componentsJoinedByString:@"_"];
+        for (ProductInfoVoListModel *model in _goodsSpecArr) {
+            if ([attString isEqualToString:model.goodsSpecIds]) {
+                cell.goodsPrice.text = [NSString stringWithFormat:@"¥ %.2f",[model.retailPrice floatValue]*curNum];
+                [self.goodsDetailsArr removeAllObjects];
+                [self.goodsDetailsArr addObject:model.id];
+                [self.goodsDetailsArr addObject:model.goodsId];
+            }
+        }
+        //没有规格的时候
+        if (_featureAttr.count == 0) {
+            [cell.goodsImgView setImageURL:[NSURL URLWithString:_model.listUrl]];
+            cell.goodsPrice.text = [NSString stringWithFormat:@"¥ %.2f",[_model.sellingPrice floatValue]*curNum];
+            cell.goodsDetails.text = _model.title;
+            [self.goodsDetailsArr addObject:_model.id];
+        }
+    }
+    
     return cell;
 }
 
@@ -175,6 +201,7 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FeatureItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeatureItemCellID forIndexPath:indexPath];
+    cell.defaultColor = KWhiteColor;
     if (_featureAttr.count != 0) {
         cell.content = _featureAttr[indexPath.section].goodsSpecList[indexPath.row];
     }
@@ -185,11 +212,40 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         FeatureHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:FeatureHeaderViewCellID forIndexPath:indexPath];
         headerView.headTitle = _featureAttr[indexPath.section].name;
+        headerView.color = KWhiteColor;
         return headerView;
     }else{
         UICollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:FeatureFooterViewCellID forIndexPath:indexPath];
         return footerView;
     }
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    //限制每组内的Item只能选中一个(加入质数选择)
+    if (_featureAttr[indexPath.section].goodsSpecList[indexPath.row].isSelect == NO) {
+        for (NSInteger j = 0; j < _featureAttr[indexPath.section].goodsSpecList.count; j++) {
+            _featureAttr[indexPath.section].goodsSpecList[j].isSelect = NO;
+        }
+    }
+    _featureAttr[indexPath.section].goodsSpecList[indexPath.row].isSelect = !_featureAttr[indexPath.section].goodsSpecList[indexPath.row].isSelect;
+    
+    //section，item 循环讲选中的所有Item加入数组中 ，数组mutableCopy初始化
+    _seleArray = [@[] mutableCopy];
+    for (NSInteger i = 0; i < _featureAttr.count; i++) {
+        for (NSInteger j = 0; j < _featureAttr[i].goodsSpecList.count; j++) {
+            if (_featureAttr[i].goodsSpecList[j].isSelect == YES) {
+                
+                [_seleArray addObject:_featureAttr[i].goodsSpecList[j].ID];
+                
+            }else{
+                
+                [_seleArray removeObject:_featureAttr[i].goodsSpecList[j].ID];
+            }
+        }
+    }
+    //刷新tableView和collectionView
+    [self.collectionView reloadData];
+    [self.tableView reloadData];
 }
 
 #pragma mark —— HorizontalCollectionLayoutDelegate
@@ -204,6 +260,20 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
     _featureAttr  = [DBFeatureItem mj_objectArrayWithKeyValuesArray:_model.goodsSpecVoList];
     _goodsSpecArr = [ProductInfoVoListModel mj_objectArrayWithKeyValuesArray:_model.productInfoVoList];
     [_tableView reloadData];
+}
+- (IBAction)addShoppingCarButton:(id)sender {
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(addShoppongCarButtonOfAction)]) {
+        [self.delegate addShoppongCarButtonOfAction];
+    }
+    
+}
+- (IBAction)nowBuyButton:(id)sender {
+    if (self.goodsDetailsArr.count != 0) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(nowBuyButtonAndGoodsInfo:)]) {
+            [self.delegate nowBuyButtonAndGoodsInfo:self.goodsDetailsArr];
+        }
+    }
 }
 
 @end

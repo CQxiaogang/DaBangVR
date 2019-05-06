@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,14 +13,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="pMm-Pt-piw">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="48.5"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="h_shangnew" translatesAutoresizingMaskIntoConstraints="NO" id="chm-Mi-4ft" userLabel="top">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="15"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="16"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="15" id="qpx-2H-erI">
+                        <constraint firstAttribute="height" constant="16" id="ebp-dh-NgF">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -28,10 +28,10 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="h_wavyLine" translatesAutoresizingMaskIntoConstraints="NO" id="rbD-2u-0gY" userLabel="bottom">
-                    <rect key="frame" x="0.0" y="15" width="414" height="10"/>
+                    <rect key="frame" x="7.5" y="26.5" width="360" height="7.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="10" id="91c-CG-Smo">
+                        <constraint firstAttribute="height" constant="7.5" id="FXm-vO-Pvs">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -41,20 +41,17 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="chm-Mi-4ft" firstAttribute="leading" secondItem="5Ht-Tq-loM" secondAttribute="leading" id="0Ag-ET-cib"/>
-                <constraint firstItem="rbD-2u-0gY" firstAttribute="top" secondItem="chm-Mi-4ft" secondAttribute="bottom" id="CbB-ZU-Cyu"/>
-                <constraint firstItem="chm-Mi-4ft" firstAttribute="top" secondItem="5Ht-Tq-loM" secondAttribute="top" id="FbO-Fw-gbm"/>
-                <constraint firstItem="rbD-2u-0gY" firstAttribute="width" secondItem="chm-Mi-4ft" secondAttribute="width" id="Glq-1B-oDL">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </constraint>
-                <constraint firstItem="chm-Mi-4ft" firstAttribute="trailing" secondItem="5Ht-Tq-loM" secondAttribute="trailing" id="hD0-Sm-AGb"/>
-                <constraint firstItem="rbD-2u-0gY" firstAttribute="centerX" secondItem="chm-Mi-4ft" secondAttribute="centerX" id="l8S-Xm-Vit"/>
+                <constraint firstItem="rbD-2u-0gY" firstAttribute="leading" secondItem="5Ht-Tq-loM" secondAttribute="leading" constant="7.5" id="0Jx-uC-bVb"/>
+                <constraint firstItem="rbD-2u-0gY" firstAttribute="top" secondItem="chm-Mi-4ft" secondAttribute="bottom" constant="10.5" id="0zl-Vb-p3e"/>
+                <constraint firstItem="5Ht-Tq-loM" firstAttribute="trailing" secondItem="rbD-2u-0gY" secondAttribute="trailing" constant="7.5" id="B9m-tU-06E"/>
+                <constraint firstItem="chm-Mi-4ft" firstAttribute="leading" secondItem="5Ht-Tq-loM" secondAttribute="leading" id="IT5-xl-cFs"/>
+                <constraint firstItem="chm-Mi-4ft" firstAttribute="trailing" secondItem="5Ht-Tq-loM" secondAttribute="trailing" id="O3P-8o-RIH"/>
+                <constraint firstItem="chm-Mi-4ft" firstAttribute="top" secondItem="5Ht-Tq-loM" secondAttribute="top" id="YkH-qT-ND9"/>
+                <constraint firstItem="5Ht-Tq-loM" firstAttribute="bottom" secondItem="rbD-2u-0gY" secondAttribute="bottom" constant="14.5" id="gyN-W2-nR0"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="5Ht-Tq-loM"/>
-            <point key="canvasLocation" x="307" y="109"/>
+            <point key="canvasLocation" x="304.80000000000001" y="117.39130434782609"/>
         </view>
     </objects>
     <resources>

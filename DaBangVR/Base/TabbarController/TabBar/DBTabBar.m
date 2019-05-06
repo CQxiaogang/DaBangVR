@@ -54,7 +54,7 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     // 先设置中间按钮的位置
-    self.releaseButton.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2-10);
+    self.releaseButton.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2-11.5);
     // 计算每个按钮的宽度
     CGFloat tabBarButtonW = self.frame.size.width / 5;
     // CGFloat tabBarButtonH = 40;

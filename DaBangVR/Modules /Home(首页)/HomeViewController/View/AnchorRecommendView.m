@@ -23,7 +23,7 @@ static NSString *CellID = @"CellID";
         // 布局
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        layout.itemSize = CGSizeMake(80, 105);
+        layout.itemSize = CGSizeMake(66, 96);
         // 每个cell的距离
         layout.minimumLineSpacing = 10;
         // 第一个cell和最后一个cell,与父控件之间的间距
@@ -57,19 +57,19 @@ static NSString *CellID = @"CellID";
     //设置更多热门直播按钮
     UIButton *moreAnchorBtn = [[UIButton alloc] init];
     [moreAnchorBtn setTitle:@"更多热门直播" forState:UIControlStateNormal];
-    [moreAnchorBtn setTitleColor:[UIColor lightGreen] forState:UIControlStateNormal];
-    moreAnchorBtn.titleLabel.adaptiveFontSize = 12;
+    [moreAnchorBtn setTitleColor:[UIColor colorWithRed:146.0/255.0 green:146.0/255.0 blue:146.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+    moreAnchorBtn.titleLabel.adaptiveFontSize = 12.5f;
     //设置按钮样式
     moreAnchorBtn.layer.cornerRadius = 10;
-    moreAnchorBtn.layer.borderColor = [[UIColor lightGreen] CGColor];
+    moreAnchorBtn.layer.borderColor = [[UIColor colorWithRed:146.0/255.0 green:146.0/255.0 blue:146.0/255.0 alpha:1.0] CGColor];
     moreAnchorBtn.layer.borderWidth = 1.0f;
     moreAnchorBtn.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:moreAnchorBtn];
     kWeakSelf(self);
     [moreAnchorBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);
-        make.top.equalTo(weakself.collectionView.mas_bottom).with.offset(10);
-        make.size.mas_equalTo(CGSizeMake(100, 25));
+        make.top.equalTo(weakself.collectionView.mas_bottom).with.offset(15);
+        make.size.mas_equalTo(CGSizeMake(87.5, 19));
     }];
 }
 

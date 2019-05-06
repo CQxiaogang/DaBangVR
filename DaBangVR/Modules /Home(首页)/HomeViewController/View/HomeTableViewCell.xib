@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,30 +13,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="105" id="KGk-i7-Jjw" customClass="HomeTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+            <rect key="frame" x="0.0" y="0.0" width="355" height="106.5"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="100.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="355" height="106"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ad3" translatesAutoresizingMaskIntoConstraints="NO" id="LeH-oc-BcO" userLabel="图片">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="100" id="iVf-i7-7rQ">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                            <constraint firstAttribute="height" constant="100" id="xTt-0B-VoS">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥666" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bT7-ba-71I" userLabel="价格">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="￥666" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bT7-ba-71I" userLabel="价格">
                         <rect key="frame" x="110" y="71" width="41" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.95199984309999997" green="0.53140479330000001" blue="0.54927611350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -46,8 +31,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="销量：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ME8-tl-40I" userLabel="销量标题">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="销量：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ME8-tl-40I" userLabel="销量标题">
                         <rect key="frame" x="271" y="71" width="40" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0044614530456852375" green="0.0044614530456852375" blue="0.0044614530456852375" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -58,19 +44,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ir8-kP-gv5" userLabel="底部">
-                        <rect key="frame" x="0.0" y="99.5" width="375" height="1"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="dud-Wc-BOM">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                        </constraints>
-                    </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6666333" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n09-mB-jmS" userLabel="具体销量">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6666333" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n09-mB-jmS" userLabel="具体销量">
                         <rect key="frame" x="311" y="71" width="49.5" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,43 +57,24 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="乳山牡蛎新鲜大生蚝即食海鲜鲜活海蛎子水产贝类现捞1斤顺丰包邮产贝类现捞1斤顺丰包邮产贝类现捞1斤顺丰包邮产贝类现捞1斤顺丰包邮类现捞1斤顺丰包邮产贝类现捞1斤顺丰包邮产贝类现捞1斤顺丰包邮" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53h-pL-rQj" userLabel="介绍">
-                        <rect key="frame" x="110" y="0.0" width="255" height="43"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="43" id="huV-5s-dfQ">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="乳山牡蛎新鲜大生蚝即食海鲜鲜活海蛎子水产贝类现捞1斤顺丰包邮产贝类现捞1斤顺丰包邮产贝类现捞1斤顺丰包邮产贝类现捞1斤顺丰包邮类现捞1斤顺丰包邮产贝类现捞1斤顺丰包邮产贝类现捞1斤顺丰包邮" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53h-pL-rQj" userLabel="介绍">
+                        <rect key="frame" x="110" y="0.0" width="235" height="43"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
-                                <real key="value" value="11"/>
+                                <real key="value" value="10"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ad3" translatesAutoresizingMaskIntoConstraints="NO" id="LeH-oc-BcO" userLabel="图片">
+                        <rect key="frame" x="0.0" y="11" width="91" height="82"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="n09-mB-jmS" firstAttribute="leading" secondItem="ME8-tl-40I" secondAttribute="trailing" id="2cQ-Xz-wf1"/>
-                    <constraint firstItem="ME8-tl-40I" firstAttribute="centerY" secondItem="bT7-ba-71I" secondAttribute="centerY" id="6VC-lN-SGB"/>
-                    <constraint firstAttribute="trailing" secondItem="53h-pL-rQj" secondAttribute="trailing" constant="10" id="AI7-js-1eD"/>
-                    <constraint firstAttribute="bottom" secondItem="bT7-ba-71I" secondAttribute="bottom" constant="12.5" id="G7d-Z5-pk4"/>
-                    <constraint firstItem="Ir8-kP-gv5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="K5J-ww-LHH"/>
-                    <constraint firstAttribute="bottom" secondItem="Ir8-kP-gv5" secondAttribute="bottom" id="WdL-Mo-0ye"/>
-                    <constraint firstItem="LeH-oc-BcO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cYL-cm-iqi"/>
-                    <constraint firstItem="ME8-tl-40I" firstAttribute="leading" secondItem="bT7-ba-71I" secondAttribute="trailing" constant="120" id="cgI-US-jUi"/>
-                    <constraint firstItem="n09-mB-jmS" firstAttribute="centerY" secondItem="bT7-ba-71I" secondAttribute="centerY" id="dGO-Io-Ejb"/>
-                    <constraint firstItem="ME8-tl-40I" firstAttribute="top" secondItem="n09-mB-jmS" secondAttribute="top" id="f7N-ih-c1m"/>
-                    <constraint firstItem="53h-pL-rQj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fky-g1-YLv"/>
-                    <constraint firstAttribute="trailing" secondItem="Ir8-kP-gv5" secondAttribute="trailing" id="ldW-Ay-Bja"/>
-                    <constraint firstItem="53h-pL-rQj" firstAttribute="leading" secondItem="LeH-oc-BcO" secondAttribute="trailing" constant="10" id="qig-i8-1iY"/>
-                    <constraint firstItem="bT7-ba-71I" firstAttribute="top" secondItem="ME8-tl-40I" secondAttribute="top" id="rAv-Mv-xBZ"/>
-                    <constraint firstItem="bT7-ba-71I" firstAttribute="leading" secondItem="53h-pL-rQj" secondAttribute="leading" id="sC3-F1-yPm"/>
-                    <constraint firstItem="LeH-oc-BcO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="z7f-DO-eGT"/>
-                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
@@ -126,7 +83,7 @@
                 <outlet property="goodsPrice" destination="bT7-ba-71I" id="6di-Pf-48v"/>
                 <outlet property="goodsSales" destination="n09-mB-jmS" id="aH6-ZW-87b"/>
             </connections>
-            <point key="canvasLocation" x="4" y="64.767616191904054"/>
+            <point key="canvasLocation" x="4" y="64.31784107946028"/>
         </tableViewCell>
     </objects>
     <resources>

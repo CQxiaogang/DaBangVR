@@ -24,7 +24,7 @@
 #import "GoodsDetailsModel.h"
 
 static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
-@interface PLPlayViewController ()<PLPlayTopViewDelegate, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>{
+@interface PLPlayViewController ()<PLPlayTopViewDelegate, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, LiveShoppingCollectionViewCellDelegate>{
     BOOL isSelected;//当前是否被点击，用于显示商品详情框
 }
 
@@ -609,8 +609,14 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     LiveShoppingCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
+    cell.delegate = self;
     cell.model = _goodsData[indexPath.row];
     return cell;
+}
+
+#pragma mark —— LiveShoppingCollectionViewCellDelegate
+-(void)nowBuyButtonOfActon{
+    
 }
 
 @end

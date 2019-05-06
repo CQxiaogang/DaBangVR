@@ -17,6 +17,6 @@
 }
 
 - (void)setupUI{
-    _anchorImageView.layer.cornerRadius = Adapt(_anchorImageView.mj_w/2);
+    _anchorImageView.layer.cornerRadius = _anchorImageView.mj_w/2;
 }
 @end

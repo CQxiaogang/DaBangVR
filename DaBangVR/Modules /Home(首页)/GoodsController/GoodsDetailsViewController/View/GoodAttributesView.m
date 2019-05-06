@@ -149,7 +149,6 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
         // cancelsTouchesInView 解决collectionView和手势的冲突
         contentViewTapGesture.cancelsTouchesInView = false;
         [_contentView addGestureRecognizer:contentViewTapGesture];
-        
     }
     return _contentView;
 }

@@ -80,6 +80,7 @@
     //数量展示/输入框
     _textField = [[UITextField alloc] init];
     _textField.delegate = self;
+    _textField.userInteractionEnabled = NO;
     _textField.textAlignment = NSTextAlignmentCenter;
     _textField.keyboardType = UIKeyboardTypeNumberPad;
     _textField.font = [UIFont systemFontOfSize:_inputFieldFont];

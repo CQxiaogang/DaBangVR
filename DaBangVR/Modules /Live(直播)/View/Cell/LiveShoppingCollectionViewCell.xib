@@ -43,6 +43,9 @@
                                 <real key="value" value="11"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="addShoppingCarButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="HVg-eG-fVn"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1c-YL-Rh4">
                         <rect key="frame" x="80" y="313" width="70" height="27"/>
@@ -56,6 +59,9 @@
                                 <real key="value" value="11"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="nowBuyButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="riA-zs-mmk"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dy-Se-snK">
                         <rect key="frame" x="265" y="313" width="30" height="27"/>

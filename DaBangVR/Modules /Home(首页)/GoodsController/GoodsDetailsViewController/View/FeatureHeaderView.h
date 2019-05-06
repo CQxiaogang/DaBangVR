@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FeatureHeaderView : UICollectionReusableView
 /** 标题数据 */
 @property (nonatomic, strong) NSString *headTitle;
+/** 标题颜色 */
+@property (nonatomic, strong) UIColor *color;
 
 @end
 

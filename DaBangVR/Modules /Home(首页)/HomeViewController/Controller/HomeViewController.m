@@ -119,7 +119,7 @@ ShufflingViewDelegate
 // 频道列表
 - (ChannelMenuListView *)channelMenuListView{
     if (!_channelMenuListView) {
-        _channelMenuListView = [[ChannelMenuListView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(168))];
+        _channelMenuListView = [[ChannelMenuListView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(160.5))];
         _channelMenuListView.delegate = self;
     }
     return _channelMenuListView;
@@ -145,7 +145,7 @@ ShufflingViewDelegate
     if (![[NSUserDefaults standardUserDefaults] boolForKey:BOOLFORKEY]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:BOOLFORKEY];
         // 静态引导页
-        [self setStaticGuidePage];                                                                                                                                                                                                                                                                                                                                                                                          
+        [self setStaticGuidePage];                                                                                                                                        
     }else{
         self.locationManager = [[JFLocation alloc] init];
         _locationManager.delegate = self;
@@ -267,8 +267,7 @@ ShufflingViewDelegate
     
     return cell;
 }
-
-//个方法返回指定的 row 的高度
+#pragma mark —— 返回每个cell的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
         case 0:
@@ -281,7 +280,7 @@ ShufflingViewDelegate
             break;
         case 2:
             // 新上
-            return kFit(200);
+            return kFit(188+48.5);
             break;
         case 3:
             // 限时秒杀
@@ -329,9 +328,9 @@ ShufflingViewDelegate
 #pragma mark —— 推荐主播
 - (void) setupAnchorRecommendView:(UITableViewCell *)cell{
     
-//    [cell addSubview:self.anchorRecommendView];
+    [cell addSubview:self.anchorRecommendView];
     
-//    _totalH_anchorRecommendView = self.anchorRecommendView.mj_h;
+    _totalH_anchorRecommendView = self.anchorRecommendView.mj_h;
 }
 
 #pragma mark —— 频道菜单列表
@@ -362,7 +361,7 @@ ShufflingViewDelegate
 -(void)channelBtnOfClick:(NSInteger)row{
     switch (row) {
         case 0: // 视屏
-//            [self pushViewController:[SecondsKillViewController alloc]];
+            [self pushViewController:[SecondsKillViewController alloc]];
             break;
         case 1: // 海鲜
             [self pushViewController:[GoodsShowViewController new]];
@@ -396,10 +395,15 @@ ShufflingViewDelegate
 
 #pragma mark —— 新上
 - (void)setupNew:(UITableViewCell *)cell{
-   
-    ShufflingView *view = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.mj_w, kFit(188)) andIndex:@"1"];
-    view.delegate = self;
-    [cell addSubview:view];
+    //标题
+    UIView *titleView = [[[NSBundle mainBundle] loadNibNamed:@"DBNewProductView" owner:nil options:nil] firstObject];
+    titleView.frame = CGRectMake(0, 0, self.tableView.mj_w, kFit(48.5));
+    //轮播图
+    ShufflingView *shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, titleView.mj_h, self.tableView.mj_w, kFit(188)) andIndex:@"1"];
+    shufflingView.delegate = self;
+    
+    [cell addSubview:titleView];
+    [cell addSubview:shufflingView];
 }
 
 #pragma mark —— 限时秒杀
@@ -410,11 +414,10 @@ ShufflingViewDelegate
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
         NSDictionary *goodsList = data[@"goodsList"];
         NSArray *goodsData = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:goodsList];
-        
-        //头部便签
-        UIView *titleView = [self firstImgView:@"h_maio" secondImgView:@"h_tl" showMoreGoodsButton:@"h_newshop_greater" buttonTag:101];
+        //头部View
+        UIView *titleView = [self titleImg:@"h_tl" showMoreGoodsButton:@"h_newshop_greater" buttonTag:101];
         [cell addSubview:titleView];
-        
+        //限时秒杀View
         HomeSecondsKillView *secondsKillView;
         NSMutableArray *views = [NSMutableArray new];
         for (int i = 0; i<goodsData.count; i++) {
@@ -425,7 +428,7 @@ ShufflingViewDelegate
             [cell addSubview:secondsKillView];
         }
         if (views.count != 0) {
-//            [views mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:5 leadSpacing:10 tailSpacing:10];
+            [views mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:KMargin leadSpacing:KMargin tailSpacing:KMargin];
             [views mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(titleView.mas_bottom).offset(0);
             }];
@@ -435,10 +438,7 @@ ShufflingViewDelegate
             [titleView removeFromSuperview];
             self->_totalH_secondsKill = 0;
         }
-//        [self.tableView reloadData];
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
+    } failure:^(NSError * _Nonnull error) {}];
 }
 
 #pragma mark —— 新品,热卖专区
@@ -487,7 +487,7 @@ ShufflingViewDelegate
         
         [views mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:KMargin leadSpacing:KMargin tailSpacing:KMargin];
         [views mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.equalTo(CGSizeMake(kFit(150), kFit(185)));
+            make.size.equalTo(CGSizeMake(kFit(172.5), kFit(145.5)));
         }];
     });
     _totalH_prefecture = kFit(185);
@@ -545,58 +545,58 @@ ShufflingViewDelegate
 
 #pragma mark —— 全球购
 - (void)setUp_globalShopping:(UITableViewCell *)cell{
-    UIView *titleView = [self firstImgView:@"h_global" secondImgView:@"h_global2" showMoreGoodsButton:@"h_newshop_greater" buttonTag:100];
-    [cell addSubview:titleView];
-    
-    UIImageView *gs_recommend_Img = [[UIImageView alloc] initWithFrame:CGRectMake(0, titleView.mj_h, KScreenW, kFit(200))];
-    gs_recommend_Img.image = [UIImage imageNamed:@"ad5"];
-    [cell addSubview:gs_recommend_Img];
-    _totalH_globalShopping = kFit(titleView.mj_h + gs_recommend_Img.mj_h+KMargin);
+//    UIView *titleView  = [self titleImg:@"" showMoreGoodsButton:@"h_newshop_greater" buttonTag:100];
+//    [cell addSubview:titleView];
+//
+//    UIImageView *gs_recommend_Img = [[UIImageView alloc] initWithFrame:CGRectMake(0, titleView.mj_h, KScreenW, kFit(153))];
+//    gs_recommend_Img.image = [UIImage imageNamed:@"ad5"];
+//    [cell addSubview:gs_recommend_Img];
+//    _totalH_globalShopping = kFit(titleView.mj_h + gs_recommend_Img.mj_h+KMargin);
 }
 
 #pragma mark —— 视频 地方特色
 - (void)setUp_videoAndLocalfeatures:(UITableViewCell *)cell{
-//    UIView *headView = [[UIView alloc] init];
-//    headView.backgroundColor = [UIColor whiteColor];
-//    [cell addSubview:headView];
-//    [headView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.mas_equalTo(0);
-//        make.left.mas_equalTo(10);
-//        make.centerX.mas_equalTo(cell);
-//        make.width.equalTo(cell).multipliedBy(0.95);
-//        make.height.equalTo(cell).multipliedBy(0.2);
-//    }];
-//
-//    NSArray *list = @[@"视频",@"地方特色"];
-//    UIButton *selectBtn;
-//    NSMutableArray *arr = [NSMutableArray new];
-//    for (int i=0; i<2; i++) {
-//        selectBtn = [[UIButton alloc] init];
-//        [selectBtn setTitle:list[i] forState:UIControlStateNormal];
-//        [selectBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-//        selectBtn.tag = 10 + i;
-//        selectBtn.titleLabel.adaptiveFontSize = 15;
-//        selectBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-////        selectBtn.backgroundColor = [UIColor randomColor];
-//        [arr addObject:selectBtn];
-//        [headView addSubview:selectBtn];
-//    }
-//    [arr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:0 tailSpacing:150];
-//    [arr mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.size.mas_equalTo(CGSizeMake(100, 30));
-//    }];
-//
-//    UIView *contentView = [[UIView alloc] init];
-//    contentView.backgroundColor = [UIColor redColor];
-//    [cell addSubview:contentView];
-//    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.mas_equalTo(headView.mas_bottom).offset(0);
-//        make.left.mas_equalTo(10);
-//        make.centerX.mas_equalTo(cell);
-//        make.width.equalTo(cell).multipliedBy(0.95);
-//        make.height.equalTo(cell).multipliedBy(0.8);
-//    }];
-//    _totalH_videoAndLocalfeatures = 150;
+    UIView *headView = [[UIView alloc] init];
+    headView.backgroundColor = [UIColor whiteColor];
+    [cell addSubview:headView];
+    [headView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(0);
+        make.left.mas_equalTo(10);
+        make.centerX.mas_equalTo(cell);
+        make.width.equalTo(cell).multipliedBy(0.95);
+        make.height.equalTo(cell).multipliedBy(0.2);
+    }];
+
+    NSArray *list = @[@"视频",@"地方特色"];
+    UIButton *selectBtn;
+    NSMutableArray *arr = [NSMutableArray new];
+    for (int i=0; i<2; i++) {
+        selectBtn = [[UIButton alloc] init];
+        [selectBtn setTitle:list[i] forState:UIControlStateNormal];
+        [selectBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        selectBtn.tag = 10 + i;
+        selectBtn.titleLabel.adaptiveFontSize = 15;
+        selectBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+//        selectBtn.backgroundColor = [UIColor randomColor];
+        [arr addObject:selectBtn];
+        [headView addSubview:selectBtn];
+    }
+    [arr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:0 tailSpacing:150];
+    [arr mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(100, 30));
+    }];
+
+    UIView *contentView = [[UIView alloc] init];
+    contentView.backgroundColor = [UIColor redColor];
+    [cell addSubview:contentView];
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(headView.mas_bottom).offset(0);
+        make.left.mas_equalTo(10);
+        make.centerX.mas_equalTo(cell);
+        make.width.equalTo(cell).multipliedBy(0.95);
+        make.height.equalTo(cell).multipliedBy(0.8);
+    }];
+    _totalH_videoAndLocalfeatures = 150;
 }
 
 // 抽取读取xib文件方法
@@ -605,33 +605,24 @@ ShufflingViewDelegate
 }
 
 // 标题视图封装
-- (UIView *)firstImgView:(NSString *)firstStr secondImgView:(NSString *)secondStr showMoreGoodsButton:(NSString *)string buttonTag:(NSInteger)tag{
+- (UIView *)titleImg:(NSString *)imgName showMoreGoodsButton:(NSString *)btnName buttonTag:(NSInteger)tag{
     
-    CGFloat superViewH = kFit(40);
-    
-    UIView *superView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.mj_w, superViewH)];
+    CGFloat superViewH = kFit(47);
+    UIView *superView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, superViewH)];
     // 第一个图标
     UIImageView *imgView = [[UIImageView alloc] init];
-    imgView.image = [UIImage imageNamed:firstStr];
+    imgView.image = [UIImage imageNamed:imgName];
     [superView addSubview:imgView];
     [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(superView.mas_centerY);
-        make.left.equalTo(kFit(0));
-        make.size.equalTo(CGSizeMake(superViewH, superViewH/2));
+        make.left.equalTo(kFit(KMargin));
+        make.size.equalTo(CGSizeMake(112, 17.5));
     }];
-    // 第二个图标
-    UIImageView *imgView2 = [[UIImageView alloc] init];
-    imgView2.image = [UIImage imageNamed:secondStr];
-    [superView addSubview:imgView2];
-    [imgView2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(superView.mas_centerY);
-        make.left.equalTo(imgView.mas_right).offset(2);
-        make.size.equalTo(CGSizeMake(superViewH*2, superViewH/2));
-    }];
+   
     // 右边按钮
     UIButton *btn = [[UIButton alloc] init];
     btn.tag = tag;
-    [btn setImage:[UIImage imageNamed:string] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:btnName] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(showMoreGoods2:) forControlEvents:UIControlEventTouchUpInside];
     // 设置图片偏移量
     btn.imageEdgeInsets = UIEdgeInsetsMake(0, superViewH*2, 0, 0);

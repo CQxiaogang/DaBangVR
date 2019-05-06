@@ -10,16 +10,24 @@
 #import "GoodsDetailsModel.h"
 
 /* 上一次选择的属性 */
-static NSArray *lastSeleArray;
+static NSArray * _Nullable lastSeleArray;
+/* 当前选中的数量 */
+static NSInteger curNum;
 
 NS_ASSUME_NONNULL_BEGIN
 
-/* 上一次选择的数量 */
-static NSInteger lastNum;
+@protocol LiveShoppingCollectionViewCellDelegate <NSObject>
+
+-(void)nowBuyButtonAndGoodsInfo:(NSArray *)info;
+-(void)addShoppongCarButtonOfAction;
+
+@end
 
 @interface LiveShoppingCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) GoodsDetailsModel *model;
+
+@property (nonatomic, weak) id <LiveShoppingCollectionViewCellDelegate> delegate;
 
 @end
 

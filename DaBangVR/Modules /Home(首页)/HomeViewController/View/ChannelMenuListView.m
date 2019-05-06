@@ -27,10 +27,10 @@ static NSString *CellID = @"CellID";
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         layout.itemSize =CGSizeMake(Adapt(47), Adapt(70));
         // 每个cell的距离
-        layout.minimumLineSpacing = 8;
-        layout.minimumInteritemSpacing = kFit(33);
+        layout.minimumLineSpacing = 11;
+        layout.minimumInteritemSpacing = kFit(32);
         // 第一个cell和最后一个cell,与父控件之间的间距
-        layout.sectionInset = UIEdgeInsetsMake(0, Adapt(44), 0, Adapt(44));
+        layout.sectionInset = UIEdgeInsetsMake(0, Adapt(32.5), 0, Adapt(32.5));
         //
         _collectionView = [[UICollectionView alloc] initWithFrame:self.frame collectionViewLayout:layout];
         _collectionView.delegate = self;

@@ -24,6 +24,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _defaultColor = KBlackColor;
+        _selectColor = KRedColor;
         [self setUpUI];
     }
     return self;
@@ -51,12 +53,20 @@
     _attLabel.text = content.value;
     
     if (content.isSelect) {
-        _attLabel.textColor = [UIColor redColor];
-        [self dc_chageControlCircularWith:_attLabel AndSetCornerRadius:5 SetBorderWidth:1 SetBorderColor:[UIColor redColor] canMasksToBounds:YES];
+        _attLabel.textColor = _selectColor;
+        [self dc_chageControlCircularWith:_attLabel AndSetCornerRadius:5 SetBorderWidth:1 SetBorderColor:_selectColor canMasksToBounds:YES];
     }else{
-        _attLabel.textColor = [UIColor blackColor];
-        [self dc_chageControlCircularWith:_attLabel AndSetCornerRadius:5 SetBorderWidth:1 SetBorderColor:[[UIColor lightGrayColor]colorWithAlphaComponent:0.4] canMasksToBounds:YES];
+        _attLabel.textColor = _defaultColor;
+        [self dc_chageControlCircularWith:_attLabel AndSetCornerRadius:5 SetBorderWidth:1 SetBorderColor:[_defaultColor colorWithAlphaComponent:0.4] canMasksToBounds:YES];
     }
+}
+
+-(void)setDefaultColor:(UIColor *)defaultColor{
+    _defaultColor = defaultColor;
+}
+
+-(void)setSelectColor:(UIColor *)selectColor{
+    _selectColor = selectColor;
 }
 
 - (id)dc_chageControlCircularWith:(id)anyControl AndSetCornerRadius:(NSInteger)radius SetBorderWidth:(NSInteger)width SetBorderColor:(UIColor *)borderColor canMasksToBounds:(BOOL)can

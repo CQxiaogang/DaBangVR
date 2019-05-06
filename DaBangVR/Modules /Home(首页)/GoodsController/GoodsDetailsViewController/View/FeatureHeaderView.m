@@ -32,7 +32,7 @@
 
 - (void)setUpUI{
     _headerLabel = [[UILabel alloc] init];
-    _headerLabel.font = [UIFont systemFontOfSize:15];
+    _headerLabel.adaptiveFontSize = 15;
     [self addSubview:_headerLabel];
     
     _bottomView = [UIView new];
@@ -60,6 +60,11 @@
 - (void)setHeadTitle:(NSString *)headTitle{
     _headTitle = headTitle;
     _headerLabel.text = headTitle;
+}
+
+-(void)setColor:(UIColor *)color{
+    _color = color;
+    _headerLabel.textColor = color;
 }
 
 @end
