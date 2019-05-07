@@ -103,7 +103,21 @@ static NSString *leaveMessage;
     [self loadingData];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successPay:) name:@"successPay" object:nil];
+    
+    _submitType   = _submitType?_submitType:@"buy";
+    _orderSnTotal = _orderSnTotal?_submitType:kOrderSnTotal;
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+}
+//视图即将消失、被覆盖或是隐藏时调用
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
 - (void)creatUI{
     kWeakSelf(self);
     [self.view addSubview:self.topView];
@@ -249,7 +263,6 @@ static NSString *leaveMessage;
                     [weakself orderSn:orderSn];
                 }
             }
-            
         } failure:^(NSError * _Nonnull error) {}];
     }
 }

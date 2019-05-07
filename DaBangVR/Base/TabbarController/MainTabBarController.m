@@ -9,11 +9,12 @@
 #import "LiveViewController.h"
 #import "MainTabBarController.h"
 #import "HomeViewController.h"
-#import "DBShortVideoViewController.h"
+#import "StoreViewController.h"
 #import "PagingViewController.h"
 #import "MineViewController.h"
 #import "ShouldBeginLiveViewController.h"
 #import "GoodAttributesView.h"
+#import "StoreViewController.h"
 
 #define kSWidth [UIScreen mainScreen].bounds.size.width
 
@@ -60,13 +61,13 @@
     [self addChildViewController:homeVC title:@"首页" imageName:@"h_homepage" selectedImageName:@"h_homepage_select"];
     
     LiveViewController *liveVC = [LiveViewController new];
-    [self addChildViewController:liveVC title:@"直播" imageName:@"h_LiveBroadcast" selectedImageName:@"h_LiveBroadcast_select"];
+    [self addChildViewController:liveVC title:@"直播" imageName:@"h_liveBroadcast" selectedImageName:@"h_liveBroadcast_select"];
     
-    DBShortVideoViewController *shortVideoVC = [DBShortVideoViewController new];
-    [self addChildViewController:shortVideoVC title:@"短视频" imageName:@"h_ShortVideo" selectedImageName:@"h_ShortVideo_select"];
+    StoreViewController *storeVC = [StoreViewController new];
+    [self addChildViewController:storeVC title:@"社区" imageName:@"h_community" selectedImageName:@"h_community_select"];
 
     MineViewController *myVC = [MineViewController new];
-    [self addChildViewController:myVC title:@"我的" imageName:@"h_Member" selectedImageName:@"h_Member_select"];
+    [self addChildViewController:myVC title:@"我的" imageName:@"h_member" selectedImageName:@"h_member_select"];
 }
 
 /**

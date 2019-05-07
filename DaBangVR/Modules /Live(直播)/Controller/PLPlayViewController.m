@@ -22,6 +22,7 @@
 #import "PagingEnableLayout.h"
 #import "LiveShoppingCollectionViewCell.h"
 #import "GoodsDetailsModel.h"
+#import "OrderSureViewController.h"
 
 static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 @interface PLPlayViewController ()<PLPlayTopViewDelegate, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, LiveShoppingCollectionViewCellDelegate>{
@@ -133,6 +134,20 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     //加载数据
     [self loadingData];
     
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.isDisapper = NO;
+    if (![self.player isPlaying]) {
+        [self.player play];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    self.isDisapper = YES;
+    [self stop];
+    [super viewDidDisappear:animated];
 }
 
 -(void)setupUI{
@@ -410,20 +425,6 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     self.player.loopPlay = YES;
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    self.isDisapper = YES;
-    [self stop];
-    [super viewDidDisappear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    self.isDisapper = NO;
-    if (![self.player isPlaying]) {
-        [self.player play];
-    }
-}
-
 - (void)singleTapAction:(UIGestureRecognizer *)gesture {
 //    if ([self.player isPlaying]) {
 //        [self.player pause];
@@ -615,7 +616,23 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 }
 
 #pragma mark —— LiveShoppingCollectionViewCellDelegate
--(void)nowBuyButtonOfActon{
+-(void)nowBuyButtonAndGoodsInfo:(NSArray *)info{
+    NSMutableDictionary *dic = [NSMutableDictionary new];
+    if (info.count == 3) {
+        [dic setObject:info[0] forKey:@"productId"];
+        [dic setObject:info[1] forKey:@"goodsId"];
+        [dic setObject:info[2] forKey:@"number"];
+    }else{
+        [dic setObject:info[0] forKey:@"goodsId"];
+        [dic setObject:info[1] forKey:@"number"];
+    }
+    [NetWorkHelper POST:URl_confirmGoods2Buy parameters:dic success:^(id  _Nonnull responseObject) {
+        OrderSureViewController *vc = [OrderSureViewController new];
+        [self.navigationController pushViewController:vc animated:NO];
+    } failure:nil];
+}
+
+-(void)addShoppongCarButtonAndGoodsInfo:(NSArray *)info{
     
 }
 

@@ -41,7 +41,7 @@ static NSString *CellID = @"CellID";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return kFit(101);
+    return kFit(118.5);
 }
 
 -(void)setGoodsData:(NSArray *)goodsData{

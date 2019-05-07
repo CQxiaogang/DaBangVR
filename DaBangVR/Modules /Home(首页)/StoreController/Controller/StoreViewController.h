@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DBShortVideoViewController : RootViewController
+@interface StoreViewController : RootViewController
 
 @end
 

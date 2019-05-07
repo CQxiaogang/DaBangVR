@@ -8,7 +8,7 @@
 
 /**开发服务器*/
 #define URL_main @"http://www.vrzbgw.com/dabang"
-//#define URL_main @"http://192.168.1.115:8080" // 强
+//#define URL_main @"http://192.168.1.110:8080" // 强
 //#define URL_main @"http://192.168.1.168:8080" // 邓
 //#define URL_main @"http://192.168.1.109:8080" // 豪
 
@@ -45,6 +45,8 @@
 #define URl_getSecondsKillGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/goods/getSecondsKillGoodsList?")
 // 添加商品评论
 #define URl_getCommentSave NSStringFormat(@"%@%@",URL_main,@"/api/goods/getCommentSave?")
+// 全部商品列表
+#define URl_getGoodsLists NSStringFormat(@"%@%@",URL_main,@"/api/goods/getGoodsLists?")
 
 #pragma mark ——————  登陆授权接口  ——————
 // 登录

@@ -18,8 +18,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol LiveShoppingCollectionViewCellDelegate <NSObject>
 
+/**
+ 立即购买
+
+ @param info 参数
+ */
 -(void)nowBuyButtonAndGoodsInfo:(NSArray *)info;
--(void)addShoppongCarButtonOfAction;
+
+/**
+ 加入购物车
+
+ @param info 参数
+ */
+-(void)addShoppongCarButtonAndGoodsInfo:(NSArray *)info;
 
 @end
 

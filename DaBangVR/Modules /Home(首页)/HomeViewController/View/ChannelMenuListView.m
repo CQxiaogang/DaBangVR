@@ -25,10 +25,10 @@ static NSString *CellID = @"CellID";
         // 布局
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        layout.itemSize =CGSizeMake(Adapt(47), Adapt(70));
+        layout.itemSize =CGSizeMake(Adapt(47), Adapt(74));
         // 每个cell的距离
         layout.minimumLineSpacing = 11;
-        layout.minimumInteritemSpacing = kFit(32);
+        layout.minimumInteritemSpacing = kFit(32.5);
         // 第一个cell和最后一个cell,与父控件之间的间距
         layout.sectionInset = UIEdgeInsetsMake(0, Adapt(32.5), 0, Adapt(32.5));
         //
@@ -57,7 +57,8 @@ static NSString *CellID = @"CellID";
     return self.data.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {    ChannelViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellID forIndexPath:indexPath];;
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ChannelViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellID forIndexPath:indexPath];;
     if (self.data) {
        cell.model = self.data[indexPath.row];
     }

@@ -108,7 +108,8 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
     //设置UI
     [self setupUI];
     
-    _featureAttr = [NSMutableArray new];
+    _featureAttr  = [NSMutableArray new];
+    _goodsSpecArr = [NSMutableArray new];
     //解决CollectionView cell 无法点击
     /**
      解决方法L：ViewController 中应该设置了一个手势(UITapGestureRecognizer)，与UICollectionView的点击事件冲突，
@@ -181,6 +182,7 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
             cell.goodsDetails.text = _model.title;
             [self.goodsDetailsArr addObject:_model.id];
         }
+        [self.goodsDetailsArr addObject:[NSString stringWithFormat:@"%ld",curNum]];
     }
     
     return cell;
@@ -263,16 +265,14 @@ static NSString *FeatureFooterViewCellID = @"FeatureFooterViewCellID";
 }
 - (IBAction)addShoppingCarButton:(id)sender {
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(addShoppongCarButtonOfAction)]) {
-        [self.delegate addShoppongCarButtonOfAction];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(addShoppongCarButtonAndGoodsInfo:)]) {
+        [self.delegate addShoppongCarButtonAndGoodsInfo:self.goodsDetailsArr];
     }
     
 }
 - (IBAction)nowBuyButton:(id)sender {
-    if (self.goodsDetailsArr.count != 0) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(nowBuyButtonAndGoodsInfo:)]) {
-            [self.delegate nowBuyButtonAndGoodsInfo:self.goodsDetailsArr];
-        }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(nowBuyButtonAndGoodsInfo:)]) {
+        [self.delegate nowBuyButtonAndGoodsInfo:self.goodsDetailsArr];
     }
 }
 

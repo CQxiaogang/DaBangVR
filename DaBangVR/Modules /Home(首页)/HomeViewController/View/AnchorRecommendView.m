@@ -23,13 +23,13 @@ static NSString *CellID = @"CellID";
         // 布局
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        layout.itemSize = CGSizeMake(66, 96);
+        layout.itemSize = CGSizeMake(66, 110);
         // 每个cell的距离
         layout.minimumLineSpacing = 10;
         // 第一个cell和最后一个cell,与父控件之间的间距
         layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);
         //
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.mj_w,105) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.mj_w,110) collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.backgroundColor = KWhiteColor;
@@ -60,9 +60,9 @@ static NSString *CellID = @"CellID";
     [moreAnchorBtn setTitleColor:[UIColor colorWithRed:146.0/255.0 green:146.0/255.0 blue:146.0/255.0 alpha:1.0] forState:UIControlStateNormal];
     moreAnchorBtn.titleLabel.adaptiveFontSize = 12.5f;
     //设置按钮样式
-    moreAnchorBtn.layer.cornerRadius = 10;
+    moreAnchorBtn.layer.cornerRadius = kFit(5);
     moreAnchorBtn.layer.borderColor = [[UIColor colorWithRed:146.0/255.0 green:146.0/255.0 blue:146.0/255.0 alpha:1.0] CGColor];
-    moreAnchorBtn.layer.borderWidth = 1.0f;
+    moreAnchorBtn.layer.borderWidth = .5f;
     moreAnchorBtn.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:moreAnchorBtn];
     kWeakSelf(self);

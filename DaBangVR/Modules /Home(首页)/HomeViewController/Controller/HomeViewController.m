@@ -22,8 +22,10 @@
 #import "GlobalShoppingViewController.h"    //全球购
 #import "SortSearchViewController.h"        //分类搜索
 #import "SearchGoodsViewController.h"       //搜索商品
-#import "SearchViewController.h"      //搜索商品
+#import "SearchViewController.h"            //搜索商品
 #import "GoodsDetailsViewController.h"      //商品详情
+#import "StoreViewController.h"             //门店
+#import "MerchantsSettledViewController.h"  //商家入驻
 // Views
 #import "AnchorRecommendView.h" //主播推荐
 #import "ChannelMenuListView.h" //频道菜单列表
@@ -93,11 +95,10 @@ ShufflingViewDelegate
  */
 - (UIView *)topView{
     if (!_topView) {
-        _topView = [[[NSBundle mainBundle]loadNibNamed:@"DBTopView" owner:nil options:nil] firstObject];
-        [_topView setMj_y:20];
+        _topView          = [[[NSBundle mainBundle]loadNibNamed:@"DBTopView" owner:nil options:nil] firstObject];
         _topView.delegate = self;
+        _topView.searchBox.layer.cornerRadius = kFit(15);
         [_topView.location addTarget:self action:@selector(searchTouchAction) forControlEvents:UIControlEventTouchUpInside];
-        _topView.searchBox.layer.cornerRadius = Adapt(15);
     }
     return _topView;
 }
@@ -119,7 +120,7 @@ ShufflingViewDelegate
 // 频道列表
 - (ChannelMenuListView *)channelMenuListView{
     if (!_channelMenuListView) {
-        _channelMenuListView = [[ChannelMenuListView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(160.5))];
+        _channelMenuListView = [[ChannelMenuListView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(159))];
         _channelMenuListView.delegate = self;
     }
     return _channelMenuListView;
@@ -127,7 +128,7 @@ ShufflingViewDelegate
 // 主播推荐 view
 - (AnchorRecommendView *)anchorRecommendView{
     if (!_anchorRecommendView) {
-        _anchorRecommendView = [[AnchorRecommendView alloc] initWithFrame:CGRectMake(0, 0, self.view.mj_w, Adapt(140))];
+        _anchorRecommendView = [[AnchorRecommendView alloc] initWithFrame:CGRectMake(0, 0, self.view.mj_w, Adapt(154))];
     }
     return _anchorRecommendView;
 }
@@ -190,121 +191,121 @@ ShufflingViewDelegate
 -(void)loadingData{
     kWeakSelf(self);
     NSDictionary *dic = @{
-                          @"parentId":@"2",
-                          @"categoryId":@"1036112",
                           @"page":@"1",
-                          @"limit":@"5"
+                          @"limit":@"10"
                           };
-    [NetWorkHelper POST:URl_getGlobalList parameters:dic success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_getGoodsLists parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
         // 推荐商品
-        weakself.goodsData = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:data[@"goodsLists"]];
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
+        weakself.goodsData = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:data[@"goodsList"]];
+    } failure:^(NSError * _Nonnull error) {}];
 }
 
 #pragma mark —— tableView实现
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 9;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //让cell不重用
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (cell == nil) {
+    if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
-    switch (indexPath.row) {
+    switch (indexPath.section) {
         case 0:
-            // 主播推荐
+            //主播推荐
             [self setupAnchorRecommendView:cell];
             break;
         case 1:
-            // 频道菜单
+            //频道菜单
             [self setupChannelMenuListView:cell];
             break;
         case 2:
-            // 新上
+            //新上
             [self setupNew:cell];
             break;
         case 3:
-            // 限时秒杀
+            //限时秒杀
             [self setupSecondsKillView:cell];
             break;
         case 4:
-            // 新品/热卖 专区
+            //新品/热卖 专区
             [self setupNewAndHotGoodsView:cell];
             break;
         case 5:
-            // 最热视频
+            //最热视频
             [self setUp_hotVideo:cell];
             break;
         case 6:
-            // 全球购
+            //全球购
             [self setUp_globalShopping:cell];
             break;
         case 7:
-            // 视频 地方特色
-            [self setUp_videoAndLocalfeatures:cell];
+            //视频 地方特色
+//            [self setUp_videoAndLocalfeatures:cell];
             break;
         case 8:
-            // 商品列表
+            //商品列表
         {
             _recommendGoodsTable = [[BaseTableView alloc] init];
             _recommendGoodsTable.goodsData = _goodsData;
             [cell addSubview:_recommendGoodsTable];
             [_recommendGoodsTable mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.right.top.bottom.equalTo(0);
+                make.top.equalTo(20);
+                make.left.right.bottom.equalTo(0);
             }];
         }
             break;
         default:
             break;
     }
-    // 设置cell不能点击
+    //设置cell不能点击
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
 #pragma mark —— 返回每个cell的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.row) {
+    switch (indexPath.section) {
         case 0:
-            // 直播推荐视图
-            return _totalH_anchorRecommendView+kFit(20);
+            //直播推荐视图
+            return _totalH_anchorRecommendView;
             break;
         case 1:
-            // 更多功能界面
+            //更多功能界面
             return _totalH_channelMenuList;
             break;
         case 2:
-            // 新上
-            return kFit(188+48.5);
+            //新上
+            return _totalH_newShang;
             break;
         case 3:
-            // 限时秒杀
-            return kFit(_totalH_secondsKill);
+            //限时秒杀
+            return _totalH_secondsKill;
             break;
         case 4:
-            // 新品/热卖 专区
+            //新品/热卖 专区
             return _totalH_prefecture;
             break;
         case 5:
-            // 最热视频
-            return _totalH_hotVideo;
+            //最热视频
+//            return _totalH_hotVideo;
             break;
         case 6:
-            // 全球购
-            return _totalH_globalShopping;
+            //全球购
+//            return _totalH_globalShopping;
             break;
         case 7:
-            // 视频/地方特色
-            return _totalH_videoAndLocalfeatures;
+            //视频/地方特色
+//            return _totalH_videoAndLocalfeatures;
             break;
         case 8:
-            // 商品列表
-            return _goodsData.count * kFit(101);
+            //商品列表
+            return _goodsData.count * kFit(118.5)+20;
             break;
         default:
             break;
@@ -314,10 +315,20 @@ ShufflingViewDelegate
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return [[UIView alloc] init];
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
+    return view;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return .1f;
+    if (section == 0 || section == 5 || section == 6 || section == 7) {
+        return .1f;
+    }
+    if (_totalH_secondsKill == 0){
+        if (section == 3) {
+           return .1f;
+        }
+    }
+    return 10;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return [[UIView alloc] init];
@@ -336,9 +347,7 @@ ShufflingViewDelegate
 #pragma mark —— 频道菜单列表
 - (void)setupChannelMenuListView:(UITableViewCell *)cell{
     if (self.arrayModel.count == 0) {
-        NSDictionary *dic = @{
-                              @"mallSpeciesId":@"1"
-                              };
+        NSDictionary *dic = @{@"mallSpeciesId":@"1"};
         [NetWorkHelper POST:URL_getChannelMenuList parameters:dic success:^(id  _Nonnull responseObject) {
             NSDictionary *data= KJSONSerialization(responseObject)[@"data"];
             NSArray *channelMenuList = data[@"channelMenuList"];
@@ -347,41 +356,38 @@ ShufflingViewDelegate
                 [self.arrayModel addObject:model];
             }
             self.channelMenuListView.data = self.arrayModel;
-            
-        } failure:^(NSError * _Nonnull error) {
-            DLog(@"error %@",error);
-        }];
+        } failure:^(NSError * _Nonnull error) {}];
     }
     
     [cell addSubview:self.channelMenuListView];
-    _totalH_channelMenuList = self.channelMenuListView.mj_h;
+    _totalH_channelMenuList = self.channelMenuListView.mj_h + KMargin;
 }
 
 #pragma mark —— 频道菜单列表 代理
 -(void)channelBtnOfClick:(NSInteger)row{
     switch (row) {
-        case 0: // 视屏
-            [self pushViewController:[SecondsKillViewController alloc]];
+        case 0: //短视频
+            [self DB_SVProgressHUD];
             break;
-        case 1: // 海鲜
+        case 1: //海鲜
             [self pushViewController:[GoodsShowViewController new]];
             break;
-        case 2: // 拼团
+        case 2: //拼团
             [self pushViewController:[SpellGroupViewController new]];
             break;
-        case 3: // 限时秒杀
+        case 3: //限时秒杀
             [self pushViewController:[SecondsKillViewController new]];
             break;
-        case 4: // 大邦
+        case 4: //直播
             break;
-        case 5: // 全球购
-            [self pushViewController:[GlobalShoppingViewController new]];
-            break;
-        case 6: // 新品首发
+        case 5: //新品首发
             [self pushViewController:[NewProductLaunchViewController new]];
             break;
-        case 8: // 分类搜索
-            [self pushViewController:[SortSearchViewController new]];
+        case 6: //门店
+            [self pushViewController:[StoreViewController new]];
+            break;
+        case 7: //入驻
+            [self pushViewController:[MerchantsSettledViewController new]];
             break;
         default:
             break;
@@ -397,19 +403,26 @@ ShufflingViewDelegate
 - (void)setupNew:(UITableViewCell *)cell{
     //标题
     UIView *titleView = [[[NSBundle mainBundle] loadNibNamed:@"DBNewProductView" owner:nil options:nil] firstObject];
-    titleView.frame = CGRectMake(0, 0, self.tableView.mj_w, kFit(48.5));
+    [titleView setOrigin:CGPointMake(0, 0)];
     //轮播图
     ShufflingView *shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, titleView.mj_h, self.tableView.mj_w, kFit(188)) andIndex:@"1"];
     shufflingView.delegate = self;
     
     [cell addSubview:titleView];
     [cell addSubview:shufflingView];
+    _totalH_newShang = titleView.mj_h + shufflingView.mj_h;
 }
 
 #pragma mark —— 限时秒杀
 - (void)setupSecondsKillView:(UITableViewCell *)cell{
 //    kWeakSelf(self);
-    NSDictionary *dic = @{@"hoursTime":@"17",@"page":@"1", @"limit":@"2"};
+    //当前时间
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH"];
+    NSDate *datenow = [NSDate date];
+    NSString *currentTime = [formatter stringFromDate:datenow];
+    //加载数据 
+    NSDictionary *dic = @{@"hoursTime":currentTime,@"page":@"1", @"limit":@"2"};
     [NetWorkHelper POST:URl_getSecondsKillGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
         NSDictionary *goodsList = data[@"goodsList"];
@@ -427,16 +440,23 @@ ShufflingViewDelegate
             [views addObject:secondsKillView];
             [cell addSubview:secondsKillView];
         }
-        if (views.count != 0) {
+        if (views.count == 2) {
             [views mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:KMargin leadSpacing:KMargin tailSpacing:KMargin];
             [views mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(titleView.mas_bottom).offset(0);
             }];
+        }else if (views.count == 1){
+            secondsKillView = views[0];
+            [secondsKillView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(titleView.mas_bottom).offset(0);
+                make.left.equalTo(KMargin);
+                make.size.equalTo(CGSizeMake(169, 142));
+            }];
         }
-        self->_totalH_secondsKill = kFit(titleView.mj_h + secondsKillView.mj_h);
+        _totalH_secondsKill = kFit(titleView.mj_h + secondsKillView.mj_h);
         if (goodsData.count == 0) {
             [titleView removeFromSuperview];
-            self->_totalH_secondsKill = 0;
+            _totalH_secondsKill = 0;
         }
     } failure:^(NSError * _Nonnull error) {}];
 }
@@ -488,9 +508,10 @@ ShufflingViewDelegate
         [views mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:KMargin leadSpacing:KMargin tailSpacing:KMargin];
         [views mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.equalTo(CGSizeMake(kFit(172.5), kFit(145.5)));
+            make.centerY.equalTo(cell.mas_centerY);
         }];
     });
-    _totalH_prefecture = kFit(185);
+    _totalH_prefecture = kFit(145.5 + 12 + 14.5);
 }
 
 #pragma mark —— HomeNewAndHotGoodsView 代理

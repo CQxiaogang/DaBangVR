@@ -12,6 +12,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    //阴影
+    _backGround_View.layer.shadowColor = [UIColor grayColor].CGColor;
+    _backGround_View.layer.shadowOffset = CGSizeMake(0, 3);
+    _backGround_View.layer.shadowOpacity = 1;
 }
 
 - (void)setModel:(GoodsDetailsModel *)model{

@@ -6,13 +6,13 @@
 //  Copyright © 2018 DaBangVR. All rights reserved.
 //
 
-#import "DBShortVideoViewController.h"
+#import "StoreViewController.h"
 
-@interface DBShortVideoViewController ()
+@interface StoreViewController ()
 
 @end
 
-@implementation DBShortVideoViewController
+@implementation StoreViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
