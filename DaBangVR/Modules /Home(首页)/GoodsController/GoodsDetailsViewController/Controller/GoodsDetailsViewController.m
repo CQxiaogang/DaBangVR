@@ -268,7 +268,6 @@ static NSString *CellID = @"CellID";
     self.tableView.tableFooterView = self.webView;
 }
 // 时间戳转换为日期格式(毫秒的时间戳)
-
 - (NSString *)timeWithTimeIntervalString:(NSString *)timeString{
     // 格式化时间
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
@@ -283,6 +282,7 @@ static NSString *CellID = @"CellID";
     NSLog(@"时间 === %@",dateString);
     return dateString;
 }
+
 #pragma mark —— UI设置
 - (void)setupNavagation{
     UIButton *shoppingCarBtn = [UIButton buttonWithType:UIButtonTypeCustom];

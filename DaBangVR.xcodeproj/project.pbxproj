@@ -24,6 +24,9 @@
 		0404C87122672DCB00C5F7EB /* PagingEnableLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0404C86F22672DCB00C5F7EB /* PagingEnableLayout.m */; };
 		04053B5A21FAE4A9001120FC /* UserInfoChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04053B5921FAE4A9001120FC /* UserInfoChangeModel.m */; };
 		0408156B221A9C85007A0B9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0408156A221A9C85007A0B9A /* QuartzCore.framework */; };
+		040DCD732282B7AA0044A802 /* HSFTimeDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DCD6F2282B7AA0044A802 /* HSFTimeDownView.m */; };
+		040DCD742282B7AA0044A802 /* HSFTimeDownConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DCD702282B7AA0044A802 /* HSFTimeDownConfig.m */; };
+		040DCD752282B7AA0044A802 /* HSFTimeNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DCD712282B7AA0044A802 /* HSFTimeNumberView.m */; };
 		040F32D4224CB2BE0044E363 /* LoadDataListBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040F32D3224CB2BE0044E363 /* LoadDataListBaseViewController.m */; };
 		040F32D7224CB3510044E363 /* RecreationLiveCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040F32D6224CB3510044E363 /* RecreationLiveCollectionViewController.m */; };
 		0410357F21CCD2F2002CB32C /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0410357021CCD2F2002CB32C /* UMSocialSDKResources.bundle */; };
@@ -432,6 +435,12 @@
 		04053B5821FAE4A9001120FC /* UserInfoChangeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoChangeModel.h; sourceTree = "<group>"; };
 		04053B5921FAE4A9001120FC /* UserInfoChangeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoChangeModel.m; sourceTree = "<group>"; };
 		0408156A221A9C85007A0B9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		040DCD6D2282B7AA0044A802 /* HSFTimeDownConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFTimeDownConfig.h; sourceTree = "<group>"; };
+		040DCD6E2282B7AA0044A802 /* HSFTimeNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFTimeNumberView.h; sourceTree = "<group>"; };
+		040DCD6F2282B7AA0044A802 /* HSFTimeDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFTimeDownView.m; sourceTree = "<group>"; };
+		040DCD702282B7AA0044A802 /* HSFTimeDownConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFTimeDownConfig.m; sourceTree = "<group>"; };
+		040DCD712282B7AA0044A802 /* HSFTimeNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFTimeNumberView.m; sourceTree = "<group>"; };
+		040DCD722282B7AA0044A802 /* HSFTimeDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFTimeDownView.h; sourceTree = "<group>"; };
 		040F32D2224CB2BE0044E363 /* LoadDataListBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadDataListBaseViewController.h; sourceTree = "<group>"; };
 		040F32D3224CB2BE0044E363 /* LoadDataListBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadDataListBaseViewController.m; sourceTree = "<group>"; };
 		040F32D5224CB3510044E363 /* RecreationLiveCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecreationLiveCollectionViewController.h; sourceTree = "<group>"; };
@@ -779,10 +788,8 @@
 		04ACFA67223F3A93006783BF /* OrderProcessingFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderProcessingFooterView.h; sourceTree = "<group>"; };
 		04ACFA68223F3A93006783BF /* OrderProcessingFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderProcessingFooterView.m; sourceTree = "<group>"; };
 		04ACFA6A223F3AA6006783BF /* OrderProcessingFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderProcessingFooterView.xib; sourceTree = "<group>"; };
-		04BA61AC227EC4DE004E1FFD /* PLPlayerKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PLPlayerKit.framework; path = "Pods/PLPlayerKit/Pod/Library-Universal/PLPlayerKit.framework"; sourceTree = "<group>"; };
 		04BA61B1227EC84C004E1FFD /* DidBeginLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DidBeginLiveViewController.m; sourceTree = "<group>"; };
 		04BA61B2227EC84D004E1FFD /* DidBeginLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DidBeginLiveViewController.h; sourceTree = "<group>"; };
-		04BA61B5227ECF30004E1FFD /* PLPlayerKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PLPlayerKit.framework; sourceTree = "<group>"; };
 		04BF216F2212B719002468C0 /* JXPagerListContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerListContainerView.m; sourceTree = "<group>"; };
 		04BF21702212B719002468C0 /* JXPagerMainTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerMainTableView.m; sourceTree = "<group>"; };
 		04BF21712212B719002468C0 /* JXPagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerView.m; sourceTree = "<group>"; };
@@ -1164,6 +1171,19 @@
 				0420A17D22535D1800EFFCF4 /* DDPhotoViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		040DCD6C2282B7AA0044A802 /* HSFTimeDownView(动画倒计时) */ = {
+			isa = PBXGroup;
+			children = (
+				040DCD6D2282B7AA0044A802 /* HSFTimeDownConfig.h */,
+				040DCD702282B7AA0044A802 /* HSFTimeDownConfig.m */,
+				040DCD6E2282B7AA0044A802 /* HSFTimeNumberView.h */,
+				040DCD712282B7AA0044A802 /* HSFTimeNumberView.m */,
+				040DCD722282B7AA0044A802 /* HSFTimeDownView.h */,
+				040DCD6F2282B7AA0044A802 /* HSFTimeDownView.m */,
+			);
+			path = "HSFTimeDownView(动画倒计时)";
 			sourceTree = "<group>";
 		};
 		0410356E21CCD2F2002CB32C /* UMSocial */ = {
@@ -3034,6 +3054,7 @@
 		04F5C8E321CA24FD008DD043 /* ThridParty */ = {
 			isa = PBXGroup;
 			children = (
+				040DCD6C2282B7AA0044A802 /* HSFTimeDownView(动画倒计时) */,
 				04765426226D72D400289AA7 /* CDSideBarController */,
 				046DB306224B279700C2CACB /* TPCSpringMenu */,
 				04ECB9F022422C7300A02DB2 /* DHGuidePageHUD */,
@@ -3256,8 +3277,6 @@
 		A44070A2CCEE5C6CDBC97FBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				04BA61AC227EC4DE004E1FFD /* PLPlayerKit.framework */,
-				04BA61B5227ECF30004E1FFD /* PLPlayerKit.framework */,
 				04CAE9BF227EC4840071F790 /* Foundation.framework */,
 				04CAE9BD227EC4750071F790 /* libiconv.tbd */,
 				04CAE9BB227EC46A0071F790 /* libresolv.tbd */,
@@ -3625,6 +3644,7 @@
 				044664F62237623E00DF6F47 /* ContentBaseViewController.m in Sources */,
 				04BF218B2212B719002468C0 /* PagingViewController.m in Sources */,
 				044664F0223761FC00DF6F47 /* AttributeViewViewController.m in Sources */,
+				040DCD742282B7AA0044A802 /* HSFTimeDownConfig.m in Sources */,
 				04716AC52224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m in Sources */,
 				04F4468C21D74F9000524971 /* CollectionHeaderLayout.m in Sources */,
 				0475E0292265CD2F004B79D8 /* WebSocketManager.m in Sources */,
@@ -3648,6 +3668,7 @@
 				0404776D2252FBA400EA6FFF /* SeasonAuthenticationViewController.m in Sources */,
 				044665772237654300DF6F47 /* JXCategoryImageView.m in Sources */,
 				0476038B222D13AE00FDE903 /* NewGoodsModel.m in Sources */,
+				040DCD732282B7AA0044A802 /* HSFTimeDownView.m in Sources */,
 				044E6781223221E60077365D /* UIColor+DD.m in Sources */,
 				04BF21832212B719002468C0 /* JXPagerListContainerView.m in Sources */,
 				04F70C6921E98D35004BD4C6 /* AnchorRecommendView.m in Sources */,
@@ -3781,6 +3802,7 @@
 				04C1AD0E22116EF50011DDA3 /* MineViewController.m in Sources */,
 				04F4467921D74F5300524971 /* FeatureHeaderView.m in Sources */,
 				04F62FD421F951440094B26F /* ShoppingCartViewController.m in Sources */,
+				040DCD752282B7AA0044A802 /* HSFTimeNumberView.m in Sources */,
 				04BF218A2212B719002468C0 /* TestTableViewCell.m in Sources */,
 				044E6784223221E60077365D /* UILabel+HuaZhi.m in Sources */,
 				0446657F2237654300DF6F47 /* JXCategoryCollectionView.m in Sources */,

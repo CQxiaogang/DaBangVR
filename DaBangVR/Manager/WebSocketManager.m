@@ -48,7 +48,7 @@
     self.webSocket.delegate = nil;
     [self.webSocket close];
     _webSocket = nil;
-    self.webSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:@"ws://47.107.128.89:3344"]];
+    self.webSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:@"ws://47.107.128.89:2866"]];
     self.webSocket.delegate = self;
     [self.webSocket open];
 }

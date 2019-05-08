@@ -453,6 +453,7 @@ ShufflingViewDelegate
                 make.size.equalTo(CGSizeMake(169, 142));
             }];
         }
+
         _totalH_secondsKill = kFit(titleView.mj_h + secondsKillView.mj_h);
         if (goodsData.count == 0) {
             [titleView removeFromSuperview];

@@ -96,7 +96,7 @@
                 <outlet property="goodsImgView" destination="mzS-bb-ThO" id="gqC-yn-Meg"/>
                 <outlet property="goodsPrice" destination="JWq-X2-SYL" id="Zmk-XN-pIt"/>
             </connections>
-            <point key="canvasLocation" x="13.6" y="84.557721139430285"/>
+            <point key="canvasLocation" x="62" y="84"/>
         </view>
     </objects>
     <resources>
