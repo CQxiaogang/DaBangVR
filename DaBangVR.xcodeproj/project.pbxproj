@@ -170,6 +170,7 @@
 		046DB31B224B71AE00C2CACB /* PLPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB31A224B71AE00C2CACB /* PLPlayViewController.m */; };
 		046DB31E224B739F00C2CACB /* UIButton+Animate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB31C224B739F00C2CACB /* UIButton+Animate.m */; };
 		046DB321224B742300C2CACB /* UIView+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB31F224B742300C2CACB /* UIView+Alert.m */; };
+		046F569522842D3F006367BF /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F569422842D3F006367BF /* StoreViewController.m */; };
 		04716AC02224E69000FE2B42 /* CountryGoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04716ABE2224E69000FE2B42 /* CountryGoodsCollectionViewCell.m */; };
 		04716AC12224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04716ABF2224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib */; };
 		04716AC52224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04716AC32224F15D00FE2B42 /* RecommendGoodsCollectionViewCell.m */; };
@@ -217,7 +218,7 @@
 		049D4799219FE9480058178D /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D4798219FE9480058178D /* MainTabBarController.m */; };
 		049D479C219FEC1E0058178D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D479B219FEC1E0058178D /* HomeViewController.m */; };
 		049D479F219FEC540058178D /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D479E219FEC540058178D /* LiveViewController.m */; };
-		049D47A2219FEC690058178D /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A1219FEC690058178D /* StoreViewController.m */; };
+		049D47A2219FEC690058178D /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D47A1219FEC690058178D /* CommunityViewController.m */; };
 		04A3DA3021E9EF6400F689C7 /* GoodsShowListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */; };
 		04ACFA69223F3A93006783BF /* OrderProcessingFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACFA68223F3A93006783BF /* OrderProcessingFooterView.m */; };
 		04ACFA6B223F3AA6006783BF /* OrderProcessingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ACFA6A223F3AA6006783BF /* OrderProcessingFooterView.xib */; };
@@ -701,6 +702,8 @@
 		046DB31D224B739F00C2CACB /* UIButton+Animate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Animate.h"; sourceTree = "<group>"; };
 		046DB31F224B742300C2CACB /* UIView+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Alert.m"; sourceTree = "<group>"; };
 		046DB320224B742300C2CACB /* UIView+Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Alert.h"; sourceTree = "<group>"; };
+		046F569322842D3F006367BF /* StoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
+		046F569422842D3F006367BF /* StoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
 		04716ABD2224E69000FE2B42 /* CountryGoodsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryGoodsCollectionViewCell.h; sourceTree = "<group>"; };
 		04716ABE2224E69000FE2B42 /* CountryGoodsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountryGoodsCollectionViewCell.m; sourceTree = "<group>"; };
 		04716ABF2224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryGoodsCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -781,8 +784,8 @@
 		049D479B219FEC1E0058178D /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		049D479D219FEC540058178D /* LiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveViewController.h; sourceTree = "<group>"; };
 		049D479E219FEC540058178D /* LiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveViewController.m; sourceTree = "<group>"; };
-		049D47A0219FEC690058178D /* StoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
-		049D47A1219FEC690058178D /* StoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
+		049D47A0219FEC690058178D /* CommunityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
+		049D47A1219FEC690058178D /* CommunityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController.m; sourceTree = "<group>"; };
 		04A3DA2E21E9EF6400F689C7 /* GoodsShowListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsShowListModel.h; sourceTree = "<group>"; };
 		04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsShowListModel.m; sourceTree = "<group>"; };
 		04ACFA67223F3A93006783BF /* OrderProcessingFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderProcessingFooterView.h; sourceTree = "<group>"; };
@@ -1968,6 +1971,29 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		046F568D22842C51006367BF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				049D47A0219FEC690058178D /* CommunityViewController.h */,
+				049D47A1219FEC690058178D /* CommunityViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		046F568E22842C51006367BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		046F568F22842C51006367BF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		04716AC722254E6C00FE2B42 /* SortSearchController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2563,11 +2589,14 @@
 			path = "Entertainment(娱乐)";
 			sourceTree = "<group>";
 		};
-		049D478E219FB4620058178D /* ShortVideo(短视频) */ = {
+		049D478E219FB4620058178D /* Community */ = {
 			isa = PBXGroup;
 			children = (
+				046F568E22842C51006367BF /* Model */,
+				046F568F22842C51006367BF /* View */,
+				046F568D22842C51006367BF /* Controller */,
 			);
-			path = "ShortVideo(短视频)";
+			path = Community;
 			sourceTree = "<group>";
 		};
 		049D478F219FB4800058178D /* Mine(我的) */ = {
@@ -2625,8 +2654,8 @@
 		04B9204622816B28008BAC74 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				049D47A0219FEC690058178D /* StoreViewController.h */,
-				049D47A1219FEC690058178D /* StoreViewController.m */,
+				046F569322842D3F006367BF /* StoreViewController.h */,
+				046F569422842D3F006367BF /* StoreViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3116,7 +3145,7 @@
 				049D478B219FB3C00058178D /* Home(首页) */,
 				049D478C219FB3E80058178D /* Live(直播) */,
 				049D478D219FB42C0058178D /* Entertainment(娱乐) */,
-				049D478E219FB4620058178D /* ShortVideo(短视频) */,
+				049D478E219FB4620058178D /* Community */,
 				049D478F219FB4800058178D /* Mine(我的) */,
 				04FA5D5821AE3B0D0061AF27 /* Login(登录) */,
 			);
@@ -3852,10 +3881,11 @@
 				04FC2C3921C0E3AD00329B53 /* JFCityCollectionViewCell.m in Sources */,
 				04F4468E21D74F9000524971 /* GoodAttributesView.m in Sources */,
 				049D4796219FB7710058178D /* DBTabBar.m in Sources */,
-				049D47A2219FEC690058178D /* StoreViewController.m in Sources */,
+				049D47A2219FEC690058178D /* CommunityViewController.m in Sources */,
 				043B468421F80CB200C75536 /* UserAddressModel.m in Sources */,
 				04765434226D72FF00289AA7 /* CDSideBarController.m in Sources */,
 				044665822237654300DF6F47 /* JXCategoryListCollectionContainerView.m in Sources */,
+				046F569522842D3F006367BF /* StoreViewController.m in Sources */,
 				048F79BC2272E87D00407050 /* DidBeginLiveAnchorInfoView.m in Sources */,
 				04F2E4592248C627001FB3C1 /* LiveCollectionViewCell.m in Sources */,
 				044665672237654300DF6F47 /* JXCategoryIndicatorBallView.m in Sources */,

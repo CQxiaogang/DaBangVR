@@ -1,12 +1,12 @@
 //
-//  DBShortVideoViewController.h
+//  StoreViewController.h
 //  DaBangVR
 //
-//  Created by mac on 2018/11/17.
-//  Copyright © 2018 DaBangVR. All rights reserved.
+//  Created by mac on 2019/5/9.
+//  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RootViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -24,7 +24,7 @@
 #import "SearchGoodsViewController.h"       //搜索商品
 #import "SearchViewController.h"            //搜索商品
 #import "GoodsDetailsViewController.h"      //商品详情
-#import "StoreViewController.h"             //门店
+#import "StoreViewController.h"          //门店
 #import "MerchantsSettledViewController.h"  //商家入驻
 // Views
 #import "AnchorRecommendView.h" //主播推荐

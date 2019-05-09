@@ -9,12 +9,12 @@
 #import "LiveViewController.h"
 #import "MainTabBarController.h"
 #import "HomeViewController.h"
-#import "StoreViewController.h"
+#import "CommunityViewController.h"
 #import "PagingViewController.h"
 #import "MineViewController.h"
 #import "ShouldBeginLiveViewController.h"
 #import "GoodAttributesView.h"
-#import "StoreViewController.h"
+#import "CommunityViewController.h"
 
 #define kSWidth [UIScreen mainScreen].bounds.size.width
 
@@ -63,7 +63,7 @@
     LiveViewController *liveVC = [LiveViewController new];
     [self addChildViewController:liveVC title:@"直播" imageName:@"h_liveBroadcast" selectedImageName:@"h_liveBroadcast_select"];
     
-    StoreViewController *storeVC = [StoreViewController new];
+    CommunityViewController *storeVC = [CommunityViewController new];
     [self addChildViewController:storeVC title:@"社区" imageName:@"h_community" selectedImageName:@"h_community_select"];
 
     MineViewController *myVC = [MineViewController new];
