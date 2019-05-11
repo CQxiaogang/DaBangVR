@@ -24,8 +24,7 @@
     _consigneeNameLab.text = model.consigneeName;
     _consigneePhoneLab.text = model.consigneePhone;
     if (model.address.length != 0) {
-        _addressLab.text = [NSString stringWithFormat:@"%@",
-                            model.address];
+        _addressLab.text = [NSString stringWithFormat:@"%@",model.address];
     }
     
 }

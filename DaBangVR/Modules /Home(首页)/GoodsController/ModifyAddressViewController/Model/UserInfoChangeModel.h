@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UserInfoChangeModel : NSObject
 
-@property (nonatomic, copy) NSString *ID;
+@property (nonatomic, copy) NSString *id;
 // 国家
 @property (nonatomic, copy) NSString *receivingCountry;
 // 省

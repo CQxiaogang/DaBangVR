@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "190E87E860814AB49EAED76B5567E569"
-               BuildableName = "libMMMaterialDesignSpinner.a"
-               BlueprintName = "MMMaterialDesignSpinner"
+               BlueprintIdentifier = "92EA7AB956F667199A5E3BBC4EAC655A"
+               BuildableName = "mob_smssdk"
+               BlueprintName = "mob_smssdk"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

@@ -54,7 +54,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MOBFoundation.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PLMediaStreamingKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PLPlayerKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -89,7 +104,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>WechatOpenSDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>mob_smssdk.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

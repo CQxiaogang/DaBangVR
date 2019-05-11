@@ -57,7 +57,7 @@ static NSString *CellID = @"CellID";
     //设置更多热门直播按钮
     UIButton *moreAnchorBtn = [[UIButton alloc] init];
     [moreAnchorBtn setTitle:@"更多热门直播" forState:UIControlStateNormal];
-    [moreAnchorBtn setTitleColor:[UIColor colorWithRed:146.0/255.0 green:146.0/255.0 blue:146.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [moreAnchorBtn setTitleColor:RGBCOLOR(146.0, 146, 146) forState:UIControlStateNormal];
     moreAnchorBtn.titleLabel.adaptiveFontSize = 12.5f;
     //设置按钮样式
     moreAnchorBtn.layer.cornerRadius = kFit(5);

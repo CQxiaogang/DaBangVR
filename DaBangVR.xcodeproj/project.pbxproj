@@ -2144,9 +2144,9 @@
 		04760374222D080E00FDE903 /* AllCommentsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				04760377222D082500FDE903 /* Controller */,
 				04760375222D082500FDE903 /* Model */,
 				04760376222D082500FDE903 /* View */,
+				04760377222D082500FDE903 /* Controller */,
 			);
 			path = AllCommentsViewController;
 			sourceTree = "<group>";
@@ -3562,7 +3562,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DaBangVR/Pods-DaBangVR-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DaBangVR/Pods-DaBangVR-frameworks.sh",
 				"${PODS_ROOT}/PLMediaStreamingKit/Pod/Library/PLMediaStreamingKit.framework",
 				"${PODS_ROOT}/PLMediaStreamingKit/Pod/Library/HappyDNS.framework",
 				"${PODS_ROOT}/PLPlayerKit/Pod/Library/PLPlayerKit.framework",
@@ -3577,7 +3577,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DaBangVR/Pods-DaBangVR-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DaBangVR/Pods-DaBangVR-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5D9A11DC909116A154162425 /* [CP] Check Pods Manifest.lock */ = {
@@ -3604,7 +3604,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DaBangVR/Pods-DaBangVR-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DaBangVR/Pods-DaBangVR-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
@@ -3619,7 +3619,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DaBangVR/Pods-DaBangVR-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DaBangVR/Pods-DaBangVR-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

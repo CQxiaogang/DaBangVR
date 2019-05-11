@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ModifyAddressViewController : RootViewController<AreaSelectDelegate>
 
+@property (nonatomic, copy) NSString *adressID;
 
 @end
 

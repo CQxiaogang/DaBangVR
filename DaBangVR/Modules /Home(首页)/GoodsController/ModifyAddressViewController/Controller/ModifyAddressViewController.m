@@ -12,10 +12,10 @@
 // Models
 #import "ModifyAddressModel.h"
 #import "ModifyAddressAreaModel.h"
+#import "UserAddressModel.h"
 
 @interface ModifyAddressViewController ()<ModifyAddressViewCellDelegate,UITextViewDelegate>
 {
-    AreaView *areaView;
     NSInteger _areaIndex;
     NSString *_areaID;
     NSString *_addressInfor;
@@ -34,7 +34,11 @@
 @property (nonatomic, strong) NSMutableDictionary *user_AdressDic;
 @property (nonatomic, strong) NSMutableArray *areaIDs;
 @property (nonatomic, copy) NSString *boolStr;
-
+@property (nonatomic, copy) NSArray <UserAddressModel *> *addressData;
+@property (nonatomic, strong) UserAddressModel *userAddressModel;
+@property (nonatomic, strong) NSMutableArray   *userAddressData;
+@property (nonatomic, strong) NSMutableArray   *siteData;
+@property (nonatomic, strong) AreaView *areaView;
 @end
 
 CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height)
@@ -84,6 +88,20 @@ static NSString *const CellID = @"CellID";
     return _areaIDs;
 }
 
+-(NSMutableArray *)userAddressData{
+    if (!_userAddressData) {
+        _userAddressData = [NSMutableArray new];
+    }
+    return _userAddressData;
+}
+
+-(NSMutableArray *)siteData{
+    if (!_siteData) {
+        _siteData = [NSMutableArray new];
+    }
+    return _siteData;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -93,6 +111,29 @@ static NSString *const CellID = @"CellID";
     _area_dataArray1 = [[NSMutableArray alloc]init];
     _area_dataArray2 = [[NSMutableArray alloc]init];
     _area_dataArray3 = [[NSMutableArray alloc]init];
+    
+    [self loadingData];
+}
+
+-(void)loadingData{
+    kWeakSelf(self);
+    [NetWorkHelper POST:URl_addressListone parameters:@{@"id":_adressID} success:^(id  _Nonnull responseObject) {
+        NSDictionary *dic = KJSONSerialization(responseObject)[@"data"];
+        NSArray *receivingAddressVoList = dic[@"receivingAddressVoList"];
+        weakself.userAddressModel = [UserAddressModel mj_objectWithKeyValues:receivingAddressVoList[0]];
+        [weakself.userAddressData addObject:weakself.userAddressModel.consigneeName];
+        [weakself.userAddressData addObject:weakself.userAddressModel.consigneePhone];
+        NSString *area = weakself.userAddressModel.area;
+        NSString *province = weakself.userAddressModel.province;
+        NSString *city = weakself.userAddressModel.city;
+        [weakself.userAddressData addObject:[NSString stringWithFormat:@"%@%@%@",province,city,area]];
+        
+        [weakself.siteData addObject:area];
+        [weakself.siteData addObject:province];
+        [weakself.siteData addObject:city];
+        weakself.areaView.siteData = weakself.siteData;
+        [self.tableView reloadData];
+    } failure:nil];
 }
 
 - (void)setupUI{
@@ -138,7 +179,6 @@ static NSString *const CellID = @"CellID";
         make.centerY.equalTo(footerView.mas_centerY);
         make.size.equalTo(CGSizeMake(50, 30));
     }];
-    
 }
 
 #pragma mark —— 保存地址信息
@@ -178,6 +218,7 @@ static NSString *const CellID = @"CellID";
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.titleArr.count+1;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     _cell = [tableView dequeueReusableCellWithIdentifier:CellID];
@@ -191,15 +232,20 @@ static NSString *const CellID = @"CellID";
         UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, _cell.mj_w, kFit(100))];
         textView.delegate = self;
         _placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(kFit(10), 0, textView.mj_w-kFit(10), kFit(30))];
-        _placeholderLabel.text = @"详细地址:如道路,门牌号,小区,楼栋号,单元室等";
+        _placeholderLabel.text = _userAddressModel.address?_userAddressModel.address:@"详细地址:如道路,门牌号,小区,楼栋号,单元室等";
         _placeholderLabel.adaptiveFontSize = 14;
         _placeholderLabel.textColor = KFontColor;
         [textView addSubview:_placeholderLabel];
         [_cell addSubview:textView];
     }else{
         _cell.titleLabel.text = self.titleArr[indexPath.row];
-        _cell.contentText.placeholder = self.placeholderArr[indexPath.row];
         _cell.contentText.tag = indexPath.row;
+        
+        if (self.userAddressData.count == 3) {
+           _cell.contentText.text = self.userAddressData[indexPath.row];
+        }else{
+           _cell.contentText.placeholder = self.placeholderArr[indexPath.row];
+        }
     }
     
     if (indexPath.row == 2) {
@@ -208,7 +254,6 @@ static NSString *const CellID = @"CellID";
         if (_addressInfor) {
             _cell.contentText.text = _addressInfor;
         }
-        
         [_cell addSubview:btn];
     }
     return _cell;
@@ -224,6 +269,7 @@ static NSString *const CellID = @"CellID";
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     return [[UIView alloc] init];
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 1;
 }
@@ -262,6 +308,7 @@ static NSString *const CellID = @"CellID";
     // 区域 ID
     [self.areaIDs addObject:areaID];
     if (self.areaIDs.count == 3) {
+        [_cell.contentText becomeFirstResponder];
         [self.user_AdressDic setObject:@"1"            forKey:@"receivingCountry"];
         [self.user_AdressDic setObject:self.areaIDs[0] forKey:@"province"]; // 675
         [self.user_AdressDic setObject:self.areaIDs[1] forKey:@"city"];     //1572
@@ -285,17 +332,17 @@ static NSString *const CellID = @"CellID";
 #pragma mark - requestAllAreaName
 - (void)requestAllAreaName
 {
-    if (!areaView) {
-        areaView = [[AreaView alloc]initWithFrame:CGRectMakes(0, 0, 375, 667)];
-        areaView.hidden = YES;
-        areaView.address_delegate = self;
-        [[UIApplication sharedApplication].keyWindow addSubview:areaView];
+    if (!_areaView) {
+        _areaView = [[AreaView alloc]initWithFrame:CGRectMakes(0, 0, 375, 667)];
+        _areaView.hidden = YES;
+        _areaView.address_delegate = self;
+        [[UIApplication sharedApplication].keyWindow addSubview:_areaView];
     }
     kWeakSelf(self);
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_enter(group);
     // 网络请求得到地区信息
-    _areaID   = _areaID? _areaID : @"1";
+    _areaID = _areaID? _areaID : @"1";
     [NetWorkHelper POST:URl_getRegionChildrenList parameters:@{@"parentId":_areaID} success:^(id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSArray *regionList = dic[@"regionList"];
@@ -316,23 +363,21 @@ static NSString *const CellID = @"CellID";
             }
         }
         dispatch_group_leave(group);
-    } failure:^(NSError * _Nonnull error) {
-        DLog(@"");
-    }];
+    } failure:^(NSError * _Nonnull error) {}];
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         switch (self->_areaIndex) {
             case 0:
             {
-                [self->areaView showAreaView];
-                [self->areaView setProvinceArray:weakself.area_dataArray1];
+                [weakself.areaView showAreaView];
+                [weakself.areaView setProvinceArray:weakself.area_dataArray1];
             }
                 break;
             case 1:
-                [self->areaView setCityArray:weakself.area_dataArray2];
+                [weakself.areaView setCityArray:weakself.area_dataArray2];
                 break;
             case 2:
-                [self->areaView setRegionsArray:weakself.area_dataArray3];
+                [weakself.areaView setRegionsArray:weakself.area_dataArray3];
                 break;
             default:
                 break;
@@ -341,11 +386,12 @@ static NSString *const CellID = @"CellID";
 }
 
 - (void)buttonClickAction{
-    if (!areaView) {
+    if (!_areaView) {
         [self requestAllAreaName];
+    }else{
+        [_areaView showAreaView];
+        [_cell.contentText resignFirstResponder];
     }
-    else
-        [areaView showAreaView];
 }
 
 #pragma mark —— UITextView 协议

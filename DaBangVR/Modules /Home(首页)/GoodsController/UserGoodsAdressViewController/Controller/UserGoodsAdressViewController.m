@@ -47,6 +47,11 @@ static NSString *const CellID = @"CellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"收货地址";
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //加载数据
     [self loadingData];
 }
 
@@ -58,9 +63,7 @@ static NSString *const CellID = @"CellID";
         NSArray *receivingAddressVoList = data[@"receivingAddressVoList"];
         weakself.userData = [UserAddressModel mj_objectArrayWithKeyValuesArray:receivingAddressVoList];
         [weakself.tableView reloadData];
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
+    } failure:^(NSError * _Nonnull error) {}];
 }
 
 - (void)setupUI{
@@ -115,8 +118,14 @@ static NSString *const CellID = @"CellID";
 }
 
 #pragma mark —— UserInfoChangeCell 协议
--(void)changeAdress{
+-(void)changeAdressClick:(UIButton *)button{
     ModifyAddressViewController *vc = [[ModifyAddressViewController alloc] init];
+    //得到当前的indexPath
+    UserAdressCell *cell = (UserAdressCell *)[[button superview] superview];
+    NSIndexPath *indexPath  = [self.tableView indexPathForCell:cell];
+    NSInteger i = indexPath.row;
+    UserInfoChangeModel *userInfoModel = self.userData[i];
+    vc.adressID = userInfoModel.id;
     [self.navigationController pushViewController:vc animated:NO];
 }
 

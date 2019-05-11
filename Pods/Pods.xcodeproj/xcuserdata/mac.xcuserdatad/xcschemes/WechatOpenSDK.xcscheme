@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "190E87E860814AB49EAED76B5567E569"
-               BuildableName = "libMMMaterialDesignSpinner.a"
-               BlueprintName = "MMMaterialDesignSpinner"
+               BlueprintIdentifier = "2E99BCD3F88AF07EA642974582E17DD7"
+               BuildableName = "WechatOpenSDK"
+               BlueprintName = "WechatOpenSDK"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

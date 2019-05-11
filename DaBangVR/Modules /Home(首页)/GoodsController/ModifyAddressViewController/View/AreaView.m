@@ -8,6 +8,15 @@
 
 #import "AreaView.h"
 #import "ModifyAddressAreaModel.h"
+
+@interface AreaView ()
+
+@property (nonatomic, strong) UIButton *button1;
+@property (nonatomic, strong) UIButton *button2;
+@property (nonatomic, strong) UIButton *button3;
+
+@end
+
 @implementation AreaView
 {
     UIView *blackBaseView;
@@ -25,7 +34,6 @@ CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height
     return rect;
 }
 
-#define RGBCOLOR(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 #define HTFont(s) [UIFont fontWithName:@"Helvetica-Light" size:s / 2 * MULPITLE]
 #define MULPITLE [[UIScreen mainScreen] bounds].size.width / 375
 
@@ -37,12 +45,10 @@ CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height
         _provinceArray = [[NSMutableArray alloc]init];
         _cityArray = [[NSMutableArray alloc]init];
         _regionsArray = [[NSMutableArray alloc]init];
-        
         [self creatBaseUI];
     }
     return self;
 }
-
 
 - (void)creatBaseUI
 {
@@ -222,9 +228,6 @@ CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height
         default:
             break;
     }
-
-    
-    
     return cell;
 }
 
@@ -239,13 +242,14 @@ CG_INLINE CGRect CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat height
             view.hidden = YES;
         }
     }
-    
+    DLog(@"%@",_siteData);
     UIView *lineView1 = [_areaWhiteBaseView viewWithTag:300];
     UIView *lineView2 = [_areaWhiteBaseView viewWithTag:301];
     UIView *lineView3 = [_areaWhiteBaseView viewWithTag:302];
     switch (tableView.tag - 200) {
         case 0:
         {
+            
             ModifyAddressAreaModel *addressAreaModel = _provinceArray[indexPath.row];
             btn1Height = [AreaView getLabelWidth:addressAreaModel.name font:30 height:30] + 20;
             [btn1 setTitle:addressAreaModel.name forState:UIControlStateNormal];

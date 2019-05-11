@@ -436,10 +436,10 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
         cell.chooseAttLabel.textColor = [UIColor darkGrayColor];
         
         NSString *attString = (_seleArray.count == _featureAttr.count) ? [_seleArray componentsJoinedByString:@"_"] : [lastSeleArray componentsJoinedByString:@"_"];
-        
+        NSString *goodsSpecIds;
         for (ProductInfoVoListModel *model in _goodsSpecArr) {
             if ([attString isEqualToString:model.goodsSpecIds]) {
-                
+                goodsSpecIds = model.goodsSpecIds;
                 NSString *goodsPrice;
                 if ([_submitType isEqualToString:kGroup2]) {
                     // 拼团价格
@@ -451,7 +451,6 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
                     // 其他价格如：单独购买
                     goodsPrice = [NSString stringWithFormat:@"¥ %.2f",[model.retailPrice floatValue]*lastNum];
                 }
-                
                 cell.chooseAttLabel.text = [NSString stringWithFormat:@"已选属性：%@",model.name];
                 cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",model.number];
                 cell.goodPriceLabel.text = goodsPrice;
@@ -459,7 +458,17 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
                 [self.goodsDetailsArr removeAllObjects];
                 [self.goodsDetailsArr addObject:model.id];
                 [self.goodsDetailsArr addObject:model.goodsId];
+                
             }
+            //当所选规格库存为0时,那么“ 确定”按钮就不能被操作。为防止程序崩溃
+            if ([attString isEqualToString:goodsSpecIds]) {
+                _sureBtn.userInteractionEnabled = YES;
+                _sureBtn.alpha = 1.0;
+            }else{
+                _sureBtn.userInteractionEnabled = NO;
+                _sureBtn.alpha = 0.4;
+            }
+            
         }
         // 没有规格的时候
         if (_featureAttr.count == 0) {

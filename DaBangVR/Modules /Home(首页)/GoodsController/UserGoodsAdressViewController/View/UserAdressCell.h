@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  修改地址
  */
-- (void)changeAdress;
+- (void)changeAdressClick:(UIButton *)button;
 
 /**
  删除地址

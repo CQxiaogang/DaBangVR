@@ -73,6 +73,8 @@
 #define URl_addressListone NSStringFormat(@"%@%@",URL_main,@"/api/my/addressListone?")
 // 删除收货地址
 #define URl_addressDelete NSStringFormat(@"%@%@",URL_main,@"/api/my/addressDelete")
+// 修改收货地址
+#define URl_addressUpdate NSStringFormat(@"%@%@",URL_main,@"/api/my/addressUpdate?")
 // 查询地址下级列表
 #define URl_getRegionChildrenList NSStringFormat(@"%@%@",URL_main,@"/api/my/getRegionChildrenList?")
 // 添加商品收藏

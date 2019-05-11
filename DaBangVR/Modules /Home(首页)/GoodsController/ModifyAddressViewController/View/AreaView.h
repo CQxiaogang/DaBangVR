@@ -20,6 +20,7 @@
 @property(nonatomic,strong)NSMutableArray *provinceArray;
 @property(nonatomic,strong)NSMutableArray *cityArray;
 @property(nonatomic,strong)NSMutableArray *regionsArray;
+@property(nonatomic,strong)NSArray *siteData;
 @property(nonatomic,strong)id <AreaSelectDelegate> address_delegate;
 
 - (void)showAreaView;

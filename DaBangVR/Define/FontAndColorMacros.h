@@ -34,10 +34,9 @@
 //再次级字色
 #define CFontColor2 [UIColor colorWithHexString:@"5c5c5c"]
 
+#define RGBCOLOR(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 
 #pragma mark -  字体区
-
-
 #define FFont1 [UIFont systemFontOfSize:12.0f]
 
 #endif /* FontAndColorMacros_h */
