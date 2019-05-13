@@ -189,6 +189,9 @@
 		04765430226D72F500289AA7 /* menuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0476542B226D72F500289AA7 /* menuIcon.png */; };
 		04765431226D72F500289AA7 /* menuUsers.png in Resources */ = {isa = PBXBuildFile; fileRef = 0476542C226D72F500289AA7 /* menuUsers.png */; };
 		04765434226D72FF00289AA7 /* CDSideBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04765433226D72FF00289AA7 /* CDSideBarController.m */; };
+		047F24862289531D00A66F8C /* SecondsKillMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047F24832289531C00A66F8C /* SecondsKillMenuView.m */; };
+		047F24872289531D00A66F8C /* TimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047F24842289531C00A66F8C /* TimeView.m */; };
+		047F24882289531D00A66F8C /* WhiteCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047F24852289531C00A66F8C /* WhiteCoverView.m */; };
 		048E692C21A26C5A00DB911A /* UIColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E692B21A26C5A00DB911A /* UIColor+category.m */; };
 		048EC5652261CDD4007288FB /* LiveCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048EC5632261CDD4007288FB /* LiveCommentTableViewCell.m */; };
 		048EC5662261CDD4007288FB /* LiveCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048EC5642261CDD4007288FB /* LiveCommentTableViewCell.xib */; };
@@ -732,6 +735,12 @@
 		0476542C226D72F500289AA7 /* menuUsers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuUsers.png; sourceTree = "<group>"; };
 		04765432226D72FF00289AA7 /* CDSideBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDSideBarController.h; sourceTree = "<group>"; };
 		04765433226D72FF00289AA7 /* CDSideBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDSideBarController.m; sourceTree = "<group>"; };
+		047F24802289531C00A66F8C /* SecondsKillMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondsKillMenuView.h; sourceTree = "<group>"; };
+		047F24812289531C00A66F8C /* TimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeView.h; sourceTree = "<group>"; };
+		047F24822289531C00A66F8C /* WhiteCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiteCoverView.h; sourceTree = "<group>"; };
+		047F24832289531C00A66F8C /* SecondsKillMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondsKillMenuView.m; sourceTree = "<group>"; };
+		047F24842289531C00A66F8C /* TimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeView.m; sourceTree = "<group>"; };
+		047F24852289531C00A66F8C /* WhiteCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhiteCoverView.m; sourceTree = "<group>"; };
 		048E692A21A26C5A00DB911A /* UIColor+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+category.h"; sourceTree = "<group>"; };
 		048E692B21A26C5A00DB911A /* UIColor+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+category.m"; sourceTree = "<group>"; };
 		048EC5622261CDD4007288FB /* LiveCommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveCommentTableViewCell.h; sourceTree = "<group>"; };
@@ -1368,6 +1377,7 @@
 		042359ED21FF05E400F4C345 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				047F247F2289531C00A66F8C /* SecondsKillMenuView */,
 				04F45F1721F5B7A7009F5907 /* TableView */,
 				044250B222277FCD00E9F64E /* TimeChooseView.h */,
 				044250B322277FCD00E9F64E /* TimeChooseView.m */,
@@ -2381,6 +2391,19 @@
 				0476542C226D72F500289AA7 /* menuUsers.png */,
 			);
 			path = Icons;
+			sourceTree = "<group>";
+		};
+		047F247F2289531C00A66F8C /* SecondsKillMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				047F24812289531C00A66F8C /* TimeView.h */,
+				047F24842289531C00A66F8C /* TimeView.m */,
+				047F24822289531C00A66F8C /* WhiteCoverView.h */,
+				047F24852289531C00A66F8C /* WhiteCoverView.m */,
+				047F24802289531C00A66F8C /* SecondsKillMenuView.h */,
+				047F24832289531C00A66F8C /* SecondsKillMenuView.m */,
+			);
+			path = SecondsKillMenuView;
 			sourceTree = "<group>";
 		};
 		048E692921A26A9E00DB911A /* Category */ = {
@@ -3804,6 +3827,7 @@
 				04FC2C3B21C0E3AD00329B53 /* JFAreaDataManager.m in Sources */,
 				04F62FEE21F9B69A0094B26F /* ModifyAddressAreaModel.m in Sources */,
 				042FCED021A406FB002AD0DB /* DBHotVideoView.m in Sources */,
+				047F24872289531D00A66F8C /* TimeView.m in Sources */,
 				0467100122603A280025E001 /* ShouldBeginLiveGoodsModel.m in Sources */,
 				04F45F1221F5AD70009F5907 /* MySecondKillTableView.m in Sources */,
 				04F494C521C77D1B009A4518 /* UIAlertController+TapGesAlertController.m in Sources */,
@@ -3860,6 +3884,7 @@
 				042D152F221D628F00DB895C /* PaySuccessView.m in Sources */,
 				048F79C62272F58F00407050 /* DidBeginLiveGoodsView.m in Sources */,
 				04F084F021E48F9600BFE102 /* BaseTableViewCell.m in Sources */,
+				047F24862289531D00A66F8C /* SecondsKillMenuView.m in Sources */,
 				04BF21842212B719002468C0 /* JXPagerMainTableView.m in Sources */,
 				044665812237654300DF6F47 /* JXCategoryViewAnimator.m in Sources */,
 				0459D89321E04ADB009BFFB4 /* RootViewController.m in Sources */,
@@ -3879,6 +3904,7 @@
 				0449C32C2226251A007EE9E1 /* CountryListModel.m in Sources */,
 				04BF21852212B719002468C0 /* JXPagerView.m in Sources */,
 				04FC2C3921C0E3AD00329B53 /* JFCityCollectionViewCell.m in Sources */,
+				047F24882289531D00A66F8C /* WhiteCoverView.m in Sources */,
 				04F4468E21D74F9000524971 /* GoodAttributesView.m in Sources */,
 				049D4796219FB7710058178D /* DBTabBar.m in Sources */,
 				049D47A2219FEC690058178D /* CommunityViewController.m in Sources */,

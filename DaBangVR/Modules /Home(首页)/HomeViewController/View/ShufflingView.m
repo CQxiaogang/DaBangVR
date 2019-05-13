@@ -18,7 +18,7 @@
         NSMutableArray *dataSource = [NSMutableArray array];
         dispatch_group_t downloadGroup = dispatch_group_create();
         dispatch_group_enter(downloadGroup);
-        [NetWorkHelper POST:URl_goods_rotation_list parameters:@{@"parentId": index} success:^(id  _Nonnull responseObject) {
+        [NetWorkHelper POST:URl_getGoodsRotationList parameters:@{@"parentId": index} success:^(id  _Nonnull responseObject) {
             NSDictionary *data= KJSONSerialization(responseObject)[@"data"];
             NSArray *goodsArray = data[@"goodsRotationList"];
             for (NSDictionary *dic in goodsArray) {
@@ -36,10 +36,12 @@
     }
     return self;
 }
--(void)imageDidSelected:(NSString *)goodsID{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(imgDidSelected:)]) {
-        [self.delegate imgDidSelected:goodsID];
+-(void)goodsRotationSelectedAndJumpUrl:(NSString *)goodsID{
+    
+}
+-(void)goodsRotationSelectedAndJumpUrl:(NSString *)jumpUrl andParentId:(nonnull NSString *)parentId{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(goodsRotationSelectedAndJumpUrl:andParentId:)]) {
+        [self.delegate goodsRotationSelectedAndJumpUrl:jumpUrl andParentId:parentId];
     }
 }
-
 @end

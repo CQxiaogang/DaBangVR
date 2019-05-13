@@ -11,6 +11,8 @@
 #import "JXCategoryListContainerView.h"
 
 #define WindowsSize [UIScreen mainScreen].bounds.size
+#define kSecondsKillShufflingViewHight kFit(145)
+#define kPreferredCategoryViewHeight   kFit(41)
 
 @protocol ContentBaseViewControllerDelegate <NSObject>
 

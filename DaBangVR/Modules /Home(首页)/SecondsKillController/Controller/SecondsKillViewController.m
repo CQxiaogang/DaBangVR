@@ -21,6 +21,9 @@
 //Models
 #import "GoodsRotationListModel.h"
 #import "GoodsDetailsModel.h"
+#import "SecondsKillMenuView.h"
+
+
 
 @interface SecondsKillViewController ()<SecondsKillTableViewDelegate, TimeChooseViewDelegate, ShufflingViewDelegate>{
 }
@@ -32,6 +35,7 @@
 
 @property (nonatomic, strong) JXCategoryTitleAttributeView *myCategoryView;
 @property (nonatomic, strong) NSMutableArray <NSAttributedString *> *attributeTitles;
+@property (nonatomic, strong) UIView *bottomView;
 
 @end
 
@@ -40,7 +44,7 @@
 -(SecondsKillTableView *)leftTableView{
     if (!_leftTableView) {
         // 轮播图
-        _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(180)) andIndex:@"4"];
+        _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kSecondsKillShufflingViewHight) andIndex:@"4"];
         _shufflingView.delegate = self;
         // 轮播图下面的时间选择 View
         TimeChooseView *timeChooseView = [[[NSBundle mainBundle] loadNibNamed:@"TimeChooseView" owner:nil options:nil] firstObject];
@@ -56,19 +60,19 @@
     }
     return _leftTableView;
 }
+
+#pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"限时秒杀";
    
     // 轮播图
-    _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, kFit(100)) andIndex:@"4"];
+    _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, kSecondsKillShufflingViewHight) andIndex:@"4"];
     _shufflingView.delegate = self;
     [self.view addSubview:_shufflingView];
-    
     _attributeTitles = [NSMutableArray new];
     
     for (int i = 0; i<=23; i++) {
-        
         NSString *string = [NSString stringWithFormat:@"%d:00\n海鲜粉",i];
         if (i < 9) {
             string = [NSString stringWithFormat:@"0%d:00\n海鲜粉",i];
@@ -81,31 +85,65 @@
     for (NSMutableAttributedString *attriString in self.attributeTitles) {
         [titles addObject:attriString.string];
     }
-    self.titles = titles;
-    
-    [super viewDidLoad];
+    self.titles                         = titles;
     self.myCategoryView.attributeTitles = self.attributeTitles;
-    
+    self.myCategoryView.backgroundColor = RGBCOLOR(52, 52, 52);
+
     JXCategoryIndicatorBackgroundView *backgroundView = [[JXCategoryIndicatorBackgroundView alloc] init];
-    backgroundView.backgroundViewHeight = 40;
-    backgroundView.backgroundViewCornerRadius = 5;
-    self.myCategoryView.indicators = @[backgroundView];
+    backgroundView.backgroundViewHeight               = kPreferredCategoryViewHeight;
+    backgroundView.backgroundViewCornerRadius         = 0;
+    backgroundView.backgroundViewColor                = KLightGreen;
+    self.myCategoryView.indicators                    = @[backgroundView];
+    
 }
-- (JXCategoryTitleAttributeView *)myCategoryView {
+-(JXCategoryTitleAttributeView *)myCategoryView {
     return (JXCategoryTitleAttributeView *)self.categoryView;
 }
-- (JXCategoryBaseView *)preferredCategoryView {
+-(JXCategoryBaseView *)preferredCategoryView {
     return [[JXCategoryTitleAttributeView alloc] init];
 }
-- (void)setupUI{
+-(void)setupUI{
     [super setupUI];
-    // 设置 navagtionBar
+    //设置navagtionBar
     [self setupNavagationBar];
-    // 底部 UI
+    //底部UI
      [self creatBottomUI];
-    // 左边的 view
+    //左边的view
     [self creatLeftOfTableView];
+    
+//    [self setupSecondsKillMennView];
+    
 }
+//限时秒杀菜单
+-(void)setupSecondsKillMennView{
+    kWeakSelf(self);
+    CGFloat secondsKillMenuVieWidth = 56;
+    CGFloat secondsKillMenuVieHight = 41;
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    NSArray *timeArray = @[@"18:00",@"19:00",@"20:00",@"21:00",@"22:00",@"23:00",@"24:00"];
+    NSArray *titleArray = @[@"即将开始",@"马上开始",@"已经开始",@"疯狂抢购中",@"马上开始",@"已经停止",@"已经停止"];
+    
+    SecondsKillMenuView *sec = [[SecondsKillMenuView alloc] initWithFrame:CGRectMake(0, kTopHeight + 145, SCW, secondsKillMenuVieHight)];
+    [sec setMenuTimeArray:timeArray andTitleArray:titleArray andNumOfShow:5];
+    
+    [sec setPageContentScrollViewFrame:CGRectMake(0, 64 + secondsKillMenuVieHight, SCW, SCH)];
+    [self.view addSubview:sec.pageContentScrollView];
+    [self.view addSubview:sec];
+    [sec.pageContentScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(KScreenW);
+        make.top.equalTo(sec.mas_bottom).offset(0);
+        make.bottom.equalTo(weakself.bottomView.mas_top).offset(0);
+    }];
+    [sec.pageContentScrollView layoutIfNeeded];
+    for (int i = 0; i < timeArray.count; i++) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(SCW * i, 0, KScreenW, sec.pageContentScrollView.mj_h)];
+        view.backgroundColor = KRandomColor;
+        [sec.pageContentScrollView addSubview:view];
+    }
+}
+
 - (void)setupNavagationBar{
     UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [shareBtn.widthAnchor constraintEqualToConstant:25].active = YES;
@@ -116,6 +154,7 @@
 }
 - (void)creatBottomUI{
     UIView *bottomView = [[UIView alloc] init];
+    _bottomView = bottomView;
     bottomView.backgroundColor = KWhiteColor;
     [self.view addSubview:bottomView];
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {

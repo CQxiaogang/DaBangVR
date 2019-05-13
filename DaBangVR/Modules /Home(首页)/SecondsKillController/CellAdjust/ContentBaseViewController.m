@@ -29,14 +29,11 @@
     [super viewDidLoad];
 
     self.view.backgroundColor = [UIColor whiteColor];
-
     self.categoryView.delegate = self;
-    self.categoryView.backgroundColor = [UIColor lightGreen];
     [self.view addSubview:self.categoryView];
 
     self.listContainerView.didAppearPercent = 0.01; //滚动一点就触发加载
     [self.view addSubview:self.listContainerView];
-
     self.categoryView.contentScrollView = self.listContainerView.scrollView;
 
     if (self.isNeedIndicatorPositionChangeItem) {
@@ -49,9 +46,9 @@
     [super viewDidLayoutSubviews];
 
     if (![self isKindOfClass:[NaviSegmentedControlViewController class]]) {
-        self.categoryView.frame = CGRectMake(0, kTopHeight+kFit(100), KScreenW, [self preferredCategoryViewHeight]);
+        self.categoryView.frame = CGRectMake(0, kTopHeight+kSecondsKillShufflingViewHight, KScreenW, [self preferredCategoryViewHeight]);
     }
-    self.listContainerView.frame = CGRectMake(0, [self preferredCategoryViewHeight] + kTopHeight+kFit(100), KScreenW, KScreenH - kTabBarHeight - kTopHeight - 50-100);
+    self.listContainerView.frame = CGRectMake(0, [self preferredCategoryViewHeight] + kTopHeight+kSecondsKillShufflingViewHight, KScreenW, KScreenH-kTopHeight-kSecondsKillShufflingViewHight-kTabBarHeight-self.categoryView.mj_h);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -73,7 +70,7 @@
 }
 
 - (CGFloat)preferredCategoryViewHeight {
-    return 50;
+    return kPreferredCategoryViewHeight;
 }
 
 - (id<JXCategoryListContentViewDelegate>)preferredListAtIndex:(NSInteger)index {

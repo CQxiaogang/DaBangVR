@@ -54,13 +54,6 @@ static NSArray *globalArray;
 }
 static NSString *CellID = @"CellID";
 #pragma mark —— 懒加载
-- (GoodsDetailsModel *)         model{
-    if (!_model) {
-        _model = [GoodsDetailsModel new];
-    }
-    return _model;
-}
-
 -(UIWebView *)webView{
     if (!_webView) {
         _webView = [[UIWebView alloc] init];
@@ -85,8 +78,9 @@ static NSString *CellID = @"CellID";
 #pragma mark —— 数据
 - (void)loadingData{
     kWeakSelf(self);
+    _model = [GoodsDetailsModel new];
     // 商品详情
-    [NetWorkHelper POST:URL_getGoodsDetails parameters:@{@"goodsId":weakself.index} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URL_getGoodsDetails parameters:@{@"goodsId":self.index} success:^(id  _Nonnull responseObject) {
         
         NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
         // 商品详情
@@ -104,10 +98,10 @@ static NSString *CellID = @"CellID";
     
     } failure:^(NSError * _Nonnull error) {}];
     
-    [NetWorkHelper POST:URl_getInitiateGroupUserList parameters:@{@"goodsId":self.index} success:^(id  _Nonnull responseObject) {
-        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
-        DLog(@"");
-    } failure:nil];
+//    [NetWorkHelper POST:URl_getInitiateGroupUserList parameters:@{@"goodsId":self.index} success:^(id  _Nonnull responseObject) {
+//        NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
+//        DLog(@"");
+//    } failure:nil];
 }
 
 -(void)setupUI{
@@ -143,9 +137,9 @@ static NSString *CellID = @"CellID";
     NSMutableArray *buyOrCarBtnArr = [NSMutableArray new];
     UIButton *buyOrCarBtn;
     for (int i = 0; i<2; i++) {
-        buyOrCarBtn = [[UIButton alloc] init];
-        buyOrCarBtn.tag = i;
-        buyOrCarBtn.backgroundColor = colors[i];
+        buyOrCarBtn                             = [[UIButton alloc] init];
+        buyOrCarBtn.tag                         = i;
+        buyOrCarBtn.backgroundColor             = colors[i];
         buyOrCarBtn.titleLabel.adaptiveFontSize = 14;
         [buyOrCarBtn setTitle:names[i] forState:UIControlStateNormal];
         [buyOrCarBtn addTarget:self action:@selector(goodsBuyOfActon:) forControlEvents:UIControlEventTouchUpInside];
@@ -188,7 +182,7 @@ static NSString *CellID = @"CellID";
 #pragma mark —— 设置其他 UI
 - (void)setupOtherUI{
     // 设置headerView
-    _goodsView = [[GoodsDetailsView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(184+250+40)) andDataSourse:self.model];
+    _goodsView = [[GoodsDetailsView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(184+250+40)) andDataSourse:_model];
     // 进入团购和秒杀界面的时候,做倒计时操作
     if ([_interfaceState isKindOfClass:[SecondsKillViewController class]] || [_interfaceState isKindOfClass:[SpellGroupViewController class]]) {
         UILabel *label = [[UILabel alloc] init];

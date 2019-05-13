@@ -36,19 +36,19 @@
 }
 
 - (void)setupUI{
-    CGFloat categoryVHeight = kFit(40);
-    self.categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, categoryVHeight)];
-    self.categoryView.titles = @[@"全部", @"待付款",@"待发货", @"待收货", @"待评价", @"退款/售后"];
-    self.categoryView.defaultSelectedIndex = 0;
-    self.categoryView.delegate = self;
-    self.categoryView.titleSelectedColor = [UIColor lightGreen];
-    self.categoryView.titleColor = KGrayColor;
+    CGFloat categoryVHeight                     = kFit(40);
+    self.categoryView                           = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, categoryVHeight)];
+    self.categoryView.titles                    = @[@"全部", @"待付款",@"待发货", @"待收货", @"待评价", @"退款/售后"];
+    self.categoryView.defaultSelectedIndex      = 0;
+    self.categoryView.delegate                  = self;
+    self.categoryView.titleSelectedColor        = KLightGreen;
+    self.categoryView.titleColor                = KGrayColor;
+    self.categoryView.titleFont                 = [UIFont systemFontOfSize:kFit(14)];
     self.categoryView.titleColorGradientEnabled = YES;
-    self.categoryView.titleFont = [UIFont systemFontOfSize:kFit(14)];
     
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-    self.categoryView.indicators = @[lineView];
-    lineView.indicatorLineViewColor = [UIColor lightGreen];
+    self.categoryView.indicators          = @[lineView];
+    lineView.indicatorLineViewColor       = KLightGreen;
     [self.view addSubview:self.categoryView];
     
     self.listContainerView = [[JXCategoryListContainerView alloc] initWithDelegate:self];

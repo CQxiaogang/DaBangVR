@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @protocol ShufflingViewDelegate <NSObject>
 
-- (void)imgDidSelected:(NSString *)goodsID;
+-(void)goodsRotationSelectedAndJumpUrl:(NSString *)jumpUrl andParentId:(NSString *)parentId;
 
 @end
 @interface ShufflingView : UIView<HomeBannerViewDelegate>

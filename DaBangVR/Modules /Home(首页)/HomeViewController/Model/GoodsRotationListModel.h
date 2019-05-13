@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *state;
 // 排序
 @property (nonatomic, copy) NSString *sort;
+
+@property (nonatomic, copy) NSString *parentId;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -83,9 +83,9 @@ ShufflingViewDelegate
 // 主播推荐 view
 @property (nonatomic, strong) AnchorRecommendView *anchorRecommendView;
 @property (nonatomic, strong) NSMutableArray *arrayModel;
-@property (nonatomic, strong)  BaseTableView *recommendGoodsTable;
+@property (nonatomic, strong) BaseTableView *recommendGoodsTable;
 // 推荐商品数据
-@property (nonatomic, copy) NSArray *goodsData;
+@property (nonatomic, copy) NSArray <GoodsDetailsModel *>*goodsData;
 @end
 
 @implementation HomeViewController
@@ -252,6 +252,7 @@ ShufflingViewDelegate
             //商品列表
         {
             _recommendGoodsTable = [[BaseTableView alloc] init];
+            _recommendGoodsTable.delegate = self;
             _recommendGoodsTable.goodsData = _goodsData;
             [cell addSubview:_recommendGoodsTable];
             [_recommendGoodsTable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -330,12 +331,24 @@ ShufflingViewDelegate
     }
     return 10;
 }
+
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return [[UIView alloc] init];
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return .1f;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([tableView isEqual:self.recommendGoodsTable]) {
+        GoodsDetailsViewController *vc = [GoodsDetailsViewController new];
+        vc.hidesBottomBarWhenPushed    = YES;
+        vc.index = _goodsData[indexPath.row].id;
+        [self pushViewController:vc];
+    }
+}
+
 #pragma mark —— 推荐主播
 - (void) setupAnchorRecommendView:(UITableViewCell *)cell{
     
@@ -716,10 +729,12 @@ ShufflingViewDelegate
 }
 
 #pragma mark —— ShufflingView 代理
--(void)imgDidSelected:(NSString *)goodsID{
-    GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
-    vc.index = goodsID;
-    [self pushViewController:vc];
+-(void)goodsRotationSelectedAndJumpUrl:(NSString *)jumpUrl andParentId:(NSString *)parentId{
+    if ([parentId isEqualToString:@"1"]) {
+        GoodsDetailsViewController *vc = [[GoodsDetailsViewController alloc] init];
+        vc.index = jumpUrl;
+        [self pushViewController:vc];
+    }
 }
 
 @end

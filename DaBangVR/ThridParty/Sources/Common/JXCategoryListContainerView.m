@@ -180,7 +180,6 @@
         return;
     }
     self.currentIndex = index;
-
     [_lock lock];
     id<JXCategoryListContentViewDelegate> list = _validListDict[@(index)];
     [_lock unlock];

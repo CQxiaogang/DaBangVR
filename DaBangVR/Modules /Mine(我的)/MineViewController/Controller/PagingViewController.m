@@ -35,15 +35,15 @@
     _userHeaderView.delegate = self;
     
     _categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, kFit(JXheightForHeaderInSection))];
-    self.categoryView.titles = self.titles;
+    self.categoryView.titles          = self.titles;
     self.categoryView.backgroundColor = [UIColor whiteColor];
-    self.categoryView.delegate = self;
+    self.categoryView.delegate        = self;
     self.categoryView.titleColorGradientEnabled = YES;
 
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-    self.categoryView.indicators = @[lineView];
-
-    _pagerView = [self preferredPagingView];
+    self.categoryView.indicators          = @[lineView];
+    lineView.indicatorLineViewColor       = KLightGreen;
+    _pagerView                            = [self preferredPagingView];
     self.pagerView.mainTableView.gestureDelegate = self;
     [self.view addSubview:self.pagerView];
 

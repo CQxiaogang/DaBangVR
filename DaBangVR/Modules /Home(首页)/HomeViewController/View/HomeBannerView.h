@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @protocol HomeBannerViewDelegate <NSObject>
 
--(void)imageDidSelected:(NSString *)goodsID;
+-(void)goodsRotationSelectedAndJumpUrl:(NSString *)jumpUrl andParentId:(NSString *)parentId;
 
 @end
 @interface HomeBannerView : UIView

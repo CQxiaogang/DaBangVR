@@ -18,7 +18,7 @@
 // 商品类型列表
 #define URL_getGoodsCategoryList NSStringFormat(@"%@%@",URL_main,@"/api/index/getGoodsCategoryList?")
 // 轮播图列表
-#define URl_goods_rotation_list NSStringFormat(@"%@%@",URL_main,@"/api/index/getGoodsRotationList?")
+#define URl_getGoodsRotationList NSStringFormat(@"%@%@",URL_main,@"/api/index/getGoodsRotationList?")
 // 搜索接口
 #define URl_getSearchGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/index/getSearchGoodsList?")
 
