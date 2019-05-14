@@ -15,7 +15,7 @@
 }
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName{
-    return @{@"ID"     :@"id",
+    return @{
              @"count"  :@"newGoodsNumber",
              @"listUrl":@"goodsVoList[0].listUrl"
              };

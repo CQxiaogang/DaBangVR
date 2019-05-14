@@ -18,9 +18,10 @@
 }
 
 - (void)setModel:(GoodsShowListModel *)model{
-    [_headImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:[UIImage imageNamed:@""]];
-    _describeLabel.text = model.describe;
+    _describeLabel.text     = model.name;
+    _salesVolumeLabel.text  = [NSString stringWithFormat:@"销量:%@",model.salesVolume];
     _sellingPriceLabel.text = [NSString stringWithFormat:@"￥%@",model.sellingPrice];
+    [_headImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:[UIImage imageNamed:@""]];
 }
 
 @end

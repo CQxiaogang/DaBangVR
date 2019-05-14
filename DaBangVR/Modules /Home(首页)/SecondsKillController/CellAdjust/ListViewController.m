@@ -24,11 +24,9 @@
 static NSString *CellID = @"CellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-//    self.view.backgroundColor = COLOR_WITH_RGB(arc4random()%255/255.0, arc4random()%255/255.0, arc4random()%255/255.0, 1);
     
     [self.tableView registerNib:[UINib nibWithNibName:@"SecondsKillCell" bundle:nil] forCellReuseIdentifier:CellID];
-    self.tableView.delegate = self;
+    self.tableView.delegate   = self;
     self.tableView.dataSource = self;
     [self loadingData:[NSString stringWithFormat:@"%ld",(long)_timeIndex]];
 }
@@ -49,8 +47,8 @@ static NSString *CellID = @"CellID";
         
     } failure:^(NSError * _Nonnull error) {}];
 }
-#pragma mark - JXCategoryListContentViewDelegate
 
+#pragma mark - JXCategoryListContentViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _goodsData.count;
 }
@@ -62,7 +60,7 @@ static NSString *CellID = @"CellID";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return kFit(165);
+    return kFit(161);
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -20,7 +20,7 @@
         _lineScrollOffsetX = 10;
         _indicatorLineViewHeight = 3;
         _indicatorLineWidth = JXCategoryViewAutomaticDimension;
-        _indicatorLineViewColor = [UIColor redColor];
+        _indicatorLineViewColor = KLightGreen;
         _indicatorLineViewCornerRadius = JXCategoryViewAutomaticDimension;
     }
     return self;

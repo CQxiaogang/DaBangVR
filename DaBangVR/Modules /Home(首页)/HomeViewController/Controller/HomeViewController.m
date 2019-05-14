@@ -78,14 +78,16 @@ ShufflingViewDelegate
 @property (nonatomic, strong) JFLocation            *locationManager;
 /** 城市数据管理器*/
 @property (nonatomic, strong) JFAreaDataManager     *manager;
-// 频道菜单 view
+//频道菜单 view
 @property (nonatomic, strong) ChannelMenuListView *channelMenuListView;
-// 主播推荐 view
+//主播推荐 view
 @property (nonatomic, strong) AnchorRecommendView *anchorRecommendView;
 @property (nonatomic, strong) NSMutableArray *arrayModel;
 @property (nonatomic, strong) BaseTableView *recommendGoodsTable;
-// 推荐商品数据
+//推荐商品数据
 @property (nonatomic, copy) NSArray <GoodsDetailsModel *>*goodsData;
+//新品专区数据
+@property (nonatomic, strong) NSMutableArray <NewGoodsModel *>*goodsImgList;
 @end
 
 @implementation HomeViewController
@@ -139,6 +141,14 @@ ShufflingViewDelegate
     }
     return _arrayModel;
 }
+
+-(NSMutableArray<NewGoodsModel *> *)goodsImgList{
+    if (!_goodsImgList) {
+        _goodsImgList = [NSMutableArray new];
+    }
+    return _goodsImgList;
+}
+
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -475,13 +485,12 @@ ShufflingViewDelegate
     } failure:^(NSError * _Nonnull error) {}];
 }
 
-#pragma mark —— 新品,热卖专区
+#pragma mark —— 新品专区
 - (void)setupNewAndHotGoodsView:(UITableViewCell *)cell{
     
     dispatch_group_t g = dispatch_group_create();
     dispatch_group_enter(g);
     
-    NSMutableArray *goodsImgList = [NSMutableArray new];
     NSDictionary *dic = @{
                           @"page":@"1",
                           @"limit":@"5",
@@ -493,52 +502,54 @@ ShufflingViewDelegate
     [NetWorkHelper POST:URL_newGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
         NSArray *list = [NewGoodsModel mj_objectArrayWithKeyValuesArray:data[@"GoodsCategoryList"]];
-        NewGoodsModel *model = list[0];
-        [goodsImgList addObject:model.listUrl?model.listUrl:@""];
-        [goodsImgList addObject:model.listUrl?model.listUrl:@""];
-        
+        //得到最前面的两个数据
+        for (int i = 0; i<2; i++) {
+            NewGoodsModel *model = list[i];
+            [self.goodsImgList addObject:model];
+        }
         dispatch_group_leave(g);
         
     } failure:^(NSError * _Nonnull error) {}];
     
     dispatch_group_notify(g, dispatch_get_main_queue(), ^{
-        //新品,热卖专区
         HomeNewAndHotGoodsView *goodsView;
         NSMutableArray *views = [NSMutableArray new];
-        NSArray *firstImgs = @[@"h_new", @"h_hot"];
-        NSArray *secondImgs = @[@"h_newshop", @"h_hotshop"];
         for (int i = 0; i<2; i++) {
             //从xib中读出视图
-            goodsView = [self loadNibNamed:@"HomeNewAndHotGoodsView"];
-            goodsView.delegate = self;
-            goodsView.firstImgView.image = [UIImage imageNamed:firstImgs[i]];
-            goodsView.secondImgView.image = [UIImage imageNamed:secondImgs[i]];
-            [goodsView.goodsImgView setImageWithURL:[NSURL URLWithString:goodsImgList[i]] placeholder:kDefaultImg];
-            goodsView.showMoreGoodsBtn.tag = 10+i;
+            goodsView                      = [self loadNibNamed:@"HomeNewAndHotGoodsView"];
+            goodsView.delegate             = self;
+            goodsView.goodsImgView.tag     = 10+i;
+            [goodsView.goodsImgView setImageWithURL:[NSURL URLWithString:self.goodsImgList[i].listUrl] placeholder:kDefaultImg];
             [views addObject: goodsView];
             [cell  addSubview:goodsView];
         }
-        
+        //布局
         [views mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:KMargin leadSpacing:KMargin tailSpacing:KMargin];
         [views mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.equalTo(CGSizeMake(kFit(172.5), kFit(145.5)));
             make.centerY.equalTo(cell.mas_centerY);
         }];
     });
+    //得到最终高度,用于确定cell的高度
     _totalH_prefecture = kFit(145.5 + 12 + 14.5);
 }
 
-#pragma mark —— HomeNewAndHotGoodsView 代理
+#pragma mark —— HomeNewAndHotGoodsView 代理(新上)
 -(void)showMoreGoods:(UIButton *)sender{
     [self pushViewController:[NewProductLaunchViewController new]];
-//    if (sender.tag == 10) {
-//        // 新品专区
-//        DLog(@"新品专区");
-//        [self pushViewController:[NewProductLaunchViewController new]];
-//    }else{
-//        // 热卖专区
-//        DLog(@"热卖专区");
-//    }
+}
+
+-(void)goodsImgViewGoGoodsDetailsView:(UIImageView *)imageView{
+    //根据用户操作进入到商品详情界面
+    GoodsDetailsViewController *vc = [GoodsDetailsViewController new];
+    if (imageView.tag == 10) {
+        NewGoodsModel *model = self.goodsImgList[0];
+        vc.index = model.goodsVoList[0].id;
+    }else{
+        NewGoodsModel *model = self.goodsImgList[1];
+        vc.index = model.goodsVoList[0].id;
+    }
+    [self pushViewController:vc];
 }
 
 #pragma mark —— 最热视频

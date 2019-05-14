@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		04002F40225D969E006DC794 /* MerchantsSettledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04002F3F225D969E006DC794 /* MerchantsSettledViewController.m */; };
 		04002F43225D96D4006DC794 /* MerchantsSettledViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 04002F42225D96D4006DC794 /* MerchantsSettledViewController2.m */; };
+		0400626E228ABBF0005D1474 /* SYPieProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04006264228ABBF0005D1474 /* SYPieProgressView.m */; };
+		0400626F228ABBF0005D1474 /* SYProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04006265228ABBF0005D1474 /* SYProgressView.m */; };
+		04006270228ABBF0005D1474 /* SYLineProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04006267228ABBF0005D1474 /* SYLineProgressView.m */; };
+		04006271228ABBF0005D1474 /* SYRingProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0400626B228ABBF0005D1474 /* SYRingProgressView.m */; };
+		04006272228ABBF0005D1474 /* SYWaveProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0400626D228ABBF0005D1474 /* SYWaveProgressView.m */; };
+		04006275228AEDAB005D1474 /* CategoryChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04006274228AEDAB005D1474 /* CategoryChooseView.m */; };
 		04029FDF226827710032ED06 /* LiveShoppingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04029FDD226827710032ED06 /* LiveShoppingCollectionViewCell.m */; };
 		04029FE0226827710032ED06 /* LiveShoppingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04029FDE226827710032ED06 /* LiveShoppingCollectionViewCell.xib */; };
 		04029FE4226830A00032ED06 /* LiveGoodsInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04029FE2226830A00032ED06 /* LiveGoodsInfoTableViewCell.m */; };
@@ -416,6 +422,18 @@
 		04002F3F225D969E006DC794 /* MerchantsSettledViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantsSettledViewController.m; sourceTree = "<group>"; };
 		04002F41225D96D4006DC794 /* MerchantsSettledViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MerchantsSettledViewController2.h; sourceTree = "<group>"; };
 		04002F42225D96D4006DC794 /* MerchantsSettledViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantsSettledViewController2.m; sourceTree = "<group>"; };
+		04006264228ABBF0005D1474 /* SYPieProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYPieProgressView.m; sourceTree = "<group>"; };
+		04006265228ABBF0005D1474 /* SYProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYProgressView.m; sourceTree = "<group>"; };
+		04006266228ABBF0005D1474 /* SYRingProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYRingProgressView.h; sourceTree = "<group>"; };
+		04006267228ABBF0005D1474 /* SYLineProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYLineProgressView.m; sourceTree = "<group>"; };
+		04006268228ABBF0005D1474 /* SYWaveProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYWaveProgressView.h; sourceTree = "<group>"; };
+		04006269228ABBF0005D1474 /* SYPieProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYPieProgressView.h; sourceTree = "<group>"; };
+		0400626A228ABBF0005D1474 /* SYLineProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYLineProgressView.h; sourceTree = "<group>"; };
+		0400626B228ABBF0005D1474 /* SYRingProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYRingProgressView.m; sourceTree = "<group>"; };
+		0400626C228ABBF0005D1474 /* SYProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYProgressView.h; sourceTree = "<group>"; };
+		0400626D228ABBF0005D1474 /* SYWaveProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYWaveProgressView.m; sourceTree = "<group>"; };
+		04006273228AEDAB005D1474 /* CategoryChooseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CategoryChooseView.h; path = "DaBangVR/Modules /Home(首页)/StoreController/Controller/CategoryChooseView.h"; sourceTree = SOURCE_ROOT; };
+		04006274228AEDAB005D1474 /* CategoryChooseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CategoryChooseView.m; path = "DaBangVR/Modules /Home(首页)/StoreController/Controller/CategoryChooseView.m"; sourceTree = SOURCE_ROOT; };
 		04029FDC226827710032ED06 /* LiveShoppingCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveShoppingCollectionViewCell.h; sourceTree = "<group>"; };
 		04029FDD226827710032ED06 /* LiveShoppingCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveShoppingCollectionViewCell.m; sourceTree = "<group>"; };
 		04029FDE226827710032ED06 /* LiveShoppingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveShoppingCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -1146,6 +1164,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04006263228ABBF0005D1474 /* SYProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				0400626C228ABBF0005D1474 /* SYProgressView.h */,
+				04006265228ABBF0005D1474 /* SYProgressView.m */,
+				04006269228ABBF0005D1474 /* SYPieProgressView.h */,
+				04006264228ABBF0005D1474 /* SYPieProgressView.m */,
+				04006266228ABBF0005D1474 /* SYRingProgressView.h */,
+				0400626B228ABBF0005D1474 /* SYRingProgressView.m */,
+				0400626A228ABBF0005D1474 /* SYLineProgressView.h */,
+				04006267228ABBF0005D1474 /* SYLineProgressView.m */,
+				04006268228ABBF0005D1474 /* SYWaveProgressView.h */,
+				0400626D228ABBF0005D1474 /* SYWaveProgressView.m */,
+			);
+			path = SYProgressView;
+			sourceTree = "<group>";
+		};
 		040477612252F65600EA6FFF /* SeasonAuthenticationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2670,6 +2705,8 @@
 		04B9204522816B28008BAC74 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04006273228AEDAB005D1474 /* CategoryChooseView.h */,
+				04006274228AEDAB005D1474 /* CategoryChooseView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3106,6 +3143,7 @@
 		04F5C8E321CA24FD008DD043 /* ThridParty */ = {
 			isa = PBXGroup;
 			children = (
+				04006263228ABBF0005D1474 /* SYProgressView */,
 				040DCD6C2282B7AA0044A802 /* HSFTimeDownView(动画倒计时) */,
 				04765426226D72D400289AA7 /* CDSideBarController */,
 				046DB306224B279700C2CACB /* TPCSpringMenu */,
@@ -3748,6 +3786,7 @@
 				04FA5D6021AE3F480061AF27 /* LoginViewController.m in Sources */,
 				04F866AF21A7FF4D00A4D7F6 /* ADCarouselView.m in Sources */,
 				0446656A2237654300DF6F47 /* JXCategoryIndicatorBackgroundView.m in Sources */,
+				04006272228ABBF0005D1474 /* SYWaveProgressView.m in Sources */,
 				04F2702521E830870019FB9F /* ChannelModel.m in Sources */,
 				045EF187223BB1080051E029 /* OrderProcessingHeaderView.m in Sources */,
 				0403676C21A4E9CE00974435 /* AnchorViewCell.m in Sources */,
@@ -3767,6 +3806,7 @@
 				0475E02C2265DC7B004B79D8 /* WebSocketManager2.m in Sources */,
 				0403677221A5129800974435 /* HomeTableViewCell.m in Sources */,
 				0475E023226586DF004B79D8 /* RCDLiveTextMessageCell.m in Sources */,
+				04006270228ABBF0005D1474 /* SYLineProgressView.m in Sources */,
 				044F3BAD21F0803900F3AD5E /* ProductInfoVoListModel.m in Sources */,
 				040F32D7224CB3510044E363 /* RecreationLiveCollectionViewController.m in Sources */,
 				04F62FF321F9B69A0094B26F /* ModifyAddressModel.m in Sources */,
@@ -3800,14 +3840,17 @@
 				04F8FC0221F1D3F700913150 /* SecondsKillCell.m in Sources */,
 				044665832237654300DF6F47 /* UIColor+JXAdd.m in Sources */,
 				04EFA03221E7436B007C2FCA /* ChannelViewCell.m in Sources */,
+				04006271228ABBF0005D1474 /* SYRingProgressView.m in Sources */,
 				044665852237654300DF6F47 /* JXCategoryBaseCell.m in Sources */,
 				04F4468021D74F7B00524971 /* DBFeatureTitleItem.m in Sources */,
 				04D4EA6A22439C8600220D0A /* UIView+viewStyle.m in Sources */,
 				04FC2C4021C0E3AD00329B53 /* JFCityCollectionFlowLayout.m in Sources */,
 				044F3BA921F0201B00F3AD5E /* MySpellGroupCell.m in Sources */,
+				0400626F228ABBF0005D1474 /* SYProgressView.m in Sources */,
 				046DB30D224B279700C2CACB /* TPCButton.m in Sources */,
 				04F45F0B21F57EED009F5907 /* NewCommentCell.m in Sources */,
 				04F2FD1B21EF11D6000B58E2 /* GoodsRotationListModel.m in Sources */,
+				0400626E228ABBF0005D1474 /* SYPieProgressView.m in Sources */,
 				04F62FD721F951440094B26F /* ShopppingCartBottomView.m in Sources */,
 				0499FE842252041F002F5E8A /* DB_TextView.m in Sources */,
 				0463026321BBC8C40003C542 /* DBTopView.m in Sources */,
@@ -3920,6 +3963,7 @@
 				044665712237654300DF6F47 /* JXCategoryTitleImageView.m in Sources */,
 				04FC2C3A21C0E3AD00329B53 /* JFLocation.m in Sources */,
 				044665862237654300DF6F47 /* JXCategoryBaseCellModel.m in Sources */,
+				04006275228AEDAB005D1474 /* CategoryChooseView.m in Sources */,
 				04FA5D6521AE476F0061AF27 /* MobilePhoneNoLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

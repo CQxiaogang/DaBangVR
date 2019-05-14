@@ -429,7 +429,7 @@ static NSString *CellID = @"CellID";
                           @"goodsId":weakself.index
                           };
     [NetWorkHelper POST:URl_getGoodsCollectSave parameters:dic success:^(id  _Nonnull responseObject) {
-        [SVProgressHUD showInfoWithStatus:KJSONSerialization(responseObject)[@"errmsg"]];
+        [SVProgressHUD showInfoWithStatus:@"收藏成功"];
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         [SVProgressHUD dismissWithDelay:1.0];
         

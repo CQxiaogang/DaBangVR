@@ -67,8 +67,10 @@ static NSString *cellID = @"cellID";
     self.categoryView.titles = self.titles;
     self.categoryView.backgroundColor = [UIColor lightGreen];
     self.categoryView.delegate = self;
+    self.categoryView.titleSelectedColor = KWhiteColor;
     self.categoryView.defaultSelectedIndex = 0;
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
+    lineView.indicatorLineViewColor = KLightGreen;
     self.categoryView.indicators = @[lineView];
     [self.view addSubview:self.categoryView];
     

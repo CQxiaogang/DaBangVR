@@ -105,7 +105,7 @@ static NSString *leaveMessage;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successPay:) name:@"successPay" object:nil];
     
     _submitType   = _submitType?_submitType:@"buy";
-    _orderSnTotal = _orderSnTotal?_submitType:kOrderSnTotal;
+    _orderSnTotal = _orderSnTotal?_orderSnTotal:kOrderSnTotal;
 }
 
 -(void)viewDidAppear:(BOOL)animated{

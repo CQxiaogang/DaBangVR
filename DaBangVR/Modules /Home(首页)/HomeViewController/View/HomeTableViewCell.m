@@ -19,10 +19,12 @@
 }
 
 - (void)setModel:(GoodsDetailsModel *)model{
-    _model = model;
+    _model                  = model;
+    _goodsPrice.text        = [NSString stringWithFormat:@"￥ %@",model.sellingPrice];
+    _goodsDetails.text      = model.name;
+    _salesVolumeLabel.text  = model.salesVolume;
     [_goodsImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:nil];
-    _goodsDetails.text = model.describe;
-    _goodsPrice.text = [NSString stringWithFormat:@"￥ %@",model.sellingPrice];
+    
 }
 
 @end

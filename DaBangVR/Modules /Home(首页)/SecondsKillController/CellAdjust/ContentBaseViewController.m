@@ -12,6 +12,9 @@
 #import "NaviSegmentedControlViewController.h"
 
 @interface ContentBaseViewController () <JXCategoryViewDelegate, JXCategoryListContainerViewDelegate, ListViewControllerDelegate>
+{
+    BOOL noIsFrist;
+}
 @end
 
 @implementation ContentBaseViewController
@@ -30,6 +33,7 @@
 
     self.view.backgroundColor = [UIColor whiteColor];
     self.categoryView.delegate = self;
+    self.categoryView.defaultSelectedIndex = [[self getCurrentTimes] integerValue];
     [self.view addSubview:self.categoryView];
 
     self.listContainerView.didAppearPercent = 0.01; //滚动一点就触发加载
@@ -40,6 +44,26 @@
         UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"指示器位置切换" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClicked)];
         self.navigationItem.rightBarButtonItem = rightItem;
     }
+}
+
+-(NSString*)getCurrentTimes{
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    
+    [formatter setDateFormat:@"HH"];
+    
+    //现在时间,你可以输出来看下是什么格式
+    
+    NSDate *datenow = [NSDate date];
+    
+    //----------将nsdate按formatter格式转成nsstring
+    
+    NSString *currentTimeString = [formatter stringFromDate:datenow];
+    
+    return currentTimeString;
+    
 }
 
 - (void)viewDidLayoutSubviews {
@@ -76,7 +100,12 @@
 - (id<JXCategoryListContentViewDelegate>)preferredListAtIndex:(NSInteger)index {
     ListViewController *listView = [[ListViewController alloc] init];
     listView.aDelegate = self;
-    listView.timeIndex = index;
+    if (noIsFrist) {
+        listView.timeIndex = index;
+    }else{
+        listView.timeIndex = [[self getCurrentTimes] integerValue];
+        noIsFrist = YES;
+    }
     return listView;
 }
 

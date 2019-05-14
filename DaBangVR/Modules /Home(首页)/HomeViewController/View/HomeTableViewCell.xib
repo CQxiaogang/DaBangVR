@@ -63,7 +63,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="销量：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ME8-tl-40I" userLabel="销量标题">
-                        <rect key="frame" x="286.5" y="91.5" width="31" height="12"/>
+                        <rect key="frame" x="276.5" y="91.5" width="31" height="12"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.0044614530456852375" green="0.0044614530456852375" blue="0.0044614530456852375" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -75,7 +75,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6666333" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n09-mB-jmS" userLabel="具体销量">
-                        <rect key="frame" x="317.5" y="91.5" width="45.5" height="12"/>
+                        <rect key="frame" x="307.5" y="91.5" width="45.5" height="12"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.094117647058823528" green="0.85490196078431369" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,7 +114,7 @@
                     <constraint firstItem="n09-mB-jmS" firstAttribute="leading" secondItem="ME8-tl-40I" secondAttribute="trailing" id="jAB-DO-dgR"/>
                     <constraint firstItem="ME8-tl-40I" firstAttribute="bottom" secondItem="bT7-ba-71I" secondAttribute="bottom" id="pdy-e9-0NI"/>
                     <constraint firstItem="n09-mB-jmS" firstAttribute="bottom" secondItem="bT7-ba-71I" secondAttribute="bottom" id="sOQ-Uc-Vr5"/>
-                    <constraint firstAttribute="trailing" secondItem="n09-mB-jmS" secondAttribute="trailing" constant="12" id="u88-If-vYg"/>
+                    <constraint firstAttribute="trailing" secondItem="n09-mB-jmS" secondAttribute="trailing" constant="22" id="u88-If-vYg"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
@@ -124,6 +124,7 @@
                 <outlet property="goodsImgView" destination="LeH-oc-BcO" id="GkV-hr-4s3"/>
                 <outlet property="goodsPrice" destination="bT7-ba-71I" id="6di-Pf-48v"/>
                 <outlet property="goodsSales" destination="n09-mB-jmS" id="aH6-ZW-87b"/>
+                <outlet property="salesVolumeLabel" destination="n09-mB-jmS" id="Iub-bs-emX"/>
             </connections>
             <point key="canvasLocation" x="4" y="64.31784107946028"/>
         </tableViewCell>

@@ -11,17 +11,19 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GoodsShowListModel : NSObject
-// id
+//id
 @property (nonatomic, assign) NSInteger id;
-// 商品名字
+//商品名字
 @property (nonatomic, copy) NSString *name;
-// 描述
+//描述
 @property (nonatomic, copy)   NSString *describe;
-// 图片
+//图片
 @property (nonatomic, copy)   NSString *listUrl;
-// 销售价格
+//销售价格
 @property (nonatomic, assign) NSString *sellingPrice;
-// 市场价格
+//销量
+@property (nonatomic, assign) NSString * salesVolume;
+//市场价格
 @property (nonatomic, assign) NSString *marketPrice;
 @end
 

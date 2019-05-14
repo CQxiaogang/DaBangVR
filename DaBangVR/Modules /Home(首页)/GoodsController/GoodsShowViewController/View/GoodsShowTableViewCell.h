@@ -12,14 +12,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GoodsShowTableViewCell : BaseTableViewCell
-// 商品图片
+//商品图片
 @property (weak, nonatomic) IBOutlet YYAnimatedImageView *headImgView;
-// 商品详情
+//商品详情
 @property (weak, nonatomic) IBOutlet UILabel *describeLabel;
-// 价格
+//价格
 @property (weak, nonatomic) IBOutlet UILabel *sellingPriceLabel;
 //
 @property (weak, nonatomic) IBOutlet UILabel *liveLal;
+//销量
+@property (weak, nonatomic) IBOutlet UILabel *salesVolumeLabel;
 @property (strong, nonatomic) GoodsShowListModel *model;
 
 @end
