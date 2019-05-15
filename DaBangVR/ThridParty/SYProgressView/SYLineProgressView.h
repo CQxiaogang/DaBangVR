@@ -12,5 +12,7 @@
 
 /// 进度（值范围0.0~1.0，默认0.0）
 @property (nonatomic, assign) CGFloat progress;
+/// 秒杀剩余的数量
+@property (nonatomic,   copy) NSString *number;
 
 @end

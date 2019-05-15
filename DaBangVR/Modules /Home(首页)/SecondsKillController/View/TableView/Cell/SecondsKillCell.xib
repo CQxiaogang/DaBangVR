@@ -24,8 +24,8 @@
                         <constraint firstAttribute="height" constant="96" id="fHw-dg-Cdq"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大虾🍤大虾🍤大虾🍤大虾🍤大虾🍤大虾🍤大虾🍤大虾🍤" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh2-Wv-mHB">
-                    <rect key="frame" x="157" y="40" width="196" height="34"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大虾🍤大虾🍤大虾🍤大虾🍤大虾🍤大虾🍤大虾🍤大虾🍤" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh2-Wv-mHB">
+                    <rect key="frame" x="157" y="25" width="196" height="26.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <color key="textColor" red="0.16078431372549018" green="0.16078431372549018" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -35,10 +35,10 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥100.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcW-Ve-2Yp">
-                    <rect key="frame" x="157" y="95" width="30" height="0.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="市场价格￥100.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcW-Ve-2Yp">
+                    <rect key="frame" x="157" y="91.5" width="62.5" height="8"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="0.5" id="zLi-ZW-hjs"/>
+                        <constraint firstAttribute="height" constant="8" id="zLi-ZW-hjs"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="8"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,7 +50,10 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥59.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uM-75-OI3">
-                    <rect key="frame" x="157" y="105" width="44" height="10"/>
+                    <rect key="frame" x="157" y="104" width="44" height="11"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="11" id="viF-qC-ebJ"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.094117647060000004" green="0.85490196080000003" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -81,7 +84,7 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATR-Ko-DP6">
-                    <rect key="frame" x="157" y="95" width="30" height="0.5"/>
+                    <rect key="frame" x="157" y="95" width="62.5" height="0.5"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="0.5" id="EBC-ij-Gpc"/>
@@ -99,6 +102,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="lC5-ab-qMq" firstAttribute="bottom" secondItem="e0x-gD-yfU" secondAttribute="bottom" id="3GL-Mm-eAt"/>
+                <constraint firstItem="Qh2-Wv-mHB" firstAttribute="top" secondItem="QHR-Zm-0b1" secondAttribute="top" id="4Gf-2T-jvp"/>
                 <constraint firstItem="ATR-Ko-DP6" firstAttribute="centerX" secondItem="TcW-Ve-2Yp" secondAttribute="centerX" id="4y3-N2-4KW"/>
                 <constraint firstItem="TcW-Ve-2Yp" firstAttribute="leading" secondItem="Qh2-Wv-mHB" secondAttribute="leading" id="5MA-Qh-U5d"/>
                 <constraint firstItem="ATR-Ko-DP6" firstAttribute="width" secondItem="TcW-Ve-2Yp" secondAttribute="width" id="A3v-75-4FJ"/>
@@ -106,16 +110,13 @@
                 <constraint firstItem="8uM-75-OI3" firstAttribute="leading" secondItem="Qh2-Wv-mHB" secondAttribute="leading" id="IK6-k0-Jqv"/>
                 <constraint firstItem="e0x-gD-yfU" firstAttribute="centerX" secondItem="oB7-go-KPQ" secondAttribute="centerX" id="J7b-Qg-eev"/>
                 <constraint firstItem="ATR-Ko-DP6" firstAttribute="centerY" secondItem="TcW-Ve-2Yp" secondAttribute="centerY" id="NOc-PK-tOK"/>
-                <constraint firstItem="8uM-75-OI3" firstAttribute="top" secondItem="TcW-Ve-2Yp" secondAttribute="bottom" constant="9.5" id="Now-J5-73A"/>
                 <constraint firstItem="ATR-Ko-DP6" firstAttribute="top" secondItem="oB7-go-KPQ" secondAttribute="top" constant="95" id="QF2-XQ-ZYF"/>
-                <constraint firstItem="e0x-gD-yfU" firstAttribute="top" secondItem="8uM-75-OI3" secondAttribute="bottom" constant="45" id="Rp6-eT-tUV"/>
+                <constraint firstItem="e0x-gD-yfU" firstAttribute="top" secondItem="8uM-75-OI3" secondAttribute="bottom" constant="45" id="W5y-pP-DIX"/>
                 <constraint firstItem="e0x-gD-yfU" firstAttribute="top" secondItem="0bt-oD-Anq" secondAttribute="bottom" constant="25" id="Y3h-kU-trJ"/>
                 <constraint firstItem="lC5-ab-qMq" firstAttribute="trailing" secondItem="0bt-oD-Anq" secondAttribute="trailing" constant="20" id="buA-zY-8cn"/>
                 <constraint firstAttribute="trailing" secondItem="Qh2-Wv-mHB" secondAttribute="trailing" constant="22" id="cy0-5M-0rP"/>
                 <constraint firstItem="QHR-Zm-0b1" firstAttribute="leading" secondItem="lC5-ab-qMq" secondAttribute="leading" constant="20" id="mDK-Py-1HW"/>
                 <constraint firstItem="QHR-Zm-0b1" firstAttribute="top" secondItem="lC5-ab-qMq" secondAttribute="top" constant="25" id="qua-Sn-YIx"/>
-                <constraint firstItem="TcW-Ve-2Yp" firstAttribute="top" secondItem="Qh2-Wv-mHB" secondAttribute="bottom" constant="21" id="teS-cQ-oXO"/>
-                <constraint firstItem="Qh2-Wv-mHB" firstAttribute="top" secondItem="lC5-ab-qMq" secondAttribute="top" constant="40" id="ws5-TU-5gA"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="lC5-ab-qMq"/>
@@ -123,7 +124,7 @@
                 <outlet property="BuyNowBtn" destination="0bt-oD-Anq" id="RtC-KO-qT7"/>
                 <outlet property="goodsDetails" destination="Qh2-Wv-mHB" id="d0n-dP-7X4"/>
                 <outlet property="goodsImgView" destination="QHR-Zm-0b1" id="TxZ-Ai-Onz"/>
-                <outlet property="goodsMarketPrice" destination="TcW-Ve-2Yp" id="tNT-BH-65m"/>
+                <outlet property="goodsMarketPrice" destination="TcW-Ve-2Yp" id="ZcP-vY-m7O"/>
                 <outlet property="goodsSellingPrice" destination="8uM-75-OI3" id="YQ1-Td-Sju"/>
             </connections>
             <point key="canvasLocation" x="253.59999999999999" y="148.87556221889056"/>

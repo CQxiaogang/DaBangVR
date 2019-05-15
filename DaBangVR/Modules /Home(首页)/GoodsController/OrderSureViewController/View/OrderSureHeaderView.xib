@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,11 +16,16 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="store" translatesAutoresizingMaskIntoConstraints="NO" id="yDS-61-QXt" customClass="YYAnimatedImageView">
-                    <rect key="frame" x="20" y="0.0" width="30" height="30"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="store" translatesAutoresizingMaskIntoConstraints="NO" id="yDS-61-QXt" customClass="YYAnimatedImageView">
+                    <rect key="frame" x="20" y="5" width="20" height="20"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="VYv-7r-6ac">
+                        <constraint firstAttribute="height" constant="20" id="Vzg-aa-jSS">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="width" constant="20" id="WVv-As-wb6">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -28,7 +33,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大邦VR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLW-9y-Md8">
-                    <rect key="frame" x="60" y="7.5" width="40.5" height="15"/>
+                    <rect key="frame" x="50" y="7.5" width="40.5" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -41,11 +46,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="yDS-61-QXt" secondAttribute="bottom" id="5W4-wf-R57"/>
-                <constraint firstItem="yDS-61-QXt" firstAttribute="leading" secondItem="zgK-Jg-NeV" secondAttribute="leading" constant="20" id="fTA-83-rFJ"/>
-                <constraint firstItem="XLW-9y-Md8" firstAttribute="leading" secondItem="yDS-61-QXt" secondAttribute="trailing" constant="10" id="foN-Xs-shh"/>
-                <constraint firstItem="yDS-61-QXt" firstAttribute="top" secondItem="zgK-Jg-NeV" secondAttribute="top" id="g05-Z9-nrZ"/>
-                <constraint firstItem="XLW-9y-Md8" firstAttribute="centerY" secondItem="yDS-61-QXt" secondAttribute="centerY" id="m2c-LE-Jsx"/>
+                <constraint firstItem="yDS-61-QXt" firstAttribute="leading" secondItem="7vQ-W5-Nlh" secondAttribute="leading" constant="20" id="68v-XI-nXA"/>
+                <constraint firstItem="XLW-9y-Md8" firstAttribute="leading" secondItem="yDS-61-QXt" secondAttribute="trailing" constant="10" id="6d6-Qt-gs7"/>
+                <constraint firstItem="XLW-9y-Md8" firstAttribute="centerY" secondItem="zgK-Jg-NeV" secondAttribute="centerY" id="ESj-fU-eEW"/>
+                <constraint firstItem="yDS-61-QXt" firstAttribute="centerY" secondItem="zgK-Jg-NeV" secondAttribute="centerY" id="ksn-SP-jox"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="7vQ-W5-Nlh"/>
@@ -53,7 +57,7 @@
                 <outlet property="deptImgView" destination="yDS-61-QXt" id="lBy-bg-eqU"/>
                 <outlet property="deptName" destination="XLW-9y-Md8" id="xuQ-If-L7J"/>
             </connections>
-            <point key="canvasLocation" x="343" y="71"/>
+            <point key="canvasLocation" x="341.60000000000002" y="70.164917541229386"/>
         </view>
     </objects>
     <resources>

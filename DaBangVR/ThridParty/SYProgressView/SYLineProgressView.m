@@ -76,8 +76,7 @@ static CGFloat const originXY = 1.0;
     [UIView animateWithDuration:0.3 animations:^{
         self.progressView.frame = CGRectMake(origin, origin, width, height);
     }];
-    //
-    self.label.text = @"仅剩 15 件";
+    self.label.text = [NSString stringWithFormat:@"仅剩 %@ 件",_number? _number : @"0"];
 }
 
 - (void)initializeProgress

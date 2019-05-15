@@ -24,11 +24,14 @@
 static NSString *CellID = @"CellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    kWeakSelf(self);
     [self.tableView registerNib:[UINib nibWithNibName:@"SecondsKillCell" bundle:nil] forCellReuseIdentifier:CellID];
     self.tableView.delegate   = self;
     self.tableView.dataSource = self;
-    [self loadingData:[NSString stringWithFormat:@"%ld",(long)_timeIndex]];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self loadingData:[NSString stringWithFormat:@"%ld",(long)weakself.timeIndex]];
+    }];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)loadingData:(NSString *)hoursTime{
@@ -43,9 +46,9 @@ static NSString *CellID = @"CellID";
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
         NSDictionary *goodsList = data[@"goodsList"];
         weakself.goodsData = [GoodsDetailsModel mj_objectArrayWithKeyValuesArray:goodsList];
+        [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
-        
-    } failure:^(NSError * _Nonnull error) {}];
+    } failure:nil];
 }
 
 #pragma mark - JXCategoryListContentViewDelegate

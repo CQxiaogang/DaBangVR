@@ -138,7 +138,7 @@ static NSString *leaveMessage;
     
     UILabel *thePrice = [[UILabel alloc] init];
     thePrice.adaptiveFontSize = 14;
-    thePrice.textColor = KRedColor;
+    thePrice.textColor = RGBCOLOR(247, 26, 31);
     thePrice.text = [NSString stringWithFormat:@"￥%.2f 元",[_model.orderTotalPrice floatValue]];
     thePrice.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:thePrice];
@@ -150,8 +150,8 @@ static NSString *leaveMessage;
     }];
     
     [submitOrdersBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.bottom.equalTo(-15);
-        make.size.equalTo(CGSizeMake(80, 38));
+        make.right.bottom.equalTo(-10);
+        make.size.equalTo(CGSizeMake(77, 35));
     }];
     
     [thePrice mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -197,6 +197,7 @@ static NSString *leaveMessage;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    //头部店面信息
     OrderSureHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:HeaderID];
     headerView.model = _model.deptGoodsList[section];
     return headerView;
@@ -212,7 +213,7 @@ static NSString *leaveMessage;
     return footer;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return kFit(120);
+    return kFit(190);
 }
 
 #pragma mark —— DBDetailHeaderView delegate
@@ -228,15 +229,20 @@ static NSString *leaveMessage;
 
 #pragma mark —— orderSureFooter 协议
 -(void)leaveMessageBtnClickAction:(UIButton *)sender{
-    LeaveMessageViewController *vc = [[LeaveMessageViewController alloc] init];
-    vc.textViewBlock = ^(NSString * _Nonnull string) {
-        if (string.length != 0) {
-            sender.titleLabel.text = string;
-        }
-        leaveMessage = string;
-    };
-    [self.navigationController pushViewController:vc animated:NO];
+//    LeaveMessageViewController *vc = [[LeaveMessageViewController alloc] init];
+//    vc.textViewBlock = ^(NSString * _Nonnull string) {
+//        if (string.length != 0) {
+//            sender.titleLabel.text = string;
+//        }
+//        leaveMessage = string;
+//    };
+//    [self.navigationController pushViewController:vc animated:NO];
 }
+
+-(void)textViewString:(NSString *)string{
+    leaveMessage = string;
+}
+
 #pragma mark —— 提交订单
 - (void)submitOrdersBtnAction{
     kWeakSelf(self);

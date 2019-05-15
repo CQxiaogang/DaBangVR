@@ -29,7 +29,6 @@
     self.lineProgress.label.hidden       = NO;
     [self addSubview:self.lineProgress];
     [self.lineProgress initializeProgress];
-    self.lineProgress.progress = 0.5;
 }
 
 -(void)layoutSubviews{
@@ -40,14 +39,20 @@
         make.left.equalTo(weakself.goodsImgView.mas_right).offset(22);
         make.bottom.equalTo(weakself.goodsMarketPrice.mas_top).offset(-12);
     }];
+    [_goodsMarketPrice sizeToFit];
+    [_goodsSellingPrice sizeToFit];
 }
 
 - (void)setModel:(GoodsDetailsModel *)model{
-    _model = model;
+    _model                     = model;
+    _goodsDetails.text         = model.name;
+    _goodsMarketPrice.text     = [NSString stringWithFormat:@"市场价:%@",model.marketPrice];
+    _goodsSellingPrice.text    = [NSString stringWithFormat:@"￥:%@",model.sellingPrice];
+    self.lineProgress.number   = model.remainingSecondsNumber;
+    DLog(@"%f",[model.remainingSecondsNumber floatValue]/[model.secondsNumber floatValue]);
+    self.lineProgress.progress = [model.remainingSecondsNumber floatValue]/[model.secondsNumber floatValue];
     [_goodsImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:nil];
-    _goodsDetails.text = model.name;
-    _goodsMarketPrice.text = model.marketPrice;
-    _goodsSellingPrice.text = model.sellingPrice;
+    
 }
 
 @end
