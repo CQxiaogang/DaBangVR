@@ -12,6 +12,7 @@
 /** Vendors */
 #import "JXCategoryView.h"
 #import "JXCategoryListContainerView.h"
+#import "JXCategoryTitleView.h"
 /** View */
 #import "LiveCollectionView.h"
 #import "LiveTableView.h"

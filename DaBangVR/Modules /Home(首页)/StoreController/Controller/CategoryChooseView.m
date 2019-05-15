@@ -13,25 +13,20 @@
 -(instancetype)init{
     self = [super init];
     if (self) {
-//        [self setupUI];
+        [self setupUI];
     }
     return self;
 }
 
 -(void)setupUI{
-    NSMutableArray *buttons = [NSMutableArray new];
+    CGFloat width   = 75;//宽
+    CGFloat height  = 75;//高
+    CGFloat spacing = (KScreenW - width*3)/4;//间距
     for (int i=0; i<3; i++) {
-        UIButton *button = [[UIButton alloc] init];
-        [button setBackgroundColor:KLightGreen];
-        [buttons addObject:button];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i*(width+spacing)+spacing, 0, width, height)];
+        [button setBackgroundColor:KRandomColor];
         [self addSubview:button];
     }
-    CGFloat m = (KScreenW-210)/3;
-    [buttons mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:m leadSpacing:m tailSpacing:m];
-    [buttons mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.equalTo(CGSizeMake(70, 70));
-        make.centerY.equalTo(self.mas_centerX);
-    }];
 }
 
 @end

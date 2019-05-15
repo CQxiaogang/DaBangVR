@@ -19,4 +19,5 @@ pod 'JGProgressHUD'
 pod 'MMMaterialDesignSpinner'
 pod 'Qiniu'
 pod 'SocketRocket'
+pod 'JXCategoryView'
 end
