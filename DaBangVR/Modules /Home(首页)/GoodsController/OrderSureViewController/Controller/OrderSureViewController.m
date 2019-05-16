@@ -135,13 +135,20 @@ static NSString *leaveMessage;
     submitOrdersBtn.backgroundColor = KRedColor;
     [submitOrdersBtn addTarget:self action:@selector(submitOrdersBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitOrdersBtn];
-    
+    //总价格
     UILabel *thePrice = [[UILabel alloc] init];
     thePrice.adaptiveFontSize = 14;
     thePrice.textColor = RGBCOLOR(247, 26, 31);
     thePrice.text = [NSString stringWithFormat:@"￥%.2f 元",[_model.orderTotalPrice floatValue]];
     thePrice.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:thePrice];
+    //合计标签
+    UILabel *totalLabel         = [[UILabel alloc] init];
+    totalLabel.text             = @"合计:";
+    totalLabel.textColor        = RGBCOLOR(78, 79, 79);
+    totalLabel.textAlignment      = NSTextAlignmentRight;
+    totalLabel.adaptiveFontSize = 10;
+    [self.view addSubview:totalLabel];
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakself.topView.mas_bottom).offset(0);
@@ -155,10 +162,18 @@ static NSString *leaveMessage;
     }];
     
     [thePrice mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(submitOrdersBtn.mas_left).offset(0);
+        make.right.equalTo(submitOrdersBtn.mas_left).offset(5);
         make.bottom.equalTo(-10);
         make.size.equalTo(CGSizeMake(80, 40));
     }];
+    
+    [totalLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(0);
+        make.right.equalTo(thePrice.mas_left).equalTo(0);
+        make.centerY.equalTo(thePrice.mas_centerY);
+        make.height.equalTo(40);
+    }];
+    
 }
 // 加载数据
 -(void)loadingData{

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface StoreGoodsTableView : UITableView
 
-@property (nonatomic, assign) NSInteger data;
+@property (nonatomic, assign) NSArray *data;
 
 @end
 

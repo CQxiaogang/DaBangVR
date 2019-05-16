@@ -137,6 +137,7 @@
 		046DB31B224B71AE00C2CACB /* PLPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB31A224B71AE00C2CACB /* PLPlayViewController.m */; };
 		046DB31E224B739F00C2CACB /* UIButton+Animate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB31C224B739F00C2CACB /* UIButton+Animate.m */; };
 		046DB321224B742300C2CACB /* UIView+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB31F224B742300C2CACB /* UIView+Alert.m */; };
+		046F4FAB228D05F5003B69E0 /* DeptModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F4FAA228D05F5003B69E0 /* DeptModel.m */; };
 		046F569522842D3F006367BF /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F569422842D3F006367BF /* StoreViewController.m */; };
 		04716AC02224E69000FE2B42 /* CountryGoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04716ABE2224E69000FE2B42 /* CountryGoodsCollectionViewCell.m */; };
 		04716AC12224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04716ABF2224E69000FE2B42 /* CountryGoodsCollectionViewCell.xib */; };
@@ -606,6 +607,8 @@
 		046DB31D224B739F00C2CACB /* UIButton+Animate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Animate.h"; sourceTree = "<group>"; };
 		046DB31F224B742300C2CACB /* UIView+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Alert.m"; sourceTree = "<group>"; };
 		046DB320224B742300C2CACB /* UIView+Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Alert.h"; sourceTree = "<group>"; };
+		046F4FA9228D05F5003B69E0 /* DeptModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeptModel.h; path = "DaBangVR/Modules /Home(首页)/StoreController/View/Cell/DeptModel.h"; sourceTree = SOURCE_ROOT; };
+		046F4FAA228D05F5003B69E0 /* DeptModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DeptModel.m; path = "DaBangVR/Modules /Home(首页)/StoreController/View/Cell/DeptModel.m"; sourceTree = SOURCE_ROOT; };
 		046F569322842D3F006367BF /* StoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
 		046F569422842D3F006367BF /* StoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
 		04716ABD2224E69000FE2B42 /* CountryGoodsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryGoodsCollectionViewCell.h; sourceTree = "<group>"; };
@@ -2456,6 +2459,8 @@
 		04B9204722816B28008BAC74 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				046F4FA9228D05F5003B69E0 /* DeptModel.h */,
+				046F4FAA228D05F5003B69E0 /* DeptModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3623,6 +3628,7 @@
 				04F2FD3021EF47BD000B58E2 /* LoadDataListBaseTableViewController.m in Sources */,
 				048F79B32272AC3500407050 /* musicCollectionViewCell.m in Sources */,
 				04FC2C4121C0E3AD00329B53 /* JFButton.m in Sources */,
+				046F4FAB228D05F5003B69E0 /* DeptModel.m in Sources */,
 				04002F43225D96D4006DC794 /* MerchantsSettledViewController2.m in Sources */,
 				04466500223762DD00DF6F47 /* NaviSegmentedControlViewController.m in Sources */,
 				04F084F321E496DA00BFE102 /* MyOrderViewController.m in Sources */,

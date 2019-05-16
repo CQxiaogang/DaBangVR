@@ -20,15 +20,15 @@ static NSString *cellID = @"cellID";
 -(instancetype)init{
     self = [super init];
     if (self) {
-        self.delegate   = self;
-        self.dataSource = self;
+        self.delegate      = self;
+        self.dataSource    = self;
         [self registerNib:[UINib nibWithNibName:@"StoreGoodsTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
     }
     return self;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _data;
+    return _data.count+10;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -39,7 +39,11 @@ static NSString *cellID = @"cellID";
     return cell;
 }
 
-- (void)setData:(NSInteger)data{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return kFit(103);
+}
+
+- (void)setData:(NSArray *)data{
     _data = data;
     [self reloadData];
 }

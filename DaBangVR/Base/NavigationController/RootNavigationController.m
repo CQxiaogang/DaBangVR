@@ -22,7 +22,7 @@
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-100, 0) forBarMetrics:UIBarMetricsDefault];
     // 设置中间 label 颜色和字体大小
     [self.navigationBar setTitleTextAttributes:
-     @{NSFontAttributeName:[UIFont systemFontOfSize:Adapt(17)],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+     @{NSFontAttributeName:[UIFont systemFontOfSize:Adapt(18)],NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 
 

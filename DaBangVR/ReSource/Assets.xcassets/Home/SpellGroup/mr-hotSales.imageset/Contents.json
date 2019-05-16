@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "mr-hotSales.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "mr-hotSales.png",
       "scale" : "2x"
     },
     {

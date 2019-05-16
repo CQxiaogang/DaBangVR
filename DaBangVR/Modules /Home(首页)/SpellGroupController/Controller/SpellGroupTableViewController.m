@@ -114,7 +114,7 @@ static NSString *CellID = @"CellID";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([_currentView isEqualToString:@"leftView"]) {
-        return 218;
+        return kFit(242);
     }else if ([_currentView isEqualToString:@"rightView"]){
         return 130;
     }

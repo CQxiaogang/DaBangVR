@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.backgroundColor = KRandomColor;
+//    self.backgroundColor = KRandomColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

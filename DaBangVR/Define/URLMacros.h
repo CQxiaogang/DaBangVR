@@ -129,3 +129,7 @@
 #define URl_getUploadConfigToken NSStringFormat(@"%@%@",URL_main,@"/api/config/getUploadConfigToken")
 //获取某个直播在线人数
 #define URl_getLookCountStreamList NSStringFormat(@"%@%@",URL_main,@"/api/pili/getLookCountStreamList?")
+
+#pragma mark —————— 外   卖 ——————
+//附近门店列表
+#define URl_getNearbyDeptList NSStringFormat(@"%@%@",URL_main,@"/api/dept/getNearbyDeptList?")

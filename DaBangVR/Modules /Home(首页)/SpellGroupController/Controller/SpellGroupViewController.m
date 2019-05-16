@@ -86,16 +86,21 @@
         [self.categoryView removeFromSuperview];
         [self.listContainerView removeFromSuperview];
     }
-    CGFloat categoryVHeight = Adapt(40);
-    self.categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, categoryVHeight)];
-    self.categoryView.titles = self.goodsNames;
+    CGFloat categoryVHeight                = Adapt(40);
+    self.categoryView                      = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, kTopHeight, KScreenW, categoryVHeight)];
+    self.categoryView.titles               = self.goodsNames;
+    self.categoryView.delegate             = self;
+    self.categoryView.titleFont            = [UIFont systemFontOfSize:11];
+    self.categoryView.titleColor           = RGBCOLOR(62, 61, 61);
+    self.categoryView.titleSelectedColor   = RGBCOLOR(43, 219, 176);
     self.categoryView.defaultSelectedIndex = 0;
-    self.categoryView.delegate = self;
+    
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-    self.categoryView.indicators = @[lineView];
+    lineView.indicatorColor               = RGBCOLOR(43, 219, 176);
+    self.categoryView.indicators          = @[lineView];
     [self.view addSubview:self.categoryView];
     
-    self.listContainerView = [[JXCategoryListContainerView alloc] initWithParentVC:self delegate:self];
+    self.listContainerView = [[JXCategoryListContainerView alloc] initWithDelegate:self];
     self.listContainerView.frame = CGRectMake(0, categoryVHeight+kTopHeight, KScreenW, KScreenH - categoryVHeight - kTopHeight - kNavBarHeight);
     self.listContainerView.defaultSelectedIndex = 0;
     self.listContainerView.tag = 0;
@@ -117,7 +122,7 @@
     self.categoryView.indicators = @[lineView];
 //    [self.view addSubview:self.categoryView];
     
-    self.listContainerView = [[JXCategoryListContainerView alloc] initWithParentVC:self delegate:self];
+    self.listContainerView = [[JXCategoryListContainerView alloc] initWithDelegate:self];
     self.listContainerView.frame = CGRectMake(0, categoryVHeight + kTopHeight, KScreenW, KScreenH - categoryVHeight - kTopHeight - kNavBarHeight);
     self.listContainerView.defaultSelectedIndex = 0;
     self.listContainerView.tag = 1;
@@ -156,7 +161,7 @@
         make.height.equalTo(kTabBarHeight);
     }];
     NSMutableArray *btns = [NSMutableArray new];
-    NSArray *titles = @[@"正在团购",@"热卖排行",@"我的团购"];
+    NSArray *titles = @[@"正在拼单",@"热卖排行",@"我的拼单"];
     NSArray *images = @[@"mr-assembling",@"mr-hotSales",@"mr-myList"];
     
     UIButton *Btn;

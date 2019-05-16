@@ -24,7 +24,7 @@
 - (void)setModel:(SpellGroupModel *)model{
     _model = model;
     [_goodsImgView setImageWithURL:[NSURL URLWithString:model.listUrl] placeholder:[UIImage imageNamed:@""]];
-    _describeLab.text     = model.describe;
+    _describeLab.text     = model.name;
     _sellingPriceLab.text = [NSString stringWithFormat:@"活动价:￥%@",model.sellingPrice];
     _marketPriceLab.text  = [NSString stringWithFormat:@"原价:￥%@",model.marketPrice];
 }
