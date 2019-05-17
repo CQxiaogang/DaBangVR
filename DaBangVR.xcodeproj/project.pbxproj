@@ -45,6 +45,7 @@
 		0410358621CCD2F2002CB32C /* libUMSocialLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357E21CCD2F2002CB32C /* libUMSocialLog.a */; };
 		0411D8412271968E00E5B5DF /* 测试.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0411D8402271968E00E5B5DF /* 测试.mp3 */; };
 		0413E25F2233BBC700BF008F /* LoginManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413E25E2233BBC700BF008F /* LoginManger.m */; };
+		04162179228E675400708E10 /* JXDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04162178228E675400708E10 /* JXDemoViewController.m */; };
 		041A719A2249C85B0059B19F /* OrderTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041A71992249C85B0059B19F /* OrderTableViewFooterView.m */; };
 		041A719C2249C8680059B19F /* OrderTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041A719B2249C8680059B19F /* OrderTableViewFooterView.xib */; };
 		041C0947225F2184008A38F0 /* ShouldBeginLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C0945225F2184008A38F0 /* ShouldBeginLiveViewController.m */; };
@@ -445,6 +446,8 @@
 		0411D8402271968E00E5B5DF /* 测试.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "测试.mp3"; sourceTree = "<group>"; };
 		0413E25D2233BBC700BF008F /* LoginManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginManger.h; sourceTree = "<group>"; };
 		0413E25E2233BBC700BF008F /* LoginManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginManger.m; sourceTree = "<group>"; };
+		04162177228E675400708E10 /* JXDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXDemoViewController.h; sourceTree = "<group>"; };
+		04162178228E675400708E10 /* JXDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXDemoViewController.m; sourceTree = "<group>"; };
 		041A71982249C85B0059B19F /* OrderTableViewFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderTableViewFooterView.h; sourceTree = "<group>"; };
 		041A71992249C85B0059B19F /* OrderTableViewFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderTableViewFooterView.m; sourceTree = "<group>"; };
 		041A719B2249C8680059B19F /* OrderTableViewFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewFooterView.xib; sourceTree = "<group>"; };
@@ -1618,9 +1621,9 @@
 		045FAEB7221E7E1C0086DE4E /* OrderDeliveryViewController */ = {
 			isa = PBXGroup;
 			children = (
-				045FAEBA221E7E340086DE4E /* Controller */,
 				045FAEB9221E7E330086DE4E /* Model */,
 				045FAEB8221E7E330086DE4E /* View */,
+				045FAEBA221E7E340086DE4E /* Controller */,
 			);
 			path = OrderDeliveryViewController;
 			sourceTree = "<group>";
@@ -1905,6 +1908,8 @@
 			children = (
 				04F50D1721D215E3004EBFE1 /* GoodsDetailsViewController.h */,
 				04F50D1821D215E3004EBFE1 /* GoodsDetailsViewController.m */,
+				04162177228E675400708E10 /* JXDemoViewController.h */,
+				04162178228E675400708E10 /* JXDemoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3595,6 +3600,7 @@
 				04F4469421D74FBF00524971 /* GoodsInfoView.m in Sources */,
 				04F4468F21D74F9000524971 /* UIButton+Bootstrap.m in Sources */,
 				04FC07F321B50855008FF83B /* SettingViewController.m in Sources */,
+				04162179228E675400708E10 /* JXDemoViewController.m in Sources */,
 				041C0947225F2184008A38F0 /* ShouldBeginLiveViewController.m in Sources */,
 				04ACFA69223F3A93006783BF /* OrderProcessingFooterView.m in Sources */,
 				045A6FF02223F514006081CF /* CountryCollectionViewCell.m in Sources */,

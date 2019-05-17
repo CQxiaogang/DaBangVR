@@ -432,54 +432,64 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
         cell.goodPriceLabel.text = [self goodsPrice];
         cell.chooseAttLabel.text = @"请选择 颜色 尺码";
         
-    }else {
+    }else{
         cell.chooseAttLabel.textColor = [UIColor darkGrayColor];
-        
+        //拼接所选规格ID
         NSString *attString = (_seleArray.count == _featureAttr.count) ? [_seleArray componentsJoinedByString:@"_"] : [lastSeleArray componentsJoinedByString:@"_"];
+        
         NSString *goodsSpecIds;
-        for (ProductInfoVoListModel *model in _goodsSpecArr) {
-            if ([attString isEqualToString:model.goodsSpecIds]) {
-                goodsSpecIds = model.goodsSpecIds;
-                NSString *goodsPrice;
-                if ([_submitType isEqualToString:kGroup2]) {
-                    // 拼团价格
-                    goodsPrice = [NSString stringWithFormat:@"¥ %.2f",[model.groupPrice floatValue]*lastNum];
-                }else if([_submitType isEqualToString:kSeconds]){
-                    // 秒杀价格
-                    goodsPrice = [NSString stringWithFormat:@"¥ %.2f",[model.secondsPrice floatValue]*lastNum];
-                }else{
-                    // 其他价格如：单独购买
-                    goodsPrice = [NSString stringWithFormat:@"¥ %.2f",[model.retailPrice floatValue]*lastNum];
+        //
+        if (_goodsSpecArr.count != 0 || _featureAttr.count == 0) {
+            for (ProductInfoVoListModel *model in _goodsSpecArr) {
+                if ([attString isEqualToString:model.goodsSpecIds]){
+                    goodsSpecIds = model.goodsSpecIds;
+                    NSString *goodsPrice;
+                    if ([_submitType isEqualToString:kGroup2]) {
+                        //拼团价格
+                        goodsPrice = [NSString stringWithFormat:@"¥ %.2f",[model.groupPrice floatValue]*lastNum];
+                    }else if([_submitType isEqualToString:kSeconds]){
+                        //秒杀价格
+                        goodsPrice = [NSString stringWithFormat:@"¥ %.2f",[model.secondsPrice floatValue]*lastNum];
+                    }else{
+                        //其他价格如:单独购买
+                        goodsPrice = [NSString stringWithFormat:@"¥ %.2f",[model.retailPrice floatValue]*lastNum];
+                    }
+                    cell.chooseAttLabel.text = [NSString stringWithFormat:@"已选属性：%@",model.name];
+                    cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",model.number];
+                    cell.goodPriceLabel.text = goodsPrice;
+                    
+                    [self.goodsDetailsArr removeAllObjects];
+                    [self.goodsDetailsArr addObject:model.id];
+                    [self.goodsDetailsArr addObject:model.goodsId];
+                    
+                    //当所选规格库存为0时,那么“ 确定”按钮就不能被操作。为防止程序崩溃
+                    if ([attString isEqualToString:goodsSpecIds] && ![model.number isEqualToString:@"0"]) {
+                        _sureBtn.userInteractionEnabled = YES;
+                        _sureBtn.alpha = 1.0;
+                    }else{
+                        _sureBtn.userInteractionEnabled = NO;
+                        _sureBtn.alpha = 0.4;
+                    }
                 }
-                cell.chooseAttLabel.text = [NSString stringWithFormat:@"已选属性：%@",model.name];
-                cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",model.number];
-                cell.goodPriceLabel.text = goodsPrice;
-                
-                [self.goodsDetailsArr removeAllObjects];
-                [self.goodsDetailsArr addObject:model.id];
-                [self.goodsDetailsArr addObject:model.goodsId];
-                
             }
-            //当所选规格库存为0时,那么“ 确定”按钮就不能被操作。为防止程序崩溃
-            if ([attString isEqualToString:goodsSpecIds]) {
-                _sureBtn.userInteractionEnabled = YES;
-                _sureBtn.alpha = 1.0;
-            }else{
-                _sureBtn.userInteractionEnabled = NO;
-                _sureBtn.alpha = 0.4;
+            //无规格的时候
+            if (_featureAttr.count == 0) {
+                cell.goodPriceLabel.text = [self goodsPrice];
+                [cell.goodImageView setImageWithURL:[NSURL URLWithString:_model.listUrl] placeholder:[UIImage imageNamed:@""]];
+                cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",_model.remainingInventory];
+                cell.chooseAttLabel.text = _model.title;
+                [self.goodsDetailsArr addObject:_model.id];
+                if ([_model.remainingInventory isEqualToString:@"0"]) {
+                    _sureBtn.userInteractionEnabled = NO;
+                    _sureBtn.alpha = 0.4;
+                }
             }
-            
+            // 选择的数量
+            [self.goodsDetailsArr addObject:[NSString stringWithFormat:@"%ld",lastNum]];
+        }else{
+            _sureBtn.userInteractionEnabled = NO;
+            _sureBtn.alpha = 0.4;
         }
-        // 没有规格的时候
-        if (_featureAttr.count == 0) {
-            cell.goodPriceLabel.text = [self goodsPrice];
-            [cell.goodImageView setImageWithURL:[NSURL URLWithString:_model.listUrl] placeholder:[UIImage imageNamed:@""]];
-            cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",_model.remainingInventory];
-            cell.chooseAttLabel.text = _model.title;
-            [self.goodsDetailsArr addObject:_model.id];
-        }
-        // 选择的数量
-        [self.goodsDetailsArr addObject:[NSString stringWithFormat:@"%ld",lastNum]];
     }
     kWeakSelf(self)
     cell.crossButtonClickBlock = ^{

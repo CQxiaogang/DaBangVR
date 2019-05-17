@@ -57,23 +57,26 @@ static NSString *cellID = @"cellID";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     //隐藏navigationBar
-    [self.navigationController setNavigationBarHidden:YES];
+//    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)setupUI{
     [super setupUI];
     
-    self.titles = @[@"娱乐",@"购物"];
-    self.categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, KScreenW, kNavBarHeight)];
-    self.categoryView.titles = self.titles;
-    self.categoryView.backgroundColor = [UIColor lightGreen];
-    self.categoryView.delegate = self;
-    self.categoryView.titleSelectedColor = KWhiteColor;
+    self.titles                            = @[@"娱乐",@"购物"];
+    self.categoryView                      = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, 120, kNavBarHeight)];
+    self.categoryView.titles               = self.titles;
+    self.categoryView.delegate             = self;
+    self.categoryView.cellWidth            = 120/2;
+    self.categoryView.cellSpacing          = 0;
+    self.categoryView.titleSelectedColor   = RGBCOLOR(253, 181, 46);
     self.categoryView.defaultSelectedIndex = 0;
+    self.navigationItem.titleView          = self.categoryView;
+    
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-    lineView.indicatorLineViewColor = KLightGreen;
-    self.categoryView.indicators = @[lineView];
-    [self.view addSubview:self.categoryView];
+    lineView.indicatorLineViewColor = RGBCOLOR(253, 181, 46);
+    lineView.indicatorLineWidth     = 40;
+    self.categoryView.indicators    = @[lineView];
     
     self.listContainerView = [[JXCategoryListContainerView alloc]initWithDelegate:self];
     self.listContainerView.frame = CGRectMake(0, kTopHeight, KScreenW, KScreenH-kTopHeight);

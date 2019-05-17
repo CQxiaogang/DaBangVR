@@ -48,13 +48,15 @@ static NSString *CellID = @"CellID";
 }
 
 - (void)loadNewData{
+    //判断有没有数据,有数据就删除
+    if (self.data) {
+        [self.data removeAllObjects];
+    }
     if (self.index) {
         NSDictionary *dic = @{
-                              @"categoryId":self.index,
-                              @"page"      :@"1",
-                              @"limit"     :@"10"
+                              @"categoryId":self.index//商品类型
                               };
-        [NetWorkHelper POST:URL_getGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
+        [NetWorkHelper POST:URL_getGroupGoodsList parameters:dic success:^(id  _Nonnull responseObject) {
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             NSDictionary *dataDic= dic[@"data"];
             NSArray *goodsList = dataDic[@"goodsList"];
@@ -63,9 +65,7 @@ static NSString *CellID = @"CellID";
                 [self.data addObject:model];
             }
             [self.tableView reloadData];
-        } failure:^(NSError * _Nonnull error) {
-            DLog(@"error%@",error);
-        }];
+        } failure:nil];
     }else{
         kWeakSelf(self);
         NSDictionary *dic = @{

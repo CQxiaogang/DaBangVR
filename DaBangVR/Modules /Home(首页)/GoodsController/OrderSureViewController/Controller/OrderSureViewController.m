@@ -115,7 +115,7 @@ static NSString *leaveMessage;
 //视图即将消失、被覆盖或是隐藏时调用
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
+//    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)creatUI{

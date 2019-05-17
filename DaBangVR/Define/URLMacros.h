@@ -7,9 +7,9 @@
 //
 
 /**开发服务器*/
-#define URL_main @"http://www.vrzbgw.com/dabang"
+//#define URL_main @"http://www.vrzbgw.com/dabang"
 //#define URL_main @"http://192.168.1.115:8080" // 强
-//#define URL_main @"http://192.168.1.168:8080" // 邓
+#define URL_main @"http://192.168.1.168:8080" // 邓
 //#define URL_main @"http://192.168.1.109:8080" // 豪
 
 #pragma mark ——————   首页相关   ——————
@@ -103,11 +103,11 @@
 #define URl_updateNumber2Cart NSStringFormat(@"%@%@",URL_main,@"/api/buygoods/updateNumber2Cart?")
 
 #pragma mark —————— 微信支付接口类 ——————
-// 微信支付统一入口
+//微信支付统一入口
 #define URl_prepayOrder NSStringFormat(@"%@%@",URL_main,@"/api/payorder/prepayOrder?")
-// 微信支付回调接口（APP主动调用)
+//微信支付回调接口（APP主动调用)
 #define URl_notifyApp NSStringFormat(@"%@%@",URL_main,@"/api/payorder/notifyApp?")
-// 取消订单及退款申请接口
+//取消订单及退款申请接口
 #define URl_refundRequest NSStringFormat(@"%@%@",URL_main,@"/api/payorder/refundRequest?")
 
 #pragma mark —————— 直播管理接口 ——————

@@ -12,7 +12,7 @@
 
 @protocol SpellGroupTableViewDelegate <NSObject>
 
-- (void)didSelectGoodsShowDetails:(NSString *)index;
+- (void)didSelectGoodsShowDetails:(NSString *_Nullable)index;
 
 @end
 NS_ASSUME_NONNULL_BEGIN

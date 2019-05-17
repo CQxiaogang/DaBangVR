@@ -93,10 +93,14 @@
             [self.navigationController pushViewController:vc animated:NO];
         }
             break;
-        case 201: // 待发货
-        
+        case 201: //待发货
+        {
+            OrderProcessingViewController2 *vc = [[OrderProcessingViewController2 alloc] init];
+            vc.orderId = model.id;
+            [self.navigationController pushViewController:vc animated:NO];
+        }
             break;
-        case 300: // 已发货
+        case 300: //已发货
         {
             // 订单物流界面
             OrderProcessingViewController2 *vc = [[OrderProcessingViewController2 alloc] init];

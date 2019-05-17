@@ -18,6 +18,8 @@
 @interface OrderProcessingViewController2 ()
 
 @property (nonatomic, strong) OrderDeptGoodsModel *model;
+/** 退款Button */
+@property (nonatomic, strong) UIButton *refundBtn;
 
 @end
 
@@ -68,10 +70,11 @@ static NSString *FooterID = @"FooterID";
 }
 - (void)setupBottonUI{
     // 退款
-    UIButton *refundBtn = [[UIButton alloc] init];
+    UIButton *refundBtn         = [[UIButton alloc] init];
+    _refundBtn                  = refundBtn;
+    refundBtn.backgroundColor   = KRedColor;
+    refundBtn.adaptiveFontSize  = 12;
     [refundBtn setTitle:@"申请退款" forState:UIControlStateNormal];
-    refundBtn.adaptiveFontSize = 12;
-    refundBtn.backgroundColor = KRedColor;
     [refundBtn addTarget:self action:@selector(refundButOfAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:refundBtn];
     [refundBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -85,7 +88,7 @@ static NSString *FooterID = @"FooterID";
     [self AlertWithTitle:@"确认退款" preferredStyle:UIAlertControllerStyleAlert message:@"是否确认退款" andOthers:@[@"取消",@"确定"] animated:YES action:^(NSInteger index) {
         if (index == 1) {
             [NetWorkHelper POST:URl_refundRequest parameters:@{@"orderId":weakself.orderId} success:^(id  _Nonnull responseObject) {
-                DLog(@"退款成功");
+                [weakself.refundBtn setTitle:@"退款中" forState:UIControlStateNormal];
             } failure:nil];
         }
     }];

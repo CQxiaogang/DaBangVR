@@ -108,8 +108,8 @@
                         <action selector="alterAction:" destination="LLm-2F-dwM" eventType="touchUpInside" id="Urt-LP-h6C"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMB-0l-YRM">
-                    <rect key="frame" x="121" y="56" width="185" height="0.0"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="填写地址" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMB-0l-YRM">
+                    <rect key="frame" x="121" y="56" width="185" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="185" id="R2Z-Z1-xhg"/>
                     </constraints>
@@ -162,6 +162,7 @@
                 <constraint firstItem="dtC-fp-Vcj" firstAttribute="leading" secondItem="fcT-FU-evl" secondAttribute="leading" id="2u4-qE-NwG"/>
                 <constraint firstItem="uMB-0l-YRM" firstAttribute="leading" secondItem="dtC-fp-Vcj" secondAttribute="trailing" constant="10" id="4jw-BP-WTw"/>
                 <constraint firstItem="6eF-UF-2Ch" firstAttribute="centerY" secondItem="LLm-2F-dwM" secondAttribute="centerY" id="5Ka-LL-O1B"/>
+                <constraint firstItem="uMB-0l-YRM" firstAttribute="centerY" secondItem="dtC-fp-Vcj" secondAttribute="centerY" id="5uS-74-fO8"/>
                 <constraint firstItem="avW-NP-BSb" firstAttribute="centerY" secondItem="26t-Kn-5GM" secondAttribute="centerY" id="8b8-he-rqS"/>
                 <constraint firstItem="dtC-fp-Vcj" firstAttribute="height" secondItem="fcT-FU-evl" secondAttribute="height" id="96L-5s-foe"/>
                 <constraint firstItem="gBN-J1-XuX" firstAttribute="centerY" secondItem="LLm-2F-dwM" secondAttribute="centerY" id="AVt-fT-qjw"/>

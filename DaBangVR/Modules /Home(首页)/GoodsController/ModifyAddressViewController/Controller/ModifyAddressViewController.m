@@ -112,7 +112,7 @@ static NSString *const CellID = @"CellID";
     _area_dataArray2 = [[NSMutableArray alloc]init];
     _area_dataArray3 = [[NSMutableArray alloc]init];
     
-    [self loadingData];
+//    [self loadingData];
 }
 
 -(void)loadingData{

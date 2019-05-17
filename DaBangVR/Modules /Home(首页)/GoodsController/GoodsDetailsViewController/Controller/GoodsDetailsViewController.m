@@ -352,13 +352,15 @@ static NSString *CellID = @"CellID";
 // 商品购买右边的Button操作
 - (void)goodsBuyOfRightButton:(NSArray *)array{
     NSMutableDictionary *dic = [NSMutableDictionary new];
-    if (array.count == 3) {
-        [dic setObject:array[0] forKey:@"productId"];
-        [dic setObject:array[1] forKey:@"goodsId"];
-        [dic setObject:array[2] forKey:@"number"];
-    }else{
-        [dic setObject:array[0] forKey:@"goodsId"];
-        [dic setObject:array[1] forKey:@"number"];
+    if (array.count == 2||array.count == 3) {
+        if (array.count == 3) {
+            [dic setObject:array[0] forKey:@"productId"];
+            [dic setObject:array[1] forKey:@"goodsId"];
+            [dic setObject:array[2] forKey:@"number"];
+        }else{
+            [dic setObject:array[0] forKey:@"goodsId"];
+            [dic setObject:array[1] forKey:@"number"];
+        }
     }
     NSString *URLString;
     if ([_interfaceState isKindOfClass:[SecondsKillViewController class]]) {
@@ -375,9 +377,9 @@ static NSString *CellID = @"CellID";
     }
     [NetWorkHelper POST:URLString parameters:dic success:^(id  _Nonnull responseObject) {
         DLog(@"errmsg is %@",KJSONSerialization(responseObject)[@"errmsg"]);
-        // 直接跳转确认订单界面
+        //直接跳转确认订单界面
         OrderSureViewController *vc = [[OrderSureViewController alloc] init];
-        // 提交订单所需参数
+        //提交订单所需参数
         /**submitType除了这几个功能需要传不同的参数,其他就是后面的参数从不同页面传过buy立即购买，cart购物车，group1单独成团，group2发起拼团，group3参与拼团，seconds秒杀
          **orderSnTotal除了重我的订单重新付款,所需参数不一样，其他都一样。
          **/
@@ -387,7 +389,7 @@ static NSString *CellID = @"CellID";
     } failure:^(NSError * _Nonnull error) {}];
 }
 
-// 商品购买的Buttons
+//商品购买的Buttons
 - (void)goodsBuyOfActon:(UIButton *)sender{
     //库存不为0 才能提交订单
     if (![self.model.remainingInventory isEqualToString:@"0"]) {
