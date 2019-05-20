@@ -88,7 +88,8 @@
         case 0: // 待付款
         {
             OrderSureViewController *vc = [[OrderSureViewController alloc] init];
-            vc.submitType = kBuy;
+            vc.orderID      = model.id;
+            vc.submitType   = kBuy;
             vc.orderSnTotal = kOrderSn;
             [self.navigationController pushViewController:vc animated:NO];
         }

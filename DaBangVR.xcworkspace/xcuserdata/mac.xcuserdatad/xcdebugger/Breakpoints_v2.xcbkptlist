@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/GoodsController/GoodsDetailsViewController/View/GoodAttributesView.m"
-            timestampString = "579778607.143276"
+            timestampString = "580011500.10525"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "552"
@@ -22,32 +22,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/GoodsController/GoodsDetailsViewController/Controller/GoodsDetailsViewController.m"
-            timestampString = "579778629.427536"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/GoodsController/OrderSureViewController/Controller/OrderSureViewController.m"
+            timestampString = "580038632.167074"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
-            landmarkName = "-goodsBuyOfRightButton:"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "-loadingData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/GoodsController/GoodsDetailsViewController/View/GoodAttributesView.m"
-            timestampString = "579778647.434672"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/SpellGroupController/Controller/SpellGroupViewController.m"
+            timestampString = "580038632.167142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "444"
-            endingLineNumber = "444"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "-loadingData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DaBangVR/Modules /Home(&#x9996;&#x9875;)/SpellGroupController/Controller/SpellGroupTableViewController.m"
+            timestampString = "580038667.82691"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "-loadNewData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

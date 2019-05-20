@@ -109,6 +109,9 @@
 #define URl_notifyApp NSStringFormat(@"%@%@",URL_main,@"/api/payorder/notifyApp?")
 //取消订单及退款申请接口
 #define URl_refundRequest NSStringFormat(@"%@%@",URL_main,@"/api/payorder/refundRequest?")
+//订单列表重新支付订单
+#define URl_prepayOrderAgain NSStringFormat(@"%@%@",URL_main,@"/api/payorder/prepayOrderAgain?")
+
 
 #pragma mark —————— 直播管理接口 ——————
 //创建推流

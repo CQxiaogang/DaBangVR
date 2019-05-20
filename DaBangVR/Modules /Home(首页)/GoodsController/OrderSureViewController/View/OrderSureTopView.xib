@@ -108,7 +108,7 @@
                         <action selector="alterAction:" destination="LLm-2F-dwM" eventType="touchUpInside" id="Urt-LP-h6C"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="填写地址" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMB-0l-YRM">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="填写地址" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMB-0l-YRM">
                     <rect key="frame" x="121" y="56" width="185" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="185" id="R2Z-Z1-xhg"/>

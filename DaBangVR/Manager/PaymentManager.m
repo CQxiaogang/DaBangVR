@@ -36,6 +36,24 @@ SINGLETON_FOR_CLASS(PaymentManager)
         NSLog(@"%@",error);
     }];
 }
+//重新支付
+-(void)weiXinPayWithOrderID:(NSString *)orderID{
+    [NetWorkHelper POST:URl_prepayOrderAgain parameters:@{@"orderId":orderID} success:^(id  _Nonnull responseObject) {
+        NSDictionary * dic = KJSONSerialization(responseObject)[@"data"];
+        //配置调起微信支付所需要的参数
+        PayReq *req   = [[PayReq alloc] init];
+        req.openID    = [dic objectForKey:@"appid"];
+        req.partnerId = [dic objectForKey:@"partnerid"];
+        req.prepayId  = [dic objectForKey:@"prepayid"];
+        req.package   = [dic objectForKey:@"package"];
+        req.nonceStr  = [dic objectForKey:@"noncestr"];
+        req.timeStamp = [dic[@"timestamp"] intValue];
+        req.sign      = [dic objectForKey:@"sign"];
+        //调起微信支付
+        [WXApi sendReq:req];
+    } failure:nil];
+}
+
 // 微信支付返回结果回调
 -(void)onResp:(BaseResp*)resp{
     NSString *strMsg = [NSString stringWithFormat:@"%d",resp.errCode];

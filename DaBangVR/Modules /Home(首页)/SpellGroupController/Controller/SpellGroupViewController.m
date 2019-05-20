@@ -144,7 +144,7 @@
     self.categoryView.indicators = @[lineView];
     [self.view addSubview:self.categoryView];
     
-    self.listContainerView = [[JXCategoryListContainerView alloc] initWithParentVC:self delegate:self];
+    self.listContainerView = [[JXCategoryListContainerView alloc] initWithDelegate:self];
     self.listContainerView.frame = CGRectMake(0, categoryVHeight + kTopHeight, KScreenW, KScreenH - categoryVHeight - kTopHeight - kNavBarHeight);
     self.listContainerView.defaultSelectedIndex = 0;
     self.listContainerView.tag = 2;

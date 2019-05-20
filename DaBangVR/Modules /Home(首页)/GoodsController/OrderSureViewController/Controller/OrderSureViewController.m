@@ -178,7 +178,12 @@ static NSString *leaveMessage;
 // 加载数据
 -(void)loadingData{
     kWeakSelf(self);
-    [NetWorkHelper POST:URl_getConfirmGoods parameters:nil success:^(id  _Nonnull responseObject) {
+    NSDictionary *parameters;
+    if (_orderID) {
+        parameters = @{@"orderId":_orderID};
+    }
+    
+    [NetWorkHelper POST:URl_getConfirmGoods parameters:parameters success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
         // 字典转模型
         weakself.model = [OrderSureModel mj_objectWithKeyValues:data];
@@ -261,15 +266,10 @@ static NSString *leaveMessage;
 #pragma mark —— 提交订单
 - (void)submitOrdersBtnAction{
     kWeakSelf(self);
-    // 确认支付，调用后台
-    leaveMessage = leaveMessage? leaveMessage:@"";
-    if (weakself.model.receivingAddress.id.length != 0 && _submitType.length != 0) {
-        NSDictionary *parameters = @{
-                                     @"submitType"   : _submitType,
-                                     @"addressId"    : weakself.model.receivingAddress.id,
-                                     @"leaveMessage" : leaveMessage
-                                     };
-        [NetWorkHelper POST:URl_submitOrder parameters:parameters success:^(id  _Nonnull responseObject) {
+    //orderID == nil 第一次支付,orderID != nil 重新支付
+    if (_orderID) {
+        //订单重新支付
+        [NetWorkHelper POST:URl_prepayOrderAgain parameters:@{@"orderId":_orderID} success:^(id  _Nonnull responseObject) {
             NSString *error = [NSString stringWithFormat:@"%@",KJSONSerialization(responseObject)[@"errno"]];
             if ([error isEqualToString:@"1"]) {
                 NSString *errmsg = KJSONSerialization(responseObject)[@"errmsg"];
@@ -277,14 +277,35 @@ static NSString *leaveMessage;
                 [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
                 [SVProgressHUD dismissWithDelay:1.0];
             }else{
-                NSDictionary *orderVo = KJSONSerialization(responseObject)[@"orderVo"];
-                NSString *orderSn = orderVo[weakself.orderSnTotal];
-                if (orderSn.length != 0) {
-                    weakself.orderSn = orderSn;
-                    [weakself orderSn:orderSn];
-                }
+                [self orderSn:weakself.orderID];
             }
-        } failure:^(NSError * _Nonnull error) {}];
+        } failure:nil];
+    }else{
+        //确认支付，调用后台
+        leaveMessage = leaveMessage? leaveMessage:@"";
+        if (weakself.model.receivingAddress.id.length != 0 && _submitType.length != 0) {
+            NSDictionary *parameters = @{
+                                         @"submitType"   : _submitType,
+                                         @"addressId"    : weakself.model.receivingAddress.id,
+                                         @"leaveMessage" : leaveMessage
+                                         };
+            [NetWorkHelper POST:URl_submitOrder parameters:parameters success:^(id  _Nonnull responseObject) {
+                NSString *error = [NSString stringWithFormat:@"%@",KJSONSerialization(responseObject)[@"errno"]];
+                if ([error isEqualToString:@"1"]) {
+                    NSString *errmsg = KJSONSerialization(responseObject)[@"errmsg"];
+                    [SVProgressHUD showInfoWithStatus:errmsg];
+                    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+                    [SVProgressHUD dismissWithDelay:1.0];
+                }else{
+                    NSDictionary *orderVo = KJSONSerialization(responseObject)[@"orderVo"];
+                    NSString *orderSn = orderVo[weakself.orderSnTotal];
+                    if (orderSn.length != 0) {
+                        weakself.orderSn = orderSn;
+                        [weakself orderSn:orderSn];
+                    }
+                }
+            } failure:^(NSError * _Nonnull error) {}];
+        }
     }
 }
 
@@ -304,11 +325,13 @@ static NSString *leaveMessage;
     SureCustomActionSheet *optionsView = [[SureCustomActionSheet alloc]initWithTitleView:headView optionsArr:optionsArr imgArr:imgArr cancelTitle:@"退出" selectedBlock:^(NSInteger index) {
         kWeakSelf(self);
         if (index == 0) {
-            [[PaymentManager sharedPaymentManager] weiXinPayWithOrderSn:orderSn andPayOrderSnType:weakself.orderSnTotal];
-        }else{
-            
-        }
-        
+            //orderID == nil 第一次支付,orderID != nil 重新支付
+            if (weakself.orderID) {
+                [[PaymentManager sharedPaymentManager] weiXinPayWithOrderID:weakself.orderID];
+            }else{
+                [[PaymentManager sharedPaymentManager] weiXinPayWithOrderSn:orderSn andPayOrderSnType:weakself.orderSnTotal];
+            }
+        }else{}
     } cancelBlock:^{}];
     
     [self.navigationController.view addSubview:optionsView];

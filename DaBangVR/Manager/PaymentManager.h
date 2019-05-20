@@ -32,6 +32,8 @@ SINGLETON_FOR_HEADER(PaymentManager)
  */
 - (void)weiXinPayWithOrderSn:(NSString *)orderSn andPayOrderSnType:(NSString *)payOrderSnType;
 
+- (void)weiXinPayWithOrderID:(NSString *)orderID ;
+
 @end
 
 NS_ASSUME_NONNULL_END
