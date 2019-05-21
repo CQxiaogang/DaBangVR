@@ -1,8 +1,8 @@
 //
-//  JXDemoViewController.h
+//  ShortVideoViewController.h
 //  DaBangVR
 //
-//  Created by mac on 2019/5/17.
+//  Created by mac on 2019/5/21.
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JXDemoViewController : UIViewController
+@interface ShortVideoViewController : RootViewController
 
 @end
 

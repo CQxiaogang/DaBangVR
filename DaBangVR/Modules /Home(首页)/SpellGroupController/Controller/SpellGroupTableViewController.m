@@ -67,12 +67,9 @@ static NSString *CellID = @"CellID";
             [self.tableView reloadData];
         } failure:nil];
     }else{
+        
         kWeakSelf(self);
-        NSDictionary *dic = @{
-                              @"page"      :@"1",
-                              @"limit"     :@"10",
-                              @"buyType"   :kBuyTypeGroup
-                              };
+        NSDictionary *dic = @{@"buyType"   :kBuyTypeGroup};
         [NetWorkHelper POST:URl_getOrderList parameters:dic success:^(id  _Nonnull responseObject) {
             NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
             weakself.goodsData = [OrderDeptGoodsModel mj_objectArrayWithKeyValuesArray:dataDic[@"orderList"]];

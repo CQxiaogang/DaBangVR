@@ -23,6 +23,12 @@
 		0403676E21A4E9DA00974435 /* AnchorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403676D21A4E9DA00974435 /* AnchorViewCell.xib */; };
 		0403677221A5129800974435 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403677021A5129800974435 /* HomeTableViewCell.m */; };
 		0403677321A5129800974435 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403677121A5129800974435 /* HomeTableViewCell.xib */; };
+		040410B92293A52700DE6A22 /* ShortVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040410B82293A52700DE6A22 /* ShortVideoViewController.m */; };
+		040410BC2293AFC200DE6A22 /* GoodsDetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040410BB2293AFC200DE6A22 /* GoodsDetailsHeaderView.m */; };
+		040410C12293B13000DE6A22 /* VerticalListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 040410BD2293B13000DE6A22 /* VerticalListCellModel.m */; };
+		040410C22293B13000DE6A22 /* VerticalListSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 040410BF2293B13000DE6A22 /* VerticalListSectionModel.m */; };
+		040410C62293B21A00DE6A22 /* GoodsDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040410C42293B21A00DE6A22 /* GoodsDetailsTableViewCell.m */; };
+		040410C72293B21A00DE6A22 /* GoodsDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040410C52293B21A00DE6A22 /* GoodsDetailsTableViewCell.xib */; };
 		0404776D2252FBA400EA6FFF /* SeasonAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0404776B2252FBA400EA6FFF /* SeasonAuthenticationViewController.m */; };
 		0404776E2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0404776C2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib */; };
 		040477722252FFA600EA6FFF /* SeasonAuthenticationViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 040477702252FFA600EA6FFF /* SeasonAuthenticationViewController2.m */; };
@@ -45,7 +51,6 @@
 		0410358621CCD2F2002CB32C /* libUMSocialLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0410357E21CCD2F2002CB32C /* libUMSocialLog.a */; };
 		0411D8412271968E00E5B5DF /* 测试.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0411D8402271968E00E5B5DF /* 测试.mp3 */; };
 		0413E25F2233BBC700BF008F /* LoginManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413E25E2233BBC700BF008F /* LoginManger.m */; };
-		04162179228E675400708E10 /* JXDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04162178228E675400708E10 /* JXDemoViewController.m */; };
 		041A719A2249C85B0059B19F /* OrderTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041A71992249C85B0059B19F /* OrderTableViewFooterView.m */; };
 		041A719C2249C8680059B19F /* OrderTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041A719B2249C8680059B19F /* OrderTableViewFooterView.xib */; };
 		041C0947225F2184008A38F0 /* ShouldBeginLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C0945225F2184008A38F0 /* ShouldBeginLiveViewController.m */; };
@@ -412,6 +417,17 @@
 		0403676F21A5129800974435 /* HomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		0403677021A5129800974435 /* HomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		0403677121A5129800974435 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		040410B72293A52700DE6A22 /* ShortVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShortVideoViewController.h; sourceTree = "<group>"; };
+		040410B82293A52700DE6A22 /* ShortVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShortVideoViewController.m; sourceTree = "<group>"; };
+		040410BA2293AFC200DE6A22 /* GoodsDetailsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsDetailsHeaderView.h; sourceTree = "<group>"; };
+		040410BB2293AFC200DE6A22 /* GoodsDetailsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailsHeaderView.m; sourceTree = "<group>"; };
+		040410BD2293B13000DE6A22 /* VerticalListCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalListCellModel.m; sourceTree = "<group>"; };
+		040410BE2293B13000DE6A22 /* VerticalListSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalListSectionModel.h; sourceTree = "<group>"; };
+		040410BF2293B13000DE6A22 /* VerticalListSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalListSectionModel.m; sourceTree = "<group>"; };
+		040410C02293B13000DE6A22 /* VerticalListCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalListCellModel.h; sourceTree = "<group>"; };
+		040410C32293B21A00DE6A22 /* GoodsDetailsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsDetailsTableViewCell.h; sourceTree = "<group>"; };
+		040410C42293B21A00DE6A22 /* GoodsDetailsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailsTableViewCell.m; sourceTree = "<group>"; };
+		040410C52293B21A00DE6A22 /* GoodsDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		0404776A2252FBA400EA6FFF /* SeasonAuthenticationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasonAuthenticationViewController.h; sourceTree = "<group>"; };
 		0404776B2252FBA400EA6FFF /* SeasonAuthenticationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasonAuthenticationViewController.m; sourceTree = "<group>"; };
 		0404776C2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonAuthenticationViewController.xib; sourceTree = "<group>"; };
@@ -446,8 +462,6 @@
 		0411D8402271968E00E5B5DF /* 测试.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "测试.mp3"; sourceTree = "<group>"; };
 		0413E25D2233BBC700BF008F /* LoginManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginManger.h; sourceTree = "<group>"; };
 		0413E25E2233BBC700BF008F /* LoginManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginManger.m; sourceTree = "<group>"; };
-		04162177228E675400708E10 /* JXDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXDemoViewController.h; sourceTree = "<group>"; };
-		04162178228E675400708E10 /* JXDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXDemoViewController.m; sourceTree = "<group>"; };
 		041A71982249C85B0059B19F /* OrderTableViewFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderTableViewFooterView.h; sourceTree = "<group>"; };
 		041A71992249C85B0059B19F /* OrderTableViewFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderTableViewFooterView.m; sourceTree = "<group>"; };
 		041A719B2249C8680059B19F /* OrderTableViewFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewFooterView.xib; sourceTree = "<group>"; };
@@ -1073,6 +1087,48 @@
 				0400626D228ABBF0005D1474 /* SYWaveProgressView.m */,
 			);
 			path = SYProgressView;
+			sourceTree = "<group>";
+		};
+		040410B32293A4D100DE6A22 /* ShortVideo */ = {
+			isa = PBXGroup;
+			children = (
+				040410B52293A50300DE6A22 /* Model */,
+				040410B62293A50300DE6A22 /* View */,
+				040410B42293A50300DE6A22 /* Controller */,
+			);
+			path = ShortVideo;
+			sourceTree = "<group>";
+		};
+		040410B42293A50300DE6A22 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				040410B72293A52700DE6A22 /* ShortVideoViewController.h */,
+				040410B82293A52700DE6A22 /* ShortVideoViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		040410B52293A50300DE6A22 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				040410C02293B13000DE6A22 /* VerticalListCellModel.h */,
+				040410BD2293B13000DE6A22 /* VerticalListCellModel.m */,
+				040410BE2293B13000DE6A22 /* VerticalListSectionModel.h */,
+				040410BF2293B13000DE6A22 /* VerticalListSectionModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		040410B62293A50300DE6A22 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				040410BA2293AFC200DE6A22 /* GoodsDetailsHeaderView.h */,
+				040410BB2293AFC200DE6A22 /* GoodsDetailsHeaderView.m */,
+				040410C32293B21A00DE6A22 /* GoodsDetailsTableViewCell.h */,
+				040410C42293B21A00DE6A22 /* GoodsDetailsTableViewCell.m */,
+				040410C52293B21A00DE6A22 /* GoodsDetailsTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		040477612252F65600EA6FFF /* SeasonAuthenticationController */ = {
@@ -1908,8 +1964,6 @@
 			children = (
 				04F50D1721D215E3004EBFE1 /* GoodsDetailsViewController.h */,
 				04F50D1821D215E3004EBFE1 /* GoodsDetailsViewController.m */,
-				04162177228E675400708E10 /* JXDemoViewController.h */,
-				04162178228E675400708E10 /* JXDemoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2744,6 +2798,7 @@
 		04F3B33221EDF41D00DFBA84 /* GoodsController */ = {
 			isa = PBXGroup;
 			children = (
+				040410B32293A4D100DE6A22 /* ShortVideo */,
 				0476036C222D053500FDE903 /* GoodsShowViewController */,
 				04760370222D06B000FDE903 /* GoodsDetailsViewController */,
 				04760374222D080E00FDE903 /* AllCommentsViewController */,
@@ -3276,6 +3331,7 @@
 				048EC5662261CDD4007288FB /* LiveCommentTableViewCell.xib in Resources */,
 				0476542D226D72F500289AA7 /* menuClose.png in Resources */,
 				045FAEBF221E81900086DE4E /* OrderProcessingView.xib in Resources */,
+				040410C72293B21A00DE6A22 /* GoodsDetailsTableViewCell.xib in Resources */,
 				04F62FD821F951440094B26F /* ShoppingCartCell.xib in Resources */,
 				0459D90F21E08FFD009BFFB4 /* OrderSureTopView.xib in Resources */,
 				049D4763219FA91F0058178D /* LaunchScreen.storyboard in Resources */,
@@ -3463,6 +3519,7 @@
 				042FCEC621A3E22E002AD0DB /* HomeSecondsKillView.m in Sources */,
 				04BF218C2212B719002468C0 /* TestListBaseView.m in Sources */,
 				041A719A2249C85B0059B19F /* OrderTableViewFooterView.m in Sources */,
+				040410C22293B13000DE6A22 /* VerticalListSectionModel.m in Sources */,
 				04F2FD2821EF35DE000B58E2 /* SpellGroupCell.m in Sources */,
 				048EC5652261CDD4007288FB /* LiveCommentTableViewCell.m in Sources */,
 				044664F62237623E00DF6F47 /* ContentBaseViewController.m in Sources */,
@@ -3493,6 +3550,7 @@
 				044E6781223221E60077365D /* UIColor+DD.m in Sources */,
 				04BF21832212B719002468C0 /* JXPagerListContainerView.m in Sources */,
 				04F70C6921E98D35004BD4C6 /* AnchorRecommendView.m in Sources */,
+				040410BC2293AFC200DE6A22 /* GoodsDetailsHeaderView.m in Sources */,
 				04ECB9F822422C7300A02DB2 /* DHGuidePageHUD.m in Sources */,
 				04FDDA3F226EF6F6008E456D /* DB_BounceView.m in Sources */,
 				04F2FD2E21EF479D000B58E2 /* GoodsShowTableViewController.m in Sources */,
@@ -3588,6 +3646,7 @@
 				046DB30E224B279700C2CACB /* TPCItem.m in Sources */,
 				048F79C12272EFAF00407050 /* DidBeginLiveTaskView.m in Sources */,
 				04FC2C3B21C0E3AD00329B53 /* JFAreaDataManager.m in Sources */,
+				040410B92293A52700DE6A22 /* ShortVideoViewController.m in Sources */,
 				04F62FEE21F9B69A0094B26F /* ModifyAddressAreaModel.m in Sources */,
 				042FCED021A406FB002AD0DB /* DBHotVideoView.m in Sources */,
 				047F24872289531D00A66F8C /* TimeView.m in Sources */,
@@ -3597,10 +3656,10 @@
 				048F79B72272B57800407050 /* DidBeginLiveTopView.m in Sources */,
 				04F62FEF21F9B69A0094B26F /* AreaView.m in Sources */,
 				046DB31E224B739F00C2CACB /* UIButton+Animate.m in Sources */,
+				040410C62293B21A00DE6A22 /* GoodsDetailsTableViewCell.m in Sources */,
 				04F4469421D74FBF00524971 /* GoodsInfoView.m in Sources */,
 				04F4468F21D74F9000524971 /* UIButton+Bootstrap.m in Sources */,
 				04FC07F321B50855008FF83B /* SettingViewController.m in Sources */,
-				04162179228E675400708E10 /* JXDemoViewController.m in Sources */,
 				041C0947225F2184008A38F0 /* ShouldBeginLiveViewController.m in Sources */,
 				04ACFA69223F3A93006783BF /* OrderProcessingFooterView.m in Sources */,
 				045A6FF02223F514006081CF /* CountryCollectionViewCell.m in Sources */,
@@ -3635,6 +3694,7 @@
 				048F79B32272AC3500407050 /* musicCollectionViewCell.m in Sources */,
 				04FC2C4121C0E3AD00329B53 /* JFButton.m in Sources */,
 				046F4FAB228D05F5003B69E0 /* DeptModel.m in Sources */,
+				040410C12293B13000DE6A22 /* VerticalListCellModel.m in Sources */,
 				04002F43225D96D4006DC794 /* MerchantsSettledViewController2.m in Sources */,
 				04466500223762DD00DF6F47 /* NaviSegmentedControlViewController.m in Sources */,
 				04F084F321E496DA00BFE102 /* MyOrderViewController.m in Sources */,
