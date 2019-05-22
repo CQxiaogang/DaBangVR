@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="EfU-1J-1lb">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIW-R8-EXE">
+                    <rect key="frame" x="10" y="10" width="25" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSi-Nh-Wnq">
+                    <rect key="frame" x="45" y="10" width="1" height="15"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="VjZ-lG-QzB">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="width" constant="1" id="nYl-16-8cq">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="销量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkx-tQ-INr">
+                    <rect key="frame" x="56" y="10" width="25" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMQ-MS-R6v">
+                    <rect key="frame" x="0.0" y="40" width="375" height="5"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="5" id="8A3-R2-e5F"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="tkx-tQ-INr" firstAttribute="centerY" secondItem="AIW-R8-EXE" secondAttribute="centerY" id="7UO-5s-mA1"/>
+                <constraint firstItem="AIW-R8-EXE" firstAttribute="top" secondItem="EfU-1J-1lb" secondAttribute="top" constant="10" id="Hqx-2u-gdt"/>
+                <constraint firstItem="cSi-Nh-Wnq" firstAttribute="centerY" secondItem="AIW-R8-EXE" secondAttribute="centerY" id="Qh5-sg-Kg8"/>
+                <constraint firstItem="AIW-R8-EXE" firstAttribute="leading" secondItem="4ZL-8e-RNe" secondAttribute="leading" constant="10" id="WeK-gm-XIj"/>
+                <constraint firstItem="tkx-tQ-INr" firstAttribute="leading" secondItem="cSi-Nh-Wnq" secondAttribute="trailing" constant="10" id="mj1-XR-YLx"/>
+                <constraint firstItem="cSi-Nh-Wnq" firstAttribute="leading" secondItem="AIW-R8-EXE" secondAttribute="trailing" constant="10" id="nrh-qu-Ld3"/>
+                <constraint firstAttribute="bottom" secondItem="EMQ-MS-R6v" secondAttribute="bottom" id="pDy-TY-gOd"/>
+                <constraint firstItem="EMQ-MS-R6v" firstAttribute="trailing" secondItem="4ZL-8e-RNe" secondAttribute="trailing" id="sz6-a3-cqh"/>
+                <constraint firstItem="EMQ-MS-R6v" firstAttribute="leading" secondItem="4ZL-8e-RNe" secondAttribute="leading" id="uUa-TZ-dBS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="4ZL-8e-RNe"/>
+            <point key="canvasLocation" x="968.84057971014499" y="62.946428571428569"/>
+        </view>
+    </objects>
+</document>

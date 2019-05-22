@@ -67,7 +67,7 @@ static NSString *const cellHeaderID = @"cellHeaderID";
 
 -(void)loadingData{
     NSMutableArray *dataSource = [[NSMutableArray alloc] init];
-    self.headerTitles = @[@"商品", @"评价", @"详情", @"推荐"];
+    self.headerTitles = @[@"", @"评价", @"详情", @"推荐"];
     [self.headerTitles enumerateObjectsUsingBlock:^(NSString * _Nonnull title, NSUInteger idx, BOOL * _Nonnull stop) {
         VerticalListSectionModel *sectionModel = [[VerticalListSectionModel alloc] init];
         sectionModel.sectionTitle = title;
@@ -123,11 +123,22 @@ static NSString *const cellHeaderID = @"cellHeaderID";
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    DLog(@"");
+    //获取tableView当前展示的第一个cell属于哪个section
+    NSArray <GoodsDetailsTableViewCell *> *cellArray = [self.tableView visibleCells];
+    NSInteger nowSection = 0;
+    if (cellArray) {
+        GoodsDetailsTableViewCell *cell = [cellArray firstObject];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        nowSection = indexPath.section;
+    }
+    [self.pinCategoryView selectItemAtIndex:nowSection];
 }
 
 #pragma mark - JXCategoryViewDelegate
 - (void)categoryView:(JXCategoryBaseView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index{
+    //定位cell
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:index];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 @end

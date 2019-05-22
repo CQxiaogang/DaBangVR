@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 // 界面状态，接受controller用于重用商品详情界面
 @property (nonatomic, strong) id interfaceState;
 
+//@property (nonatomic)
+
 @end
 
 NS_ASSUME_NONNULL_END

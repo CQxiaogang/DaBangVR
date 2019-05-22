@@ -14,9 +14,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        _titleLabel               = [[UILabel alloc] init];
-        self.titleLabel.textColor = [UIColor lightGrayColor];
-        self.backgroundColor      = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1];
+        _titleLabel                  = [[UILabel alloc] init];
+        self.titleLabel.textColor    = [UIColor lightGrayColor];
+        self.backgroundColor         = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1];
+        _titleLabel.adaptiveFontSize = 14;
         [self addSubview:self.titleLabel];
     }
     return self;

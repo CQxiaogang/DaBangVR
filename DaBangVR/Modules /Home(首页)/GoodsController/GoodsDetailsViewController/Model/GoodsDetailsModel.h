@@ -55,6 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *remainingSecondsNumber;
 //秒杀总量
 @property (nonatomic, copy) NSString *secondsNumber;
+//物流
+@property (nonatomic, copy) NSString *logisticsPrice;
 @end
 
 NS_ASSUME_NONNULL_END

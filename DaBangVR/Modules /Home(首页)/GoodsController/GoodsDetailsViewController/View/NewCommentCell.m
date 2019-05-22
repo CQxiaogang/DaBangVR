@@ -22,10 +22,11 @@
 }
 
 - (void)setModel:(CommentsListModel *)model{
-    _model = model;
-    _userName.text = model.nickName;
-    [_userImgView setImageURL:[NSURL URLWithString:model.headUrl]];
+    _model             = model;
+    _userName.text     = model.nickName;
     _userComments.text = model.commentContent;
+    [_userImgView setImageURL:[NSURL URLWithString:model.headUrl]];
+    
 }
 
 @end

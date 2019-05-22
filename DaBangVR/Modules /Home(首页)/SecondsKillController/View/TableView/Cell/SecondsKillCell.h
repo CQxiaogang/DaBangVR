@@ -7,7 +7,7 @@
 //
 
 #import "BaseTableViewCell.h"
-#import "GoodsDetailsView.h"
+#import "GoodsInfoView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

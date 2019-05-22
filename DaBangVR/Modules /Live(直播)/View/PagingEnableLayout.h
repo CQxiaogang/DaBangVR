@@ -10,4 +10,6 @@
 
 @interface PagingEnableLayout : UICollectionViewFlowLayout
 
+@property (nonatomic, assign) CGFloat itemWidth;
+@property (nonatomic, assign) CGFloat itemHeight;
 @end

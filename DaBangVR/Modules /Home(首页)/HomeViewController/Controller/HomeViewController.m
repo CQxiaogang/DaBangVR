@@ -352,12 +352,15 @@ ShufflingViewDelegate
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     if ([tableView isEqual:self.recommendGoodsTable]) {
         GoodsDetailsViewController *vc = [GoodsDetailsViewController new];
         vc.hidesBottomBarWhenPushed    = YES;
         vc.index = _goodsData[indexPath.row].id;
         [self pushViewController:vc];
     }
+    
+    
 }
 
 #pragma mark —— 推荐主播

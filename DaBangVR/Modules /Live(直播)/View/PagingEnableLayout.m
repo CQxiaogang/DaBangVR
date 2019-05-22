@@ -16,8 +16,8 @@
 - (void)prepareLayout{
     [super prepareLayout];
     //屏幕宽去掉中间的cell宽度的大小
-    CGFloat contentInset = ScreenWidth-round(300*ScreenWidth/375);
-    self.itemSize = CGSizeMake(300, 350);
+    CGFloat contentInset = ScreenWidth-round(_itemWidth*KScreenW/KScreenW);
+    self.itemSize = CGSizeMake(_itemWidth, _itemHeight);
     self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
     self.collectionView.contentInset = UIEdgeInsetsMake(0, contentInset*0.5, 0, contentInset*0.5);
     if ([self.collectionView respondsToSelector:NSSelectorFromString(@"_setInterpageSpacing:")]) {

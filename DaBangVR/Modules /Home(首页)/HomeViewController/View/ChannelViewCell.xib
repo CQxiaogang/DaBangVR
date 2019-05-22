@@ -68,9 +68,6 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="TbU-rr-L7d"/>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
-            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="channelBtn" destination="Fuo-co-FTp" id="zB5-Sc-6ob"/>
                 <outlet property="channelTitle" destination="g6L-Vn-HFs" id="TE5-s5-rS8"/>

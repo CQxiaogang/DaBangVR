@@ -104,6 +104,8 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 -(UICollectionView *)collectionView{
     if (!_collectionView) {
         PagingEnableLayout *layout = [[PagingEnableLayout alloc] init];
+        layout.itemWidth           = 300;
+        layout.itemHeight          = 350;
         //水平布局
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         _collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
