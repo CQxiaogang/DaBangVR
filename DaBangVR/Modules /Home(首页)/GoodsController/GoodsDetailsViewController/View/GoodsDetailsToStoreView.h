@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GoodsDetailsModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GoodsDetailsToStoreView : NSObject
+@interface GoodsDetailsToStoreView : UIView
+@property (weak, nonatomic) IBOutlet UIImageView *storeImgView;
+@property (weak, nonatomic) IBOutlet UILabel     *storeNameLabel;
+
+@property (nonatomic, strong) GoodsDetailsModel *model;
 
 @end
 

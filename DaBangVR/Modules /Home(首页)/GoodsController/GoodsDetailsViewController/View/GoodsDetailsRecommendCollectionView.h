@@ -10,9 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol GoodsDetailsRecommendCollectionViewDelegate <NSObject>
+
+-(void)contentCollectionViewDidScroll:(UICollectionView *)contentCollectionView;
+
+@end
+
 @interface GoodsDetailsRecommendCollectionView : UICollectionView<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, copy) NSArray *recomentdDataSource;
+
+@property (nonatomic, weak) id<GoodsDetailsRecommendCollectionViewDelegate> aDelegate;
 
 @end
 

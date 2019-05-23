@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *name;
 //标题
 @property (nonatomic, copy) NSString *title;
-// 描述
+//描述
 @property (nonatomic, copy) NSString *describe;
 //图片
 @property (nonatomic, copy) NSString *listUrl;
@@ -45,6 +45,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *remainingInventory;
 //店铺 ID
 @property (nonatomic, copy) NSString *deptId;
+//店铺名字
+@property (nonatomic, copy) NSString *deptName;
+//店铺Logo
+@property (nonatomic, copy) NSString *deptLogo;
 //秒杀商品结束时间
 @property (nonatomic, copy) NSString *secondsEndTime;
 //团购商品结束时间

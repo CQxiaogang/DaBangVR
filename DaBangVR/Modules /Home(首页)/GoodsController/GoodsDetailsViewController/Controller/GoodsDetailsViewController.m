@@ -13,6 +13,7 @@
 #import "SecondsKillViewController.h"    //秒杀
 #import "SpellGroupViewController.h"     //拼团
 #import "GoodsShowViewController.h"      //海鲜
+#import "StoreViewController.h"
 //Views
 #import "NewCommentCell.h"
 #import "GoodsInfoView.h"
@@ -38,7 +39,7 @@ static NSArray  *const globalArray;
 static NSString *const cellID       = @"CellID";
 static NSString *const cellHeaderID = @"cellHeaderID";
 
-@interface GoodsDetailsViewController ()<UIWebViewDelegate, JXCategoryViewDelegate>{
+@interface GoodsDetailsViewController ()<UIWebViewDelegate, JXCategoryViewDelegate, GoodsDetailsRecommendCollectionViewDelegate>{
     
     NSInteger _tablewVierwFooterHight;
     dispatch_source_t _timer;
@@ -65,7 +66,7 @@ static NSString *const cellHeaderID = @"cellHeaderID";
 @property (nonatomic, strong) NSArray <VerticalListSectionModel *> *dataSource;
 
 @property (nonatomic, strong) GoodsImageShowAndGoodsDetailsView *goodsImgShowGoodsDetailsView;
-@property (nonatomic, strong) GoodsDetailsToStoreView *_Nonnull toStoreView;
+@property (nonatomic, strong) GoodsDetailsToStoreView *toStoreView;
 @property (nonatomic, strong) GoodsDetailsRecommendCollectionView *recommendCollectionView;
 @property (nonatomic, strong) CommentShowView *commentShowView;
 @property (nonatomic, copy) NSArray *recomentdDataSource;
@@ -95,7 +96,7 @@ static NSString *const cellHeaderID = @"cellHeaderID";
 
 -(GoodsImageShowAndGoodsDetailsView *)goodsImgShowGoodsDetailsView{
     if (!_goodsImgShowGoodsDetailsView) {
-        _goodsImgShowGoodsDetailsView = [[GoodsImageShowAndGoodsDetailsView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, 420)];
+        _goodsImgShowGoodsDetailsView = [[GoodsImageShowAndGoodsDetailsView alloc] initWithFrame:CGRectZero];
     }
     return _goodsImgShowGoodsDetailsView;
 }
@@ -116,7 +117,8 @@ static NSString *const cellHeaderID = @"cellHeaderID";
         layout.minimumLineSpacing = kFit(10);
         //设置第一个cell和最后一个cell,与父控件之间的间距
         layout.sectionInset = UIEdgeInsetsMake(0, KMargin, 0, KMargin);
-        _recommendCollectionView = [[GoodsDetailsRecommendCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+        _recommendCollectionView = [[GoodsDetailsRecommendCollectionView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, KScreenH) collectionViewLayout:layout];
+        _recommendCollectionView.aDelegate = self;
     }
     return _recommendCollectionView;
 }
@@ -131,34 +133,41 @@ static NSString *const cellHeaderID = @"cellHeaderID";
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 得到数据
+    
+    self.headerTitles = @[@"", @"评价", @"详情", @"推荐"];
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+    [self.tableView registerClass:[GoodsDetailsHeaderView class] forHeaderFooterViewReuseIdentifier:cellHeaderID];
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+//    self.tableView.estimatedRowHeight = 100;
+    [self.view addSubview:self.tableView];
+    
+    
+    //加载数据
     [self loadingData];
 }
 #pragma mark —— 数据
 - (void)loadingData{
     kWeakSelf(self);
     _model = [GoodsDetailsModel new];
-//    //商品详情
+    //商品详情
     [NetWorkHelper POST:URL_getGoodsDetails parameters:@{@"goodsId":self.index} success:^(id  _Nonnull responseObject) {
-
         NSDictionary *dataDic= KJSONSerialization(responseObject)[@"data"];
+        
         //商品详情
         NSDictionary *goodsDetails = dataDic[@"goodsDetails"];
-        weakself.goodsDetails = goodsDetails;
+//        weakself.goodsDetails = goodsDetails;
         weakself.model = [GoodsDetailsModel modelWithDictionary:goodsDetails];
         weakself.goodsImgShowGoodsDetailsView.goodsModel = weakself.model;
-        //评论
-        NSDictionary *commentVoList = dataDic[@"commentVoList"];
-        self.commentsData = [CommentsListModel mj_objectArrayWithKeyValuesArray:commentVoList];
+        weakself.toStoreView.model                       = weakself.model;
+        weakself.commentShowView.model                   = weakself.model;
+        
         //html加载
         [self.webView loadHTMLString:goodsDetails[@"goodsDesc"] baseURL:nil];
-//        [self setupOtherUI];
-        
+
         [weakself.tableView reloadData];
 
     } failure:^(NSError * _Nonnull error) {}];
-    
-    self.headerTitles = @[@"", @"评价", @"详情", @"推荐"];
     
     [NetWorkHelper POST:URl_getGoodsLists parameters:nil success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
@@ -168,18 +177,50 @@ static NSString *const cellHeaderID = @"cellHeaderID";
     } failure:nil];
 }
 
+#pragma mark —— UI设置
 -(void)setupUI{
     [super setupUI];
     //设置Navagation
     [self setupNavagation];
-    //tableView
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
-    [self.tableView registerClass:[GoodsDetailsHeaderView class] forHeaderFooterViewReuseIdentifier:cellHeaderID];
-    [self.view addSubview:self.tableView];
     //设置CategoryView
     [self setupCategoryView];
+    //设置底部View
+    [self setupBottomView];
+}
+
+-(void)setupNavagation{
+    UIButton *shoppingCarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [shoppingCarBtn.widthAnchor constraintEqualToConstant:25].active = YES;
+    [shoppingCarBtn.heightAnchor constraintEqualToConstant:25].active = YES;
+    [shoppingCarBtn addTarget:self action:@selector(shoppingCarOfAction) forControlEvents:UIControlEventTouchUpInside];
+    [shoppingCarBtn setImage:[UIImage imageNamed:@"h_Cart"] forState:UIControlStateNormal];
+    UIBarButtonItem *shoppingCarItem = [[UIBarButtonItem alloc] initWithCustomView:shoppingCarBtn];
     
+    UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [shareBtn.widthAnchor constraintEqualToConstant:25].active  = YES;
+    [shareBtn.heightAnchor constraintEqualToConstant:25].active = YES;
+    [shareBtn setImage:[UIImage imageNamed:@"c_share"] forState:UIControlStateNormal];
+    UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithCustomView:shareBtn];
     
+    self.navigationItem.rightBarButtonItems = @[shareItem,shoppingCarItem];
+}
+
+-(void)setupCategoryView{
+    _pinCategoryView                 = [[JXCategoryTitleView alloc] init];
+    self.pinCategoryView.frame       = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width/2, VerticalListCategoryViewHeight);
+    self.pinCategoryView.titles      = @[@"商品", @"评价", @"详情", @"推荐"];
+    self.pinCategoryView.cellWidth   = [UIScreen mainScreen].bounds.size.width/2/4;
+    self.pinCategoryView.cellSpacing = 0;
+    self.navigationItem.titleView    = self.pinCategoryView;
+    
+    JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
+    lineView.verticalMargin               = 0;
+    lineView.indicatorLineWidth           = [UIScreen mainScreen].bounds.size.width/2/4-10;
+    self.pinCategoryView.indicators       = @[lineView];
+    self.pinCategoryView.delegate         = self;
+}
+
+-(void)setupBottomView{
     //底部view
     UIView *bottomView = [[UIView alloc] init];
     [self.view addSubview:bottomView];
@@ -188,16 +229,15 @@ static NSString *const cellHeaderID = @"cellHeaderID";
         make.bottom.equalTo(0);
         make.size.equalTo(CGSizeMake(KScreenW, kTabBarHeight));
     }];
-
+    
     NSMutableArray *names  = [NSMutableArray arrayWithObjects:kShoppingCar, kNowBuy, nil];
     NSMutableArray *colors = [NSMutableArray arrayWithObjects:KOrangeColor, KRedColor, nil];
     if ([_interfaceState isKindOfClass:[SecondsKillViewController class]]) {
-        // 替换字符串
-        [names replaceObjectAtIndex:1 withObject:kNowSecondsBuy];
+        [names replaceObjectAtIndex:1 withObject:kNowSecondsBuy];//字符串替换
     }else if ([_interfaceState isKindOfClass:[SpellGroupViewController class]]){
         [names replaceObjectAtIndex:0 withObject:kSpellGroup];
     }
-
+    
     NSMutableArray *buyOrCarBtnArr = [NSMutableArray new];
     UIButton *buyOrCarBtn;
     for (int i = 0; i<2; i++) {
@@ -215,8 +255,8 @@ static NSString *const cellHeaderID = @"cellHeaderID";
         make.bottom.equalTo(@(0));
         make.height.equalTo(kTabBarHeight);
     }];
-
-    NSArray *imgArr =@[@"c-collection",@"c-service"];
+    
+    NSArray *imgArr  = @[@"c-collection",@"c-service"];
     NSArray *nameArr = @[@"收藏",@"客服"];
     NSMutableArray *otherBtnArr = [NSMutableArray new];
     UIButton *otherBtn;
@@ -244,21 +284,6 @@ static NSString *const cellHeaderID = @"cellHeaderID";
     }
 }
 
--(void)setupCategoryView{
-    _pinCategoryView                 = [[JXCategoryTitleView alloc] init];
-    self.pinCategoryView.frame       = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width/2, VerticalListCategoryViewHeight);
-    self.pinCategoryView.titles      = @[@"商品", @"评价", @"详情", @"推荐"];
-    self.pinCategoryView.cellWidth   = [UIScreen mainScreen].bounds.size.width/2/4;
-    self.pinCategoryView.cellSpacing = 0;
-    self.navigationItem.titleView    = self.pinCategoryView;
-    
-    JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-    lineView.verticalMargin               = 0;
-    lineView.indicatorLineWidth           = [UIScreen mainScreen].bounds.size.width/2/4-10;
-    self.pinCategoryView.indicators       = @[lineView];
-    self.pinCategoryView.delegate         = self;
-}
-
 -(void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
     
@@ -270,7 +295,7 @@ static NSString *const cellHeaderID = @"cellHeaderID";
 }
 
 #pragma mark —— 设置其他 UI
-- (void)setupOtherUI{
+-(void)setupOtherUI{
     // 设置headerView
     // 进入团购和秒杀界面的时候,做倒计时操作
     if ([_interfaceState isKindOfClass:[SecondsKillViewController class]] || [_interfaceState isKindOfClass:[SpellGroupViewController class]]) {
@@ -346,7 +371,7 @@ static NSString *const cellHeaderID = @"cellHeaderID";
     }
 }
 // 时间戳转换为日期格式(毫秒的时间戳)
-- (NSString *)timeWithTimeIntervalString:(NSString *)timeString{
+-(NSString *)timeWithTimeIntervalString:(NSString *)timeString{
     // 格式化时间
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     formatter.timeZone = [NSTimeZone timeZoneWithName:@"shanghai"];
@@ -361,33 +386,8 @@ static NSString *const cellHeaderID = @"cellHeaderID";
     return dateString;
 }
 
-#pragma mark —— UI设置
-- (void)setupNavagation{
-    UIButton *shoppingCarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [shoppingCarBtn.widthAnchor constraintEqualToConstant:25].active = YES;
-    [shoppingCarBtn.heightAnchor constraintEqualToConstant:25].active = YES;
-    [shoppingCarBtn addTarget:self action:@selector(shoppingCarOfAction) forControlEvents:UIControlEventTouchUpInside];
-    [shoppingCarBtn setImage:[UIImage imageNamed:@"h_Cart"] forState:UIControlStateNormal];
-    UIBarButtonItem *shoppingCarItem = [[UIBarButtonItem alloc] initWithCustomView:shoppingCarBtn];
-    
-    UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [shareBtn.widthAnchor constraintEqualToConstant:25].active  = YES;
-    [shareBtn.heightAnchor constraintEqualToConstant:25].active = YES;
-    [shareBtn setImage:[UIImage imageNamed:@"c_share"] forState:UIControlStateNormal];
-    UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithCustomView:shareBtn];
-    
-    self.navigationItem.rightBarButtonItems = @[shareItem,shoppingCarItem];
-}
-
 #pragma mark —— GoodsDetailsView（商品细节代理）
-- (void)allCommentsAction{
-    AllCommentsViewController *vc = [AllCommentsViewController new];
-    [vc getData:self.model.id];
-    [self.navigationController pushViewController:vc animated:NO];
-}
-
 - (void)chooseAttributesOfClickAction:(UIButton *)sender{
-    
     [self creatAttributesView:nil];
 }
 
@@ -546,59 +546,91 @@ static NSString *const cellHeaderID = @"cellHeaderID";
     switch (indexPath.section) {
         case 0:
             //图片介绍
+        {
             [cell.contentView addSubview:self.goodsImgShowGoodsDetailsView];
+            [self.goodsImgShowGoodsDetailsView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.top.bottom.right.equalTo(0);
+            }];
+        }
             break;
         case 1:
             switch (indexPath.row) {
                 case 0:
+                {
                     [cell.contentView addSubview:self.commentShowView];
+                    [self.commentShowView mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.edges.equalTo(cell);
+                    }];
+                }
                     break;
                 case 1:
+                {
                     [cell.contentView addSubview:self.toStoreView];
+                    [self.toStoreView mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.edges.equalTo(cell);
+                    }];
+                }
                     break;
                 default:
                     break;
             }
             break;
         case 2:
+        {
             [cell.contentView addSubview:self.webView];
+            [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(cell);
+            }];
+        }
             break;
         case 3:
+        {
             [cell.contentView addSubview:self.recommendCollectionView];
+            [self.recommendCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(cell);
+            }];
+        }
             break;
         default:
             break;
     }
     return cell;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.section) {
-        case 0:
-            return kFit(420);
-            break;
-        case 1:
-            switch (indexPath.row) {
-                case 0:
-                    return kFit(45);
-                    break;
-                case 1:
-                    return kFit(90);
-                    break;
-                default:
-                    break;
-            }
-            break;
-        case 2:
-            return self.webView.mj_h;
-            break;
-        case 3:
-            return _recomentdDataSource.count/2 * 130;
-            break;
-        default:
-            break;
-    }
-    return kFit(44);
+
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
 }
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    switch (indexPath.section) {
+//        case 0:
+//            return kFit(420);
+//            break;
+//        case 1:
+//            switch (indexPath.row) {
+//                case 0:
+//                    return kFit(50);
+//                    break;
+//                case 1:
+//                    return kFit(90);
+//                    break;
+//                default:
+//                    break;
+//            }
+//            break;
+//        case 2:
+//            return self.webView.mj_h;
+//            break;
+//        case 3:
+//            [self.recommendCollectionView setHeight:_recomentdDataSource.count/2 * 130 + _recomentdDataSource.count/2 * 10];
+//            return _recomentdDataSource.count/2 * 130 + _recomentdDataSource.count/2 * 10;
+//            break;
+//        default:
+//            break;
+//    }
+//    return kFit(44);
+//}
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     GoodsDetailsHeaderView *headerView = [[GoodsDetailsHeaderView alloc] initWithFrame:CGRectMake(0, 0, tableView.mj_w, 30)];
@@ -610,7 +642,7 @@ static NSString *const cellHeaderID = @"cellHeaderID";
     if (section == 0) {
         return .1f;
     }
-    return 30;
+    return kFit(25);
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
@@ -620,9 +652,29 @@ static NSString *const cellHeaderID = @"cellHeaderID";
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return .1f;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            //评价
+            AllCommentsViewController *vc = [AllCommentsViewController new];
+            [vc getData:self.model.id];
+            [self pushViewController:vc];
+            
+        }else if (indexPath.row == 1){
+            //门店
+            [self pushViewController:[StoreViewController new]];
+        }
+    }
+}
+
 #pragma mark —— UIScrollView 代理
 //检测tableView滚动
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (!(scrollView.isTracking || scrollView.isDecelerating)) {
+        //不是用户滚动的，比如setContentOffset等方法，引起的滚动不需要处理。
+        return;
+    }
     //获取tableView当前展示的第一个cell属于哪个section
     NSArray <GoodsDetailsTableViewCell *> *cellArray = [self.tableView visibleCells];
     NSInteger nowSection = 0;
@@ -650,13 +702,21 @@ static NSString *const cellHeaderID = @"cellHeaderID";
 #pragma mark —— UIWebView 代理
 // 页面加载完成之后调用
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    for (int i = 0; i<15; i++) {
-        NSString *str = [NSString stringWithFormat:@"document.getElementsByTagName('img')[%d].style.width = '100%%'",i];
-        [self.webView stringByEvaluatingJavaScriptFromString:str];
-    }
+//    for (int i = 0; i<10; i++) {
+//        NSString *str = [NSString stringWithFormat:@"document.getElementsByTagName('img')[%d].style.width = '100%%'",i];
+//        [self.webView stringByEvaluatingJavaScriptFromString:str];
+//    }
     CGFloat webHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
     [self.webView setSize:CGSizeMake(KScreenW, webHeight)];
     [self.tableView reloadData];
+}
+
+-(void)pushViewController:(UIViewController *)vc{
+    [self.navigationController pushViewController:vc animated:NO];
+}
+
+-(void)contentCollectionViewDidScroll:(UICollectionView *)contentCollectionView{
+    
 }
 
 @end

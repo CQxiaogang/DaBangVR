@@ -10,4 +10,10 @@
 
 @implementation GoodsDetailsToStoreView
 
+- (void)setModel:(GoodsDetailsModel *)model{
+    _model               = model;
+    _storeNameLabel.text = model.deptName;
+    [_storeImgView setImageURL:[NSURL URLWithString:model.deptLogo]];
+}
+
 @end

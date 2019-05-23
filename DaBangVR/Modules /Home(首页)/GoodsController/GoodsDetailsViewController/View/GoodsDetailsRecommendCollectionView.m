@@ -20,6 +20,8 @@ static NSString *const cellID = @"cellID";
         self.delegate   = self;
         self.backgroundColor = KWhiteColor;
         [self registerNib:[UINib nibWithNibName:@"GoodsRecommendCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:cellID];
+        self.scrollEnabled = NO;
+        
     }
     return self;
 }

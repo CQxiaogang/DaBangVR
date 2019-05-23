@@ -32,10 +32,10 @@ static NSString *const cellID = @"cellID";
         PagingEnableLayout *layout;
         layout                     = [[PagingEnableLayout alloc] init];
         layout.itemWidth           = 300;
-        layout.itemHeight          = 350;
+        layout.itemHeight          = 300;
         layout.scrollDirection     = UICollectionViewScrollDirectionHorizontal;
         
-        _collectionView                 = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, 300) collectionViewLayout:layout];
+        _collectionView                 = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.delegate        = self;
         _collectionView.dataSource      = self;
         _collectionView.pagingEnabled   = YES;
@@ -67,10 +67,14 @@ static NSString *const cellID = @"cellID";
 -(void)layoutSubviews{
     [super layoutSubviews];
     kWeakSelf(self);
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(0);
+        make.size.equalTo(CGSizeMake(KScreenW, 300));
+    }];
     [self.goodsInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(0);
         make.top.equalTo(weakself.collectionView.mas_bottom).offset(0);
-        make.height.equalTo(120);
+        make.size.equalTo(CGSizeMake(KScreenW, 120));
     }];
 }
 

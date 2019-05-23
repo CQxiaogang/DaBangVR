@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="gS1-ZU-jWv">
+        <view contentMode="scaleToFill" id="gS1-ZU-jWv" customClass="GoodsDetailsToStoreView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -130,6 +130,10 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="rjf-4k-bDz"/>
+            <connections>
+                <outlet property="storeImgView" destination="5jo-pJ-0wj" id="Czn-qi-rhF"/>
+                <outlet property="storeNameLabel" destination="pxo-S3-S13" id="FqE-if-MET"/>
+            </connections>
             <point key="canvasLocation" x="297.82608695652175" y="39.508928571428569"/>
         </view>
     </objects>

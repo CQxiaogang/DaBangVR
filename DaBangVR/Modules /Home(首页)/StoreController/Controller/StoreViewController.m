@@ -11,6 +11,7 @@
 #import "CategoryChooseView.h"
 #import "StoreGoodsTableView.h"
 #import "DeptModel.h"
+#import "StoreViewController.h"
 
 @interface StoreViewController ()<UIScrollViewDelegate>
 

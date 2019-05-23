@@ -12,12 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="EfU-1J-1lb">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+        <view contentMode="scaleToFill" id="EfU-1J-1lb" customClass="CommentShowView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIW-R8-EXE">
-                    <rect key="frame" x="10" y="10" width="25" height="15"/>
+                    <rect key="frame" x="10" y="15" width="25" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -28,7 +28,7 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSi-Nh-Wnq">
-                    <rect key="frame" x="45" y="10" width="1" height="15"/>
+                    <rect key="frame" x="45" y="15" width="1" height="15"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="VjZ-lG-QzB">
@@ -44,7 +44,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="销量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkx-tQ-INr">
-                    <rect key="frame" x="56" y="10" width="25" height="15"/>
+                    <rect key="frame" x="56" y="15" width="25" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -55,19 +55,27 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMQ-MS-R6v">
-                    <rect key="frame" x="0.0" y="40" width="375" height="5"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <rect key="frame" x="0.0" y="45" width="375" height="5"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="5" id="8A3-R2-e5F"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jy-AC-qTD">
+                    <rect key="frame" x="354" y="14.5" width="11" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="tkx-tQ-INr" firstAttribute="centerY" secondItem="AIW-R8-EXE" secondAttribute="centerY" id="7UO-5s-mA1"/>
-                <constraint firstItem="AIW-R8-EXE" firstAttribute="top" secondItem="EfU-1J-1lb" secondAttribute="top" constant="10" id="Hqx-2u-gdt"/>
+                <constraint firstItem="AIW-R8-EXE" firstAttribute="top" secondItem="EfU-1J-1lb" secondAttribute="top" constant="15" id="Hqx-2u-gdt"/>
                 <constraint firstItem="cSi-Nh-Wnq" firstAttribute="centerY" secondItem="AIW-R8-EXE" secondAttribute="centerY" id="Qh5-sg-Kg8"/>
+                <constraint firstItem="4jy-AC-qTD" firstAttribute="centerY" secondItem="EfU-1J-1lb" secondAttribute="centerY" id="TcT-1u-9d2"/>
                 <constraint firstItem="AIW-R8-EXE" firstAttribute="leading" secondItem="4ZL-8e-RNe" secondAttribute="leading" constant="10" id="WeK-gm-XIj"/>
+                <constraint firstItem="4ZL-8e-RNe" firstAttribute="trailing" secondItem="4jy-AC-qTD" secondAttribute="trailing" constant="10" id="aGB-5v-DHf"/>
                 <constraint firstItem="tkx-tQ-INr" firstAttribute="leading" secondItem="cSi-Nh-Wnq" secondAttribute="trailing" constant="10" id="mj1-XR-YLx"/>
                 <constraint firstItem="cSi-Nh-Wnq" firstAttribute="leading" secondItem="AIW-R8-EXE" secondAttribute="trailing" constant="10" id="nrh-qu-Ld3"/>
                 <constraint firstAttribute="bottom" secondItem="EMQ-MS-R6v" secondAttribute="bottom" id="pDy-TY-gOd"/>
@@ -76,7 +84,11 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="4ZL-8e-RNe"/>
-            <point key="canvasLocation" x="968.84057971014499" y="62.946428571428569"/>
+            <connections>
+                <outlet property="commentNumLabel" destination="AIW-R8-EXE" id="MdP-se-ZYV"/>
+                <outlet property="sellNumLabel" destination="tkx-tQ-INr" id="Udx-ow-fHX"/>
+            </connections>
+            <point key="canvasLocation" x="968.84057971014499" y="62.276785714285708"/>
         </view>
     </objects>
 </document>
