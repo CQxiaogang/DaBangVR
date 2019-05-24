@@ -108,10 +108,6 @@
 }
 
 #pragma mark —— UIScrollView 代理
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    DLog(@"将要开始拖拽");
-}
-
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     DLog(@"滚动着");
 }

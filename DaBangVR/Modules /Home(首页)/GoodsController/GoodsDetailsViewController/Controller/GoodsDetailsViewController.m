@@ -27,8 +27,6 @@
 //Models
 #import "GoodsDetailsModel.h"
 #import "CommentsListModel.h"
-#import "VerticalListCellModel.h"
-#import "VerticalListSectionModel.h"
 #import "GoodsShowListModel.h"
 //Vendors
 #import "JXCategoryView.h"
@@ -63,7 +61,6 @@ static NSString *const cellHeaderID = @"cellHeaderID";
 
 @property (nonatomic, strong) JXCategoryTitleView  *pinCategoryView;
 @property (nonatomic, strong) NSArray <NSString *> *headerTitles;
-@property (nonatomic, strong) NSArray <VerticalListSectionModel *> *dataSource;
 
 @property (nonatomic, strong) GoodsImageShowAndGoodsDetailsView *goodsImgShowGoodsDetailsView;
 @property (nonatomic, strong) GoodsDetailsToStoreView *toStoreView;
@@ -138,8 +135,6 @@ static NSString *const cellHeaderID = @"cellHeaderID";
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
     [self.tableView registerClass:[GoodsDetailsHeaderView class] forHeaderFooterViewReuseIdentifier:cellHeaderID];
-//    self.tableView.rowHeight = UITableViewAutomaticDimension;
-//    self.tableView.estimatedRowHeight = 100;
     [self.view addSubview:self.tableView];
     
     
@@ -597,40 +592,35 @@ static NSString *const cellHeaderID = @"cellHeaderID";
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 100;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.section) {
+        case 0:
+            return kFit(420);
+            break;
+        case 1:
+            switch (indexPath.row) {
+                case 0:
+                    return kFit(50);
+                    break;
+                case 1:
+                    return kFit(90);
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 2:
+            return self.webView.mj_h;
+            break;
+        case 3:
+            [self.recommendCollectionView setHeight:_recomentdDataSource.count/2 * 130 + _recomentdDataSource.count/2 * 10];
+            return _recomentdDataSource.count/2 * 130 + _recomentdDataSource.count/2 * 10;
+            break;
+        default:
+            break;
+    }
+    return kFit(44);
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    switch (indexPath.section) {
-//        case 0:
-//            return kFit(420);
-//            break;
-//        case 1:
-//            switch (indexPath.row) {
-//                case 0:
-//                    return kFit(50);
-//                    break;
-//                case 1:
-//                    return kFit(90);
-//                    break;
-//                default:
-//                    break;
-//            }
-//            break;
-//        case 2:
-//            return self.webView.mj_h;
-//            break;
-//        case 3:
-//            [self.recommendCollectionView setHeight:_recomentdDataSource.count/2 * 130 + _recomentdDataSource.count/2 * 10];
-//            return _recomentdDataSource.count/2 * 130 + _recomentdDataSource.count/2 * 10;
-//            break;
-//        default:
-//            break;
-//    }
-//    return kFit(44);
-//}
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     GoodsDetailsHeaderView *headerView = [[GoodsDetailsHeaderView alloc] initWithFrame:CGRectMake(0, 0, tableView.mj_w, 30)];

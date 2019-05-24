@@ -8,8 +8,10 @@
 
 #import "StoreGoodsTableView.h"
 #import "StoreGoodsTableViewCell.h"
+#import "StoreGoodsTableViewHeaderView.h"
 
-static NSString *cellID = @"cellID";
+static NSString *const cellID   = @"cellID";
+static NSString *const headerID = @"headerID";
 
 @interface StoreGoodsTableView ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -23,6 +25,7 @@ static NSString *cellID = @"cellID";
         self.delegate      = self;
         self.dataSource    = self;
         [self registerNib:[UINib nibWithNibName:@"StoreGoodsTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
+        [self registerNib:[UINib nibWithNibName:@"StoreGoodsTableViewHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:headerID];
     }
     return self;
 }
@@ -41,6 +44,16 @@ static NSString *cellID = @"cellID";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return kFit(103);
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    StoreGoodsTableViewHeaderView *headerView = [[StoreGoodsTableViewHeaderView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, 35)];
+    headerView.backgroundColor = KRandomColor;
+    return headerView;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return kFit(35);
 }
 
 - (void)setData:(NSArray *)data{
