@@ -7,10 +7,17 @@
 //
 
 #import "BaseTableViewCell.h"
+#import "DeptModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface StoreGoodsTableViewCell : BaseTableViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *goodsImgView;
+@property (weak, nonatomic) IBOutlet UILabel *storeName;
+
+
+@property (nonatomic, strong) DeptModel *model;
 
 @end
 

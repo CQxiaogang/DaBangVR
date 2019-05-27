@@ -195,6 +195,9 @@
 		048F79CA2272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F79C82272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.m */; };
 		048F79CB2272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048F79C92272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.xib */; };
 		0493B954223A607300418E17 /* OrderSureFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0493B953223A607300418E17 /* OrderSureFooterView.xib */; };
+		0495E7CA229B7B48005892B5 /* StoreBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495E7C9229B7B48005892B5 /* StoreBaseTableView.m */; };
+		0495E7CD229B83B6005892B5 /* StoreBaseTopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495E7CC229B83B6005892B5 /* StoreBaseTopTableViewCell.m */; };
+		0495E7D0229B94C7005892B5 /* StoreDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495E7CF229B94C7005892B5 /* StoreDetailsViewController.m */; };
 		049703E621A69860002359B5 /* ShoppingLiveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049703E421A69860002359B5 /* ShoppingLiveTableViewCell.m */; };
 		049703E721A69860002359B5 /* ShoppingLiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049703E521A69860002359B5 /* ShoppingLiveTableViewCell.xib */; };
 		0497FB1C221B941D0095C6F5 /* MineCollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497FB1B221B941D0095C6F5 /* MineCollectionModel.m */; };
@@ -716,6 +719,12 @@
 		048F79C82272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DidBeginLiveGoodsTableViewCell.m; sourceTree = "<group>"; };
 		048F79C92272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DidBeginLiveGoodsTableViewCell.xib; sourceTree = "<group>"; };
 		0493B953223A607300418E17 /* OrderSureFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSureFooterView.xib; sourceTree = "<group>"; };
+		0495E7C8229B7B48005892B5 /* StoreBaseTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreBaseTableView.h; sourceTree = "<group>"; };
+		0495E7C9229B7B48005892B5 /* StoreBaseTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreBaseTableView.m; sourceTree = "<group>"; };
+		0495E7CB229B83B6005892B5 /* StoreBaseTopTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreBaseTopTableViewCell.h; sourceTree = "<group>"; };
+		0495E7CC229B83B6005892B5 /* StoreBaseTopTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreBaseTopTableViewCell.m; sourceTree = "<group>"; };
+		0495E7CE229B94C7005892B5 /* StoreDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreDetailsViewController.h; sourceTree = "<group>"; };
+		0495E7CF229B94C7005892B5 /* StoreDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreDetailsViewController.m; sourceTree = "<group>"; };
 		049703E321A69860002359B5 /* ShoppingLiveTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoppingLiveTableViewCell.h; sourceTree = "<group>"; };
 		049703E421A69860002359B5 /* ShoppingLiveTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoppingLiveTableViewCell.m; sourceTree = "<group>"; };
 		049703E521A69860002359B5 /* ShoppingLiveTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingLiveTableViewCell.xib; sourceTree = "<group>"; };
@@ -2258,6 +2267,8 @@
 				047AF176228C2D2600BA7E94 /* StoreGoodsTableViewCell.h */,
 				047AF177228C2D2600BA7E94 /* StoreGoodsTableViewCell.m */,
 				047AF178228C2D2600BA7E94 /* StoreGoodsTableViewCell.xib */,
+				0495E7CB229B83B6005892B5 /* StoreBaseTopTableViewCell.h */,
+				0495E7CC229B83B6005892B5 /* StoreBaseTopTableViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2547,6 +2558,8 @@
 				040431B822979BEF00CA0445 /* StoreGoodsTableViewHeaderView.h */,
 				040431B922979BEF00CA0445 /* StoreGoodsTableViewHeaderView.m */,
 				040431BB22979C3000CA0445 /* StoreGoodsTableViewHeaderView.xib */,
+				0495E7C8229B7B48005892B5 /* StoreBaseTableView.h */,
+				0495E7C9229B7B48005892B5 /* StoreBaseTableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2556,6 +2569,8 @@
 			children = (
 				046F569322842D3F006367BF /* StoreViewController.h */,
 				046F569422842D3F006367BF /* StoreViewController.m */,
+				0495E7CE229B94C7005892B5 /* StoreDetailsViewController.h */,
+				0495E7CF229B94C7005892B5 /* StoreDetailsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3559,6 +3574,7 @@
 				04BF21892212B719002468C0 /* DetailViewController.m in Sources */,
 				041DC2B9224E1B8500BD1196 /* PLPlayTopView.m in Sources */,
 				04F3CF0621CB2FF1007C40A1 /* UserInfo.m in Sources */,
+				0495E7D0229B94C7005892B5 /* StoreDetailsViewController.m in Sources */,
 				04F8ED4B21E3453800004178 /* ModifyAddressViewController.m in Sources */,
 				04716ACD22254F2F00FE2B42 /* SortSearchViewController.m in Sources */,
 				04EFA02621E7226D007C2FCA /* OrderProcessingViewController2.m in Sources */,
@@ -3596,6 +3612,7 @@
 				04F2FD1321EEEAE0000B58E2 /* GoodsInfoView.m in Sources */,
 				04F2FD1F21EF23D5000B58E2 /* SpellGroupViewController.m in Sources */,
 				0404776D2252FBA400EA6FFF /* SeasonAuthenticationViewController.m in Sources */,
+				0495E7CD229B83B6005892B5 /* StoreBaseTopTableViewCell.m in Sources */,
 				0476038B222D13AE00FDE903 /* NewGoodsModel.m in Sources */,
 				040DCD732282B7AA0044A802 /* HSFTimeDownView.m in Sources */,
 				044E6781223221E60077365D /* UIColor+DD.m in Sources */,
@@ -3700,6 +3717,7 @@
 				046DB30E224B279700C2CACB /* TPCItem.m in Sources */,
 				048F79C12272EFAF00407050 /* DidBeginLiveTaskView.m in Sources */,
 				04FC2C3B21C0E3AD00329B53 /* JFAreaDataManager.m in Sources */,
+				0495E7CA229B7B48005892B5 /* StoreBaseTableView.m in Sources */,
 				040410B92293A52700DE6A22 /* ShortVideoViewController.m in Sources */,
 				04F62FEE21F9B69A0094B26F /* ModifyAddressAreaModel.m in Sources */,
 				042FCED021A406FB002AD0DB /* DBHotVideoView.m in Sources */,

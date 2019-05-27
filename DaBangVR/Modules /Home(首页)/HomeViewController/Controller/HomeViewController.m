@@ -403,7 +403,8 @@ ShufflingViewDelegate
             [self pushViewController:[SpellGroupViewController new]];
             break;
         case 3: //限时秒杀
-            [self pushViewController:[SecondsKillViewController new]];
+//            [self pushViewController:[SecondsKillViewController new]];
+            [self pushViewController:[StoreViewController new]];
             break;
         case 4: //直播
             break;

@@ -12,75 +12,49 @@
 #import "StoreGoodsTableView.h"
 #import "DeptModel.h"
 #import "StoreViewController.h"
+#import "StoreBaseTableView.h"
+#import "StoreGoodsTableViewHeaderView.h"
+#import "StoreGoodsTableViewCell.h"
+#import "StoreBaseTopTableViewCell.h"
+#import "StoreDetailsViewController.h"
 
-@interface StoreViewController ()<UIScrollViewDelegate>
+@interface StoreViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) ShufflingView *shufflingView;
-@property (nonatomic, strong) CategoryChooseView *categoryChooseView;
-@property (nonatomic, strong) UILabel *recommendLabel;
-@property (nonatomic, strong) StoreGoodsTableView *goodsTableView;
 @property (nonatomic, strong) NSArray <DeptModel*>*data;
+@property (nonatomic, strong) StoreBaseTableView *baseTableView;
+@property (nonatomic, strong) StoreGoodsTableViewHeaderView *titleView;
 @end
 
 @implementation StoreViewController
 #pragma mark —— 懒加载
--(UIScrollView *)scrollView{
-    if (!_scrollView) {
-        _scrollView                 = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-        _scrollView.delegate        = self;
-        _scrollView.contentSize     = CGSizeMake(KScreenW, KScreenH*2);
-        [_scrollView addSubview:self.shufflingView];
-        [_scrollView addSubview:self.categoryChooseView];
-        [_scrollView addSubview:self.recommendLabel];
-        [_scrollView addSubview:self.goodsTableView];
-        
-    }
-    return _scrollView;
-}
 
--(ShufflingView *)shufflingView{
-    if (!_shufflingView) {
-        _shufflingView = [[ShufflingView alloc] initWithFrame:CGRectMake(0, 0, KScreenW, 180) andIndex:@"1"];
+-(StoreBaseTableView *)baseTableView{
+    if (!_baseTableView) {
+        _baseTableView            = [[StoreBaseTableView alloc] init];
+        _baseTableView.delegate   = self;
+        _baseTableView.dataSource = self;
+        _baseTableView.showsVerticalScrollIndicator = NO;
+        [_baseTableView registerNib:[UINib nibWithNibName:@"StoreGoodsTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellID"];
+        [self.view addSubview:_baseTableView];
     }
-    return _shufflingView;
-}
-
--(CategoryChooseView *)categoryChooseView{
-    if (!_categoryChooseView) {
-        _categoryChooseView = [[CategoryChooseView alloc] init];
-        _categoryChooseView.frame = CGRectMake(0, CGRectGetMaxY(self.shufflingView.frame), KScreenW, 100);
-    }
-    return _categoryChooseView;
-}
-
--(UILabel *)recommendLabel{
-    if (!_recommendLabel) {
-        _recommendLabel                  = [UILabel new];
-        _recommendLabel.frame            = CGRectMake(0, CGRectGetMaxY(self.categoryChooseView.frame), KScreenW, 20);
-        _recommendLabel.text             = @"——— 推荐商家 ———";
-        _recommendLabel.textColor        = KGrayColor;
-        _recommendLabel.textAlignment    = NSTextAlignmentCenter;
-        _recommendLabel.adaptiveFontSize = 12;
-    }
-    return _recommendLabel;
-}
-
--(StoreGoodsTableView *)goodsTableView{
-    if (!_goodsTableView) {
-        _goodsTableView       = [[StoreGoodsTableView alloc] init];
-        _goodsTableView.frame = CGRectMake(0, CGRectGetMaxY(self.recommendLabel.frame), KScreenW, KScreenH - CGRectGetMaxY(self.recommendLabel.frame));
-    }
-    return _goodsTableView;
+    return _baseTableView;
 }
 
 #pragma mark —— 系统方法
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.scrollView];
+    self.baseTableView.backgroundColor = KWhiteColor;
 
     //加载数据
     [self loadingData];
+}
+
+-(void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(kTopHeight);
+        make.left.right.bottom.equalTo(0);
+    }];
 }
 
 -(void)loadingData{
@@ -93,23 +67,70 @@
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
         NSDictionary *deptCategory = data[@"DeptCategoryVos"];
         weakself.data = [DeptModel mj_objectArrayWithKeyValuesArray:deptCategory];
-        weakself.goodsTableView.data = weakself.data;
+        [self.baseTableView reloadData];
     } failure:nil];
 }
 
--(void)viewWillLayoutSubviews{
-    [super viewWillLayoutSubviews];
-    kWeakSelf(self);
-    
-    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(kTopHeight);
-        make.left.right.bottom.equalTo(0);
-    }];
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
 }
 
-#pragma mark —— UIScrollView 代理
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    DLog(@"滚动着");
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 1;
+    }
+    return _data.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        
+        return 300;
+    }
+    return 103;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 0;
+    }
+    return 35;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    self.titleView = [[[NSBundle mainBundle] loadNibNamed:@"StoreGoodsTableViewHeaderView" owner:nil options:nil] firstObject];
+    return self.titleView;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *FSBaseTopTableViewCellIdentifier = @"FSBaseTopTableViewCellIdentifier";
+    if (indexPath.section == 1) {
+        StoreGoodsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+        if (!cell) {
+            cell = [[StoreGoodsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID"];
+        }
+        cell.model = _data[indexPath.row];
+        return cell;
+    }
+    if (indexPath.row == 0) {
+        StoreBaseTopTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FSBaseTopTableViewCellIdentifier];
+        if (!cell) {
+            cell = [[StoreBaseTopTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FSBaseTopTableViewCellIdentifier];
+        }
+        return cell;
+    }
+    return nil;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    StoreDetailsViewController *vc = [[StoreDetailsViewController alloc] init];
+    vc.title = _data[indexPath.row].name;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

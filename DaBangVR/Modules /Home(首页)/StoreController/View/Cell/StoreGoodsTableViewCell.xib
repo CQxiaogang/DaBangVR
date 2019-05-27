@@ -145,16 +145,13 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-----------------------------" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGP-HW-1Hr">
-                        <rect key="frame" x="138" y="79" width="222" height="13"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="goodsImgView" destination="LWG-hh-SE5" id="8y4-Bd-ZeJ"/>
+                <outlet property="storeName" destination="gRE-Zr-yzc" id="dh0-ev-fdX"/>
+            </connections>
             <point key="canvasLocation" x="132.60869565217394" y="134.26339285714286"/>
         </tableViewCell>
     </objects>

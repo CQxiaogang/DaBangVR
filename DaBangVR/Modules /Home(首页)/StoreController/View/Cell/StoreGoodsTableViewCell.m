@@ -12,11 +12,12 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-//    self.backgroundColor = KRandomColor;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)setModel:(DeptModel *)model{
+    _model = model;
+    _storeName.text = model.name;
+    [_goodsImgView setImageURL:[NSURL URLWithString:model.categoryImg]];
 }
 
 @end

@@ -135,4 +135,4 @@
 
 #pragma mark —————— 外   卖 ——————
 //附近门店列表
-#define URl_getNearbyDeptList NSStringFormat(@"%@%@",URL_main,@"/api/dept/getNearbyDeptList?")
+#define URl_getNearbyDeptList NSStringFormat(@"%@%@",URL_main,@"/api/delivery/getNearbyDeptList?")
