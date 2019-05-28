@@ -19,7 +19,6 @@
 }
 
 #pragma mark - JXPagingViewListViewDelegate
-
 - (UIView *)listView {
     return self;
 }

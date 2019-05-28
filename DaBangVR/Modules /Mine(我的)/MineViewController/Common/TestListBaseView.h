@@ -17,7 +17,7 @@
 
 @interface TestListBaseView : UIView <JXPagerViewListViewDelegate>
 
-@property (nonatomic, weak) UINavigationController *naviController;
+@property (nonatomic, weak  ) UINavigationController *naviController;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray <NSString *> *dataSource;
 @property (nonatomic, strong) NSArray <NSString *> *imgData;

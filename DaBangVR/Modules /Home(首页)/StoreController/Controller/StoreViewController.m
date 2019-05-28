@@ -60,13 +60,13 @@
 -(void)loadingData{
     kWeakSelf(self);
     NSDictionary *parameters = @{
-                                 @"longitude":@"22",//经度
-                                 @"latitude" :@"108" //纬度
+                                 @"latitude":@"22.8149717049",//经度
+                                 @"longitude" :@"108.3713643982" //纬度
                                  };
     [NetWorkHelper POST:URl_getNearbyDeptList parameters:parameters success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
-        NSDictionary *deptCategory = data[@"DeptCategoryVos"];
-        weakself.data = [DeptModel mj_objectArrayWithKeyValuesArray:deptCategory];
+        NSDictionary *deptList = data[@"deptList"];
+        weakself.data = [DeptModel mj_objectArrayWithKeyValuesArray:deptList];
         [self.baseTableView reloadData];
     } failure:nil];
 }
@@ -129,7 +129,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     StoreDetailsViewController *vc = [[StoreDetailsViewController alloc] init];
-    vc.title = _data[indexPath.row].name;
+    vc.title  = _data[indexPath.row].name;
+    vc.deptId = _data[indexPath.row].deptId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

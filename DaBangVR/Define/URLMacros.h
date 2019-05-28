@@ -7,9 +7,9 @@
 //
 
 /**开发服务器*/
-#define URL_main @"http://www.vrzbgw.com/dabang"
+//#define URL_main @"http://www.vrzbgw.com/dabang"
 //#define URL_main @"http://192.168.1.115:8080" // 强
-//#define URL_main @"http://192.168.1.168:8080" // 邓
+#define URL_main @"http://192.168.1.168:8080" // 邓
 //#define URL_main @"http://192.168.1.109:8080" // 豪
 
 #pragma mark ——————   首页相关   ——————
@@ -136,3 +136,5 @@
 #pragma mark —————— 外   卖 ——————
 //附近门店列表
 #define URl_getNearbyDeptList NSStringFormat(@"%@%@",URL_main,@"/api/delivery/getNearbyDeptList?")
+//外卖商品列表
+#define URl_getDeptGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/delivery/getDeptGoodsList?")

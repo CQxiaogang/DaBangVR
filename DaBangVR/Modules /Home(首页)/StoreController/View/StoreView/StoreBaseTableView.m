@@ -8,6 +8,7 @@
 
 #import "StoreBaseTableView.h"
 
+
 @implementation StoreBaseTableView
 
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer

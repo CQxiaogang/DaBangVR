@@ -1,18 +1,16 @@
 //
-//  StoreDetailsViewController.h
+//  StoreDetailsTableViewController.h
 //  DaBangVR
 //
 //  Created by mac on 2019/5/28.
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "StoreDetailsPagingViewController.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface StoreDetailsViewController : StoreDetailsPagingViewController
-
-
+@interface StoreDetailsTableViewController : UIViewController
 
 @end
 

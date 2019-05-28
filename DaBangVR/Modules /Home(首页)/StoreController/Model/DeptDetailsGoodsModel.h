@@ -1,18 +1,16 @@
 //
-//  StoreDetailsViewController.h
+//  DeptDetailsGoodsModel.h
 //  DaBangVR
 //
 //  Created by mac on 2019/5/28.
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
-#import "StoreDetailsPagingViewController.h"
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface StoreDetailsViewController : StoreDetailsPagingViewController
-
-
+@interface DeptDetailsGoodsModel : NSObject
 
 @end
 

@@ -17,7 +17,7 @@
 - (void)setModel:(DeptModel *)model{
     _model = model;
     _storeName.text = model.name;
-    [_goodsImgView setImageURL:[NSURL URLWithString:model.categoryImg]];
+    [_goodsImgView setImageURL:[NSURL URLWithString:model.logo]];
 }
 
 @end
