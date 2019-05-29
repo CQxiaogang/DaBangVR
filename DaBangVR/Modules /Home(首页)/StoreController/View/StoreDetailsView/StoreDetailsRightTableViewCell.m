@@ -11,10 +11,6 @@
 
 @interface StoreDetailsRightTableViewCell ()
 
-@property (nonatomic, strong) UIImageView *imageV;
-@property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong) UILabel *priceLabel;
-
 @end
 
 @implementation StoreDetailsRightTableViewCell
@@ -38,11 +34,11 @@
     return self;
 }
 
-- (void)setModel:(FoodModel *)model
+- (void)setModel:(DeptDetailsGoodsModel *)model
 {
-    [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.picture]];
-    self.nameLabel.text = model.name;
-    self.priceLabel.text = [NSString stringWithFormat:@"￥%@",@(model.min_price)];
+    self.nameLabel.text  = model.name;
+    self.priceLabel.text = [NSString stringWithFormat:@"￥%@",model.marketPrice];
+    [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.listUrl]];
 }
 
 @end

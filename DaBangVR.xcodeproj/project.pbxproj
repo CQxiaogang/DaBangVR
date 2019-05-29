@@ -168,7 +168,6 @@
 		04760C9B229D148500B3C984 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04760C99229D148500B3C984 /* CategoryModel.m */; };
 		04760CA1229D14FB00B3C984 /* DeptModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04760C9F229D14FB00B3C984 /* DeptModel.m */; };
 		04760CA7229D156600B3C984 /* StoreDetailsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04760CA6229D156600B3C984 /* StoreDetailsTableView.m */; };
-		04760CAD229D3AEB00B3C984 /* StoreDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04760CAC229D3AEB00B3C984 /* StoreDetailsTableViewController.m */; };
 		04760CB4229D563700B3C984 /* DeptDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04760CB3229D563700B3C984 /* DeptDetailsModel.m */; };
 		04760CB7229D5B1800B3C984 /* DeptDetailsGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04760CB6229D5B1800B3C984 /* DeptDetailsGoodsModel.m */; };
 		0476542D226D72F500289AA7 /* menuClose.png in Resources */ = {isa = PBXBuildFile; fileRef = 04765428226D72F400289AA7 /* menuClose.png */; };
@@ -379,6 +378,9 @@
 		04FA5E1F21AE95850061AF27 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FA5E1E21AE95850061AF27 /* MessageUI.framework */; };
 		04FA5E2121AE958C0061AF27 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FA5E2021AE958B0061AF27 /* JavaScriptCore.framework */; };
 		04FA5E2321AE959E0061AF27 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FA5E2221AE959E0061AF27 /* libc++.tbd */; };
+		04FAE2B4229E28600051D5FE /* DeptDetailsGoodsCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FAE2B3229E28600051D5FE /* DeptDetailsGoodsCategoryModel.m */; };
+		04FAE2B7229EA56C0051D5FE /* StoreDetailsBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FAE2B6229EA56C0051D5FE /* StoreDetailsBottomView.m */; };
+		04FAE2B9229EA5C30051D5FE /* StoreDetailsBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FAE2B8229EA5C30051D5FE /* StoreDetailsBottomView.xib */; };
 		04FB2F7321BB7BE8007E63AA /* UIView+FontSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB2F7221BB7BE8007E63AA /* UIView+FontSize.m */; };
 		04FC07F321B50855008FF83B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FC07F221B50855008FF83B /* SettingViewController.m */; };
 		04FC2C3921C0E3AD00329B53 /* JFCityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FC2C2421C0E3AD00329B53 /* JFCityCollectionViewCell.m */; };
@@ -695,8 +697,6 @@
 		04760CA0229D14FB00B3C984 /* DeptModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeptModel.h; sourceTree = "<group>"; };
 		04760CA5229D156600B3C984 /* StoreDetailsTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreDetailsTableView.h; sourceTree = "<group>"; };
 		04760CA6229D156600B3C984 /* StoreDetailsTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreDetailsTableView.m; sourceTree = "<group>"; };
-		04760CAB229D3AEB00B3C984 /* StoreDetailsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreDetailsTableViewController.h; sourceTree = "<group>"; };
-		04760CAC229D3AEB00B3C984 /* StoreDetailsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreDetailsTableViewController.m; sourceTree = "<group>"; };
 		04760CB2229D563700B3C984 /* DeptDetailsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeptDetailsModel.h; sourceTree = "<group>"; };
 		04760CB3229D563700B3C984 /* DeptDetailsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeptDetailsModel.m; sourceTree = "<group>"; };
 		04760CB5229D5B1800B3C984 /* DeptDetailsGoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeptDetailsGoodsModel.h; sourceTree = "<group>"; };
@@ -1054,6 +1054,11 @@
 		04FA5E1E21AE95850061AF27 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		04FA5E2021AE958B0061AF27 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		04FA5E2221AE959E0061AF27 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		04FAE2B2229E28600051D5FE /* DeptDetailsGoodsCategoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeptDetailsGoodsCategoryModel.h; sourceTree = "<group>"; };
+		04FAE2B3229E28600051D5FE /* DeptDetailsGoodsCategoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeptDetailsGoodsCategoryModel.m; sourceTree = "<group>"; };
+		04FAE2B5229EA56C0051D5FE /* StoreDetailsBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreDetailsBottomView.h; sourceTree = "<group>"; };
+		04FAE2B6229EA56C0051D5FE /* StoreDetailsBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreDetailsBottomView.m; sourceTree = "<group>"; };
+		04FAE2B8229EA5C30051D5FE /* StoreDetailsBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreDetailsBottomView.xib; sourceTree = "<group>"; };
 		04FB2F7121BB7BE8007E63AA /* UIView+FontSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FontSize.h"; sourceTree = "<group>"; };
 		04FB2F7221BB7BE8007E63AA /* UIView+FontSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FontSize.m"; sourceTree = "<group>"; };
 		04FC07F121B50855008FF83B /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -2290,6 +2295,9 @@
 				04760C91229D146E00B3C984 /* StoreDetailsRightTableViewCell.m */,
 				04760C93229D146F00B3C984 /* StoreDetailsTableViewHeaderView.h */,
 				04760C94229D146F00B3C984 /* StoreDetailsTableViewHeaderView.m */,
+				04FAE2B5229EA56C0051D5FE /* StoreDetailsBottomView.h */,
+				04FAE2B6229EA56C0051D5FE /* StoreDetailsBottomView.m */,
+				04FAE2B8229EA5C30051D5FE /* StoreDetailsBottomView.xib */,
 				04760CA5229D156600B3C984 /* StoreDetailsTableView.h */,
 				04760CA6229D156600B3C984 /* StoreDetailsTableView.m */,
 			);
@@ -2654,8 +2662,6 @@
 				04760C6D229CDDE700B3C984 /* StoreDetailsViewController.m */,
 				0495E7CE229B94C7005892B5 /* StoreDetailsPagingViewController.h */,
 				0495E7CF229B94C7005892B5 /* StoreDetailsPagingViewController.m */,
-				04760CAB229D3AEB00B3C984 /* StoreDetailsTableViewController.h */,
-				04760CAC229D3AEB00B3C984 /* StoreDetailsTableViewController.m */,
 				04760C84229CEF4000B3C984 /* Tools */,
 			);
 			path = Controller;
@@ -2670,6 +2676,8 @@
 				04760CB3229D563700B3C984 /* DeptDetailsModel.m */,
 				04760CB5229D5B1800B3C984 /* DeptDetailsGoodsModel.h */,
 				04760CB6229D5B1800B3C984 /* DeptDetailsGoodsModel.m */,
+				04FAE2B2229E28600051D5FE /* DeptDetailsGoodsCategoryModel.h */,
+				04FAE2B3229E28600051D5FE /* DeptDetailsGoodsCategoryModel.m */,
 				04760C9A229D148500B3C984 /* CategoryModel.h */,
 				04760C99229D148500B3C984 /* CategoryModel.m */,
 			);
@@ -3510,6 +3518,7 @@
 				0403676E21A4E9DA00974435 /* AnchorViewCell.xib in Resources */,
 				04760C73229CDF5E00B3C984 /* StoreDetailsTopView.xib in Resources */,
 				04F2FD2921EF35DE000B58E2 /* SpellGroupCell.xib in Resources */,
+				04FAE2B9229EA5C30051D5FE /* StoreDetailsBottomView.xib in Resources */,
 				0476542F226D72F500289AA7 /* menuChat.png in Resources */,
 				04F47E2521E5D0EE001B5F74 /* AllOrdersCell.xib in Resources */,
 				04FC2C4221C0E3AD00329B53 /* shop_area.sqlite in Resources */,
@@ -3646,9 +3655,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04FAE2B7229EA56C0051D5FE /* StoreDetailsBottomView.m in Sources */,
 				04BA61B4227EC8C0004E1FFD /* DidBeginLiveViewController.m in Sources */,
 				04CAE9A1227EC28C0071F790 /* AppDelegate.m in Sources */,
-				04760CAD229D3AEB00B3C984 /* StoreDetailsTableViewController.m in Sources */,
 				04CAE99F227EC1D30071F790 /* ModifyAddressViewCell.m in Sources */,
 				04F62FD521F951440094B26F /* ShoppingCartModel.m in Sources */,
 				04F3270A21D07F18009267F4 /* SettingTableViewCell.m in Sources */,
@@ -3718,6 +3727,7 @@
 				04ECB9F822422C7300A02DB2 /* DHGuidePageHUD.m in Sources */,
 				04FDDA3F226EF6F6008E456D /* DB_BounceView.m in Sources */,
 				04F2FD2E21EF479D000B58E2 /* GoodsShowTableViewController.m in Sources */,
+				04FAE2B4229E28600051D5FE /* DeptDetailsGoodsCategoryModel.m in Sources */,
 				045FAEBD221E7F2A0086DE4E /* OrderProcessingView.m in Sources */,
 				04760C6E229CDDE700B3C984 /* StoreDetailsViewController.m in Sources */,
 				0459D91321E0A78F009BFFB4 /* OrderSureTableViewCell.m in Sources */,

@@ -7,13 +7,16 @@
 //  代码下载地址https://github.com/leejayID/Linkage
 
 #import <UIKit/UIKit.h>
-
-@class FoodModel;
+#import "DeptDetailsGoodsModel.h"
 
 #define kCellIdentifier_Right @"RightTableViewCell"
 
 @interface StoreDetailsRightTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) FoodModel *model;
+@property (nonatomic, strong) UIImageView *imageV;
+@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) UILabel *priceLabel;
+
+@property (nonatomic, strong) DeptDetailsGoodsModel *model;
 
 @end

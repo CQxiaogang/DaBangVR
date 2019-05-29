@@ -11,6 +11,7 @@
 #import "StoreDetailsRightTableViewCell.h"
 #import "StoreDetailsTableViewHeaderView.h"
 #import "CategoryModel.h"
+#import "DeptDetailsGoodsCategoryModel.h"
 
 static float kLeftTableViewWidth = 80.f;
 
@@ -20,26 +21,28 @@ static float kLeftTableViewWidth = 80.f;
     BOOL _isScrollDown;
 }
 
-@property (nonatomic, strong) NSMutableArray *categoryData;
+@property (nonatomic, strong) NSMutableArray <DeptDetailsGoodsCategoryModel*> *categoryData;
 @property (nonatomic, strong) NSMutableArray *foodData;
 @property (nonatomic, strong) UITableView *leftTableView;
 @property (nonatomic, strong) UITableView *rightTableView;
+
+@property (nonatomic, strong) UIView *bottonView;
 
 @end
 
 @implementation StoreDetailsTableView
 #pragma mark —— 懒加载
--(UIScrollView *)scrollView{
-    if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        _scrollView.contentSize = self.size;
-        [self addSubview:_scrollView];
+-(UIScrollView *)contenView{
+    if (!_contenView) {
+        _contenView = [[UIView alloc] init];
+        [_contenView addSubview:self.leftTableView];
+        [_contenView addSubview:self.rightTableView];
+        [self addSubview:_contenView];
     }
-    return _scrollView;
+    return _contenView;
 }
 
-- (NSMutableArray *)categoryData
-{
+-(NSMutableArray<DeptDetailsGoodsCategoryModel *> *)categoryData{
     if (!_categoryData)
     {
         _categoryData = [NSMutableArray array];
@@ -60,10 +63,11 @@ static float kLeftTableViewWidth = 80.f;
 {
     if (!_leftTableView)
     {
-        _leftTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kLeftTableViewWidth, SCREEN_HEIGHT)];
-        _leftTableView.delegate = self;
+        _leftTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kLeftTableViewWidth, _contenView.mj_h)];
+        _leftTableView.delegate   = self;
         _leftTableView.dataSource = self;
-        _leftTableView.rowHeight = 55;
+        _leftTableView.rowHeight  = 55;
+        _leftTableView.bounces    = NO;
         _leftTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         _leftTableView.tableFooterView = [UIView new];
         _leftTableView.showsVerticalScrollIndicator = NO;
@@ -77,13 +81,14 @@ static float kLeftTableViewWidth = 80.f;
 {
     if (!_rightTableView)
     {
-        _rightTableView = [[UITableView alloc] initWithFrame:CGRectMake(kLeftTableViewWidth, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        _rightTableView = [[UITableView alloc] initWithFrame:CGRectMake(kLeftTableViewWidth, 0, KScreenW-kLeftTableViewWidth, _contenView.mj_h)];
         _rightTableView.delegate = self;
         _rightTableView.dataSource = self;
         _rightTableView.rowHeight = 80;
+        _rightTableView.bounces = NO;
         _rightTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         _rightTableView.showsVerticalScrollIndicator = NO;
-        [_rightTableView registerClass:[StoreDetailsLeftTableViewCell class] forCellReuseIdentifier:kCellIdentifier_Right];
+        [_rightTableView registerClass:[StoreDetailsRightTableViewCell class] forCellReuseIdentifier:kCellIdentifier_Right];
     }
     return _rightTableView;
 }
@@ -94,17 +99,36 @@ static float kLeftTableViewWidth = 80.f;
     if (self) {
         _selectIndex  = 0;
         _isScrollDown = YES;
+    
+        self.contenView.backgroundColor = KWhiteColor;
         
-        self.backgroundColor = KRedColor;
-        self.scrollView.backgroundColor = KWhiteColor;
-        [self addSubview:self.leftTableView];
-        [self addSubview:self.rightTableView];
+        self.bottonView.backgroundColor = KRedColor;
+        
         [self.leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
                                         animated:YES
                                   scrollPosition:UITableViewScrollPositionNone];
         
     }
     return self;
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    [self.contenView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(-kTabBarHeight);
+        make.left.top.right.equalTo(0);
+    }];
+}
+
+-(void)setDeptId:(NSString *)deptId{
+    _deptId = deptId;
+    kWeakSelf(self);
+    [NetWorkHelper POST:URl_getDeptGoodsList parameters:@{@"deptId":@"1"} success:^(id  _Nonnull responseObject) {
+        NSDictionary *data    = KJSONSerialization(responseObject)[@"data"];
+        weakself.categoryData = [DeptDetailsGoodsCategoryModel mj_objectArrayWithKeyValuesArray:data[@"deliveryGoodsTypeVos"]];
+        [weakself.leftTableView reloadData];
+        [weakself.rightTableView reloadData];
+    } failure:nil];
 }
 
 #pragma mark - TableView DataSource Delegate
@@ -129,7 +153,7 @@ static float kLeftTableViewWidth = 80.f;
     }
     else
     {
-        return [self.foodData[section] count];
+        return [self.categoryData[section].deliveryGoodsVoList count];
     }
 }
 
@@ -137,18 +161,21 @@ static float kLeftTableViewWidth = 80.f;
 {
     if (_leftTableView == tableView)
     {
-        StoreDetailsLeftTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier_Left forIndexPath:indexPath];
-        cell.backgroundColor = KRandomColor;
-//        FoodModel *model = self.categoryData[indexPath.row];
-//        cell.name.text = model.name;
+        StoreDetailsLeftTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier_Left];
+        if (!cell) {
+            cell = [[StoreDetailsLeftTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier_Left];
+        }
+        DeptDetailsGoodsCategoryModel *model = self.categoryData[indexPath.row];
+        cell.name.text = model.name;
         return cell;
     }
     else
     {
-        StoreDetailsRightTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier_Right forIndexPath:indexPath];
-//        FoodModel *model = self.foodData[indexPath.section][indexPath.row];
-//        cell.model = model;
-        cell.backgroundColor = KRandomColor;
+        StoreDetailsRightTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier_Right];
+        if (!cell) {
+            cell = [[StoreDetailsRightTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier_Right];
+        }
+        cell.model = self.categoryData[indexPath.section].deliveryGoodsVoList[indexPath.row];
         return cell;
     }
 }
@@ -167,7 +194,7 @@ static float kLeftTableViewWidth = 80.f;
     if (_rightTableView == tableView)
     {
         StoreDetailsTableViewHeaderView *view = [[StoreDetailsTableViewHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
-        FoodModel *model = self.categoryData[section];
+        DeptDetailsGoodsCategoryModel *model = self.categoryData[section];
         view.name.text = model.name;
         return view;
     }
@@ -238,10 +265,11 @@ static float kLeftTableViewWidth = 80.f;
 }
 
 - (UIScrollView *)listScrollView {
-    return self.scrollView;
+    return self.leftTableView;
 }
 
 - (void)listViewDidScrollCallback:(void (^)(UIScrollView *))callback {
     
 }
+
 @end

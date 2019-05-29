@@ -12,17 +12,29 @@
 #import "StoreDetailsTableView.h"
 #import "GoodsShowTableViewController.h"
 #import "DeptDetailsModel.h"
+#import "DeptDetailsGoodsCategoryModel.h"
+#import "StoreDetailsBottomView.h"
 
 @interface StoreDetailsPagingViewController ()<JXCategoryViewDelegate, JXPagerMainTableViewGestureDelegate>
 
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
 @property (nonatomic, strong) NSArray <NSString *> *titles;
 
+@property (nonatomic, strong) StoreDetailsBottomView *bottomView;
+
+
 @end
 
 @implementation StoreDetailsPagingViewController
 
 #pragma mark —— 懒加载
+
+-(StoreDetailsBottomView *)bottomView{
+    if (!_bottomView) {
+        _bottomView = [[[NSBundle mainBundle] loadNibNamed:@"StoreDetailsBottomView" owner:nil options:nil] firstObject];
+    }
+    return _bottomView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,6 +57,8 @@
     self.categoryView.contentScrollView = self.pagerView.listContainerView.collectionView;
     
     [self loadingData];
+    
+    [self.view addSubview:self.bottomView];
 }
 
 -(void)loadingData{
@@ -53,6 +67,9 @@
         NSDictionary *deptVo = data[@"deptVo"];
         DeptDetailsModel *deptDetailsModel = [DeptDetailsModel mj_objectWithKeyValues:deptVo];
         self.storeDetailsTopView.deptDetailsModel = deptDetailsModel;
+        
+        NSArray *list = [DeptDetailsGoodsCategoryModel mj_objectArrayWithKeyValuesArray:data[@"deliveryGoodsTypeVos"]];
+        
     } failure:nil];
 }
 
@@ -76,6 +93,10 @@
     [super viewDidLayoutSubviews];
     
     self.pagerView.frame = self.view.bounds;
+    [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(0);
+        make.height.equalTo(kTabBarHeight);
+    }];
 }
 
 #pragma mark - JXPagerViewDelegate
@@ -101,7 +122,8 @@
 }
 
 - (id<JXPagerViewListViewDelegate>)pagerView:(JXPagerView *)pagerView initListAtIndex:(NSInteger)index{
-    StoreDetailsTableView *tableView = [[StoreDetailsTableView alloc] init];
+    StoreDetailsTableView *tableView = [[StoreDetailsTableView alloc] initWithFrame:self.view.bounds];
+    tableView.deptId = @"180";
     return tableView;
 }
 

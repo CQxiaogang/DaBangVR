@@ -42,6 +42,7 @@
     self.mainTableView.scrollsToTop = NO;
     self.mainTableView.dataSource = self;
     self.mainTableView.delegate = self;
+    self.mainTableView.bounces = NO;
     self.mainTableView.tableHeaderView = [self.delegate tableHeaderViewInPagerView:self];
     [self.mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     if (@available(iOS 11.0, *)) {

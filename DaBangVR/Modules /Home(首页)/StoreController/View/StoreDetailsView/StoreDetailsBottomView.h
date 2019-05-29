@@ -1,8 +1,8 @@
 //
-//  StoreDetailsTableViewController.h
+//  StoreDetailsBottomView.h
 //  DaBangVR
 //
-//  Created by mac on 2019/5/28.
+//  Created by mac on 2019/5/29.
 //  Copyright © 2019 DaBangVR. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface StoreDetailsTableViewController : UIViewController
+@interface StoreDetailsBottomView : UIView
 
 @end
 
