@@ -11,12 +11,24 @@
 
 #define kCellIdentifier_Right @"RightTableViewCell"
 
+
+@protocol StoreDetailsRightTableViewCellDelegate <NSObject>
+
+-(void)specificationButtonClick:(UIButton *)button;
+
+@end
+
 @interface StoreDetailsRightTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UIImageView *imageV;
-@property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong) UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *goodsImgView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *salesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *plusButton;
+@property (weak, nonatomic) IBOutlet UIButton *minusButton;
+@property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 
 @property (nonatomic, strong) DeptDetailsGoodsModel *model;
+@property (nonatomic, weak) id <StoreDetailsRightTableViewCellDelegate> delegate;
 
 @end

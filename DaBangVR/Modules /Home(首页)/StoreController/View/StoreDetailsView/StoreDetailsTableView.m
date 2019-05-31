@@ -12,17 +12,17 @@
 #import "StoreDetailsTableViewHeaderView.h"
 #import "CategoryModel.h"
 #import "DeptDetailsGoodsCategoryModel.h"
+#import "GoodAttributesView.h"
 
 static float kLeftTableViewWidth = 80.f;
 
-@interface StoreDetailsTableView ()<UITableViewDelegate, UITableViewDataSource>
+@interface StoreDetailsTableView ()<UITableViewDelegate, UITableViewDataSource, StoreDetailsRightTableViewCellDelegate>
 {
     NSInteger _selectIndex;
     BOOL _isScrollDown;
 }
 
 @property (nonatomic, strong) NSMutableArray <DeptDetailsGoodsCategoryModel*> *categoryData;
-@property (nonatomic, strong) NSMutableArray *foodData;
 @property (nonatomic, strong) UITableView *leftTableView;
 @property (nonatomic, strong) UITableView *rightTableView;
 
@@ -32,7 +32,7 @@ static float kLeftTableViewWidth = 80.f;
 
 @implementation StoreDetailsTableView
 #pragma mark —— 懒加载
--(UIScrollView *)contenView{
+-(UIView *)contenView{
     if (!_contenView) {
         _contenView = [[UIView alloc] init];
         [_contenView addSubview:self.leftTableView];
@@ -48,15 +48,6 @@ static float kLeftTableViewWidth = 80.f;
         _categoryData = [NSMutableArray array];
     }
     return _categoryData;
-}
-
-- (NSMutableArray *)foodData
-{
-    if (!_foodData)
-    {
-        _foodData = [NSMutableArray array];
-    }
-    return _foodData;
 }
 
 - (UITableView *)leftTableView
@@ -84,11 +75,11 @@ static float kLeftTableViewWidth = 80.f;
         _rightTableView = [[UITableView alloc] initWithFrame:CGRectMake(kLeftTableViewWidth, 0, KScreenW-kLeftTableViewWidth, _contenView.mj_h)];
         _rightTableView.delegate = self;
         _rightTableView.dataSource = self;
-        _rightTableView.rowHeight = 80;
+        _rightTableView.rowHeight = 100;
         _rightTableView.bounces = NO;
         _rightTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         _rightTableView.showsVerticalScrollIndicator = NO;
-        [_rightTableView registerClass:[StoreDetailsRightTableViewCell class] forCellReuseIdentifier:kCellIdentifier_Right];
+        [_rightTableView registerNib:[UINib nibWithNibName:@"StoreDetailsRightTableViewCell" bundle:nil] forCellReuseIdentifier:kCellIdentifier_Right];
     }
     return _rightTableView;
 }
@@ -100,6 +91,8 @@ static float kLeftTableViewWidth = 80.f;
         _selectIndex  = 0;
         _isScrollDown = YES;
     
+        self.backgroundColor = KWhiteColor;
+        
         self.contenView.backgroundColor = KWhiteColor;
         
         self.bottonView.backgroundColor = KRedColor;
@@ -172,6 +165,7 @@ static float kLeftTableViewWidth = 80.f;
     else
     {
         StoreDetailsRightTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier_Right];
+        cell.delegate = self;
         if (!cell) {
             cell = [[StoreDetailsRightTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier_Right];
         }
@@ -234,6 +228,9 @@ static float kLeftTableViewWidth = 80.f;
         [_leftTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_selectIndex inSection:0]
                               atScrollPosition:UITableViewScrollPositionTop
                                       animated:YES];
+    }else{
+        //cell点击不变颜色
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
     }
 }
 
@@ -259,6 +256,13 @@ static float kLeftTableViewWidth = 80.f;
     }
 }
 
+#pragma mark —— StoreDetailsRightTableViewCellDelegate
+-(void)specificationButtonClick:(UIButton *)button{
+    //弹出商品规格 view
+//    GoodAttributesView *attributesView = [[GoodAttributesView alloc] initWithFrame:(CGRect){0, 0, KScreenW, KScreenH}];
+//    [attributesView showInView:self];
+}
+
 #pragma mark - JXPagingViewListViewDelegate
 - (UIView *)listView {
     return self;
@@ -271,5 +275,4 @@ static float kLeftTableViewWidth = 80.f;
 - (void)listViewDidScrollCallback:(void (^)(UIScrollView *))callback {
     
 }
-
 @end

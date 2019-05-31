@@ -529,7 +529,6 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
 /**
  *  设置视图的基本内容
  */
-
 - (void)setGood_img:(NSString *)good_img {
     _good_img = good_img;
     [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:good_img] placeholderImage:nil];
@@ -547,8 +546,8 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
 
 - (void)setModel:(GoodsDetailsModel *)model{
     _model = model;
-    _featureAttr  = [DBFeatureItem mj_objectArrayWithKeyValuesArray:_model.goodsSpecVoList];
-    _goodsSpecArr = [ProductInfoVoListModel mj_objectArrayWithKeyValuesArray:_model.productInfoVoList];
+    _featureAttr  = [DBFeatureItem mj_objectArrayWithKeyValuesArray:model.goodsSpecVoList];
+    _goodsSpecArr = [ProductInfoVoListModel mj_objectArrayWithKeyValuesArray:model.productInfoVoList];
 }
 
 - (void)setSubmitType:(NSString *)submitType{

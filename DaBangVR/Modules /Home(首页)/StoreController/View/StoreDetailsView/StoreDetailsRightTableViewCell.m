@@ -8,37 +8,90 @@
 
 #import "StoreDetailsRightTableViewCell.h"
 #import "CategoryModel.h"
+#import "GoodAttributesView.h"
+
+#define kSpecificationButtonH  25
 
 @interface StoreDetailsRightTableViewCell ()
+{
+    int number;
+}
 
+@property (nonatomic ,strong) UIButton *specificationButton;
+    
 @end
 
 @implementation StoreDetailsRightTableViewCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
-    {
-        self.imageV = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 50, 50)];
-        [self.contentView addSubview:self.imageV];
-
-        self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 10, 200, 30)];
-        self.nameLabel.font = [UIFont systemFontOfSize:14];
-        [self.contentView addSubview:self.nameLabel];
-        
-        self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 45, 200, 30)];
-        self.priceLabel.font = [UIFont systemFontOfSize:14];
-        self.priceLabel.textColor = [UIColor redColor];
-        [self.contentView addSubview:self.priceLabel];
+-(UIButton *)specificationButton{
+    if (!_specificationButton) {
+        _specificationButton = [[UIButton alloc] init];
+        _specificationButton.titleLabel.adaptiveFontSize = 12;
+        [_specificationButton setBackgroundColor:KLightGreen];
+        [_specificationButton setTitle:@"选规格" forState:UIControlStateNormal];
+        [_specificationButton addTarget:self action:@selector(specificationButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        _specificationButton.layer.cornerRadius = kSpecificationButtonH/2;
     }
-    return self;
+    return _specificationButton;
+}
+    
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    
+    [self addSubview:self.specificationButton];
+    
+    number = 0;
+    _numberLabel.hidden = YES;
+    _minusButton.hidden = YES;
+    
+    _plusButton.backgroundColor = KLightGreen;
+    _minusButton.layer.borderColor = KLightGreen.CGColor;
+    
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    
+    [self.specificationButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(-10);
+        make.bottom.equalTo(-15);
+        make.size.equalTo(CGSizeMake(60, kSpecificationButtonH));
+    }];
+}
+
+-(void)specificationButtonClick:(UIButton*)button{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(specificationButtonClick:)]) {
+        [self.delegate specificationButtonClick:button];
+    }
+}
+//加
+- (IBAction)plusButtonClick:(id)sender {
+    number++;
+    if (number>0) {
+        _numberLabel.hidden = NO;
+        _minusButton.hidden = NO;
+        _numberLabel.text = [NSString stringWithFormat:@"%d",number];
+    }
+}
+//减
+- (IBAction)minusButtonClick:(id)sender {
+    number--;
+    _numberLabel.text = [NSString stringWithFormat:@"%d",number];
+    if (number==0) {
+        _numberLabel.hidden = YES;
+        _minusButton.hidden = YES;
+    }
 }
 
 - (void)setModel:(DeptDetailsGoodsModel *)model
 {
     self.nameLabel.text  = model.name;
+    self.salesLabel.text = [NSString stringWithFormat:@"月销%@笔",model.salesVolume];
     self.priceLabel.text = [NSString stringWithFormat:@"￥%@",model.marketPrice];
-    [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.listUrl]];
+    [self.goodsImgView setImageURL:[NSURL URLWithString:model.listUrl]];
+    if (model.specList.count == 0) {
+        self.specificationButton.hidden  = YES;
+    }
 }
 
 @end

@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *packagingPrice;
 @property (nonatomic, copy) NSString *startingPrice;
 @property (nonatomic, copy) NSString *salesVolume;
+@property (nonatomic, copy) NSArray *specList;
+@property (nonatomic, copy) NSArray *deliveryProductInfoList;
 
 @end
 

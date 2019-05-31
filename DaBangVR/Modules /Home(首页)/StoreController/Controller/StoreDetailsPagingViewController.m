@@ -123,7 +123,7 @@
 
 - (id<JXPagerViewListViewDelegate>)pagerView:(JXPagerView *)pagerView initListAtIndex:(NSInteger)index{
     StoreDetailsTableView *tableView = [[StoreDetailsTableView alloc] initWithFrame:self.view.bounds];
-    tableView.deptId = @"180";
+    tableView.deptId = _deptId;
     return tableView;
 }
 

@@ -229,6 +229,7 @@
 		04A3DA3021E9EF6400F689C7 /* GoodsShowListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3DA2F21E9EF6400F689C7 /* GoodsShowListModel.m */; };
 		04ACFA69223F3A93006783BF /* OrderProcessingFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACFA68223F3A93006783BF /* OrderProcessingFooterView.m */; };
 		04ACFA6B223F3AA6006783BF /* OrderProcessingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ACFA6A223F3AA6006783BF /* OrderProcessingFooterView.xib */; };
+		04AFB6E022A0C52E0069488D /* StoreDetailsRightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04AFB6DF22A0C52E0069488D /* StoreDetailsRightTableViewCell.xib */; };
 		04BA61B4227EC8C0004E1FFD /* DidBeginLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA61B1227EC84C004E1FFD /* DidBeginLiveViewController.m */; };
 		04BF21832212B719002468C0 /* JXPagerListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF216F2212B719002468C0 /* JXPagerListContainerView.m */; };
 		04BF21842212B719002468C0 /* JXPagerMainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF21702212B719002468C0 /* JXPagerMainTableView.m */; };
@@ -802,6 +803,7 @@
 		04ACFA67223F3A93006783BF /* OrderProcessingFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderProcessingFooterView.h; sourceTree = "<group>"; };
 		04ACFA68223F3A93006783BF /* OrderProcessingFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderProcessingFooterView.m; sourceTree = "<group>"; };
 		04ACFA6A223F3AA6006783BF /* OrderProcessingFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderProcessingFooterView.xib; sourceTree = "<group>"; };
+		04AFB6DF22A0C52E0069488D /* StoreDetailsRightTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreDetailsRightTableViewCell.xib; sourceTree = "<group>"; };
 		04BA61B1227EC84C004E1FFD /* DidBeginLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DidBeginLiveViewController.m; sourceTree = "<group>"; };
 		04BA61B2227EC84D004E1FFD /* DidBeginLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DidBeginLiveViewController.h; sourceTree = "<group>"; };
 		04BF216F2212B719002468C0 /* JXPagerListContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerListContainerView.m; sourceTree = "<group>"; };
@@ -2293,6 +2295,7 @@
 				04760C92229D146F00B3C984 /* StoreDetailsLeftTableViewCell.m */,
 				04760C90229D146E00B3C984 /* StoreDetailsRightTableViewCell.h */,
 				04760C91229D146E00B3C984 /* StoreDetailsRightTableViewCell.m */,
+				04AFB6DF22A0C52E0069488D /* StoreDetailsRightTableViewCell.xib */,
 				04760C93229D146F00B3C984 /* StoreDetailsTableViewHeaderView.h */,
 				04760C94229D146F00B3C984 /* StoreDetailsTableViewHeaderView.m */,
 				04FAE2B5229EA56C0051D5FE /* StoreDetailsBottomView.h */,
@@ -3549,6 +3552,7 @@
 				042D1531221D629A00DB895C /* PaySuccessView.xib in Resources */,
 				048F79BE2272E88E00407050 /* DidBeginLiveAnchorInfoView.xib in Resources */,
 				045EF189223BB1180051E029 /* OrderProcessingHeaderView.xib in Resources */,
+				04AFB6E022A0C52E0069488D /* StoreDetailsRightTableViewCell.xib in Resources */,
 				044250B822277FE400E9F64E /* TimeChooseView.xib in Resources */,
 				04F8FBFB21F17E0200913150 /* AllCommentsCell.xib in Resources */,
 				048F79CB2272F6BE00407050 /* DidBeginLiveGoodsTableViewCell.xib in Resources */,
