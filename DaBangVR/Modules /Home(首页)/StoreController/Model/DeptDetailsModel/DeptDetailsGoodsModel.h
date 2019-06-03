@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class DeptDetailsGoodsSpecList, DeptDetailsGoodsDeliveryProductInfoListModel;
+
 @interface DeptDetailsGoodsModel : NSObject
 
 @property (nonatomic, copy) NSString *id;
@@ -24,8 +26,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *packagingPrice;
 @property (nonatomic, copy) NSString *startingPrice;
 @property (nonatomic, copy) NSString *salesVolume;
-@property (nonatomic, copy) NSArray *specList;
-@property (nonatomic, copy) NSArray *deliveryProductInfoList;
+//规格列表
+@property (nonatomic, copy) NSArray <DeptDetailsGoodsSpecList *>*specList;
+@property (nonatomic, copy) NSArray <DeptDetailsGoodsDeliveryProductInfoListModel *>*deliveryProductInfoList;
+
+@property (nonatomic, assign) NSInteger number;
 
 @end
 

@@ -12,7 +12,7 @@
 #import "StoreDetailsTableViewHeaderView.h"
 #import "CategoryModel.h"
 #import "DeptDetailsGoodsCategoryModel.h"
-#import "GoodAttributesView.h"
+#import "StoreGoodAttributesView.h"
 
 static float kLeftTableViewWidth = 80.f;
 
@@ -116,10 +116,10 @@ static float kLeftTableViewWidth = 80.f;
 -(void)setDeptId:(NSString *)deptId{
     _deptId = deptId;
     kWeakSelf(self);
-    [NetWorkHelper POST:URl_getDeptGoodsList parameters:@{@"deptId":@"1"} success:^(id  _Nonnull responseObject) {
+    [NetWorkHelper POST:URl_getDeptGoodsList parameters:@{@"deptId":_deptId} success:^(id  _Nonnull responseObject) {
         NSDictionary *data    = KJSONSerialization(responseObject)[@"data"];
         weakself.categoryData = [DeptDetailsGoodsCategoryModel mj_objectArrayWithKeyValuesArray:data[@"deliveryGoodsTypeVos"]];
-        [weakself.leftTableView reloadData];
+        [weakself.leftTableView  reloadData];
         [weakself.rightTableView reloadData];
     } failure:nil];
 }
@@ -259,8 +259,11 @@ static float kLeftTableViewWidth = 80.f;
 #pragma mark —— StoreDetailsRightTableViewCellDelegate
 -(void)specificationButtonClick:(UIButton *)button{
     //弹出商品规格 view
-//    GoodAttributesView *attributesView = [[GoodAttributesView alloc] initWithFrame:(CGRect){0, 0, KScreenW, KScreenH}];
-//    [attributesView showInView:self];
+    StoreGoodAttributesView *attributesView = [[StoreGoodAttributesView alloc] initWithFrame:(CGRect){0, 0, KScreenW, KScreenH}];
+    CGPoint buttonPosition = [button convertPoint:CGPointZero toView:self.rightTableView];
+    NSIndexPath *indexPath = [self.rightTableView indexPathForRowAtPoint:buttonPosition];
+    attributesView.model = self.categoryData[indexPath.section].deliveryGoodsVoList[indexPath.row];
+    [attributesView showInView:kAppWindow];
 }
 
 #pragma mark - JXPagingViewListViewDelegate

@@ -71,12 +71,14 @@
         _numberLabel.hidden = NO;
         _minusButton.hidden = NO;
         _numberLabel.text = [NSString stringWithFormat:@"%d",number];
+        _model.number = number;
     }
 }
 //减
 - (IBAction)minusButtonClick:(id)sender {
     number--;
     _numberLabel.text = [NSString stringWithFormat:@"%d",number];
+    _model.number = number;
     if (number==0) {
         _numberLabel.hidden = YES;
         _minusButton.hidden = YES;
@@ -91,6 +93,13 @@
     [self.goodsImgView setImageURL:[NSURL URLWithString:model.listUrl]];
     if (model.specList.count == 0) {
         self.specificationButton.hidden  = YES;
+    }else{
+        _numberLabel.hidden = YES;
+        _minusButton.hidden = YES;
+        _plusButton.hidden  = YES;
+    }
+    if (model.number) {
+        _numberLabel.text = [NSString stringWithFormat:@"%d",number];
     }
 }
 

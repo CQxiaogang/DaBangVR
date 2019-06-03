@@ -393,28 +393,19 @@ ShufflingViewDelegate
 #pragma mark —— 频道菜单列表 代理
 -(void)channelBtnOfClick:(NSInteger)row{
     switch (row) {
-        case 0: //短视频
-            [self pushViewController:[ShortVideoViewController new]];
-            break;
-        case 1: //海鲜
-            [self pushViewController:[GoodsShowViewController new]];
-            break;
-        case 2: //拼团
+        case 0: //拼团
             [self pushViewController:[SpellGroupViewController new]];
             break;
-        case 3: //限时秒杀
-//            [self pushViewController:[SecondsKillViewController new]];
+        case 1: //限时秒杀
+            [self pushViewController:[SecondsKillViewController new]];
+            break;
+        case 2: //直播
+            
+            break;
+        case 3: //外卖
             [self pushViewController:[StoreViewController new]];
             break;
-        case 4: //直播
-            break;
-        case 5: //新品首发
-            [self pushViewController:[NewProductLaunchViewController new]];
-            break;
-        case 6: //门店
-            [self pushViewController:[StoreViewController new]];
-            break;
-        case 7: //入驻
+        case 4: //商家入驻
             [self pushViewController:[MerchantsSettledViewController new]];
             break;
         default:

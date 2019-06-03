@@ -29,6 +29,10 @@
 		040410C72293B21A00DE6A22 /* GoodsDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040410C52293B21A00DE6A22 /* GoodsDetailsTableViewCell.xib */; };
 		040431BA22979BEF00CA0445 /* StoreGoodsTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040431B922979BEF00CA0445 /* StoreGoodsTableViewHeaderView.m */; };
 		040431BC22979C3000CA0445 /* StoreGoodsTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040431BB22979C3000CA0445 /* StoreGoodsTableViewHeaderView.xib */; };
+		04046C4222A50C5100EE9486 /* StoreGoodAttributesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04046C4122A50C5100EE9486 /* StoreGoodAttributesView.m */; };
+		04046C4622A511E700EE9486 /* DeptDetailsGoodsDeliveryProductInfoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04046C4522A511E700EE9486 /* DeptDetailsGoodsDeliveryProductInfoListModel.m */; };
+		04046C4922A5120B00EE9486 /* DeptDetailsGoodsSpecList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04046C4822A5120B00EE9486 /* DeptDetailsGoodsSpecList.m */; };
+		04046C4C22A5123600EE9486 /* DeptDetailsGoodsDeliveryGoodsSpecList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04046C4B22A5123600EE9486 /* DeptDetailsGoodsDeliveryGoodsSpecList.m */; };
 		0404776D2252FBA400EA6FFF /* SeasonAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0404776B2252FBA400EA6FFF /* SeasonAuthenticationViewController.m */; };
 		0404776E2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0404776C2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib */; };
 		040477722252FFA600EA6FFF /* SeasonAuthenticationViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 040477702252FFA600EA6FFF /* SeasonAuthenticationViewController2.m */; };
@@ -456,6 +460,14 @@
 		040431B822979BEF00CA0445 /* StoreGoodsTableViewHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreGoodsTableViewHeaderView.h; sourceTree = "<group>"; };
 		040431B922979BEF00CA0445 /* StoreGoodsTableViewHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreGoodsTableViewHeaderView.m; sourceTree = "<group>"; };
 		040431BB22979C3000CA0445 /* StoreGoodsTableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreGoodsTableViewHeaderView.xib; sourceTree = "<group>"; };
+		04046C4022A50C5100EE9486 /* StoreGoodAttributesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreGoodAttributesView.h; sourceTree = "<group>"; };
+		04046C4122A50C5100EE9486 /* StoreGoodAttributesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreGoodAttributesView.m; sourceTree = "<group>"; };
+		04046C4422A511E700EE9486 /* DeptDetailsGoodsDeliveryProductInfoListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeptDetailsGoodsDeliveryProductInfoListModel.h; sourceTree = "<group>"; };
+		04046C4522A511E700EE9486 /* DeptDetailsGoodsDeliveryProductInfoListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeptDetailsGoodsDeliveryProductInfoListModel.m; sourceTree = "<group>"; };
+		04046C4722A5120B00EE9486 /* DeptDetailsGoodsSpecList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeptDetailsGoodsSpecList.h; sourceTree = "<group>"; };
+		04046C4822A5120B00EE9486 /* DeptDetailsGoodsSpecList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeptDetailsGoodsSpecList.m; sourceTree = "<group>"; };
+		04046C4A22A5123600EE9486 /* DeptDetailsGoodsDeliveryGoodsSpecList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeptDetailsGoodsDeliveryGoodsSpecList.h; sourceTree = "<group>"; };
+		04046C4B22A5123600EE9486 /* DeptDetailsGoodsDeliveryGoodsSpecList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeptDetailsGoodsDeliveryGoodsSpecList.m; sourceTree = "<group>"; };
 		0404776A2252FBA400EA6FFF /* SeasonAuthenticationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasonAuthenticationViewController.h; sourceTree = "<group>"; };
 		0404776B2252FBA400EA6FFF /* SeasonAuthenticationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasonAuthenticationViewController.m; sourceTree = "<group>"; };
 		0404776C2252FBA400EA6FFF /* SeasonAuthenticationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonAuthenticationViewController.xib; sourceTree = "<group>"; };
@@ -1200,6 +1212,25 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		04046C4322A511A200EE9486 /* DeptDetailsModel */ = {
+			isa = PBXGroup;
+			children = (
+				04760CB2229D563700B3C984 /* DeptDetailsModel.h */,
+				04760CB3229D563700B3C984 /* DeptDetailsModel.m */,
+				04760CB5229D5B1800B3C984 /* DeptDetailsGoodsModel.h */,
+				04760CB6229D5B1800B3C984 /* DeptDetailsGoodsModel.m */,
+				04046C4722A5120B00EE9486 /* DeptDetailsGoodsSpecList.h */,
+				04046C4822A5120B00EE9486 /* DeptDetailsGoodsSpecList.m */,
+				04046C4A22A5123600EE9486 /* DeptDetailsGoodsDeliveryGoodsSpecList.h */,
+				04046C4B22A5123600EE9486 /* DeptDetailsGoodsDeliveryGoodsSpecList.m */,
+				04046C4422A511E700EE9486 /* DeptDetailsGoodsDeliveryProductInfoListModel.h */,
+				04046C4522A511E700EE9486 /* DeptDetailsGoodsDeliveryProductInfoListModel.m */,
+				04FAE2B2229E28600051D5FE /* DeptDetailsGoodsCategoryModel.h */,
+				04FAE2B3229E28600051D5FE /* DeptDetailsGoodsCategoryModel.m */,
+			);
+			path = DeptDetailsModel;
 			sourceTree = "<group>";
 		};
 		040477612252F65600EA6FFF /* SeasonAuthenticationController */ = {
@@ -2301,6 +2332,8 @@
 				04FAE2B5229EA56C0051D5FE /* StoreDetailsBottomView.h */,
 				04FAE2B6229EA56C0051D5FE /* StoreDetailsBottomView.m */,
 				04FAE2B8229EA5C30051D5FE /* StoreDetailsBottomView.xib */,
+				04046C4022A50C5100EE9486 /* StoreGoodAttributesView.h */,
+				04046C4122A50C5100EE9486 /* StoreGoodAttributesView.m */,
 				04760CA5229D156600B3C984 /* StoreDetailsTableView.h */,
 				04760CA6229D156600B3C984 /* StoreDetailsTableView.m */,
 			);
@@ -2673,14 +2706,9 @@
 		04B9204722816B28008BAC74 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04046C4322A511A200EE9486 /* DeptDetailsModel */,
 				04760CA0229D14FB00B3C984 /* DeptModel.h */,
 				04760C9F229D14FB00B3C984 /* DeptModel.m */,
-				04760CB2229D563700B3C984 /* DeptDetailsModel.h */,
-				04760CB3229D563700B3C984 /* DeptDetailsModel.m */,
-				04760CB5229D5B1800B3C984 /* DeptDetailsGoodsModel.h */,
-				04760CB6229D5B1800B3C984 /* DeptDetailsGoodsModel.m */,
-				04FAE2B2229E28600051D5FE /* DeptDetailsGoodsCategoryModel.h */,
-				04FAE2B3229E28600051D5FE /* DeptDetailsGoodsCategoryModel.m */,
 				04760C9A229D148500B3C984 /* CategoryModel.h */,
 				04760C99229D148500B3C984 /* CategoryModel.m */,
 			);
@@ -3677,6 +3705,7 @@
 				04F4469D21D7772700524971 /* FeatureChoseTopCell.m in Sources */,
 				045FAEC3221E93AB0086DE4E /* OrderProcessingTableViewCell.m in Sources */,
 				04029FE4226830A00032ED06 /* LiveGoodsInfoTableViewCell.m in Sources */,
+				04046C4622A511E700EE9486 /* DeptDetailsGoodsDeliveryProductInfoListModel.m in Sources */,
 				04ECB9EF2241D9E800A02DB2 /* UserInfoModel.m in Sources */,
 				04BF21892212B719002468C0 /* DetailViewController.m in Sources */,
 				041DC2B9224E1B8500BD1196 /* PLPlayTopView.m in Sources */,
@@ -3804,9 +3833,11 @@
 				04F62FDA21F951440094B26F /* ShoppingCartHeaderView.m in Sources */,
 				046DB318224B71A600C2CACB /* PLBaseViewController.m in Sources */,
 				044E678C223229FE0077365D /* SearchViewController.m in Sources */,
+				04046C4C22A5123600EE9486 /* DeptDetailsGoodsDeliveryGoodsSpecList.m in Sources */,
 				04F8FC0221F1D3F700913150 /* SecondsKillCell.m in Sources */,
 				04EFA03221E7436B007C2FCA /* ChannelViewCell.m in Sources */,
 				04006271228ABBF0005D1474 /* SYRingProgressView.m in Sources */,
+				04046C4922A5120B00EE9486 /* DeptDetailsGoodsSpecList.m in Sources */,
 				04F4468021D74F7B00524971 /* DBFeatureTitleItem.m in Sources */,
 				04D4EA6A22439C8600220D0A /* UIView+viewStyle.m in Sources */,
 				04FC2C4021C0E3AD00329B53 /* JFCityCollectionFlowLayout.m in Sources */,
@@ -3854,6 +3885,7 @@
 				041C0947225F2184008A38F0 /* ShouldBeginLiveViewController.m in Sources */,
 				04ACFA69223F3A93006783BF /* OrderProcessingFooterView.m in Sources */,
 				045A6FF02223F514006081CF /* CountryCollectionViewCell.m in Sources */,
+				04046C4222A50C5100EE9486 /* StoreGoodAttributesView.m in Sources */,
 				041DC2B6224DB9F600BD1196 /* ShoppingLiveTableViewController.m in Sources */,
 				04F3B32421EDE01000DFBA84 /* GoodsShowViewController.m in Sources */,
 				046DB30F224B279700C2CACB /* TPCSpringMenu.m in Sources */,
