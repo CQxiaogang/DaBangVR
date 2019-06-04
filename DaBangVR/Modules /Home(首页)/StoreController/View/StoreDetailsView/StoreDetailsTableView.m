@@ -13,6 +13,7 @@
 #import "CategoryModel.h"
 #import "DeptDetailsGoodsCategoryModel.h"
 #import "StoreGoodAttributesView.h"
+#import "StoreDetailsShoppingCarModel.h"
 
 static float kLeftTableViewWidth = 80.f;
 
@@ -27,6 +28,8 @@ static float kLeftTableViewWidth = 80.f;
 @property (nonatomic, strong) UITableView *rightTableView;
 
 @property (nonatomic, strong) UIView *bottonView;
+
+@property (nonatomic, strong) NSMutableArray *goodaData;
 
 @end
 
@@ -82,6 +85,13 @@ static float kLeftTableViewWidth = 80.f;
         [_rightTableView registerNib:[UINib nibWithNibName:@"StoreDetailsRightTableViewCell" bundle:nil] forCellReuseIdentifier:kCellIdentifier_Right];
     }
     return _rightTableView;
+}
+
+-(NSMutableArray *)goodaData{
+    if (!_goodaData) {
+        _goodaData = [[NSMutableArray alloc] init];
+    }
+    return _goodaData;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame
@@ -260,10 +270,19 @@ static float kLeftTableViewWidth = 80.f;
 -(void)specificationButtonClick:(UIButton *)button{
     //弹出商品规格 view
     StoreGoodAttributesView *attributesView = [[StoreGoodAttributesView alloc] initWithFrame:(CGRect){0, 0, KScreenW, KScreenH}];
+    //根据坐标找到对应的indexPath
     CGPoint buttonPosition = [button convertPoint:CGPointZero toView:self.rightTableView];
     NSIndexPath *indexPath = [self.rightTableView indexPathForRowAtPoint:buttonPosition];
     attributesView.model = self.categoryData[indexPath.section].deliveryGoodsVoList[indexPath.row];
     [attributesView showInView:kAppWindow];
+    //数据会掉
+    attributesView.goodsAttributesBlock = ^(NSDictionary * _Nonnull goodsInfo) {
+        StoreDetailsShoppingCarModel *model = [StoreDetailsShoppingCarModel mj_objectWithKeyValues:goodsInfo];
+        [self.goodaData addObject:model];
+        
+        self.shoppingCarInfo(self.goodaData);
+    };
+    
 }
 
 #pragma mark - JXPagingViewListViewDelegate

@@ -28,7 +28,7 @@
 - (void)setUpUI{
     
     _crossButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_crossButton setImage:[UIImage imageNamed:@"comeBack-x"] forState:0];
+//    [_crossButton setImage:[UIImage imageNamed:@"comeBack-x"] forState:0];
     [_crossButton addTarget:self action:@selector(crossButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_crossButton];
     

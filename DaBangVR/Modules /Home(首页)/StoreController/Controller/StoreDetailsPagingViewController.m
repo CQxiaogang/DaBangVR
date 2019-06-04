@@ -14,14 +14,16 @@
 #import "DeptDetailsModel.h"
 #import "DeptDetailsGoodsCategoryModel.h"
 #import "StoreDetailsBottomView.h"
+#import "StoreDetailsShoppingCarList.h"
 
-@interface StoreDetailsPagingViewController ()<JXCategoryViewDelegate, JXPagerMainTableViewGestureDelegate>
+@interface StoreDetailsPagingViewController ()<JXCategoryViewDelegate, JXPagerMainTableViewGestureDelegate, StoreDetailsBottomViewDelegate>
 
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
 @property (nonatomic, strong) NSArray <NSString *> *titles;
 
 @property (nonatomic, strong) StoreDetailsBottomView *bottomView;
 
+@property (nonatomic, copy) NSArray *data;
 
 @end
 
@@ -32,6 +34,7 @@
 -(StoreDetailsBottomView *)bottomView{
     if (!_bottomView) {
         _bottomView = [[[NSBundle mainBundle] loadNibNamed:@"StoreDetailsBottomView" owner:nil options:nil] firstObject];
+        _bottomView.delegate = self;
     }
     return _bottomView;
 }
@@ -58,7 +61,7 @@
     
     [self loadingData];
     
-    [self.view addSubview:self.bottomView];
+    [kAppWindow addSubview:self.bottomView];
 }
 
 -(void)loadingData{
@@ -123,6 +126,9 @@
 
 - (id<JXPagerViewListViewDelegate>)pagerView:(JXPagerView *)pagerView initListAtIndex:(NSInteger)index{
     StoreDetailsTableView *tableView = [[StoreDetailsTableView alloc] initWithFrame:self.view.bounds];
+    tableView.shoppingCarInfo = ^(NSArray * _Nonnull data) {
+        _data = data;
+    };
     tableView.deptId = _deptId;
     return tableView;
 }
@@ -145,6 +151,15 @@
         return NO;
     }
     return [gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && [otherGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]];
+}
+
+#pragma mark —— StoreDetailsBottomViewDelegate
+-(void)shoppingCarButtonClick:(UIButton *)button{
+    StoreDetailsShoppingCarList *shoppingCarView = [[StoreDetailsShoppingCarList alloc] initWithFrame:(CGRect){0, 0, KScreenW, KScreenH}];
+    if (_data) {
+        shoppingCarView.data = _data;
+    }
+    [shoppingCarView showInView:self.navigationController.view];
 }
 
 @end

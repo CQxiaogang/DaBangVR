@@ -10,12 +10,14 @@
 
 @implementation StoreDetailsBottomView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (IBAction)shoppingCarClick:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(shoppingCarButtonClick:)]) {
+        [self.delegate shoppingCarButtonClick:sender];
+    }
 }
-*/
+
+//- (void)setShoppingCarButton:(UIButton *)shoppingCarButton{
+//    
+//}
 
 @end

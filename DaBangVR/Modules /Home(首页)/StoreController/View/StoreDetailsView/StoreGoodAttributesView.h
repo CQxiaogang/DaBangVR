@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^GoodsAttributesBlock)(NSArray *array);
+typedef void (^GoodsAttributesBlock)(NSDictionary *goodsInfo);
 static NSInteger lastNum;
 
 @interface StoreGoodAttributesView : UIView

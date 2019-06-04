@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="12D-DQ-UhE">
+        <view contentMode="scaleToFill" id="12D-DQ-UhE" customClass="StoreDetailsBottomView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -39,6 +39,9 @@
                     <inset key="titleEdgeInsets" minX="-60" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="-94" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="购物车是空的" image="h_Cart"/>
+                    <connections>
+                        <action selector="shoppingCarClick:" destination="12D-DQ-UhE" eventType="touchUpInside" id="1CO-sl-NiA"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,6 +56,10 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="PL3-zW-k1s"/>
+            <connections>
+                <outlet property="shoppingCarButton" destination="QhH-o3-UXz" id="QSW-I5-dqe"/>
+                <outlet property="totalPriceLabel" destination="i36-Zo-1m0" id="dSa-2c-8Bu"/>
+            </connections>
             <point key="canvasLocation" x="85.599999999999994" y="98.50074962518741"/>
         </view>
     </objects>

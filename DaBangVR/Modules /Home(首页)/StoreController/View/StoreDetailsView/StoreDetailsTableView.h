@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *deptId;
 
+@property (nonatomic, copy) void (^shoppingCarInfo)(NSArray *data);
+
 @end
 
 NS_ASSUME_NONNULL_END
