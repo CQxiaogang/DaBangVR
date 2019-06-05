@@ -10,9 +10,15 @@
 
 @implementation StoreDetailsBottomView
 
-- (IBAction)shoppingCarClick:(id)sender {
+- (IBAction)shoppingCarButtonClick:(id)sender {
     if (self.delegate && [self.delegate respondsToSelector:@selector(shoppingCarButtonClick:)]) {
         [self.delegate shoppingCarButtonClick:sender];
+    }
+}
+
+- (IBAction)totalPriceButtonClick:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(totalPriceButtonClick:)]) {
+        [self.delegate totalPriceButtonClick:sender];
     }
 }
 

@@ -277,8 +277,8 @@ static float kLeftTableViewWidth = 80.f;
     [attributesView showInView:kAppWindow];
     //数据会掉
     attributesView.goodsAttributesBlock = ^(NSDictionary * _Nonnull goodsInfo) {
-        StoreDetailsShoppingCarModel *model = [StoreDetailsShoppingCarModel mj_objectWithKeyValues:goodsInfo];
-        [self.goodaData addObject:model];
+        
+        [self.goodaData addObject:goodsInfo];
         
         self.shoppingCarInfo(self.goodaData);
     };

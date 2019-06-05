@@ -138,3 +138,12 @@
 #define URl_getNearbyDeptList NSStringFormat(@"%@%@",URL_main,@"/api/delivery/getNearbyDeptList?")
 //外卖商品列表
 #define URl_getDeptGoodsList NSStringFormat(@"%@%@",URL_main,@"/api/delivery/getDeptGoodsList?")
+//外卖确认商品接口
+#define URl_confirmGoods2Delivery NSStringFormat(@"%@%@",URL_main,@"/api/delivery/confirmGoods2Delivery?")
+//外卖提交订单接口
+#define URl_submitGoods2Delivery NSStringFormat(@"%@%@",URL_main,@"/api/delivery/submitGoods2Delivery?")
+//外卖订单详情
+#define URl_getDeliveryOrderDetails NSStringFormat(@"%@%@",URL_main,@"/api/delivery/getDeliveryOrderDetails?")
+//获取确认商品信息接口
+#define URl_getConfirmGoods2Delivery NSStringFormat(@"%@%@",URL_main,@"/api/delivery/getConfirmGoods2Delivery")
+

@@ -15,6 +15,7 @@
 #import "DeptDetailsGoodsCategoryModel.h"
 #import "StoreDetailsBottomView.h"
 #import "StoreDetailsShoppingCarList.h"
+#import "StoreDetailsOrderSureViewController.h"
 
 @interface StoreDetailsPagingViewController ()<JXCategoryViewDelegate, JXPagerMainTableViewGestureDelegate, StoreDetailsBottomViewDelegate>
 
@@ -22,8 +23,9 @@
 @property (nonatomic, strong) NSArray <NSString *> *titles;
 
 @property (nonatomic, strong) StoreDetailsBottomView *bottomView;
-
-@property (nonatomic, copy) NSArray *data;
+/** 接收回传数据 */
+@property (nonatomic, copy) NSArray  *data;
+//@property (nonatomic, copy) NSString *deptID;
 
 @end
 
@@ -60,8 +62,6 @@
     self.categoryView.contentScrollView = self.pagerView.listContainerView.collectionView;
     
     [self loadingData];
-    
-    [kAppWindow addSubview:self.bottomView];
 }
 
 -(void)loadingData{
@@ -76,30 +76,42 @@
     } failure:nil];
 }
 
+//view将出现
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [kAppWindow addSubview:self.bottomView];
+    [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(0);
+        make.height.equalTo(kTabBarHeight);
+    }];
+}
+
+//view已经出现
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     self.navigationController.interactivePopGestureRecognizer.enabled = (self.categoryView.selectedIndex == 0);
 }
 
+//view将消失
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    
+    [self.bottomView removeFromSuperview];
 }
 
-- (JXPagerView *)preferredPagingView {
-    return [[JXPagerView alloc] initWithDelegate:self];
-}
-
+//view重新布局
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
     self.pagerView.frame = self.view.bounds;
-    [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(0);
-        make.height.equalTo(kTabBarHeight);
-    }];
+}
+
+- (JXPagerView *)preferredPagingView {
+    return [[JXPagerView alloc] initWithDelegate:self];
 }
 
 #pragma mark - JXPagerViewDelegate
@@ -126,8 +138,9 @@
 
 - (id<JXPagerViewListViewDelegate>)pagerView:(JXPagerView *)pagerView initListAtIndex:(NSInteger)index{
     StoreDetailsTableView *tableView = [[StoreDetailsTableView alloc] initWithFrame:self.view.bounds];
+    kWeakSelf(self);
     tableView.shoppingCarInfo = ^(NSArray * _Nonnull data) {
-        _data = data;
+        weakself.data = data;
     };
     tableView.deptId = _deptId;
     return tableView;
@@ -157,9 +170,25 @@
 -(void)shoppingCarButtonClick:(UIButton *)button{
     StoreDetailsShoppingCarList *shoppingCarView = [[StoreDetailsShoppingCarList alloc] initWithFrame:(CGRect){0, 0, KScreenW, KScreenH}];
     if (_data) {
-        shoppingCarView.data = _data;
+        NSArray *data = [StoreDetailsShoppingCarModel mj_objectArrayWithKeyValuesArray:_data];
+        shoppingCarView.data = data;
     }
     [shoppingCarView showInView:self.navigationController.view];
+}
+
+-(void)totalPriceButtonClick:(UIButton *)button{
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.data options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSDictionary *parameters = @{
+                                 @"goodsList":jsonString,
+                                 @"deptId"   :_deptId
+                                 };
+    kWeakSelf(self);
+    [NetWorkHelper POST:URl_confirmGoods2Delivery parameters:parameters success:^(id  _Nonnull responseObject) {
+        StoreDetailsOrderSureViewController *vc = [[StoreDetailsOrderSureViewController alloc] init];
+        [weakself.navigationController pushViewController:vc animated:NO];
+    } failure:nil];
 }
 
 @end

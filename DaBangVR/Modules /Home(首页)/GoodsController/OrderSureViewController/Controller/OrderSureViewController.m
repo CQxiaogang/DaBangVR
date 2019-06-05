@@ -112,6 +112,7 @@ static NSString *leaveMessage;
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
 }
+
 //视图即将消失、被覆盖或是隐藏时调用
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -173,7 +174,6 @@ static NSString *leaveMessage;
         make.centerY.equalTo(thePrice.mas_centerY);
         make.height.equalTo(40);
     }];
-    
 }
 // 加载数据
 -(void)loadingData{
@@ -182,7 +182,6 @@ static NSString *leaveMessage;
     if (_orderID) {
         parameters = @{@"orderId":_orderID};
     }
-    
     [NetWorkHelper POST:URl_getConfirmGoods parameters:parameters success:^(id  _Nonnull responseObject) {
         NSDictionary *data = KJSONSerialization(responseObject)[@"data"];
         // 字典转模型

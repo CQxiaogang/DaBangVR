@@ -39,7 +39,6 @@
     }];
 }
 
-
 + (void)POST:(NSString *)URL images:(UIImage *)image parameters:(id)parameters success:(RequestSuccess)success failure:(RequestFailed)failure{
     NSMutableDictionary *mutableDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
     [mutableDic setObject:kToken forKey:@"DABANG-TOKEN"];

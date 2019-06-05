@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *orderSnTotal;
 //订单ID orderID == nil 第一次支付,orderID != nil 重新支付
 @property (nonatomic, copy) NSString *orderID;
+
 @end
 
 NS_ASSUME_NONNULL_END

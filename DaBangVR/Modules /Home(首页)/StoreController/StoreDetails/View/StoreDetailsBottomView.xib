@@ -16,21 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5元起送" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i36-Zo-1m0">
-                    <rect key="frame" x="295" y="0.0" width="80" height="49"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="80" id="a0b-V3-hv9"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
-                            <real key="value" value="14"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhH-o3-UXz">
                     <rect key="frame" x="0.0" y="0.0" width="295" height="49"/>
                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,25 +25,41 @@
                     <inset key="imageEdgeInsets" minX="-94" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="购物车是空的" image="h_Cart"/>
                     <connections>
-                        <action selector="shoppingCarClick:" destination="12D-DQ-UhE" eventType="touchUpInside" id="1CO-sl-NiA"/>
+                        <action selector="shoppingCarButtonClick:" destination="12D-DQ-UhE" eventType="touchUpInside" id="1CO-sl-NiA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3CH-lL-pf7">
+                    <rect key="frame" x="295" y="0.0" width="80" height="49"/>
+                    <color key="backgroundColor" red="1" green="0.1987159197117766" blue="0.2511625447161504" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="Igt-Sk-ON8"/>
+                    </constraints>
+                    <state key="normal" title="5元起送">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="totalPriceButtonClick:" destination="12D-DQ-UhE" eventType="touchUpInside" id="iGV-FF-rhk"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="3CH-lL-pf7" firstAttribute="top" secondItem="PL3-zW-k1s" secondAttribute="top" id="3iV-tL-ZZh"/>
                 <constraint firstItem="QhH-o3-UXz" firstAttribute="leading" secondItem="PL3-zW-k1s" secondAttribute="leading" id="5jb-lV-eES"/>
-                <constraint firstItem="PL3-zW-k1s" firstAttribute="trailing" secondItem="i36-Zo-1m0" secondAttribute="trailing" id="FoC-eY-Ac1"/>
+                <constraint firstItem="PL3-zW-k1s" firstAttribute="trailing" secondItem="3CH-lL-pf7" secondAttribute="trailing" id="Au8-Lc-6u6"/>
+                <constraint firstItem="QhH-o3-UXz" firstAttribute="leading" secondItem="PL3-zW-k1s" secondAttribute="leading" id="DK8-mg-Slv"/>
                 <constraint firstItem="QhH-o3-UXz" firstAttribute="top" secondItem="PL3-zW-k1s" secondAttribute="top" id="PKk-2C-T3r"/>
                 <constraint firstAttribute="bottom" secondItem="QhH-o3-UXz" secondAttribute="bottom" id="Rpk-c7-jFF"/>
-                <constraint firstItem="PL3-zW-k1s" firstAttribute="bottom" secondItem="i36-Zo-1m0" secondAttribute="bottom" id="WSt-GJ-pBL"/>
-                <constraint firstItem="i36-Zo-1m0" firstAttribute="leading" secondItem="QhH-o3-UXz" secondAttribute="trailing" id="gSs-nh-aHI"/>
-                <constraint firstItem="i36-Zo-1m0" firstAttribute="top" secondItem="PL3-zW-k1s" secondAttribute="top" id="krZ-xS-t4l"/>
+                <constraint firstItem="3CH-lL-pf7" firstAttribute="leading" secondItem="QhH-o3-UXz" secondAttribute="trailing" id="WNu-p4-0Yp"/>
+                <constraint firstItem="QhH-o3-UXz" firstAttribute="top" secondItem="PL3-zW-k1s" secondAttribute="top" id="qxS-YO-taW"/>
+                <constraint firstItem="QhH-o3-UXz" firstAttribute="bottom" secondItem="PL3-zW-k1s" secondAttribute="bottom" id="sf6-Zb-VgS"/>
+                <constraint firstItem="PL3-zW-k1s" firstAttribute="bottom" secondItem="3CH-lL-pf7" secondAttribute="bottom" id="tVx-Tm-n1o"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="PL3-zW-k1s"/>
             <connections>
                 <outlet property="shoppingCarButton" destination="QhH-o3-UXz" id="QSW-I5-dqe"/>
-                <outlet property="totalPriceLabel" destination="i36-Zo-1m0" id="dSa-2c-8Bu"/>
+                <outlet property="totalPriceButton" destination="3CH-lL-pf7" id="4Si-BW-2VF"/>
             </connections>
             <point key="canvasLocation" x="85.599999999999994" y="98.50074962518741"/>
         </view>

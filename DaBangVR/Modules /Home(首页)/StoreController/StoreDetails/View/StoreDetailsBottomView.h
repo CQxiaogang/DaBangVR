@@ -12,12 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol StoreDetailsBottomViewDelegate <NSObject>
 
 -(void)shoppingCarButtonClick:(UIButton *)button;
+//结算按钮
+-(void)totalPriceButtonClick:(UIButton *)button;
 
 @end
 
 @interface StoreDetailsBottomView : UIView
 @property (weak, nonatomic) IBOutlet UIButton *shoppingCarButton;
-@property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *totalPriceButton;
 
 @property (weak, nonatomic) id <StoreDetailsBottomViewDelegate> delegate;
 

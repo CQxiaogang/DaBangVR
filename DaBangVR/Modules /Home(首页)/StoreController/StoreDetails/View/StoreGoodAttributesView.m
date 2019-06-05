@@ -234,9 +234,10 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
                     [self.goodsDicInfo setObject:model.marketPrice forKey:@"price"];
                     [self.goodsDicInfo setObject:[NSString stringWithFormat:@"%ld",lastNum] forKey:@"number"];
                     [self.goodsDicInfo setObject:model.name forKey:@"specifications"];
-                    [self.goodsDicInfo setObject:model.deliveryGoodsId forKey:@"ID"];
+                    [self.goodsDicInfo setObject:model.id forKey:@"productId"];
                     [self.goodsDicInfo setObject:self.model.listUrl forKey:@"pictureUrl"];
                     [self.goodsDicInfo setObject:self.model.name forKey:@"title"];
+                    [self.goodsDicInfo setObject:self.model.id forKey:@"goodsId"];
                 }
             }
         }
