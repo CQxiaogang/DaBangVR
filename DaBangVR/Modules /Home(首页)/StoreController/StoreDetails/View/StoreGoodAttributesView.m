@@ -222,23 +222,24 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
         cell.chooseAttLabel.textColor = [UIColor darkGrayColor];
         //拼接所选规格ID
         NSString *attString = [_seleArray componentsJoinedByString:@"_"];
-        if (_model.deliveryProductInfoList.count != 0) {
-            for (DeptDetailsGoodsDeliveryProductInfoListModel *model in _model.deliveryProductInfoList) {
-                if ([attString isEqualToString:model.deliveryGoodsSpecIds]){
-                    cell.chooseAttLabel.text = [NSString stringWithFormat:@"已选属性：%@",model.name];
-                    cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",model.number];
-                    cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %.2f",[model.marketPrice floatValue]*lastNum];
-                    
-                    [self.goodsDetailsArr removeAllObjects];
-                    
-                    [self.goodsDicInfo setObject:model.marketPrice forKey:@"price"];
-                    [self.goodsDicInfo setObject:[NSString stringWithFormat:@"%ld",lastNum] forKey:@"number"];
-                    [self.goodsDicInfo setObject:model.name forKey:@"specifications"];
-                    [self.goodsDicInfo setObject:model.id forKey:@"productId"];
-                    [self.goodsDicInfo setObject:self.model.listUrl forKey:@"pictureUrl"];
-                    [self.goodsDicInfo setObject:self.model.name forKey:@"title"];
-                    [self.goodsDicInfo setObject:self.model.id forKey:@"goodsId"];
-                }
+//        if (_model.deliveryProductInfoList.count != 0) {
+//            
+//        }
+        for (DeptDetailsGoodsDeliveryProductInfoListModel *model in _model.deliveryProductInfoList) {
+            if ([attString isEqualToString:model.deliveryGoodsSpecIds]){
+                cell.chooseAttLabel.text = [NSString stringWithFormat:@"已选属性：%@",model.name];
+                cell.inventoryLabel.text = [NSString stringWithFormat:@"库存 %@ 件",model.number];
+                cell.goodPriceLabel.text = [NSString stringWithFormat:@"¥ %.2f",[model.marketPrice floatValue]*lastNum];
+                
+                [self.goodsDetailsArr removeAllObjects];
+                
+                [self.goodsDicInfo setObject:model.marketPrice forKey:@"price"];
+                [self.goodsDicInfo setObject:[NSString stringWithFormat:@"%ld",lastNum] forKey:@"number"];
+                [self.goodsDicInfo setObject:model.name forKey:@"specifications"];
+                [self.goodsDicInfo setObject:model.id forKey:@"productId"];
+                [self.goodsDicInfo setObject:self.model.listUrl forKey:@"pictureUrl"];
+                [self.goodsDicInfo setObject:self.model.name forKey:@"title"];
+                [self.goodsDicInfo setObject:self.model.id forKey:@"goodsId"];
             }
         }
     }

@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *salesVolume;
 //规格列表
 @property (nonatomic, copy) NSArray <DeptDetailsGoodsSpecList *>*specList;
+//
 @property (nonatomic, copy) NSArray <DeptDetailsGoodsDeliveryProductInfoListModel *>*deliveryProductInfoList;
 
 @property (nonatomic, assign) NSInteger number;

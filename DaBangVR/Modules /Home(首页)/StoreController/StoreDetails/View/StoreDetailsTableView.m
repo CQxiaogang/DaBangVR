@@ -174,11 +174,13 @@ static float kLeftTableViewWidth = 80.f;
     }
     else
     {
-        StoreDetailsRightTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier_Right];
-        cell.delegate = self;
+        NSString *CellIdentifier = [NSString stringWithFormat:@"cell%ld%ld",indexPath.section,indexPath.row];
+        StoreDetailsRightTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         if (!cell) {
-            cell = [[StoreDetailsRightTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier_Right];
+            cell = [[StoreDetailsRightTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"StoreDetailsRightTableViewCell" owner:nil options:nil] firstObject];
         }
+        cell.delegate = self;
         cell.model = self.categoryData[indexPath.section].deliveryGoodsVoList[indexPath.row];
         return cell;
     }
