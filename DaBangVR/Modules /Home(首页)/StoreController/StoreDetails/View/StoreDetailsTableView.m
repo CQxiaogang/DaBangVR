@@ -17,7 +17,7 @@
 
 static float kLeftTableViewWidth = 80.f;
 
-@interface StoreDetailsTableView ()<UITableViewDelegate, UITableViewDataSource, StoreDetailsRightTableViewCellDelegate>
+@interface StoreDetailsTableView ()<UITableViewDelegate, UITableViewDataSource, StoreDetailsRightTableViewCellDelegate, UIScrollViewDelegate>
 {
     NSInteger _selectIndex;
     BOOL _isScrollDown;
@@ -35,9 +35,10 @@ static float kLeftTableViewWidth = 80.f;
 
 @implementation StoreDetailsTableView
 #pragma mark —— 懒加载
--(UIView *)contenView{
+-(UIScrollView *)contenView{
     if (!_contenView) {
-        _contenView = [[UIView alloc] init];
+        _contenView = [[UIScrollView alloc] init];
+        _contenView.delegate = self;
         [_contenView addSubview:self.leftTableView];
         [_contenView addSubview:self.rightTableView];
         [self addSubview:_contenView];
@@ -138,7 +139,7 @@ static float kLeftTableViewWidth = 80.f;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (_leftTableView == tableView)
+    if (self.leftTableView == tableView)
     {
         return 1;
     }
@@ -150,7 +151,7 @@ static float kLeftTableViewWidth = 80.f;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (_leftTableView == tableView)
+    if (self.leftTableView == tableView)
     {
         return self.categoryData.count;
     }
@@ -162,7 +163,7 @@ static float kLeftTableViewWidth = 80.f;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_leftTableView == tableView)
+    if (self.leftTableView == tableView)
     {
         StoreDetailsLeftTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier_Left];
         if (!cell) {
@@ -188,7 +189,7 @@ static float kLeftTableViewWidth = 80.f;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (_rightTableView == tableView)
+    if (self.rightTableView == tableView)
     {
         return 20;
     }
@@ -197,7 +198,7 @@ static float kLeftTableViewWidth = 80.f;
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (_rightTableView == tableView)
+    if (self.rightTableView == tableView)
     {
         StoreDetailsTableViewHeaderView *view = [[StoreDetailsTableViewHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
         DeptDetailsGoodsCategoryModel *model = self.categoryData[section];
@@ -211,9 +212,9 @@ static float kLeftTableViewWidth = 80.f;
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(nonnull UIView *)view forSection:(NSInteger)section
 {
     // 当前的tableView是RightTableView，RightTableView滚动的方向向上，RightTableView是用户拖拽而产生滚动的（（主要判断RightTableView用户拖拽而滚动的，还是点击LeftTableView而滚动的）
-    if ((_rightTableView == tableView)
+    if ((self.rightTableView == tableView)
         && !_isScrollDown
-        && (_rightTableView.dragging || _rightTableView.decelerating))
+        && (self.rightTableView.dragging || self.rightTableView.decelerating))
     {
         [self selectRowAtIndexPath:section];
     }
@@ -223,9 +224,9 @@ static float kLeftTableViewWidth = 80.f;
 - (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     // 当前的tableView是RightTableView，RightTableView滚动的方向向下，RightTableView是用户拖拽而产生滚动的（（主要判断RightTableView用户拖拽而滚动的，还是点击LeftTableView而滚动的）
-    if ((_rightTableView == tableView)
+    if ((self.rightTableView == tableView)
         && _isScrollDown
-        && (_rightTableView.dragging || _rightTableView.decelerating))
+        && (self.rightTableView.dragging || self.rightTableView.decelerating))
     {
         [self selectRowAtIndexPath:section + 1];
     }
@@ -233,11 +234,11 @@ static float kLeftTableViewWidth = 80.f;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    if (_leftTableView == tableView)
+    if (self.leftTableView == tableView)
     {
         _selectIndex = indexPath.row;
-        [_rightTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:_selectIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-        [_leftTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_selectIndex inSection:0]
+        [self.rightTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:_selectIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        [self.leftTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_selectIndex inSection:0]
                               atScrollPosition:UITableViewScrollPositionTop
                                       animated:YES];
     }else{
@@ -249,7 +250,7 @@ static float kLeftTableViewWidth = 80.f;
 // 当拖动右边TableView的时候，处理左边TableView
 - (void)selectRowAtIndexPath:(NSInteger)index
 {
-    [_leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]
+    [self.leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]
                                 animated:YES
                           scrollPosition:UITableViewScrollPositionTop];
 }
@@ -261,13 +262,12 @@ static float kLeftTableViewWidth = 80.f;
     static CGFloat lastOffsetY = 0;
     
     UITableView *tableView = (UITableView *) scrollView;
-    if (_rightTableView == tableView)
+    if (self.rightTableView == tableView)
     {
         _isScrollDown = lastOffsetY < scrollView.contentOffset.y;
         lastOffsetY = scrollView.contentOffset.y;
     }
 }
-
 #pragma mark —— StoreDetailsRightTableViewCellDelegate
 -(void)specificationButtonClick:(UIButton *)button{
     //弹出商品规格 view
@@ -293,10 +293,12 @@ static float kLeftTableViewWidth = 80.f;
 }
 
 - (UIScrollView *)listScrollView {
-    return self.leftTableView;
+    return self.contenView;
 }
 
 - (void)listViewDidScrollCallback:(void (^)(UIScrollView *))callback {
     
 }
+
+
 @end

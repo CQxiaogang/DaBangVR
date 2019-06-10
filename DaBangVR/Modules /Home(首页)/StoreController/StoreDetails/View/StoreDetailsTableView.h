@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface StoreDetailsTableView : UIView<JXPagerViewListViewDelegate>
 
-@property (nonatomic, strong) UIView *contenView;
+@property (nonatomic, strong) UIScrollView *contenView;
 
 @property (nonatomic, copy) NSString *deptId;
 
