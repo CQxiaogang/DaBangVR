@@ -17,30 +17,73 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhH-o3-UXz">
-                    <rect key="frame" x="0.0" y="0.0" width="295" height="49"/>
-                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <inset key="contentEdgeInsets" minX="-9" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <inset key="titleEdgeInsets" minX="-60" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="-94" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="购物车是空的" image="h_Cart"/>
+                    <rect key="frame" x="0.0" y="0.0" width="275" height="49"/>
+                    <color key="backgroundColor" red="0.1191583338505358" green="0.18823366116751272" blue="0.15158649259276949" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="购物车是空的"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="shoppingCarButtonClick:" destination="12D-DQ-UhE" eventType="touchUpInside" id="1CO-sl-NiA"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3CH-lL-pf7">
-                    <rect key="frame" x="295" y="0.0" width="80" height="49"/>
+                    <rect key="frame" x="275" y="0.0" width="100" height="49"/>
                     <color key="backgroundColor" red="1" green="0.1987159197117766" blue="0.2511625447161504" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="Igt-Sk-ON8"/>
+                        <constraint firstAttribute="width" constant="100" id="Igt-Sk-ON8"/>
                     </constraints>
-                    <state key="normal" title="5元起送">
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="totalPriceButtonClick:" destination="12D-DQ-UhE" eventType="touchUpInside" id="iGV-FF-rhk"/>
                     </connections>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v8D-ll-7O7" userLabel="shoppingCarImg">
+                    <rect key="frame" x="20" y="0.0" width="50" height="49"/>
+                    <color key="backgroundColor" red="0.52856252045613583" green="0.86891527470651286" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="FZd-eL-A2B">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFl-jw-ZUI">
+                    <rect key="frame" x="60" y="0.0" width="15" height="15"/>
+                    <color key="backgroundColor" red="1" green="0.050707489559999999" blue="0.062008075769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="O0Q-Zj-gID">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="width" constant="15" id="nM4-eB-VSD">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adaptive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="adaptiveFontSize">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -51,20 +94,24 @@
                 <constraint firstItem="QhH-o3-UXz" firstAttribute="top" secondItem="PL3-zW-k1s" secondAttribute="top" id="PKk-2C-T3r"/>
                 <constraint firstAttribute="bottom" secondItem="QhH-o3-UXz" secondAttribute="bottom" id="Rpk-c7-jFF"/>
                 <constraint firstItem="3CH-lL-pf7" firstAttribute="leading" secondItem="QhH-o3-UXz" secondAttribute="trailing" id="WNu-p4-0Yp"/>
+                <constraint firstItem="XFl-jw-ZUI" firstAttribute="top" secondItem="PL3-zW-k1s" secondAttribute="top" id="bsL-3o-Uez"/>
+                <constraint firstItem="XFl-jw-ZUI" firstAttribute="trailing" secondItem="v8D-ll-7O7" secondAttribute="trailing" constant="5" id="cX0-kw-dqe"/>
+                <constraint firstItem="v8D-ll-7O7" firstAttribute="leading" secondItem="PL3-zW-k1s" secondAttribute="leading" constant="20" id="dcY-Ym-60l"/>
+                <constraint firstItem="v8D-ll-7O7" firstAttribute="top" secondItem="12D-DQ-UhE" secondAttribute="top" id="dsI-gg-0IC"/>
                 <constraint firstItem="QhH-o3-UXz" firstAttribute="top" secondItem="PL3-zW-k1s" secondAttribute="top" id="qxS-YO-taW"/>
                 <constraint firstItem="QhH-o3-UXz" firstAttribute="bottom" secondItem="PL3-zW-k1s" secondAttribute="bottom" id="sf6-Zb-VgS"/>
                 <constraint firstItem="PL3-zW-k1s" firstAttribute="bottom" secondItem="3CH-lL-pf7" secondAttribute="bottom" id="tVx-Tm-n1o"/>
+                <constraint firstItem="v8D-ll-7O7" firstAttribute="bottom" secondItem="PL3-zW-k1s" secondAttribute="bottom" id="y52-4O-kHW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="PL3-zW-k1s"/>
             <connections>
+                <outlet property="goodsNumLabel" destination="XFl-jw-ZUI" id="il7-Ce-aK9"/>
+                <outlet property="imgView" destination="v8D-ll-7O7" id="ddW-MW-Uws"/>
                 <outlet property="shoppingCarButton" destination="QhH-o3-UXz" id="QSW-I5-dqe"/>
                 <outlet property="totalPriceButton" destination="3CH-lL-pf7" id="4Si-BW-2VF"/>
             </connections>
-            <point key="canvasLocation" x="85.599999999999994" y="98.50074962518741"/>
+            <point key="canvasLocation" x="85.599999999999994" y="113.79310344827587"/>
         </view>
     </objects>
-    <resources>
-        <image name="h_Cart" width="62" height="58"/>
-    </resources>
 </document>

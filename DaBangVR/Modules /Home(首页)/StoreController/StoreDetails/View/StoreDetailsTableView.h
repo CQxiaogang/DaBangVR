@@ -8,16 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "JXPagerView.h"
+#import "DeptDetailsGoodsCategoryModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+typedef void(^animationBlock)(CABasicAnimation *animation);
 
 @interface StoreDetailsTableView : UIView<JXPagerViewListViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *contenView;
 
-@property (nonatomic, copy) NSString *deptId;
-
 @property (nonatomic, copy) void (^shoppingCarInfo)(NSArray *data);
+
+@property (nonatomic, strong) NSString *deptId;
+
+@property (nonatomic, copy) animationBlock animationBlock;
+
+@property (nonatomic, copy) void(^cellBlock)(BOOL animation);
 
 @end
 

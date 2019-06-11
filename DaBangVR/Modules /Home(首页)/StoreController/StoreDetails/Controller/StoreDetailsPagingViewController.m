@@ -25,8 +25,8 @@
 @property (nonatomic, strong) StoreDetailsBottomView *bottomView;
 /** 接收回传数据 */
 @property (nonatomic, copy) NSArray  *data;
-//@property (nonatomic, copy) NSString *deptID;
 
+@property (nonatomic, strong) DeptDetailsModel *deptModel;
 @end
 
 @implementation StoreDetailsPagingViewController
@@ -65,14 +65,12 @@
 }
 
 -(void)loadingData{
-    [NetWorkHelper POST:URl_getDeptGoodsList parameters:@{@"deptId":@"1"} success:^(id  _Nonnull responseObject) {
-        NSDictionary *data   = KJSONSerialization(responseObject)[@"data"];
-        NSDictionary *deptVo = data[@"deptVo"];
-        DeptDetailsModel *deptDetailsModel = [DeptDetailsModel mj_objectWithKeyValues:deptVo];
-        self.storeDetailsTopView.deptDetailsModel = deptDetailsModel;
-        
-        NSArray *list = [DeptDetailsGoodsCategoryModel mj_objectArrayWithKeyValuesArray:data[@"deliveryGoodsTypeVos"]];
-        
+    kWeakSelf(self);
+    [NetWorkHelper POST:URl_getDeptGoodsList parameters:@{@"deptId":_deptId} success:^(id  _Nonnull responseObject) {
+        NSDictionary *data    = KJSONSerialization(responseObject)[@"data"];
+        weakself.deptModel = [DeptDetailsModel mj_objectWithKeyValues:data[@"deptVo"]];
+        weakself.storeDetailsTopView.deptDetailsModel = weakself.deptModel;
+        weakself.bottomView.deptModel = weakself.deptModel;
     } failure:nil];
 }
 
@@ -141,8 +139,17 @@
     kWeakSelf(self);
     tableView.shoppingCarInfo = ^(NSArray * _Nonnull data) {
         weakself.data = data;
+        //选择的商品给底部view进行展示
+        NSArray *goodsData = [StoreDetailsShoppingCarModel mj_objectArrayWithKeyValuesArray:data];
+        self.bottomView.goodsData = goodsData;
     };
-    tableView.deptId = _deptId;
+    
+    tableView.animationBlock = ^(CABasicAnimation * _Nonnull animation) {
+        [self.bottomView.imgView.layer addAnimation:animation forKey:nil];
+    };
+    
+    tableView.deptId = self.deptId;
+    
     return tableView;
 }
 

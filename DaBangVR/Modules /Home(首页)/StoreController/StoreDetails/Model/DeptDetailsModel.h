@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *operateStartTime;
 @property (nonatomic, copy) NSString *operateEndTime;
 @property (nonatomic, copy) NSString *logo;
+@property (nonatomic, copy) NSString *deliveryPrice;     //起送价
+@property (nonatomic, copy) NSString *distributionPrice; //配送费
 @end
 
 NS_ASSUME_NONNULL_END

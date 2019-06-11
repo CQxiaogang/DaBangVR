@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StoreDetailsShoppingCarModel.h"
+#import "DeptDetailsModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @protocol StoreDetailsBottomViewDelegate <NSObject>
@@ -20,8 +22,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface StoreDetailsBottomView : UIView
 @property (weak, nonatomic) IBOutlet UIButton *shoppingCarButton;
 @property (weak, nonatomic) IBOutlet UIButton *totalPriceButton;
+@property (weak, nonatomic) IBOutlet UILabel *goodsNumLabel;//商品数量
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
 @property (weak, nonatomic) id <StoreDetailsBottomViewDelegate> delegate;
+
+@property (nonatomic, copy) NSArray <StoreDetailsShoppingCarModel*>*goodsData;
+
+@property (nonatomic, strong) DeptDetailsModel *deptModel;
 
 @end
 

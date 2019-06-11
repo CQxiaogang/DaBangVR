@@ -17,19 +17,24 @@
 
 static float kLeftTableViewWidth = 80.f;
 
-@interface StoreDetailsTableView ()<UITableViewDelegate, UITableViewDataSource, StoreDetailsRightTableViewCellDelegate, UIScrollViewDelegate>
+@interface StoreDetailsTableView ()<UITableViewDelegate, UITableViewDataSource, StoreDetailsRightTableViewCellDelegate, UIScrollViewDelegate, CAAnimationDelegate>
 {
     NSInteger _selectIndex;
     BOOL _isScrollDown;
 }
 
-@property (nonatomic, strong) NSMutableArray <DeptDetailsGoodsCategoryModel*> *categoryData;
 @property (nonatomic, strong) UITableView *leftTableView;
 @property (nonatomic, strong) UITableView *rightTableView;
 
 @property (nonatomic, strong) UIView *bottonView;
 
 @property (nonatomic, strong) NSMutableArray *goodaData;
+@property (nonatomic, strong) NSMutableArray <DeptDetailsGoodsCategoryModel*> *categoryData;
+
+@property (nonatomic, assign) CGFloat endPoint_x;
+@property (nonatomic, assign) CGFloat endPoint_y;
+@property (nonatomic, strong) UIBezierPath *path;
+@property (nonatomic, strong) CALayer *dotLayer;
 
 @end
 
@@ -44,14 +49,6 @@ static float kLeftTableViewWidth = 80.f;
         [self addSubview:_contenView];
     }
     return _contenView;
-}
-
--(NSMutableArray<DeptDetailsGoodsCategoryModel *> *)categoryData{
-    if (!_categoryData)
-    {
-        _categoryData = [NSMutableArray array];
-    }
-    return _categoryData;
 }
 
 - (UITableView *)leftTableView
@@ -95,6 +92,14 @@ static float kLeftTableViewWidth = 80.f;
     return _goodaData;
 }
 
+-(NSMutableArray<DeptDetailsGoodsCategoryModel *> *)categoryData{
+    if (!_categoryData)
+    {
+        _categoryData = [NSMutableArray array];
+    }
+    return _categoryData;
+}
+
 -(instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -130,8 +135,8 @@ static float kLeftTableViewWidth = 80.f;
     [NetWorkHelper POST:URl_getDeptGoodsList parameters:@{@"deptId":_deptId} success:^(id  _Nonnull responseObject) {
         NSDictionary *data    = KJSONSerialization(responseObject)[@"data"];
         weakself.categoryData = [DeptDetailsGoodsCategoryModel mj_objectArrayWithKeyValuesArray:data[@"deliveryGoodsTypeVos"]];
-        [weakself.leftTableView  reloadData];
-        [weakself.rightTableView reloadData];
+        [self.leftTableView  reloadData];
+        [self.rightTableView reloadData];
     } failure:nil];
 }
 
@@ -183,6 +188,22 @@ static float kLeftTableViewWidth = 80.f;
         }
         cell.delegate = self;
         cell.model = self.categoryData[indexPath.section].deliveryGoodsVoList[indexPath.row];
+        __weak __typeof(&*cell) weakCell = cell;
+        cell.plusBlock = ^(NSDictionary *goodsInfo, BOOL boo) {
+            
+            [self.goodaData addObject:goodsInfo];
+            self.shoppingCarInfo(self.goodaData);
+            
+            CGRect parentRect = [weakCell convertRect:weakCell.plusButton.frame toView:self];
+            if (boo) {
+                //这里是动画开始的方法
+                [self joinCartAnimationWithRect:parentRect];
+            }
+        };
+        cell.minusBlock = ^(NSDictionary *goodsInfo, BOOL animated) {
+            [self.goodaData removeObject:goodsInfo];
+            self.shoppingCarInfo(self.goodaData);
+        };
         return cell;
     }
 }
@@ -300,5 +321,70 @@ static float kLeftTableViewWidth = 80.f;
     
 }
 
+#pragma mark -加入购物车动画
+-(void)joinCartAnimationWithRect:(CGRect)rect
+{
+    _endPoint_x = 35;
+    _endPoint_y = KScreenH - 35;
+    
+    CGFloat startX = rect.origin.x;
+    CGFloat startY = rect.origin.y;
+    
+    _path= [UIBezierPath bezierPath];
+    [_path moveToPoint:CGPointMake(startX, startY)];
+    
+    //三点曲线
+    [_path addCurveToPoint:CGPointMake(_endPoint_x, _endPoint_y)
+             controlPoint1:CGPointMake(startX, startY)
+             controlPoint2:CGPointMake(startX - 180, startY - 200)];
+    _dotLayer = [CALayer layer];
+    _dotLayer.backgroundColor = [UIColor purpleColor].CGColor;
+    _dotLayer.frame = CGRectMake(0, 0, 20, 20);
+    _dotLayer.cornerRadius = 5;
+    [self.layer addSublayer:_dotLayer];
+    [self groupAnimation];
+}
+#pragma mark - 组合动画
+-(void)groupAnimation
+{
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    animation.path = _path.CGPath;
+    animation.rotationMode = kCAAnimationRotateAuto;
+    
+    CABasicAnimation *alphaAnimation = [CABasicAnimation animationWithKeyPath:@"alpha"];
+    alphaAnimation.duration = 0.5f;
+    alphaAnimation.fromValue = [NSNumber numberWithFloat:1.0];
+    alphaAnimation.toValue = [NSNumber numberWithFloat:0.1];
+    alphaAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    CAAnimationGroup *groups = [CAAnimationGroup animation];
+    groups.animations = @[animation,alphaAnimation];
+    groups.duration = 0.8f;
+    groups.removedOnCompletion = NO;
+    groups.fillMode = kCAFillModeForwards;
+    groups.delegate = self;
+    [groups setValue:@"groupsAnimation" forKey:@"animationName"];
+    [_dotLayer addAnimation:groups forKey:nil];
+    [self performSelector:@selector(removeFromLayer:) withObject:_dotLayer afterDelay:0.8f];
+}
+- (void)removeFromLayer:(CALayer *)layerAnimation{
+    
+    [layerAnimation removeFromSuperlayer];
+}
+
+#pragma mark - CAAnimationDelegate
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    
+    if ([[anim valueForKey:@"animationName"]isEqualToString:@"groupsAnimation"]) {
+        
+        CABasicAnimation *shakeAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+        shakeAnimation.duration = 0.25f;
+        shakeAnimation.fromValue = [NSNumber numberWithFloat:0.9];
+        shakeAnimation.toValue = [NSNumber numberWithFloat:1];
+        shakeAnimation.autoreverses = YES;
+        self.animationBlock(shakeAnimation);
+    }
+}
 
 @end

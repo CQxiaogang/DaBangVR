@@ -7,9 +7,9 @@
 //
 
 /**开发服务器*/
-#define URL_main @"http://www.vrzbgw.com/dabang"
+//#define URL_main @"http://www.vrzbgw.com/dabang"
 //#define URL_main @"http://192.168.1.115:8080" // 强
-//#define URL_main @"http://192.168.1.168:8080" // 邓
+#define URL_main @"http://192.168.1.168:8080" // 邓
 //#define URL_main @"http://192.168.1.109:8080" // 豪
 
 #pragma mark ——————   首页相关   ——————
@@ -146,4 +146,11 @@
 #define URl_getDeliveryOrderDetails NSStringFormat(@"%@%@",URL_main,@"/api/delivery/getDeliveryOrderDetails?")
 //获取确认商品信息接口
 #define URl_getConfirmGoods2Delivery NSStringFormat(@"%@%@",URL_main,@"/api/delivery/getConfirmGoods2Delivery")
-
+//修改外卖购物车中商品的数量
+#define URl_updateNumber2DeliveryCart NSStringFormat(@"%@%@",URL_main,@"/api/delivery/updateNumber2DeliveryCart?")
+//加入外卖购物车
+#define URl_addToDeliveryCart NSStringFormat(@"%@%@",URL_main,@"/api/delivery/addToDeliveryCart?")
+//外卖确认商品接口
+#define URl_confirmGoods2Delivery NSStringFormat(@"%@%@",URL_main,@"/api/delivery/confirmGoods2Delivery?")
+//删除外卖购物车中商品
+#define URl_delete2DeliveryCart NSStringFormat(@"%@%@",URL_main,@"/api/delivery/delete2DeliveryCart?")

@@ -233,7 +233,7 @@ static NSString *const DBFeatureChoseTopCellID = @"DBFeatureChoseTopCell";
                 
                 [self.goodsDetailsArr removeAllObjects];
                 
-                [self.goodsDicInfo setObject:model.marketPrice forKey:@"price"];
+                [self.goodsDicInfo setObject:model.sellingPrice forKey:@"price"];
                 [self.goodsDicInfo setObject:[NSString stringWithFormat:@"%ld",lastNum] forKey:@"number"];
                 [self.goodsDicInfo setObject:model.name forKey:@"specifications"];
                 [self.goodsDicInfo setObject:model.id forKey:@"productId"];

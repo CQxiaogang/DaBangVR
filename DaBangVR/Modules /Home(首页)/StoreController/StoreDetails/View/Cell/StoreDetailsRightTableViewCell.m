@@ -13,16 +13,15 @@
 #define kSpecificationButtonH  25
 
 @interface StoreDetailsRightTableViewCell ()
-{
-    int number;
-}
 
-@property (nonatomic ,strong) UIButton *specificationButton;
+@property (nonatomic, strong) UIButton *specificationButton;
+
+@property (nonatomic, strong) NSMutableDictionary *goodsDicInfo;//商品信息字典
     
 @end
 
 @implementation StoreDetailsRightTableViewCell
-
+#pragma mark —— 懒加载
 -(UIButton *)specificationButton{
     if (!_specificationButton) {
         _specificationButton = [[UIButton alloc] init];
@@ -34,13 +33,19 @@
     }
     return _specificationButton;
 }
-    
+
+-(NSMutableDictionary *)goodsDicInfo{
+    if (!_goodsDicInfo) {
+        _goodsDicInfo = [NSMutableDictionary dictionary];
+    }
+    return _goodsDicInfo;
+}
+
 -(void)awakeFromNib{
     [super awakeFromNib];
     
     [self addSubview:self.specificationButton];
     
-    number = 0;
     _numberLabel.hidden = YES;
     _minusButton.hidden = YES;
     
@@ -66,20 +71,27 @@
 }
 //加
 - (IBAction)plusButtonClick:(id)sender {
-    number++;
-    if (number>0) {
+    self.numCount += 1;
+    if (self.numCount>0) {
         _numberLabel.hidden = NO;
         _minusButton.hidden = NO;
-        _numberLabel.text = [NSString stringWithFormat:@"%d",number];
-        _model.number = number;
+        _numberLabel.text = [NSString stringWithFormat:@"%ld",self.numCount];
+        
+        [self.goodsDicInfo setObject:_model.sellingPrice forKey:@"price"];
+        [self.goodsDicInfo setObject:[NSString stringWithFormat:@"%ld",self.numCount] forKey:@"number"];
+        [self.goodsDicInfo setObject:_model.listUrl forKey:@"pictureUrl"];
+        [self.goodsDicInfo setObject:_model.name forKey:@"title"];
+        [self.goodsDicInfo setObject:_model.id forKey:@"goodsId"];
+        
+        self.plusBlock(self.goodsDicInfo, YES);
     }
 }
 //减
 - (IBAction)minusButtonClick:(id)sender {
-    number--;
-    _numberLabel.text = [NSString stringWithFormat:@"%d",number];
-    _model.number = number;
-    if (number==0) {
+    self.numCount -= 1;
+    _numberLabel.text = [NSString stringWithFormat:@"%ld",self.numCount];
+    self.minusBlock(self.goodsDicInfo, YES);
+    if (self.numCount==0) {
         _numberLabel.hidden = YES;
         _minusButton.hidden = YES;
     }
@@ -87,9 +99,10 @@
 
 - (void)setModel:(DeptDetailsGoodsModel *)model
 {
+    _model = model;
     self.nameLabel.text  = model.name;
     self.salesLabel.text = [NSString stringWithFormat:@"月销%@笔",model.salesVolume];
-    self.priceLabel.text = [NSString stringWithFormat:@"￥%@",model.marketPrice];
+    self.priceLabel.text = [NSString stringWithFormat:@"￥%@",model.sellingPrice];
     [self.goodsImgView setImageURL:[NSURL URLWithString:model.listUrl]];
     if (model.specList.count == 0) {
         self.specificationButton.hidden  = YES;
@@ -99,7 +112,7 @@
         _plusButton.hidden  = YES;
     }
     if (model.number) {
-        _numberLabel.text = [NSString stringWithFormat:@"%d",number];
+        _numberLabel.text = [NSString stringWithFormat:@"%ld",self.numCount];
     }
 }
 

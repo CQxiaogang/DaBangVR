@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7C90CE3DC28BB649CB61EC1665C0B55A"
-               BuildableName = "WechatOpenSDK"
-               BlueprintName = "WechatOpenSDK"
+               BlueprintIdentifier = "4C57AC15136E9697588CFACE7EB6EE06"
+               BuildableName = "libMBProgressHUD.a"
+               BlueprintName = "MBProgressHUD"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

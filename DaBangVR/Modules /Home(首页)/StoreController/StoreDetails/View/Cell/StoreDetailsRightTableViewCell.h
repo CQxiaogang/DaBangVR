@@ -11,6 +11,8 @@
 
 #define kCellIdentifier_Right @"RightTableViewCell"
 
+typedef void(^btnPulsBlock)(NSDictionary *goodsInfo, BOOL animated);
+typedef void(^btnMinusBlock)(NSDictionary *goodsInfo, BOOL animated);
 
 @protocol StoreDetailsRightTableViewCellDelegate <NSObject>
 
@@ -30,5 +32,9 @@
 
 @property (nonatomic, strong) DeptDetailsGoodsModel *model;
 @property (nonatomic, weak) id <StoreDetailsRightTableViewCellDelegate> delegate;
+
+@property (nonatomic, copy) btnPulsBlock  plusBlock;
+@property (nonatomic, copy) btnMinusBlock minusBlock;
+@property (nonatomic, assign) NSInteger numCount;//计数器
 
 @end
