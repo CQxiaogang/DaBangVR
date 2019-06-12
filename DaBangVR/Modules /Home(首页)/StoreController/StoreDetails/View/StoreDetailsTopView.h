@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 //营业时间
 @property (weak, nonatomic) IBOutlet UILabel *businessHours;
 @property (weak, nonatomic) IBOutlet UILabel *deptAdress;
+@property (weak, nonatomic) IBOutlet UILabel *sellerStateLabel;//店铺状态
+//电话
+@property (weak, nonatomic) IBOutlet UIButton *telephoneButton;
 
 @property (nonatomic, strong) DeptDetailsModel *deptDetailsModel;
 

@@ -35,6 +35,6 @@ typedef void(^btnMinusBlock)(NSDictionary *goodsInfo, BOOL animated);
 
 @property (nonatomic, copy) btnPulsBlock  plusBlock;
 @property (nonatomic, copy) btnMinusBlock minusBlock;
-@property (nonatomic, assign) NSInteger numCount;//计数器
+//@property (nonatomic, assign) NSInteger numCount;//计数器
 
 @end

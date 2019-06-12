@@ -25,6 +25,7 @@
 @property (nonatomic, strong) StoreDetailsBottomView *bottomView;
 /** 接收回传数据 */
 @property (nonatomic, copy) NSArray  *data;
+@property (nonatomic, assign) NSInteger count;
 
 @property (nonatomic, strong) DeptDetailsModel *deptModel;
 @end
@@ -137,11 +138,12 @@
 - (id<JXPagerViewListViewDelegate>)pagerView:(JXPagerView *)pagerView initListAtIndex:(NSInteger)index{
     StoreDetailsTableView *tableView = [[StoreDetailsTableView alloc] initWithFrame:self.view.bounds];
     kWeakSelf(self);
-    tableView.shoppingCarInfo = ^(NSArray * _Nonnull data) {
-        weakself.data = data;
+    tableView.shoppingCarInfo = ^(NSArray * _Nonnull dataSource, NSInteger count) {
+        weakself.data = dataSource;
         //选择的商品给底部view进行展示
-        NSArray *goodsData = [StoreDetailsShoppingCarModel mj_objectArrayWithKeyValuesArray:data];
+        NSArray *goodsData = [StoreDetailsShoppingCarModel mj_objectArrayWithKeyValuesArray:dataSource];
         self.bottomView.goodsData = goodsData;
+        self.bottomView.count = count;
     };
     
     tableView.animationBlock = ^(CABasicAnimation * _Nonnull animation) {

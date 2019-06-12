@@ -16,6 +16,11 @@
     _deptAdress.text  = deptDetailsModel.productionAddress;
     _businessHours.text = [NSString stringWithFormat:@"%@-%@",[self timeWithTimeIntervalString:deptDetailsModel.operateStartTime],[self timeWithTimeIntervalString:deptDetailsModel.operateEndTime]];
     [_deptBackGroundImagwView setImageURL:[NSURL URLWithString:deptDetailsModel.logo]];
+    if (deptDetailsModel.sellerState == 1) {
+        _sellerStateLabel.text = @"营业中";
+    }else{
+        _sellerStateLabel.text = @"休息中";
+    }
 }
 
 // 时间戳转换为日期格式(毫秒的时间戳)
@@ -30,6 +35,13 @@
     NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeString doubleValue]/ 1000.0];
     NSString* dateString = [formatter stringFromDate:date];
     return dateString;
+}
+- (IBAction)telephoneButtonAction:(id)sender {
+    
+    NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"telprompt://%@",_deptDetailsModel.phone];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    
 }
 
 @end

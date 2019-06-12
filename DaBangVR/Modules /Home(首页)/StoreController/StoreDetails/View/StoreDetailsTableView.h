@@ -18,7 +18,7 @@ typedef void(^animationBlock)(CABasicAnimation *animation);
 
 @property (nonatomic, strong) UIScrollView *contenView;
 
-@property (nonatomic, copy) void (^shoppingCarInfo)(NSArray *data);
+@property (nonatomic, copy) void (^shoppingCarInfo)(NSArray *dataSource, NSInteger count);
 
 @property (nonatomic, strong) NSString *deptId;
 

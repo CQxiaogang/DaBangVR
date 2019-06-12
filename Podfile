@@ -21,4 +21,5 @@ pod 'MMMaterialDesignSpinner'
 pod 'Qiniu'
 pod 'SocketRocket'
 pod 'JXCategoryView'
+pod 'AMapLocation' #高德地图
 end

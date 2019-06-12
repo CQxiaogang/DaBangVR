@@ -14,6 +14,9 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - AMapFoundation (1.5.6)
+  - AMapLocation (2.6.2):
+    - AMapFoundation (~> 1.4)
   - AZCategory (0.0.2):
     - AZCategory/Gradient (= 0.0.2)
     - AZCategory/PushAndPop (= 0.0.2)
@@ -57,6 +60,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - AMapLocation
   - AZCategory
   - FMDB
   - IQKeyboardManager
@@ -81,6 +85,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - AMapFoundation
+    - AMapLocation
     - AZCategory
     - FMDB
     - HappyDNS
@@ -106,6 +112,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AMapFoundation: 20fce2a12cd152e1092afdd04379cdac21932185
+  AMapLocation: 89a7e4eb6040d32ba73c77a4966ecc66e46aa7c3
   AZCategory: fbcb0ba6e1da3790cd3aefe13216b5adc25f6b56
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   HappyDNS: 00c15e651a347206e58a20503a32a5564589b56a
@@ -129,6 +137,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 0afe9e4799ab673f62ce0fbc9dd9b8436f4c3539
+PODFILE CHECKSUM: fd7b3481d69d60d51caeddd55fc3619df7839727
 
 COCOAPODS: 1.6.1

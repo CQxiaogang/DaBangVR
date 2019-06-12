@@ -71,14 +71,14 @@
 }
 //加
 - (IBAction)plusButtonClick:(id)sender {
-    self.numCount += 1;
-    if (self.numCount>0) {
+    _model.count += 1;
+    if (_model.count>0) {
         _numberLabel.hidden = NO;
         _minusButton.hidden = NO;
-        _numberLabel.text = [NSString stringWithFormat:@"%ld",self.numCount];
+        _numberLabel.text = [NSString stringWithFormat:@"%ld",_model.count];
         
         [self.goodsDicInfo setObject:_model.sellingPrice forKey:@"price"];
-        [self.goodsDicInfo setObject:[NSString stringWithFormat:@"%ld",self.numCount] forKey:@"number"];
+        [self.goodsDicInfo setObject:[NSString stringWithFormat:@"%ld",_model.count] forKey:@"number"];
         [self.goodsDicInfo setObject:_model.listUrl forKey:@"pictureUrl"];
         [self.goodsDicInfo setObject:_model.name forKey:@"title"];
         [self.goodsDicInfo setObject:_model.id forKey:@"goodsId"];
@@ -88,10 +88,11 @@
 }
 //减
 - (IBAction)minusButtonClick:(id)sender {
-    self.numCount -= 1;
-    _numberLabel.text = [NSString stringWithFormat:@"%ld",self.numCount];
+    _model.count -= 1;
+    _numberLabel.text = [NSString stringWithFormat:@"%ld",_model.count];
+    [self.goodsDicInfo setObject:[NSString stringWithFormat:@"%ld",_model.count] forKey:@"number"];
     self.minusBlock(self.goodsDicInfo, YES);
-    if (self.numCount==0) {
+    if (_model.count==0) {
         _numberLabel.hidden = YES;
         _minusButton.hidden = YES;
     }
@@ -111,8 +112,10 @@
         _minusButton.hidden = YES;
         _plusButton.hidden  = YES;
     }
-    if (model.number) {
-        _numberLabel.text = [NSString stringWithFormat:@"%ld",self.numCount];
+    if (0 != model.count) {
+        _numberLabel.text = [NSString stringWithFormat:@"%ld",model.count];
+        _numberLabel.hidden = NO;
+        _minusButton.hidden = NO;
     }
 }
 

@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSArray <StoreDetailsShoppingCarModel*>*goodsData;
 
 @property (nonatomic, strong) DeptDetailsModel *deptModel;
+@property (nonatomic, assign) NSUInteger count;
 
 @end
 

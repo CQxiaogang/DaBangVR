@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *logo;
 @property (nonatomic, copy) NSString *deliveryPrice;     //起送价
 @property (nonatomic, copy) NSString *distributionPrice; //配送费
+//店铺状态 1营业 0休息
+@property (nonatomic, assign) NSInteger sellerState;
 @end
 
 NS_ASSUME_NONNULL_END

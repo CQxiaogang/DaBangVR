@@ -29,6 +29,7 @@
     _goodsNameLabel.text = model.title;
     _goodsSpecificationsLabel.text = model.specifications;
     _goodsPriceLabel.text = [NSString stringWithFormat:@"￥%@",model.price];
+    _numberLabel.text = [NSString stringWithFormat:@"%@",model.number];
     [_goodsImgView setImageURL:[NSURL URLWithString:model.pictureUrl]];
 }
 

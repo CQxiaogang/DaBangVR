@@ -28,7 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *salesVolume;
 //商品数量
 @property (nonatomic, assign) NSInteger count;
-@property (nonatomic, assign) NSInteger number;
 //规格列表
 @property (nonatomic, copy) NSArray <DeptDetailsGoodsSpecList *>*specList;
 //

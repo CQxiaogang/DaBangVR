@@ -190,9 +190,13 @@ static float kLeftTableViewWidth = 80.f;
         cell.model = self.categoryData[indexPath.section].deliveryGoodsVoList[indexPath.row];
         __weak __typeof(&*cell) weakCell = cell;
         cell.plusBlock = ^(NSDictionary *goodsInfo, BOOL boo) {
-            
-            [self.goodaData addObject:goodsInfo];
-            self.shoppingCarInfo(self.goodaData);
+            if (![self.goodaData containsObject:goodsInfo]) {
+                [self.goodaData addObject:goodsInfo];
+            }
+            //该商品选择的数量
+            NSInteger count = self.categoryData[indexPath.section].deliveryGoodsVoList[indexPath.row].count;
+            //数据回掉
+            self.shoppingCarInfo(self.goodaData, count);
             
             CGRect parentRect = [weakCell convertRect:weakCell.plusButton.frame toView:self];
             if (boo) {
@@ -200,9 +204,11 @@ static float kLeftTableViewWidth = 80.f;
                 [self joinCartAnimationWithRect:parentRect];
             }
         };
+        //减
         cell.minusBlock = ^(NSDictionary *goodsInfo, BOOL animated) {
-            [self.goodaData removeObject:goodsInfo];
-            self.shoppingCarInfo(self.goodaData);
+            //该商品选择的数量
+            NSInteger count = self.categoryData[indexPath.section].deliveryGoodsVoList[indexPath.row].count;
+            self.shoppingCarInfo(self.goodaData ,count);
         };
         return cell;
     }
@@ -303,7 +309,7 @@ static float kLeftTableViewWidth = 80.f;
         
         [self.goodaData addObject:goodsInfo];
         
-        self.shoppingCarInfo(self.goodaData);
+//        self.shoppingCarInfo(self.goodaData, 0);
     };
     
 }
